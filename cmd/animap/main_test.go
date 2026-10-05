@@ -588,6 +588,13 @@ func TestIssueTextOnlyCarriesPublishedTypes(t *testing.T) {
 	}
 }
 
+func TestWatchWantLinksTheWatchSetEntry(t *testing.T) {
+	w := watchWant(&watch.Entry{AniListID: 9, Type: "TV", Gaps: []watch.Gap{watch.NoAniDB}}, "https://releases.moe/{id}")
+	if !strings.Contains(w.Body, "- SeaDex: https://releases.moe/9\n") {
+		t.Errorf("watchWant(AniList 9) body = %q, want the entry_url template filled with the AniList id", w.Body)
+	}
+}
+
 func TestUnmappableWantStaysUnderTheBodyCap(t *testing.T) {
 	c := &watch.Classification{}
 	for i := range 1000 {

@@ -35,7 +35,14 @@ args=(-existing "$WORK/existing.json" -out "$ROOT/actions.json")
 code=$(curl --proto '=https' --tlsv1.2 --connect-timeout 20 --max-time 120 --retry 3 -sSL \
   -o "$WORK/release.json" -w '%{http_code}' "https://github.com/${REPO}/releases/latest/download/animap.json" || true)
 release=()
-[ "$code" = "200" ] && release=(-release "$WORK/release.json")
+case "$code" in
+  200) release=(-release "$WORK/release.json") ;;
+  404) ;;
+  *)
+    echo "drift: ERROR reading the latest release answered HTTP ${code}" >&2
+    exit 1
+    ;;
+esac
 
 # The counts rows are checked against the database the latest release was
 # built from, so they need a release and at least one row.
