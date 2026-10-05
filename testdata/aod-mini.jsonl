@@ -1,0 +1,12 @@
+{"$schema":"https://example.invalid/schema.json","license":{"name":"Open Data Commons Open Database License (ODbL) v1.0 + Database Contents License (DbCL) v1.0","url":"https://github.com/cedya77/anime-offline-database/blob/2026-40/LICENSE"},"repository":"https://github.com/cedya77/anime-offline-database","lastUpdate":"2026-10-04"}
+{"sources":["https://anilist.co/anime/100","https://anidb.net/anime/10","https://myanimelist.net/anime/1000"],"type":"TV","episodes":12,"title":"Series with season 1"}
+{"sources":["https://anilist.co/anime/101","https://myanimelist.net/anime/1001"],"type":"SPECIAL","episodes":1,"title":"AniList only"}
+{"sources":["https://anidb.net/anime/12","https://kitsu.app/anime/5"],"type":"OVA","episodes":2,"title":"AniDB only"}
+{"sources":["https://anilist.co/anime/102","https://anilist.co/anime/103","https://anidb.net/anime/13"],"type":"OVA","episodes":1,"title":"Two AniList ids, one entry"}
+{"sources":["https://anilist.co/anime/104","https://anidb.net/anime/14"],"type":"MOVIE","episodes":1,"title":"Ambiguous AniList, first entry"}
+{"sources":["https://anilist.co/anime/104","https://anidb.net/anime/15"],"type":"MOVIE","episodes":1,"title":"Ambiguous AniList, second entry"}
+{"sources":["https://anilist.co/anime/105","https://anidb.net/anime/16","https://anidb.net/anime/17"],"type":"TV","episodes":24,"title":"One entry, two AniDB ids"}
+{"sources":["https://myanimelist.net/anime/1007"],"type":"TV","episodes":3,"title":"MAL only"}
+{"sources":["https://anilist.co/anime/106","https://anidb.net/anime/18"],"type":"MOVIE","episodes":1,"title":"Film with TVDB movie marker"}
+{"sources":["https://anilist.co/anime/107","https://anidb.net/anime/19"],"type":"TV","episodes":100,"title":"Absolute run"}
+{"sources":["https://anilist.co/anime/108","https://anidb.net/anime/20"],"type":"OVA","episodes":3,"title":"Filed under specials"}

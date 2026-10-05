@@ -1,0 +1,105 @@
+{
+  "siblings": {
+    "9390": {
+      "specials": [],
+      "regular": 5
+    },
+    "9992": {
+      "specials": [
+        1,
+        2,
+        3
+      ],
+      "regular": 10
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8300",
+    "tvdb": "https://thetvdb.com/series/kyousougiga/seasons/official/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": ""
+  },
+  "title": "Kyousougiga",
+  "justification": "TVDB is unchanged (0x1 2011-12-01). The old TMDB 85065 S0E1 is 'Preview' 2013-10-03, which is AniDB 9992's special S1 (same title and date). TMDB 85065 has no 2011 episode (S0 is the three 2013 specials, S1 the 10 TV episodes), so TMDB is cleared.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8a3d28099e452e36d729453f50484f11a26acdd8e5878a69225b57da17e1c9b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-12-01"
+        ],
+        [
+          0,
+          2,
+          1,
+          "2012-08-31"
+        ],
+        [
+          0,
+          3,
+          2,
+          "2012-10-27"
+        ],
+        [
+          0,
+          4,
+          3,
+          "2012-11-10"
+        ],
+        [
+          0,
+          5,
+          4,
+          "2012-12-08"
+        ],
+        [
+          0,
+          6,
+          5,
+          "2012-12-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-10-02"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2013-11-14"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2013-12-19"
+        ]
+      ],
+      "series": 254658
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "2c89c9a87cace081d8f53e3670d72bbaba3920fc052e4966210a751c1f55965e"
+  },
+  "anilist_ids": [
+    10893
+  ],
+  "episodes": {
+    "specials": [
+      1
+    ],
+    "regular": 1
+  },
+  "anidb_id": 8300
+}

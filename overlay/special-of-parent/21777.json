@@ -1,0 +1,141 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11500",
+    "anilist": "https://anilist.co/anime/21777",
+    "tvdb": "https://thetvdb.com/series/myriad-colors-phantom-world/seasons/official/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Musaigen no Phantom World: Mizutama no Kiseki",
+  "justification": "AniList 21777 (OVA, 1 episode(s) from 2016-10-05) is AniDB 11500's special(s) S1, aired 2016-10-05; AniList's PREQUEL relation names AniList 21306, which anime-offline-database links to AniDB 11500; the special's title 'The Polka Dot Miracle' matches.",
+  "captured": {
+    "tvdb": {
+      "sha256": "b90ca4a89f8908ad44236029d6be7401130db48b60d61d867f05b01e86d2c27c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-04-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-05-11"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-06-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-07-06"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-08-03"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2016-09-07"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2016-10-05"
+        ],
+        [
+          0,
+          8,
+          14,
+          "2016-10-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          ""
+        ],
+        [
+          0,
+          10,
+          0,
+          ""
+        ]
+      ],
+      "series": 303073
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "b7c80b4de57b13d2d8be6a7a9e8b4119aef828bdf040d4a7cb144a3e8062fe49"
+  },
+  "specials": [
+    1
+  ],
+  "parent_anidb_specials": [
+    [
+      2,
+      1,
+      "2016-10-05"
+    ],
+    [
+      2,
+      2,
+      "2016-04-06"
+    ],
+    [
+      2,
+      3,
+      "2016-05-11"
+    ],
+    [
+      2,
+      4,
+      "2016-06-01"
+    ],
+    [
+      2,
+      5,
+      "2016-07-06"
+    ],
+    [
+      2,
+      6,
+      "2016-08-03"
+    ],
+    [
+      2,
+      7,
+      "2016-09-07"
+    ],
+    [
+      2,
+      8,
+      "2016-10-05"
+    ],
+    [
+      2,
+      9,
+      "2015-12-24"
+    ],
+    [
+      2,
+      10,
+      "2015-12-24"
+    ]
+  ],
+  "anilist_id": 21777,
+  "parent_anidb_id": 11500
+}

@@ -1,0 +1,1774 @@
+{
+  "watch_set": "seadex",
+  "captured_at": "2026-10-05",
+  "entries": [
+    {
+      "anilist_id": 117,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 208,
+      "reason": "unmappable",
+      "detail": "sources disagree: AniDB episode 5 aired 1995-10-21, TVDB 0x5 1995-10-26"
+    },
+    {
+      "anilist_id": 155,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 429,
+      "reason": "unmappable",
+      "detail": "sources disagree: an existing season-0 row on this entry conflicts with the proposal"
+    },
+    {
+      "anilist_id": 499,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 1023,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 574,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3986,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 601,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 1027,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 617,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 277,
+      "reason": "unmappable",
+      "detail": "sources disagree: an existing season-0 row on this entry conflicts with the proposal"
+    },
+    {
+      "anilist_id": 732,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 204,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 885,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 318,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 917,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 419,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 1143,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniList has no start date"
+    },
+    {
+      "anilist_id": 1211,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 3392,
+      "reason": "unmappable",
+      "detail": "sources disagree: AniDB episode 2 aired 1995-10-07, TVDB 0x2 1994-08-25"
+    },
+    {
+      "anilist_id": 1345,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 4455,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 1487,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 79099, TMDB 8864 S0E2 claimed by 24 S2 (default), 222 ep1"
+    },
+    {
+      "anilist_id": 1765,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 1263,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 1927,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 2924,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 2099,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 2334,
+      "reason": "upstream",
+      "detail": "TVDB 72493 already has a collision, which an overlay entry on the series would make blocking: TMDB 46338 S0E1 claimed by 2334 ep1, 2638 ep1"
+    },
+    {
+      "anilist_id": 2147,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3383,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 2299,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 2300,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 2301,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 2312,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 1856,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 2593,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 2615,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 2751,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 5297,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 2803,
+      "type": "TV",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 1710,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 3135,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 2622,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 3287,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 2698,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 3782,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 3783,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 3989,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 2979,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 4059,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 4173,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 5549 S2 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 4280,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 4282,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 4385,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 2221,
+      "reason": "upstream",
+      "detail": "TVDB 112641 already has a collision, which an overlay entry on the series would make blocking: TMDB 45485 S0E1 claimed by 1652 ep1, 2223 ep1"
+    },
+    {
+      "anilist_id": 4531,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 2789,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 4917,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 5742,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 5204,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 5667,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 6463,
+      "reason": "unmappable",
+      "detail": "sources disagree: the entry already has mapping rows; an offset would be overridden by them"
+    },
+    {
+      "anilist_id": 5713,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 6654,
+      "reason": "upstream",
+      "detail": "TVDB 81463 already has a collision, which an overlay entry on the series would make blocking: TMDB 56354 S0E1 claimed by 6654 ep1, 9267 ep1, 10015 ep1"
+    },
+    {
+      "anilist_id": 5904,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3515,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 6090,
+      "type": "OVA",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 6346,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 6670,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 6351,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 6361,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 6401,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 6462,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3614,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 6772,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 6954,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 7192,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 4099,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 7311,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 7221,
+      "reason": "upstream",
+      "detail": "TVDB 79414 already has a collision, which an overlay entry on the series would make blocking: TMDB 42511 S1E1 claimed by 3651 ep1, 6367 ep1"
+    },
+    {
+      "anilist_id": 7338,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 7482,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 5010,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 7858,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 7950,
+      "reason": "upstream",
+      "detail": "TVDB 118101 already has a collision, which an overlay entry on the series would make blocking: TMDB 37437 S0E1 claimed by 7950 ep1, 8271 ep1, 8931 ep1"
+    },
+    {
+      "anilist_id": 7902,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 6107 S6 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 8514,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 8577,
+      "type": "OVA",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 8861,
+      "type": "TV",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 8889,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 5078,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 9243,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3148,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 9244,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3149,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 9252,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 9260,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 9324,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 5009,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 9465,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 9531,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 6233,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 9724,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 9754,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 7531 S7 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 10020,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 7525 S1 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 10092,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 10108,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 10391,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 7531 S1 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 10647,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 8148 S2 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 10794,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 8586,
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 219131, TVDB 0x2 claimed by 8586 S2 (default), 9849 S1"
+    },
+    {
+      "anilist_id": 10845,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 10935,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 11266,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 8148 S1 matches the date but no title agrees; AniDB 8148 S6 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 11537,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3616,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 11735,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 8003,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 11799,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3613,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 11813,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 8721,
+      "reason": "unmappable",
+      "detail": "sources disagree: the entry already has mapping rows; an offset would be overridden by them"
+    },
+    {
+      "anilist_id": 11977,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 8778,
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 219181, TVDB 0x6 claimed by 8778 S6 (default), 16278 ep1"
+    },
+    {
+      "anilist_id": 11979,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 12239,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 12565,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 12581,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 8873,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 14247,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3615,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 14407,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 15687,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 8883 S2 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 15879,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 8883 S8 matches the date but no title agrees; AniDB 8883 S16 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 16934,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 261862, TVDB 0x15 claimed by 8883 S15 (default), 9874 S6"
+    },
+    {
+      "anilist_id": 16954,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 6491,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 17157,
+      "type": "OVA",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 17641,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 9734,
+      "reason": "upstream",
+      "detail": "TVDB 264663 already has a collision, which an overlay entry on the series would make blocking: TMDB 46004 S0E1 claimed by 9734 ep1, 10688 ep1"
+    },
+    {
+      "anilist_id": 18393,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 18857,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 19845,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 20045,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20207,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 3567,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 20524,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 272697, TMDB 61695 S0E1 claimed by 9518 S1 (default), 10726 ep1"
+    },
+    {
+      "anilist_id": 20531,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 272697, TMDB 61695 S0E1 claimed by 9518 S1 (default), 10726 ep1"
+    },
+    {
+      "anilist_id": 20576,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 10325,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 20582,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 20682,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20721,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 11020,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 20724,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 10648,
+      "reason": "unmappable",
+      "detail": "sources disagree: an existing season-0 row on this entry conflicts with the proposal"
+    },
+    {
+      "anilist_id": 20736,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20737,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20759,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20768,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 20777,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 9874 S8 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 20779,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20791,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 20811,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20889,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 261862, TVDB 0x23 claimed by 8883 S10, 9874 S23 (default)"
+    },
+    {
+      "anilist_id": 20892,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 20963,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 21002,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 10800,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 21057,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 10824,
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 293491, TMDB 62070 S0E2 claimed by 9658 ep1, 10824 S2 (default)"
+    },
+    {
+      "anilist_id": 21132,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21247,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 11000,
+      "reason": "unmappable",
+      "detail": "sources disagree: AniDB episode 1 aired 2015-06-24, TVDB 0x1 2015-06-22"
+    },
+    {
+      "anilist_id": 21248,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21255,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 10889 S2 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 21318,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21326,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21376,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 289884, TMDB 62564 S0E1 claimed by 10889 S1 (default), 12962 ep1, 13491 ep1"
+    },
+    {
+      "anilist_id": 21399,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21400,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21434,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21624,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21718,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21719,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21721,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 21813,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_special_unresolved"
+      ],
+      "anidb_id": 12118,
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 278818, TVDB 0x2 claimed by 12118 ep1, 14401 ep1"
+    },
+    {
+      "anilist_id": 21829,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 12142,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 21833,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 21843,
+      "type": "MOVIE",
+      "gaps": [
+        "movie_no_route"
+      ],
+      "anidb_id": 11473,
+      "reason": "unmappable",
+      "detail": "sources disagree: AniDB's air date 2017-03-11 is not within a day of the TMDB release 2017-04-22"
+    },
+    {
+      "anilist_id": 21853,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 97815,
+      "type": "SPECIAL",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 12519,
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 353666, TMDB 90677 S0E2 claimed by 12519 S2 (default), 13643 ep1"
+    },
+    {
+      "anilist_id": 97951,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 11500 S2 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 98511,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 12991,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 98662,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 98663,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 98874,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 99054,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 99916,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 13409,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 99938,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 100168,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 13436,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 100652,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 100659,
+      "type": "OVA",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 100784,
+      "type": "TV",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 101426,
+      "type": "OVA",
+      "gaps": [
+        "season0_unresolved"
+      ],
+      "anidb_id": 13991,
+      "reason": "unmappable",
+      "detail": "sources disagree: the mapping collides on TVDB 337936, TVDB 0x2 claimed by 13991 S2 (default), 16560 ep1"
+    },
+    {
+      "anilist_id": 102001,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "the TVDB check failed: AniList 102001: S9 aired \\\"2016-06-22\\\" on AniDB, TVDB 0x9 \\\"2016-07-08\\"
+    },
+    {
+      "anilist_id": 102649,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 104990,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 105596,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 106896,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 107208,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 108354,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 14736,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 110270,
+      "type": "TV",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 110851,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 111964,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 15108,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 113425,
+      "type": "TV",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 114334,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 114721,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 15802,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 114963,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 15373,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 118465,
+      "type": "TV",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 120892,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "no special of the AniDB parent airs within a day of the AniList start date"
+    },
+    {
+      "anilist_id": 122508,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 16355,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 124032,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 124115,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 127090,
+      "type": "TV",
+      "gaps": [
+        "no_record"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no entry for this AniList id"
+    },
+    {
+      "anilist_id": 130550,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 16091,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 132324,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 139983,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 15487,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 141950,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 16760,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 142455,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 17025,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 143846,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 15135 S1 matches the date but no title agrees; AniDB 15135 S12 matches the date but no title agrees; AniDB 15135 S15 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 145560,
+      "type": "ONA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 146631,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 146632,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 146921,
+      "type": "OVA",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "unmappable",
+      "detail": "AniDB 15135 S16 matches the date but no title agrees; AniDB 15135 S17 matches the date but no title agrees"
+    },
+    {
+      "anilist_id": 146922,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 155011,
+      "type": "TV",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 176299,
+      "type": "MOVIE",
+      "gaps": [
+        "no_anidb"
+      ],
+      "reason": "upstream",
+      "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
+    },
+    {
+      "anilist_id": 192002,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 19337,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 199112,
+      "type": "SPECIAL",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 19601,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 201903,
+      "type": "ONA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 19701,
+      "reason": "unmappable",
+      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    }
+  ],
+  "version": 1
+}

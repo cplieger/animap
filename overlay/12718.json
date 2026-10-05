@@ -1,0 +1,122 @@
+{
+  "siblings": {
+    "12319": {
+      "specials": null,
+      "regular": 13
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12718",
+    "tmdb": "https://www.themoviedb.org/tv/69140/season/2",
+    "tvdb": "https://thetvdb.com/series/sengoku-wildlife-caricatures/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "episodeoffset": "",
+    "tmdbseason": "2",
+    "tmdboffset": ""
+  },
+  "title": "Sengoku Choujuu Giga: Otsu",
+  "justification": "AniDB 1-13 (2017-01-15 to 2017-04-09) = TVDB 2x01-2x13 and TMDB S2E1-13, same dates and titles. Old 'S1 + 13' pointed at 1x14-1x26, which do not exist (TVDB S1 has 13). AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d6f63ba0a57941ba36e790cd4167a1c820657a20ca99723dbed31b14a2f3c4f8",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          14,
+          "2017-01-15"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2017-01-22"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2017-01-29"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2017-02-05"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2017-02-12"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2017-02-19"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2017-02-26"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2017-03-05"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2017-03-12"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2017-03-19"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2017-03-26"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2017-04-02"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2017-04-09"
+        ]
+      ],
+      "series": 317829
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "defa223b7196d434cba72b54dbe74507107c80e1083a2d0374459be3b7dac6a1"
+  },
+  "anilist_ids": [
+    116053
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 13
+  },
+  "anidb_id": 12718
+}

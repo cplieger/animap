@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<anime-list>
+  <anime anidbid="10" tvdbid="5000" defaulttvdbseason="1" episodeoffset="" tmdbtv="9000" tmdbseason="1" tmdboffset="" tmdbid="" imdbid="tt0000001">
+    <name>Series with season 1</name>
+    <mapping-list>
+      <mapping anidbseason="0" tvdbseason="0">;1-2;3-0;</mapping>
+      <mapping anidbseason="1" tvdbseason="1" start="13" end="24" offset="-12"/>
+      <mapping anidbseason="1" tmdbseason="2" start="13" end="24" offset="-12"/>
+    </mapping-list>
+    <before>;1-12;</before>
+  </anime>
+  <anime anidbid="12" tvdbid="5001" defaulttvdbseason="0" episodeoffset="0" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="" imdbid="">
+    <name>AniDB only</name>
+    <mapping-list>
+      <mapping anidbseason="1" tvdbseason="0">;1-4+5;2-x;</mapping>
+    </mapping-list>
+  </anime>
+  <anime anidbid="13" tvdbid="5002" defaulttvdbseason="0" episodeoffset="" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="77,78,77" imdbid="tt0000002,bogus,tt0000002">
+    <name>Two AniList ids, one entry</name>
+    <mapping-list>
+      <mapping anidbseason="1" tvdbseason="0">;1-3;</mapping>
+    </mapping-list>
+  </anime>
+  <anime anidbid="18" tvdbid="movie" defaulttvdbseason="1" episodeoffset="" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="555" imdbid="tt0000003">
+    <name>Film with TVDB movie marker</name>
+    <mapping-list>
+      <mapping anidbseason="1" tvdbseason="0">;1-1;</mapping>
+    </mapping-list>
+  </anime>
+  <anime anidbid="19" tvdbid="5004" defaulttvdbseason="a" episodeoffset="" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="" imdbid="">
+    <name>Absolute run</name>
+    <supplemental-info><studio>Ignored</studio></supplemental-info>
+  </anime>
+  <anime anidbid="20" tvdbid="5005" defaulttvdbseason="0" episodeoffset="" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="" imdbid="">
+    <name>Filed under specials</name>
+    <mapping-list>
+      <mapping anidbseason="1" tvdbseason="0">;1-4+5;2-6;</mapping>
+    </mapping-list>
+  </anime>
+  <anime anidbid="30" tvdbid="5006" defaulttvdbseason="1" episodeoffset="" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="" imdbid="">
+    <name>Node with no database entry</name>
+  </anime>
+  <anime anidbid="31" tvdbid="" defaulttvdbseason="" episodeoffset="" tmdbtv="" tmdbseason="" tmdboffset="" tmdbid="" imdbid="">
+    <name>Node with no facts</name>
+  </anime>
+  <anime anidbid="x" tvdbid="1">
+    <name>Bad id</name>
+  </anime>
+</anime-list>

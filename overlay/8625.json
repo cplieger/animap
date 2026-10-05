@@ -1,0 +1,65 @@
+{
+  "siblings": {
+    "8556": {
+      "specials": null,
+      "regular": 12
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8625",
+    "anilist": "https://anilist.co/anime/11701",
+    "tmdb": "https://www.themoviedb.org/tv/42589/season/0",
+    "tvdb": "https://thetvdb.com/series/another/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Another: The Other - Inga",
+  "justification": "AniDB 1 episode(s) = TVDB official order, air dates within a day: 1 2012-05-26 = 0x1 2012-05-26.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "dd21fd8275205bfc05f7d4269ef2c260997452f5632fef73ec6603d5022e926d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-05-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-03-29"
+        ]
+      ],
+      "series": 254349
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "693f7b02edfac6f6da66910e16469847a052c9814530ed40044d133d9113c711"
+  },
+  "anilist_ids": [
+    11701
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 1
+  },
+  "anidb_id": 8625
+}

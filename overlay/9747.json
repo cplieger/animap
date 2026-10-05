@@ -1,0 +1,120 @@
+{
+  "siblings": {
+    "9295": {
+      "specials": null,
+      "regular": 13
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9747",
+    "tmdb": "https://www.themoviedb.org/tv/79030/season/1",
+    "tvdb": "https://thetvdb.com/series/haitai-nanafa/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "tmdboffset": "13"
+  },
+  "title": "Haitai Nanafa (2013)",
+  "justification": "AniDB 1-13 (2013-04-06 to 2013-06-29) = TVDB 2x01-2x13 and TMDB 79030 S1E14-26, same dates. Old season 1 is the 2012 series (1x1 2012-10-06, AniDB 9295). TMDB keeps one 26-episode S1, so TMDB offset 13. AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "33e9e313b522db4e23fb9ee385e6c9e4b8ba37d59928687f0366120664e6627f",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          14,
+          "2013-04-06"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2013-04-13"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2013-04-20"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2013-04-27"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2013-05-04"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2013-05-11"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2013-05-18"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2013-05-25"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2013-06-01"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2013-06-08"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2013-06-15"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2013-06-22"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2013-06-29"
+        ]
+      ],
+      "series": 262110
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "1404b02cf82ff84c098fd2cbbbe740b414b4286d3eec81cfaee3f3054f2d63f5"
+  },
+  "anilist_ids": [
+    17727
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 13
+  },
+  "anidb_id": 9747
+}

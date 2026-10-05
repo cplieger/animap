@@ -1,0 +1,154 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5549",
+    "anilist": "https://anilist.co/anime/4715",
+    "tvdb": "https://thetvdb.com/series/shigofumi---letters-from-the-departed/seasons/official/1"
+  },
+  "kind": "special-of-parent",
+  "title": "Shigofumi: Sorekara",
+  "justification": "AniList 4715 (OVA, 1 episode(s) from 2008-09-26) is AniDB 5549's special(s) S1, aired 2008-09-26; AniList's PREQUEL relation names AniList 3420, which anime-offline-database links to AniDB 5549; the special's title 'Sore kara' matches.",
+  "captured": {
+    "tvdb": {
+      "sha256": "9a53780023e064fa3a766d2b66ac8d5d3983c8a92531fbfe3840b847c1de995c",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2008-01-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2008-01-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2008-01-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2008-01-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2008-02-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2008-02-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2008-02-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2008-02-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2008-03-01"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2008-03-08"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2008-03-15"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2008-03-22"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2008-09-26"
+        ]
+      ],
+      "series": 81807
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "78712209339dcaf9a61ac4501a9a7898939a82139d8e602dd10c01eb48f8945d"
+  },
+  "specials": [
+    1
+  ],
+  "parent_anidb_specials": [
+    [
+      2,
+      1,
+      "2008-09-26"
+    ],
+    [
+      2,
+      2,
+      "2008-03-25"
+    ],
+    [
+      2,
+      3,
+      "2008-04-25"
+    ],
+    [
+      2,
+      4,
+      "2008-05-23"
+    ],
+    [
+      2,
+      5,
+      "2008-06-25"
+    ],
+    [
+      2,
+      6,
+      "2008-07-25"
+    ],
+    [
+      2,
+      7,
+      "2008-08-22"
+    ],
+    [
+      2,
+      8,
+      "2008-09-26"
+    ],
+    [
+      2,
+      9,
+      "2008-08-22"
+    ]
+  ],
+  "anilist_id": 4715,
+  "parent_anidb_id": 5549
+}

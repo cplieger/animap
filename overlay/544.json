@@ -1,0 +1,114 @@
+{
+  "siblings": {
+    "543": {
+      "specials": null,
+      "regular": 14
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/544",
+    "tmdb": "https://www.themoviedb.org/tv/34087/season/2",
+    "tvdb": "https://thetvdb.com/series/oh-super-milk-chan/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "tmdbseason": "2"
+  },
+  "title": "Oh! Super Milk-chan",
+  "justification": "AniDB 1-12 (2000-01-27 to 2000-04-13) = TVDB 2x01-2x12 (same titles) and TMDB S2E1-12 (the same titles after 'Milk's Story of'), same dates. Old season 1 is the 1998 Super Milk-chan run (1x1 1998-06-17). AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c277f7b597f01d2461191d3a0c479658f1c0680347eb5548577ed188a0c5ba44",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          0,
+          "2000-01-27"
+        ],
+        [
+          2,
+          2,
+          0,
+          "2000-02-03"
+        ],
+        [
+          2,
+          3,
+          0,
+          "2000-02-10"
+        ],
+        [
+          2,
+          4,
+          0,
+          "2000-02-17"
+        ],
+        [
+          2,
+          5,
+          0,
+          "2000-02-24"
+        ],
+        [
+          2,
+          6,
+          0,
+          "2000-03-02"
+        ],
+        [
+          2,
+          7,
+          0,
+          "2000-03-09"
+        ],
+        [
+          2,
+          8,
+          0,
+          "2000-03-16"
+        ],
+        [
+          2,
+          9,
+          0,
+          "2000-03-23"
+        ],
+        [
+          2,
+          10,
+          0,
+          "2000-03-30"
+        ],
+        [
+          2,
+          11,
+          0,
+          "2000-04-06"
+        ],
+        [
+          2,
+          12,
+          0,
+          "2000-04-13"
+        ]
+      ],
+      "series": 91391
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "af1a7cee1a788cc86b332630cda0ffce2d41ea592a197cb4c8fe3b6a0a4659be"
+  },
+  "anilist_ids": [
+    1769
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 12
+  },
+  "anidb_id": 544
+}

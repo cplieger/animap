@@ -1,0 +1,40 @@
+# The collision baseline only shrinks: a pull request may remove entries
+# from checks/collision-baseline.json, never add one. A new collision is
+# fixed upstream or by an overlay entry; a new uncounted node is fixed
+# upstream, by a checks/counts.json row, or through an entry's siblings
+# (docs/overlay.md). This runs on every pull request, not only those
+# touching the file, so it can be a required check.
+name: Baseline
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: baseline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  shrink-only:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: Refuse an added baseline entry
+        run: |
+          base="$RUNNER_TEMP/base.json"
+          if git show "origin/${GITHUB_BASE_REF}:checks/collision-baseline.json" >"$base" 2>/dev/null; then
+            go run ./cmd/animap baseline check-shrink -base "$base" -baseline checks/collision-baseline.json
+          else
+            echo "No baseline on ${GITHUB_BASE_REF} yet; this pull request creates it."
+          fi

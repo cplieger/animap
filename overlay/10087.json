@@ -1,0 +1,26 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10087",
+    "anilist": "https://anilist.co/anime/20469",
+    "tmdb": "https://www.themoviedb.org/movie/273452"
+  },
+  "set": {
+    "tmdbid": "273452"
+  },
+  "title": "Shashinkan",
+  "justification": "AniDB's one episode aired 2013-10-13; TMDB 273452 released 2013-10-13, within a day; same title on AniList and TMDB.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "5b8b9e9fc14925c59c456a29a876ecd7158bc2f5fa6ae50b071c0c1d33772264"
+  },
+  "anilist_ids": [
+    20469
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 1
+  },
+  "anidb_id": 10087
+}

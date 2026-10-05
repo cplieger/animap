@@ -1,0 +1,118 @@
+{
+  "siblings": {
+    "11289": {
+      "specials": [],
+      "regular": 12
+    },
+    "9674": {
+      "specials": [],
+      "regular": 13
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8182",
+    "tmdb": "https://www.themoviedb.org/tv/55326/season/1",
+    "tvdb": "https://thetvdb.com/series/dd-fist-of-the-north-star/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "tmdbtv": "55326"
+  },
+  "title": "DD Hokuto no Ken",
+  "justification": "AniDB 1-12 (2011-01-12 to 2011-04-06) = TVDB 0x01-0x12 ('The Four Hokuto Brothers' onward) and TMDB 55326 S1E1-12, same dates and titles. Old season 1 and old TMDB 130728 are the 2013 series (1x1 2013-04-03), which 9674 maps. AniDB lists no specials for 8182, 9674 or 11289.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9dde5eaab26103ef094d37ca7efdc7c34d781d2c47e77c624b25b9c3cd4c007a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-01-12"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-01-19"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-01-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-02-02"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2011-02-09"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-02-16"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-02-23"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2011-03-02"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2011-03-09"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2011-03-23"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2011-03-30"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2011-04-06"
+        ]
+      ],
+      "series": 253182
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "843229ea7caa4918435facaa7769635d2b8dee022ec352006177e5d9d92e7dc6"
+  },
+  "anilist_ids": [
+    10177
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 12
+  },
+  "anidb_id": 8182
+}

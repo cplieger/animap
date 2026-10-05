@@ -1,0 +1,107 @@
+{
+  "siblings": {
+    "8300": {
+      "specials": [
+        1
+      ],
+      "regular": 1
+    },
+    "9992": {
+      "specials": [
+        1,
+        2,
+        3
+      ],
+      "regular": 10
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9390",
+    "tvdb": "https://thetvdb.com/series/kyousougiga/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "1",
+    "tmdbtv": "",
+    "tmdbseason": ""
+  },
+  "title": "Kyousougiga (2012)",
+  "justification": "AniDB 1-5 (2012-08-31, 10-27, 11-10, 12-08, 12-22) = TVDB 0x02-0x06, same dates, titles in another translation ('Koto, Our Heroine, Spake Thusly' / 'Thus Spoke Koto, the Heroine'). Old season 1 is the 2013 TV series (1x1 2013-10-10, AniDB 9992). TMDB 85065 has no ONA episodes, so TMDB is cleared. AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8a3d28099e452e36d729453f50484f11a26acdd8e5878a69225b57da17e1c9b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-12-01"
+        ],
+        [
+          0,
+          2,
+          1,
+          "2012-08-31"
+        ],
+        [
+          0,
+          3,
+          2,
+          "2012-10-27"
+        ],
+        [
+          0,
+          4,
+          3,
+          "2012-11-10"
+        ],
+        [
+          0,
+          5,
+          4,
+          "2012-12-08"
+        ],
+        [
+          0,
+          6,
+          5,
+          "2012-12-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-10-02"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2013-11-14"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2013-12-19"
+        ]
+      ],
+      "series": 254658
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "2b08d52a626fc57c81153f7550e39b6f69029b7bd07174e4e592011b6fde662e"
+  },
+  "anilist_ids": [
+    15359
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 5
+  },
+  "anidb_id": 9390
+}

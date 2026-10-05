@@ -1,0 +1,48 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1879",
+    "anilist": "https://anilist.co/anime/1176",
+    "tvdb": "https://thetvdb.com/series/mask-of-zeguy/seasons/official/1"
+  },
+  "set": {
+    "tvdbid": "458269",
+    "defaulttvdbseason": "1"
+  },
+  "title": "Unkai no Meikyuu ZEGUY",
+  "justification": "AniDB 2 episode(s) = TVDB official order, air dates within a day: 1 1993-03-21 = 1x1 1993-03-21; 2 1993-05-21 = 1x2 1993-05-21.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "b797e675d66b65eb89d956ad2635761418e79627f8402df287f3bce14c82e00b",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "1993-03-21"
+        ],
+        [
+          1,
+          2,
+          2,
+          "1993-05-21"
+        ]
+      ],
+      "series": 458269
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "11243e3eb5b81a0fd930fa1b981d99d6c79fe4b7701366e6338e346a9ad6b8d6"
+  },
+  "anilist_ids": [
+    1176
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 2
+  },
+  "anidb_id": 1879
+}

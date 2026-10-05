@@ -1,0 +1,13 @@
+# Local tool output and scratch: every dot-directory at the root except the
+# ones the repository tracks
+/.*/
+!/.github/
+
+# DRY_RUN artifacts from scripts/publish.sh and scripts/drift.sh
+/animap.json
+/animap.json.*
+/actions.json
+
+# Local Go workspace overrides
+go.work
+go.work.sum

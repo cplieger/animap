@@ -1,0 +1,116 @@
+{
+  "siblings": {
+    "11899": {
+      "specials": null,
+      "regular": 12
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12198",
+    "tmdb": "https://www.themoviedb.org/tv/65928/season/2",
+    "tvdb": "https://thetvdb.com/series/12-sai-chiccha-na-mune-no-tokimeki/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "episodeoffset": "",
+    "tmdbseason": "2",
+    "tmdboffset": ""
+  },
+  "title": "12-sai. Chicchana Mune no Tokimeki (2016)",
+  "justification": "AniDB 1-12 (2016-10-03 to 2016-12-19) = TVDB 2x01-2x12, same dates, and TMDB S2E1-12, same dates or one day earlier. Old 'S1 + 12' pointed at 1x13-1x24, which do not exist (TVDB S1 has 12). AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "500617645d9caf817fc6f8c51a14c7749dc7b3cd2b86ac80ba50aa00a3a380a3",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          13,
+          "2016-10-03"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2016-10-10"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2016-10-17"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2016-10-24"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2016-10-31"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2016-11-07"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2016-11-14"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2016-11-21"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2016-11-28"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2016-12-05"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2016-12-12"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2016-12-19"
+        ]
+      ],
+      "series": 289796
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "fdc1c9ce25492356adb357e3d53b8a66a37336cecc6861c9d3db49e074df5c62"
+  },
+  "anilist_ids": [
+    21839
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 12
+  },
+  "anidb_id": 12198
+}

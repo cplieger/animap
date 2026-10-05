@@ -1,0 +1,71 @@
+{
+  "siblings": {
+    "9809": {
+      "specials": null,
+      "regular": 21
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10386",
+    "anilist": "https://anilist.co/anime/20600",
+    "tmdb": "https://www.themoviedb.org/tv/70036/season/0",
+    "tvdb": "https://thetvdb.com/series/tonari-no-seki-kun-the-master-of-killing-time/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tonari no Seki-kun OVA",
+  "justification": "AniDB 1 episode(s) = TVDB official order, air dates within a day: 1 2014-01-04 = 0x1 2014-01-04.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "d4d64f631c2a4d0ecb0a90df887c5f48c79495b5e079e5bfdac282d7ebfe9812",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          22,
+          "2014-01-04"
+        ],
+        [
+          0,
+          2,
+          23,
+          "2014-05-28"
+        ],
+        [
+          0,
+          3,
+          24,
+          "2014-05-28"
+        ]
+      ],
+      "series": 275583
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "00e3376721ba217b32bcc299fef87913039dc43081619d1a6d54e526e30689bc"
+  },
+  "anilist_ids": [
+    20600
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 1
+  },
+  "anidb_id": 10386
+}

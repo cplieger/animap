@@ -1,0 +1,107 @@
+# Build animap.json from the pinned anime-offline-database release, the
+# Anime-Lists master HEAD and overlay/, and publish a dated release when the
+# content hash changed. scripts/publish.sh does the work so CI and a local
+# DRY_RUN=1 run are the same. A failed run publishes nothing, so the previous
+# release stays the latest.
+name: Publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - overlay/**
+      - checks/counts.json
+      - cmd/**
+      - internal/**
+      - go.mod
+      - go.sum
+      - scripts/publish.sh
+      - scripts/resolve.sh
+      - scripts/fetch-inputs.sh
+      - .github/workflows/publish.yaml
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      accept_shrink:
+        description: Publish even when a population fell below 90% of the latest release
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  # renovate: datasource=github-releases depName=cedya77/anime-offline-database versioning=loose
+  AOD_VERSION: 2026-40
+  # renovate: datasource=github-releases depName=sigstore/cosign
+  COSIGN_VERSION: v3.1.3
+
+jobs:
+  publish:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 30
+    permissions:
+      contents: write # gh release create
+      id-token: write # keyless cosign signature
+      actions: write # keepalive below
+    steps:
+      # GitHub disables a scheduled workflow after 60 days without repository
+      # activity, and cron runs do not count. The weekly database pin bump is
+      # the routine activity; this re-enable is the backstop.
+      - name: Keepalive (reset the 60-day scheduled-workflow timer)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yaml/enable"
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/drift.yaml/enable"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: ${{ env.COSIGN_VERSION }}
+      - name: Resolve upstreams
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/resolve.sh | tee -a "$GITHUB_OUTPUT"
+      - name: Restore the offline database
+        id: aod-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/aod
+          key: aod-${{ steps.resolve.outputs.AOD_SHA256 }}
+      - name: Restore the Anime-Lists file
+        id: list-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/list
+          key: list-${{ steps.resolve.outputs.LIST_COMMIT }}
+      - name: Build and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AOD_SHA256: ${{ steps.resolve.outputs.AOD_SHA256 }}
+          LIST_COMMIT: ${{ steps.resolve.outputs.LIST_COMMIT }}
+          LIST_BLOB: ${{ steps.resolve.outputs.LIST_BLOB }}
+          ACCEPT_SHRINK: ${{ inputs.accept_shrink == true }}
+        run: bash scripts/publish.sh
+      - name: Save the offline database
+        if: ${{ !cancelled() && steps.aod-cache.outputs.cache-hit != 'true' && hashFiles('.cache/aod/*.jsonl') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/aod
+          key: aod-${{ steps.resolve.outputs.AOD_SHA256 }}
+      - name: Save the Anime-Lists file
+        if: ${{ !cancelled() && steps.list-cache.outputs.cache-hit != 'true' && hashFiles('.cache/list/*.xml') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/list
+          key: list-${{ steps.resolve.outputs.LIST_COMMIT }}

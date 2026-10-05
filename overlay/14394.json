@@ -1,0 +1,26 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14394",
+    "anilist": "https://anilist.co/anime/104286",
+    "tmdb": "https://www.themoviedb.org/movie/553932"
+  },
+  "set": {
+    "tmdbid": "553932"
+  },
+  "title": "Oushitsu Kyoushi Heine Movie",
+  "justification": "AniDB's one episode aired 2019-02-16; TMDB 553932 released 2019-02-16, within a day; same title on AniList and TMDB.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    104286
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 1
+  },
+  "anidb_id": 14394
+}

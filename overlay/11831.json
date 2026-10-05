@@ -1,0 +1,116 @@
+{
+  "siblings": {
+    "11690": {
+      "specials": null,
+      "regular": 12
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11831",
+    "tmdb": "https://www.themoviedb.org/tv/65214/season/2",
+    "tvdb": "https://thetvdb.com/series/active-raid/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "episodeoffset": "",
+    "tmdbseason": "2",
+    "tmdboffset": ""
+  },
+  "title": "Active Raid: Kidou Kyoushuushitsu Dai Hachi Gakari - 2nd",
+  "justification": "AniDB 1-12 (2016-07-11 to 2016-09-26) = TVDB 2x01-2x12, same dates, and TMDB S2E1-12, one day later (2016-07-12 to 2016-09-27). Old 'S1 + 12' pointed at 1x13-1x24, which do not exist (TVDB S1 has 12). AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9de466dbc459e2b4d72b1c06687bdda8b04502556a8b2a806a631dd933b26bcd",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          13,
+          "2016-07-11"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2016-07-18"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2016-07-25"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2016-08-01"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2016-08-08"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2016-08-15"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2016-08-22"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2016-08-29"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2016-09-05"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2016-09-12"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2016-09-19"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2016-09-26"
+        ]
+      ],
+      "series": 303730
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "30215e441026e7bccd15d46ebd6c88ca5b3501d8b8f48739832cec5dcb920ec6"
+  },
+  "anilist_ids": [
+    21534
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 12
+  },
+  "anidb_id": 11831
+}

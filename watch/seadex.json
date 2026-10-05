@@ -1,0 +1,8 @@
+{
+  "name": "seadex",
+  "list_url": "https://releases.moe/api/collections/entries/records",
+  "id_field": "alID",
+  "per_page": 500,
+  "max_pages": 40,
+  "entry_url": "https://releases.moe/{id}"
+}

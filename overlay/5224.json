@@ -1,0 +1,122 @@
+{
+  "siblings": {
+    "2808": {
+      "specials": null,
+      "regular": 13
+    }
+  },
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5224",
+    "tmdb": "https://www.themoviedb.org/tv/44750/season/2",
+    "tvdb": "https://thetvdb.com/series/buzzer-beater/seasons/official/2"
+  },
+  "set": {
+    "tvdbid": "156221",
+    "defaulttvdbseason": "2",
+    "tmdbtv": "44750",
+    "tmdbseason": "2"
+  },
+  "title": "Buzzer Beater (2007)",
+  "justification": "TVDB 80503 is dead (the dereferrer and SkyHook both 404). AniDB 1-13 (2007-07-04 to 2007-09-26) = TVDB 156221 'Buzzer Beater' 2x01-2x13 and TMDB 44750 S2E1-13, same dates and titles ('Out of Bounds' to 'Jam'). Sibling 2808 (the 2005 series) keeps S1. AniDB lists no specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d17d713ae75d50485597012ae1ff9e3913f0a5136254ce7f135c7d7a72b1f680",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          14,
+          "2007-07-04"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2007-07-11"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2007-07-18"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2007-07-25"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2007-08-01"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2007-08-08"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2007-08-15"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2007-08-22"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2007-08-29"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2007-09-05"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2007-09-12"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2007-09-19"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2007-09-26"
+        ]
+      ],
+      "series": 156221
+    },
+    "at": "2026-10-04",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "2f774be1f3dd0281047ec48afc45c4cdf8d955e8f42a5ee35ce19956dd4f6ff9"
+  },
+  "anilist_ids": [
+    2684
+  ],
+  "episodes": {
+    "specials": [],
+    "regular": 13
+  },
+  "anidb_id": 5224
+}

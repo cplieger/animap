@@ -1,0 +1,58 @@
+# Daily: check every overlay entry against Anime-Lists HEAD and TVDB's
+# episode order, every checks/counts.json row against the database the
+# latest release was built from, and the watch set against that release;
+# keep one issue open per finding. scripts/drift.sh does the work.
+name: Drift
+
+on:
+  schedule:
+    - cron: "41 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: drift
+  cancel-in-progress: false
+
+jobs:
+  drift:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write # create, edit, reopen and close the animap-labelled issues
+      actions: read # gh run list for the publish health check
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: Restore the HTTP validator cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/http.json
+          key: http-${{ github.run_id }}
+          restore-keys: http-
+      # The publish workflow saves each database it builds from under
+      # aod-<sha256>. The newest is usually the latest release's; any other
+      # fails fetch-inputs.sh's digest check and is downloaded again.
+      - name: Restore the offline database
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/aod
+          key: aod-${{ github.run_id }}
+          restore-keys: aod-
+      - name: Check drift and the watch set, then apply the issue plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/drift.sh
+      - name: Save the HTTP validator cache
+        if: ${{ !cancelled() && hashFiles('.cache/http.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/http.json
+          key: http-${{ github.run_id }}
