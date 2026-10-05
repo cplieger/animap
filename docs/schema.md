@@ -16,7 +16,7 @@
 
 - `anime_offline_database`: the repository, the release tag, the asset name and the asset's SHA-256.
 - `anime_lists`: the repository, the commit and the file name of `anime-list-master.xml`.
-- `overlay`: how many overlay entries were applied, how many special-of-parent bridges (`special_of_parent`, absent when none), and a SHA-256 of the whole overlay set.
+- `overlay`: how many overlay entries were applied, how many special-of-parent bridges as `special_of_parent`, which is absent when there are none, and a SHA-256 of the whole overlay set.
 
 `attribution` carries `license` (`ODbL-1.0`), `contents_license` (`DbCL-1.0`), a URL for each, and `notice`, the sentence to show wherever you redistribute the data.
 
@@ -28,7 +28,7 @@ Every field except the record's id is left out when it has no value. Four intege
 | --- | --- | --- |
 | `anilist_id` | integer | The AniList id. Absent on a record keyed by its AniDB id. |
 | `anidb_id` | integer | The AniDB id, when the AniList id meets exactly one. |
-| `anidb_parent` | object | Set when AniDB files this AniList entry as specials of another anime. `anidb_id` is that anime and `specials` its special numbers: AniList episode 1 is the first one. Never set with `anidb_id`. |
+| `anidb_parent` | object | Another anime's `anidb_id` and `specials`, one special number per AniList episode in order, when AniDB files this entry as that anime's specials. Never set with `anidb_id`. |
 | `mal_id` | integer | The MyAnimeList id, when there is exactly one. |
 | `type` | string | `TV`, `MOVIE`, `OVA`, `ONA`, `SPECIAL` or `UNKNOWN`, from anime-offline-database. A build that meets any other value publishes nothing. |
 | `episodes` | integer | The number of regular episodes. |

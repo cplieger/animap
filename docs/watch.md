@@ -10,7 +10,7 @@ Each rule reads one record of the latest `animap.json` and nothing else. A watch
 | --- | --- | --- |
 | No record for the AniList id | never | `no_record` |
 | No `anidb_id` | never, because nothing joins it to Anime-Lists | `no_anidb` |
-| A `MOVIE` | it has a TMDB movie id or an IMDb id, for Radarr, or a TVDB season, for Sonarr. When the record files it as a TVDB special, that special must also resolve. | `movie_no_route`, `movie_special_unresolved` |
+| A `MOVIE` | it has a TMDB movie or IMDb id for Radarr or a TVDB season for Sonarr, and any TVDB special it is filed as also resolves | `movie_no_route`, `movie_special_unresolved` |
 | Filed under TVDB season 0, any other type | every AniDB episode from 1 to `episodes` resolves to a TVDB special | `season0_unresolved`, `episode_count_unknown` |
 | Any other type | it has a `tvdb_id` and either a `tvdb_season` of 1 or more or `tvdb_absolute` | `no_tvdb`, `no_tvdb_season` |
 | `UNKNOWN` or no type, and no `tvdb_id` | never | `unknown_type` |
