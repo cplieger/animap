@@ -2,26 +2,60 @@
 
 [![License](https://img.shields.io/github/license/cplieger/animap)](LICENSE)
 
-animap publishes `animap.json`, one file that maps anime ids between AniList, AniDB, MyAnimeList, TheTVDB, TMDB and IMDb, with the TVDB and TMDB seasons, episode offsets and per-episode mappings. Anyone can download it. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
+animap turns an AniList or AniDB anime id into its TVDB or TMDB series, season and episodes, and its MyAnimeList and IMDb ids, from one JSON file.
 
-## Who it is for
+It replaces joining [anime-offline-database](https://github.com/cedya77/anime-offline-database) and [Anime-Lists](https://github.com/Anime-Lists/anime-lists) yourself. There is no package to install. A tool downloads `animap.json`, about 2.3 MB and 22,000 records, and reads it with any JSON parser. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
 
-It is for tools that sit beside Sonarr and Radarr, such as a SeaDex watcher or a list sync. Those tools need to turn an AniList or AniDB id into the id and season that Sonarr or Radarr uses. animap joins two open sources into one file and adds corrections of its own, so a tool reads one file instead of two:
+## Why use it
 
-- [anime-offline-database](https://github.com/cedya77/anime-offline-database) supplies the AniList, AniDB and MyAnimeList ids, the type and the episode count.
-- [Anime-Lists](https://github.com/Anime-Lists/anime-lists) supplies the TVDB, TMDB and IMDb ids, the seasons and offsets, and the mapping list that places specials and films.
+animap is built for tools beside Sonarr and Radarr that need the id and season those apps use, such as a SeaDex watcher or a list sync.
 
-It does not look ids up on TMDB or anywhere else. Every value comes from those two sources or from the overlay below.
+- Records carry the TVDB and TMDB season, the episode offset and a per-episode mapping list for specials and films.
+- The file is rebuilt every 3 hours and released only when its version, attribution or records change.
+- A build is not released when a count drops by over 10% or two entries newly claim the same episode.
+- Each correction to Anime-Lists is proven against AniDB, TVDB and TMDB, and links its Anime-Lists pull request once one is filed.
+- Every [SeaDex](https://releases.moe) title is checked daily for a complete mapping.
 
-## Downloading it
+Every value comes from anime-offline-database, Anime-Lists or animap's corrections, never from another site.
 
-The newest release is always at this address:
+Consider [Fribb/anime-lists](https://github.com/Fribb/anime-lists) if you also need Kitsu or Anime-Planet ids. Consider [arm-server](https://github.com/BeeeQueue/arm-server) if you want lookups through an HTTP API.
 
-```text
-https://github.com/cplieger/animap/releases/latest/download/animap.json
+## Install
+
+```sh
+curl -fLO https://github.com/cplieger/animap/releases/latest/download/animap.json
 ```
 
-The file is about 2.3 MB. Each release also carries `animap.json.sha256` and `animap.json.sigstore.json`, a keyless [cosign](https://docs.sigstore.dev/) signature made by this repository's publish workflow. To check a download:
+## Usage
+
+The records sit in one `records` array, and each leaves out the fields it has no value for. This is the record for AniList id 1:
+
+```json
+{
+  "anilist_id": 1,
+  "anidb_id": 23,
+  "mal_id": 1,
+  "type": "TV",
+  "episodes": 26,
+  "tvdb_id": 76885,
+  "tvdb_season": 1,
+  "tmdb_tv_id": 30991,
+  "tmdb_season": 1,
+  "mapping_list": [
+    { "anidb_season": 0, "tvdb_season": 0, "start": 1, "end": 3, "offset": 1, "episodes": [[4]] }
+  ]
+}
+```
+
+Its regular episodes are on TVDB season 1 and TMDB season 1. Its specials follow the mapping list. AniDB specials 1 to 3 are TVDB specials 2 to 4, an offset of 1, and AniDB special 4 has no TVDB episode. Find a record with `jq`:
+
+```sh
+jq '.records[] | select(.anilist_id == 1)' animap.json
+```
+
+Records are sorted by `anilist_id`. Records with an AniDB id and no AniList id come last. An AniList id with no AniDB id still has a record with its type, episode count and MyAnimeList id. Read `version` first. It changes only when the format breaks.
+
+Each release also carries `animap.json.sha256` and `animap.json.sigstore.json`, a keyless [cosign](https://docs.sigstore.dev/) signature made by this repository's publish workflow. To check a download:
 
 ```sh
 sha256sum -c animap.json.sha256
@@ -30,38 +64,7 @@ cosign verify-blob animap.json --bundle animap.json.sigstore.json \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
-The format is described in [docs/schema.md](docs/schema.md), with a JSON Schema in [docs/animap.schema.json](docs/animap.schema.json). Each record leaves out the fields it has no value for. Read `version` first. It changes only when the format breaks.
-
-## How often it changes
-
-A workflow checks both sources every 3 hours. It builds a new file and compares a hash of its records with the latest release, and it publishes only when they differ. Releases are tagged with the date, such as `v2026.10.05`, with the time added for a second release that day.
-
-The anime-offline-database release is pinned in `.github/workflows/publish.yaml`. Renovate proposes a bump when a new release appears, about once a week, and the merge publishes. Anime-Lists has no releases, so each run reads its newest commit.
-
-To avoid downloading the file when nothing changed, send the `ETag` from your last download back as `If-None-Match`, or compare the release tag first.
-
-A build stops before publishing when one of these checks fails, and the previous release stays the latest:
-
-- Any of five counts falls below 90% of the latest release. The five are records, AniList ids with an AniDB id, AniDB ids with a TVDB id, records with a TMDB id, and records with a mapping list.
-- Two Anime-Lists nodes on one TVDB series claim the same TVDB or TMDB episode. Collisions Anime-Lists already had when animap started are recorded in `checks/collision-baseline.json` and do not stop a build, except on a series the overlay touches.
-- An Anime-Lists node on a TVDB series it shares has no episode count, so the check cannot place its episodes. The same baseline records the ones Anime-Lists had when animap started. A count proven from AniDB's episode list can go in `checks/counts.json`, and the check then places that node's episodes.
-- An input is larger than its bound, does not parse, or does not match its published SHA-256.
-
-## The overlay and the watch set
-
-The overlay in `overlay/` holds corrections to Anime-Lists, one file per entry. Each is proven against AniDB's episode list, TVDB's official episode order and TMDB, and each is also proposed to Anime-Lists. A daily check opens an issue when Anime-Lists changes the node it patches, when the fix lands upstream and the entry can go, or when TVDB's episode order changes under it. It also opens one when anime-offline-database starts to list an Anime-Lists node that `checks/counts.json` counts, so the row can go once the database counts it. [docs/overlay.md](docs/overlay.md) explains the format and the bar an entry must meet.
-
-Some specials are listed on AniDB as episodes of their main series. A file in `overlay/special-of-parent/` maps such an AniList entry onto the main series' specials, so it gets a TVDB episode too.
-
-The watch set is a list of AniList ids that animap checks every day for complete mappings. It holds every title on [SeaDex](https://releases.moe). A new watched special or film that does not map fully to a TVDB episode or a TMDB film gets an issue. The gap is then fixed with an overlay entry and the same change goes to Anime-Lists. Gaps that no source can fix are listed in `checks/unmappable.json` and in one pinned issue. [docs/watch.md](docs/watch.md) defines what "fully mapped" means for each type.
-
-## Reporting a bad mapping
-
-Open an issue with the AniList or AniDB id, what the file says, and what it should say, with links to the AniDB, TVDB or TMDB pages that show it. A pull request adding an overlay entry is also welcome. Most mappings come from Anime-Lists, so a fix there helps everyone who uses it.
-
-## Building it locally
-
-From the repository root, with Go, `curl`, `jq` and an authenticated `gh` CLI:
+To build the file yourself, run this from the repository root with Go, `curl`, `jq` and an authenticated `gh` CLI:
 
 ```sh
 AOD_VERSION=$(sed -n 's/^  AOD_VERSION: //p' .github/workflows/publish.yaml) DRY_RUN=1 bash scripts/publish.sh
@@ -69,11 +72,52 @@ AOD_VERSION=$(sed -n 's/^  AOD_VERSION: //p' .github/workflows/publish.yaml) DRY
 
 `DRY_RUN=1` builds and checks the file and writes `./animap.json` without creating a release. `gh` is used only to read release and commit details.
 
+## API
+
+The format is described in [docs/schema.md](docs/schema.md), with a JSON Schema in [docs/animap.schema.json](docs/animap.schema.json).
+
+- Top level: `version`, `generated_at`, `sources` with the exact inputs, `attribution` with the licence notice, and `records`.
+- Ids: `anilist_id`, `anidb_id`, `anidb_parent`, `mal_id`, `tvdb_id`, `tmdb_tv_id`, `tmdb_movie_ids` and `imdb_ids`.
+- Placement: `type`, `episodes`, `tvdb_season`, `tvdb_absolute`, `tvdb_episode_offset`, `tmdb_season` and `tmdb_episode_offset`.
+- Per-episode rows: `mapping_list`, where each row is a range with an offset or a list of single episodes.
+
+Four fields are present or absent rather than zero by default, because `0` is a real value for each: `tvdb_season`, `tvdb_episode_offset`, `tmdb_season` and `tmdb_episode_offset`. Test them for presence.
+
+## How often it changes
+
+A workflow builds a new file every 3 hours. It publishes the file only when a hash of its version, attribution and records differs from the latest release. Release tags are dates, such as `v2026.10.05`, with the time added for a second release that day. Each release's notes list the five counts below.
+
+The anime-offline-database release is pinned in `.github/workflows/publish.yaml`. Renovate proposes each new weekly release, and the merge publishes. Anime-Lists has no releases, so each run reads its newest commit.
+
+To skip an unchanged download, send your last `ETag` as `If-None-Match`, or compare the release tag.
+
+A build stops before publishing when one of these checks fails, and the previous release stays the latest:
+
+- Any of five counts falls below 90% of the latest release, unless the maintainer accepts the drop on a manual run. The five are records, AniList ids with an AniDB id, AniDB ids with a TVDB id, records with a TMDB id, and records with a mapping list.
+- Two Anime-Lists entries on one TVDB series claim the same TVDB or TMDB episode.
+- An Anime-Lists entry on a shared TVDB series has no episode count in any source, so its episodes cannot be placed.
+- An input is larger than its limit, does not parse, or does not match its published SHA-256.
+
+Anime-Lists already had some of these collisions and entries with no episode count when animap started. `checks/collision-baseline.json` lists them, and they stop a build only on a series animap corrects, as [docs/overlay.md](docs/overlay.md#collisions-on-other-series) explains.
+
 ## Data sources and licence
 
 `animap.json` is made available under the [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/), and its contents under the [Database Contents License (DbCL) 1.0](https://opendatacommons.org/licenses/dbcl/1-0/). Both texts are in [LICENSE-DATA](LICENSE-DATA), and the file carries the same notice in its `attribution` member. If you publish a database built from it, the ODbL asks you to keep that notice and to share it under the same licence.
 
-It contains information from [anime-offline-database](https://github.com/cedya77/anime-offline-database), made available under the ODbL 1.0 and the DbCL 1.0, and from [Anime-Lists](https://github.com/Anime-Lists/anime-lists). The episode orders in overlay fingerprints are read from TheTVDB through Sonarr's metadata service. The file holds no AniDB titles or descriptions, only AniDB ids and episode numbers. [docs/sources.md](docs/sources.md) covers each source and its licence.
+It contains information from [anime-offline-database](https://github.com/cedya77/anime-offline-database), made available under the ODbL 1.0 and the DbCL 1.0, and from [Anime-Lists](https://github.com/Anime-Lists/anime-lists). Anime-Lists publishes no licence. anime-offline-database supplies the AniList, AniDB and MyAnimeList ids, the type and the episode count. Anime-Lists supplies the TVDB, TMDB and IMDb ids, the seasons and offsets, and the mapping lists. The way the two are joined follows [Fribb/anime-lists-generator](https://github.com/Fribb/anime-lists-generator), where anime-offline-database gives the identity fields and Anime-Lists fills the rest.
+
+To notice when TheTVDB changes an episode order, each correction on a TVDB series stores a fingerprint of that order, read through the public metadata service Sonarr uses. The file holds no AniDB titles or descriptions, only AniDB ids and episode numbers. [docs/sources.md](docs/sources.md) covers each source and its licence.
+
+## Documentation
+
+- [The animap.json schema](docs/schema.md) lists every field, which records exist, and how to read the file in Go.
+- [The overlay](docs/overlay.md) is animap's set of corrections to Anime-Lists, with the bar each one meets and how to add one.
+- [The watch set](docs/watch.md) defines what "fully mapped" means for each type, and how a gap becomes an issue.
+- [Data sources and licences](docs/sources.md) covers each source and the licence that applies.
+
+## Contributing
+
+Issues and pull requests are welcome. To report a bad mapping, give the AniList or AniDB id, what the file says and should say, and the AniDB, TVDB or TMDB page that shows it. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Disclaimer
 

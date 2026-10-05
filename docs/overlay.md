@@ -19,13 +19,15 @@ An entry that rests on a guess, a precedent that does not match exactly, or a so
 | --- | --- |
 | `anidb_id` | The Anime-Lists node it patches. It must match the file name. |
 | `anilist_ids`, `title` | For reading and for issue titles only. |
-| `set` | The patched attributes: `tvdbid`, `defaulttvdbseason`, `episodeoffset`, `tmdbtv`, `tmdbseason`, `tmdboffset`, `tmdbid`, `imdbid`, as strings in Anime-Lists syntax. `mapping_list` replaces the whole mapping list with rows in the published row shape, and `[]` deletes it. Attributes not named stay as Anime-Lists has them. |
+| `set` | The patched attributes, as Anime-Lists strings. `mapping_list` replaces the whole list with rows in the published shape, and `[]` deletes it. Unnamed attributes stay. |
 | `create`, `name` | Set `create` to `true`, with a `name`, to add an entry Anime-Lists does not have. |
 | `justification` | One paragraph naming the episodes and dates that prove the change. |
 | `evidence` | Links to the AniDB, TVDB, TMDB, AniList or SeaDex pages behind it, https only. |
 | `upstream` | The Anime-Lists pull request or issue carrying the same change, or `TODO-PR` until one is filed. Most entries came from [Anime-Lists pull request 629](https://github.com/Anime-Lists/anime-lists/pull/629). |
 | `episodes`, `siblings` | The AniDB episode counts and specials of this entry and of every other entry on the same TVDB series. The collision check reads them. |
 | `captured` | The fingerprints the drift check compares. `animap overlay capture` writes it. |
+
+`set` may name `tvdbid`, `defaulttvdbseason`, `episodeoffset`, `tmdbtv`, `tmdbseason`, `tmdboffset`, `tmdbid`, `imdbid` and `mapping_list`. An attribute it does not name stays as Anime-Lists has it.
 
 ## Fingerprints and drift
 
@@ -48,7 +50,7 @@ An entry stays applied while its issue is open. The issue closes on its own once
 
 ## Specials filed under another anime
 
-AniDB files some short specials as episodes of their main series, for example `S1` of that series, rather than as an anime of their own. anime-offline-database then has no AniDB id for the AniList entry, and no Anime-Lists node reaches it. A file in `overlay/special-of-parent/`, named for the AniList id, bridges the gap:
+AniDB files some short specials as episodes of their main series, for example `S1` of that series, rather than as an anime of their own. For such an AniList entry, anime-offline-database has no AniDB id, and no Anime-Lists node reaches it. A file in `overlay/special-of-parent/` bridges the gap. It is named for the AniList id and holds these fields:
 
 | Field | Meaning |
 | --- | --- |
@@ -91,9 +93,11 @@ The build skips a bridge whose AniList entry gained an AniDB id of its own, or w
 
 ## Collisions on other series
 
-Anime-Lists itself has collisions on series no overlay entry touches. `checks/collision-baseline.json` records the ones it had when animap started, by series, target episode and the entries claiming it. A build publishes with those and stops on any other one. The file only shrinks: a pull request that adds to it fails a check. Once a collision is fixed upstream, `go run ./cmd/animap baseline prune` removes it. An overlay entry on a series with a recorded collision makes that collision block, so the series is fixed first.
+Anime-Lists itself has collisions on series no overlay entry touches. `checks/collision-baseline.json` records the ones it had when animap started, by series, target episode and the entries claiming it. A build publishes with those and stops on any other one. The file only shrinks, and a pull request that adds to it fails a check. Once a collision is fixed upstream, `go run ./cmd/animap baseline prune` removes it. An overlay entry on a series with a recorded collision makes that collision block, so the series is fixed first.
 
-The check needs the regular episode count of every node on a series it checks. It takes the count from an overlay entry first, then from `checks/counts.json`, then from anime-offline-database. A node with none of the three cannot be checked, because none of its episodes can be placed. The baseline records the nodes like that which Anime-Lists had when animap started, and a build stops on any other one. On a series an entry touches, a build stops on every such node. Add the node to the entry's `siblings` with its AniDB count, or add a row to `checks/counts.json`, to fix it.
+The check needs the regular episode count of every node on a series it checks. It takes the count from an overlay entry first, then from `checks/counts.json`, then from anime-offline-database. A node with none of the three cannot be checked, because none of its episodes can be placed.
+
+The baseline records the nodes like that which Anime-Lists had when animap started, and a build stops on any other one. On a series an entry touches, a build stops on every such node. Add the node to the entry's `siblings` with its AniDB count, or add a row to `checks/counts.json`, to fix it.
 
 On a series an entry touches, the check also needs the AniDB specials of every node. A special with no row in a node's mapping list lands on season 0 episode `S<n>`. A build stops when a node's specials were never read from AniDB and another node claims a season 0 episode they could land on. Add the node to the entry's `siblings` with its AniDB specials to fix it.
 
