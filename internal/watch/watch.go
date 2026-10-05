@@ -277,9 +277,10 @@ func LoadConfig(path string) (*Config, error) {
 	return &c, nil
 }
 
-// EntryLink is the watch set's page for one id.
-func (c *Config) EntryLink(id int) string {
-	return strings.ReplaceAll(c.EntryURL, "{id}", strconv.Itoa(id))
+// EntryLink is the watch set's page for one id, from a Config.EntryURL
+// template.
+func EntryLink(template string, id int) string {
+	return strings.ReplaceAll(template, "{id}", strconv.Itoa(id))
 }
 
 // Getter is the fetch the pager needs; source.Client satisfies it.

@@ -83,12 +83,40 @@ if [ "$(jq -r .changed "$WORK/stats.json")" != "true" ]; then
 fi
 
 SHA="${GITHUB_SHA:?set GITHUB_SHA to the commit this file was built from}"
-tag_at() { gh api "repos/${REPO}/git/ref/tags/$1" --jq .object.sha 2>/dev/null || true; }
+
+# Print the jq filter $2 over GitHub API resource $1, or nothing when the
+# resource does not exist. gh prints an error response's body on stdout, so
+# the status is read from its stderr; any failure but a 404 aborts the run.
+gh_get() {
+  local out err rc=0
+  err=$(mktemp)
+  out=$(gh api "$1" --jq "$2" 2>"$err") || rc=$?
+  if [ "$rc" -eq 0 ]; then
+    rm -f "$err"
+    printf '%s\n' "$out"
+    return 0
+  fi
+  if grep -Eq 'HTTP 404([^0-9]|$)' "$err"; then
+    rm -f "$err"
+    return 0
+  fi
+  cat "$err" >&2
+  rm -f "$err"
+  echo "publish: ERROR reading ${1} from the GitHub API failed (gh exit ${rc})" >&2
+  exit 1
+}
+tag_at() { gh_get "repos/${REPO}/git/ref/tags/$1" .object.sha; }
+
+# Each lookup is its own assignment so a failed one stops the run: inside a
+# test such as [ -n "$(...)" ] its exit status is dropped and it reads as absent.
 TAG="v$(date -u +%Y.%m.%d)"
 at=$(tag_at "$TAG")
-if [ -n "$at" ] && { [ "$at" != "$SHA" ] || gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; }; then
-  TAG="${TAG}.$(date -u +%H%M)"
-  at=$(tag_at "$TAG")
+if [ -n "$at" ]; then
+  released=$(gh_get "repos/${REPO}/releases/tags/${TAG}" .id)
+  if [ "$at" != "$SHA" ] || [ -n "$released" ]; then
+    TAG="${TAG}.$(date -u +%H%M)"
+    at=$(tag_at "$TAG")
+  fi
 fi
 cd "$WORK"
 sha256sum animap.json >animap.json.sha256
@@ -122,7 +150,7 @@ EOF
 if [ -z "$at" ]; then
   if ! gh api "repos/${REPO}/git/refs" -f ref="refs/tags/${TAG}" -f sha="$SHA" >/dev/null 2>tagerr; then
     cat tagerr >&2
-    head=$(gh api "repos/${REPO}/git/ref/heads/main" --jq .object.sha 2>/dev/null || true)
+    head=$(gh_get "repos/${REPO}/git/ref/heads/main" .object.sha)
     if [ -n "$head" ] && [ "$head" != "$SHA" ]; then
       echo "publish: main moved from ${SHA} to ${head} and ${TAG} could not be tagged here; the run on the newer commit publishes"
       exit 0

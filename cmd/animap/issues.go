@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"maps"
 	"slices"
-	"strconv"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -234,7 +233,7 @@ func watchWant(e *watch.Entry, entryURL string) issues.Want {
 	fmt.Fprintf(&b, "AniList %d (%s) is watched and not fully mapped: `%s`.\n\n", e.AniListID, typeLabel(e.Type), strings.Join(kinds, "`, `"))
 	b.WriteString("docs/watch.md defines each gap. Fix it with an overlay entry that meets the accuracy bar, and send the same change to Anime-Lists.\n\n")
 	fmt.Fprintf(&b, "- AniList: https://anilist.co/anime/%d\n", e.AniListID)
-	fmt.Fprintf(&b, "- SeaDex: %s\n", strings.ReplaceAll(entryURL, "{id}", strconv.Itoa(e.AniListID)))
+	fmt.Fprintf(&b, "- SeaDex: %s\n", watch.EntryLink(entryURL, e.AniListID))
 	if e.AniDBID > 0 {
 		fmt.Fprintf(&b, "- AniDB: https://anidb.net/anime/%d\n", e.AniDBID)
 	}

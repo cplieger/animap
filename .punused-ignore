@@ -1,0 +1,33 @@
+# Adjudicated punused findings. CI runs punused per directory and matches each
+# finding line against the literal substrings below: an unmatched finding fails
+# the build, an unmatched entry warns as stale. Entries name the symbol, never
+# file:line:col, and the "#" lines above each entry carry its reason.
+
+# punused drives gopls, whose reference view cannot see a method that
+# encoding/json or encoding/xml calls through reflection, nor a struct field
+# that only a decoder and an encoder touch. Every entry below is one of those.
+
+# Called by xml.Unmarshal(body, l) in animelists.Parse: the whole Anime-Lists
+# decode runs through it. Deleting it fails the cmd/animap build tests.
+method (*listXML).UnmarshalXML is unused
+
+# The compact [kind, number, air date] form of a bridge's
+# parent_anidb_specials, as committed under overlay/special-of-parent/. Decoded
+# by overlay.LoadBridges and readBridge, encoded by `animap overlay
+# capture-special` and overlay.SetHash. Deleting either fails TestLoadBridges
+# and TestRecaptureKeepsTheParentsAniDBSpecials.
+method (AniDBEpisode).MarshalJSON is unused
+method (*AniDBEpisode).UnmarshalJSON is unused
+
+# The compact [season, episode, absolute, air date] form of captured.tvdb
+# episodes in every committed overlay and bridge file. Decoded by
+# overlay.Decode, encoded by `animap overlay capture` and overlay.SetHash.
+# Deleting either fails TestEpisodeJSONRoundTrip and the cmd/animap build tests.
+method (Episode).MarshalJSON is unused
+method (*Episode).UnmarshalJSON is unused
+
+# The anilist_ids key of the overlay file format (docs/overlay.md), present in
+# every committed overlay/*.json. overlay.Decode reads with
+# DisallowUnknownFields, so without the field every entry fails to load, and
+# overlay.SetHash marshals it into the published sources.overlay.sha256.
+field AniListIDs is unused

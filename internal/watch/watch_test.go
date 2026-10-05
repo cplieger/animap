@@ -145,8 +145,8 @@ func TestLoadSeadexConfig(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if c.EntryLink(154587) != "https://releases.moe/154587" {
-		t.Errorf("EntryLink = %s", c.EntryLink(154587))
+	if got := EntryLink(c.EntryURL, 154587); got != "https://releases.moe/154587" {
+		t.Errorf("EntryLink = %s", got)
 	}
 	b, err := LoadBacklog("../../watch/backlog.json")
 	if err != nil || b.WatchSet != c.Name {
