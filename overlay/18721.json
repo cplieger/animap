@@ -1,10 +1,4 @@
 {
-  "siblings": {
-    "18019": {
-      "specials": null,
-      "regular": 13
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/18721",
     "tmdb": "https://www.themoviedb.org/tv/243140/season/1",
@@ -192,9 +186,5 @@
   "anilist_ids": [
     178729
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 13
-  },
   "anidb_id": 18721
 }

@@ -186,29 +186,12 @@ func driftWant(f *drift.Finding) issues.Want {
 		if f.After != nil {
 			writeEpisodes(&b, "After (now)", f.After)
 		}
-	case drift.CountInDatabase:
-		title = fmt.Sprintf("counts: AniDB %d now in anime-offline-database", id)
-		writeCountBody(&b, f)
 	}
 	if f.Title != "" {
 		fmt.Fprintf(&b, "\nEntry: %s", issues.Untrusted(f.Title))
 	}
 	fmt.Fprintf(&b, "\nAniDB: https://anidb.net/anime/%d\n", id)
 	return issues.Want{Key: f.Key, Title: title, Body: b.String(), Labels: []string{labelAnimap, "drift"}}
-}
-
-func writeCountBody(b *strings.Builder, f *drift.Finding) {
-	fmt.Fprintf(b, "anime-offline-database now carries AniDB %d, which `%s` counts at %d regular episodes.", f.AniDB, f.Path, f.Counted)
-	switch f.DatabaseEpisodes {
-	case 0:
-		b.WriteString(" The database gives it no episode count yet, so keep the row: without it the collision check cannot place the node. This issue updates once the database counts it.\n")
-		return
-	case f.Counted:
-		fmt.Fprintf(b, " The database counts %d too, so the two agree.\n\n", f.DatabaseEpisodes)
-	default:
-		fmt.Fprintf(b, " The database counts %d, so the two disagree. Check AniDB's episode list before removing the row, because the collision check then uses the database's count.\n\n", f.DatabaseEpisodes)
-	}
-	fmt.Fprintf(b, "Remove the row from `%s`. This issue closes on the first run after.\n", f.Path)
 }
 
 func writeEpisodes(b *strings.Builder, heading string, eps []skyhook.Episode) {

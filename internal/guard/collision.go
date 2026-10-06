@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/skyhook"
@@ -34,18 +35,18 @@ type Collision struct {
 	Series int      `json:"series"`
 }
 
-// Unresolved is a node on a touched series whose AniDB specials were never
-// read, while another node claims a season-0 episode it could default onto.
+// Unresolved is a node on a touched series whose specials the AniDB mirror
+// does not list, while another node claims a season-0 episode it could
+// default onto.
 type Unresolved struct {
 	Episodes []int `json:"episodes"`
 	Series   int   `json:"series"`
 	AniDB    int   `json:"anidb"`
 }
 
-// Uncounted is a node on a checked series whose regular episode count no
-// overlay entry, checks/counts.json row or anime-offline-database entry
-// records, so none of its regular episodes can be placed and a collision
-// through them would go unseen.
+// Uncounted is a node on a checked series that anidb.Facts.Count has no
+// regular episode count for, so none of its regular episodes can be placed
+// and a collision through them would go unseen.
 type Uncounted struct {
 	Series int `json:"series"`
 	AniDB  int `json:"anidb"`
@@ -54,8 +55,9 @@ type Uncounted struct {
 // CollisionReport is the result over every TVDB series of the patched list.
 // Blocking, Unresolved and Uncounted are on series an overlay entry lands
 // on; Upstream and UpstreamUncounted on every other checked series, which
-// predate the overlay. Unresolved is only known on touched series, because
-// only there are AniDB specials read. A caller must treat every Unresolved
+// predate the overlay. Specials are placed, and Unresolved known, only on
+// touched series, the ones whose mapping the overlay vouches for. A caller
+// must treat every Unresolved
 // and Uncounted as blocking, and check the upstream halves against a
 // baseline.
 type CollisionReport struct {
@@ -70,22 +72,20 @@ type CollisionReport struct {
 
 // Collisions runs the series-wide check over every series two or more nodes
 // share, and every series an entry or a bridge's parent lands on. nodes is
-// the patched list, episodes the regular count per AniDB id from
-// checks/counts.json and the offline database (the fallback when an entry
-// did not record a node's count).
-func Collisions(nodes map[int]*animelists.Node, entries []overlay.Entry, bridges []overlay.Bridge, episodes map[int]int) CollisionReport {
+// the patched list; every regular count and special comes from facts.
+func Collisions(nodes map[int]*animelists.Node, entries []overlay.Entry, bridges []overlay.Bridge, facts *anidb.Facts) CollisionReport {
 	var rep CollisionReport
 	onSeries, byTMDB := indexNodes(nodes)
 	bySeries, byBridge := touched(nodes, entries), bridged(nodes, bridges)
 	seen := map[string]bool{}
 	for _, series := range slices.Sorted(maps.Keys(onSeries)) {
 		sibs := onSeries[series]
-		hit := bySeries[series] != nil || byBridge[series] != nil
+		hit := bySeries[series] != nil || byBridge[series]
 		if len(sibs) < 2 && !hit {
 			continue
 		}
 		rep.Checked++
-		c := newSeriesCheck(series, bySeries[series], byBridge[series], nodes, episodes)
+		c := newSeriesCheck(series, sibs, hit, bySeries[series], nodes, facts)
 		tvdb, found, uncounted := c.check(sibs, byTMDB)
 		dst, unc := &rep.Upstream, &rep.UpstreamUncounted
 		if hit {
@@ -136,13 +136,12 @@ func touched(nodes map[int]*animelists.Node, entries []overlay.Entry) map[int][]
 	return out
 }
 
-func bridged(nodes map[int]*animelists.Node, bridges []overlay.Bridge) map[int][]*overlay.Bridge {
-	out := map[int][]*overlay.Bridge{}
+func bridged(nodes map[int]*animelists.Node, bridges []overlay.Bridge) map[int]bool {
+	out := map[int]bool{}
 	for i := range bridges {
-		b := &bridges[i]
-		if p := nodes[b.ParentAniDBID]; p != nil {
+		if p := nodes[bridges[i].ParentAniDBID]; p != nil {
 			if s := positiveAttr(p, "tvdbid"); s > 0 {
-				out[s] = append(out[s], b)
+				out[s] = true
 			}
 		}
 	}
@@ -194,40 +193,40 @@ const (
 
 type seriesCheck struct {
 	nodes    map[int]*animelists.Node
-	episodes map[int]int
-	regular  map[int]int
-	specials map[int][]int
-	known    map[int]bool
+	facts    *anidb.Facts
+	onSeries map[int]bool
 	patched  map[int]bool
 	absolute map[int]skyhook.Episode
 	series   int
+	touched  bool
 }
 
-func newSeriesCheck(series int, entries []*overlay.Entry, bridges []*overlay.Bridge, nodes map[int]*animelists.Node, episodes map[int]int) *seriesCheck {
+func newSeriesCheck(series int, sibs []int, touched bool, entries []*overlay.Entry, nodes map[int]*animelists.Node, facts *anidb.Facts) *seriesCheck {
 	c := &seriesCheck{
-		series: series, nodes: nodes, episodes: episodes,
-		regular: map[int]int{}, specials: map[int][]int{}, known: map[int]bool{},
-		patched: map[int]bool{}, absolute: map[int]skyhook.Episode{},
+		series: series, nodes: nodes, facts: facts, touched: touched,
+		onSeries: map[int]bool{}, patched: map[int]bool{}, absolute: map[int]skyhook.Episode{},
+	}
+	for _, id := range sibs {
+		c.onSeries[id] = true
 	}
 	for _, e := range entries {
 		c.patched[e.AniDBID] = true
-	}
-	for _, e := range entries {
-		c.regular[e.AniDBID] = e.Episodes.Regular
-		c.specials[e.AniDBID] = e.Episodes.Specials
-		c.known[e.AniDBID] = true
-		c.addSiblings(e.Siblings)
 		c.addLayout(e.Captured.TVDB)
 	}
-	for _, b := range bridges {
-		if p := b.ParentAniDBID; !c.known[p] {
-			for _, ep := range b.ParentAniDBSpecials {
-				c.specials[p] = append(c.specials[p], ep.Number)
-			}
-			c.known[p] = true
-		}
-	}
 	return c
+}
+
+// specials are the special numbers AniDB lists for node id, read only for
+// the nodes of a touched series; known is false where they are not read.
+func (c *seriesCheck) specials(id int) (numbers []int, known bool) {
+	if !c.touched || !c.onSeries[id] {
+		return nil, false
+	}
+	a, ok := c.facts.Anime(id)
+	for _, e := range a.Specials {
+		numbers = append(numbers, e.Number)
+	}
+	return numbers, ok
 }
 
 // check returns the series' TVDB claims, its collisions on both sides, and
@@ -244,20 +243,6 @@ func (c *seriesCheck) check(sibs []int, byTMDB map[int][]int) (tvdb map[Target][
 	return tvdb, found, c.uncounted(claimants)
 }
 
-func (c *seriesCheck) addSiblings(sibs map[string]overlay.SiblingEpisodes) {
-	for k, s := range sibs {
-		id, err := strconv.Atoi(k)
-		if err != nil || c.patched[id] {
-			continue
-		}
-		c.regular[id] = s.Regular
-		if s.Specials != nil {
-			c.specials[id] = *s.Specials
-			c.known[id] = true
-		}
-	}
-}
-
 // addLayout indexes a captured layout by absolute number, which is how an
 // absolute-numbered node's episodes resolve to a season and episode.
 func (c *seriesCheck) addLayout(t *overlay.CapturedTVDB) {
@@ -269,13 +254,6 @@ func (c *seriesCheck) addLayout(t *overlay.CapturedTVDB) {
 			c.absolute[ep.Absolute] = ep
 		}
 	}
-}
-
-func (c *seriesCheck) count(id int) int {
-	if n, ok := c.regular[id]; ok {
-		return n
-	}
-	return c.episodes[id]
 }
 
 func (c *seriesCheck) sideClaims(ids []int, sd side) map[Target][]claim {
@@ -338,7 +316,7 @@ func (c *seriesCheck) claims(id int, sd side) map[Target]string {
 	rows := n.SideRows(seasonAttr)
 	off, _ := strconv.Atoi(n.Attr(offAttr))
 	dflt := n.Attr(dfltAttr)
-	for k := 1; k <= c.count(id); k++ {
+	for k := 1; k <= c.facts.Count(id); k++ {
 		label := fmt.Sprintf("%d ep%d", id, k)
 		if covered, targets := animelists.Targets(rows, 1, k); covered {
 			for _, t := range targets {
@@ -381,7 +359,8 @@ func (c *seriesCheck) specialClaims(cl claimer, id int, rows []animelists.SideRo
 		}
 	}
 	covered := coveredSpecials(rows)
-	for _, k := range c.specials[id] {
+	numbers, _ := c.specials(id)
+	for _, k := range numbers {
 		if !covered[k] {
 			cl.add(0, k, fmt.Sprintf("%d S%d (default)", id, k))
 		}
@@ -403,7 +382,7 @@ func coveredSpecials(rows []animelists.SideRow) map[int]bool {
 func (c *seriesCheck) unresolved(sibs []int, tvdb map[Target][]claim) []Unresolved {
 	var out []Unresolved
 	for _, id := range sibs {
-		if c.known[id] {
+		if _, known := c.specials(id); known {
 			continue
 		}
 		if hit := othersSeasonZero(id, coveredSpecials(c.nodes[id].SideRows("tvdbseason")), tvdb); len(hit) > 0 {
@@ -416,7 +395,7 @@ func (c *seriesCheck) unresolved(sibs []int, tvdb map[Target][]claim) []Unresolv
 func (c *seriesCheck) uncounted(sibs []int) []Uncounted {
 	var out []Uncounted
 	for _, id := range sibs {
-		if c.count(id) <= 0 {
+		if c.facts.Count(id) <= 0 {
 			out = append(out, Uncounted{Series: c.series, AniDB: id})
 		}
 	}

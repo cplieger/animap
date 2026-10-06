@@ -9,7 +9,7 @@ import (
 )
 
 func TestApplySpecials(t *testing.T) {
-	parent := &animelists.Node{AniDBID: 100, Attrs: map[string]string{"tvdbid": "500", "defaulttvdbseason": "1"}, Rows: []animelists.Row{
+	parent := &animelists.Node{AniDBID: 100, Attrs: map[string]string{"tvdbid": "500", "defaulttvdbseason": "1", "tmdbtv": "600", "tmdbseason": "1"}, Rows: []animelists.Row{
 		{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-4;2-5;3-0;"},
 		{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "1"}, Text: ";6-13;"},
 	}}
@@ -48,6 +48,9 @@ func TestApplySpecials(t *testing.T) {
 	if r.AniDBParent == nil || r.AniDBParent.AniDBID != 100 || r.TVDBID != 500 || r.TVDBSeason == nil || *r.TVDBSeason != 0 ||
 		len(r.MappingList) != 1 || !slices.EqualFunc(r.MappingList[0].Episodes, [][]int{{1, 4}, {2, 5}}, slices.Equal) {
 		t.Errorf("bridged record = %+v, want parent 100, TVDB 500 season 0, row [[1 4] [2 5]]", r)
+	}
+	if r.TMDBTVID != 0 || r.TMDBSeason != nil || r.MappingList[0].TMDBSeason != nil {
+		t.Errorf("bridged record = %+v, want no TMDB value although the parent maps TMDB 600", r)
 	}
 	if s := records[5]; s.TVDBSeason == nil || *s.TVDBSeason != 1 || !slices.Equal(s.MappingList[0].Episodes[0], []int{1, 13}) {
 		t.Errorf("a special a row places on season 1 = %+v, want season 1, [1 13]", s)

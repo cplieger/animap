@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/counts"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/skyhook"
 )
@@ -95,9 +94,8 @@ func TestDecideCreatedEntry(t *testing.T) {
 }
 
 func bridge() *overlay.Bridge {
-	sp := []overlay.AniDBEpisode{{Kind: overlay.AniDBSpecial, Number: 1, AirDate: "2005-04-21"}}
 	return &overlay.Bridge{
-		AniListID: 376, ParentAniDBID: 544, Specials: []int{1}, Title: "OVA", ParentAniDBSpecials: sp,
+		AniListID: 376, ParentAniDBID: 544, Specials: []int{1}, Title: "OVA",
 		Captured: overlay.BridgeCaptured{
 			NodeSHA256: upstream().Hash(),
 			TVDB:       &overlay.CapturedTVDB{Series: 91391, Seasons: []int{2}, Episodes: layout, SHA256: skyhook.Hash(layout)},
@@ -139,36 +137,6 @@ func TestDecideSpecial(t *testing.T) {
 				if x.Path != "overlay/special-of-parent/376.json" || x.AniList != 376 {
 					t.Errorf("finding %+v does not name the bridge file", x)
 				}
-			}
-		})
-	}
-}
-
-func TestDecideCount(t *testing.T) {
-	row := &counts.Row{AniDBID: 17281, RegularEpisodes: 2}
-	carried := func(n int) []Finding {
-		return []Finding{{Key: "drift:counts:17281", Cause: CountInDatabase, AniDB: 17281, Path: "checks/counts.json", Counted: 2, DatabaseEpisodes: n}}
-	}
-	key := []string{"drift:counts:17281"}
-	for _, tc := range []struct {
-		name      string
-		obs       Observation
-		want      []Finding
-		evaluated []string
-	}{
-		{"no database read", Observation{InDatabase: true, DatabaseEpisodes: 2}, nil, nil},
-		{"the database lacks it", Observation{DatabaseRead: true}, nil, key},
-		{"the database carries it with no count", Observation{DatabaseRead: true, InDatabase: true}, carried(0), key},
-		{"the database carries it, counts agree", Observation{DatabaseRead: true, InDatabase: true, DatabaseEpisodes: 2}, carried(2), key},
-		{"the database carries it, counts differ", Observation{DatabaseRead: true, InDatabase: true, DatabaseEpisodes: 3}, carried(3), key},
-	} {
-		t.Run(tc.name, func(t *testing.T) {
-			f, ev := Decide(OfRow(row), &tc.obs)
-			if !reflect.DeepEqual(f, tc.want) {
-				t.Errorf("Decide(row, %+v) findings = %+v, want %+v", tc.obs, f, tc.want)
-			}
-			if !slices.Equal(ev, tc.evaluated) {
-				t.Errorf("Decide(row, %+v) evaluated = %v, want %v", tc.obs, ev, tc.evaluated)
 			}
 		})
 	}

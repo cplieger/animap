@@ -1,14 +1,15 @@
 package guard
 
 import (
-	"bytes"
 	"cmp"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"os"
+	"regexp"
 	"slices"
 	"strings"
+
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // ErrBaselineGrew reports a baseline entry the previous baseline did not
@@ -19,11 +20,14 @@ var ErrBaselineGrew = errors.New("guard: the collision baseline gained an entry"
 const BaselineVersion = 1
 
 // Baseline is the tracked set of collisions, and of nodes with no regular
-// episode count, on series no overlay entry touches, recorded once at
-// bootstrap. An item in it is reported and does not block; every other
-// one blocks.
+// episode count, on series no overlay entry touches. An item in it is
+// reported and does not block; every other one blocks. Basis names the
+// episode-count precedence that measured it: a collision exists only
+// relative to the counts that placed it, so a baseline is re-derived when
+// the basis changes and only shrinks while it does not.
 type Baseline struct {
 	AnimeListsCommit string          `json:"anime_lists_commit"`
+	Basis            string          `json:"basis"`
 	Collisions       []BaselineEntry `json:"collisions"`
 	Uncounted        []Uncounted     `json:"uncounted"`
 	Version          int             `json:"version"`
@@ -53,7 +57,10 @@ func (e BaselineEntry) covers(c Collision) bool {
 	return true
 }
 
+var basisRE = regexp.MustCompile(`^[a-z0-9-]+(/[a-z0-9-]+)*$`)
+
 // LoadBaseline reads a baseline strictly; a missing file is an empty one.
+// An empty basis is a file written before the field existed.
 func LoadBaseline(path string) (*Baseline, error) {
 	body, err := os.ReadFile(path)
 	if errors.Is(err, os.ErrNotExist) {
@@ -62,21 +69,22 @@ func LoadBaseline(path string) (*Baseline, error) {
 	if err != nil {
 		return nil, err
 	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
 	var b Baseline
-	if err := dec.Decode(&b); err != nil {
+	if err := strictjson.Decode(body, &b); err != nil {
 		return nil, fmt.Errorf("guard: baseline %s: %w", path, err)
 	}
 	if b.Version != BaselineVersion {
 		return nil, fmt.Errorf("guard: baseline %s: version %d, want %d", path, b.Version, BaselineVersion)
 	}
+	if b.Basis != "" && !basisRE.MatchString(b.Basis) {
+		return nil, fmt.Errorf("guard: baseline %s: basis %q is not lowercase words joined by - and /", path, b.Basis)
+	}
 	return &b, nil
 }
 
-// NewBaseline records cols and unc, sorted by series.
-func NewBaseline(cols []Collision, unc []Uncounted, commit string) *Baseline {
-	b := &Baseline{Version: BaselineVersion, AnimeListsCommit: commit, Uncounted: slices.Clone(unc)}
+// NewBaseline records cols and unc, measured under basis, sorted by series.
+func NewBaseline(cols []Collision, unc []Uncounted, commit, basis string) *Baseline {
+	b := &Baseline{Version: BaselineVersion, AnimeListsCommit: commit, Basis: basis, Uncounted: slices.Clone(unc)}
 	for _, c := range cols {
 		b.Collisions = append(b.Collisions, BaselineEntry{Series: c.Series, Target: c.Target, Nodes: slices.Clone(c.Nodes)})
 	}
@@ -142,12 +150,16 @@ func (b *Baseline) SplitUncounted(upstream []Uncounted) (baselined, novel, stale
 func (b *Baseline) Prune(upstream []Collision, unc []Uncounted) *Baseline {
 	baselined, _, _ := b.Split(upstream)
 	counted, _, _ := b.SplitUncounted(unc)
-	return NewBaseline(baselined, counted, b.AnimeListsCommit)
+	return NewBaseline(baselined, counted, b.AnimeListsCommit, b.Basis)
 }
 
 // CheckShrink fails when head has an entry base does not, or names a
-// node base did not record for that entry.
+// node base did not record for that entry. A head measured under another
+// basis than base is a re-derivation, and any entry may differ.
 func CheckShrink(base, head *Baseline) error {
+	if base.Basis != head.Basis {
+		return nil
+	}
 	byKey := map[string]BaselineEntry{}
 	for _, e := range base.Collisions {
 		byKey[e.key()] = e

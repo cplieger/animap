@@ -5,10 +5,12 @@
     "tvdb": "https://thetvdb.com/series/cooking-papa/allseasons/absolute"
   },
   "set": {
-    "defaulttvdbseason": "a"
+    "defaulttvdbseason": "a",
+    "tmdbtv": "",
+    "tmdbseason": ""
   },
   "title": "Cooking Papa",
-  "justification": "TVDB has no S1: it splits the run by year (S1992 38, S1993 46, S1994 48, S1995 19) with absolute numbers 1-151 complete. AniDB 1-151 (1992-04-09 to 1995-05-25) = TVDB absolute 1-151, every air date the same except episode 54, one day apart. TMDB 261945 has one placeholder episode, so TMDB is left as is.",
+  "justification": "TVDB has no S1: it splits the run by year (S1992 38, S1993 46, S1994 48, S1995 19) with absolute numbers 1-151 complete. AniDB 1-151 (1992-04-09 to 1995-05-25) = TVDB absolute 1-151, every air date the same except episode 54, one day apart. TMDB 261945 season 1 lists one placeholder episode (1992-01-01) against AniDB's 151, so the entry clears the node's TMDB mapping and the record publishes no TMDB value.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -931,9 +933,5 @@
   "anilist_ids": [
     8123
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 151
-  },
   "anidb_id": 3453
 }

@@ -8,14 +8,15 @@
 | --- | --- | --- |
 | `version` | integer | The schema version, `1`. A breaking change to the format raises it. |
 | `generated_at` | string | When the file was built, in UTC (RFC 3339). |
-| `sources` | object | Exactly what the records were built from. See below. |
+| `sources` | object | Exactly what the build read. See below. |
 | `attribution` | object | The licence of the data and the notice it requires. |
 | `records` | array | One object per anime id. See below. |
 
-`sources` names three inputs:
+`sources` names four inputs:
 
 - `anime_offline_database`: the repository, the release tag, the asset name and the asset's SHA-256.
 - `anime_lists`: the repository, the commit and the file name of `anime-list-master.xml`.
+- `anidb_mirror`: the repository and the commit of the AniDB mirror that the episode counts were read from.
 - `overlay`: how many overlay entries were applied, how many special-of-parent bridges as `special_of_parent`, which is absent when there are none, and a SHA-256 of the whole overlay set.
 
 `attribution` carries `license` (`ODbL-1.0`), `contents_license` (`DbCL-1.0`), a URL for each, and `notice`, the sentence to show wherever you redistribute the data.
@@ -31,7 +32,7 @@ Every field except the record's id is left out when it has no value. Four intege
 | `anidb_parent` | object | Another anime's `anidb_id` and `specials`, one special number per AniList episode in order, when AniDB files this entry as that anime's specials. Never set with `anidb_id`. |
 | `mal_id` | integer | The MyAnimeList id, when there is exactly one. |
 | `type` | string | `TV`, `MOVIE`, `OVA`, `ONA`, `SPECIAL` or `UNKNOWN`, from anime-offline-database. A build that meets any other value publishes nothing. |
-| `episodes` | integer | The number of regular episodes. |
+| `episodes` | integer | The number of regular episodes. With an `anidb_id`, it is the count from the rule in [Episode counts](overlay.md#episode-counts): a `checks/counts.json` row, else AniDB's count from the AniDB mirror for an anime whose end date AniDB records, else anime-offline-database's. AniDB can record an end date before the last episode airs. Without an `anidb_id`, it is anime-offline-database's count. |
 | `tvdb_id` | integer | The TheTVDB series id. Anime-Lists markers such as `movie` or `OVA` give no `tvdb_id`. |
 | `tvdb_season` | integer | The TVDB season the title is filed under. `0` means the series' specials. |
 | `tvdb_absolute` | boolean | `true` when the title follows TVDB's absolute numbering instead of one season. Never set with `tvdb_season`. |

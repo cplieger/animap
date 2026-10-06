@@ -4,7 +4,6 @@
 package watch
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -16,6 +15,7 @@ import (
 	"strings"
 
 	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // Gap is one way a watched record falls short of fully mapped.
@@ -236,10 +236,8 @@ func LoadBacklog(path string) (*Backlog, error) {
 	if err != nil {
 		return nil, err
 	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
 	var b Backlog
-	if err := dec.Decode(&b); err != nil {
+	if err := strictjson.Decode(body, &b); err != nil {
 		return nil, fmt.Errorf("watch: backlog %s: %w", path, err)
 	}
 	if b.Version != 1 {
@@ -264,10 +262,8 @@ func LoadConfig(path string) (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
 	var c Config
-	if err = dec.Decode(&c); err != nil {
+	if err = strictjson.Decode(body, &c); err != nil {
 		return nil, fmt.Errorf("watch: config %s: %w", path, err)
 	}
 	u, err := url.Parse(c.ListURL)

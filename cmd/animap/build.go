@@ -14,8 +14,8 @@ import (
 	"slices"
 	"time"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/counts"
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/offlinedb"
@@ -29,6 +29,7 @@ type buildStats struct {
 	PreviousHash        string                `json:"previous_hash,omitempty"`
 	Collisions          guard.CollisionReport `json:"collisions"`
 	Specials            specialsStats         `json:"specials"`
+	CountsRedundant     []int                 `json:"counts_redundant"`
 	Baseline            baselineStats         `json:"baseline"`
 	Join                join.Stats            `json:"join"`
 	Populations         schema.Populations    `json:"populations"`
@@ -52,6 +53,7 @@ type specialsStats struct {
 type buildConfig struct {
 	aodPath, aodRelease, aodSHA string
 	listPath, listCommit        string
+	mirrorPath, mirrorCommit    string
 	overlayDir, prevPath        string
 	baselinePath, countsPath    string
 	out, statsPath              string
@@ -66,17 +68,19 @@ func runBuild(ctx context.Context, args []string, stdout io.Writer, log *slog.Lo
 	fs.StringVar(&c.aodSHA, "aod-sha256", "", "expected SHA-256 of the .jsonl asset")
 	fs.StringVar(&c.listPath, "list", "", "anime-list-master.xml path")
 	fs.StringVar(&c.listCommit, "list-commit", "", "Anime-Lists commit the list was read at")
+	fs.StringVar(&c.mirrorPath, "mirror", "", "AniDB mirror snapshot written by animap mirror extract")
+	fs.StringVar(&c.mirrorCommit, "mirror-commit", "", "AniDB mirror commit the build is pinned to")
 	fs.StringVar(&c.overlayDir, "overlay", "overlay", "overlay directory")
 	fs.StringVar(&c.prevPath, "previous", "", "previous release's animap.json (absent file: first release)")
 	fs.StringVar(&c.baselinePath, "baseline", "checks/collision-baseline.json", "tracked collision baseline (absent file: empty)")
-	fs.StringVar(&c.countsPath, "counts", counts.Path, "tracked episode counts (absent file: none)")
+	fs.StringVar(&c.countsPath, "counts", anidb.CountsPath, "tracked episode counts (absent file: none)")
 	fs.StringVar(&c.out, "out", "animap.json", "output path")
 	fs.StringVar(&c.statsPath, "stats", "", "write build statistics as JSON here")
 	fs.BoolVar(&c.acceptShrink, "accept-shrink", false, "accept a population below 90% of the previous release")
 	if err := parse(fs, args); err != nil {
 		return err
 	}
-	if err := required(fs, "aod", "aod-release", "aod-sha256", "list", "list-commit"); err != nil {
+	if err := required(fs, "aod", "aod-release", "aod-sha256", "list", "list-commit", "mirror", "mirror-commit"); err != nil {
 		return err
 	}
 	doc, st, err := assemble(&c, log)
@@ -124,6 +128,13 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if err != nil {
 		return nil, nil, err
 	}
+	facts, err := loadFacts(c.mirrorPath, c.countsPath, entries)
+	if err != nil {
+		return nil, nil, err
+	}
+	if facts.Commit() != c.mirrorCommit {
+		return nil, nil, fmt.Errorf("build: %s holds the AniDB mirror at %s, want %s", c.mirrorPath, facts.Commit(), c.mirrorCommit)
+	}
 	ov, err := overlay.LoadDir(c.overlayDir)
 	if err != nil {
 		return nil, nil, err
@@ -133,17 +144,21 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 		return nil, nil, err
 	}
 	patched := overlay.Apply(list.Nodes, ov)
-	records, jst := join.Build(entries, patched)
+	records, jst := join.Build(entries, patched, facts)
 	var sp specialsStats
 	sp.Applied, sp.Skipped = join.ApplySpecials(records, specialsOf(bridges), patched)
 	for _, s := range sp.Skipped {
 		log.Warn("build: special-of-parent bridge not applied", "anilist", s.AniList, "reason", s.Reason)
 	}
-	episodes, err := placementCounts(entries, c.countsPath)
-	if err != nil {
-		return nil, nil, err
+	if proofErr := proveBridges(bridges, patched, facts); proofErr != nil {
+		return nil, nil, fmt.Errorf("build: %w", proofErr)
 	}
-	rep, bs, err := collisions(c.baselinePath, patched, ov, bridges, episodes, log)
+	rep := guard.Collisions(patched, ov, bridges, facts)
+	redundant := facts.RedundantRows()
+	if len(redundant) > 0 {
+		log.Info("build: counts rows that equal what the sources give; delete them", "path", anidb.CountsPath, "anidb", redundant)
+	}
+	bs, err := collisions(c.baselinePath, &rep, log)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -163,12 +178,16 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 				Repository: "https://github.com/Anime-Lists/anime-lists",
 				Commit:     c.listCommit, File: "anime-list-master.xml",
 			},
-			Overlay: schema.OverlaySource{Entries: len(ov), SpecialOfParent: len(bridges), SHA256: ovHash},
+			AniDBMirror: schema.AniDBMirrorSource{Repository: anidb.Repository, Commit: facts.Commit()},
+			Overlay:     schema.OverlaySource{Entries: len(ov), SpecialOfParent: len(bridges), SHA256: ovHash},
 		},
 		Attribution: schema.DefaultAttribution,
 		Records:     records,
 	}
-	st := &buildStats{Populations: schema.Census(records), Join: jst, OverlayEntries: len(ov), Collisions: rep, Baseline: bs, Specials: sp}
+	st := &buildStats{
+		Populations: schema.Census(records), Join: jst, OverlayEntries: len(ov), Collisions: rep, Baseline: bs,
+		Specials: sp, CountsRedundant: redundant,
+	}
 	return doc, st, nil
 }
 
@@ -176,15 +195,17 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 // unless the baseline holds it, on a touched-series sibling whose unread
 // AniDB specials could collide, on a collision on a series the overlay
 // touches, and on a collision the baseline does not hold.
-func collisions(baselinePath string, patched map[int]*animelists.Node, ov []overlay.Entry, bridges []overlay.Bridge,
-	episodes map[int]int, log *slog.Logger,
-) (guard.CollisionReport, baselineStats, error) {
+func collisions(baselinePath string, rep *guard.CollisionReport, log *slog.Logger) (baselineStats, error) {
 	var bs baselineStats
 	base, err := guard.LoadBaseline(baselinePath)
 	if err != nil {
-		return guard.CollisionReport{}, bs, err
+		return bs, err
 	}
-	rep := guard.Collisions(patched, ov, bridges, episodes)
+	if _, statErr := os.Stat(baselinePath); statErr == nil {
+		if err := checkBasis(baselinePath, base); err != nil {
+			return bs, err
+		}
+	}
 	baselined, novel, stale := base.Split(rep.Upstream)
 	countedOK, uncounted, staleUnc := base.SplitUncounted(rep.UpstreamUncounted)
 	bs.Baselined, bs.Stale = len(baselined), stale
@@ -195,20 +216,20 @@ func collisions(baselinePath string, patched map[int]*animelists.Node, ov []over
 	uncounted = append(slices.Clone(rep.Uncounted), uncounted...)
 	if len(uncounted) > 0 {
 		u := uncounted[0]
-		return rep, bs, fmt.Errorf("build: %d node(s) on an overlay-touched series or outside the baseline have no regular episode count, so the collision check cannot place them; first: AniDB %d on TVDB %d (record its count in an entry's siblings or in checks/counts.json, or wait for anime-offline-database to list it)",
+		return bs, fmt.Errorf("build: %d node(s) on an overlay-touched series or outside the baseline have no regular episode count, so the collision check cannot place them; first: AniDB %d on TVDB %d (record its count in checks/counts.json, or wait for the AniDB mirror or anime-offline-database to count it)",
 			len(uncounted), u.AniDB, u.Series)
 	}
 	if len(rep.Unresolved) > 0 {
 		u := rep.Unresolved[0]
-		return rep, bs, fmt.Errorf("build: %d node(s) on an overlay-touched series have unread AniDB specials that could land on a season-0 episode another node claims; first: AniDB %d on TVDB %d, episodes %v (record its specials in the entry's siblings)",
+		return bs, fmt.Errorf("build: %d node(s) on an overlay-touched series have no AniDB episode list in the mirror, and their specials could land on a season-0 episode another node claims; first: AniDB %d on TVDB %d, episodes %v (wait for a mirror snapshot that lists it)",
 			len(rep.Unresolved), u.AniDB, u.Series, u.Episodes)
 	}
 	blocking := append(slices.Clone(rep.Blocking), novel...)
 	if len(blocking) > 0 {
-		return rep, bs, fmt.Errorf("build: %d collision(s) on an overlay-touched series or outside the baseline, first: %s on TVDB %d claimed by %v",
+		return bs, fmt.Errorf("build: %d collision(s) on an overlay-touched series or outside the baseline, first: %s on TVDB %d claimed by %v",
 			len(blocking), blocking[0].Target, blocking[0].Series, blocking[0].Claims)
 	}
-	return rep, bs, nil
+	return bs, nil
 }
 
 func specialsOf(bridges []overlay.Bridge) []join.Special {
@@ -284,27 +305,4 @@ func readPrevious(path string) (*schema.Document, error) {
 	}
 	defer func() { _ = f.Close() }()
 	return schema.Decode(f)
-}
-
-// placementCounts is the regular count per AniDB id the collision check
-// falls back on when no overlay entry recorded one: a checks/counts.json
-// row, else the offline database's.
-func placementCounts(entries []offlinedb.Entry, countsPath string) (map[int]int, error) {
-	rows, err := counts.Load(countsPath)
-	if err != nil {
-		return nil, err
-	}
-	return counts.Merge(episodeCounts(entries), rows), nil
-}
-
-func episodeCounts(entries []offlinedb.Entry) map[int]int {
-	out := map[int]int{}
-	for i := range entries {
-		for _, ad := range entries[i].AniDB {
-			if _, ok := out[ad]; !ok {
-				out[ad] = entries[i].Episodes
-			}
-		}
-	}
-	return out
 }

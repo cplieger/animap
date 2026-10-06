@@ -4,6 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"os"
+	"path/filepath"
 	"slices"
 	"strings"
 	"testing"
@@ -154,6 +156,33 @@ func TestLoadSeadexConfig(t *testing.T) {
 	}
 }
 
+// A gap is tracked by one list: an id in both lists is reported resolved
+// and cleared at once, so closing it asks for two edits.
+func TestTrackedListsTrackEachGapOnce(t *testing.T) {
+	seen := map[int]string{}
+	for _, path := range []string{"../../watch/backlog.json", "../../checks/unmappable.json"} {
+		b, err := LoadBacklog(path)
+		if err != nil {
+			t.Fatalf("LoadBacklog(%s): %v", path, err)
+		}
+		for i, e := range b.Entries {
+			if i > 0 && e.AniListID <= b.Entries[i-1].AniListID {
+				t.Errorf("%s: AniList %d follows %d, want ascending ids", path, e.AniListID, b.Entries[i-1].AniListID)
+			}
+			if prev, dup := seen[e.AniListID]; dup {
+				t.Errorf("AniList %d is in %s and %s, want one list", e.AniListID, prev, path)
+			}
+			seen[e.AniListID] = path
+			if len(e.Gaps) == 0 || e.Detail == "" {
+				t.Errorf("%s: AniList %d has gaps %v and detail %q, want both", path, e.AniListID, e.Gaps, e.Detail)
+			}
+			if wantReason := strings.HasSuffix(path, "unmappable.json"); wantReason != (e.Reason == "unmappable" || e.Reason == "upstream") {
+				t.Errorf("%s: AniList %d has reason %q", path, e.AniListID, e.Reason)
+			}
+		}
+	}
+}
+
 func TestClassifyUnmappable(t *testing.T) {
 	unmappable := &Backlog{Entries: []Entry{
 		{AniListID: 1, Gaps: []Gap{NoTVDB}, Reason: "unmappable"},
@@ -187,5 +216,31 @@ func TestGapsBridgedRecord(t *testing.T) {
 	}
 	if g := Gaps(bridged); g != nil {
 		t.Errorf("Gaps(a bridged special) = %v, want fully mapped", g)
+	}
+}
+
+func TestLoadBacklogRefusesTrailingData(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "backlog.json")
+	doc := `{"version":1,"watch_set":"seadex","captured_at":"2026-10-06","entries":[]}`
+	for name, trailer := range map[string]string{"a stray ]": "]", "a stray }": "}", "a second document": doc} {
+		if err := os.WriteFile(path, []byte(doc+"\n"+trailer), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if b, err := LoadBacklog(path); err == nil {
+			t.Errorf("LoadBacklog(a backlog followed by %s) = %+v, want an error", name, b)
+		}
+	}
+}
+
+func TestLoadConfigRefusesTrailingData(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "seadex.json")
+	doc := `{"name":"seadex","list_url":"https://releases.moe/api/collections/entries/records","id_field":"alID","per_page":500,"max_pages":40,"entry_url":"https://releases.moe/{id}"}`
+	for name, trailer := range map[string]string{"a stray ]": "]", "a stray }": "}", "a second document": doc} {
+		if err := os.WriteFile(path, []byte(doc+"\n"+trailer), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if c, err := LoadConfig(path); err == nil {
+			t.Errorf("LoadConfig(a config followed by %s) = %+v, want an error", name, c)
+		}
 	}
 }

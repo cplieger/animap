@@ -1,8 +1,6 @@
 package overlay
 
 import (
-	"bytes"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"os"
@@ -12,8 +10,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/skyhook"
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // KindSpecialOfParent is the one bridge kind.
@@ -33,12 +33,8 @@ type Bridge struct {
 	Justification string            `json:"justification"`
 	Captured      BridgeCaptured    `json:"captured"`
 	Specials      []int             `json:"specials"`
-	// ParentAniDBSpecials is the parent's specials as the author read them
-	// from AniDB's episode list. Prove re-checks the TVDB layout against
-	// their air dates.
-	ParentAniDBSpecials []AniDBEpisode `json:"parent_anidb_specials"`
-	AniListID           int            `json:"anilist_id"`
-	ParentAniDBID       int            `json:"parent_anidb_id"`
+	AniListID     int               `json:"anilist_id"`
+	ParentAniDBID int               `json:"parent_anidb_id"`
 }
 
 // BridgeCaptured is the state a bridge was proven against, which
@@ -49,41 +45,6 @@ type BridgeCaptured struct {
 	At               string        `json:"at"`
 	AnimeListsCommit string        `json:"anime_lists_commit"`
 	NodeSHA256       string        `json:"node_sha256"`
-}
-
-// AniDBSpecial is AniDB's epno type for a special, the one kind a bridge's
-// ParentAniDBSpecials holds.
-const AniDBSpecial = 2
-
-// AniDBEpisode is one AniDB episode. Its JSON form is the compact
-// [kind, number, air date] array; AirDate is "" when AniDB has none.
-type AniDBEpisode struct {
-	AirDate string
-	Kind    int
-	Number  int
-}
-
-// MarshalJSON writes the compact array form.
-func (e AniDBEpisode) MarshalJSON() ([]byte, error) {
-	return json.Marshal([]any{e.Kind, e.Number, e.AirDate})
-}
-
-// UnmarshalJSON reads the compact array form.
-func (e *AniDBEpisode) UnmarshalJSON(b []byte) error {
-	var raw []json.RawMessage
-	if err := json.Unmarshal(b, &raw); err != nil {
-		return err
-	}
-	if len(raw) != 3 {
-		return fmt.Errorf("overlay: AniDB episode has %d elements, want 3", len(raw))
-	}
-	if err := json.Unmarshal(raw[0], &e.Kind); err != nil {
-		return err
-	}
-	if err := json.Unmarshal(raw[1], &e.Number); err != nil {
-		return err
-	}
-	return json.Unmarshal(raw[2], &e.AirDate)
 }
 
 // Path is the bridge's file, relative to the repository root.
@@ -104,16 +65,22 @@ func LoadBridges(dir string) ([]Bridge, error) {
 	slices.Sort(paths)
 	out := make([]Bridge, 0, len(paths))
 	for _, p := range paths {
-		b, err := loadBridge(p)
+		b, err := ReadBridge(p)
 		if err != nil {
 			return nil, err
+		}
+		if err := b.Validate(); err != nil {
+			return nil, fmt.Errorf("%s: %w", p, err)
 		}
 		out = append(out, b)
 	}
 	return out, nil
 }
 
-func loadBridge(path string) (Bridge, error) {
+// ReadBridge reads one bridge strictly and checks that the file is named
+// for its AniList id. It does not validate, so capture-special can read a
+// bridge whose captured state it is about to write.
+func ReadBridge(path string) (Bridge, error) {
 	st, err := os.Stat(path)
 	if err != nil {
 		return Bridge{}, err
@@ -125,26 +92,18 @@ func loadBridge(path string) (Bridge, error) {
 	if err != nil {
 		return Bridge{}, err
 	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
 	var b Bridge
-	if err := dec.Decode(&b); err != nil {
+	if err := strictjson.Decode(body, &b); err != nil {
 		return Bridge{}, fmt.Errorf("%w: %s: %w", ErrInvalid, path, err)
-	}
-	if dec.More() {
-		return Bridge{}, fmt.Errorf("%w: %s: trailing data", ErrInvalid, path)
 	}
 	if want := strconv.Itoa(b.AniListID) + ".json"; filepath.Base(path) != want {
 		return Bridge{}, fmt.Errorf("%w: %s must be named %s", ErrInvalid, path, want)
 	}
-	if err := b.Validate(); err != nil {
-		return Bridge{}, fmt.Errorf("%s: %w", path, err)
-	}
 	return b, nil
 }
 
-// Validate checks the bridge's own rules: consecutive specials that
-// ParentAniDBSpecials carries, and a TVDB fingerprint that matches its list.
+// Validate checks the bridge's own rules: consecutive specials and a TVDB
+// fingerprint that matches its list.
 func (b *Bridge) Validate() error {
 	if err := b.validate(); err != nil {
 		return fmt.Errorf("%w: AniList %d: %w", ErrInvalid, b.AniListID, err)
@@ -172,24 +131,7 @@ func (b *Bridge) validate() error {
 	if err := validateEvidence(b.Evidence); err != nil {
 		return err
 	}
-	if err := b.validateParentSpecials(); err != nil {
-		return err
-	}
 	return b.validateCaptured()
-}
-
-func (b *Bridge) validateParentSpecials() error {
-	for _, e := range b.ParentAniDBSpecials {
-		if e.Kind != AniDBSpecial {
-			return fmt.Errorf("parent_anidb_specials holds a kind %d episode, want only specials", e.Kind)
-		}
-	}
-	for _, k := range b.Specials {
-		if !slices.ContainsFunc(b.ParentAniDBSpecials, func(e AniDBEpisode) bool { return e.Number == k }) {
-			return fmt.Errorf("parent_anidb_specials has no special S%d", k)
-		}
-	}
-	return nil
 }
 
 func (b *Bridge) validateCaptured() error {
@@ -206,9 +148,10 @@ func (b *Bridge) validateCaptured() error {
 }
 
 // Prove re-checks the dated half of the accuracy bar against the patched
-// parent node: each special lands on a TVDB episode the captured layout
-// holds, on the parent's series, aired within a day of AniDB's date.
-func (b *Bridge) Prove(parent *animelists.Node) error {
+// parent node and the specials AniDB lists for the parent: each special
+// lands on a TVDB episode the captured layout holds, on the parent's
+// series, aired within a day of AniDB's date.
+func (b *Bridge) Prove(parent *animelists.Node, parentSpecials []anidb.Episode) error {
 	if parent == nil {
 		return fmt.Errorf("AniList %d: AniDB %d has no Anime-Lists node", b.AniListID, b.ParentAniDBID)
 	}
@@ -220,14 +163,17 @@ func (b *Bridge) Prove(parent *animelists.Node) error {
 		if !ok {
 			return fmt.Errorf("AniList %d: special S%d maps to no single TVDB episode", b.AniListID, k)
 		}
+		j := slices.IndexFunc(parentSpecials, func(e anidb.Episode) bool { return e.Number == k })
+		if j < 0 {
+			return fmt.Errorf("AniList %d: AniDB lists no special S%d for AniDB %d", b.AniListID, k, b.ParentAniDBID)
+		}
 		i := slices.IndexFunc(b.Captured.TVDB.Episodes, func(e skyhook.Episode) bool { return e.Season == season && e.Number == ep })
-		j := slices.IndexFunc(b.ParentAniDBSpecials, func(e AniDBEpisode) bool { return e.Number == k })
-		if i < 0 || j < 0 {
+		if i < 0 {
 			return fmt.Errorf("AniList %d: S%d lands on TVDB %dx%d, which the capture does not hold", b.AniListID, k, season, ep)
 		}
-		if !withinADay(b.Captured.TVDB.Episodes[i].AirDate, b.ParentAniDBSpecials[j].AirDate) {
+		if !withinADay(b.Captured.TVDB.Episodes[i].AirDate, parentSpecials[j].AirDate) {
 			return fmt.Errorf("AniList %d: S%d aired %q on AniDB, TVDB %dx%d %q", b.AniListID, k,
-				b.ParentAniDBSpecials[j].AirDate, season, ep, b.Captured.TVDB.Episodes[i].AirDate)
+				parentSpecials[j].AirDate, season, ep, b.Captured.TVDB.Episodes[i].AirDate)
 		}
 	}
 	return nil

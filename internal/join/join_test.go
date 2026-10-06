@@ -4,8 +4,10 @@ import (
 	"bytes"
 	"os"
 	"reflect"
+	"strings"
 	"testing"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/schema"
@@ -28,6 +30,20 @@ func fixtures(t *testing.T) ([]offlinedb.Entry, map[int]*animelists.Node) {
 	return entries, l.Nodes
 }
 
+// databaseFacts counts each AniDB id as the database does, with a mirror
+// that lists the anime in listed.
+func databaseFacts(entries []offlinedb.Entry, listed map[int]anidb.Anime) *anidb.Facts {
+	database := map[int]int{}
+	for i := range entries {
+		for _, ad := range entries[i].AniDB {
+			if _, ok := database[ad]; !ok {
+				database[ad] = entries[i].Episodes
+			}
+		}
+	}
+	return anidb.NewFacts(&anidb.Snapshot{Commit: strings.Repeat("a", 40), Anime: listed}, nil, database)
+}
+
 func byKey(recs []schema.Record) (al, ad map[int]schema.Record) {
 	al, ad = map[int]schema.Record{}, map[int]schema.Record{}
 	for _, r := range recs {
@@ -42,7 +58,7 @@ func byKey(recs []schema.Record) (al, ad map[int]schema.Record) {
 
 func TestBuildRecordSet(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, st := Build(entries, nodes)
+	recs, st := Build(entries, nodes, databaseFacts(entries, nil))
 	al, ad := byKey(recs)
 
 	want100 := schema.Record{
@@ -84,7 +100,7 @@ func TestBuildRecordSet(t *testing.T) {
 
 func TestBuildPrecedenceAndFieldRules(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, _ := Build(entries, nodes)
+	recs, _ := Build(entries, nodes, databaseFacts(entries, nil))
 	al, ad := byKey(recs)
 	if r := ad[12]; r.Type != "OVA" || r.TVDBSeason == nil || *r.TVDBSeason != 0 || r.TVDBEpisodeOffset == nil || *r.TVDBEpisodeOffset != 0 || r.MappingList != nil {
 		t.Errorf("AniDB 12 = %+v, want OVA, season 0, explicit offset 0, its unparseable row dropped", r)
@@ -105,7 +121,7 @@ func TestBuildPrecedenceAndFieldRules(t *testing.T) {
 
 func TestBuildOrder(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, _ := Build(entries, nodes)
+	recs, _ := Build(entries, nodes, databaseFacts(entries, nil))
 	seenAniDBOnly := false
 	for i := 1; i < len(recs); i++ {
 		a, b := recs[i-1], recs[i]
@@ -129,7 +145,7 @@ func TestBuildOrder(t *testing.T) {
 // the diff.
 func TestGolden(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, _ := Build(entries, nodes)
+	recs, _ := Build(entries, nodes, databaseFacts(entries, nil))
 	doc := &schema.Document{Version: schema.Version, GeneratedAt: "2026-10-05T00:00:00Z", Attribution: schema.DefaultAttribution, Records: recs}
 	got, err := schema.Encode(doc)
 	if err != nil {
@@ -147,5 +163,30 @@ func TestGolden(t *testing.T) {
 	}
 	if !bytes.Equal(got, want) {
 		t.Errorf("golden mismatch (run UPDATE_GOLDEN=1 go test ./internal/join -run TestGolden and review):\n--- want\n%s\n+++ got\n%s", want, got)
+	}
+}
+
+// A record with one AniDB id publishes anidb.Facts.Count; one without an
+// AniDB id keeps the database's count.
+func TestBuildEpisodesComeFromTheAniDBFacts(t *testing.T) {
+	entries, nodes := fixtures(t)
+	listed := map[int]anidb.Anime{
+		10: {Regular: make([]string, 13), Finished: true},
+		12: {Regular: make([]string, 7), Finished: true},
+		13: {Regular: make([]string, 99)},
+		14: {Regular: make([]string, 5), Finished: true},
+	}
+	plain, _ := Build(entries, nodes, databaseFacts(entries, nil))
+	before, _ := byKey(plain)
+	recs, _ := Build(entries, nodes, databaseFacts(entries, listed))
+	al, ad := byKey(recs)
+	if al[100].Episodes != 13 || ad[12].Episodes != 7 {
+		t.Errorf("finished AniDB 10 and 12: AniList 100 has %d episodes, AniDB 12 %d; want the mirror's 13 and 7", al[100].Episodes, ad[12].Episodes)
+	}
+	if al[102].Episodes != before[102].Episodes {
+		t.Errorf("airing AniDB 13: AniList 102 has %d episodes, want the database's %d", al[102].Episodes, before[102].Episodes)
+	}
+	if al[104].Episodes != before[104].Episodes {
+		t.Errorf("AniList 104 has no AniDB id: %d episodes, want the database's %d", al[104].Episodes, before[104].Episodes)
 	}
 }

@@ -4,7 +4,6 @@
 package overlay
 
 import (
-	"bytes"
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
@@ -24,6 +23,7 @@ import (
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // Bounds on the overlay directory.
@@ -45,18 +45,16 @@ var ErrInvalid = errors.New("overlay: invalid entry")
 
 // Entry is one overlay file.
 type Entry struct {
-	Siblings      map[string]SiblingEpisodes `json:"siblings,omitempty"`
-	Evidence      map[string]string          `json:"evidence"`
-	Set           Set                        `json:"set"`
-	Title         string                     `json:"title"`
-	Name          string                     `json:"name,omitempty"`
-	Justification string                     `json:"justification"`
-	Upstream      string                     `json:"upstream"`
-	Captured      Captured                   `json:"captured"`
-	AniListIDs    []int                      `json:"anilist_ids,omitempty"`
-	Episodes      Episodes                   `json:"episodes"`
-	AniDBID       int                        `json:"anidb_id"`
-	Create        bool                       `json:"create,omitempty"`
+	Evidence      map[string]string `json:"evidence"`
+	Set           Set               `json:"set"`
+	Title         string            `json:"title"`
+	Name          string            `json:"name,omitempty"`
+	Justification string            `json:"justification"`
+	Upstream      string            `json:"upstream"`
+	Captured      Captured          `json:"captured"`
+	AniListIDs    []int             `json:"anilist_ids,omitempty"`
+	AniDBID       int               `json:"anidb_id"`
+	Create        bool              `json:"create,omitempty"`
 }
 
 // Set is the patch. A nil field leaves upstream as it is; a MappingList of
@@ -86,20 +84,6 @@ func (s *Set) Attrs() map[string]string {
 		}
 	}
 	return out
-}
-
-// Episodes is the patched node's AniDB episode list at authoring time:
-// the regular count and the special numbers (S1 is 1).
-type Episodes struct {
-	Specials []int `json:"specials"`
-	Regular  int   `json:"regular"`
-}
-
-// SiblingEpisodes is the same for another node on the series; a nil
-// Specials means that node's AniDB page was not read.
-type SiblingEpisodes struct {
-	Specials *[]int `json:"specials"`
-	Regular  int    `json:"regular"`
 }
 
 // Captured is the state the entry was written against. TVDB is nil when
@@ -158,9 +142,22 @@ func LoadDir(dir string) ([]Entry, error) {
 	return out, nil
 }
 
-// LoadFile reads one entry strictly and validates it, including that the
-// file is named for its AniDB id.
+// LoadFile reads one entry with ReadEntry and validates it.
 func LoadFile(path string) (Entry, error) {
+	e, err := ReadEntry(path)
+	if err != nil {
+		return Entry{}, err
+	}
+	if err := e.Validate(); err != nil {
+		return Entry{}, fmt.Errorf("%s: %w", path, err)
+	}
+	return e, nil
+}
+
+// ReadEntry reads one entry strictly and checks that the file is named for
+// its AniDB id. It does not validate, so capture can read an entry whose
+// captured fingerprints it is about to write.
+func ReadEntry(path string) (Entry, error) {
 	st, err := os.Stat(path)
 	if err != nil {
 		return Entry{}, err
@@ -172,7 +169,7 @@ func LoadFile(path string) (Entry, error) {
 	if err != nil {
 		return Entry{}, err
 	}
-	e, err := Decode(body)
+	e, err := decode(body)
 	if err != nil {
 		return Entry{}, fmt.Errorf("%s: %w", path, err)
 	}
@@ -182,19 +179,10 @@ func LoadFile(path string) (Entry, error) {
 	return e, nil
 }
 
-// Decode parses and validates one entry.
-func Decode(body []byte) (Entry, error) {
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
+func decode(body []byte) (Entry, error) {
 	var e Entry
-	if err := dec.Decode(&e); err != nil {
+	if err := strictjson.Decode(body, &e); err != nil {
 		return Entry{}, fmt.Errorf("%w: %w", ErrInvalid, err)
-	}
-	if dec.More() {
-		return Entry{}, fmt.Errorf("%w: trailing data", ErrInvalid)
-	}
-	if err := e.Validate(); err != nil {
-		return Entry{}, err
 	}
 	return e, nil
 }
@@ -372,9 +360,10 @@ func Landed(u *animelists.Node, e *Entry) bool {
 	return true
 }
 
-// TouchedSeasons are the TVDB seasons a patched node maps onto, sorted; nil
-// for an absolute node, which touches every season from 1 up.
-func TouchedSeasons(patched *animelists.Node, e *Entry) []int {
+// TouchedSeasons are the TVDB seasons a patched node maps onto, sorted,
+// with season 0 when AniDB lists specials for it; nil for an absolute node,
+// which touches every season from 1 up.
+func TouchedSeasons(patched *animelists.Node, hasSpecials bool) []int {
 	if patched.Attr(attrDefaultSeason) == "a" {
 		return nil
 	}
@@ -387,7 +376,7 @@ func TouchedSeasons(patched *animelists.Node, e *Entry) []int {
 			set[s] = true
 		}
 	}
-	if len(e.Episodes.Specials) > 0 {
+	if hasSpecials {
 		set[0] = true
 	}
 	out := make([]int, 0, len(set))

@@ -1,9 +1,11 @@
-# The collision baseline only shrinks: a pull request may remove entries
-# from checks/collision-baseline.json, never add one. A new collision is
-# fixed upstream or by an overlay entry; a new uncounted node is fixed
-# upstream, by a checks/counts.json row, or through an entry's siblings
-# (docs/overlay.md). This runs on every pull request, not only those
-# touching the file, so it can be a required check.
+# The collision baseline only shrinks while its counting basis is unchanged:
+# a pull request may remove entries from checks/collision-baseline.json, and
+# adds some only with a new basis and `animap baseline rebase`
+# (docs/overlay.md). A new collision is fixed upstream or by an overlay
+# entry; a new uncounted node is fixed upstream, by a verified
+# checks/counts.json row, or once a pinned source counts it. This runs on
+# every pull request, not only those touching the file, so it can be a
+# required check.
 name: Baseline
 
 on:
