@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8620",
+    "anilist": "https://anilist.co/anime/20659",
+    "tvdb": "https://thetvdb.com/series/waiting-in-the-summer/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/42499/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Ano Natsu de Matteru: Bokutachi wa Koukou Saigo no Natsu wo Sugoshinagara, Ano Natsu de Matteru.",
+  "justification": "AniList 20659 (OVA, 1 episode(s) from 2014-08-29) is AniDB 8620's special(s) S1, aired 2014-08-29. AniList's PARENT relation names AniList 11433, which anime-offline-database links to AniDB 8620, and the special's title matches an AniList title. TMDB 42499, where the parent's node places the special(s), agrees: S0E1 2014-08-29.",
+  "captured": {
+    "tvdb": {
+      "sha256": "196f5800ae80f8fdc6a8f9a2c76b26487cd6f54ec720d5a259c263b7b601cd1d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-08-29"
+        ]
+      ],
+      "series": 255056
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "74321b4b8a483277e6ba216461dc59733dd1b3461fb623bc8426e9fbd11a5819"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 20659,
+  "parent_anidb_id": 8620
+}

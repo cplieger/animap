@@ -1,0 +1,84 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13743",
+    "anilist": "https://anilist.co/anime/105662",
+    "tvdb": "https://thetvdb.com/series/cells-at-work/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/80671/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Hataraku Saibou: Kaze Shoukougun",
+  "justification": "AniList 105662 (SPECIAL, 1 episode(s) from 2018-12-27) is AniDB 13743's special(s) S1, aired 2018-12-27. AniList's PARENT relation names AniList 100977, which anime-offline-database links to AniDB 13743, and the special's title matches an AniList title. TMDB 80671, where the parent's node places the special(s), agrees: S0E1 2018-12-26.",
+  "captured": {
+    "tvdb": {
+      "sha256": "e836cd223c670d296d9ab743089aa8acf116bd80157caad7fc41d2528672a522",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2018-12-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-10-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2018-11-18"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-12-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-01-30"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2019-02-27"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2019-07-08"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2020-09-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2020-09-05"
+        ]
+      ],
+      "series": 346931
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "930823fe0a38a1ea4fb0b8d5a26d9f688978890e7f5b2b4083501be0da7103a0"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 105662,
+  "parent_anidb_id": 13743
+}

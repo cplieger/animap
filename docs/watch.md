@@ -27,7 +27,7 @@ A watched id with a gap that no list holds gets one issue, titled `watch: AniLis
 
 `checks/unmappable.json` lists the gaps that cannot be mapped from these sources, each with its reason. Some have no TVDB series anywhere, some have sources that disagree, and for some the fix belongs to anime-offline-database or AniDB. One pinned issue, "Unmappable SeaDex entries", lists them as a checklist. A ticked item is mapped now and can leave the file. These entries get no issue of their own.
 
-`watch/backlog.json` lists gaps that are known and tracked without an issue each. It is empty. An entry that gains a gap kind its backlog line does not record gets its own issue.
+`watch/backlog.json` lists gaps that are known and tracked without an issue each. Each line says what the gap waits for. For example, an anime that is still airing waits for its final AniDB episode list. An entry that gains a gap kind its backlog line does not record gets its own issue.
 
 ## Closing a gap
 

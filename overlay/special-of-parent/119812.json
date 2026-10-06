@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15121",
+    "anilist": "https://anilist.co/anime/119812",
+    "tvdb": "https://thetvdb.com/series/seton-academy-join-the-pack/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/96150/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Murenase! Seton Gakuen EX: Juu Joshi-tachi no Yuzame Chuuihou",
+  "justification": "AniList 119812 (SPECIAL, 1 episode(s) from 2020-07-03) is AniDB 15121's special(s) S1, aired 2020-07-03. AniList's PARENT relation names AniList 112293, which anime-offline-database links to AniDB 15121, and the special's title matches an AniList title. TMDB 96150, where the parent's node places the special(s), agrees: S0E1 2020-07-03.",
+  "captured": {
+    "tvdb": {
+      "sha256": "56a43cbbc8146fbc2d9086485e8a79e5de794cdc5b01d33b4f96eb97839d19ff",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2020-07-03"
+        ]
+      ],
+      "series": 373680
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "cf3a891c0fd0a8086c9732ddef8dea2c9ca274fd82db3ea3626edbed1d545465"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 119812,
+  "parent_anidb_id": 15121
+}

@@ -1,0 +1,103 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10391",
+    "anilist": "https://anilist.co/anime/20598",
+    "tvdb": "https://thetvdb.com/series/inari-kon-kon/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/67143/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Inari, Konkon, Koi Iroha.: Inari, Konkon, Semishigure.",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2014-06-26 = 0x10 2014-06-25. TMDB 67143 agrees: S0E1 2014-06-26. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "707e9703ad3fd225ae8ec58a62dab7290dbc251f23ceeed6502b4473b3499fe6",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          ""
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ],
+        [
+          0,
+          7,
+          0,
+          ""
+        ],
+        [
+          0,
+          8,
+          0,
+          ""
+        ],
+        [
+          0,
+          9,
+          0,
+          ""
+        ],
+        [
+          0,
+          10,
+          11,
+          "2014-06-25"
+        ]
+      ],
+      "series": 275584
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "bbf135e57058dab3f42ea2bb9efc29acc70b1204e7602d9527e3d1d03d9c6029"
+  },
+  "anilist_ids": [
+    20598
+  ],
+  "anidb_id": 10391
+}

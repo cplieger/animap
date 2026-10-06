@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8804",
+    "anilist": "https://anilist.co/anime/15431",
+    "tvdb": "https://thetvdb.com/series/natsuiro-kiseki/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/46040/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Natsuiro Kiseki: 15-kaime no Natsuyasumi",
+  "justification": "AniList 15431 (OVA, 1 episode(s) from 2012-08-29) is AniDB 8804's special(s) S1, aired 2012-08-29. AniList's PREQUEL relation names AniList 12119, which anime-offline-database links to AniDB 8804, and the special's title matches an AniList title. TMDB 46040, where the parent's node places the special(s), agrees: S0E1 2012-08-29.",
+  "captured": {
+    "tvdb": {
+      "sha256": "2fb579ed0911b44ebd7d115e6e6bec8d682730ae8fe0e443a05f0cc5777f32e3",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-08-29"
+        ]
+      ],
+      "series": 257519
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "e8599a5f84f6924018e4bf3d69480cbc97ad582976ab1f8e80ff326341db6158"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 15431,
+  "parent_anidb_id": 8804
+}

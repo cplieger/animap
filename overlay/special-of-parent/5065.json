@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5587",
+    "anilist": "https://anilist.co/anime/5065",
+    "tvdb": "https://thetvdb.com/series/detroit-metal-city/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/43066/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Detroit Metal City: Birth of the Metal Devil",
+  "justification": "AniList 5065 (SPECIAL, 1 episode(s) from 2008-07-11) is AniDB 5587's special(s) S1, aired 2008-07-11. AniList's PARENT relation names AniList 3702, which anime-offline-database links to AniDB 5587, and the special's title matches an AniList title. TMDB 43066, where the parent's node places the special(s), agrees: S0E1 2008-07-11.",
+  "captured": {
+    "tvdb": {
+      "sha256": "88fbb169c16b4737fe670ee013fa25485a44d5c2540083e9760efc9e05bcf5d1",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2008-07-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-07-31"
+        ]
+      ],
+      "series": 82855
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "25fd91e5da6acf844a8ec2534e2a2c22c80de478883db521cb080755ca2f343f"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 5065,
+  "parent_anidb_id": 5587
+}

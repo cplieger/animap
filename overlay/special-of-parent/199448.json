@@ -1,0 +1,188 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/19357",
+    "anilist": "https://anilist.co/anime/199448",
+    "tvdb": "https://thetvdb.com/series/lord-of-mysteries/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/232230/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Guimi Zhi Zhu Specials",
+  "justification": "AniList 199448 (ONA, 3 episode(s) from 2026-06-20) is AniDB 19357's special(s) S18-S20, aired 2026-06-20 to 2026-06-28. AniList's PARENT relation names AniList 137667, which anime-offline-database links to AniDB 19357, and the special's title matches an AniList title. TMDB 232230, where the parent's node places the special(s), agrees: S0E18 2026-06-20, S0E19 2026-06-27, S0E20 2026-06-28.",
+  "captured": {
+    "tvdb": {
+      "sha256": "5daeaad7c8754bfa680b4f0c75635bd8d016f65619e49b78823ae4003a9ce0df",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2025-06-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2025-06-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2025-06-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2025-06-28"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2025-07-05"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2025-07-05"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2025-07-12"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2025-07-12"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2025-07-19"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2025-07-19"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2025-07-26"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2025-07-26"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2025-08-02"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2025-08-09"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2025-08-09"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2025-08-23"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2025-08-30"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2026-06-20"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2026-06-27"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2026-06-28"
+        ],
+        [
+          0,
+          21,
+          0,
+          ""
+        ],
+        [
+          0,
+          22,
+          0,
+          ""
+        ],
+        [
+          0,
+          23,
+          0,
+          ""
+        ],
+        [
+          0,
+          24,
+          0,
+          ""
+        ],
+        [
+          0,
+          25,
+          0,
+          ""
+        ],
+        [
+          0,
+          26,
+          0,
+          ""
+        ]
+      ],
+      "series": 464419
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "5c8e33207fc75af665d7d4fa3d21455ae08b80d0520b5514c3f638b87a66fffd"
+  },
+  "specials": [
+    18,
+    19,
+    20
+  ],
+  "anilist_id": 199448,
+  "parent_anidb_id": 19357
+}

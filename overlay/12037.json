@@ -1,0 +1,70 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12037",
+    "anilist": "https://anilist.co/anime/21753",
+    "tvdb": "https://thetvdb.com/series/kinmoza/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/movie/445475"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kiniro Mosaic: Pretty Days",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2016-11-12 = 0x1 2016-11-12. The node has no TMDB TV mapping; its TMDB film 445475 was released 2016-11-12, within a day, under the English title AniList gives it. AniDB lists 1 special(s).",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "3dca1b02d4f27fc7354422b8f28a310a09939548d159c007a9fda3ea9d3537cb",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          25,
+          "2016-11-12"
+        ],
+        [
+          0,
+          2,
+          26,
+          "2021-08-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-10-08"
+        ]
+      ],
+      "series": 269872
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "abad0dcf60d626db5440ddd9c52918af21d87f299b276ac77c05fef9df4396a8"
+  },
+  "anilist_ids": [
+    21753
+  ],
+  "anidb_id": 12037
+}

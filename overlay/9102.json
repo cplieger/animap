@@ -1,0 +1,49 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9102",
+    "anilist": "https://anilist.co/anime/13469",
+    "tvdb": "https://thetvdb.com/series/hyouka/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/65329/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hyouka: Motsubeki Mono wa",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2012-07-08 = 0x1 2012-07-09. TMDB 65329 agrees: S0E1 2012-07-08. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "d24d799fb37790c58470d953dbc3733dc0ee2dfc5383b31d2a400597da2e72e9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2012-07-09"
+        ]
+      ],
+      "series": 257764
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "a4fdc69e81e1c31a911c30873a47e853bf377f26f803f6db976d660b79294ebb"
+  },
+  "anilist_ids": [
+    13469
+  ],
+  "anidb_id": 9102
+}

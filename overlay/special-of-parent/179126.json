@@ -1,0 +1,127 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18412",
+    "anilist": "https://anilist.co/anime/179126",
+    "tvdb": "https://thetvdb.com/series/plus-sized-elf/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/243743/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Elf-san wa Yaserarenai. Specials",
+  "justification": "AniList 179126 (ONA, 2 episode(s) from 2024-10-06) is AniDB 18412's special(s) S1-S2, aired 2024-10-06 to 2024-10-20. AniList's PARENT relation names AniList 173388, which anime-offline-database links to AniDB 18412, and the special's title matches an AniList title. On TMDB 243743 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2024-10-06, TMDB 243743 S0E1 2024-07-07; AniDB S2 aired 2024-10-20, TMDB 243743 S0E2 2024-07-14), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "f67172f92dd078fd165f5876c3aa20e1d6849f891f3670bfeb22a4bae4a07554",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2024-10-06"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2024-10-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2024-07-07"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2024-07-14"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2024-07-21"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2024-07-28"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2024-08-04"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2024-08-11"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2024-08-18"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2024-08-25"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2024-09-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2024-09-08"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2024-09-15"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2024-09-22"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2024-10-05"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2024-10-19"
+        ]
+      ],
+      "series": 444726
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "aabab23e61a59226ba0e08298e49be30e518c6abc9fbfb4a50eeb00d4e482d25"
+  },
+  "specials": [
+    1,
+    2
+  ],
+  "anilist_id": 179126,
+  "parent_anidb_id": 18412
+}

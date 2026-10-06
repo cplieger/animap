@@ -1,0 +1,49 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10208",
+    "anilist": "https://anilist.co/anime/20479",
+    "tvdb": "https://thetvdb.com/series/my-mental-choices-are-completely-interfering-with-my-school-romantic-comedy/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/72798/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ore no Nounai Sentakushi ga, Gakuen Love Comedy wo Zenryoku de Jama Shiteiru OVA",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2014-05-20 = 0x1 2014-05-20. TMDB 72798 agrees: S0E1 2014-05-20. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "1b67ba991e8e13373a49ac1e208d78e682678c8f46c750764c9fdaa2771220a9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-05-20"
+        ]
+      ],
+      "series": 272314
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "71998373658ba60f20406abbc3a4e920026e079c04f980821a98157c70349e9b"
+  },
+  "anilist_ids": [
+    20479
+  ],
+  "anidb_id": 10208
+}

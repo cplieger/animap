@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1478",
+    "anilist": "https://anilist.co/anime/515",
+    "tvdb": "https://thetvdb.com/series/legend-of-crystania/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/101220/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hajimari no Boukensha-tachi: Legend of Crystania",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 1995-07-29 = 0x1 1995-07-29. TMDB 101220 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "6b6553e7873217d1d73a6c483f86deb2de66ead453cf5ff5bf3a95a317009f71",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1995-07-29"
+        ]
+      ],
+      "series": 85312
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "034bf26be84e73cb274f9cff88715fe0916d321cbff69536133367c902bc47f7"
+  },
+  "anilist_ids": [
+    515
+  ],
+  "anidb_id": 1478
+}

@@ -1,0 +1,44 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7431",
+    "anilist": "https://anilist.co/anime/8101",
+    "tvdb": "https://thetvdb.com/series/hen-zemi/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/74411/season/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Hen Zemi",
+  "justification": "AniDB 2 regular episode(s) = TVDB official order, air dates within a day: 1 2010-07-23 = 0x1 2010-07-23; 2 2011-03-23 = 0x2 2011-03-23. TMDB 74411 agrees: S0E1 2010-07-23, S0E2 2011-03-23. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "2439cc710c1df33fb4e5d1b3b2c5102a26a56b54e5c54bf0a301197396b43d10",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-07-23"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-03-23"
+        ]
+      ],
+      "series": 231961
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "5a0a186550ff21135915d16488324c30c96f379c3ef948d059e51bc8c8c8815a"
+  },
+  "anilist_ids": [
+    8101
+  ],
+  "anidb_id": 7431
+}

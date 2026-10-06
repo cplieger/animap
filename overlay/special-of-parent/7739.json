@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6751",
+    "anilist": "https://anilist.co/anime/7739",
+    "tvdb": "https://thetvdb.com/series/11eyes/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/44310/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "11eyes OVA",
+  "justification": "AniList 7739 (OVA, 1 episode(s) from 2010-06-25) is AniDB 6751's special(s) S1, aired 2010-06-25. AniList's PARENT relation names AniList 6682, which anime-offline-database links to AniDB 6751, and the special's title matches an AniList title. TMDB 44310, where the parent's node places the special(s), agrees: S0E1 2010-06-25.",
+  "captured": {
+    "tvdb": {
+      "sha256": "08778f6a908e00a1376b4c9549a312f88d1bd5f6aa5b6be799ae3e17c7f80473",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2010-06-25"
+        ]
+      ],
+      "series": 117851
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "d4db8096a8007d27babb437e952b26966cf7d5c55fcb17fd2b4e7678c530cc0e"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 7739,
+  "parent_anidb_id": 6751
+}

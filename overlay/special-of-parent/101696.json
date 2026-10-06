@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13362",
+    "anilist": "https://anilist.co/anime/101696",
+    "tvdb": "https://thetvdb.com/series/hakumei-and-mikochi/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/76127/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Hakumei to Mikochi: Neji to Bed to Irori to Bakuchi",
+  "justification": "AniList 101696 (OVA, 1 episode(s) from 2018-06-27) is AniDB 13362's special(s) S1, aired 2018-06-27. AniList's PARENT relation names AniList 99748, which anime-offline-database links to AniDB 13362, and the special's title matches an AniList title. TMDB 76127, where the parent's node places the special(s), agrees: S0E1 2018-06-27.",
+  "captured": {
+    "tvdb": {
+      "sha256": "000408ae985fd39039f900ff5b478d5a46945d8a023d506654bfd65ad0880e85",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2018-06-27"
+        ]
+      ],
+      "series": 339276
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "7307133227a5f63400a5f9ee03dc5bbdd8c79aeae106abd293d4c6ed7e8ddaab"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 101696,
+  "parent_anidb_id": 13362
+}

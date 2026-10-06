@@ -1,0 +1,61 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10914",
+    "anilist": "https://anilist.co/anime/21064",
+    "tvdb": "https://thetvdb.com/series/trinity-seven/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/61460/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Trinity Seven: Nanatsu no Taizai to Nana Madoushi",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2015-03-25 = 0x1 2015-03-25. TMDB 61460 agrees: S0E1 2015-03-25. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8e2d1f6f76be5c4cdcee04b5992852766f1a5304db16b1ce10c83520fe54f2d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2015-03-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-02-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2019-03-29"
+        ]
+      ],
+      "series": 283935
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "28c9a82944126509564f54c4b49d78590c3e4048b1e69291c1d5217cf1211d02"
+  },
+  "anilist_ids": [
+    21064
+  ],
+  "anidb_id": 10914
+}

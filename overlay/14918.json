@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14918",
+    "anilist": "https://anilist.co/anime/109492",
+    "tvdb": "https://thetvdb.com/series/we-never-learn-bokuben/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/87432/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Bokutachi wa Benkyou ga Dekinai OVAs",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2019-11-01 = 0x1 2019-11-01. TMDB 87432 agrees: S0E1 2019-11-01. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "d1cd2484aa33b02bc0716a98c8c24382be7cc3c0d01a5ab400770e9633e553f5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2019-11-01"
+        ],
+        [
+          0,
+          2,
+          15,
+          "2020-04-03"
+        ]
+      ],
+      "series": 359095
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "820acc87993de7790d723b0c90fe4a91016bbba875ee975ba9dff005dc15b16d"
+  },
+  "anilist_ids": [
+    109492
+  ],
+  "anidb_id": 14918
+}

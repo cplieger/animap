@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1608",
+    "anilist": "https://anilist.co/anime/2006",
+    "tvdb": "https://thetvdb.com/series/yu-gi-oh/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/36406/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Yuu Gi Ou (1999)",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 1999-03-06 = 0x1 1999-03-06. TMDB 36406 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "cdd7063afa5100d63353e7d245079b86aedfd66414f35804e72489568fd2ca47",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1999-03-06"
+        ]
+      ],
+      "series": 113561
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "e69b1b56c3f0b61611084242dbf1f99ecb47ce7ca27e88363f1e73d20f7dff6c"
+  },
+  "anilist_ids": [
+    2006
+  ],
+  "anidb_id": 1608
+}

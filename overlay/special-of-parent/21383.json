@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11147",
+    "anilist": "https://anilist.co/anime/21383",
+    "tvdb": "https://thetvdb.com/series/classroom-crisis/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/63499/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Classroom☆Crisis 5.5: Tabi no Haji wa Uwanuri",
+  "justification": "AniList 21383 (SPECIAL, 1 episode(s) from 2015-12-23) is AniDB 11147's special(s) S1, aired 2015-12-23. AniList's PARENT relation names AniList 21112, which anime-offline-database links to AniDB 11147, and the special's title matches an AniList title. TMDB 63499, where the parent's node places the special(s), agrees: S0E1 2015-12-23.",
+  "captured": {
+    "tvdb": {
+      "sha256": "7c42a2bd8b6437aecfdd062db5c5a442be667bca5afd653895452687e5994556",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-12-23"
+        ]
+      ],
+      "series": 295220
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "5de48c26dfc78755de14b798d1196c3ee89704ca7af512713fa5244cc04cf823"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 21383,
+  "parent_anidb_id": 11147
+}

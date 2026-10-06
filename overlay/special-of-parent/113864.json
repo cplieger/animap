@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14777",
+    "anilist": "https://anilist.co/anime/113864",
+    "tvdb": "https://thetvdb.com/series/special-7-special-crime-investigation-unit/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/93647/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Keishicho Tokumu-bu Tokushu Kyoaku-han Taisaku-Shitsu Dai-Nana-ka: Tokunana OVA File 0.5",
+  "justification": "AniList 113864 (OVA, 1 episode(s) from 2020-01-24) is AniDB 14777's special(s) S2, aired 2020-01-24. AniList's PARENT relation names AniList 108554, which anime-offline-database links to AniDB 14777, and the special's title matches an AniList title. TMDB 93647, where the parent's node places the special(s), agrees: S0E2 2020-01-24.",
+  "captured": {
+    "tvdb": {
+      "sha256": "6e6b6f831cc2a3802e854db1e8f14c95321423c8b6b8c462e685ba3ca57d50aa",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-12-01"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2020-01-24"
+        ]
+      ],
+      "series": 368757
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "a63a250fb3fad018af3a46298d876664db65ecf2834114e30f6d8d95bce8acc7"
+  },
+  "specials": [
+    2
+  ],
+  "anilist_id": 113864,
+  "parent_anidb_id": 14777
+}

@@ -1,0 +1,69 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/968",
+    "anilist": "https://anilist.co/anime/9385",
+    "tvdb": "https://thetvdb.com/series/god-mars/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/22310/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Rokushin Gattai GodMars (1982)",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 1982-12-18 = 0x1 1982-12-18. TMDB 22310 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "40eafba16fd70abd7b344ee3bcbcf9b1ef94675a80850c26c999be24633b2509",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1982-12-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1988-06-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-11-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-11-02"
+        ]
+      ],
+      "series": 251752
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "14c15532e79a3adce7bc5266a303f42be83e98b933eba9fbb6d72d385048898b"
+  },
+  "anilist_ids": [
+    9385
+  ],
+  "anidb_id": 968
+}

@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2081",
+    "anilist": "https://anilist.co/anime/3183",
+    "tvdb": "https://thetvdb.com/series/maps/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/113380/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "MAPS: Densetsu no Samayoeru Seijin-tachi",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 1987-07-14 = 0x1 1987-07-14. TMDB 113380 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "04d003e411cdc75d2b487ce976e4de1c18178635c643da4e2f0be01a76442db4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          5,
+          "1987-07-14"
+        ]
+      ],
+      "series": 166751
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "75b12b9380c122dc553c525ad2220cfa6121f6ef465c66202e3fbbcf3428db81"
+  },
+  "anilist_ids": [
+    3183
+  ],
+  "anidb_id": 2081
+}

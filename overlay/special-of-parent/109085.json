@@ -1,0 +1,88 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13743",
+    "anilist": "https://anilist.co/anime/109085",
+    "tmdb": "https://www.themoviedb.org/tv/80671/season/0",
+    "tvdb": "https://thetvdb.com/series/cells-at-work/seasons/official/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Hataraku Saibou Specials",
+  "justification": "AniList 109085 (SPECIAL, 5 episode(s) from 2018-10-24) is AniDB 13743's special(s) S2-S6, aired 2018-10-24 to 2019-02-27. AniList's PARENT relation names AniList 100977, which anime-offline-database links to AniDB 13743, and the special's title matches an AniList title. On TMDB 80671 the parent's node places the special(s) where TMDB's dates disagree (AniDB S3 aired 2018-11-18, TMDB 80671 S0E3 2018-11-28), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "e836cd223c670d296d9ab743089aa8acf116bd80157caad7fc41d2528672a522",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2018-12-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-10-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2018-11-18"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-12-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-01-30"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2019-02-27"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2019-07-08"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2020-09-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2020-09-05"
+        ]
+      ],
+      "series": 346931
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "930823fe0a38a1ea4fb0b8d5a26d9f688978890e7f5b2b4083501be0da7103a0"
+  },
+  "specials": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "anilist_id": 109085,
+  "parent_anidb_id": 13743
+}

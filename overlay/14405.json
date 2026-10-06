@@ -1,0 +1,50 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14405",
+    "anilist": "https://anilist.co/anime/104217",
+    "tvdb": "https://thetvdb.com/series/wotakoi-love-is-hard-for-otaku/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/78457/season/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Wotaku ni Koi wa Muzukashii OVA",
+  "justification": "AniDB 3 regular episode(s) = TVDB official order, air dates within a day: 1 2019-03-29 = 0x1 2019-03-29; 2 2021-02-26 = 0x2 2021-02-26; 3 2021-10-14 = 0x3 2021-10-14. TMDB 78457 agrees: S0E1 2019-03-29, S0E2 2021-02-26, S0E3 2021-10-14. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "5f6ede27fcf94d8cae7efd6513726702a86d082f65c550260aa89b078d7b6e3d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2019-03-29"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2021-02-26"
+        ],
+        [
+          0,
+          3,
+          14,
+          "2021-10-14"
+        ]
+      ],
+      "series": 341425
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "0985b9735b326fd9c3fddf7aab3aa7865bae3233a5cd6ba21ec2bb0204a41736"
+  },
+  "anilist_ids": [
+    104217
+  ],
+  "anidb_id": 14405
+}

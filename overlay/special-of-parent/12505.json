@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8376",
+    "anilist": "https://anilist.co/anime/12505",
+    "tvdb": "https://thetvdb.com/series/c---cubexcursedxcurious/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/45954/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "C³ Special",
+  "justification": "AniList 12505 (SPECIAL, 1 episode(s) from 2012-04-25) is AniDB 8376's special(s) S1, aired 2012-04-25. AniList's PARENT relation names AniList 10578, which anime-offline-database links to AniDB 8376, and the special's title matches an AniList title. TMDB 45954, where the parent's node places the special(s), agrees: S0E1 2012-04-25.",
+  "captured": {
+    "tvdb": {
+      "sha256": "b1adcf92637df58a559c7513dbf18f3a0ab18129be4e781a2117e8ac8a1c03ef",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-04-25"
+        ]
+      ],
+      "series": 251984
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "5619eab7ee568641fa3eef850e60b02e6402622a1ca8cbc2344f8a838f976b39"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 12505,
+  "parent_anidb_id": 8376
+}

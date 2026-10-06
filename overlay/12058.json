@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12058",
+    "anilist": "https://anilist.co/anime/21771",
+    "tvdb": "https://thetvdb.com/series/planetarian-the-dream-of-the-small-star/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/67078/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "planetarian: Hoshi no Hito",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2016-09-03 = 0x1 2016-09-03. TMDB 67078 agrees: S0E1 2016-09-03. AniDB lists 1 special(s).",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "e9476f9fa8b55fa88837c44d1eb64764a4669f8fe02076a85c95869317bd15c1",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-09-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-01-20"
+        ]
+      ],
+      "series": 312664
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "593eeee44013b2233e8400bdb717a3158498ef13e0975d559a304258ba0fae69"
+  },
+  "anilist_ids": [
+    21771
+  ],
+  "anidb_id": 12058
+}

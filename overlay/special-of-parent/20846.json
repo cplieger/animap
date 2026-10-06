@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10398",
+    "anilist": "https://anilist.co/anime/20846",
+    "tvdb": "https://thetvdb.com/series/inugami-san-to-nekoyama-san/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/61530/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Inugami-san to Nekoyama-san: Nekoyama-san to Onsen Ryokou",
+  "justification": "AniList 20846 (SPECIAL, 1 episode(s) from 2014-07-18) is AniDB 10398's special(s) S1, aired 2014-07-18. AniList's PARENT relation names AniList 20604, which anime-offline-database links to AniDB 10398, and the special's title matches an AniList title. On TMDB 61530 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2014-07-18, TMDB 61530 S0E1 2014-07-14), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "2d457be5a1fdcdf8462ad21d0f0ed931fd07dde0e5cf23f20bf9d942002803b3",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-07-18"
+        ]
+      ],
+      "series": 278158
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "e074ab063c747c78d540d30efbae9fc70927dc581a064ee18a1be3f6a87e0461"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 20846,
+  "parent_anidb_id": 10398
+}
