@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14573",
+    "anilist": "https://anilist.co/anime/106862",
+    "tvdb": "https://thetvdb.com/series/lord-el-melloi-iis-case-files-rail-zeppelin-grace-note/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/85368/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Lord El-Melloi II-sei no Jikenbo: \"Rail Zeppelin\" Grace note - Hakamori to Neko to Majutsu-shi",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2018-12-31 = 0x1 2018-12-31. TMDB 85368 agrees: S0E1 2018-12-31. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "a3b8535cb6af457b11ee3c6bfe32df52dbbe3f1e086bf78f16fa4d4c05e4a34b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2018-12-31"
+        ],
+        [
+          0,
+          2,
+          15,
+          "2021-12-31"
+        ]
+      ],
+      "series": 357492
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "69d63e4943dd5eca6919d5ea16b7950ea4e97fa92975a97c82da5123ba0a3ddf"
+  },
+  "anilist_ids": [
+    106862
+  ],
+  "anidb_id": 14573
+}

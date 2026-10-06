@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15023",
+    "anilist": "https://anilist.co/anime/113187",
+    "tvdb": "https://thetvdb.com/series/null-and-peta/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/91587/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Null Peta: Doki♥ Nullnull Petapeta! Mizugi Darake no Onee-chan Taikai!",
+  "justification": "AniList 113187 (OVA, 1 episode(s) from 2020-01-31) is AniDB 15023's special(s) S1, aired 2020-01-31. AniList's PARENT relation names AniList 110789, which anime-offline-database links to AniDB 15023, and the special's title matches an AniList title. TMDB 91587, where the parent's node places the special(s), agrees: S0E1 2020-01-31.",
+  "captured": {
+    "tvdb": {
+      "sha256": "05ae8af4a00147e00d409afde82f8a5677873d3258332a92e5aa379c3707e947",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2020-01-31"
+        ]
+      ],
+      "series": 369145
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "ae14fa571a40f2148659ec03841844058643b2e80df5ea38f1340c619be9704b"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 113187,
+  "parent_anidb_id": 15023
+}

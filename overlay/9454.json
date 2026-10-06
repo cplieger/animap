@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9454",
+    "anilist": "https://anilist.co/anime/15771",
+    "tvdb": "https://thetvdb.com/series/saint-young-men/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/102500/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Saint Onii-san",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2013-05-10 = 0x1 2013-05-09. TMDB 102500 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "dba8a23b0c54abbf43e4b19c884447a1c6a8c77fdf06323307dee957fa6cde60",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          2,
+          "2013-05-09"
+        ]
+      ],
+      "series": 267754
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "53a7e62185519fd3ca61cce1cc6b1fe596a979a54c52d521b87187cfe6cce7cc"
+  },
+  "anilist_ids": [
+    15771
+  ],
+  "anidb_id": 9454
+}

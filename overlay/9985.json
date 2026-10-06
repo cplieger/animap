@@ -1,0 +1,111 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9985",
+    "anilist": "https://anilist.co/anime/19759",
+    "tvdb": "https://thetvdb.com/series/assassination-classroom/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/62110/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ansatsu Kyoushitsu",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2013-10-06 = 0x1 2013-10-06. TMDB 62110 season 0 has no episode within a day of AniDB's episode 1 (2013-10-06), so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "32a92b214a1e4ae2a79911ce1a979c9526a26a47271c3e8ee426b452c232f691",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          48,
+          "2013-10-06"
+        ],
+        [
+          0,
+          2,
+          49,
+          "2014-11-09"
+        ],
+        [
+          0,
+          6,
+          53,
+          "2016-03-11"
+        ],
+        [
+          0,
+          7,
+          54,
+          "2016-03-18"
+        ],
+        [
+          0,
+          8,
+          55,
+          "2016-03-25"
+        ],
+        [
+          0,
+          9,
+          56,
+          "2016-04-01"
+        ],
+        [
+          0,
+          10,
+          57,
+          "2016-11-25"
+        ],
+        [
+          0,
+          11,
+          58,
+          "2016-11-25"
+        ],
+        [
+          0,
+          12,
+          59,
+          "2016-11-25"
+        ],
+        [
+          0,
+          13,
+          60,
+          "2016-11-25"
+        ],
+        [
+          0,
+          15,
+          50,
+          "2016-11-19"
+        ]
+      ],
+      "series": 283947
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "b35e7c3a4bda387c4b023242e8a09d49199b10cd4134eb26ca18f350cf363aad"
+  },
+  "anilist_ids": [
+    19759
+  ],
+  "anidb_id": 9985
+}

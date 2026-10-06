@@ -1,0 +1,49 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10350",
+    "anilist": "https://anilist.co/anime/20573",
+    "tvdb": "https://thetvdb.com/series/recently-my-sister-is-unusual/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/60672/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Saikin, Imouto no Yousu ga Chotto Okashiinda ga. OVA",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2014-06-30 = 0x1 2014-06-30. TMDB 60672 agrees: S0E1 2014-06-30. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "eff4986bd3ca9fb5b55348f84ddc9323e07ae6c414598ecd957522ccbfcdf3aa",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-06-30"
+        ]
+      ],
+      "series": 275614
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "4b20a393c27f70de86ec79f3ca6a15485a5cff4b4daa4b1f5cea26f782a12c6e"
+  },
+  "anilist_ids": [
+    20573
+  ],
+  "anidb_id": 10350
+}

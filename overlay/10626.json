@@ -1,0 +1,45 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10626",
+    "anilist": "https://anilist.co/anime/20837",
+    "tmdb": "https://www.themoviedb.org/tv/62602/season/0",
+    "tvdb": "https://thetvdb.com/series/blue-spring-ride/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Ao Haru Ride: unwritten",
+  "justification": "AniDB 2 regular episode(s) = TVDB official order, air dates within a day: 1 2014-08-25 = 0x1 2014-08-25; 2 2014-12-12 = 0x2 2014-12-12. TMDB 62602 agrees: S0E1 2014-08-25, S0E2 2014-12-12. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "37374a79c7f2d8500c702afd1499297f2cbc7a9e0de107a78051496c99f4269c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2014-08-25"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2014-12-12"
+        ]
+      ],
+      "series": 279554
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "5309599e16e546cedc542a36e19e32497b8568bb3cfa2b2a29b6dc2493d323be"
+  },
+  "anilist_ids": [
+    20837,
+    20900
+  ],
+  "anidb_id": 10626
+}

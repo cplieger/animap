@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14571",
+    "anilist": "https://anilist.co/anime/110738",
+    "tvdb": "https://thetvdb.com/series/miru-tights/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/86823/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Miru Tights: Cosplay Satsuei Tights",
+  "justification": "AniList 110738 (OVA, 1 episode(s) from 2019-08-23) is AniDB 14571's special(s) S1, aired 2019-08-23. AniList's PREQUEL relation names AniList 106967, which anime-offline-database links to AniDB 14571, and the special's title matches an AniList title. TMDB 86823, where the parent's node places the special(s), agrees: S0E1 2019-08-23.",
+  "captured": {
+    "tvdb": {
+      "sha256": "8f3221d50a659217afebe55247529d2796a2eb9f841d0f0d10072409dec84e6a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-08-23"
+        ]
+      ],
+      "series": 361351
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "86dc18f1dd51a850b8bfca4d28df7c8b684f99d6fdceb9fda47e77c3bd89237c"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 110738,
+  "parent_anidb_id": 14571
+}

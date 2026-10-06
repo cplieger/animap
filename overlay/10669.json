@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10669",
+    "anilist": "https://anilist.co/anime/20685",
+    "tvdb": "https://thetvdb.com/series/buddy-complex/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/60663/season/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "tmdboffset": "1"
+  },
+  "title": "Buddy Complex Kanketsu-hen - Ano Sora ni Kaeru Mirai de",
+  "justification": "AniDB 2 regular episode(s) = TVDB official order, air dates within a day: 1 2014-09-30 = 0x1 2014-09-30; 2 2014-10-01 = 0x2 2014-10-01. TMDB 60663 agrees: S0E2 2014-09-30, S0E3 2014-10-01. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "ecd439e009ff04505dd81df050f544f8f47f181066ebb2043af44fedc02b34a5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2014-09-30"
+        ],
+        [
+          0,
+          2,
+          15,
+          "2014-10-01"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-09-12"
+        ]
+      ],
+      "series": 276777
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "87ad7d6965ddfc4f63f2e041accc054cbea3aad19c7c3c813489a830f6bc4567"
+  },
+  "anilist_ids": [
+    20685
+  ],
+  "anidb_id": 10669
+}

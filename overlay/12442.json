@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12442",
+    "anilist": "https://anilist.co/anime/21791",
+    "tvdb": "https://thetvdb.com/series/bungo-stray-dogs/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/65931/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Bungou Stray Dogs: Hitori Ayumu",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2017-08-04 = 0x1 2017-08-04. TMDB 65931 agrees: S0E1 2017-08-04. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "4aa3aa5b055678c3d8dd2eb5cb5005ef9d408d09dcd020c5f117147c76e8f7a8",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          25,
+          "2017-08-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-03-03"
+        ]
+      ],
+      "series": 305075
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "83a7a68731720899752b9e6fe771569097992d49981fff98d84446b58ffd6db7"
+  },
+  "anilist_ids": [
+    21791
+  ],
+  "anidb_id": 12442
+}

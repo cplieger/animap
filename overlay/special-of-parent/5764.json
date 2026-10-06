@@ -1,0 +1,78 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5635",
+    "anilist": "https://anilist.co/anime/5764",
+    "tvdb": "https://thetvdb.com/series/the-familiar-of-zero/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/35753/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Zero no Tsukaima: Princesses no Rondo - Yuuwaku no Sunahama",
+  "justification": "AniList 5764 (OVA, 1 episode(s) from 2008-12-25) is AniDB 5635's special(s) S1, aired 2008-12-25. AniList's PARENT relation names AniList 3712, which anime-offline-database links to AniDB 5635, and the special's title matches an AniList title. TMDB 35753, where the parent's node places the special(s), agrees: S0E1 2008-12-25.",
+  "captured": {
+    "tvdb": {
+      "sha256": "9690fe57d16ed6f4e6a76721c39a61dea8a967040a66607ce34ac9544f2480d2",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          41,
+          "2008-12-25"
+        ],
+        [
+          0,
+          2,
+          38,
+          "2008-09-25"
+        ],
+        [
+          0,
+          3,
+          39,
+          "2008-10-24"
+        ],
+        [
+          0,
+          4,
+          40,
+          "2008-11-21"
+        ],
+        [
+          0,
+          5,
+          54,
+          "2008-12-25"
+        ],
+        [
+          0,
+          6,
+          55,
+          "2009-01-23"
+        ],
+        [
+          0,
+          7,
+          56,
+          "2009-02-25"
+        ],
+        [
+          0,
+          8,
+          57,
+          "2009-03-25"
+        ]
+      ],
+      "series": 79719
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "fe6129cfce4530eacf7c49ce2ef715be57e68a29fb42f7d0974ed67ab7c21f67"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 5764,
+  "parent_anidb_id": 5635
+}

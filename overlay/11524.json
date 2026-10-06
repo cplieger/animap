@@ -1,0 +1,49 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11524",
+    "anilist": "https://anilist.co/anime/21313",
+    "tvdb": "https://thetvdb.com/series/snow-white-with-the-red-hair/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/63087/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Akagami no Shirayuki-hime: Nandemonai Takaramono, Kono Page",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2016-01-05 = 0x1 2016-01-05. TMDB 63087 agrees: S0E1 2016-01-05. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "2f3de2b2902d59555a8627403657768c0408e3de9993ad5e218020c5474f8392",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          25,
+          "2016-01-05"
+        ]
+      ],
+      "series": 295205
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "9476f70db23d1c4e6d1c7e4735a04fdd34ca8be056e4538a33a81fa59a244b22"
+  },
+  "anilist_ids": [
+    21313
+  ],
+  "anidb_id": 11524
+}

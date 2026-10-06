@@ -1,0 +1,120 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15989",
+    "anilist": "https://anilist.co/anime/158676",
+    "tvdb": "https://thetvdb.com/series/oddtaxi/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/116727/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Odd Taxi Original Picture Drama",
+  "justification": "AniList 158676 (SPECIAL, 1 episode(s) from 2022-03-30) is AniDB 15989's special(s) S1, aired 2022-03-30. AniList's PARENT relation names AniList 128547, which anime-offline-database links to AniDB 15989, and the special's title matches an AniList title. TMDB 116727, where the parent's node places the special(s), agrees: S0E1 2022-03-30.",
+  "captured": {
+    "tvdb": {
+      "sha256": "fd42a37e3535e6c9c94d74f3360100dcfd1cf11253d24326267fcf6fb23bcfb3",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-04-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-04-12"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-04-19"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2021-04-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-05-03"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2021-05-10"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2021-05-17"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2021-05-24"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2021-05-31"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2021-06-07"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2021-06-14"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2021-06-21"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2021-06-28"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2022-03-30"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2022-04-01"
+        ]
+      ],
+      "series": 397208
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "edd202ba54c3758c7ea0923523462f6ed7a89af36247ceb800d9596f7b5c707d"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 158676,
+  "parent_anidb_id": 15989
+}

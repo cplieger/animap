@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11881",
+    "anilist": "https://anilist.co/anime/21862",
+    "tvdb": "https://thetvdb.com/series/havent-you-heard-im-sakamoto/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/65944/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Sakamoto desu ga?: Sakamoto Deshita?",
+  "justification": "AniList 21862 (OVA, 1 episode(s) from 2016-09-26) is AniDB 11881's special(s) S1, aired 2016-09-27. AniList's PREQUEL relation names AniList 21595, which anime-offline-database links to AniDB 11881, and the special's title matches an AniList title. On TMDB 65944 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2016-09-27, TMDB 65944 S0E1 2016-10-26), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "967b59821bbd29b6003d8e6f693e4a84203bb4971b2bafbbdd05ed1cf44e1cd7",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2016-09-27"
+        ]
+      ],
+      "series": 306153
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "a13bff43a9a4852a84a29584b5c2b78e3517d4737895f69ebdd08e20448e0e1f"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 21862,
+  "parent_anidb_id": 11881
+}

@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8820",
+    "anilist": "https://anilist.co/anime/18045",
+    "tvdb": "https://thetvdb.com/series/love-election-and-chocolate/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/46093/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Koi to Senkyo to Chocolate: Koi Imouto!",
+  "justification": "AniList 18045 (SPECIAL, 1 episode(s) from 2013-03-27) is AniDB 8820's special(s) S1, aired 2013-03-27. AniList's PREQUEL relation names AniList 12175, which anime-offline-database links to AniDB 8820, and the special's title matches an AniList title. On TMDB 46093 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2013-03-27, TMDB 46093 S0E1 2012-09-26), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "e70ae66452e1056f2d42f14af99639010577905e94dbd40f94f2eadf3c8d416e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-09-26"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2013-03-27"
+        ]
+      ],
+      "series": 259641
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "69c49a64c428da1453e0dbdb2d1eeb9648d767150955073951452bdaa121fab6"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 18045,
+  "parent_anidb_id": 8820
+}

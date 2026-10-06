@@ -1,0 +1,63 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1307",
+    "anilist": "https://anilist.co/anime/3014",
+    "tvdb": "https://thetvdb.com/series/legend-of-the-galactic-heroes/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/27660/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ginga Eiyuu Densetsu: Waga Yuku wa Hoshi no Taikai",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 1988-02-06 = 0x1 1988-02-06. TMDB 27660 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "3ba1fd2f83544ce3d4fc2ea69cd2e49939f614e8f37a0517af8d6e968d3c1d73",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          112,
+          "1988-02-06"
+        ],
+        [
+          0,
+          2,
+          111,
+          "1992-12-12"
+        ],
+        [
+          0,
+          3,
+          113,
+          "1993-12-18"
+        ]
+      ],
+      "series": 81618
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "057e9f01a4d34ccc2f345d3fe5f53e1b177b5f16a45cc30541a95243f86fbd07"
+  },
+  "anilist_ids": [
+    3014
+  ],
+  "anidb_id": 1307
+}

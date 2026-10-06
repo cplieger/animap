@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11694",
+    "anilist": "https://anilist.co/anime/21784",
+    "tvdb": "https://thetvdb.com/series/kumamiko---girl-meets-bear/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/65382/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Kuma Miko OVAs",
+  "justification": "AniList 21784 (SPECIAL, 2 episode(s) from 2016-06-24) is AniDB 11694's special(s) S1-S2, aired 2016-06-24 to 2016-08-24. AniList's PARENT relation names AniList 21423, which anime-offline-database links to AniDB 11694, and the special's title matches an AniList title. TMDB 65382, where the parent's node places the special(s), agrees: S0E1 2016-06-24, S0E2 2016-08-24.",
+  "captured": {
+    "tvdb": {
+      "sha256": "65f0214ba34d4639b0c321d7501d34b0f38ff558e866fe70c11d2a0d1e167524",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-06-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-08-24"
+        ]
+      ],
+      "series": 305083
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "dc85586c68b0ecec498a19108fdf1ebbd50384b4f614fef9f50b3f29aa261d92"
+  },
+  "specials": [
+    1,
+    2
+  ],
+  "anilist_id": 21784,
+  "parent_anidb_id": 11694
+}

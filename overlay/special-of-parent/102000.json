@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/481",
+    "anilist": "https://anilist.co/anime/102000",
+    "tvdb": "https://thetvdb.com/series/ghost-stories/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/35466/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Gakkou no Kaidan: Kubinashi Rider!! Shi no Noroi",
+  "justification": "AniList 102000 (SPECIAL, 1 episode(s) from 2001-08-24) is AniDB 481's special(s) S1, aired 2001-08-24. AniList's PARENT relation names AniList 1281, which anime-offline-database links to AniDB 481, and the special's title matches an AniList title. On TMDB 35466 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2001-08-24, TMDB 35466 S0E1 2000-11-15), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "9f319ddd89506b8efff15eae7e706807157cf9125fbe76a6d9bd9f4eba151d22",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          19,
+          "2001-08-24"
+        ]
+      ],
+      "series": 82234
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "cbeafa91ff2ed938c678270999b99d6327782b956d171e828fdef991717b211e"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 102000,
+  "parent_anidb_id": 481
+}

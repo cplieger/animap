@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7249",
+    "anilist": "https://anilist.co/anime/7465",
+    "tvdb": "https://thetvdb.com/series/time-of-eve/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/60937/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eve no Jikan Gekijouban",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2010-03-06 = 0x1 2010-03-06. TMDB 60937 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "8f027ebefbe4be77fd0abb75a1964e16972c98ac0ec94a71645613b679a4a925",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-03-06"
+        ]
+      ],
+      "series": 84709
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "4f53d5e9d13678b99d42110f6093383a320bb4afc6e209f1e4a7c8d29acf3825"
+  },
+  "anilist_ids": [
+    7465
+  ],
+  "anidb_id": 7249
+}

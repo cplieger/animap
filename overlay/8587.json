@@ -1,0 +1,56 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8587",
+    "anilist": "https://anilist.co/anime/11313",
+    "tvdb": "https://thetvdb.com/series/a-town-where-you-live/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/70228/season/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Kimi no Iru Machi: Tasogare Kousaten",
+  "justification": "AniDB 2 regular episode(s) = TVDB official order, air dates within a day: 1 2012-03-16 = 0x1 2012-03-16; 2 2012-06-15 = 0x2 2012-06-15. TMDB 70228 agrees: S0E1 2012-03-16, S0E2 2012-06-15. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "d8eaeeaf03d10f593a64ac3a9dd37fe375b334ceb6e61cb566e80ca7e4138cc9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-03-16"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2012-06-15"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2014-01-17"
+        ],
+        [
+          0,
+          4,
+          16,
+          "2014-03-17"
+        ]
+      ],
+      "series": 257766
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "1a1bef8138500f622c4f5c120e81b9ee3a90620c12da6e177cafa89e8717ed6b"
+  },
+  "anilist_ids": [
+    11313
+  ],
+  "anidb_id": 8587
+}

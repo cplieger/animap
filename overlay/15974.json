@@ -1,0 +1,23 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15974",
+    "anilist": "https://anilist.co/anime/128207",
+    "tmdb": "https://www.themoviedb.org/movie/783675"
+  },
+  "set": {
+    "tmdbid": "783675",
+    "imdbid": "tt15242330"
+  },
+  "title": "THE FIRST SLAM DUNK",
+  "justification": "AniDB's one regular episode aired 2022-12-03; TMDB film 783675 was released 2022-12-03, within a day, under the same title as on AniList. The IMDb id tt15242330 is the one TMDB lists for film 783675, as Radarr's metadata service reports it.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    128207
+  ],
+  "anidb_id": 15974
+}

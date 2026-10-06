@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11543",
+    "anilist": "https://anilist.co/anime/87538",
+    "tvdb": "https://thetvdb.com/series/shounen-maid/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/66112/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Shounen Maid: Onna wa Dokyou, Otoko wa Aikyou?",
+  "justification": "AniList 87538 (SPECIAL, 1 episode(s) from 2016-08-24) is AniDB 11543's special(s) S1, aired 2016-08-24. AniList's PARENT relation names AniList 21321, which anime-offline-database links to AniDB 11543, and the special's title matches an AniList title. On TMDB 66112 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2016-08-24, TMDB 66112 S0E1 2016-06-24), so the bridged record publishes no TMDB value.",
+  "captured": {
+    "tvdb": {
+      "sha256": "52b7e571bbc57f0fb568ca51e6f543e50d2a57085fbab40e2047e09122aedcd4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-08-24"
+        ]
+      ],
+      "series": 305100
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "e1e4fcb2eb41fe046e05f1af33df3120ea6fd09553a232ffe0d22d29b7e8be26"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 87538,
+  "parent_anidb_id": 11543
+}

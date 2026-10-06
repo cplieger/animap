@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8852",
+    "anilist": "https://anilist.co/anime/14189",
+    "tvdb": "https://thetvdb.com/series/dusk-maiden-of-amnesia/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/54930/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Tasogare Otome × Amnesia: Taima Otome",
+  "justification": "AniList 14189 (OVA, 1 episode(s) from 2012-11-28) is AniDB 8852's special(s) S1, aired 2012-11-28. AniList's PREQUEL relation names AniList 12445, which anime-offline-database links to AniDB 8852, and the special's title matches an AniList title. TMDB 54930, where the parent's node places the special(s), agrees: S0E1 2012-11-28.",
+  "captured": {
+    "tvdb": {
+      "sha256": "09c18b8fe49c8beb5e820f0844aab380f6e5c25ddcc1ca303dc9645442747c67",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-11-28"
+        ]
+      ],
+      "series": 257852
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "1b314934ba3c2243fb74cd542ea503b396bc27474039a6866d9e1a560f6ef25a"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 14189,
+  "parent_anidb_id": 8852
+}

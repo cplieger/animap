@@ -1,0 +1,49 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4938",
+    "anilist": "https://anilist.co/anime/2132",
+    "tvdb": "https://thetvdb.com/series/inukami/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/34808/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Inukami! THE MOVIE: Tokumei Reiteki Sousakan Karina Shirou!",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2007-04-21 = 0x1 2007-04-21. TMDB 34808 agrees: S0E1 2007-04-21. AniDB lists 4 special(s).",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "1763a013fd8eb7ac5683967da38b7d2cfba6f988253a64372f2d709a42f3a83e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2007-04-21"
+        ]
+      ],
+      "series": 81100
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "fb445e847c105f96e7d8800124073c33535f762f46651c1f2878bc928495eefa"
+  },
+  "anilist_ids": [
+    2132
+  ],
+  "anidb_id": 4938
+}

@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11167",
+    "anilist": "https://anilist.co/anime/104174",
+    "tvdb": "https://thetvdb.com/series/steinsgate-0/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/78102/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Steins;Gate 0: Kesshou Takei no Valentine - Bittersweet Day",
+  "justification": "AniList 104174 (OVA, 1 episode(s) from 2018-12-21) is AniDB 11167's special(s) S1, aired 2018-12-21. AniList's PARENT relation names AniList 21127, which anime-offline-database links to AniDB 11167, and the special's title matches an AniList title. TMDB 78102, where the parent's node places the special(s), agrees: S0E1 2018-12-21.",
+  "captured": {
+    "tvdb": {
+      "sha256": "28fb1ecbb81cf9e58eddba0a4ba196dcb9965ca70fa0fb572ee7f7d05f3b3493",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2015-12-03"
+        ],
+        [
+          0,
+          2,
+          25,
+          "2018-12-21"
+        ]
+      ],
+      "series": 339268
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "1e215e54ab243a68df7ae8d388b3bc0a9dbbc62cd5aee8a97aa1751dc8889923"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 104174,
+  "parent_anidb_id": 11167
+}

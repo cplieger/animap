@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10069",
+    "anilist": "https://anilist.co/anime/20866",
+    "tvdb": "https://thetvdb.com/series/brynhildr-in-the-darkness/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/60805/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Gokukoku no Brynhildr OVA",
+  "justification": "AniList 20866 (OVA, 1 episode(s) from 2014-09-24) is AniDB 10069's special(s) S1, aired 2014-09-24. AniList's PARENT relation names AniList 20534, which anime-offline-database links to AniDB 10069, and the special's title matches an AniList title. TMDB 60805, where the parent's node places the special(s), agrees: S0E1 2014-09-24.",
+  "captured": {
+    "tvdb": {
+      "sha256": "d326f1e7f2b9eab25a0cd902047a0a72af5a7c2836a120c7c49fae58bd370bb8",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2014-09-24"
+        ]
+      ],
+      "series": 279396
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "30d75fedf59fee9f88daa188da82a14f04e1a46028ac2ed76d59cc410fa220ac"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 20866,
+  "parent_anidb_id": 10069
+}

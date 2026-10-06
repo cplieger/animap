@@ -1,0 +1,23 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18012",
+    "anilist": "https://anilist.co/anime/164293",
+    "tmdb": "https://www.themoviedb.org/movie/1119211"
+  },
+  "set": {
+    "tmdbid": "1119211",
+    "imdbid": "tt27626792"
+  },
+  "title": "Komada Jouryuusho e Youkoso",
+  "justification": "AniDB's one regular episode aired 2023-11-10; TMDB film 1119211 was released 2023-11-10, within a day, under the same title as on AniList. The IMDb id tt27626792 is the one TMDB lists for film 1119211, as Radarr's metadata service reports it.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    164293
+  ],
+  "anidb_id": 18012
+}

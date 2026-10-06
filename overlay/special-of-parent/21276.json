@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10525",
+    "anilist": "https://anilist.co/anime/21276",
+    "tvdb": "https://thetvdb.com/series/celestial-method/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/66716/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Sora no Method: Aru Shoujo no Kyuujitsu★",
+  "justification": "AniList 21276 (SPECIAL, 1 episode(s) from 2015-07-24) is AniDB 10525's special(s) S1, aired 2015-07-24. AniList's PARENT relation names AniList 20672, which anime-offline-database links to AniDB 10525, and the special's title matches an AniList title. TMDB 66716, where the parent's node places the special(s), agrees: S0E1 2015-07-24.",
+  "captured": {
+    "tvdb": {
+      "sha256": "1543bfc10c52b5a07d6e32146838392c2fb60734327637a8be684e5620dc2452",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-07-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2019-10-11"
+        ]
+      ],
+      "series": 279981
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "f265090f26955698d347ed7f194e135147def008c666dfd030615d2e320147dc"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 21276,
+  "parent_anidb_id": 10525
+}

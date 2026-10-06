@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14026",
+    "anilist": "https://anilist.co/anime/108548",
+    "tvdb": "https://thetvdb.com/series/uzamaid/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/82864/season/0"
+  },
+  "kind": "special-of-parent",
+  "title": "Uchi no Maid ga Uzasugiru! OVA",
+  "justification": "AniList 108548 (OVA, 1 episode(s) from 2019-04-24) is AniDB 14026's special(s) S1, aired 2019-04-24. AniList's PARENT relation names AniList 101506, which anime-offline-database links to AniDB 14026, and the special's title matches an AniList title. TMDB 82864, where the parent's node places the special(s), agrees: S0E1 2019-04-24.",
+  "captured": {
+    "tvdb": {
+      "sha256": "78835def169cf40c599266426e5f19d9e4e46319211508e2d2eac4fcf287f072",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-04-24"
+        ]
+      ],
+      "series": 352839
+    },
+    "at": "2026-10-05",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "29ec916a90305e8cb5d12e5a58ab9a37bef08b45899e63a53f565c1d9f293454"
+  },
+  "specials": [
+    1
+  ],
+  "anilist_id": 108548,
+  "parent_anidb_id": 14026
+}

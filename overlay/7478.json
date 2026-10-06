@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7478",
+    "anilist": "https://anilist.co/anime/9000",
+    "tvdb": "https://thetvdb.com/series/the-pilots-love-song/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/77437/season/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Toaru Hikuushi e no Tsuioku",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2011-10-01 = 0x1 2011-10-01. TMDB 77437 season 0 has no episode within a day of AniDB's episode 1 (2011-10-01), so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists no specials.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "9c616fb928fe34a704836a06b7c88aef674db8d67813fbc66d9c50ebcce090fc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-10-01"
+        ]
+      ],
+      "series": 271687
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "725b09cc836cadd088a60cee5987ddb44e45a26f114c2c351c1fff6601e49456"
+  },
+  "anilist_ids": [
+    9000
+  ],
+  "anidb_id": 7478
+}
