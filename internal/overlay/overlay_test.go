@@ -19,7 +19,7 @@ func valid() Entry {
 		AniDBID: 544, Title: "Oh! Super Milk-chan", Justification: "AniDB 1-12 = TVDB 2x01-2x12, same dates.",
 		Set:      Set{DefaultTVDBSeason: new("2"), TMDBSeason: new("2")},
 		Evidence: map[string]string{"anidb": "https://anidb.net/anime/544", "tvdb": "https://thetvdb.com/series/x/seasons/official/2"},
-		Upstream: UpstreamPending, Episodes: Episodes{Regular: 12, Specials: []int{}},
+		Upstream: UpstreamPending,
 		Captured: Captured{
 			At: "2026-10-05", AnimeListsCommit: strings.Repeat("a", 40), NodeSHA256: strings.Repeat("b", 64),
 			TVDB: &CapturedTVDB{Series: 91391, Seasons: []int{2}, Episodes: eps, SHA256: skyhook.Hash(eps)},
@@ -108,12 +108,36 @@ func TestLoadDir(t *testing.T) {
 		t.Errorf("unknown key: %v, want ErrInvalid", err)
 	}
 
+	unjustified := t.TempDir()
+	e := valid()
+	e.Justification = ""
+	write(t, unjustified, "544.json", e)
+	if _, err := LoadDir(unjustified); !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), "justification") {
+		t.Errorf("an entry with no justification: %v, want ErrInvalid naming it", err)
+	}
+
 	big := t.TempDir()
 	if err := os.WriteFile(filepath.Join(big, "544.json"), make([]byte, MaxFileBytes+1), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := LoadDir(big); !errors.Is(err, ErrInvalid) {
 		t.Errorf("oversize file: %v, want ErrInvalid", err)
+	}
+}
+
+func TestLoadDirRefusesTrailingData(t *testing.T) {
+	good, err := json.Marshal(valid())
+	if err != nil {
+		t.Fatal(err)
+	}
+	for name, trailer := range map[string]string{"a stray ]": "]", "a stray }": "}", "a second document": string(good)} {
+		dir := t.TempDir()
+		if err := os.WriteFile(filepath.Join(dir, "544.json"), append(append(good, '\n'), trailer...), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if _, err := LoadDir(dir); !errors.Is(err, ErrInvalid) {
+			t.Errorf("LoadDir(an entry followed by %s) = %v, want ErrInvalid", name, err)
+		}
 	}
 }
 
@@ -181,19 +205,50 @@ func TestLanded(t *testing.T) {
 func TestTouchedSeasons(t *testing.T) {
 	e := valid()
 	p := Patch(node(), &e)
-	if got := TouchedSeasons(p, &e); len(got) != 2 || got[0] != 0 || got[1] != 2 {
+	if got := TouchedSeasons(p, false); len(got) != 2 || got[0] != 0 || got[1] != 2 {
 		t.Errorf("TouchedSeasons = %v, want [0 2] (default season and the row's)", got)
 	}
 	abs := valid()
 	abs.Set = Set{DefaultTVDBSeason: new("a")}
-	if got := TouchedSeasons(Patch(node(), &abs), &abs); got != nil {
+	if got := TouchedSeasons(Patch(node(), &abs), true); got != nil {
 		t.Errorf("absolute node TouchedSeasons = %v, want nil", got)
 	}
 	sp := valid()
-	sp.Episodes.Specials = []int{1}
 	bare := node()
 	bare.Rows = nil
-	if got := TouchedSeasons(Patch(bare, &sp), &sp); len(got) != 2 || got[0] != 0 {
+	if got := TouchedSeasons(Patch(bare, &sp), false); len(got) != 1 || got[0] != 2 {
+		t.Errorf("node with no AniDB specials TouchedSeasons = %v, want [2]", got)
+	}
+	if got := TouchedSeasons(Patch(bare, &sp), true); len(got) != 2 || got[0] != 0 {
 		t.Errorf("node with AniDB specials TouchedSeasons = %v, want season 0 included", got)
+	}
+}
+
+// AniDB's episode lists come from the mirror at build time, so an entry
+// that still carries a hand copy of them is refused, never read.
+func TestDecodeRefusesHandCopiedAniDBFacts(t *testing.T) {
+	good, err := json.Marshal(valid())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if e, err := decode(good); err != nil || e.Validate() != nil {
+		t.Fatalf("Setup: decode(good) = %v, want a valid entry", err)
+	}
+	for field, value := range map[string]any{
+		"episodes": map[string]any{"regular": 12, "specials": []int{}},
+		"siblings": map[string]any{"543": map[string]any{"regular": 14, "specials": []int{}}},
+	} {
+		var m map[string]any
+		if err := json.Unmarshal(good, &m); err != nil {
+			t.Fatal(err)
+		}
+		m[field] = value
+		body, err := json.Marshal(m)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if _, err := decode(body); !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), `unknown field "`+field+`"`) {
+			t.Errorf("decode(an entry with %s) = %v, want ErrInvalid naming the unknown field", field, err)
+		}
 	}
 }

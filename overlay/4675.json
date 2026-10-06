@@ -11,7 +11,7 @@
     "tmdbseason": "1"
   },
   "title": "Mirai Shounen Conan II: Taiga Adventure",
-  "justification": "TVDB 80294 is Future Boy Conan (1978; S1 26, no S2); TVDB 452569 'Future Boy Conan II: Taiga Adventure' is this series. AniDB 1-24 (1999-10-16 to 2000-04-01) = TVDB 1x01-1x24 and TMDB 136062 S1E1-24, same dates. The old TMDB 19239 has no S2. AniDB lists no specials.",
+  "justification": "TVDB 80294 is Future Boy Conan (1978; S1 26, no S2); TVDB 452569 is this series. AniDB 1-24 (1999-10-16 to 2000-04-01) = TVDB 1x01-1x24 and TMDB 136062 S1E1-24, same dates. The old TMDB 19239 has no S2. AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -174,9 +174,5 @@
   "anilist_ids": [
     2613
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 24
-  },
   "anidb_id": 4675
 }

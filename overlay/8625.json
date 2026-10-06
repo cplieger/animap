@@ -1,10 +1,4 @@
 {
-  "siblings": {
-    "8556": {
-      "specials": null,
-      "regular": 12
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/8625",
     "anilist": "https://anilist.co/anime/11701",
@@ -57,9 +51,5 @@
   "anilist_ids": [
     11701
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 1
-  },
   "anidb_id": 8625
 }

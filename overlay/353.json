@@ -5,10 +5,12 @@
     "tvdb": "https://thetvdb.com/series/heat-guy-j/seasons/official/1"
   },
   "set": {
-    "mapping_list": []
+    "mapping_list": [],
+    "tmdbtv": "",
+    "tmdbseason": ""
   },
   "title": "HeatGuy J",
-  "justification": "AniDB 14-25 (2003-01-08 to 2003-03-26) = TVDB 1x14-1x25, each one day earlier on TVDB (2003-01-07 to 2003-03-25), same titles in another form (AniDB 'Soul: Arrow', TVDB 'Arrow (Soul)'); AniDB S1 'Hostage: Angel' 2003-09-26 = TVDB 0x1 'Angel' 2003-09-26. Both old rows target TVDB S2, which no longer exists (TVDB has S0 and S1 only), so they are removed and the defaults (S1, specials on S0) apply. TMDB is unchanged.",
+  "justification": "AniDB 14-25 (2003-01-08 to 2003-03-26) = TVDB 1x14-1x25, each one day earlier on TVDB (2003-01-07 to 2003-03-25), the same titles in another form; AniDB S1 2003-09-26 = TVDB 0x1 2003-09-26, the same title. Both old rows target TVDB S2, which no longer exists (TVDB has S0 and S1 only), so they are removed and the defaults (S1, specials on S0) apply. TMDB 42731 season 1 disagrees with AniDB on 12 of 25 air dates (E1 2002-12-02 against 2002-10-02, and E15-E25 each seven days after AniDB's), so the entry clears the node's TMDB mapping and the record publishes no TMDB value.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -184,11 +186,5 @@
   "anilist_ids": [
     958
   ],
-  "episodes": {
-    "specials": [
-      1
-    ],
-    "regular": 25
-  },
   "anidb_id": 353
 }

@@ -1,7 +1,5 @@
-# Daily: check every overlay entry against Anime-Lists HEAD and TVDB's
-# episode order, every checks/counts.json row against the database the
-# latest release was built from, and the watch set against that release;
-# keep one issue open per finding. scripts/drift.sh does the work.
+# scripts/drift.sh does the work so CI and a local DRY_RUN=1 run plan the
+# same issues.
 name: Drift
 
 on:
@@ -37,15 +35,6 @@ jobs:
           path: .cache/http.json
           key: http-${{ github.run_id }}
           restore-keys: http-
-      # The publish workflow saves each database it builds from under
-      # aod-<sha256>. The newest is usually the latest release's; any other
-      # fails fetch-inputs.sh's digest check and is downloaded again.
-      - name: Restore the offline database
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/aod
-          key: aod-${{ github.run_id }}
-          restore-keys: aod-
       - name: Check drift and the watch set, then apply the issue plan
         env:
           GH_TOKEN: ${{ github.token }}

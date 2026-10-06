@@ -11,7 +11,7 @@
     "tmdbseason": "1"
   },
   "title": "Koneko no Chii: Ponponraa Daibouken",
-  "justification": "TVDB 81844 is Chi's Sweet Home (2008-09, S1 and S2 only); TVDB 332463 'Chi's Sweet Adventure' is this series. AniDB 1-51 (2016-10-02 to 2017-09-24) = TVDB 1x01-1x51 and TMDB 115785 S1E1-51, same dates and titles. The old TMDB 34186 has no S3. AniDB lists no specials.",
+  "justification": "TVDB 81844 is the 2008-09 series (S1 and S2 only); TVDB 332463 is this series. AniDB 1-51 (2016-10-02 to 2017-09-24) = TVDB 1x01-1x51 and TMDB 115785 S1E1-51, same dates and titles. The old TMDB 34186 has no S3. AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -336,9 +336,5 @@
   "anilist_ids": [
     21796
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 51
-  },
   "anidb_id": 12103
 }

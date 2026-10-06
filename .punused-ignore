@@ -11,23 +11,15 @@
 # decode runs through it. Deleting it fails the cmd/animap build tests.
 method (*listXML).UnmarshalXML is unused
 
-# The compact [kind, number, air date] form of a bridge's
-# parent_anidb_specials, as committed under overlay/special-of-parent/. Decoded
-# by overlay.LoadBridges and readBridge, encoded by `animap overlay
-# capture-special` and overlay.SetHash. Deleting either fails TestLoadBridges
-# and TestRecaptureKeepsTheParentsAniDBSpecials.
-method (AniDBEpisode).MarshalJSON is unused
-method (*AniDBEpisode).UnmarshalJSON is unused
-
 # The compact [season, episode, absolute, air date] form of captured.tvdb
 # episodes in every committed overlay and bridge file. Decoded by
-# overlay.Decode, encoded by `animap overlay capture` and overlay.SetHash.
+# overlay.ReadEntry, encoded by `animap overlay capture` and overlay.SetHash.
 # Deleting either fails TestEpisodeJSONRoundTrip and the cmd/animap build tests.
 method (Episode).MarshalJSON is unused
 method (*Episode).UnmarshalJSON is unused
 
 # The anilist_ids key of the overlay file format (docs/overlay.md), present in
-# every committed overlay/*.json. overlay.Decode reads with
-# DisallowUnknownFields, so without the field every entry fails to load, and
-# overlay.SetHash marshals it into the published sources.overlay.sha256.
+# every committed overlay/*.json. overlay.ReadEntry refuses unknown keys, so
+# without the field every entry fails to load, and overlay.SetHash marshals it
+# into the published sources.overlay.sha256.
 field AniListIDs is unused

@@ -1,16 +1,15 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"log/slog"
-	"os"
 	"slices"
 	"time"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/skyhook"
@@ -23,17 +22,23 @@ func runCaptureSpecial(ctx context.Context, args []string, log *slog.Logger) err
 	overlayDir := fs.String("overlay", "overlay", "overlay directory, whose entries patch the parent first")
 	listPath := fs.String("list", "", "anime-list-master.xml at -commit")
 	commit := fs.String("commit", "", "Anime-Lists commit of -list")
+	mirrorPath := fs.String("mirror", "", "AniDB mirror snapshot, for the parent's specials")
 	cachePath := fs.String("cache", "", "HTTP validator cache file")
 	if err := parse(fs, args); err != nil {
 		return err
 	}
-	if err := required(fs, "bridge", "list", "commit"); err != nil {
+	if err := required(fs, "bridge", "list", "commit", "mirror"); err != nil {
 		return err
 	}
 	b, parent, err := loadBridgeParent(*path, *listPath, *overlayDir)
 	if err != nil {
 		return err
 	}
+	snap, err := anidb.LoadSnapshot(*mirrorPath)
+	if err != nil {
+		return err
+	}
+	anime := snap.Anime[b.ParentAniDBID]
 	series, err := seriesOf(parent)
 	if err != nil {
 		return fmt.Errorf("overlay capture-special: AniDB %d: %w", b.ParentAniDBID, err)
@@ -54,24 +59,23 @@ func runCaptureSpecial(ctx context.Context, args []string, log *slog.Logger) err
 		log.Warn("overlay capture-special: cache not saved", "error", err)
 	}
 	eps := skyhook.Layout(show, seasons)
-	out, err := recapture(b, parent, *commit, &overlay.CapturedTVDB{Series: series, Seasons: seasons, Episodes: eps, SHA256: skyhook.Hash(eps)})
+	out, err := recapture(b, parent, anime.Specials, *commit, &overlay.CapturedTVDB{Series: series, Seasons: seasons, Episodes: eps, SHA256: skyhook.Hash(eps)})
 	if err != nil {
 		return err
 	}
 	return writeFile(ctx, *path, out)
 }
 
-// recapture replaces b.Captured and leaves every authored field, the
-// parent's AniDB specials among them, as the file had it. It returns the
-// re-proven bridge's new file contents.
-func recapture(b *overlay.Bridge, parent *animelists.Node, commit string, tv *overlay.CapturedTVDB) ([]byte, error) {
+// recapture replaces b.Captured and leaves every authored field as the
+// file had it. It returns the re-proven bridge's new file contents.
+func recapture(b *overlay.Bridge, parent *animelists.Node, parentSpecials []anidb.Episode, commit string, tv *overlay.CapturedTVDB) ([]byte, error) {
 	b.Captured = overlay.BridgeCaptured{
 		At: time.Now().UTC().Format(time.DateOnly), AnimeListsCommit: commit, NodeSHA256: parent.Hash(), TVDB: tv,
 	}
 	if err := b.Validate(); err != nil {
 		return nil, err
 	}
-	if err := b.Prove(parent); err != nil {
+	if err := b.Prove(parent, parentSpecials); err != nil {
 		return nil, err
 	}
 	out, err := json.MarshalIndent(b, "", "  ")
@@ -82,9 +86,9 @@ func recapture(b *overlay.Bridge, parent *animelists.Node, commit string, tv *ov
 }
 
 func loadBridgeParent(path, listPath, overlayDir string) (*overlay.Bridge, *animelists.Node, error) {
-	b, err := readBridge(path)
+	b, err := overlay.ReadBridge(path)
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, fmt.Errorf("overlay capture-special: %w", err)
 	}
 	list, err := readList(listPath)
 	if err != nil {
@@ -98,21 +102,7 @@ func loadBridgeParent(path, listPath, overlayDir string) (*overlay.Bridge, *anim
 	if parent == nil {
 		return nil, nil, fmt.Errorf("overlay capture-special: AniDB %d has no Anime-Lists node", b.ParentAniDBID)
 	}
-	return b, parent, nil
-}
-
-func readBridge(path string) (*overlay.Bridge, error) {
-	body, err := os.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
-	var b overlay.Bridge
-	if err := dec.Decode(&b); err != nil {
-		return nil, fmt.Errorf("overlay capture-special: %s: %w", path, err)
-	}
-	return &b, nil
+	return &b, parent, nil
 }
 
 func specialSeasons(parent *animelists.Node, specials []int) ([]int, error) {

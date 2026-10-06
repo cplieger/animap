@@ -1,9 +1,8 @@
-package counts
+package anidb
 
 import (
 	"encoding/json"
 	"errors"
-	"maps"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -27,15 +26,15 @@ func encode(t *testing.T, rows any) []byte {
 	return b
 }
 
-func TestDecode(t *testing.T) {
+func TestDecodeRows(t *testing.T) {
 	second := row()
 	second.AniDBID, second.Evidence = 18239, "https://anidb.net/anime/18239"
-	got, err := Decode(encode(t, []Row{row(), second}))
+	got, err := DecodeRows(encode(t, []Row{row(), second}))
 	if err != nil || len(got) != 2 || got[0] != row() || got[1] != second {
-		t.Fatalf("Decode(two valid rows) = %+v, %v", got, err)
+		t.Fatalf("DecodeRows(two valid rows) = %+v, %v", got, err)
 	}
-	if got, err := Decode([]byte("[]")); err != nil || len(got) != 0 {
-		t.Errorf("Decode([]) = %+v, %v, want no rows", got, err)
+	if got, err := DecodeRows([]byte("[]")); err != nil || len(got) != 0 {
+		t.Errorf("DecodeRows([]) = %+v, %v, want no rows", got, err)
 	}
 }
 
@@ -58,8 +57,8 @@ func TestDecodeRefuses(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			r := row()
 			tc.mut(&r)
-			if _, err := Decode(encode(t, []Row{r})); !errors.Is(err, ErrInvalid) {
-				t.Errorf("Decode(%+v) = %v, want ErrInvalid", r, err)
+			if _, err := DecodeRows(encode(t, []Row{r})); !errors.Is(err, ErrInvalid) {
+				t.Errorf("DecodeRows(%+v) = %v, want ErrInvalid", r, err)
 			}
 		})
 	}
@@ -74,54 +73,40 @@ func TestDecodeRefuses(t *testing.T) {
 		"unknown field":   []byte(`[{"anidb_id":17281,"regular_episodes":2,"evidence":"https://anidb.net/anime/17281","date":"2026-10-04","justification":"x","specials":1}]`),
 		"an object":       []byte(`{"anidb_id":17281}`),
 		"null":            []byte(`null`),
-		"trailing data":   append(encode(t, []Row{row()}), []byte("[]")...),
+		"a second list":   append(encode(t, []Row{row()}), []byte("[]")...),
+		"a trailing ]":    append(encode(t, []Row{row()}), []byte("]")...),
+		"a trailing }":    append(encode(t, []Row{row()}), []byte("}")...),
 		"an id twice":     encode(t, []Row{row(), row()}),
 		"out of order":    encode(t, []Row{row(), earlier}),
 		"over the bound":  encode(t, many),
 		"a string count":  []byte(`[{"anidb_id":17281,"regular_episodes":"2","evidence":"https://anidb.net/anime/17281","date":"2026-10-04","justification":"x"}]`),
 		"a decimal count": []byte(`[{"anidb_id":17281,"regular_episodes":2.5,"evidence":"https://anidb.net/anime/17281","date":"2026-10-04","justification":"x"}]`),
 	} {
-		if _, err := Decode(body); !errors.Is(err, ErrInvalid) {
-			t.Errorf("Decode(%s) = %v, want ErrInvalid", name, err)
+		if _, err := DecodeRows(body); !errors.Is(err, ErrInvalid) {
+			t.Errorf("DecodeRows(%s) = %v, want ErrInvalid", name, err)
 		}
 	}
-	if _, err := Decode(encode(t, many[:maxRows])); err != nil {
-		t.Errorf("Decode(%d rows, the bound) = %v, want accepted", maxRows, err)
+	if _, err := DecodeRows(encode(t, many[:maxRows])); err != nil {
+		t.Errorf("DecodeRows(%d rows, the bound) = %v, want accepted", maxRows, err)
 	}
 }
 
-func TestLoad(t *testing.T) {
+func TestLoadRows(t *testing.T) {
 	dir := t.TempDir()
-	if rows, err := Load(filepath.Join(dir, "absent.json")); err != nil || rows != nil {
-		t.Errorf("Load(absent) = %+v, %v, want no rows and no error", rows, err)
+	if rows, err := LoadRows(filepath.Join(dir, "absent.json")); err != nil || rows != nil {
+		t.Errorf("LoadRows(absent) = %+v, %v, want no rows and no error", rows, err)
 	}
 	p := filepath.Join(dir, "counts.json")
 	if err := os.WriteFile(p, encode(t, []Row{row()}), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if rows, err := Load(p); err != nil || len(rows) != 1 || rows[0] != row() {
-		t.Errorf("Load(one row) = %+v, %v", rows, err)
+	if rows, err := LoadRows(p); err != nil || len(rows) != 1 || rows[0] != row() {
+		t.Errorf("LoadRows(one row) = %+v, %v", rows, err)
 	}
-	if err := os.WriteFile(p, []byte("["+strings.Repeat(" ", maxFileBytes)+"]"), 0o600); err != nil {
+	if err := os.WriteFile(p, []byte("["+strings.Repeat(" ", maxCountsFileSize)+"]"), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := Load(p); !errors.Is(err, ErrInvalid) {
-		t.Errorf("Load(over %d bytes) = %v, want ErrInvalid", maxFileBytes, err)
-	}
-}
-
-func TestMergePutsEveryRowBeforeTheDatabase(t *testing.T) {
-	database := map[int]int{10: 12, 17281: 3}
-	saved := maps.Clone(database)
-	got := Merge(database, []Row{row(), {AniDBID: 30, RegularEpisodes: 1}})
-	want := map[int]int{10: 12, 17281: 2, 30: 1}
-	if !maps.Equal(got, want) {
-		t.Errorf("Merge = %v, want %v", got, want)
-	}
-	if !maps.Equal(database, saved) {
-		t.Errorf("Merge modified its input: %v, want %v", database, saved)
-	}
-	if got := Merge(nil, []Row{row()}); !maps.Equal(got, map[int]int{17281: 2}) {
-		t.Errorf("Merge(nil database) = %v", got)
+	if _, err := LoadRows(p); !errors.Is(err, ErrInvalid) {
+		t.Errorf("LoadRows(over %d bytes) = %v, want ErrInvalid", maxCountsFileSize, err)
 	}
 }

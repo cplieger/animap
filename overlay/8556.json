@@ -1,0 +1,152 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8556",
+    "anilist": "https://anilist.co/anime/11111",
+    "tmdb": "https://www.themoviedb.org/tv/42589/season/0",
+    "tmdb_s1": "https://www.themoviedb.org/tv/42589/season/1",
+    "tvdb": "https://thetvdb.com/series/another/seasons/official/0",
+    "tvdb_s1": "https://thetvdb.com/series/another/seasons/official/1"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Another",
+  "justification": "AniDB 1-12 (2012-01-10 to 2012-03-27, weekly) = TVDB 1x01-1x12 and TMDB 42589 S1E1-12, same dates. AniDB lists 3 specials: S3 2013-03-29 = TVDB 0x2 and TMDB S0E2, same date; S1 (2012-08-31) and S2 (2012-04-27) have no counterpart, because TVDB and TMDB season 0 hold only 0x1/S0E1 2012-05-26 (AniDB 8625, the OVA) and 0x2/S0E2 2013-03-29. The old row put S1 on TVDB 0x2 and left TMDB to default S1 onto S0E1, which AniDB 8625 claims.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "94782d1b6a0166fe01cd0b2026f5a0d4fc79464afac788a54663e781ca73d321",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-05-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-03-29"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2012-01-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2012-01-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2012-01-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2012-01-31"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2012-02-07"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2012-02-14"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2012-02-21"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2012-02-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2012-03-06"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2012-03-13"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2012-03-20"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2012-03-27"
+        ]
+      ],
+      "series": 254349
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "node_sha256": "30d84740ec7169464f86d2a9105ab50ee68606b77e84be2530ae43a1bb950473"
+  },
+  "anilist_ids": [
+    11111
+  ],
+  "anidb_id": 8556
+}

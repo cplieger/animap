@@ -9,7 +9,7 @@
     "tmdbtv": "44243"
   },
   "title": "Time Bokan Oudou Fukko",
-  "justification": "AniDB 1-2 (1993-11-26, 1994-01-01) = TVDB 0x1-0x2 and TMDB 44243 'Time Bokan: Royal Revival' S1E1-2, same dates and titles (TMDB also lists placeholder E3-E14). AniDB lists no specials. Old season 1 is the 1975 TV series (1x1 1975-10-04), and old TMDB 17706 is that 1975 series (S1 61 only).",
+  "justification": "AniDB 1-2 (1993-11-26, 1994-01-01) = TVDB 0x1-0x2 and TMDB 44243 S1E1-2, same dates and titles (TMDB also lists placeholder E3-E14). AniDB lists no specials. Old season 1 is the 1975 TV series (1x1 1975-10-04), and old TMDB 17706 is that 1975 series (S1 61 only).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -46,9 +46,5 @@
   "anilist_ids": [
     4578
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 2
-  },
   "anidb_id": 3580
 }

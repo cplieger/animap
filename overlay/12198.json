@@ -1,10 +1,4 @@
 {
-  "siblings": {
-    "11899": {
-      "specials": null,
-      "regular": 12
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/12198",
     "tmdb": "https://www.themoviedb.org/tv/65928/season/2",
@@ -108,9 +102,5 @@
   "anilist_ids": [
     21839
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 12
-  },
   "anidb_id": 12198
 }

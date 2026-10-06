@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -9,12 +8,12 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
-	"os"
 	"time"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/counts"
 	"github.com/cplieger/animap/internal/drift"
+	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/skyhook"
@@ -25,9 +24,8 @@ import (
 const pace = time.Second
 
 // driftResult is one drift run. Owned lists every key the overlay's current
-// entries and bridges and the current counts rows can hold; Complete says
-// the run read all of them, which is what gives it authority over a
-// deleted entry's or row's issues.
+// entries and bridges can hold; Complete says the run read all of them,
+// which is what gives it authority over a deleted entry's issues.
 type driftResult struct {
 	Findings  []drift.Finding `json:"findings"`
 	Evaluated []string        `json:"evaluated"`
@@ -41,8 +39,6 @@ func runDrift(ctx context.Context, args []string, log *slog.Logger) error {
 	listPath := fs.String("list", "", "anime-list-master.xml at Anime-Lists HEAD")
 	releasePath := fs.String("release", "", "latest published animap.json, for whether a bridge is still needed")
 	cachePath := fs.String("cache", "", "HTTP validator cache file")
-	countsPath := fs.String("counts", counts.Path, "tracked episode counts")
-	aodPath := fs.String("aod", "", "anime-offline-database .jsonl the latest release was built from; without it the counts rows are not checked")
 	out := fs.String("out", "drift.json", "output path")
 	if err := parse(fs, args); err != nil {
 		return err
@@ -59,10 +55,6 @@ func runDrift(ctx context.Context, args []string, log *slog.Logger) error {
 		return err
 	}
 	linked, err := releaseLinks(*releasePath)
-	if err != nil {
-		return err
-	}
-	rows, database, err := loadCountInputs(*countsPath, *aodPath)
 	if err != nil {
 		return err
 	}
@@ -88,37 +80,16 @@ func runDrift(ctx context.Context, args []string, log *slog.Logger) error {
 		res.add(drift.Decide(drift.OfBridge(b), &obs))
 		res.Owned = append(res.Owned, drift.SpecialKeys(b.AniListID).All()...)
 	}
-	for i := range rows {
-		r := &rows[i]
-		obs := drift.Observation{DatabaseRead: database != nil}
-		obs.DatabaseEpisodes, obs.InDatabase = database[r.AniDBID]
-		res.add(drift.Decide(drift.OfRow(r), &obs))
-		res.Owned = append(res.Owned, drift.CountKey(r.AniDBID))
-	}
 	if err := client.Save(ctx); err != nil {
 		log.Warn("drift: cache not saved", "error", err)
 	}
-	log.Info("drift: done", "entries", len(entries), "bridges", len(bridges), "counts", len(rows), "findings", len(res.Findings))
+	log.Info("drift: done", "entries", len(entries), "bridges", len(bridges), "findings", len(res.Findings))
 	return writeJSON(ctx, *out, res)
 }
 
 func (r *driftResult) add(f []drift.Finding, ev []string) {
 	r.Findings = append(r.Findings, f...)
 	r.Evaluated = append(r.Evaluated, ev...)
-}
-
-// loadCountInputs returns a nil database when no path was given, which
-// leaves every row's key unevaluated.
-func loadCountInputs(countsPath, aodPath string) ([]counts.Row, map[int]int, error) {
-	rows, err := counts.Load(countsPath)
-	if err != nil || aodPath == "" {
-		return rows, nil, err
-	}
-	_, entries, err := offlinedb.Load(aodPath, offlinedb.DefaultLimits)
-	if err != nil {
-		return nil, nil, err
-	}
-	return rows, episodeCounts(entries), nil
 }
 
 func loadOverlay(dir string) ([]overlay.Entry, []overlay.Bridge, error) {
@@ -178,22 +149,21 @@ func runCapture(ctx context.Context, args []string, log *slog.Logger) error {
 	entryPath := fs.String("entry", "", "overlay/<anidbid>.json to update in place")
 	listPath := fs.String("list", "", "anime-list-master.xml at -commit")
 	commit := fs.String("commit", "", "Anime-Lists commit of -list")
+	mirrorPath := fs.String("mirror", "", "AniDB mirror snapshot, for whether AniDB lists specials")
 	cachePath := fs.String("cache", "", "HTTP validator cache file")
 	if err := parse(fs, args); err != nil {
 		return err
 	}
-	if err := required(fs, "entry", "list", "commit"); err != nil {
+	if err := required(fs, "entry", "list", "commit", "mirror"); err != nil {
 		return err
 	}
-	body, err := os.ReadFile(*entryPath)
+	snap, err := anidb.LoadSnapshot(*mirrorPath)
 	if err != nil {
 		return err
 	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
-	var e overlay.Entry
-	if err = dec.Decode(&e); err != nil {
-		return fmt.Errorf("overlay capture: %s: %w", *entryPath, err)
+	e, err := overlay.ReadEntry(*entryPath)
+	if err != nil {
+		return fmt.Errorf("overlay capture: %w", err)
 	}
 	list, err := readList(*listPath)
 	if err != nil {
@@ -204,7 +174,7 @@ func runCapture(ctx context.Context, args []string, log *slog.Logger) error {
 		return err
 	}
 	upstream := list.Nodes[e.AniDBID]
-	tv, err := captureTVDB(ctx, client, overlay.Patch(upstream, &e), &e)
+	tv, err := captureTVDB(ctx, client, overlay.Patch(upstream, &e), len(snap.Anime[e.AniDBID].Specials) > 0)
 	if err != nil {
 		return err
 	}
@@ -228,7 +198,7 @@ func runCapture(ctx context.Context, args []string, log *slog.Logger) error {
 
 // captureTVDB returns nil for a node with no TVDB series, a film routed by
 // TMDB alone.
-func captureTVDB(ctx context.Context, client *source.Client, patched *animelists.Node, e *overlay.Entry) (*overlay.CapturedTVDB, error) {
+func captureTVDB(ctx context.Context, client *source.Client, patched *animelists.Node, hasSpecials bool) (*overlay.CapturedTVDB, error) {
 	series, err := seriesOf(patched)
 	if errors.Is(err, errNoSeries) {
 		return nil, nil
@@ -237,7 +207,7 @@ func captureTVDB(ctx context.Context, client *source.Client, patched *animelists
 	if err != nil {
 		return nil, fmt.Errorf("overlay capture: SkyHook %d: %w", series, err)
 	}
-	seasons := overlay.TouchedSeasons(patched, e)
+	seasons := overlay.TouchedSeasons(patched, hasSpecials)
 	eps := skyhook.Layout(show, seasons)
 	return &overlay.CapturedTVDB{Series: series, Seasons: seasons, Episodes: eps, SHA256: skyhook.Hash(eps)}, nil
 }
@@ -259,13 +229,14 @@ func runCheck(args []string, stdout io.Writer) error {
 	fs := flag.NewFlagSet("overlay check", flag.ContinueOnError)
 	overlayDir := fs.String("overlay", "overlay", "overlay directory")
 	listPath := fs.String("list", "", "anime-list-master.xml")
-	aodPath := fs.String("aod", "", "anime-offline-database .jsonl, for sibling episode counts")
-	countsPath := fs.String("counts", counts.Path, "tracked episode counts")
+	aodPath := fs.String("aod", "", "anime-offline-database .jsonl, for the episode counts the mirror does not decide")
+	countsPath := fs.String("counts", anidb.CountsPath, "tracked episode counts")
+	mirrorPath := fs.String("mirror", "", "AniDB mirror snapshot written by animap mirror extract")
 	baselinePath := fs.String("baseline", "checks/collision-baseline.json", "tracked collision baseline")
 	if err := parse(fs, args); err != nil {
 		return err
 	}
-	if err := required(fs, "list", "aod"); err != nil {
+	if err := required(fs, "list", "aod", "mirror"); err != nil {
 		return err
 	}
 	list, err := readList(*listPath)
@@ -284,18 +255,14 @@ func runCheck(args []string, stdout io.Writer) error {
 	if err != nil {
 		return err
 	}
-	episodes, err := placementCounts(aod, *countsPath)
+	facts, err := loadFacts(*mirrorPath, *countsPath, aod)
 	if err != nil {
 		return err
 	}
 	patched := overlay.Apply(list.Nodes, entries)
-	var proofs []error
-	for i := range bridges {
-		if proofErr := bridges[i].Prove(patched[bridges[i].ParentAniDBID]); proofErr != nil {
-			proofs = append(proofs, proofErr)
-		}
-	}
-	rep, _, colErr := collisions(*baselinePath, patched, entries, bridges, episodes, slog.New(slog.DiscardHandler))
+	proofErr := proveBridges(bridges, patched, facts)
+	rep := guard.Collisions(patched, entries, bridges, facts)
+	_, colErr := collisions(*baselinePath, &rep, slog.New(slog.DiscardHandler))
 	b, err := json.MarshalIndent(rep, "", "  ")
 	if err != nil {
 		return err
@@ -303,5 +270,19 @@ func runCheck(args []string, stdout io.Writer) error {
 	if _, err := fmt.Fprintf(stdout, "%s\n", b); err != nil {
 		return err
 	}
-	return errors.Join(append(proofs, colErr)...)
+	return errors.Join(proofErr, colErr)
+}
+
+// proveBridges proves every bridge against its parent's specials at the
+// pinned mirror, so a snapshot bump that renumbers or redates one fails.
+func proveBridges(bridges []overlay.Bridge, patched map[int]*animelists.Node, facts *anidb.Facts) error {
+	var proofs []error
+	for i := range bridges {
+		b := &bridges[i]
+		parent, _ := facts.Anime(b.ParentAniDBID)
+		if err := b.Prove(patched[b.ParentAniDBID], parent.Specials); err != nil {
+			proofs = append(proofs, err)
+		}
+	}
+	return errors.Join(proofs...)
 }

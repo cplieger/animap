@@ -1,10 +1,4 @@
 {
-  "siblings": {
-    "543": {
-      "specials": null,
-      "regular": 14
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/544",
     "tmdb": "https://www.themoviedb.org/tv/34087/season/2",
@@ -15,7 +9,7 @@
     "tmdbseason": "2"
   },
   "title": "Oh! Super Milk-chan",
-  "justification": "AniDB 1-12 (2000-01-27 to 2000-04-13) = TVDB 2x01-2x12 (same titles) and TMDB S2E1-12 (the same titles after 'Milk's Story of'), same dates. Old season 1 is the 1998 Super Milk-chan run (1x1 1998-06-17). AniDB lists no specials.",
+  "justification": "AniDB 1-12 (2000-01-27 to 2000-04-13) = TVDB 2x01-2x12 (same titles) and TMDB S2E1-12 (the same titles after a common prefix), same dates. Old season 1 is the 1998 Super Milk-chan run (1x1 1998-06-17). AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -106,9 +100,5 @@
   "anilist_ids": [
     1769
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 12
-  },
   "anidb_id": 544
 }

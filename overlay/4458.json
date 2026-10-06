@@ -10,7 +10,7 @@
     "tmdbseason": "5"
   },
   "title": "Rockman.EXE Beast+",
-  "justification": "TVDB 248903 is Rockman EXE Beast (S1 25, no S2); TVDB 373443 'Rockman EXE Beast+' is this series, one TVDB entry per series like siblings 1143 (73820), 2664 (75097) and 3621 (248903). AniDB 1-26 (2006-04-08 to 2006-09-30) = TVDB 1x01-1x26 (same titles) and TMDB 5653 S5 'Beast+' E1-26, same dates (the old TMDB S2 is Axess). TVDB links TMDB 28433, which has 21 of the 26 episodes (2006-04-08 to 2006-08-26); 5653 S5 has all 26. AniDB lists no specials.",
+  "justification": "TVDB 248903 is the previous series (S1 25, no S2); TVDB 373443 is this series, one TVDB entry per series like siblings 1143 (73820), 2664 (75097) and 3621 (248903). AniDB 1-26 (2006-04-08 to 2006-09-30) = TVDB 1x01-1x26 (same titles) and TMDB 5653 S5E1-26, same dates (the old TMDB S2 is Axess). TVDB links TMDB 28433, which has 21 of the 26 episodes (2006-04-08 to 2006-08-26); 5653 S5 has all 26. AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -185,9 +185,5 @@
   "anilist_ids": [
     2713
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 26
-  },
   "anidb_id": 4458
 }

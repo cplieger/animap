@@ -2,4 +2,4 @@ animap
 Copyright 2026 cplieger
 https://github.com/cplieger/animap
 
-The published animap.json is made available under the ODbL 1.0 (LICENSE-DATA), its contents under the DbCL 1.0. It contains information from anime-offline-database (https://github.com/cedya77/anime-offline-database, ODbL 1.0 and DbCL 1.0) and from Anime-Lists (https://github.com/Anime-Lists/anime-lists).
+The published animap.json is made available under the ODbL 1.0 (LICENSE-DATA), its contents under the DbCL 1.0. It contains information from anime-offline-database (https://github.com/cedya77/anime-offline-database, ODbL 1.0 and DbCL 1.0), from Anime-Lists (https://github.com/Anime-Lists/anime-lists), and episode counts from AniDB (https://anidb.net), read through AnimeAggregations (https://github.com/notseteve/AnimeAggregations).

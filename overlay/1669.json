@@ -1,14 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1669",
-    "tmdb": "https://www.themoviedb.org/tv/8726/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/8726",
     "tvdb": "https://thetvdb.com/series/aqua-kids-472411/seasons/official/1"
   },
   "set": {
-    "tvdbid": "472411"
+    "tvdbid": "472411",
+    "tmdbtv": "",
+    "tmdbseason": ""
   },
   "title": "Aqua Kids",
-  "justification": "TVDB 336452 (undated S8-S12 only) has no episodes for it; TVDB 472411 'Aqua Kids' does. AniDB 1-26 (2004-04-01 to 2004-09-23) = TVDB 1x01-1x26, same dates. AniDB lists no specials and TVDB 472411 has no S0. TMDB 8726 and TVDB's TMDB link 20007 list no seasons, so TMDB is left as is.",
+  "justification": "TVDB 336452 (undated S8-S12 only) has no episodes for it; TVDB 472411 does. AniDB 1-26 (2004-04-01 to 2004-09-23) = TVDB 1x01-1x26, same dates. AniDB lists no specials and TVDB 472411 has no S0. TMDB 8726 lists no season (its season 1 page answers 404) and TVDB's TMDB link 20007 lists none either, so the entry clears the node's TMDB mapping and the record publishes no TMDB value.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -183,9 +185,5 @@
   "anilist_ids": [
     108750
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 26
-  },
   "anidb_id": 1669
 }

@@ -1,14 +1,4 @@
 {
-  "siblings": {
-    "11289": {
-      "specials": [],
-      "regular": 12
-    },
-    "8182": {
-      "specials": [],
-      "regular": 12
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/9674",
     "tvdb": "https://thetvdb.com/series/dd-fist-of-the-north-star/seasons/official/1"
@@ -116,9 +106,5 @@
   "anilist_ids": [
     17705
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 13
-  },
   "anidb_id": 9674
 }

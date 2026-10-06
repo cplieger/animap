@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cplieger/animap/internal/counts"
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/issues"
@@ -24,9 +24,12 @@ import (
 )
 
 const (
-	aodFixture  = "../../testdata/aod-mini.jsonl"
-	listFixture = "../../testdata/anime-list-mini.xml"
+	aodFixture    = "../../testdata/aod-mini.jsonl"
+	listFixture   = "../../testdata/anime-list-mini.xml"
+	mirrorFixture = "../../testdata/mirror-mini.json"
 )
+
+var mirrorCommit = strings.Repeat("d", 40)
 
 func fixtureSHA(t *testing.T) string {
 	t.Helper()
@@ -50,7 +53,7 @@ func build(t *testing.T, dir, overlayDir, prev string, extra ...string) (string,
 	args := []string{
 		"build", "-aod", aodFixture, "-aod-release", "2026-40", "-aod-sha256", fixtureSHA(t),
 		"-list", listFixture, "-list-commit", strings.Repeat("a", 40), "-overlay", overlayDir,
-		"-out", filepath.Join(dir, "animap.json"), "-previous", prev,
+		"-out", filepath.Join(dir, "animap.json"), "-previous", prev, "-mirror", mirrorFixture, "-mirror-commit", mirrorCommit,
 	}
 	var out bytes.Buffer
 	err := run(t.Context(), append(args, extra...), &out)
@@ -110,6 +113,7 @@ func TestBuildRefuses(t *testing.T) {
 	args := []string{
 		"build", "-aod", aodFixture, "-aod-release", "x", "-aod-sha256", strings.Repeat("0", 64),
 		"-list", listFixture, "-list-commit", "c", "-out", filepath.Join(dir, "o.json"),
+		"-mirror", mirrorFixture, "-mirror-commit", mirrorCommit,
 	}
 	if err := run(t.Context(), args, &bytes.Buffer{}); err == nil || !strings.Contains(err.Error(), "sha256") {
 		t.Errorf("wrong database digest = %v", err)
@@ -131,8 +135,7 @@ func TestBuildBlocksOnCollision(t *testing.T) {
 			{"anidb_season": 1, "tvdb_season": 0, "episodes": [][]int{{1, 2}}},
 		}},
 		"evidence": map[string]string{"anidb": "https://anidb.net/anime/13"},
-		"upstream": "TODO-PR", "episodes": map[string]any{"regular": 1, "specials": []int{}},
-		"siblings": map[string]any{"10": map[string]any{"regular": 12, "specials": []int{1, 2}}},
+		"upstream": "TODO-PR",
 		"captured": map[string]any{
 			"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40),
 			"node_sha256": strings.Repeat("b", 64),
@@ -143,7 +146,7 @@ func TestBuildBlocksOnCollision(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(ov, "13.json"), b, 0o600); err != nil {
 		t.Fatal(err)
 	}
-	_, err := build(t, dir, ov, "")
+	_, err := build(t, dir, ov, "", "-mirror", snapshotWith(t, dir, map[int]anidb.Anime{10: fin(12, 1, 2), 13: fin(1)}))
 	if err == nil || !strings.Contains(err.Error(), "collision") {
 		t.Errorf("colliding overlay = %v, want a collision refusal", err)
 	}
@@ -156,35 +159,28 @@ func TestBuildBlocksOnAnUncountedSiblingOfATouchedSeries(t *testing.T) {
 	noFloors(t)
 	// AniDB 30 shares TVDB 5006 and has no anime-offline-database entry.
 	eps := []skyhook.Episode{{Season: 2, Number: 1, AirDate: "2020-06-01"}}
-	entry := func(siblings map[string]any) map[string]any {
-		e := map[string]any{
-			"anidb_id": 20, "title": "Filed under specials", "justification": "test",
-			"set":      map[string]any{"tvdbid": "5006", "defaulttvdbseason": "2"},
-			"evidence": map[string]string{"anidb": "https://anidb.net/anime/20"},
-			"upstream": "TODO-PR", "episodes": map[string]any{"regular": 3, "specials": []int{}},
-			"captured": map[string]any{
-				"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40),
-				"node_sha256": strings.Repeat("b", 64),
-				"tvdb":        map[string]any{"series": 5006, "seasons": []int{2}, "episodes": eps, "sha256": skyhook.Hash(eps)},
-			},
-		}
-		if siblings != nil {
-			e["siblings"] = siblings
-		}
-		return e
+	entry := map[string]any{
+		"anidb_id": 20, "title": "Filed under specials", "justification": "test",
+		"set":      map[string]any{"tvdbid": "5006", "defaulttvdbseason": "2"},
+		"evidence": map[string]string{"anidb": "https://anidb.net/anime/20"},
+		"upstream": "TODO-PR",
+		"captured": map[string]any{
+			"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40),
+			"node_sha256": strings.Repeat("b", 64),
+			"tvdb":        map[string]any{"series": 5006, "seasons": []int{2}, "episodes": eps, "sha256": skyhook.Hash(eps)},
+		},
 	}
 	dir, ov := t.TempDir(), t.TempDir()
-	writeFixture(t, ov, "20.json", entry(nil))
-	_, err := build(t, dir, ov, "")
+	writeFixture(t, ov, "20.json", entry)
+	_, err := build(t, dir, ov, "", "-mirror", snapshotWith(t, dir, map[int]anidb.Anime{20: fin(3)}))
 	if err == nil || !strings.Contains(err.Error(), "no regular episode count") || !strings.Contains(err.Error(), "AniDB 30") {
 		t.Errorf("build with AniDB 30 uncounted = %v, want a refusal naming AniDB 30", err)
 	}
 	if _, statErr := os.Stat(filepath.Join(dir, "animap.json")); !errors.Is(statErr, os.ErrNotExist) {
 		t.Error("a refused build still wrote animap.json")
 	}
-	writeFixture(t, ov, "20.json", entry(map[string]any{"30": map[string]any{"regular": 1, "specials": []int{}}}))
-	if _, err := build(t, dir, ov, ""); err != nil {
-		t.Errorf("build with AniDB 30's count recorded = %v", err)
+	if _, err := build(t, dir, ov, "", "-mirror", snapshotWith(t, dir, map[int]anidb.Anime{20: fin(3), 30: fin(1)})); err != nil {
+		t.Errorf("build with the mirror counting AniDB 30 = %v", err)
 	}
 }
 
@@ -224,27 +220,6 @@ func TestDriftWantBodies(t *testing.T) {
 	gone := driftWant(&drift.Finding{Key: "drift:tvdb:1", Cause: drift.TVDBLayout, AniDB: 1, Before: []skyhook.Episode{{Season: 1, Number: 1}}})
 	if !strings.Contains(gone.Body, "no longer serves") || !strings.Contains(gone.Body, "S1E1 A0 D") {
 		t.Errorf("series-gone want = %q", gone.Body)
-	}
-}
-
-func TestDriftWantCountBodies(t *testing.T) {
-	f := drift.Finding{Key: "drift:counts:17281", Cause: drift.CountInDatabase, AniDB: 17281, Path: counts.Path, Counted: 2, DatabaseEpisodes: 2}
-	agree := driftWant(&f)
-	if agree.Title != "counts: AniDB 17281 now in anime-offline-database" || agree.Key != "drift:counts:17281" {
-		t.Errorf("counts want title %q key %q", agree.Title, agree.Key)
-	}
-	if !strings.Contains(agree.Body, "counts 2 too, so the two agree") || !strings.Contains(agree.Body, "Remove the row from `checks/counts.json`") ||
-		!strings.Contains(agree.Body, "https://anidb.net/anime/17281") || strings.Contains(agree.Body, "Entry:") {
-		t.Errorf("agreeing counts body = %q", agree.Body)
-	}
-	f.DatabaseEpisodes = 3
-	if differ := driftWant(&f); !strings.Contains(differ.Body, "counts 3, so the two disagree") || !strings.Contains(differ.Body, "Remove the row from") {
-		t.Errorf("disagreeing counts body = %q", differ.Body)
-	}
-	f.DatabaseEpisodes = 0
-	if uncounted := driftWant(&f); !strings.Contains(uncounted.Body, "no episode count yet, so keep the row") || strings.Contains(uncounted.Body, "Remove the row") ||
-		!strings.Contains(uncounted.Body, "https://anidb.net/anime/17281") {
-		t.Errorf("counts body for a carried id with no count = %q, want it to keep the row", uncounted.Body)
 	}
 }
 
@@ -341,14 +316,14 @@ func TestBuildBlocksOnACollisionOutsideTheBaseline(t *testing.T) {
 		return append([]string{
 			"build", "-aod", aodFixture, "-aod-release", "2026-40", "-aod-sha256", fixtureSHA(t),
 			"-list", list, "-list-commit", strings.Repeat("a", 40), "-overlay", t.TempDir(),
-			"-out", filepath.Join(dir, "animap.json"), "-baseline", base,
+			"-out", filepath.Join(dir, "animap.json"), "-baseline", base, "-mirror", mirrorFixture, "-mirror-commit", mirrorCommit,
 		}, extra...)
 	}
 	if err := run(t.Context(), args(), &bytes.Buffer{}); err == nil || !strings.Contains(err.Error(), "outside the baseline") {
 		t.Fatalf("build with an unbaselined collision = %v, want a refusal", err)
 	}
 	var out bytes.Buffer
-	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-commit", "c", "-overlay", t.TempDir()}, &out); err != nil {
+	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-mirror", mirrorFixture, "-commit", "c", "-overlay", t.TempDir()}, &out); err != nil {
 		t.Fatalf("baseline init: %v", err)
 	}
 	if !strings.Contains(out.String(), "1 collision(s)") {
@@ -357,7 +332,7 @@ func TestBuildBlocksOnACollisionOutsideTheBaseline(t *testing.T) {
 	if err := run(t.Context(), args(), &bytes.Buffer{}); err != nil {
 		t.Errorf("build with the collisions baselined = %v", err)
 	}
-	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-commit", "c"}, &out); err == nil {
+	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-mirror", mirrorFixture, "-commit", "c"}, &out); err == nil {
 		t.Error("a second baseline init overwrote the baseline")
 	}
 }
@@ -382,13 +357,13 @@ func TestBuildBlocksOnAnUncountedNodeOutsideTheBaseline(t *testing.T) {
 	args := []string{
 		"build", "-aod", aodFixture, "-aod-release", "2026-40", "-aod-sha256", fixtureSHA(t),
 		"-list", list, "-list-commit", strings.Repeat("a", 40), "-overlay", t.TempDir(),
-		"-out", filepath.Join(dir, "animap.json"), "-baseline", base,
+		"-out", filepath.Join(dir, "animap.json"), "-baseline", base, "-mirror", mirrorFixture, "-mirror-commit", mirrorCommit,
 	}
 	if err := run(t.Context(), args, &bytes.Buffer{}); err == nil || !strings.Contains(err.Error(), "no regular episode count") || !strings.Contains(err.Error(), "AniDB 30") {
 		t.Fatalf("build with AniDB 30 uncounted on an untouched series = %v, want a refusal naming AniDB 30", err)
 	}
 	var out bytes.Buffer
-	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-commit", "c", "-overlay", t.TempDir()}, &out); err != nil {
+	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-mirror", mirrorFixture, "-commit", "c", "-overlay", t.TempDir()}, &out); err != nil {
 		t.Fatalf("baseline init: %v", err)
 	}
 	if !strings.Contains(out.String(), "1 uncounted node(s)") {
@@ -399,52 +374,50 @@ func TestBuildBlocksOnAnUncountedNodeOutsideTheBaseline(t *testing.T) {
 	}
 }
 
-// A sibling whose AniDB specials were never read blocks the build while
+// A sibling the mirror lists no episodes for blocks the build while
 // another node claims a season-0 episode its specials could default onto.
 func TestBuildBlocksOnAnUnresolvedSibling(t *testing.T) {
 	noFloors(t)
 	eps := []skyhook.Episode{{Season: 0, Number: 3, AirDate: "2020-06-01"}}
-	entry := func(specials any) map[string]any {
-		return map[string]any{
-			"anidb_id": 20, "title": "Filed under specials", "justification": "test",
-			"set":      map[string]any{"tvdbid": "5000"},
-			"evidence": map[string]string{"anidb": "https://anidb.net/anime/20"},
-			"upstream": "TODO-PR", "episodes": map[string]any{"regular": 3, "specials": []int{}},
-			"siblings": map[string]any{"10": map[string]any{"regular": 12, "specials": specials}},
-			"captured": map[string]any{
-				"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40),
-				"node_sha256": strings.Repeat("b", 64),
-				"tvdb":        map[string]any{"series": 5000, "seasons": []int{0}, "episodes": eps, "sha256": skyhook.Hash(eps)},
-			},
-		}
-	}
 	dir, ov := t.TempDir(), t.TempDir()
-	writeFixture(t, ov, "20.json", entry(nil))
-	_, err := build(t, dir, ov, "")
-	if err == nil || !strings.Contains(err.Error(), "unread AniDB specials") || !strings.Contains(err.Error(), "AniDB 10") {
-		t.Errorf("build with AniDB 10's specials unread = %v, want a refusal naming AniDB 10", err)
+	writeFixture(t, ov, "20.json", map[string]any{
+		"anidb_id": 20, "title": "Filed under specials", "justification": "test",
+		"set":      map[string]any{"tvdbid": "5000"},
+		"evidence": map[string]string{"anidb": "https://anidb.net/anime/20"},
+		"upstream": "TODO-PR",
+		"captured": map[string]any{
+			"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40),
+			"node_sha256": strings.Repeat("b", 64),
+			"tvdb":        map[string]any{"series": 5000, "seasons": []int{0}, "episodes": eps, "sha256": skyhook.Hash(eps)},
+		},
+	})
+	unlisted := snapshotWith(t, dir, map[int]anidb.Anime{20: fin(3)})
+	_, err := build(t, dir, ov, "", "-mirror", unlisted)
+	if err == nil || !strings.Contains(err.Error(), "no AniDB episode list in the mirror") || !strings.Contains(err.Error(), "AniDB 10") {
+		t.Errorf("build with AniDB 10 absent from the mirror = %v, want a refusal naming AniDB 10", err)
 	}
 	if _, statErr := os.Stat(filepath.Join(dir, "animap.json")); !errors.Is(statErr, os.ErrNotExist) {
 		t.Error("a refused build still wrote animap.json")
 	}
-	writeFixture(t, ov, "20.json", entry([]int{1, 3}))
-	if _, err := build(t, dir, ov, ""); err != nil {
-		t.Errorf("build with AniDB 10's specials recorded = %v", err)
+	check := func(snap string) error {
+		return run(t.Context(), []string{"overlay", "check", "-overlay", ov, "-list", listFixture, "-aod", aodFixture, "-mirror", snap}, &bytes.Buffer{})
 	}
-	var out bytes.Buffer
-	if err := run(t.Context(), []string{"overlay", "check", "-overlay", ov, "-list", listFixture, "-aod", aodFixture}, &out); err != nil {
-		t.Errorf("overlay check with AniDB 10's specials recorded = %v", err)
-	}
-	writeFixture(t, ov, "20.json", entry(nil))
-	if err := run(t.Context(), []string{"overlay", "check", "-overlay", ov, "-list", listFixture, "-aod", aodFixture}, &out); err == nil {
+	if err := check(unlisted); err == nil {
 		t.Error("overlay check passed an unresolved sibling")
+	}
+	listed := writeFixture(t, t.TempDir(), "snapshot.json", &anidb.Snapshot{Commit: mirrorCommit, Anime: map[int]anidb.Anime{10: fin(12, 1, 3), 20: fin(3)}})
+	if _, err := build(t, dir, ov, "", "-mirror", listed); err != nil {
+		t.Errorf("build with the mirror listing AniDB 10's specials = %v", err)
+	}
+	if err := check(listed); err != nil {
+		t.Errorf("overlay check with the mirror listing AniDB 10's specials = %v", err)
 	}
 }
 
 func TestBaselineCheckShrink(t *testing.T) {
 	dir := t.TempDir()
 	write := func(name string, cols ...guard.Collision) string {
-		return writeFixture(t, dir, name, guard.NewBaseline(cols, nil, "c"))
+		return writeFixture(t, dir, name, guard.NewBaseline(cols, nil, "c", anidb.CountBasis))
 	}
 	c1 := guard.Collision{Series: 1, Target: "TVDB 0x1", Nodes: []int{1, 2}}
 	c2 := guard.Collision{Series: 2, Target: "TVDB 0x1", Nodes: []int{3, 4}}
@@ -459,6 +432,51 @@ func TestBaselineCheckShrink(t *testing.T) {
 	}
 	if err := run(t.Context(), []string{"baseline", "check-shrink", "-base", filepath.Join(dir, "absent.json"), "-baseline", base}, &bytes.Buffer{}); err != nil {
 		t.Errorf("no baseline on the target branch yet = %v, want accepted", err)
+	}
+	older := writeFixture(t, dir, "older.json", guard.NewBaseline([]guard.Collision{c1}, nil, "c", ""))
+	if err := run(t.Context(), []string{"baseline", "check-shrink", "-base", older, "-baseline", write("rederived.json", c1, c2, c3)}, &bytes.Buffer{}); err != nil {
+		t.Errorf("entries added under a new basis = %v, want accepted as a re-derivation", err)
+	}
+	stale := writeFixture(t, dir, "stale.json", guard.NewBaseline([]guard.Collision{c1, c2, c3}, nil, "c", "another-basis/v0"))
+	if err := run(t.Context(), []string{"baseline", "check-shrink", "-base", base, "-baseline", stale}, &bytes.Buffer{}); err == nil || !strings.Contains(err.Error(), "rebase") {
+		t.Errorf("a head baseline under a basis this code does not count by = %v, want a refusal naming rebase", err)
+	}
+}
+
+// A baseline measured under another basis stops the build until it is
+// re-derived; rebase is the only mode that may re-derive, and only once.
+func TestBaselineRebase(t *testing.T) {
+	noFloors(t)
+	dir := t.TempDir()
+	list, base := collidingList(t, dir), filepath.Join(dir, "baseline.json")
+	writeFixture(t, dir, "baseline.json", guard.NewBaseline(nil, nil, "c", ""))
+	buildArgs := []string{
+		"build", "-aod", aodFixture, "-aod-release", "2026-40", "-aod-sha256", fixtureSHA(t),
+		"-list", list, "-list-commit", strings.Repeat("a", 40), "-overlay", t.TempDir(),
+		"-out", filepath.Join(dir, "animap.json"), "-baseline", base, "-mirror", mirrorFixture, "-mirror-commit", mirrorCommit,
+	}
+	if err := run(t.Context(), buildArgs, &bytes.Buffer{}); err == nil || !strings.Contains(err.Error(), "baseline rebase") {
+		t.Fatalf("build over a baseline from an older basis = %v, want a refusal naming baseline rebase", err)
+	}
+	mode := func(m string) (string, error) {
+		var out bytes.Buffer
+		err := run(t.Context(), []string{"baseline", m, "-baseline", base, "-list", list, "-aod", aodFixture, "-mirror", mirrorFixture, "-commit", "c", "-overlay", t.TempDir()}, &out)
+		return out.String(), err
+	}
+	if _, err := mode("prune"); err == nil || !strings.Contains(err.Error(), "rebase") {
+		t.Errorf("prune of a baseline from an older basis = %v, want a refusal naming rebase", err)
+	}
+	if out, err := mode("rebase"); err != nil || !strings.Contains(out, "1 collision(s)") {
+		t.Fatalf("baseline rebase = %q, %v; want the one collision re-derived", out, err)
+	}
+	if b, err := guard.LoadBaseline(base); err != nil || b.Basis != anidb.CountBasis {
+		t.Errorf("rebased baseline = %+v, %v; want basis %q", b, err, anidb.CountBasis)
+	}
+	if err := run(t.Context(), buildArgs, &bytes.Buffer{}); err != nil {
+		t.Errorf("build over the rebased baseline = %v", err)
+	}
+	if _, err := mode("rebase"); err == nil || !strings.Contains(err.Error(), "only shrinks") {
+		t.Errorf("a second rebase under an unchanged basis = %v, want a refusal", err)
 	}
 }
 
@@ -536,7 +554,7 @@ func TestDriftThenIssuesCloseADeletedEntry(t *testing.T) {
 		"anidb_id": 18, "title": "Film with TVDB movie marker", "justification": "test",
 		"set":      map[string]any{"tmdbid": "556"},
 		"evidence": map[string]string{"tmdb": "https://www.themoviedb.org/movie/556"},
-		"upstream": "TODO-PR", "episodes": map[string]any{"regular": 1, "specials": []int{}},
+		"upstream": "TODO-PR",
 		"captured": map[string]any{"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40), "node_sha256": strings.Repeat("b", 64)},
 	})
 	driftOut := filepath.Join(dir, "drift.json")

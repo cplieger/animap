@@ -1,16 +1,4 @@
 {
-  "siblings": {
-    "8300": {
-      "specials": [
-        1
-      ],
-      "regular": 1
-    },
-    "9390": {
-      "specials": [],
-      "regular": 5
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/9992",
     "tmdb": "https://www.themoviedb.org/tv/85065/season/1",
@@ -30,7 +18,7 @@
     ]
   },
   "title": "Kyousougiga (2013)",
-  "justification": "AniDB 1-10 (2013-10-10 to 2013-12-19) = TVDB 1x01-1x10 and TMDB S1E1-10, same dates and titles. TVDB and TMDB have no S2. Specials S1-S3 = TVDB 0x7-0x9: S1 'Preview' 2013-10-03 = 'Introductory Chapter' 2013-10-02, S2 'The Kyoto Live Action Chapter' 2013-11-14 = same title and date, S3 'Review' 2013-12-26 = 'Review', which TVDB dates 2013-12-19. The old ';1-4;' hit 0x4, a 2012 ONA (9390).",
+  "justification": "AniDB 1-10 (2013-10-10 to 2013-12-19) = TVDB 1x01-1x10 and TMDB S1E1-10, same dates and titles. TVDB and TMDB have no S2. Specials S1-S3 = TVDB 0x7-0x9: S1 2013-10-03 = 0x7 2013-10-02, S2 2013-11-14 = 0x8, the same title and date, S3 2013-12-26 = 0x9, the same title, which TVDB dates 2013-12-19. The old ';1-4;' hit 0x4, a 2012 ONA (9390).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -164,13 +152,5 @@
   "anilist_ids": [
     19703
   ],
-  "episodes": {
-    "specials": [
-      1,
-      2,
-      3
-    ],
-    "regular": 10
-  },
   "anidb_id": 9992
 }

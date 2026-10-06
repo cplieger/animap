@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-# Build animap.json from the pinned offline database, Anime-Lists master and
-# the overlay, and publish it as a dated GitHub release when its content hash
-# differs from the latest release's.
-#
 # Environment:
-#   AOD_VERSION   (required) anime-offline-database release tag, e.g. 2026-40
-#   AOD_SHA256, LIST_COMMIT, LIST_BLOB
-#                 (optional) from scripts/resolve.sh; resolved here when unset
-#   CACHE_DIR     (optional) where inputs are kept, default ./.cache
-#   ACCEPT_SHRINK=true  (optional) pass -accept-shrink to the build
-#   DRY_RUN=1     (optional) build and check only, write ./animap.json, no release
+#   AOD_VERSION, MIRROR_COMMIT (required) the pins in .github/workflows/publish.yaml
+#   AOD_SHA256, LIST_COMMIT, LIST_BLOB (optional) from scripts/resolve.sh
+#   CACHE_DIR (optional) where inputs are kept, default ./.cache
+#   ACCEPT_SHRINK=true (optional) pass -accept-shrink to the build
+#   DRY_RUN=1 (optional) write ./animap.json and create no release
 set -euo pipefail
 
 AOD_VERSION="${AOD_VERSION:?set AOD_VERSION (anime-offline-database release tag, e.g. 2026-40)}"
+MIRROR_COMMIT="${MIRROR_COMMIT:?set MIRROR_COMMIT (AnimeAggregations commit, pinned in publish.yaml)}"
+if ! [[ "$MIRROR_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+  echo "publish: ERROR MIRROR_COMMIT='${MIRROR_COMMIT}' is not a commit SHA" >&2
+  exit 1
+fi
 DRY_RUN="${DRY_RUN:-0}"
 REPO="${GITHUB_REPOSITORY:-cplieger/animap}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -43,7 +43,23 @@ load "$ROOT/scripts/fetch-inputs.sh"
   echo "publish: ERROR the inputs were not fetched" >&2
   exit 1
 }
-echo "publish: database ${AOD_VERSION} (sha256 ${AOD_SHA256}), Anime-Lists ${LIST_COMMIT}"
+echo "publish: database ${AOD_VERSION} (sha256 ${AOD_SHA256}), Anime-Lists ${LIST_COMMIT}, AniDB mirror ${MIRROR_COMMIT}"
+
+# The mirror's archive goes straight into the extractor, so AniDB's titles
+# and descriptions never reach the disk; a snapshot already kept for this
+# commit is reused, and the build validates it either way.
+mirror_snapshot() {
+  local out="$CACHE_DIR/mirror/${MIRROR_COMMIT}.json"
+  mkdir -p "$CACHE_DIR/mirror"
+  if [ ! -f "$out" ]; then
+    curl --proto '=https' --proto-redir '=https' --tlsv1.2 --connect-timeout 20 --max-time 600 \
+      --retry 3 --retry-delay 5 -fsSL --max-filesize 1073741824 \
+      "https://codeload.github.com/notseteve/AnimeAggregations/tar.gz/${MIRROR_COMMIT}" \
+      | (cd "$ROOT" && go run ./cmd/animap mirror extract -commit "$MIRROR_COMMIT" -out "$out") >&2 || return 1
+  fi
+  printf '%s\n' "$out"
+}
+MIRROR_PATH=$(mirror_snapshot)
 
 WORK=$(mktemp -d)
 trap 'rm -rf "$WORK"' EXIT
@@ -68,6 +84,7 @@ shrink=()
 (cd "$ROOT" && go run ./cmd/animap build \
   -aod "$AOD_PATH" -aod-release "$AOD_VERSION" -aod-sha256 "$AOD_SHA256" \
   -list "$LIST_PATH" -list-commit "$LIST_COMMIT" -overlay overlay \
+  -mirror "$MIRROR_PATH" -mirror-commit "$MIRROR_COMMIT" \
   -previous "$WORK/previous.json" -out "$WORK/animap.json" -stats "$WORK/stats.json" "${shrink[@]}")
 
 HASH=$(jq -r .content_hash "$WORK/stats.json")
@@ -128,7 +145,7 @@ jq -r --arg tag "$TAG" --arg repo "$REPO" '
   "Records: \(.populations.records). AniList ids with an AniDB id: \(.populations.anilist_with_anidb). AniDB ids with a TVDB id: \(.populations.anidb_with_tvdb). Records with a TMDB id: \(.populations.with_tmdb). Records with a mapping list: \(.populations.with_mapping_list). Overlay entries applied: \(.overlay_entries).",
   ""' stats.json >notes.md
 jq -r '
-  "Sources: anime-offline-database \(.sources.anime_offline_database.release) (sha256 \(.sources.anime_offline_database.sha256)), Anime-Lists commit \(.sources.anime_lists.commit), overlay sha256 \(.sources.overlay.sha256).",
+  "Sources: anime-offline-database \(.sources.anime_offline_database.release) (sha256 \(.sources.anime_offline_database.sha256)), Anime-Lists commit \(.sources.anime_lists.commit), overlay sha256 \(.sources.overlay.sha256). AniDB episode lists and counts: AniDB mirror commit \(.sources.anidb_mirror.commit).",
   "",
   .attribution.notice,
   ""' animap.json >>notes.md

@@ -13,7 +13,7 @@ func col(series int, target string, nodes ...int) Collision {
 }
 
 func TestBaselineSplit(t *testing.T) {
-	b := NewBaseline([]Collision{col(10, "TVDB 0x1", 1, 2), col(20, "TVDB 1x1", 3, 4)}, nil, "c")
+	b := NewBaseline([]Collision{col(10, "TVDB 0x1", 1, 2), col(20, "TVDB 1x1", 3, 4)}, nil, "c", "b1")
 	baselined, novel, stale := b.Split([]Collision{col(10, "TVDB 0x1", 1, 2), col(10, "TVDB 0x2", 1, 2), col(20, "TVDB 1x1", 3, 9)})
 	if len(baselined) != 1 || len(novel) != 2 || len(stale) != 1 || stale[0].Series != 20 {
 		t.Errorf("Split = baselined %v, novel %v, stale %v; want 10/0x1 accepted, a new target and a new claimant refused, 20/1x1 stale", baselined, novel, stale)
@@ -24,7 +24,7 @@ func TestBaselineSplit(t *testing.T) {
 }
 
 func TestCheckShrink(t *testing.T) {
-	base := NewBaseline([]Collision{col(10, "TVDB 0x1", 1, 2), col(20, "TVDB 1x1", 3, 4)}, nil, "c")
+	base := NewBaseline([]Collision{col(10, "TVDB 0x1", 1, 2), col(20, "TVDB 1x1", 3, 4)}, nil, "c", "b1")
 	for _, tc := range []struct {
 		name string
 		head []Collision
@@ -37,7 +37,7 @@ func TestCheckShrink(t *testing.T) {
 		{"a node added", []Collision{col(10, "TVDB 0x1", 1, 2, 7)}, false},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			err := CheckShrink(base, NewBaseline(tc.head, nil, "c"))
+			err := CheckShrink(base, NewBaseline(tc.head, nil, "c", "b1"))
 			if tc.ok != (err == nil) || (!tc.ok && !errors.Is(err, ErrBaselineGrew)) {
 				t.Errorf("CheckShrink(%s) = %v", tc.name, err)
 			}
@@ -45,9 +45,21 @@ func TestCheckShrink(t *testing.T) {
 	}
 }
 
+func TestCheckShrinkAcrossABasisChange(t *testing.T) {
+	base := NewBaseline([]Collision{col(10, "TVDB 0x1", 1, 2)}, []Uncounted{{Series: 10, AniDB: 1}}, "c", "b1")
+	grown := []Collision{col(10, "TVDB 0x1", 1, 2, 7), col(30, "TVDB 0x9", 5, 6)}
+	unc := []Uncounted{{Series: 10, AniDB: 1}, {Series: 20, AniDB: 3}}
+	if err := CheckShrink(base, NewBaseline(grown, unc, "c", "b2")); err != nil {
+		t.Errorf("CheckShrink(re-derived under a new basis) = %v, want any change accepted", err)
+	}
+	if err := CheckShrink(base, NewBaseline(grown, unc, "c", "b1")); !errors.Is(err, ErrBaselineGrew) {
+		t.Errorf("CheckShrink(the same additions, basis unchanged) = %v, want ErrBaselineGrew", err)
+	}
+}
+
 func TestBaselineUncounted(t *testing.T) {
 	a, b, c := Uncounted{Series: 10, AniDB: 1}, Uncounted{Series: 10, AniDB: 2}, Uncounted{Series: 20, AniDB: 3}
-	base := NewBaseline(nil, []Uncounted{b, a, a}, "c")
+	base := NewBaseline(nil, []Uncounted{b, a, a}, "c", "b1")
 	if !slices.Equal(base.Uncounted, []Uncounted{a, b}) {
 		t.Errorf("NewBaseline uncounted = %+v, want %+v sorted and deduplicated", base.Uncounted, []Uncounted{a, b})
 	}
@@ -58,10 +70,10 @@ func TestBaselineUncounted(t *testing.T) {
 	if pruned := base.Prune(nil, []Uncounted{a, c}); !slices.Equal(pruned.Uncounted, []Uncounted{a}) {
 		t.Errorf("Prune uncounted = %+v, want only a", pruned.Uncounted)
 	}
-	if err := CheckShrink(base, NewBaseline(nil, []Uncounted{a}, "c")); err != nil {
+	if err := CheckShrink(base, NewBaseline(nil, []Uncounted{a}, "c", "b1")); err != nil {
 		t.Errorf("CheckShrink with an uncounted node removed = %v", err)
 	}
-	if err := CheckShrink(base, NewBaseline(nil, []Uncounted{a, b, c}, "c")); !errors.Is(err, ErrBaselineGrew) {
+	if err := CheckShrink(base, NewBaseline(nil, []Uncounted{a, b, c}, "c", "b1")); !errors.Is(err, ErrBaselineGrew) {
 		t.Errorf("CheckShrink with an uncounted node added = %v, want ErrBaselineGrew", err)
 	}
 }
@@ -83,5 +95,25 @@ func TestLoadBaseline(t *testing.T) {
 	}
 	if _, err := LoadBaseline(p); err == nil {
 		t.Error("LoadBaseline accepted an unknown field")
+	}
+	for basis, ok := range map[string]bool{"": true, "anidb-mirror-first/aod-airing-fallback/v1": true, "Mirror First": false, "a//b": false, "/a": false} {
+		if err := os.WriteFile(p, []byte(`{"version":1,"collisions":[],"basis":"`+basis+`"}`), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if b, err := LoadBaseline(p); ok != (err == nil) || (ok && b.Basis != basis) {
+			t.Errorf("LoadBaseline(basis %q) = %+v, %v; want accepted %t", basis, b, err, ok)
+		}
+	}
+}
+
+func TestLoadBaselineRefusesTrailingData(t *testing.T) {
+	p := filepath.Join(t.TempDir(), "b.json")
+	for name, trailer := range map[string]string{"a stray ]": "]", "a stray }": "}", "a second document": `{"version":1,"collisions":[]}`} {
+		if err := os.WriteFile(p, []byte(`{"version":1,"collisions":[]}`+"\n"+trailer), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if b, err := LoadBaseline(p); err == nil {
+			t.Errorf("LoadBaseline(a baseline followed by %s) = %+v, want an error", name, b)
+		}
 	}
 }

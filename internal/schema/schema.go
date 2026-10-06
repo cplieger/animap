@@ -11,6 +11,8 @@ import (
 	"fmt"
 	"io"
 	"slices"
+
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // Version is the schema version every document carries.
@@ -42,11 +44,19 @@ type Document struct {
 	Records     []Record    `json:"records"`
 }
 
-// Sources names exactly what produced the records.
+// Sources names exactly what the build read.
 type Sources struct {
 	AnimeOfflineDatabase OfflineDatabaseSource `json:"anime_offline_database"`
 	AnimeLists           AnimeListsSource      `json:"anime_lists"`
+	AniDBMirror          AniDBMirrorSource     `json:"anidb_mirror"`
 	Overlay              OverlaySource         `json:"overlay"`
+}
+
+// AniDBMirrorSource is the AniDB mirror commit the episode counts and
+// episode lists were read at.
+type AniDBMirrorSource struct {
+	Repository string `json:"repository"`
+	Commit     string `json:"commit"`
 }
 
 // OfflineDatabaseSource is the pinned anime-offline-database release asset.
@@ -88,7 +98,8 @@ var DefaultAttribution = Attribution{
 	ContentsLicenseURL: "https://opendatacommons.org/licenses/dbcl/1-0/",
 	Notice: "animap is made available under the Open Database License (ODbL) 1.0; its contents under the Database Contents License (DbCL) 1.0. " +
 		"It contains information from anime-offline-database (https://github.com/cedya77/anime-offline-database), made available under the ODbL 1.0 and DbCL 1.0, " +
-		"and from Anime-Lists (https://github.com/Anime-Lists/anime-lists).",
+		"from Anime-Lists (https://github.com/Anime-Lists/anime-lists), " +
+		"and episode counts from AniDB (https://anidb.net), read through AnimeAggregations (https://github.com/notseteve/AnimeAggregations).",
 }
 
 // Record is one AniList-keyed or AniDB-keyed mapping. The pointer-typed
@@ -172,14 +183,9 @@ func Decode(r io.Reader) (*Document, error) {
 	if len(body) > MaxDocumentBytes {
 		return nil, ErrTooLarge
 	}
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
 	var doc Document
-	if err := dec.Decode(&doc); err != nil {
+	if err := strictjson.Decode(body, &doc); err != nil {
 		return nil, fmt.Errorf("schema: decode: %w", err)
-	}
-	if dec.More() {
-		return nil, errors.New("schema: trailing data after the document")
 	}
 	if doc.Version != Version {
 		return nil, fmt.Errorf("schema: version %d, want %d", doc.Version, Version)

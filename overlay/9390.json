@@ -1,20 +1,4 @@
 {
-  "siblings": {
-    "8300": {
-      "specials": [
-        1
-      ],
-      "regular": 1
-    },
-    "9992": {
-      "specials": [
-        1,
-        2,
-        3
-      ],
-      "regular": 10
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/9390",
     "tvdb": "https://thetvdb.com/series/kyousougiga/seasons/official/0"
@@ -26,7 +10,7 @@
     "tmdbseason": ""
   },
   "title": "Kyousougiga (2012)",
-  "justification": "AniDB 1-5 (2012-08-31, 10-27, 11-10, 12-08, 12-22) = TVDB 0x02-0x06, same dates, titles in another translation ('Koto, Our Heroine, Spake Thusly' / 'Thus Spoke Koto, the Heroine'). Old season 1 is the 2013 TV series (1x1 2013-10-10, AniDB 9992). TMDB 85065 has no ONA episodes, so TMDB is cleared. AniDB lists no specials.",
+  "justification": "AniDB 1-5 (2012-08-31, 10-27, 11-10, 12-08, 12-22) = TVDB 0x02-0x06, same dates, the same titles in another translation. Old season 1 is the 2013 TV series (1x1 2013-10-10, AniDB 9992). TMDB 85065 has no ONA episodes, so TMDB is cleared. AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -99,9 +83,5 @@
   "anilist_ids": [
     15359
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 5
-  },
   "anidb_id": 9390
 }

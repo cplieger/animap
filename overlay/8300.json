@@ -1,18 +1,4 @@
 {
-  "siblings": {
-    "9390": {
-      "specials": [],
-      "regular": 5
-    },
-    "9992": {
-      "specials": [
-        1,
-        2,
-        3
-      ],
-      "regular": 10
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/8300",
     "tvdb": "https://thetvdb.com/series/kyousougiga/seasons/official/0"
@@ -22,7 +8,7 @@
     "tmdbseason": ""
   },
   "title": "Kyousougiga",
-  "justification": "TVDB is unchanged (0x1 2011-12-01). The old TMDB 85065 S0E1 is 'Preview' 2013-10-03, which is AniDB 9992's special S1 (same title and date). TMDB 85065 has no 2011 episode (S0 is the three 2013 specials, S1 the 10 TV episodes), so TMDB is cleared.",
+  "justification": "TVDB is unchanged (0x1 2011-12-01). The old TMDB 85065 S0E1 aired 2013-10-03, which is AniDB 9992's special S1 (same title and date). TMDB 85065 has no 2011 episode (S0 is the three 2013 specials, S1 the 10 TV episodes), so TMDB is cleared.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -95,11 +81,5 @@
   "anilist_ids": [
     10893
   ],
-  "episodes": {
-    "specials": [
-      1
-    ],
-    "regular": 1
-  },
   "anidb_id": 8300
 }

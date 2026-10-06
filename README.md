@@ -16,7 +16,7 @@ animap is built for tools beside Sonarr and Radarr that need the id and season t
 - Each correction to Anime-Lists is proven against AniDB, TVDB and TMDB, and links its Anime-Lists pull request once one is filed.
 - Every [SeaDex](https://releases.moe) title is checked daily for a complete mapping.
 
-Every value comes from anime-offline-database, Anime-Lists or animap's corrections, never from another site.
+Every value comes from anime-offline-database, Anime-Lists, AniDB's episode counts read through a mirror, or animap's corrections, never from another site.
 
 Consider [Fribb/anime-lists](https://github.com/Fribb/anime-lists) if you also need Kitsu or Anime-Planet ids. Consider [arm-server](https://github.com/BeeeQueue/arm-server) if you want lookups through an HTTP API.
 
@@ -67,7 +67,9 @@ cosign verify-blob animap.json --bundle animap.json.sigstore.json \
 To build the file yourself, run this from the repository root with Go, `curl`, `jq` and an authenticated `gh` CLI:
 
 ```sh
-AOD_VERSION=$(sed -n 's/^  AOD_VERSION: //p' .github/workflows/publish.yaml) DRY_RUN=1 bash scripts/publish.sh
+export AOD_VERSION=$(sed -n 's/^  AOD_VERSION: //p' .github/workflows/publish.yaml)
+export MIRROR_COMMIT=$(sed -n 's/^  MIRROR_COMMIT: //p' .github/workflows/publish.yaml)
+DRY_RUN=1 bash scripts/publish.sh
 ```
 
 `DRY_RUN=1` builds and checks the file and writes `./animap.json` without creating a release. `gh` is used only to read release and commit details.
@@ -87,7 +89,7 @@ Four fields are present or absent rather than zero by default, because `0` is a 
 
 A workflow builds a new file every 3 hours. It publishes the file only when a hash of its version, attribution and records differs from the latest release. Release tags are dates, such as `v2026.10.05`, with the time added for a second release that day. Each release's notes list the five counts below.
 
-The anime-offline-database release is pinned in `.github/workflows/publish.yaml`. Renovate proposes each new weekly release, and the merge publishes. Anime-Lists has no releases, so each run reads its newest commit.
+The anime-offline-database release is pinned in `.github/workflows/publish.yaml`. Renovate proposes each new weekly release, and the merge publishes. The AniDB mirror is pinned there by commit too, and Renovate proposes each new snapshot the same way. Anime-Lists has no releases, so each run reads its newest commit.
 
 To skip an unchanged download, send your last `ETag` as `If-None-Match`, or compare the release tag.
 
@@ -104,7 +106,9 @@ Anime-Lists already had some of these collisions and entries with no episode cou
 
 `animap.json` is made available under the [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/), and its contents under the [Database Contents License (DbCL) 1.0](https://opendatacommons.org/licenses/dbcl/1-0/). Both texts are in [LICENSE-DATA](LICENSE-DATA), and the file carries the same notice in its `attribution` member. If you publish a database built from it, the ODbL asks you to keep that notice and to share it under the same licence.
 
-It contains information from [anime-offline-database](https://github.com/cedya77/anime-offline-database), made available under the ODbL 1.0 and the DbCL 1.0, and from [Anime-Lists](https://github.com/Anime-Lists/anime-lists). Anime-Lists publishes no licence. anime-offline-database supplies the AniList, AniDB and MyAnimeList ids, the type and the episode count. Anime-Lists supplies the TVDB, TMDB and IMDb ids, the seasons and offsets, and the mapping lists. The way the two are joined follows [Fribb/anime-lists-generator](https://github.com/Fribb/anime-lists-generator), where anime-offline-database gives the identity fields and Anime-Lists fills the rest.
+It contains information from [anime-offline-database](https://github.com/cedya77/anime-offline-database), made available under the ODbL 1.0 and the DbCL 1.0, from [Anime-Lists](https://github.com/Anime-Lists/anime-lists), and episode counts from [AniDB](https://anidb.net). Anime-Lists publishes no licence. anime-offline-database supplies the AniList, AniDB and MyAnimeList ids and the type. Anime-Lists supplies the TVDB, TMDB and IMDb ids, the seasons and offsets, and the mapping lists. The way the two are joined follows [Fribb/anime-lists-generator](https://github.com/Fribb/anime-lists-generator), where anime-offline-database gives the identity fields and Anime-Lists fills the rest.
+
+The episode count of an anime whose end date AniDB records comes from AniDB, read through [AnimeAggregations](https://github.com/notseteve/AnimeAggregations), a mirror of AniDB's data. For an anime with no end date yet, it comes from anime-offline-database. animap keeps only numbers and dates from the mirror, never its titles or descriptions.
 
 To notice when TheTVDB changes an episode order, each correction on a TVDB series stores a fingerprint of that order, read through the public metadata service Sonarr uses. The file holds no AniDB titles or descriptions, only AniDB ids and episode numbers. [docs/sources.md](docs/sources.md) covers each source and its licence.
 

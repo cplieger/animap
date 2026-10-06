@@ -30,7 +30,8 @@ commands:
   overlay capture-special
                    record a special-of-parent bridge's fingerprints
   overlay check    run the collision check and the bridge proofs
-  baseline         write, prune or check the collision baseline
+  baseline         write, prune, rebase or check the collision baseline
+  mirror extract   keep AniDB's episode lists from the mirror's archive on stdin
 `
 
 // errUsage marks a bad invocation (exit 2) rather than a failed run (exit 1).
@@ -69,6 +70,8 @@ func run(ctx context.Context, args []string, stdout io.Writer) error {
 		return runIssues(ctx, args[1:])
 	case "baseline":
 		return runBaseline(ctx, args[1:], stdout)
+	case "mirror":
+		return runMirror(ctx, args[1:], os.Stdin, stdout, log)
 	case "overlay":
 		if len(args) < 2 {
 			return fmt.Errorf("%w: overlay needs capture or check", errUsage)

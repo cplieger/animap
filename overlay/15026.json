@@ -11,7 +11,7 @@
     "tmdbseason": "1"
   },
   "title": "Zoids Wild Zero",
-  "justification": "TVDB 347578 is Zoids Wild (S1 50, no S2); TVDB 370842 'Zoids Wild ZERO' is this series. AniDB 1-50 (2019-10-04 to 2020-10-16) = TVDB 1x01-1x50 and TMDB 103377 S1E1-50, same dates. The old TMDB 80720 has no S2. AniDB lists no specials.",
+  "justification": "TVDB 347578 is Zoids Wild (S1 50, no S2); TVDB 370842 is this series. AniDB 1-50 (2019-10-04 to 2020-10-16) = TVDB 1x01-1x50 and TMDB 103377 S1E1-50, same dates. The old TMDB 80720 has no S2. AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -330,9 +330,5 @@
   "anilist_ids": [
     110788
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 50
-  },
   "anidb_id": 15026
 }

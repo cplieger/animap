@@ -93,7 +93,9 @@ func TestDecodeIsStrict(t *testing.T) {
 		{"unknown member", strings.Replace(string(good), `"version":1`, `"version":1,"extra":true`, 1)},
 		{"unknown record member", strings.Replace(string(good), `"anilist_id":1`, `"anilist_id":1,"x":1`, 1)},
 		{"wrong version", strings.Replace(string(good), `"version":1`, `"version":2`, 1)},
-		{"trailing data", string(good) + "{}"},
+		{"a second document", string(good) + "{}"},
+		{"a trailing ]", string(good) + "]"},
+		{"a trailing }", string(good) + "\n}"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if _, err := Decode(strings.NewReader(tc.body)); err == nil {

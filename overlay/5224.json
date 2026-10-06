@@ -1,10 +1,4 @@
 {
-  "siblings": {
-    "2808": {
-      "specials": null,
-      "regular": 13
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/5224",
     "tmdb": "https://www.themoviedb.org/tv/44750/season/2",
@@ -17,7 +11,7 @@
     "tmdbseason": "2"
   },
   "title": "Buzzer Beater (2007)",
-  "justification": "TVDB 80503 is dead (the dereferrer and SkyHook both 404). AniDB 1-13 (2007-07-04 to 2007-09-26) = TVDB 156221 'Buzzer Beater' 2x01-2x13 and TMDB 44750 S2E1-13, same dates and titles ('Out of Bounds' to 'Jam'). Sibling 2808 (the 2005 series) keeps S1. AniDB lists no specials.",
+  "justification": "TVDB 80503 is dead (the dereferrer and SkyHook both 404). AniDB 1-13 (2007-07-04 to 2007-09-26) = TVDB 156221 2x01-2x13 and TMDB 44750 S2E1-13, same dates and titles. Sibling 2808 (the 2005 series) keeps S1. AniDB lists no specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -114,9 +108,5 @@
   "anilist_ids": [
     2684
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 13
-  },
   "anidb_id": 5224
 }

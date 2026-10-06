@@ -1,31 +1,25 @@
-// Package counts reads checks/counts.json: regular episode counts, proven
-// from AniDB's episode list, for Anime-Lists nodes whose AniDB id
-// anime-offline-database does not carry. The collision check needs a count
-// to place a node's episodes.
-package counts
+package anidb
 
 import (
-	"bytes"
-	"encoding/json"
 	"errors"
 	"fmt"
-	"maps"
 	"os"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
-// Path is the file, relative to the repository root.
-const Path = "checks/counts.json"
+// CountsPath is checks/counts.json, relative to the repository root: the
+// regular counts, proven from AniDB's episode list, that override every
+// source in Facts.Count.
+const CountsPath = "checks/counts.json"
 
 const (
-	maxRows      = 1000
-	maxFileBytes = 256 << 10
+	maxRows           = 1000
+	maxCountsFileSize = 256 << 10
 )
-
-// ErrInvalid wraps every validation failure.
-var ErrInvalid = errors.New("counts: invalid file")
 
 // Row is one counted node.
 type Row struct {
@@ -36,8 +30,9 @@ type Row struct {
 	RegularEpisodes int    `json:"regular_episodes"`
 }
 
-// Load reads and validates the file at path; a missing file has no rows.
-func Load(path string) ([]Row, error) {
+// LoadRows reads and validates the counts file at path; a missing file has
+// no rows.
+func LoadRows(path string) ([]Row, error) {
 	st, err := os.Stat(path)
 	if errors.Is(err, os.ErrNotExist) {
 		return nil, nil
@@ -45,31 +40,26 @@ func Load(path string) ([]Row, error) {
 	if err != nil {
 		return nil, err
 	}
-	if st.Size() > maxFileBytes {
+	if st.Size() > maxCountsFileSize {
 		return nil, fmt.Errorf("%w: %s is %d bytes", ErrInvalid, path, st.Size())
 	}
 	body, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
-	rows, err := Decode(body)
+	rows, err := DecodeRows(body)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", path, err)
 	}
 	return rows, nil
 }
 
-// Decode parses and validates a JSON list of rows, which must be sorted by
-// AniDB id with no id twice.
-func Decode(body []byte) ([]Row, error) {
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
+// DecodeRows parses and validates a JSON list of rows, which must be sorted
+// by AniDB id with no id twice.
+func DecodeRows(body []byte) ([]Row, error) {
 	var rows []Row
-	if err := dec.Decode(&rows); err != nil {
+	if err := strictjson.Decode(body, &rows); err != nil {
 		return nil, fmt.Errorf("%w: %w", ErrInvalid, err)
-	}
-	if dec.More() {
-		return nil, fmt.Errorf("%w: trailing data", ErrInvalid)
 	}
 	if rows == nil {
 		return nil, fmt.Errorf("%w: not a JSON list", ErrInvalid)
@@ -113,17 +103,4 @@ func (r *Row) Validate() error {
 func isDate(s string) bool {
 	_, err := time.Parse(time.DateOnly, s)
 	return err == nil
-}
-
-// Merge returns the database's regular episode counts with every row's
-// count in place of the database's own. database is not modified.
-func Merge(database map[int]int, rows []Row) map[int]int {
-	out := maps.Clone(database)
-	if out == nil {
-		out = make(map[int]int, len(rows))
-	}
-	for i := range rows {
-		out[rows[i].AniDBID] = rows[i].RegularEpisodes
-	}
-	return out
 }

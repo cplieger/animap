@@ -2,11 +2,12 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/5549",
     "anilist": "https://anilist.co/anime/4715",
-    "tvdb": "https://thetvdb.com/series/shigofumi---letters-from-the-departed/seasons/official/1"
+    "tvdb": "https://thetvdb.com/series/shigofumi---letters-from-the-departed/seasons/official/1",
+    "tmdb": "https://www.themoviedb.org/tv/89664/season/0"
   },
   "kind": "special-of-parent",
   "title": "Shigofumi: Sorekara",
-  "justification": "AniList 4715 (OVA, 1 episode(s) from 2008-09-26) is AniDB 5549's special(s) S1, aired 2008-09-26; AniList's PREQUEL relation names AniList 3420, which anime-offline-database links to AniDB 5549; the special's title 'Sore kara' matches.",
+  "justification": "AniList 4715 (OVA, 1 episode(s) from 2008-09-26) is AniDB 5549's special(s) S1, aired 2008-09-26; AniList's PREQUEL relation names AniList 3420, which anime-offline-database links to AniDB 5549, and the special's title matches an AniList title. TMDB 89664, where the parent's node places S1 (S0E1, 2008-03-25), disagrees: TMDB lists 2008-09-26 as S0E7, titled only \"Episode 7\", so no TMDB value is published for this entry.",
   "captured": {
     "tvdb": {
       "sha256": "9a53780023e064fa3a766d2b66ac8d5d3983c8a92531fbfe3840b847c1de995c",
@@ -101,53 +102,6 @@
   },
   "specials": [
     1
-  ],
-  "parent_anidb_specials": [
-    [
-      2,
-      1,
-      "2008-09-26"
-    ],
-    [
-      2,
-      2,
-      "2008-03-25"
-    ],
-    [
-      2,
-      3,
-      "2008-04-25"
-    ],
-    [
-      2,
-      4,
-      "2008-05-23"
-    ],
-    [
-      2,
-      5,
-      "2008-06-25"
-    ],
-    [
-      2,
-      6,
-      "2008-07-25"
-    ],
-    [
-      2,
-      7,
-      "2008-08-22"
-    ],
-    [
-      2,
-      8,
-      "2008-09-26"
-    ],
-    [
-      2,
-      9,
-      "2008-08-22"
-    ]
   ],
   "anilist_id": 4715,
   "parent_anidb_id": 5549

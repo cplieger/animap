@@ -1,14 +1,4 @@
 {
-  "siblings": {
-    "11289": {
-      "specials": [],
-      "regular": 12
-    },
-    "9674": {
-      "specials": [],
-      "regular": 13
-    }
-  },
   "evidence": {
     "anidb": "https://anidb.net/anime/8182",
     "tmdb": "https://www.themoviedb.org/tv/55326/season/1",
@@ -19,7 +9,7 @@
     "tmdbtv": "55326"
   },
   "title": "DD Hokuto no Ken",
-  "justification": "AniDB 1-12 (2011-01-12 to 2011-04-06) = TVDB 0x01-0x12 ('The Four Hokuto Brothers' onward) and TMDB 55326 S1E1-12, same dates and titles. Old season 1 and old TMDB 130728 are the 2013 series (1x1 2013-04-03), which 9674 maps. AniDB lists no specials for 8182, 9674 or 11289.",
+  "justification": "AniDB 1-12 (2011-01-12 to 2011-04-06) = TVDB 0x01-0x12 and TMDB 55326 S1E1-12, same dates and titles. Old season 1 and old TMDB 130728 are the 2013 series (1x1 2013-04-03), which 9674 maps. AniDB lists no specials for 8182, 9674 or 11289.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -110,9 +100,5 @@
   "anilist_ids": [
     10177
   ],
-  "episodes": {
-    "specials": [],
-    "regular": 12
-  },
   "anidb_id": 8182
 }

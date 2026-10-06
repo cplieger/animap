@@ -1,7 +1,8 @@
 // Package join builds the published records from offline-database entries
 // and (overlay-patched) Anime-Lists nodes. The offline database supplies the
 // identity fields and Anime-Lists fills everything else, the precedence
-// Fribb/anime-lists-generator's merge uses.
+// Fribb/anime-lists-generator's merge uses; a record with an AniDB id takes
+// its episode count from anidb.Facts.Count.
 package join
 
 import (
@@ -11,6 +12,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/schema"
@@ -38,7 +40,7 @@ type identity struct {
 // for every AniDB id no AniList record carries, by anidb_id. An AniList id
 // whose entries name two or more AniDB ids gets no anidb_id: two candidates
 // is not an answer, and each candidate keeps its own AniDB-keyed record.
-func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node) ([]schema.Record, Stats) {
+func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node, facts *anidb.Facts) ([]schema.Record, Stats) {
 	var st Stats
 	byAniList := map[int]*identity{}
 	byAniDB := map[int]*identity{}
@@ -51,12 +53,12 @@ func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node) ([]schema.
 			absorb(byAniDB, ad, e, nil)
 		}
 	}
-	out, carried := aniListRecords(byAniList, &st)
+	out, carried := aniListRecords(byAniList, facts, &st)
 	st.AniListRecords = len(out)
 	only := aniDBOnly(byAniDB, carried, nodes, &st)
 	for _, ad := range slices.Sorted(maps.Keys(only)) {
 		id := only[ad]
-		out = append(out, schema.Record{AniDBID: ad, Type: id.typ, Episodes: id.episodes, MALID: single(id.mal)})
+		out = append(out, schema.Record{AniDBID: ad, Type: id.typ, Episodes: facts.Count(ad), MALID: single(id.mal)})
 	}
 	st.AniDBOnlyRecords = len(out) - st.AniListRecords
 	for i := range out {
@@ -67,7 +69,7 @@ func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node) ([]schema.
 	return out, st
 }
 
-func aniListRecords(byAniList map[int]*identity, st *Stats) (out []schema.Record, carried map[int]bool) {
+func aniListRecords(byAniList map[int]*identity, facts *anidb.Facts, st *Stats) (out []schema.Record, carried map[int]bool) {
 	out = make([]schema.Record, 0, len(byAniList))
 	carried = map[int]bool{}
 	for _, al := range slices.Sorted(maps.Keys(byAniList)) {
@@ -78,6 +80,7 @@ func aniListRecords(byAniList map[int]*identity, st *Stats) (out []schema.Record
 			st.TypeOnlyRecords++
 		case 1:
 			r.AniDBID = single(id.anidb)
+			r.Episodes = facts.Count(r.AniDBID)
 			carried[r.AniDBID] = true
 		default:
 			st.AmbiguousAniDB++
@@ -111,8 +114,9 @@ func aniDBOnly(byAniDB map[int]*identity, carried map[int]bool, nodes map[int]*a
 }
 
 // absorb folds one entry into the identity for key. The first entry seen
-// supplies type and episodes; AniDB and MAL candidates accumulate.
-func absorb(m map[int]*identity, key int, e *offlinedb.Entry, anidb []int) {
+// supplies type and episodes, the count a record without an AniDB id
+// publishes; AniDB and MAL candidates accumulate.
+func absorb(m map[int]*identity, key int, e *offlinedb.Entry, aniDBIDs []int) {
 	id := m[key]
 	if id == nil {
 		id = &identity{anidb: map[int]struct{}{}, mal: map[int]struct{}{}}
@@ -121,7 +125,7 @@ func absorb(m map[int]*identity, key int, e *offlinedb.Entry, anidb []int) {
 	if !id.seen {
 		id.typ, id.episodes, id.seen = e.Type, e.Episodes, true
 	}
-	for _, v := range anidb {
+	for _, v := range aniDBIDs {
 		id.anidb[v] = struct{}{}
 	}
 	for _, v := range e.MAL {
