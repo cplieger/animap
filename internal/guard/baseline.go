@@ -19,8 +19,9 @@ var ErrBaselineGrew = errors.New("guard: the collision baseline gained an entry"
 // BaselineVersion is the file format version.
 const BaselineVersion = 1
 
-// Baseline is the tracked set of collisions, and of nodes with no regular
-// episode count, on series no overlay entry touches. An item in it is
+// Baseline is the tracked set of collisions the overlay leaves as
+// Anime-Lists has them, and of nodes with no regular episode count on
+// series no overlay entry touches. An item in it is
 // reported and does not block; every other one blocks. Basis names the
 // episode-count precedence that measured it: a collision exists only
 // relative to the counts that placed it, so a baseline is re-derived when

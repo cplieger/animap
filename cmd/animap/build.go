@@ -153,7 +153,7 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if proofErr := proveBridges(bridges, patched, facts); proofErr != nil {
 		return nil, nil, fmt.Errorf("build: %w", proofErr)
 	}
-	rep := guard.Collisions(patched, ov, bridges, facts)
+	rep := guard.Collisions(list.Nodes, ov, bridges, facts)
 	redundant := facts.RedundantRows()
 	if len(redundant) > 0 {
 		log.Info("build: counts rows that equal what the sources give; delete them", "path", anidb.CountsPath, "anidb", redundant)
@@ -192,9 +192,9 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 }
 
 // collisions fails the build on a node with no regular episode count
-// unless the baseline holds it, on a touched-series sibling whose unread
-// AniDB specials could collide, on a collision on a series the overlay
-// touches, and on a collision the baseline does not hold.
+// unless the baseline holds it, on a node with unread AniDB specials that
+// is changed or whose specials could collide with a new claim, on a
+// collision with a new claim, and on a collision the baseline does not hold.
 func collisions(baselinePath string, rep *guard.CollisionReport, log *slog.Logger) (baselineStats, error) {
 	var bs baselineStats
 	base, err := guard.LoadBaseline(baselinePath)
@@ -216,20 +216,34 @@ func collisions(baselinePath string, rep *guard.CollisionReport, log *slog.Logge
 	uncounted = append(slices.Clone(rep.Uncounted), uncounted...)
 	if len(uncounted) > 0 {
 		u := uncounted[0]
-		return bs, fmt.Errorf("build: %d node(s) on an overlay-touched series or outside the baseline have no regular episode count, so the collision check cannot place them; first: AniDB %d on TVDB %d (record its count in checks/counts.json, or wait for the AniDB mirror or anime-offline-database to count it)",
-			len(uncounted), u.AniDB, u.Series)
+		return bs, fmt.Errorf("build: %d node(s) on a series or TMDB show the overlay touches, or outside the baseline, have no regular episode count, so the collision check cannot place them; first: AniDB %d on %s (record its count in checks/counts.json, or wait for the AniDB mirror or anime-offline-database to count it)",
+			len(uncounted), u.AniDB, seriesName(u.Series))
 	}
 	if len(rep.Unresolved) > 0 {
 		u := rep.Unresolved[0]
-		return bs, fmt.Errorf("build: %d node(s) on an overlay-touched series have no AniDB episode list in the mirror, and their specials could land on a season-0 episode another node claims; first: AniDB %d on TVDB %d, episodes %v (wait for a mirror snapshot that lists it)",
-			len(rep.Unresolved), u.AniDB, u.Series, u.Episodes)
+		return bs, fmt.Errorf("build: %d node(s) the collision check places specials beside have no AniDB episode list in the mirror, and their specials could collide with an episode the overlay claims, or the overlay changes them; first: AniDB %d, season 0 episodes %v of %s (wait for a mirror snapshot that lists it)",
+			len(rep.Unresolved), u.AniDB, u.Episodes, unresolvedSide(u))
 	}
 	blocking := append(slices.Clone(rep.Blocking), novel...)
 	if len(blocking) > 0 {
-		return bs, fmt.Errorf("build: %d collision(s) on an overlay-touched series or outside the baseline, first: %s on TVDB %d claimed by %v",
-			len(blocking), blocking[0].Target, blocking[0].Series, blocking[0].Claims)
+		return bs, fmt.Errorf("build: %d collision(s) on an episode the overlay claims or outside the baseline, first: %s on %s claimed by %v",
+			len(blocking), blocking[0].Target, seriesName(blocking[0].Series), blocking[0].Claims)
 	}
 	return bs, nil
+}
+
+func seriesName(series int) string {
+	if series == 0 {
+		return "no TVDB series"
+	}
+	return fmt.Sprintf("TVDB %d", series)
+}
+
+func unresolvedSide(u guard.Unresolved) string {
+	if u.TMDB != 0 {
+		return fmt.Sprintf("TMDB %d", u.TMDB)
+	}
+	return fmt.Sprintf("TVDB %d", u.Series)
 }
 
 func specialsOf(bridges []overlay.Bridge) []join.Special {

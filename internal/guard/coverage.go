@@ -1,8 +1,8 @@
 // Package guard holds the checks that stop a bad build from publishing:
 // coverage against the previous release, and the collision check over
 // every TVDB series two nodes share or an overlay entry touches. Only a
-// collision on an untouched series that the tracked baseline records is
-// tolerated; the baseline itself may only shrink.
+// collision the overlay leaves as Anime-Lists has it, recorded in the
+// tracked baseline, is tolerated; the baseline itself may only shrink.
 package guard
 
 import (

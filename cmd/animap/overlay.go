@@ -261,7 +261,7 @@ func runCheck(args []string, stdout io.Writer) error {
 	}
 	patched := overlay.Apply(list.Nodes, entries)
 	proofErr := proveBridges(bridges, patched, facts)
-	rep := guard.Collisions(patched, entries, bridges, facts)
+	rep := guard.Collisions(list.Nodes, entries, bridges, facts)
 	_, colErr := collisions(*baselinePath, &rep, slog.New(slog.DiscardHandler))
 	b, err := json.MarshalIndent(rep, "", "  ")
 	if err != nil {

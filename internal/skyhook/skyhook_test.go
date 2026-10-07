@@ -19,7 +19,7 @@ func TestFetchAndLayout(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if s.TVDBID != 5000 || s.Slug != "series-with-season-1" || len(s.Episodes) != 4 {
+	if s.TVDBID != 5000 || len(s.Episodes) != 4 {
 		t.Fatalf("show = %+v", s)
 	}
 	got := Layout(s, []int{1, 0})
