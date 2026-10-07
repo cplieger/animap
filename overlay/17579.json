@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17579",
+    "tvdb": "https://thetvdb.com/series/tsurune-kazemai-koukou-kyuudoubu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tsurune: Tsunagari no Issha",
+  "justification": "AniDB special S1 (2023-01-27) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "99ef940939225e4ed88b9eeaf817838929d920575079ada0af11452eff477276",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2019-03-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2022-08-19"
+        ],
+        [
+          2,
+          1,
+          15,
+          "2023-01-05"
+        ],
+        [
+          2,
+          2,
+          16,
+          "2023-01-12"
+        ],
+        [
+          2,
+          3,
+          17,
+          "2023-01-19"
+        ],
+        [
+          2,
+          4,
+          18,
+          "2023-01-26"
+        ],
+        [
+          2,
+          5,
+          19,
+          "2023-02-02"
+        ],
+        [
+          2,
+          6,
+          20,
+          "2023-02-09"
+        ],
+        [
+          2,
+          7,
+          21,
+          "2023-02-16"
+        ],
+        [
+          2,
+          8,
+          22,
+          "2023-02-23"
+        ],
+        [
+          2,
+          9,
+          23,
+          "2023-03-02"
+        ],
+        [
+          2,
+          10,
+          24,
+          "2023-03-09"
+        ],
+        [
+          2,
+          11,
+          25,
+          "2023-03-16"
+        ],
+        [
+          2,
+          12,
+          26,
+          "2023-03-23"
+        ],
+        [
+          2,
+          13,
+          27,
+          "2023-03-30"
+        ]
+      ],
+      "series": 352796
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "12927d38dd07ad983f757179f7f89b911bd75181673dc5fbbe9186433ae8f394"
+  },
+  "anilist_ids": [
+    153841
+  ],
+  "anidb_id": 17579
+}

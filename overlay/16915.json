@@ -1,0 +1,161 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16915",
+    "tvdb": "https://thetvdb.com/series/mob-psycho-100/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mob Psycho 100 III",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f8787186aa9df907ba87a08edb546bc2210e796a951145e5e7fbf9da894f2dcd",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-09-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-10-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-11-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-12-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2017-01-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-02-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2018-03-18"
+        ],
+        [
+          0,
+          8,
+          26,
+          "2019-09-25"
+        ],
+        [
+          3,
+          1,
+          27,
+          "2022-10-06"
+        ],
+        [
+          3,
+          2,
+          28,
+          "2022-10-13"
+        ],
+        [
+          3,
+          3,
+          29,
+          "2022-10-20"
+        ],
+        [
+          3,
+          4,
+          30,
+          "2022-10-27"
+        ],
+        [
+          3,
+          5,
+          31,
+          "2022-11-03"
+        ],
+        [
+          3,
+          6,
+          32,
+          "2022-11-10"
+        ],
+        [
+          3,
+          7,
+          33,
+          "2022-11-17"
+        ],
+        [
+          3,
+          8,
+          34,
+          "2022-11-24"
+        ],
+        [
+          3,
+          9,
+          35,
+          "2022-12-01"
+        ],
+        [
+          3,
+          10,
+          36,
+          "2022-12-08"
+        ],
+        [
+          3,
+          11,
+          37,
+          "2022-12-15"
+        ],
+        [
+          3,
+          12,
+          38,
+          "2022-12-22"
+        ]
+      ],
+      "series": 307375
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "711d18522c59c868be1a6119cb3044c0070767bead529a45bb504fbdeb44fd00"
+  },
+  "anilist_ids": [
+    140439
+  ],
+  "anidb_id": 16915
+}

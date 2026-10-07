@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7300",
+    "tvdb": "https://thetvdb.com/series/a-little-snow-fairy-sugar/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": []
+  },
+  "title": "Chicchana Yuki Tsukai Sugar Tokubetsu Hen",
+  "justification": "AniDB 1-2 (2003-08-22 to 2003-08-29) = TVDB 0x01-0x02 (2003-08-21 to 2003-08-28), was 0x11-0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9035b4f0634d03ce1ce3b4aaa2716727a1e3c550ef3d469073c883d90ae3c797",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          25,
+          "2003-08-21"
+        ],
+        [
+          0,
+          2,
+          26,
+          "2003-08-28"
+        ]
+      ],
+      "series": 80980
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f0335dc13ab671b5fbe8019705aef6f6fec8ed827053963757aaf975ce7aa644"
+  },
+  "anilist_ids": [
+    1014
+  ],
+  "anidb_id": 7300
+}

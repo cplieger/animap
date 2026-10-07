@@ -1,0 +1,96 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12245",
+    "tvdb": "https://thetvdb.com/series/assassination-classroom/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "14"
+  },
+  "title": "Gekijouban Ansatsu Kyoushitsu: 365-nichi no Jikan",
+  "justification": "AniDB 1 (2016-11-19) = TVDB 0x15 (2016-11-19), was 0x14 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "32a92b214a1e4ae2a79911ce1a979c9526a26a47271c3e8ee426b452c232f691",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          48,
+          "2013-10-06"
+        ],
+        [
+          0,
+          2,
+          49,
+          "2014-11-09"
+        ],
+        [
+          0,
+          6,
+          53,
+          "2016-03-11"
+        ],
+        [
+          0,
+          7,
+          54,
+          "2016-03-18"
+        ],
+        [
+          0,
+          8,
+          55,
+          "2016-03-25"
+        ],
+        [
+          0,
+          9,
+          56,
+          "2016-04-01"
+        ],
+        [
+          0,
+          10,
+          57,
+          "2016-11-25"
+        ],
+        [
+          0,
+          11,
+          58,
+          "2016-11-25"
+        ],
+        [
+          0,
+          12,
+          59,
+          "2016-11-25"
+        ],
+        [
+          0,
+          13,
+          60,
+          "2016-11-25"
+        ],
+        [
+          0,
+          15,
+          50,
+          "2016-11-19"
+        ]
+      ],
+      "series": 283947
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "00a57f8b613daadbf2d6688761e33604b1c6523ce396416423bef2949e3e463f"
+  },
+  "anilist_ids": [
+    101102
+  ],
+  "anidb_id": 12245
+}

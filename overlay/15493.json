@@ -1,0 +1,243 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15493",
+    "tvdb": "https://thetvdb.com/series/how-not-to-summon-a-demon-lord/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            5
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            9,
+            7
+          ],
+          [
+            11,
+            9
+          ],
+          [
+            13,
+            11
+          ],
+          [
+            15,
+            13
+          ],
+          [
+            17,
+            15
+          ],
+          [
+            19,
+            17
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu Omega",
+  "justification": "AniDB special S1-S2 (2021-04-02 to 2021-04-06) have no TVDB episode, was 0x01-0x02. AniDB special S5 (2021-03-21) has no TVDB episode, was 0x05. AniDB special S7 (2021-03-28) = TVDB 0x05 (2021-03-28), was 0x07, by position inside a run of title matches. AniDB special S9 (2021-04-04) = TVDB 0x07 (2021-04-04), was 0x09, by position inside a run of title matches. AniDB special S11 (2021-04-14) = TVDB 0x09 (2021-04-14), was 0x11, by title, air date breaking a tie. AniDB special S13 (2021-04-28) = TVDB 0x11 (2021-04-28), was 0x13, by title, order breaking a same-title tie. AniDB special S15 (2021-05-12) = TVDB 0x13 (2021-05-12), was 0x15, by title, order breaking a same-title tie. AniDB special S17 (2021-05-26) = TVDB 0x15 (2021-05-26), was 0x17, by title, order breaking a same-title tie. AniDB special S19 (2021-06-09) = TVDB 0x17 (2021-06-09), was 0x19 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6b796a39d857a7cb0e401003a114c985e84752a1c32c0a1e87df6d316a231f86",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-03-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-03-17"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-03-21"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2021-03-24"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-03-28"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2021-03-31"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2021-04-04"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2021-04-07"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2021-04-14"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2021-04-21"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2021-04-28"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2021-05-05"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2021-05-12"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2021-05-19"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2021-05-26"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2021-06-02"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2021-06-09"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2021-06-16"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2021-04-09"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2021-04-16"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2021-04-23"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2021-04-30"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2021-05-07"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2021-05-14"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2021-05-21"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2021-05-28"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2021-06-04"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2021-06-11"
+        ]
+      ],
+      "series": 347425
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "12be9a6a6d501524860ff8fd7cd57b129f9e76367b40d5f2f531648042116c86"
+  },
+  "anilist_ids": [
+    117448
+  ],
+  "anidb_id": 15493
+}

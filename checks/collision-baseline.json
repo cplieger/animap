@@ -1827,14 +1827,6 @@
       "series": 76703
     },
     {
-      "target": "TVDB 0x3",
-      "nodes": [
-        23,
-        219
-      ],
-      "series": 76885
-    },
-    {
       "target": "TMDB 902 S0E1",
       "nodes": [
         2761,
@@ -2097,32 +2089,7 @@
       "series": 79022
     },
     {
-      "target": "TVDB 0x2",
-      "nodes": [
-        66,
-        204
-      ],
-      "series": 79042
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        66,
-        204
-      ],
-      "series": 79042
-    },
-    {
       "target": "TMDB 25113 S0E1",
-      "nodes": [
-        7296,
-        7297,
-        7298
-      ],
-      "series": 79047
-    },
-    {
-      "target": "TVDB 0x1",
       "nodes": [
         7296,
         7297,
@@ -3815,14 +3782,6 @@
       "series": 80587
     },
     {
-      "target": "TVDB 0x6",
-      "nodes": [
-        3067,
-        4141
-      ],
-      "series": 80759
-    },
-    {
       "target": "TMDB 25099 S2E1",
       "nodes": [
         1225,
@@ -4316,26 +4275,10 @@
       "series": 81472
     },
     {
-      "target": "TVDB 0x17",
-      "nodes": [
-        1070,
-        2643
-      ],
-      "series": 81472
-    },
-    {
       "target": "TVDB 0x18",
       "nodes": [
         906,
         2643
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TVDB 0x20",
-      "nodes": [
-        397,
-        6540
       ],
       "series": 81472
     },
@@ -4346,30 +4289,6 @@
         1046
       ],
       "series": 81472
-    },
-    {
-      "target": "TVDB 0x9",
-      "nodes": [
-        548,
-        1069
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TVDB 0x12",
-      "nodes": [
-        40,
-        603
-      ],
-      "series": 81789
-    },
-    {
-      "target": "TVDB 0x13",
-      "nodes": [
-        40,
-        603
-      ],
-      "series": 81789
     },
     {
       "target": "TMDB 34742 S0E1",
@@ -7684,14 +7603,6 @@
       "series": 171731
     },
     {
-      "target": "TVDB 0x1",
-      "nodes": [
-        7404,
-        8910
-      ],
-      "series": 171731
-    },
-    {
       "target": "TMDB 8909 S0E1",
       "nodes": [
         2355,
@@ -8375,22 +8286,6 @@
       "series": 251582
     },
     {
-      "target": "TVDB 0x1",
-      "nodes": [
-        944,
-        7091
-      ],
-      "series": 251582
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        8378,
-        9240
-      ],
-      "series": 252232
-    },
-    {
       "target": "TMDB 60732 S0E1",
       "nodes": [
         8566,
@@ -8501,22 +8396,6 @@
       "series": 254931
     },
     {
-      "target": "TVDB 0x4",
-      "nodes": [
-        4165,
-        4466
-      ],
-      "series": 254931
-    },
-    {
-      "target": "TVDB 0x8",
-      "nodes": [
-        252,
-        4457
-      ],
-      "series": 254931
-    },
-    {
       "target": "TMDB 45306 S0E1",
       "nodes": [
         6355,
@@ -8557,14 +8436,6 @@
         7201
       ],
       "series": 256944
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        8879,
-        9302
-      ],
-      "series": 259642
     },
     {
       "target": "TMDB 43865 S0E1",
@@ -8969,38 +8840,6 @@
       "series": 293065
     },
     {
-      "target": "TVDB 0x4",
-      "nodes": [
-        7632,
-        7633
-      ],
-      "series": 293065
-    },
-    {
-      "target": "TVDB 0x5",
-      "nodes": [
-        7633,
-        8617
-      ],
-      "series": 293065
-    },
-    {
-      "target": "TVDB 0x10",
-      "nodes": [
-        12147,
-        12439
-      ],
-      "series": 294002
-    },
-    {
-      "target": "TVDB 0x11",
-      "nodes": [
-        12147,
-        12439
-      ],
-      "series": 294002
-    },
-    {
       "target": "TMDB 65942 S1E39",
       "nodes": [
         14792,
@@ -9068,14 +8907,6 @@
     },
     {
       "target": "TMDB 29153 S0E2",
-      "nodes": [
-        4131,
-        4998
-      ],
-      "series": 330899
-    },
-    {
-      "target": "TVDB 0x2",
       "nodes": [
         4131,
         4998

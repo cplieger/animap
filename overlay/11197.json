@@ -1,0 +1,64 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11197",
+    "tvdb": "https://thetvdb.com/series/selector-infected-wixoss/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Selector Destructed Wixoss",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d6a5daad778f27349814e0cddf92483b830fa58719c08083b76b3b872cfe6517",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-08-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-10-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-12-19"
+        ],
+        [
+          0,
+          4,
+          25,
+          "2016-02-13"
+        ]
+      ],
+      "series": 278327
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "6f5a9e395f30d3fcf1d932dd52a7a1c3b3b6ff89ba437d78754b8e577037c508"
+  },
+  "anilist_ids": [
+    21274
+  ],
+  "anidb_id": 11197
+}

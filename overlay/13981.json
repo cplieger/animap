@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13981",
+    "tvdb": "https://thetvdb.com/series/frame-arms-girl/seasons/official/0",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/13981"
+  },
+  "set": {
+    "tvdbid": "325198"
+  },
+  "title": "Frame Arms Girl: Kyakkya Ufufu na Wonderland",
+  "justification": "tvdbid 13981 to 325198 (TVDB 13981 is gone from TVDB's official order). AniDB 1 (2019-06-29) = TVDB 0x02 (2019-06-29), was TVDB 13981 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1378c98e97c88279f4964ef0acaafda3941f85df0ea843d1c3072d6714f139f8",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-05-31"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2019-06-29"
+        ]
+      ],
+      "series": 325198
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3804775f3a01949a46b882c2883c18e564a6cc570f49b36bc95f12d49e19257a"
+  },
+  "anilist_ids": [
+    105907
+  ],
+  "anidb_id": 13981
+}

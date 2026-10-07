@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8041",
+    "tvdb": "https://thetvdb.com/series/maria-holic/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Maria Holic Alive",
+  "justification": "AniDB special S1 (2011-04-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9696a3d2262e4da54c83d42386d22721257f8899845a08d58b32d1149b55d046",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2008-12-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-04-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2008-12-25"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2011-04-07"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2011-04-14"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2011-04-23"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2011-04-30"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2011-05-05"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2011-05-12"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2011-05-19"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2011-05-26"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2011-06-03"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2011-06-09"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2011-06-16"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2011-06-24"
+        ]
+      ],
+      "series": 84591
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "6e48c2e9bd72d0c9c982f4f07ef4f7e427336e33d5cc13858b5212a74f1a3df4"
+  },
+  "anilist_ids": [
+    9712
+  ],
+  "anidb_id": 8041
+}

@@ -1,0 +1,107 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9332",
+    "tvdb": "https://thetvdb.com/series/problem-children-are-coming-from-another-world-arent-they/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mondaiji-tachi ga Isekai kara Kurusou Desu yo?",
+  "justification": "AniDB special S1 (2013-01-12) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0b390b77a49e816f86070446d1c0c85eb7e6316792524b2164c19e4e262b8120",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2013-07-20"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2013-01-12"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2013-01-19"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2013-01-26"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2013-02-02"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2013-02-09"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2013-02-16"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2013-02-23"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2013-03-02"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2013-03-09"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2013-03-16"
+        ]
+      ],
+      "series": 264531
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "445ace6ac5991047793cf317582d5cfa127597b95d67ff7643202cd8505100ef"
+  },
+  "anilist_ids": [
+    15315
+  ],
+  "anidb_id": 9332
+}

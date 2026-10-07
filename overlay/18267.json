@@ -1,0 +1,185 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18267",
+    "tvdb": "https://thetvdb.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darouka: Familia Myth V",
+  "justification": "AniDB special S1-S5 (2025-03-05 to 2025-03-06) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "97111422c604454327f53d9d3cedc44a199651ec30dbecc69636c3996f6c60c3",
+      "seasons": [
+        0,
+        5
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          60,
+          "2016-12-07"
+        ],
+        [
+          0,
+          2,
+          61,
+          "2019-02-15"
+        ],
+        [
+          0,
+          3,
+          65,
+          "2019-07-06"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-01-29"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-04-28"
+        ],
+        [
+          0,
+          6,
+          68,
+          "2022-07-09"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2023-03-04"
+        ],
+        [
+          5,
+          1,
+          64,
+          "2024-10-05"
+        ],
+        [
+          5,
+          2,
+          70,
+          "2024-10-12"
+        ],
+        [
+          5,
+          3,
+          71,
+          "2024-10-19"
+        ],
+        [
+          5,
+          4,
+          72,
+          "2024-10-26"
+        ],
+        [
+          5,
+          5,
+          73,
+          "2024-11-02"
+        ],
+        [
+          5,
+          6,
+          74,
+          "2024-11-09"
+        ],
+        [
+          5,
+          7,
+          75,
+          "2024-11-16"
+        ],
+        [
+          5,
+          8,
+          76,
+          "2024-11-23"
+        ],
+        [
+          5,
+          9,
+          77,
+          "2024-12-07"
+        ],
+        [
+          5,
+          10,
+          78,
+          "2024-12-14"
+        ],
+        [
+          5,
+          11,
+          79,
+          "2024-12-21"
+        ],
+        [
+          5,
+          12,
+          80,
+          "2025-02-23"
+        ],
+        [
+          5,
+          13,
+          81,
+          "2025-02-23"
+        ],
+        [
+          5,
+          14,
+          82,
+          "2025-03-30"
+        ],
+        [
+          5,
+          15,
+          83,
+          "2025-03-30"
+        ]
+      ],
+      "series": 289882
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c176315da6f8dc569d1d4d2b0e4a12356f26370385399c655b8ad623703a28b5"
+  },
+  "anilist_ids": [
+    170732
+  ],
+  "anidb_id": 18267
+}

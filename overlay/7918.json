@@ -1,0 +1,127 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7918",
+    "tvdb": "https://thetvdb.com/series/armored-trooper-votoms/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Soukou Kihei Votoms: Case;Irvine",
+  "justification": "AniDB special S1-S2 (2011-02-25) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "ccd46c81b4d3c71976d3f1c3c59be338c9fb7514418ee829cc6019f9e71ae901",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1985-08-21"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1986-07-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1988-03-19"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2009-01-17"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2010-11-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2010-12-04"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-01-08"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1986-02-21"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1986-04-05"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1988-01-23"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1988-02-20"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1985-06-21"
+        ],
+        [
+          0,
+          13,
+          0,
+          "1985-07-20"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2026-11-20"
+        ]
+      ],
+      "series": 90521
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7a322673ee61e25ac938c8255fc19eb7afdf0e5b21f39ed1c5caa9e446c6972b"
+  },
+  "anilist_ids": [
+    8248
+  ],
+  "anidb_id": 7918
+}

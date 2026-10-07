@@ -1,0 +1,138 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9077",
+    "tvdb": "https://thetvdb.com/series/tari-tari/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            16,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tari Tari",
+  "justification": "AniDB special S1-S2 (2013-01-09 to 2013-02-06) have no TVDB episode, was 0x01-0x02. AniDB special S16 (2014-12-17) = TVDB 0x01 (2014-12-17), was 0x16 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6f1982b1f9e79db9a018bb0bc90b94bed3079ead8ac292e0369004db3f9eaeb1",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-17"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-02-26"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2012-07-01"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2012-07-08"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2012-07-15"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2012-07-22"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2012-07-29"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2012-08-05"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2012-08-12"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2012-08-19"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2012-08-26"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2012-09-02"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2012-09-09"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2012-09-16"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2012-09-23"
+        ]
+      ],
+      "series": 259634
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e6f39306973a3276cf3606ab524749230a3ba9b3e3b2601a0f7d4fba0a46c1fa"
+  },
+  "anilist_ids": [
+    13333
+  ],
+  "anidb_id": 9077
+}

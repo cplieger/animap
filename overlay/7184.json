@@ -1,0 +1,80 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7184",
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-00/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kidou Senshi Gundam Double O Special Edition II: End of World",
+  "justification": "AniDB 1 (2009-12-22) = TVDB 0x02 (2009-12-22), was 0x05, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fa709ca41af222161c89be95ca9e319dc36716bfd4986aa2bdf164b5a6c77743",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-10-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-12-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2010-02-23"
+        ],
+        [
+          0,
+          4,
+          51,
+          "2010-09-18"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2008-07-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2009-08-25"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2008-10-02"
+        ]
+      ],
+      "series": 80675
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "55e00c69bebe647c0b464f6bf077e09dcb3d570b982b19f013f0283670b1a1f8"
+  },
+  "anidb_id": 7184
+}

@@ -1,0 +1,158 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/727",
+    "tvdb": "https://thetvdb.com/series/albator-78/seasons/official/0",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/100151"
+  },
+  "set": {
+    "tvdbid": "80886",
+    "episodeoffset": "0"
+  },
+  "title": "Uchuu Kaizoku Captain Herlock: Arcadia-gou no Nazo",
+  "justification": "tvdbid 100151 to 80886 (TVDB 100151 is gone from TVDB's official order). AniDB 1 (1978-07-22) = TVDB 0x01 (1978-07-22), was TVDB 100151 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "ce81e9957d2bbddc7695417347672437c2bf152a649eeee66929ecc0a4965ed7",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1978-07-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-01-12"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-01-12"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-09-07"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-06-10"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1978-03-14"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1978-03-14"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1982-07-28"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          23,
+          0,
+          "2002-12-21"
+        ]
+      ],
+      "series": 80886
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "884525e50416c395c5a648d52214c6d654cc9f0037235d26f7b190941dbb12f7"
+  },
+  "anilist_ids": [
+    2470
+  ],
+  "anidb_id": 727
+}

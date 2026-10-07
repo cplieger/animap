@@ -1,0 +1,139 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16776",
+    "tvdb": "https://thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Tensei Shitara Slime Datta Ken: Guren no Kizuna Hen",
+  "justification": "AniDB special S1-S6 (2023-07-28 to (none)) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0228aede1dd7a5907a74b4ae18316fee1f1d3a678506aa6052206ef922298fa2",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-03-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2019-07-09"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2019-12-04"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-03-07"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2020-07-09"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-11-27"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2021-01-05"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2021-06-29"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2022-11-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2023-11-01"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2023-11-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2023-11-01"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2024-03-30"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2024-08-10"
+        ]
+      ],
+      "series": 352408
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "75b55b1a93ea0f11a11240f254fedc39c8cda9fe0ca2edd350120a14a835a4b3"
+  },
+  "anilist_ids": [
+    139498
+  ],
+  "anidb_id": 16776
+}

@@ -1,0 +1,156 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10859",
+    "tvdb": "https://thetvdb.com/series/nisekoi/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nisekoi:",
+  "justification": "AniDB special S1 (2015-04-03) = TVDB 0x06 (2015-04-03), was 0x04 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0b3b544fbfe7b88443927b4a40db080198696f394d1fd13bbcdc482b04a679ae",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-10-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-02-04"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-04-03"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-01-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-04-03"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2016-01-04"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-04-01"
+        ],
+        [
+          2,
+          1,
+          21,
+          "2015-04-10"
+        ],
+        [
+          2,
+          2,
+          22,
+          "2015-04-17"
+        ],
+        [
+          2,
+          3,
+          23,
+          "2015-04-24"
+        ],
+        [
+          2,
+          4,
+          24,
+          "2015-05-01"
+        ],
+        [
+          2,
+          5,
+          25,
+          "2015-05-08"
+        ],
+        [
+          2,
+          6,
+          26,
+          "2015-05-15"
+        ],
+        [
+          2,
+          7,
+          27,
+          "2015-05-22"
+        ],
+        [
+          2,
+          8,
+          28,
+          "2015-05-29"
+        ],
+        [
+          2,
+          9,
+          29,
+          "2015-06-05"
+        ],
+        [
+          2,
+          10,
+          30,
+          "2015-06-12"
+        ],
+        [
+          2,
+          11,
+          31,
+          "2015-06-19"
+        ],
+        [
+          2,
+          12,
+          32,
+          "2015-06-26"
+        ]
+      ],
+      "series": 275670
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "97fdcf19d9ef66b91fdfb0121356a378d4813758886200753bff20a97581ded9"
+  },
+  "anilist_ids": [
+    20876
+  ],
+  "anidb_id": 10859
+}

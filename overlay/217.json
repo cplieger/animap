@@ -1,0 +1,232 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/217",
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-the-08th-ms-team/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            15,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kidou Senshi Gundam: Dai 08 MS Shoutai",
+  "justification": "AniDB special S1 (1996-10-25) = TVDB 0x03 (1996-10-25), was unmapped, by title. AniDB special S2 (1996-11-25) = TVDB 0x04 (1996-11-25), was unmapped, by title, order breaking a same-title tie. AniDB special S3-S4 (1996-12-18 to 1997-10-25) = TVDB 0x05-0x06 (1996-12-18 to 1997-10-25), was 0x03-0x04, by title. AniDB special S5 (1997-12-18) = TVDB 0x07 (1997-12-18), was 0x02, by title. AniDB special S6-S10 (1998-02-25 to 1999-07-25) = TVDB 0x08-0x12 (1998-02-25 to 1999-07-25), was 0x06-0x10, by title. AniDB special S11-S12 (no AniDB date) have no TVDB episode, was 0x11-0x12. AniDB special S15 (2013-02-22) = TVDB 0x02 (2013-02-22), was 0x15 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f996aef00fd4519f4422eb735a332457f0b51780dc2d7c4859fbac9ad6e4644c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1998-08-01"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-02-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1996-10-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1996-11-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1996-12-18"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1997-10-25"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1997-12-18"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1998-02-25"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1998-07-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1999-04-25"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1999-07-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1999-07-25"
+        ],
+        [
+          1,
+          1,
+          1,
+          "1996-01-25"
+        ],
+        [
+          1,
+          2,
+          2,
+          "1996-01-25"
+        ],
+        [
+          1,
+          3,
+          3,
+          "1996-03-25"
+        ],
+        [
+          1,
+          4,
+          4,
+          "1996-10-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "1996-11-25"
+        ],
+        [
+          1,
+          6,
+          6,
+          "1996-12-18"
+        ],
+        [
+          1,
+          7,
+          7,
+          "1997-10-25"
+        ],
+        [
+          1,
+          8,
+          8,
+          "1997-12-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "1998-02-25"
+        ],
+        [
+          1,
+          10,
+          10,
+          "1998-07-25"
+        ],
+        [
+          1,
+          11,
+          11,
+          "1999-04-25"
+        ],
+        [
+          1,
+          12,
+          12,
+          "1999-07-25"
+        ]
+      ],
+      "series": 80784
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7dcc04ca01377214b7bb2e5aa240c39c19502fb6a7c81920d821c4759eb204b9"
+  },
+  "anilist_ids": [
+    81
+  ],
+  "anidb_id": 217
+}

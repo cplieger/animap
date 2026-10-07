@@ -1,0 +1,229 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13108",
+    "tvdb": "https://thetvdb.com/series/gundam-reconguista-in-g/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5,
+            16
+          ],
+          [
+            6,
+            17
+          ],
+          [
+            7,
+            18
+          ],
+          [
+            8,
+            19
+          ],
+          [
+            9,
+            20
+          ],
+          [
+            10,
+            21
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Gundam G no Reconguista",
+  "justification": "AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB special S5-S10 (no AniDB date) = TVDB 0x16-0x21 (2020-01-28 to 2020-05-27), was 0x05-0x10, by title. AniDB special S11-S21 (no AniDB date) have no TVDB episode, was 0x11-0x21. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "80caf1d13d4339f46f140ec5bb4113ebef9a1c5beb20e32a6aec1409d63d12c5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-01-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-02-20"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-03-27"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2015-04-24"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-05-27"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2015-06-26"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-07-24"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-08-26"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2015-03-21"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2019-11-29"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-02-21"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2021-07-22"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2022-07-22"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2022-08-05"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2020-01-28"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2020-01-28"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2020-01-28"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2020-05-27"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2020-05-27"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2020-05-27"
+        ]
+      ],
+      "series": 283929
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "603e6e1db25970af5b582f1126e00dc86aa7e216f24c47c20c293a6fcaf30b3f"
+  },
+  "anidb_id": 13108
+}

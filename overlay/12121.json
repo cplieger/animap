@@ -1,0 +1,107 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12121",
+    "tvdb": "https://thetvdb.com/series/strike-the-blood/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Strike the Blood II",
+  "justification": "AniDB special S1 (2017-05-24) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "dc3c2b720f4f67dca3f49aa155370c973f703ca3a805560bb59fc267ffe711ee",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-11-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-12-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2020-01-29"
+        ],
+        [
+          2,
+          1,
+          25,
+          "2016-11-23"
+        ],
+        [
+          2,
+          2,
+          26,
+          "2016-11-23"
+        ],
+        [
+          2,
+          3,
+          27,
+          "2016-12-23"
+        ],
+        [
+          2,
+          4,
+          28,
+          "2016-12-23"
+        ],
+        [
+          2,
+          5,
+          29,
+          "2017-03-29"
+        ],
+        [
+          2,
+          6,
+          30,
+          "2017-03-29"
+        ],
+        [
+          2,
+          7,
+          31,
+          "2017-05-24"
+        ],
+        [
+          2,
+          8,
+          32,
+          "2017-05-24"
+        ]
+      ],
+      "series": 272129
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d2cd8ba51c53c536351ea5e120d3225ff5ed6757ea7c4864d6d646909f2a2dca"
+  },
+  "anilist_ids": [
+    21815
+  ],
+  "anidb_id": 12121
+}

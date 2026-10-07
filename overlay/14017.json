@@ -1,0 +1,58 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14017",
+    "tvdb": "https://thetvdb.com/series/high-school-fleet/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "High School Fleet Gekijouban",
+  "justification": "AniDB special S1 (2020-10-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "7b4bcc2db3b257ae445d33d557b2e394fbadf81e698bb53e18958570a5bcaac3",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2017-03-31"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2017-05-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2020-01-18"
+        ]
+      ],
+      "series": 306743
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a960b7b4fad18767338137b306302ccf741b3f53d802b8af5875460b431126e4"
+  },
+  "anilist_ids": [
+    101499
+  ],
+  "anidb_id": 14017
+}

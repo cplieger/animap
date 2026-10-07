@@ -1,0 +1,188 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11991",
+    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Haikyuu!! Karasuno Koukou vs Shiratorizawa Gakuen Koukou",
+  "justification": "AniDB special S6-S7 (no AniDB date) have no TVDB episode, was 0x06-0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "00eea4f0cf7d8fbb68fe8bdac19871df24557eb4a2ddfd424b231e9fe2eaa599",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2014-11-09"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-07-03"
+        ],
+        [
+          0,
+          3,
+          30,
+          "2016-05-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-09-18"
+        ],
+        [
+          0,
+          5,
+          63,
+          "2017-08-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-09-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2017-09-29"
+        ],
+        [
+          0,
+          8,
+          64,
+          "2019-12-21"
+        ],
+        [
+          0,
+          9,
+          65,
+          "2019-12-21"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          14,
+          91,
+          "2024-02-16"
+        ],
+        [
+          0,
+          15,
+          0,
+          ""
+        ],
+        [
+          3,
+          1,
+          53,
+          "2016-10-08"
+        ],
+        [
+          3,
+          2,
+          54,
+          "2016-10-15"
+        ],
+        [
+          3,
+          3,
+          55,
+          "2016-10-22"
+        ],
+        [
+          3,
+          4,
+          56,
+          "2016-10-29"
+        ],
+        [
+          3,
+          5,
+          57,
+          "2016-11-05"
+        ],
+        [
+          3,
+          6,
+          58,
+          "2016-11-12"
+        ],
+        [
+          3,
+          7,
+          59,
+          "2016-11-19"
+        ],
+        [
+          3,
+          8,
+          60,
+          "2016-11-26"
+        ],
+        [
+          3,
+          9,
+          61,
+          "2016-12-03"
+        ],
+        [
+          3,
+          10,
+          62,
+          "2016-12-10"
+        ]
+      ],
+      "series": 278157
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f987b2cc7022d49b19e9b8a96f843aa84f83bb06271cb5562f679584e3f539b4"
+  },
+  "anilist_ids": [
+    21698
+  ],
+  "anidb_id": 11991
+}

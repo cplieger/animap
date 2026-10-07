@@ -1,0 +1,103 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16081",
+    "tvdb": "https://thetvdb.com/series/the-irregular-at-magic-high-school/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mahouka Koukou no Rettousei: Tsuioku Hen",
+  "justification": "AniDB special S1-S2 ((none) to 2022-03-16) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "5c224193b54d365e8f789056dd653cfd86f70b7a430b07652ba412531d24e6a9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-02-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-03-08"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-03-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-07-12"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-08-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-09-13"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2015-02-25"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2017-06-17"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2021-12-31"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2026-05-08"
+        ]
+      ],
+      "series": 278329
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2b95d2fd190ce4438ae69defbbd409840a485999d0116d7a28945371cc53ac54"
+  },
+  "anilist_ids": [
+    130389
+  ],
+  "anidb_id": 16081
+}

@@ -1,0 +1,177 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15351",
+    "tvdb": "https://thetvdb.com/series/to-your-eternity/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Fumetsu no Anata e",
+  "justification": "AniDB special S1 (2021-03-20) has no TVDB episode, was 0x01. AniDB special S2 (2021-07-05) = TVDB 0x01 (2021-07-05), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "5f4e9abe1ac244fa8dd07a6386cd903e1af5a81ead2a55ddc24a4cca93cd1bcc",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-07-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2022-10-16"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2021-04-12"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2021-04-19"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2021-04-26"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2021-05-03"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2021-05-10"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2021-05-17"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2021-05-24"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2021-05-31"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2021-06-07"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2021-06-14"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2021-06-21"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2021-06-28"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2021-07-12"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2021-07-19"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2021-07-26"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2021-08-02"
+        ],
+        [
+          1,
+          17,
+          17,
+          "2021-08-09"
+        ],
+        [
+          1,
+          18,
+          18,
+          "2021-08-16"
+        ],
+        [
+          1,
+          19,
+          19,
+          "2021-08-23"
+        ],
+        [
+          1,
+          20,
+          20,
+          "2021-08-30"
+        ]
+      ],
+      "series": 375271
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3fa691d1ad51131add3470d869054bc063acd4ad3d7e9db4412cdaaf796e93d9"
+  },
+  "anilist_ids": [
+    114535
+  ],
+  "anidb_id": 15351
+}

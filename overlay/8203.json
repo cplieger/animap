@@ -1,0 +1,191 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8203",
+    "tvdb": "https://thetvdb.com/series/sengoku-basara-samurai-kings/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            17
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Sengoku Basara: The Last Party",
+  "justification": "AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e6b3c5a9906956034485f7bdf6d7faf151601d97876e6693eeb9c40766e43858",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-01-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-04-06"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-06-04"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2009-07-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-08-05"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2009-09-02"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2009-10-07"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2009-11-04"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2009-12-03"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2010-01-06"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2010-10-06"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2010-11-03"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2010-12-01"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2011-01-05"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2011-02-02"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2011-03-02"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2011-04-06"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2011-12-07"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2011-12-07"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2011-12-07"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2011-12-07"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2011-12-07"
+        ]
+      ],
+      "series": 87881
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ad258b06168613cfa988cd2053e1ce2a4aa8caa8870de7909701344bc084ed71"
+  },
+  "anilist_ids": [
+    9745
+  ],
+  "anidb_id": 8203
+}

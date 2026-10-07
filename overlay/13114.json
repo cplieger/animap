@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13114",
+    "tvdb": "https://thetvdb.com/series/animegataris/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Anime-Gataris",
+  "justification": "AniDB special S1 (2017-10-01) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f8ae12453c0cca38f2e990810ab03564b23bbdcc5dce75938013502cce14881c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2017-12-31"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2017-10-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2017-10-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2017-10-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2017-10-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2017-11-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2017-11-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2017-11-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2017-11-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2017-12-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2017-12-10"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2017-12-17"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2017-12-24"
+        ]
+      ],
+      "series": 332987
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a42b6d87480a2dab960cf87acc8699cd51a37d203e7cd12267e1c1ce08974126"
+  },
+  "anilist_ids": [
+    98607
+  ],
+  "anidb_id": 13114
+}

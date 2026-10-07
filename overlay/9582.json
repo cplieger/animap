@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9582",
+    "tvdb": "https://thetvdb.com/series/watamote/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Watashi ga Motenai no wa Dou Kangaete mo Omaera ga Warui!",
+  "justification": "AniDB special S1 (2013-11-06) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0b0a4c3556a2cb070b6ee24d126fc43cfe41dde0646b807d2462f7daf7ad181a",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-10-22"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2013-07-09"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2013-07-16"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2013-07-23"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2013-07-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2013-08-06"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2013-08-13"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2013-08-20"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2013-08-27"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2013-09-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2013-09-10"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2013-09-17"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2013-09-24"
+        ]
+      ],
+      "series": 270062
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7021f09b1d17650e1146e5d584b901123a3e2e40ed543159b007bd2a454262c7"
+  },
+  "anilist_ids": [
+    16742
+  ],
+  "anidb_id": 9582
+}

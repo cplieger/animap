@@ -1,0 +1,155 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15348",
+    "tvdb": "https://thetvdb.com/series/hentatsu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hentatsu (2020)",
+  "justification": "AniDB special S3 (2020-05-27) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "71ef8a69ef0b527bd5bdd1e7645ae9b4285d6848db150f05ee5f21912a383fcd",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          8,
+          "2018-08-07"
+        ],
+        [
+          0,
+          2,
+          17,
+          "2019-08-03"
+        ],
+        [
+          0,
+          3,
+          18,
+          "2019-09-13"
+        ],
+        [
+          0,
+          4,
+          19,
+          "2019-05-29"
+        ],
+        [
+          0,
+          5,
+          24,
+          "2020-03-28"
+        ],
+        [
+          0,
+          6,
+          25,
+          "2021-12-31"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2022-12-31"
+        ],
+        [
+          2,
+          1,
+          9,
+          "2020-01-04"
+        ],
+        [
+          2,
+          2,
+          10,
+          "2020-01-11"
+        ],
+        [
+          2,
+          3,
+          11,
+          "2020-01-18"
+        ],
+        [
+          2,
+          4,
+          12,
+          "2020-01-25"
+        ],
+        [
+          2,
+          5,
+          13,
+          "2020-02-01"
+        ],
+        [
+          2,
+          6,
+          14,
+          "2020-02-08"
+        ],
+        [
+          2,
+          7,
+          15,
+          "2020-02-15"
+        ],
+        [
+          2,
+          8,
+          16,
+          "2020-02-22"
+        ],
+        [
+          2,
+          9,
+          20,
+          "2020-02-29"
+        ],
+        [
+          2,
+          10,
+          21,
+          "2020-03-07"
+        ],
+        [
+          2,
+          11,
+          22,
+          "2020-03-14"
+        ],
+        [
+          2,
+          12,
+          23,
+          "2020-03-21"
+        ]
+      ],
+      "series": 358890
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "21edf341ef245f698ea08c3dce85755c8fb993eb47e781423f50268b031de83f"
+  },
+  "anilist_ids": [
+    114417
+  ],
+  "anidb_id": 15348
+}

@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15382",
+    "tvdb": "https://thetvdb.com/series/uzaki-chan-wants-to-hang-out/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Uzaki-chan wa Asobitai!",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "bccc577dd11f05dcfc082da7d162bab00ddd65e850d95f17d9fed6d05bf572db",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2022-10-26"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2020-07-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2020-07-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2020-07-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2020-07-31"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2020-08-07"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2020-08-14"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2020-08-21"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2020-08-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2020-09-04"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2020-09-11"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2020-09-18"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2020-09-25"
+        ]
+      ],
+      "series": 381406
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ebf5915fab02241468005171e181fe3f6b31b26a8d2b185cd3b65526cb795660"
+  },
+  "anilist_ids": [
+    115113
+  ],
+  "anidb_id": 15382
+}

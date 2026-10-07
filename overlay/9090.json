@@ -1,0 +1,116 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9090",
+    "tvdb_s0": "https://thetvdb.com/series/student-councils-discretion/seasons/official/0",
+    "tvdb_s2": "https://thetvdb.com/series/student-councils-discretion/seasons/official/2"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 2,
+        "start": 2,
+        "end": 10,
+        "offset": -1
+      }
+    ]
+  },
+  "title": "Seitokai no Ichizon Lv.2",
+  "justification": "AniDB 1 (2012-10-13) = TVDB 0x01 (2012-10-13), was 2x01. AniDB 2-10 (2012-10-20 to 2012-12-15) = TVDB 2x01-2x09 (2012-10-20 to 2012-12-15), was 2x02-2x10. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "85cd912b512e7cedcb09321fd9b932532e3b6f7a69ea812239b9676f1817e0bc",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-10-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-07-05"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2012-10-20"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2012-10-27"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2012-11-03"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2012-11-10"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2012-11-17"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2012-11-24"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2012-12-01"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2012-12-08"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2012-12-15"
+        ]
+      ],
+      "series": 116001
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "85c943c72fc9b9164e42f24d037c15fdb9433fae0dc50c527b128881ed865484"
+  },
+  "anilist_ids": [
+    10464
+  ],
+  "anidb_id": 9090
+}

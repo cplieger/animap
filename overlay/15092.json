@@ -1,0 +1,110 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15092",
+    "tvdb_s0": "https://thetvdb.com/series/zenonzard-the-animation/seasons/official/0",
+    "tvdb_s1": "https://thetvdb.com/series/zenonzard-the-animation/seasons/official/1"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 1,
+        "start": 2,
+        "end": 10,
+        "offset": -1
+      }
+    ]
+  },
+  "title": "Zenonzard The Animation",
+  "justification": "AniDB 1 (2019-09-10) = TVDB 0x01 (2019-09-10), was 1x01. AniDB 2-10 (2020-01-31 to 2020-10-31) = TVDB 1x01-1x09 (2020-01-31 to 2020-10-31), was 1x02-1x10. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "74eeddf0faa363738fe0eb042c71e7e6188370541452bd6047cd7ff80a6a5893",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          99,
+          "2019-09-10"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2020-01-31"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2020-02-28"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2020-03-28"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2020-05-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2020-06-30"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2020-07-31"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2020-08-29"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2020-09-30"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2020-10-31"
+        ]
+      ],
+      "series": 375295
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7398724df03195100204b0bd145542d774df5838323d154cf25612a68c1614bb"
+  },
+  "anilist_ids": [
+    112033
+  ],
+  "anidb_id": 15092
+}

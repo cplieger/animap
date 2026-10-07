@@ -1,0 +1,109 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9260",
+    "tvdb": "https://thetvdb.com/series/yurumates3dei/seasons/official/2",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/255848"
+  },
+  "set": {
+    "tvdbid": "475276"
+  },
+  "title": "Yurumates 3D Plus",
+  "justification": "tvdbid 255848 to 475276 (TVDB 255848 is gone from TVDB's official order). AniDB 1-13 (2012-07-03 to 2012-09-25) = TVDB 2x01-2x13 (2012-07-03 to 2012-09-25), was TVDB 255848 2x01-2x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "4b760c18bf40b9de789f966cad61d6a10b900b86ae532b32c9d528831c72f611",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          0,
+          "2012-07-03"
+        ],
+        [
+          2,
+          2,
+          0,
+          "2012-07-10"
+        ],
+        [
+          2,
+          3,
+          0,
+          "2012-07-17"
+        ],
+        [
+          2,
+          4,
+          0,
+          "2012-07-24"
+        ],
+        [
+          2,
+          5,
+          0,
+          "2012-07-31"
+        ],
+        [
+          2,
+          6,
+          0,
+          "2012-08-07"
+        ],
+        [
+          2,
+          7,
+          0,
+          "2012-08-14"
+        ],
+        [
+          2,
+          8,
+          0,
+          "2012-08-21"
+        ],
+        [
+          2,
+          9,
+          0,
+          "2012-08-28"
+        ],
+        [
+          2,
+          10,
+          0,
+          "2012-09-04"
+        ],
+        [
+          2,
+          11,
+          0,
+          "2012-09-11"
+        ],
+        [
+          2,
+          12,
+          0,
+          "2012-09-18"
+        ],
+        [
+          2,
+          13,
+          0,
+          "2012-09-25"
+        ]
+      ],
+      "series": 475276
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b95720fbeb550f9cabccb911a1501076784f8510c61e0fd864c2d1e73bf8ea9c"
+  },
+  "anilist_ids": [
+    14693
+  ],
+  "anidb_id": 9260
+}

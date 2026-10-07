@@ -1,0 +1,134 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9092",
+    "tvdb": "https://thetvdb.com/series/guilty-crown/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Guilty Crown: Lost Christmas - An Episode of Port Town",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "109d08d32405179d3239beb1a4ef6b88404ecd5348fc52d09b1693ba567087c9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-01-04"
+        ],
+        [
+          0,
+          2,
+          1,
+          "2012-05-31"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-01-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2012-02-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-03-21"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2012-04-25"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-05-23"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2012-06-27"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-07-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-08-22"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-09-26"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2012-10-24"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2012-11-21"
+        ],
+        [
+          0,
+          14,
+          0,
+          ""
+        ]
+      ],
+      "series": 252471
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "51fe33a263f941c498475b43a6682970dc31d8cdc47ca76960094969e02d124e"
+  },
+  "anilist_ids": [
+    13411
+  ],
+  "anidb_id": 9092
+}

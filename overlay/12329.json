@@ -1,0 +1,123 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12329",
+    "tvdb": "https://thetvdb.com/series/kabukibu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kabukibu!",
+  "justification": "AniDB special S1 (2017-06-29) has no TVDB episode, was 0x01. AniDB special S2 (2017-09-27) = TVDB 0x01 (2017-09-27), was 0x02 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9002b2e8ca0f055074db2a765791d0e9278549d09746ed240d80662bebcf46df",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2017-09-27"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2017-04-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2017-04-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2017-04-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2017-04-28"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2017-05-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2017-05-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2017-05-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2017-05-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2017-06-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2017-06-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2017-06-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2017-06-23"
+        ]
+      ],
+      "series": 321696
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "0f7407757a5915a087f000d79f6af01c41918cbda3a80c289290155762d5432d"
+  },
+  "anilist_ids": [
+    87500
+  ],
+  "anidb_id": 12329
+}

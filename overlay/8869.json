@@ -1,0 +1,120 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8869",
+    "tvdb": "https://thetvdb.com/series/oda-nobunas-ambition/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Oda Nobuna no Yabou",
+  "justification": "AniDB special S1 (2012-10-01) = TVDB 0x04 (2012-10-01), was 0x01 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f4eac36eec248213562eb460795c86cd687a13cf75bdebeac61bfbfa1227d4cd",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          4,
+          0,
+          "2012-10-01"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2012-07-09"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2012-07-16"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2012-07-23"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2012-07-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2012-08-06"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2012-08-13"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2012-08-20"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2012-08-27"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2012-09-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2012-09-10"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2012-09-17"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2012-09-24"
+        ]
+      ],
+      "series": 259643
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c2f9220f299e45c2794f9d9109bb3a136652b8f46d4feb10c5fe2b7fa98ffce3"
+  },
+  "anilist_ids": [
+    11933
+  ],
+  "anidb_id": 8869
+}

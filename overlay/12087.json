@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12087",
+    "tvdb": "https://thetvdb.com/series/lostorage-incited-wixoss/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Lostorage Incited Wixoss",
+  "justification": "AniDB special S1 (2016-10-08) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "de92b717693b20088646b2dbcbca348928c46abd0eaaeabaf208c251a2f94167",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2017-12-14"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-10-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-10-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-10-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-10-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-11-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-11-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-11-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-11-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-12-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-12-10"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-12-17"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-12-24"
+        ]
+      ],
+      "series": 317206
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "57f7453e297abea68a8c1709194edaae852f19bee0c631e8dd3da329f50c0337"
+  },
+  "anilist_ids": [
+    21772
+  ],
+  "anidb_id": 12087
+}

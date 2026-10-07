@@ -1,0 +1,95 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6526",
+    "tvdb": "https://thetvdb.com/series/agent-aika/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Aika Zero",
+  "justification": "AniDB special S1-S3 (2009-08-25 to 2009-12-22) have no TVDB episode, was 0x03-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e6b1bede66110e64d034bb2945f04ff348931d87380a6c4980c97ded699ef9ac",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1998-05-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2007-01-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-08-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2009-10-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-12-22"
+        ],
+        [
+          3,
+          1,
+          11,
+          "2009-07-05"
+        ],
+        [
+          3,
+          2,
+          12,
+          "2009-10-26"
+        ],
+        [
+          3,
+          3,
+          13,
+          "2009-12-29"
+        ]
+      ],
+      "series": 80900
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "32d4378f2108e4e854e20c2769b742cbffac89cd56e0db3d0593810f03efb5c0"
+  },
+  "anilist_ids": [
+    6443
+  ],
+  "anidb_id": 6526
+}

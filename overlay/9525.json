@@ -1,0 +1,161 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9525",
+    "tvdb": "https://thetvdb.com/series/tamako-market/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tamako Market",
+  "justification": "AniDB special S7 (2013-03-20) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "06ffd6e43aa231914a01e90d0999d92b33995c606f1597e2aecb3bf47f1e5e36",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-03-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-04-17"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-05-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-06-19"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-07-17"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-08-21"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-04-26"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2014-04-26"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2013-01-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2013-01-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2013-01-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2013-01-31"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2013-02-07"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2013-02-14"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2013-02-21"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2013-02-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2013-03-07"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2013-03-14"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2013-03-21"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2013-03-28"
+        ]
+      ],
+      "series": 264534
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "aaa5ada4001d2c46019f3149b9724a28b51ea4fe223ef42bc035665cf06aaf5b"
+  },
+  "anilist_ids": [
+    16417
+  ],
+  "anidb_id": 9525
+}

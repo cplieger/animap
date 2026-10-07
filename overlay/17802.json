@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17802",
+    "tvdb": "https://thetvdb.com/series/16bit-sensation/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "16bit Sensation: Another Layer",
+  "justification": "AniDB special S2 (2023-09-18) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "7aa11f342141269bb635589e0a5d91c7c3a81aeb455d923179abe273051af6af",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-12-01"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2023-12-28"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2023-10-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-10-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-10-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-10-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-11-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-11-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-11-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-11-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-11-30"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-12-07"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-12-14"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2023-12-21"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2023-12-28"
+        ]
+      ],
+      "series": 429055
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1bcf168386a918a5c8ab4e2f120085272ce538c0e693bb04835240f200b4b9c1"
+  },
+  "anilist_ids": [
+    159559
+  ],
+  "anidb_id": 17802
+}

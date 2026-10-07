@@ -1,0 +1,102 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10210",
+    "tvdb": "https://thetvdb.com/series/kiniro-no-corda-primo-passo/seasons/official/3"
+  },
+  "set": {
+    "defaulttvdbseason": "3"
+  },
+  "title": "Kin'iro no Chord: Blue Sky",
+  "justification": "AniDB 1-12 (2014-04-06 to 2014-06-22) = TVDB 3x01-3x12 (2014-04-06 to 2014-06-22), was 2x01-2x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "342261aee396a34bf5f5b0227deab31e972eabf2c8e40ad209e9cbb0c7cc0589",
+      "seasons": [
+        3
+      ],
+      "episodes": [
+        [
+          3,
+          1,
+          29,
+          "2014-04-06"
+        ],
+        [
+          3,
+          2,
+          30,
+          "2014-04-13"
+        ],
+        [
+          3,
+          3,
+          31,
+          "2014-04-20"
+        ],
+        [
+          3,
+          4,
+          32,
+          "2014-04-27"
+        ],
+        [
+          3,
+          5,
+          33,
+          "2014-05-04"
+        ],
+        [
+          3,
+          6,
+          34,
+          "2014-05-11"
+        ],
+        [
+          3,
+          7,
+          35,
+          "2014-05-18"
+        ],
+        [
+          3,
+          8,
+          36,
+          "2014-05-25"
+        ],
+        [
+          3,
+          9,
+          37,
+          "2014-06-01"
+        ],
+        [
+          3,
+          10,
+          38,
+          "2014-06-08"
+        ],
+        [
+          3,
+          11,
+          39,
+          "2014-06-15"
+        ],
+        [
+          3,
+          12,
+          40,
+          "2014-06-22"
+        ]
+      ],
+      "series": 159551
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "00059f7b08a22f8ce27562f7c653c345e5ebb0e3aa6b7d04ffecdf0d2274910e"
+  },
+  "anilist_ids": [
+    20492
+  ],
+  "anidb_id": 10210
+}

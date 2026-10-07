@@ -1,0 +1,71 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3142",
+    "tvdb": "https://thetvdb.com/series/adventures-of-ganba/seasons/official/0",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/5411"
+  },
+  "set": {
+    "tvdbid": "329173",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Boukensha-tachi: Gamba to Nanbiki no Nakama",
+  "justification": "tvdbid 5411 to 329173 (TVDB 5411 is gone from TVDB's official order). AniDB 1 (1984-03-04) = TVDB 0x04 (1984-03-04), was TVDB 5411 0x04. AniDB 2 (1984-03-04) = TVDB 0x04 (1984-03-04), was TVDB 5411 0x05. AniDB 3 (1984-03-04) = TVDB 0x04 (1984-03-04), was TVDB 5411 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a664532d7eae2f134f4e6af140b1912c6cb8af7dcefebe9f726857b03dcfdca5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1991-07-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1975-04-07"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1975-04-07"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1984-03-04"
+        ]
+      ],
+      "series": 329173
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "8930f0a160046bfe515d39705268a09e00fd0565e38bc09051f37b9c122b327b"
+  },
+  "anilist_ids": [
+    145480
+  ],
+  "anidb_id": 3142
+}

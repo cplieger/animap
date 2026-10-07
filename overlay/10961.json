@@ -1,0 +1,165 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10961",
+    "tvdb": "https://thetvdb.com/series/naruto-shippuden/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            13
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Boruto: Naruto the Movie",
+  "justification": "AniDB special S3 (no AniDB date) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "bcd9e792a6ac1a6353e2386e7fb1d5af2cea5f105cd389ec20cf834c67e2b801",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-08-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-08-02"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-08-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2010-07-31"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2008-02-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-01-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-07-30"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2010-07-31"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2011-07-30"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-07-28"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2013-10-06"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2014-12-06"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2015-08-07"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2015-08-07"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2012-02-23"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2012-02-23"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2012-02-23"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2012-02-23"
+        ]
+      ],
+      "series": 79824
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "60ac6b3d3e68f3f6c5425f241e86ed5f12de85e328c7665b1da9314423cc2690"
+  },
+  "anilist_ids": [
+    21220
+  ],
+  "anidb_id": 10961
+}

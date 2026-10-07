@@ -1,0 +1,103 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10985",
+    "tvdb": "https://thetvdb.com/series/vampire-holmes/seasons/official/1",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/291723"
+  },
+  "set": {
+    "tvdbid": "475280"
+  },
+  "title": "Vampire Holmes",
+  "justification": "tvdbid 291723 to 475280 (TVDB 291723 is gone from TVDB's official order). AniDB 1-12 (2015-04-04 to 2015-06-20) = TVDB 1x01-1x12 (2015-04-04 to 2015-06-20), was TVDB 291723 1x01-1x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "292c4e6f85bb489bd27f2f7727a41bf58723da130b8daa3e55b3b03fae1f4f64",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          0,
+          "2015-04-04"
+        ],
+        [
+          1,
+          2,
+          0,
+          "2015-04-11"
+        ],
+        [
+          1,
+          3,
+          0,
+          "2015-04-18"
+        ],
+        [
+          1,
+          4,
+          0,
+          "2015-04-25"
+        ],
+        [
+          1,
+          5,
+          0,
+          "2015-05-02"
+        ],
+        [
+          1,
+          6,
+          0,
+          "2015-05-09"
+        ],
+        [
+          1,
+          7,
+          0,
+          "2015-05-16"
+        ],
+        [
+          1,
+          8,
+          0,
+          "2015-05-23"
+        ],
+        [
+          1,
+          9,
+          0,
+          "2015-05-30"
+        ],
+        [
+          1,
+          10,
+          0,
+          "2015-06-06"
+        ],
+        [
+          1,
+          11,
+          0,
+          "2015-06-13"
+        ],
+        [
+          1,
+          12,
+          0,
+          "2015-06-20"
+        ]
+      ],
+      "series": 475280
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a59eb7695bdf3c214b55871f4dfe573f47dfb2892d6e39367747e32fb0931326"
+  },
+  "anilist_ids": [
+    21040
+  ],
+  "anidb_id": 10985
+}

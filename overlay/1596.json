@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1596",
+    "tvdb": "https://thetvdb.com/series/starzinger/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "3"
+  },
+  "title": "SF Saiyuuki Starzinger (1979)",
+  "justification": "AniDB 1 (1979-03-17) = TVDB 0x04 (1979-03-17), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6381f3f7d72cb8018295a3a5784a483ce33b967c5a6e07de583f4bfe0f6a77c1",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1987-07-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1987-07-16"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1988-04-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1979-03-17"
+        ]
+      ],
+      "series": 81953
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d296e1b80d6698ef84b8d1edf45e0da26591e1a55a7f1fe3c1d46c266541148d"
+  },
+  "anilist_ids": [
+    17165
+  ],
+  "anidb_id": 1596
+}

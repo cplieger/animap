@@ -1,0 +1,76 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15255",
+    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Shoujo Kageki Revue Starlight",
+  "justification": "AniDB special S1-S3 (no date to 2021-12-22) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b7a2663922604530f64551a970f340aec43a1b0bc6712bc43ab96c570b9a5e90",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-10-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-12-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2019-02-27"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-08-07"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-06-04"
+        ]
+      ],
+      "series": 346988
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b92c5da90e3534c2dae0c61e5611ebf3de6242af4af21c0915c0b2c3239f20f5"
+  },
+  "anilist_ids": [
+    113024
+  ],
+  "anidb_id": 15255
+}

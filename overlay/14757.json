@@ -1,0 +1,161 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14757",
+    "tvdb": "https://thetvdb.com/series/toilet-bound-hanako-kun/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Jibaku Shounen Hanako-kun",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3485d62e6c4a82a401dd9635eecb2cfdfacac2754fccea42b7c6ba4411d3725a",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-10-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2023-10-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2023-10-27"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2023-11-03"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2024-10-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2024-10-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2024-10-22"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2024-10-29"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2020-01-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2020-01-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2020-01-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2020-01-31"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2020-02-07"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2020-02-14"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2020-02-21"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2020-02-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2020-03-06"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2020-03-13"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2020-03-20"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2020-03-27"
+        ]
+      ],
+      "series": 368364
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "33a3964e70c6fed7c490f8ae2bed55170393e5feaad26a146871669ec238062c"
+  },
+  "anilist_ids": [
+    108463
+  ],
+  "anidb_id": 14757
+}

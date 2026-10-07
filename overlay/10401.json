@@ -1,0 +1,153 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10401",
+    "tvdb": "https://thetvdb.com/series/tokyo-ghoul/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tokyo Ghoul",
+  "justification": "AniDB special S1-S3 (2014-12-26 to 2015-09-22) have no TVDB episode, was 0x01-0x03. AniDB special S4 (2015-09-22) = TVDB 0x06 (2014-09-01), was 0x04 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f9b2e7b51ea385f8e81f57fde3416259cee5708ac73321dc4f347a4268889a68",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          50,
+          "2015-09-30"
+        ],
+        [
+          0,
+          2,
+          49,
+          "2015-12-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-07-16"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-07-19"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-09-01"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2014-07-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2014-07-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2014-07-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2014-07-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2014-08-01"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2014-08-08"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2014-08-15"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2014-08-22"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2014-08-29"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2014-09-05"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2014-09-12"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2014-09-19"
+        ]
+      ],
+      "series": 281249
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "93427a871855b1c7f0264a66ad2fc77a60c2e13591a425678c90a122d7b05bca"
+  },
+  "anilist_ids": [
+    20605
+  ],
+  "anidb_id": 10401
+}

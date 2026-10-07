@@ -1,0 +1,62 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12118",
+    "tvdb": "https://thetvdb.com/series/is-the-order-a-rabbit/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gochuumon wa Usagi Desuka?? Dear My Sister",
+  "justification": "AniDB 1 (2017-11-11) = TVDB 0x02 (2017-11-11), was 0x01, by title. AniDB special S1 (2018-05-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e9566b9be78114eaaee154efad1084df4574cafaa7633edaa3c80d846503c356",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2019-09-26"
+        ],
+        [
+          0,
+          2,
+          25,
+          "2017-11-11"
+        ]
+      ],
+      "series": 278818
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "440fcb5a9769ba7c6ba0925c8e2fb5c75561b576a3e31c8e3558b6898511e113"
+  },
+  "anilist_ids": [
+    21813
+  ],
+  "anidb_id": 12118
+}

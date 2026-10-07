@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10016",
+    "tvdb": "https://thetvdb.com/series/gj-club/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "1"
+  },
+  "title": "GJ-bu@",
+  "justification": "AniDB 1 (2014-05-06) = TVDB 0x02 (2014-05-06), was 2x01 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9a317ac037b2f365add735c9c20ef3b3e426c28d3341c066b8ee323cff70e5ad",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-03-06"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2014-05-06"
+        ]
+      ],
+      "series": 264055
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "6d6ac4bb7f75fd13e20fdba35552020cad81e96a98fa72368f42a0ec3f70edc1"
+  },
+  "anilist_ids": [
+    20567
+  ],
+  "anidb_id": 10016
+}

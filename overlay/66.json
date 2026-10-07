@@ -1,0 +1,26 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/66",
+    "tmdb_movie": "https://www.themoviedb.org/movie/15999",
+    "tvdb": "https://thetvdb.com/movies/vampire-hunter-d-bloodlust",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/79042"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbid": "15999",
+    "mapping_list": []
+  },
+  "title": "Vampire Hunter D (2001)",
+  "justification": "tvdbid 79042 to movie (TVDB 79042 is gone from TVDB's official order). TVDB lists it as a movie; TMDB movie 15999, IMDb tt0216651. AniDB 1 (2001-04-17) has no TVDB episode, was TVDB 79042 0x02. AniDB 2-6 (2001-04-17) have no TVDB episode, was TVDB 79042 0x02-0x06. AniDB special S1-S3 (2004-02-04 to (none)) have no TVDB episode, was TVDB 79042 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4f27cda398f2e31ea74c9109d50e32054e74ccae079a6d4b1df3da3e87dfec55"
+  },
+  "anilist_ids": [
+    543
+  ],
+  "anidb_id": 66
+}

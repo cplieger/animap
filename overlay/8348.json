@@ -1,0 +1,173 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8348",
+    "tvdb": "https://thetvdb.com/series/blood-c/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Blood-C",
+  "justification": "AniDB special S1 (2012-05-27) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6290e45eaaff1f5a4acdcf427d046e9730cc2f58d83269a1febcb4c0c884e865",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-06-02"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-05-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-05-30"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-04-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2012-04-23"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-05-06"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2012-05-16"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-05-23"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-05-27"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-06-03"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2011-07-01"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2011-07-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2011-07-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2011-07-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2011-08-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2011-08-18"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2011-08-26"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2011-09-01"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2011-09-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2011-09-16"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2011-09-23"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2011-09-30"
+        ]
+      ],
+      "series": 249864
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "285f5b7cd11bfd744325f81ce4fa7970dde8678075d9432a667946ec75a457d3"
+  },
+  "anilist_ids": [
+    10490
+  ],
+  "anidb_id": 8348
+}

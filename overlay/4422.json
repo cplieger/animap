@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4422",
+    "tvdb": "https://thetvdb.com/series/honey-and-clover/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hachimitsu to Clover II",
+  "justification": "AniDB special S1-S2 (2006-10-27 to 2006-11-24) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "67f430055f4a253aee3c244e5a3e77248709ab1399437993cd2141c779155d04",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2005-12-23"
+        ],
+        [
+          0,
+          2,
+          20,
+          "2006-02-24"
+        ],
+        [
+          2,
+          1,
+          27,
+          "2006-06-29"
+        ],
+        [
+          2,
+          2,
+          28,
+          "2006-07-06"
+        ],
+        [
+          2,
+          3,
+          29,
+          "2006-07-13"
+        ],
+        [
+          2,
+          4,
+          30,
+          "2006-07-20"
+        ],
+        [
+          2,
+          5,
+          31,
+          "2006-07-27"
+        ],
+        [
+          2,
+          6,
+          32,
+          "2006-08-03"
+        ],
+        [
+          2,
+          7,
+          33,
+          "2006-08-10"
+        ],
+        [
+          2,
+          8,
+          34,
+          "2006-08-17"
+        ],
+        [
+          2,
+          9,
+          35,
+          "2006-08-24"
+        ],
+        [
+          2,
+          10,
+          36,
+          "2006-08-31"
+        ],
+        [
+          2,
+          11,
+          37,
+          "2006-09-07"
+        ],
+        [
+          2,
+          12,
+          38,
+          "2006-09-14"
+        ]
+      ],
+      "series": 79044
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4e673ab48f7fca3c66cfd83a8cb164c8e88f8efe97a3de9848923c570063c60d"
+  },
+  "anilist_ids": [
+    1142
+  ],
+  "anidb_id": 4422
+}

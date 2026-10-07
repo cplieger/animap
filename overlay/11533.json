@@ -1,0 +1,137 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11533",
+    "tvdb": "https://thetvdb.com/series/high-school-fleet/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "High School Fleet",
+  "justification": "AniDB special S1-S3 (2016-06-22 to 2016-08-24) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "135704d1601f9c40a540dd5b639836c0c7930bca96d6440ec42f86edee070041",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2017-03-31"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2017-05-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2020-01-18"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-04-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-04-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-04-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-05-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-05-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-05-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-05-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-05-29"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-06-05"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-06-12"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-06-19"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-06-26"
+        ]
+      ],
+      "series": 306743
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b94c6bee4b6d6991eed2153603b6e308a1d932084539c6e73de1708e466d4c7d"
+  },
+  "anilist_ids": [
+    21316
+  ],
+  "anidb_id": 11533
+}

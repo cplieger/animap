@@ -1,0 +1,148 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9849",
+    "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "IS: Infinite Stratos 2",
+  "justification": "AniDB special S2 (2016-06-30) = TVDB 0x05 (2016-06-30), was 0x02, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "269733035842c1f2c62d68ae6a5b241162c7eec986a064655b1b748c61586f73",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-12-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-10-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-10-30"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-11-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-06-30"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2013-10-04"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2013-10-11"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2013-10-18"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2013-10-25"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2013-11-01"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2013-11-08"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2013-11-15"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2013-11-22"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2013-11-29"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2013-12-06"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2013-12-13"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2013-12-20"
+        ]
+      ],
+      "series": 219131
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7f904fb89d6bd99e9566edc5147673b123aee6da586f77b66e5f319e7af6a4f5"
+  },
+  "anilist_ids": [
+    18247
+  ],
+  "anidb_id": 9849
+}

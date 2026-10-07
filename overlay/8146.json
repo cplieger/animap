@@ -1,0 +1,49 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8146",
+    "tvdb": "https://thetvdb.com/series/death-note/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Death Note: R - Genshi Suru Kami",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fdb9b7dc8052baea84b19989b3f7c0f7373551d040a49b862d52e0cb91305091",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-08-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-08-22"
+        ]
+      ],
+      "series": 79481
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "25e467f4aed41a9cc59c04ded4768f128f63b66f46148329b496031a1c864700"
+  },
+  "anidb_id": 8146
+}

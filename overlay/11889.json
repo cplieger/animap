@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11889",
+    "tvdb": "https://thetvdb.com/series/blood-blockade-battlefront/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "2"
+  },
+  "title": "Kekkai Sensen: Ousama no Restaurant no Ousama",
+  "justification": "AniDB 1 (2016-06-03) = TVDB 0x03 (2016-06-03), was 0x01, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d275f443363c5d21d59b0d413511efe387e500e434adef4ce55efa20b99ac43a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-06-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-07-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-06-03"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-07-04"
+        ]
+      ],
+      "series": 289886
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "bf067a82a6c29620987fa6f3804d90c1b747c26a9f60d531de19b10631d922ce"
+  },
+  "anilist_ids": [
+    21640
+  ],
+  "anidb_id": 11889
+}

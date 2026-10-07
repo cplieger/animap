@@ -1,0 +1,125 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17237",
+    "tvdb": "https://thetvdb.com/series/classroom-of-the-elite/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season",
+  "justification": "AniDB special S1 (2024-01-07) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "21f2172b9e8604098c63fb28c6dbf9ffcfa3e0e47c00cd88cc3ff56d3284626a",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2022-06-27"
+        ],
+        [
+          3,
+          1,
+          26,
+          "2024-01-03"
+        ],
+        [
+          3,
+          2,
+          27,
+          "2024-01-10"
+        ],
+        [
+          3,
+          3,
+          28,
+          "2024-01-17"
+        ],
+        [
+          3,
+          4,
+          29,
+          "2024-01-24"
+        ],
+        [
+          3,
+          5,
+          30,
+          "2024-01-31"
+        ],
+        [
+          3,
+          6,
+          31,
+          "2024-02-07"
+        ],
+        [
+          3,
+          7,
+          32,
+          "2024-02-14"
+        ],
+        [
+          3,
+          8,
+          33,
+          "2024-02-21"
+        ],
+        [
+          3,
+          9,
+          34,
+          "2024-02-28"
+        ],
+        [
+          3,
+          10,
+          35,
+          "2024-03-06"
+        ],
+        [
+          3,
+          11,
+          36,
+          "2024-03-13"
+        ],
+        [
+          3,
+          12,
+          37,
+          "2024-03-20"
+        ],
+        [
+          3,
+          13,
+          38,
+          "2024-03-27"
+        ]
+      ],
+      "series": 329822
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b9296fbf4056ff25885504a16839cdfc8ee8499b1028bc09431287ed185e70d4"
+  },
+  "anilist_ids": [
+    146066
+  ],
+  "anidb_id": 17237
+}

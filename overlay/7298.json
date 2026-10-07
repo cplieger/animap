@@ -1,0 +1,45 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7298",
+    "tvdb": "https://thetvdb.com/series/gunparade-orchestra/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "2"
+  },
+  "title": "Gunparade Orchestra: Ao no Shou - Hikari no Umi kara Tegami o Okurimasu",
+  "justification": "AniDB 1 (2006-07-20) = TVDB 0x03 (2006-07-20), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b57c4d920855b08ee1710f701777aa9d796fd7990bb2c40702860bf116d414d9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2006-01-12"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2006-03-30"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2006-07-20"
+        ]
+      ],
+      "series": 79047
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2537afcf1316b306d1187824086aa6a86822a0a6bece1e05e31b4e510aa8aca1"
+  },
+  "anidb_id": 7298
+}

@@ -1,0 +1,149 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18677",
+    "tvdb": "https://thetvdb.com/series/spy-x-family/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Spy x Family (2025)",
+  "justification": "AniDB special S3-S5 (2025-10-04 to 2025-12-22) have no TVDB episode, was 0x03-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8af53917cc5c501e1ee3fa67e871db93c0864391473c6a7c3ac2ecb6a0ae0b8",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          3,
+          0,
+          "2023-12-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2023-07-28"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2024-01-29"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2023-12-04"
+        ],
+        [
+          3,
+          1,
+          38,
+          "2025-10-04"
+        ],
+        [
+          3,
+          2,
+          39,
+          "2025-10-11"
+        ],
+        [
+          3,
+          3,
+          40,
+          "2025-10-18"
+        ],
+        [
+          3,
+          4,
+          41,
+          "2025-10-25"
+        ],
+        [
+          3,
+          5,
+          42,
+          "2025-11-01"
+        ],
+        [
+          3,
+          6,
+          43,
+          "2025-11-08"
+        ],
+        [
+          3,
+          7,
+          44,
+          "2025-11-15"
+        ],
+        [
+          3,
+          8,
+          45,
+          "2025-11-22"
+        ],
+        [
+          3,
+          9,
+          46,
+          "2025-11-29"
+        ],
+        [
+          3,
+          10,
+          47,
+          "2025-12-06"
+        ],
+        [
+          3,
+          11,
+          48,
+          "2025-12-13"
+        ],
+        [
+          3,
+          12,
+          49,
+          "2025-12-20"
+        ],
+        [
+          3,
+          13,
+          50,
+          "2025-12-27"
+        ]
+      ],
+      "series": 405920
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "506b4d10a44cbeeee7472ec3effbc939979d6f6a16f7040fe5ae13cdd720f921"
+  },
+  "anilist_ids": [
+    177937
+  ],
+  "anidb_id": 18677
+}

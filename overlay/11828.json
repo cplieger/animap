@@ -1,0 +1,158 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11828",
+    "tvdb": "https://thetvdb.com/series/food-wars-shokugeki-no-soma/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Shokugeki no Souma: Ni no Sara",
+  "justification": "AniDB special S1-S2 (2016-07-02 to 2016-09-24) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "83a0542669688e6d66f1211b1164121fd641442ab0852beb56015d88f7027196",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-07-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-11-03"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-07-04"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2017-05-02"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2017-07-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2018-05-02"
+        ],
+        [
+          2,
+          1,
+          25,
+          "2016-07-02"
+        ],
+        [
+          2,
+          2,
+          26,
+          "2016-07-09"
+        ],
+        [
+          2,
+          3,
+          27,
+          "2016-07-16"
+        ],
+        [
+          2,
+          4,
+          28,
+          "2016-07-23"
+        ],
+        [
+          2,
+          5,
+          29,
+          "2016-07-30"
+        ],
+        [
+          2,
+          6,
+          30,
+          "2016-08-06"
+        ],
+        [
+          2,
+          7,
+          31,
+          "2016-08-13"
+        ],
+        [
+          2,
+          8,
+          32,
+          "2016-08-20"
+        ],
+        [
+          2,
+          9,
+          33,
+          "2016-08-27"
+        ],
+        [
+          2,
+          10,
+          34,
+          "2016-09-03"
+        ],
+        [
+          2,
+          11,
+          35,
+          "2016-09-10"
+        ],
+        [
+          2,
+          12,
+          36,
+          "2016-09-17"
+        ],
+        [
+          2,
+          13,
+          37,
+          "2016-09-24"
+        ]
+      ],
+      "series": 289909
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "0c2514ba04a22bec2dc8000bf488aae93e5aaa0eff62c5b4d548cddb4b133aa2"
+  },
+  "anilist_ids": [
+    21518
+  ],
+  "anidb_id": 11828
+}

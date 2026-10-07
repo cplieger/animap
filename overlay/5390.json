@@ -1,0 +1,77 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5390",
+    "tvdb": "https://thetvdb.com/series/aquarion/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Aquarion",
+  "justification": "AniDB special S2 (2008-12-05) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0f8feb1b614dc06f2a1b6bcaf6a79021bad4870613218fa977816448ac680199",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-06-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2007-05-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2007-11-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2007-09-22"
+        ]
+      ],
+      "series": 79886
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1575a70bcd03b7a6bf0d6ad54ffb05fed76a9a873b9278bb711676ab2fba2570"
+  },
+  "anilist_ids": [
+    6032
+  ],
+  "anidb_id": 5390
+}

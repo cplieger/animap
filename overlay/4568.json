@@ -1,0 +1,25 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4568",
+    "tmdb_movie": "https://www.themoviedb.org/movie/38142",
+    "tvdb": "https://thetvdb.com/movies/5-centimeters-per-second",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/82945"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbid": "38142"
+  },
+  "title": "Byousoku 5 Centimeter",
+  "justification": "tvdbid 82945 to movie (TVDB 82945 is gone from TVDB's official order). TVDB lists it as a movie; TMDB movie 38142, IMDb tt0983213. AniDB 1-3 (2007-02-11 to 2007-03-03) have no TVDB episode, was TVDB 82945 1x01-1x03. AniDB special S1-S10 (no AniDB date) have no TVDB episode, was TVDB 82945 0x01-0x10. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "75f2051f75bc49773c4c2a5b00d80f32d1ef8b061e7e3d6dd2aa2d8ddd0ab322"
+  },
+  "anilist_ids": [
+    1689
+  ],
+  "anidb_id": 4568
+}

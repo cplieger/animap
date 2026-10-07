@@ -1,0 +1,98 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8375",
+    "tvdb": "https://thetvdb.com/series/blood-c/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 1,
+        "end": 6,
+        "offset": 4
+      }
+    ]
+  },
+  "title": "Gekijouban Blood-C: The Last Dark",
+  "justification": "AniDB special S1-S4 (2012-04-08 to 2012-05-16) = TVDB 0x05-0x08 (2012-04-08 to 2012-05-16), was 0x01-0x04, by title, air date breaking a tie. AniDB special S5 (2012-05-25) = TVDB 0x09 (2012-05-23), was 0x05, by position inside a run of title matches. AniDB special S6 (2012-05-27) = TVDB 0x10 (2012-05-27), was 0x06, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1912bfef103d916051d52eb060f46f519bd3d591c800bfb87f5cbde85aa8ae10",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-06-02"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-05-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-05-30"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-04-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2012-04-23"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-05-06"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2012-05-16"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-05-23"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-05-27"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-06-03"
+        ]
+      ],
+      "series": 249864
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "540329588dde696f37bd7a01a153b47ee5ba774ca94cf1d5a4f053250edb3abb"
+  },
+  "anilist_ids": [
+    10681
+  ],
+  "anidb_id": 8375
+}

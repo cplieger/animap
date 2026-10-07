@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9474",
+    "tvdb": "https://thetvdb.com/series/student-councils-discretion/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1"
+  },
+  "title": "Seitokai no Ichizon Lv.2: Watasu Seitokai",
+  "justification": "AniDB 1 (2013-07-05) = TVDB 0x02 (2013-07-05), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "486ac3d3f6a78545df3d372979ff51ae76a1ebaf508a0f92c90b6c9b444e2ce4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2012-10-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-07-05"
+        ]
+      ],
+      "series": 116001
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "741f88fd7b5409777bbc03623dbae373e016b9580d14775e14c460886e68633b"
+  },
+  "anilist_ids": [
+    15963
+  ],
+  "anidb_id": 9474
+}

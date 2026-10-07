@@ -1,0 +1,106 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9356",
+    "tvdb": "https://thetvdb.com/series/anohana-the-flower-we-saw-that-day/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Ano Hi Mita Hana no Namae o Bokutachi wa Mada Shiranai.",
+  "justification": "AniDB special S1 (2014-03-05) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "32fdae0f0eae0cad611492dd7e0ffe425f55729134093abff5e2d1ec9c5d3cf9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-02-22"
+        ],
+        [
+          0,
+          2,
+          12,
+          "2013-08-31"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-06-27"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-04-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-04-15"
+        ]
+      ],
+      "series": 247958
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "dc8eda2c702203b2062bc186a7ae47e161d01da16c0ae9d4a7fc514e53b0d219"
+  },
+  "anilist_ids": [
+    15039
+  ],
+  "anidb_id": 9356
+}

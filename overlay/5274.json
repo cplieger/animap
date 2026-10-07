@@ -1,0 +1,144 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5274",
+    "tvdb": "https://thetvdb.com/series/ef/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ef - a Tale of Memories.",
+  "justification": "AniDB special S1 (2008-09-26) = TVDB 0x03 (2008-09-26), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c1c1dc667cffd1f1ba572037e01c2f2b7fefa74f32897abdcf8ae332723c0e30",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-08-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-05-10"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2008-09-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2008-09-27"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2008-05-10"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2007-10-06"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2007-10-13"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2007-10-20"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2007-10-27"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2007-11-03"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2007-11-10"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2007-11-17"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2007-11-24"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2007-12-01"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2007-12-08"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2007-12-15"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2007-12-22"
+        ]
+      ],
+      "series": 80904
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3a95fb4c8e3b09f16c1c5e36d3e37a3679aca1b559601ab7badb09ee6f6aeb63"
+  },
+  "anilist_ids": [
+    2924
+  ],
+  "anidb_id": 5274
+}

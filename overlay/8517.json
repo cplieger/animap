@@ -2,16 +2,42 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/8517",
     "anilist": "https://anilist.co/anime/10937",
-    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-the-origin---advent-of-the-red-comet/seasons/official/0",
-    "tmdb": "https://www.themoviedb.org/tv/88865/season/0"
+    "tmdb": "https://www.themoviedb.org/tv/88865/season/0",
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-the-origin/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0",
     "tmdbtv": "",
-    "tmdbseason": ""
+    "tmdbseason": "",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
+      }
+    ]
   },
   "title": "Kidou Senshi Gundam: The Origin",
-  "justification": "AniDB 6 regular episode(s) = TVDB official order, air dates within a day: 1 2015-02-28 = 0x1 2015-02-28; 2 2015-10-31 = 0x2 2015-10-31; 3 2016-05-21 = 0x3 2016-05-21; 4 2016-11-19 = 0x4 2016-11-19; 5 2017-09-02 = 0x5 2017-09-02; 6 2018-05-05 = 0x6 2018-05-05. TMDB 88865 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists 10 special(s).",
+  "justification": "AniDB 6 regular episode(s) = TVDB official order, air dates within a day: 1 2015-02-28 = 0x1 2015-02-28; 2 2015-10-31 = 0x2 2015-10-31; 3 2016-05-21 = 0x3 2016-05-21; 4 2016-11-19 = 0x4 2016-11-19; 5 2017-09-02 = 0x5 2017-09-02; 6 2018-05-05 = 0x6 2018-05-05. TMDB 88865 lists no season 0, so the entry clears the node's TMDB mapping and the record publishes no TMDB value. AniDB lists 10 special(s). AniDB specials S1-S6 have no TVDB episode (Anime-Lists pull request 629 maps them 1-0 to 6-0).",
   "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
@@ -60,7 +86,7 @@
       "series": 319976
     },
     "at": "2026-10-06",
-    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "e5c801671fbae1f9243565f402d2b2fe6773e06017dcf0869f748a1a057336a7"
   },
   "anilist_ids": [

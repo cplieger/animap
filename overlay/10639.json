@@ -1,0 +1,107 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10639",
+    "tvdb": "https://thetvdb.com/series/chaika-the-coffin-princess/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hitsugi no Chaika: Avenging Battle",
+  "justification": "AniDB special S1 (2015-01-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9d3c74ccbb909915b02e59b2994b298a22a6f33f6dffd9facd342245a7cf5929",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          23,
+          "2015-03-10"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2014-10-09"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2014-10-16"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2014-10-23"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2014-10-30"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2014-11-06"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2014-11-13"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2014-11-20"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2014-11-27"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2014-12-04"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2014-12-11"
+        ]
+      ],
+      "series": 278127
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "0d2420400539d3dc89d9f41cd5ece7741d3a9a931c008f8122548ff0dc5a54cb"
+  },
+  "anilist_ids": [
+    20719
+  ],
+  "anidb_id": 10639
+}

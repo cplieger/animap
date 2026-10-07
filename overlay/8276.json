@@ -1,0 +1,152 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8276",
+    "tvdb": "https://thetvdb.com/series/humanity-has-declined/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 1,
+        "end": 7
+      }
+    ]
+  },
+  "title": "Jinrui wa Suitai Shimashita",
+  "justification": "AniDB special S1 (2012-10-28) = TVDB 0x01 (2012-10-28), was 0x07. AniDB special S2-S7 (2012-09-19 to 2013-02-20) = TVDB 0x02-0x07 (2012-09-19 to 2013-02-20), was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c326b10949bef12efa0546d51d81f054ebb7b149c85112b869ddf33789e92f4c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-10-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-09-19"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-10-17"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2012-11-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-12-19"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-01-16"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-02-20"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2012-07-02"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2012-07-09"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2012-07-16"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2012-07-23"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2012-07-30"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2012-08-06"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2012-08-13"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2012-08-20"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2012-08-27"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2012-09-03"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2012-09-10"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2012-09-17"
+        ]
+      ],
+      "series": 259653
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "6ecb8cb86fabce882053762de6d90f8820618dfe3fc28f20feb9acf33a1c1c0c"
+  },
+  "anilist_ids": [
+    10357
+  ],
+  "anidb_id": 8276
+}

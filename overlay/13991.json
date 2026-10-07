@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13991",
+    "tvdb": "https://thetvdb.com/series/karakai-jouzu-no-takagi-san/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Karakai Jouzu no Takagi-san: Water Slider",
+  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "11a958beecaff5af4b12c81dab30522bf504fd17180bfdabbbb98fe07b5fb596",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2018-07-11"
+        ],
+        [
+          0,
+          2,
+          38,
+          "2022-06-10"
+        ]
+      ],
+      "series": 337936
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "77553f21c363040d3a0466586083d98f3c5db8da560680c1e67d92a2f9883312"
+  },
+  "anilist_ids": [
+    101426
+  ],
+  "anidb_id": 13991
+}

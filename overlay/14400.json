@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14400",
+    "tvdb": "https://thetvdb.com/series/is-the-order-a-rabbit/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gochuumon wa Usagi Desuka? Bloom",
+  "justification": "AniDB special S1-S2 (2020-11-11 to 2021-04-28) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d033fd60cc4e9ed397899ccf25ae6f133ce43858d971615875c84db4103bdd84",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2019-09-26"
+        ],
+        [
+          0,
+          2,
+          25,
+          "2017-11-11"
+        ],
+        [
+          3,
+          1,
+          27,
+          "2020-10-10"
+        ],
+        [
+          3,
+          2,
+          28,
+          "2020-10-17"
+        ],
+        [
+          3,
+          3,
+          29,
+          "2020-10-24"
+        ],
+        [
+          3,
+          4,
+          30,
+          "2020-10-31"
+        ],
+        [
+          3,
+          5,
+          31,
+          "2020-11-07"
+        ],
+        [
+          3,
+          6,
+          32,
+          "2020-11-14"
+        ],
+        [
+          3,
+          7,
+          33,
+          "2020-11-21"
+        ],
+        [
+          3,
+          8,
+          34,
+          "2020-11-28"
+        ],
+        [
+          3,
+          9,
+          35,
+          "2020-12-05"
+        ],
+        [
+          3,
+          10,
+          36,
+          "2020-12-12"
+        ],
+        [
+          3,
+          11,
+          37,
+          "2020-12-19"
+        ],
+        [
+          3,
+          12,
+          38,
+          "2020-12-26"
+        ]
+      ],
+      "series": 278818
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "536b7503ad037dd97ad6e6c232b65116fe0f1f1d1bdaa2f6abc02408a4115cd9"
+  },
+  "anilist_ids": [
+    104198
+  ],
+  "anidb_id": 14400
+}

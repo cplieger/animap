@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15724",
+    "tvdb": "https://thetvdb.com/series/otonabougu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Otona no Bouguya-san II",
+  "justification": "AniDB special S2 (2020-01-09) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e378d694e5292a3b8e5958b351d7bf35cb0d4f3ef8678472eaaa92b441b52be9",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-03-06"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2019-03-13"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2019-03-20"
+        ],
+        [
+          2,
+          1,
+          16,
+          "2021-01-01"
+        ],
+        [
+          2,
+          2,
+          17,
+          "2021-01-08"
+        ],
+        [
+          2,
+          3,
+          18,
+          "2021-01-15"
+        ],
+        [
+          2,
+          4,
+          19,
+          "2021-01-22"
+        ],
+        [
+          2,
+          5,
+          20,
+          "2021-01-29"
+        ],
+        [
+          2,
+          6,
+          21,
+          "2021-02-05"
+        ],
+        [
+          2,
+          7,
+          22,
+          "2021-02-12"
+        ],
+        [
+          2,
+          8,
+          23,
+          "2021-02-19"
+        ],
+        [
+          2,
+          9,
+          24,
+          "2021-02-26"
+        ],
+        [
+          2,
+          10,
+          25,
+          "2021-03-05"
+        ],
+        [
+          2,
+          11,
+          26,
+          "2021-03-12"
+        ],
+        [
+          2,
+          12,
+          27,
+          "2021-03-19"
+        ]
+      ],
+      "series": 353608
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "15e28ada96c5d2bc4c697fc0bb342f4077110d6bb01f45f5282a255336a31842"
+  },
+  "anilist_ids": [
+    124136
+  ],
+  "anidb_id": 15724
+}

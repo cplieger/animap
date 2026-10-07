@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1953",
+    "tvdb": "https://thetvdb.com/series/xia-se-nosha-shi-ji/seasons/official/1",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/199541"
+  },
+  "set": {
+    "tvdbid": "479870"
+  },
+  "title": "Natsu-iro no Sunadokei",
+  "justification": "tvdbid 199541 to 479870 (TVDB 199541 is gone from TVDB's official order). AniDB 1-2 (2004-05-21 to 2004-07-23) = TVDB 1x01-1x02 (2004-05-21 to 2004-07-23), was TVDB 199541 1x01-1x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a3cce879bd599f0b011323c9dc1013ee619a1fe694881a5732ce53bf88abfa98",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          0,
+          "2004-05-21"
+        ],
+        [
+          1,
+          2,
+          0,
+          "2004-07-23"
+        ]
+      ],
+      "series": 479870
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "37cd1c50bf0879c98d39d83d4a568ac7893662757f6cf3bcf2406b7ad4b74fdb"
+  },
+  "anilist_ids": [
+    622
+  ],
+  "anidb_id": 1953
+}

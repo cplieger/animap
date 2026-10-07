@@ -1,0 +1,92 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8910",
+    "tvdb": "https://thetvdb.com/series/nura-rise-of-the-yokai-clan/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nurarihyon no Mago: Gekitou Dai Futsal Taikai! Nuragumi W Cup!!",
+  "justification": "AniDB 1 (2010-10-23) = TVDB 0x02 (2010-10-23), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6ea54369b6d21e93c996e5792cd91c785fdc825111940a0d0da9b34305f4249a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2010-09-27"
+        ],
+        [
+          0,
+          2,
+          17,
+          "2010-10-23"
+        ],
+        [
+          0,
+          3,
+          27,
+          "2010-12-27"
+        ],
+        [
+          0,
+          4,
+          52,
+          "2011-09-25"
+        ],
+        [
+          0,
+          5,
+          53,
+          "2011-12-25"
+        ],
+        [
+          0,
+          6,
+          54,
+          "2012-12-04"
+        ],
+        [
+          0,
+          7,
+          55,
+          "2013-03-04"
+        ]
+      ],
+      "series": 171731
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "14a6306a6401128195c14679f50e8b3fcba27fb67798d883f6ca5b64fe9e6f65"
+  },
+  "anilist_ids": [
+    10886
+  ],
+  "anidb_id": 8910
+}

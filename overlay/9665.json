@@ -1,0 +1,173 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9665",
+    "tvdb": "https://thetvdb.com/series/unbreakable-machine-doll/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Machine-Doll wa Kizutsukanai",
+  "justification": "AniDB special S1 (2013-09-30) has no TVDB episode, was 0x01. AniDB special S2-S7 (2013-12-25 to 2014-05-28) = TVDB 0x01-0x06 (2013-12-25 to 2014-05-28), was 0x02-0x07, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c5f1b1aca61c6b19f5486c4b80f2ac428eb591405b122907cdbab503a011e88b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-12-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-01-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-02-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-03-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-04-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-05-28"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2013-10-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2013-10-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2013-10-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2013-10-28"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2013-11-04"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2013-11-11"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2013-11-18"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2013-11-25"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2013-12-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2013-12-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2013-12-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2013-12-23"
+        ]
+      ],
+      "series": 272072
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d52f7291acd70da26a06ad0e514ad0ebe9a886c31b92b8c0966e80e95792690b"
+  },
+  "anilist_ids": [
+    17247
+  ],
+  "anidb_id": 9665
+}

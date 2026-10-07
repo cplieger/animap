@@ -1,0 +1,137 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11804",
+    "tvdb": "https://thetvdb.com/series/danganronpa-the-animation/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Mirai Hen",
+  "justification": "AniDB special S1-S3 (2016-10-27 to 2016-12-21) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "dd1a5b6deb97b6b48034c5674aede233fafeb12cde83c08d1ae3225a2d5bd58c",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-07-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-09-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-01-12"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2016-07-11"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2016-07-18"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2016-07-25"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2016-08-01"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2016-08-08"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2016-08-15"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2016-08-22"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2016-08-29"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2016-09-05"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2016-09-12"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2016-09-19"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2016-09-26"
+        ]
+      ],
+      "series": 270058
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "163c49c56bd3a09ac99e87fd5e586f71aeb5369ec36ea1eede223635660480cf"
+  },
+  "anilist_ids": [
+    21509
+  ],
+  "anidb_id": 11804
+}

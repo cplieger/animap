@@ -1,0 +1,134 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17834",
+    "tvdb": "https://thetvdb.com/series/blue-archive-the-animation/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Blue Archive the Animation",
+  "justification": "AniDB special S1-S2 (2024-01-20 to 2024-03-30) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "319229eaaa4c27827365b8f5f6a4ab53619b4e7924df1490bbca51e5beec4203",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2022-07-16"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2022-11-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2023-12-31"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2024-04-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2024-04-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2024-04-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2024-04-28"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2024-05-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2024-05-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2024-05-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2024-05-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2024-06-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2024-06-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2024-06-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2024-06-23"
+        ]
+      ],
+      "series": 430095
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ffc467f543646bd72f12559a8158b969d8ae275f183dec932135843b581c1af8"
+  },
+  "anilist_ids": [
+    160589
+  ],
+  "anidb_id": 17834
+}

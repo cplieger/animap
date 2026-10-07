@@ -1,0 +1,143 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13517",
+    "tvdb": "https://thetvdb.com/series/megalobox/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Megalo Box",
+  "justification": "AniDB special S4 (no AniDB date) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "5e062e2ad7bd3a1b7fd78777c36b70f2eff766c493ea13ae478db769781326c1",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-07-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-09-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2018-11-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2021-07-28"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2018-04-06"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2018-04-13"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2018-04-20"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2018-04-27"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2018-05-04"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2018-05-11"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2018-05-18"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2018-05-25"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2018-06-01"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2018-06-08"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2018-06-15"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2018-06-22"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2018-06-29"
+        ]
+      ],
+      "series": 341437
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4d9af1c8dde71a5bc1fc4839b5c63e22fe4de0385eb163b69f63002e265ba968"
+  },
+  "anilist_ids": [
+    100298
+  ],
+  "anidb_id": 13517
+}

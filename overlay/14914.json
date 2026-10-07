@@ -1,0 +1,137 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14914",
+    "tvdb": "https://thetvdb.com/series/non-non-biyori/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Non Non Biyori Nonstop",
+  "justification": "AniDB special S1 (2021-01-04) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "393c436dc372cf7edd3442128e7b50534c1529b26eb9c7a7b7b76cddf7a2938e",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-07-23"
+        ],
+        [
+          0,
+          2,
+          26,
+          "2016-09-23"
+        ],
+        [
+          0,
+          3,
+          27,
+          "2018-08-25"
+        ],
+        [
+          0,
+          4,
+          40,
+          "2022-03-23"
+        ],
+        [
+          3,
+          1,
+          28,
+          "2021-01-11"
+        ],
+        [
+          3,
+          2,
+          29,
+          "2021-01-18"
+        ],
+        [
+          3,
+          3,
+          30,
+          "2021-01-25"
+        ],
+        [
+          3,
+          4,
+          31,
+          "2021-02-01"
+        ],
+        [
+          3,
+          5,
+          32,
+          "2021-02-08"
+        ],
+        [
+          3,
+          6,
+          33,
+          "2021-02-15"
+        ],
+        [
+          3,
+          7,
+          34,
+          "2021-02-22"
+        ],
+        [
+          3,
+          8,
+          35,
+          "2021-03-01"
+        ],
+        [
+          3,
+          9,
+          36,
+          "2021-03-08"
+        ],
+        [
+          3,
+          10,
+          37,
+          "2021-03-15"
+        ],
+        [
+          3,
+          11,
+          38,
+          "2021-03-22"
+        ],
+        [
+          3,
+          12,
+          39,
+          "2021-03-29"
+        ]
+      ],
+      "series": 272316
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1a8c0c9423582cc1062aa61619c331f7d025b8ffece22fc2eb1ea4e24ea1e307"
+  },
+  "anilist_ids": [
+    109403
+  ],
+  "anidb_id": 14914
+}

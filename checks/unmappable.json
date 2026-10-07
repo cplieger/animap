@@ -42,16 +42,6 @@
       "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
     },
     {
-      "anilist_id": 543,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 66,
-      "reason": "unmappable",
-      "detail": "AniDB lists the film as 6 regular parts, all aired 2001-04-17; Anime-Lists maps part 1 to TVDB 79042 0x2, and SkyHook has no TVDB series 79042, so no mapping for the other parts can be proven"
-    },
-    {
       "anilist_id": 574,
       "type": "ONA",
       "gaps": [
@@ -107,16 +97,6 @@
       ],
       "reason": "unmappable",
       "detail": "AniDB 2835 S1 matches the date but no title agrees"
-    },
-    {
-      "anilist_id": 732,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 204,
-      "reason": "unmappable",
-      "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
     },
     {
       "anilist_id": 848,
@@ -317,6 +297,16 @@
       "anidb_id": 1856,
       "reason": "unmappable",
       "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
+    },
+    {
+      "anilist_id": 2461,
+      "type": "OVA",
+      "gaps": [
+        "no_tvdb"
+      ],
+      "anidb_id": 1516,
+      "reason": "unmappable",
+      "detail": "TVDB lists it only as a movie (thetvdb.com/movies/metal-skin-panic-madox-01) and has no series for the OVA, so Anime-Lists maps it as tvdbid movie; Radarr reaches it through TMDB movie 62961 and IMDb tt0093529"
     },
     {
       "anilist_id": 2560,
@@ -541,16 +531,6 @@
       ],
       "reason": "upstream",
       "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
-    },
-    {
-      "anilist_id": 4385,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 2221,
-      "reason": "upstream",
-      "detail": "TVDB 112641 already has a collision, which an overlay entry on the series would make blocking: TMDB 45485 S0E1 claimed by 1652 ep1, 2223 ep1"
     },
     {
       "anilist_id": 4531,
@@ -2234,16 +2214,6 @@
       "detail": "the proven mapping collides on TVDB series 279830 at TMDB 61663 S0E1 with 10539 S1 (default); that claim is the Anime-Lists value to fix"
     },
     {
-      "anilist_id": 21057,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 10824,
-      "reason": "unmappable",
-      "detail": "sources disagree: the mapping collides on TVDB 293491, TMDB 62070 S0E2 claimed by 9658 ep1, 10824 S2 (default)"
-    },
-    {
       "anilist_id": 21068,
       "type": "SPECIAL",
       "gaps": [
@@ -2673,16 +2643,6 @@
       ],
       "reason": "unmappable",
       "detail": "AniDB 11481 S1 matches the date but no title agrees"
-    },
-    {
-      "anilist_id": 21813,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 12118,
-      "reason": "unmappable",
-      "detail": "sources disagree: the mapping collides on TVDB 278818, TVDB 0x2 claimed by 12118 ep1, 14401 ep1"
     },
     {
       "anilist_id": 21829,

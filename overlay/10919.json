@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10919",
+    "tvdb": "https://thetvdb.com/series/wolf-girl-and-black-prince/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1"
+  },
+  "title": "Ookami Shoujo to Kuro Ouji: Gishin'anki - Happening Kiss",
+  "justification": "AniDB 1 (2015-04-24) = TVDB 0x02 (2015-04-24), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "ba4e98cf5657f09568dfdb47fdd3818e39f931ae9c32a3324820f1fae51df3d9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-28"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2015-04-24"
+        ]
+      ],
+      "series": 284563
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "49d4cf93cd85d2e90150423a92c8faf41ce373589cf8e174cc2f5ba1d6f9c3b6"
+  },
+  "anilist_ids": [
+    21007
+  ],
+  "anidb_id": 10919
+}
