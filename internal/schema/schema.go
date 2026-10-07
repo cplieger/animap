@@ -123,6 +123,7 @@ type Record struct {
 	TMDBMovieIDs      []int           `json:"tmdb_movie_ids,omitempty"`
 	IMDbIDs           []string        `json:"imdb_ids,omitempty"`
 	MappingList       []Row           `json:"mapping_list,omitempty"`
+	TVDBPlacement     []Segment       `json:"tvdb_placement,omitempty"`
 }
 
 // ParentSpecials is set on an AniList record that AniDB files as specials
@@ -147,6 +148,19 @@ type Row struct {
 	End         int     `json:"end,omitempty"`
 	Offset      int     `json:"offset,omitempty"`
 	Episodes    [][]int `json:"episodes,omitempty"`
+}
+
+// Segment places AniDB regular episodes Start through End on consecutive
+// TVDB episodes of Season from Episode on. Season and Episode are both nil
+// when those AniDB episodes have no TVDB counterpart. An AniDB episode that
+// spans several TVDB episodes appears in one segment per target.
+//
+//nolint:govet // fieldalignment: member order is the published JSON order
+type Segment struct {
+	Start   int  `json:"start"`
+	End     int  `json:"end"`
+	Season  *int `json:"season,omitempty"`
+	Episode *int `json:"episode,omitempty"`
 }
 
 // Encode returns the minified document with no HTML escaping and no
@@ -221,6 +235,7 @@ type Populations struct {
 	AniDBWithTVDB    int `json:"anidb_with_tvdb"`
 	WithTMDB         int `json:"with_tmdb"`
 	WithMappingList  int `json:"with_mapping_list"`
+	WithPlacement    int `json:"with_tvdb_placement"`
 }
 
 // Census counts the populations in one pass. AniDBWithTVDB counts distinct
@@ -241,6 +256,9 @@ func Census(records []Record) Populations {
 		}
 		if len(r.MappingList) > 0 {
 			p.WithMappingList++
+		}
+		if len(r.TVDBPlacement) > 0 {
+			p.WithPlacement++
 		}
 	}
 	p.AniDBWithTVDB = len(tvdb)

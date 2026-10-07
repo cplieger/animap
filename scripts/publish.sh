@@ -142,7 +142,7 @@ cosign sign-blob --yes animap.json --bundle animap.json.sigstore.json
 jq -r --arg tag "$TAG" --arg repo "$REPO" '
   "content_hash: \(.content_hash)",
   "",
-  "Records: \(.populations.records). AniList ids with an AniDB id: \(.populations.anilist_with_anidb). AniDB ids with a TVDB id: \(.populations.anidb_with_tvdb). Records with a TMDB id: \(.populations.with_tmdb). Records with a mapping list: \(.populations.with_mapping_list). Overlay entries applied: \(.overlay_entries).",
+  "Records: \(.populations.records). AniList ids with an AniDB id: \(.populations.anilist_with_anidb). AniDB ids with a TVDB id: \(.populations.anidb_with_tvdb). Records with a TMDB id: \(.populations.with_tmdb). Records with a mapping list: \(.populations.with_mapping_list). Records with a TVDB placement: \(.populations.with_tvdb_placement). Overlay entries applied: \(.overlay_entries).",
   ""' stats.json >notes.md
 jq -r '
   "Sources: anime-offline-database \(.sources.anime_offline_database.release) (sha256 \(.sources.anime_offline_database.sha256)), Anime-Lists commit \(.sources.anime_lists.commit), overlay sha256 \(.sources.overlay.sha256). AniDB episode lists and counts: AniDB mirror commit \(.sources.anidb_mirror.commit).",

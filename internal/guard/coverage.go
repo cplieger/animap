@@ -48,6 +48,7 @@ func Coverage(prev *schema.Populations, cur schema.Populations, acceptShrink boo
 		{"anidb_with_tvdb", prev.AniDBWithTVDB, cur.AniDBWithTVDB},
 		{"with_tmdb", prev.WithTMDB, cur.WithTMDB},
 		{"with_mapping_list", prev.WithMappingList, cur.WithMappingList},
+		{"with_tvdb_placement", prev.WithPlacement, cur.WithPlacement},
 	} {
 		if p.prev > 0 && p.cur == 0 {
 			return fmt.Errorf("%w: %s went from %d to 0", ErrCoverage, p.name, p.prev)

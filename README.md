@@ -4,7 +4,7 @@
 
 animap turns an AniList or AniDB anime id into its TVDB or TMDB series, season and episodes, and its MyAnimeList and IMDb ids, from one JSON file.
 
-It replaces joining [anime-offline-database](https://github.com/cedya77/anime-offline-database) and [Anime-Lists](https://github.com/Anime-Lists/anime-lists) yourself. There is no package to install. A tool downloads `animap.json`, about 2.3 MB and 22,000 records, and reads it with any JSON parser. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
+It replaces joining [anime-offline-database](https://github.com/cedya77/anime-offline-database) and [Anime-Lists](https://github.com/Anime-Lists/anime-lists) yourself. There is no package to install. A tool downloads `animap.json`, about 2.5 MB and 22,000 records, and reads it with any JSON parser. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
 
 ## Why use it
 
@@ -82,12 +82,13 @@ The format is described in [docs/schema.md](docs/schema.md), with a JSON Schema 
 - Ids: `anilist_id`, `anidb_id`, `anidb_parent`, `mal_id`, `tvdb_id`, `tmdb_tv_id`, `tmdb_movie_ids` and `imdb_ids`.
 - Placement: `type`, `episodes`, `tvdb_season`, `tvdb_absolute`, `tvdb_episode_offset`, `tmdb_season` and `tmdb_episode_offset`.
 - Per-episode rows: `mapping_list`, where each row is a range with an offset or a list of single episodes.
+- Resolved episodes: `tvdb_placement`, the TVDB episode each regular episode lands on, worked out from the rows, the season and an offset the record states. It is present only when every regular episode has an answer.
 
 Four fields are present or absent rather than zero by default, because `0` is a real value for each: `tvdb_season`, `tvdb_episode_offset`, `tmdb_season` and `tmdb_episode_offset`. Test them for presence.
 
 ## How often it changes
 
-A workflow builds a new file every 3 hours. It publishes the file only when a hash of its version, attribution and records differs from the latest release. Release tags are dates, such as `v2026.10.05`, with the time added for a second release that day. Each release's notes list the five counts below.
+A workflow builds a new file every 3 hours. It publishes the file only when a hash of its version, attribution and records differs from the latest release. Release tags are dates, such as `v2026.10.05`, with the time added for a second release that day. Each release's notes list the six counts below.
 
 The anime-offline-database release is pinned in `.github/workflows/publish.yaml`. Renovate proposes each new weekly release, and the merge publishes. The AniDB mirror is pinned there by commit too, and Renovate proposes each new snapshot the same way. Anime-Lists has no releases, so each run reads its newest commit.
 
@@ -95,7 +96,7 @@ To skip an unchanged download, send your last `ETag` as `If-None-Match`, or comp
 
 A build stops before publishing when one of these checks fails, and the previous release stays the latest:
 
-- Any of five counts falls below 90% of the latest release, unless the maintainer accepts the drop on a manual run. The five are records, AniList ids with an AniDB id, AniDB ids with a TVDB id, records with a TMDB id, and records with a mapping list.
+- Any of six counts falls below 90% of the latest release, unless the maintainer accepts the drop on a manual run. The six are records, AniList ids with an AniDB id, AniDB ids with a TVDB id, records with a TMDB id, records with a mapping list, and records with a TVDB placement.
 - Two Anime-Lists entries on one TVDB series claim the same TVDB or TMDB episode.
 - An Anime-Lists entry on a shared TVDB series has no episode count in any source, so its episodes cannot be placed.
 - An input is larger than its limit, does not parse, or does not match its published SHA-256.

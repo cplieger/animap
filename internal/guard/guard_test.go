@@ -15,7 +15,7 @@ import (
 )
 
 func TestCoverage(t *testing.T) {
-	prev := schema.Populations{Records: 1000, AniListWithAniDB: 600, AniDBWithTVDB: 400, WithTMDB: 300, WithMappingList: 100}
+	prev := schema.Populations{Records: 1000, AniListWithAniDB: 600, AniDBWithTVDB: 400, WithTMDB: 300, WithMappingList: 100, WithPlacement: 50}
 	if err := Coverage(&prev, prev, false); err != nil {
 		t.Errorf("equal populations: %v", err)
 	}
@@ -30,6 +30,7 @@ func TestCoverage(t *testing.T) {
 		func(p *schema.Populations) { p.AniDBWithTVDB = 359 },
 		func(p *schema.Populations) { p.WithTMDB = 269 },
 		func(p *schema.Populations) { p.WithMappingList = 89 },
+		func(p *schema.Populations) { p.WithPlacement = 44 },
 	} {
 		cur := prev
 		mut(&cur)
@@ -44,6 +45,11 @@ func TestCoverage(t *testing.T) {
 	extinct.WithMappingList = 0
 	if err := Coverage(&prev, extinct, true); !errors.Is(err, ErrCoverage) {
 		t.Errorf("extinction with accept-shrink = %v, want ErrCoverage", err)
+	}
+	noPlacement := prev
+	noPlacement.WithPlacement = 0
+	if err := Coverage(&prev, noPlacement, true); !errors.Is(err, ErrCoverage) {
+		t.Errorf("placement extinction with accept-shrink = %v, want ErrCoverage", err)
 	}
 	if err := Coverage(nil, schema.Populations{Records: 22169, AniListWithAniDB: 13444, AniDBWithTVDB: 7502}, false); err != nil {
 		t.Errorf("first release at today's size: %v", err)

@@ -10,12 +10,12 @@ Each rule reads one record of the latest `animap.json` and nothing else. A watch
 | --- | --- | --- |
 | No record for the AniList id | never | `no_record` |
 | No `anidb_id` | never, because nothing joins it to Anime-Lists | `no_anidb` |
-| A `MOVIE` | it has a TMDB movie or IMDb id for Radarr or a TVDB season for Sonarr, and any TVDB special it is filed as also resolves | `movie_no_route`, `movie_special_unresolved` |
-| Filed under TVDB season 0, any other type | every AniDB episode from 1 to `episodes` resolves to a TVDB special | `season0_unresolved`, `episode_count_unknown` |
+| A `MOVIE` | it has a TMDB movie or IMDb id for Radarr or a TVDB season for Sonarr, and, when it is filed as a TVDB special, it has a `tvdb_placement` that puts every episode on a TVDB special or on none | `movie_no_route`, `movie_special_unresolved`, `episode_count_unknown` |
+| Filed under TVDB season 0, any other type | it has a `tvdb_placement` that puts every episode on a TVDB special or on none | `season0_unresolved`, `episode_count_unknown` |
 | Any other type | it has a `tvdb_id` and either a `tvdb_season` of 1 or more or `tvdb_absolute` | `no_tvdb`, `no_tvdb_season` |
 | `UNKNOWN` or no type, and no `tvdb_id` | never | `unknown_type` |
 
-An AniDB episode filed under season 0 resolves when a `mapping_list` row with `anidb_season` 1 and `tvdb_season` 0 names it, or when the record has a `tvdb_episode_offset`. A row that maps it to no episode, written `[k]` in the file, counts as resolved, because it states that TVDB has no such episode. A record with no offset and no row is a gap, because "the numbers match" and "nobody mapped it" look the same.
+A record filed under season 0 is fully mapped when the release gives it a `tvdb_placement` on TVDB specials. The release does that only when every regular episode has a TVDB episode or is stated to have none. [TVDB placement](schema.md#tvdb-placement) explains the rule. An episode that needs an offset the record does not state leaves a gap, because "the numbers match" and "nobody mapped it" look the same. A placement that lands an episode on a regular TVDB season leaves a gap, because the record's season 0 is then wrong.
 
 The specials of a regular series are not checked, because a record says nothing about them.
 
