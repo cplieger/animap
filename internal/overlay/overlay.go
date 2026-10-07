@@ -60,15 +60,46 @@ type Entry struct {
 // Set is the patch. A nil field leaves upstream as it is; a MappingList of
 // length zero deletes the node's mapping-list.
 type Set struct {
-	TVDBID            *string       `json:"tvdbid,omitempty"`
-	DefaultTVDBSeason *string       `json:"defaulttvdbseason,omitempty"`
-	EpisodeOffset     *string       `json:"episodeoffset,omitempty"`
-	TMDBTV            *string       `json:"tmdbtv,omitempty"`
-	TMDBSeason        *string       `json:"tmdbseason,omitempty"`
-	TMDBOffset        *string       `json:"tmdboffset,omitempty"`
-	TMDBID            *string       `json:"tmdbid,omitempty"`
-	IMDbID            *string       `json:"imdbid,omitempty"`
-	MappingList       *[]schema.Row `json:"mapping_list,omitempty"`
+	TVDBID            *string `json:"tvdbid,omitempty"`
+	DefaultTVDBSeason *string `json:"defaulttvdbseason,omitempty"`
+	EpisodeOffset     *string `json:"episodeoffset,omitempty"`
+	TMDBTV            *string `json:"tmdbtv,omitempty"`
+	TMDBSeason        *string `json:"tmdbseason,omitempty"`
+	TMDBOffset        *string `json:"tmdboffset,omitempty"`
+	TMDBID            *string `json:"tmdbid,omitempty"`
+	IMDbID            *string `json:"imdbid,omitempty"`
+	MappingList       *[]Row  `json:"mapping_list,omitempty"`
+}
+
+// Row is a mapping_list row in the published shape, except that a present
+// Offset, 0 included, is written to the patched node, so Landed can match a
+// row written with offset="0".
+//
+//nolint:govet // fieldalignment: member order is the file's JSON order
+type Row struct {
+	AniDBSeason int     `json:"anidb_season"`
+	TVDBSeason  *int    `json:"tvdb_season,omitempty"`
+	TMDBSeason  *int    `json:"tmdb_season,omitempty"`
+	Start       int     `json:"start,omitempty"`
+	End         int     `json:"end,omitempty"`
+	Offset      *int    `json:"offset,omitempty"`
+	Episodes    [][]int `json:"episodes,omitempty"`
+}
+
+func (r *Row) published() schema.Row {
+	s := schema.Row{AniDBSeason: r.AniDBSeason, TVDBSeason: r.TVDBSeason, TMDBSeason: r.TMDBSeason, Start: r.Start, End: r.End, Episodes: r.Episodes}
+	if r.Offset != nil {
+		s.Offset = *r.Offset
+	}
+	return s
+}
+
+func (r *Row) listRow() animelists.Row {
+	lr := animelists.RowFromSchema(r.published())
+	if r.Offset != nil {
+		lr.Attrs["offset"] = strconv.Itoa(*r.Offset)
+	}
+	return lr
 }
 
 // Attrs returns the set attributes by their list names.
@@ -233,22 +264,23 @@ func (e *Entry) validateSet() error {
 		return errors.New("set is empty")
 	}
 	for name, v := range attrs {
-		if !validAttr(name, v) {
+		if !validAttr(name, v) && !filmSeason(attrs, name, v) {
 			return fmt.Errorf("set.%s %q does not parse", name, v)
 		}
 	}
 	if e.Set.MappingList == nil {
 		return nil
 	}
-	for i, r := range *e.Set.MappingList {
+	for i := range *e.Set.MappingList {
+		r := &(*e.Set.MappingList)[i]
 		if r.TVDBSeason == nil && r.TMDBSeason == nil {
 			return fmt.Errorf("mapping_list[%d] names neither a TVDB nor a TMDB season", i)
 		}
-		back, err := animelists.RowFromSchema(r).Schema()
+		back, err := r.listRow().Schema()
 		if err != nil {
 			return fmt.Errorf("mapping_list[%d]: %w", i, err)
 		}
-		if !reflect.DeepEqual(back, r) {
+		if !reflect.DeepEqual(back, r.published()) {
 			return fmt.Errorf("mapping_list[%d] does not survive the list syntax (a 0 target, an empty pair or a negative bound)", i)
 		}
 	}
@@ -270,6 +302,10 @@ func (e *Entry) validateCaptured() error {
 		return errors.New("captured.tvdb.sha256 does not match its episodes")
 	}
 	return nil
+}
+
+func filmSeason(attrs map[string]string, name, v string) bool {
+	return name == attrDefaultSeason && v == "" && attrs[attrTVDBID] == "movie"
 }
 
 func validAttr(name, v string) bool {
@@ -332,8 +368,8 @@ func Patch(n *animelists.Node, e *Entry) *animelists.Node {
 	maps.Copy(c.Attrs, e.Set.Attrs())
 	if e.Set.MappingList != nil {
 		c.Rows = nil
-		for _, r := range *e.Set.MappingList {
-			c.Rows = append(c.Rows, animelists.RowFromSchema(r))
+		for i := range *e.Set.MappingList {
+			c.Rows = append(c.Rows, (*e.Set.MappingList)[i].listRow())
 		}
 	}
 	return c

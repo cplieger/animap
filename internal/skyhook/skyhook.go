@@ -56,15 +56,11 @@ func (e Episode) Line() string {
 
 // Show is the part of a SkyHook show animap reads.
 type Show struct {
-	Title    string
-	Slug     string
 	Episodes []Episode
 	TVDBID   int
 }
 
 type showJSON struct {
-	Title    string `json:"title"`
-	Slug     string `json:"slug"`
 	Episodes []struct {
 		AirDate  string `json:"airDate"`
 		Season   int    `json:"seasonNumber"`
@@ -80,7 +76,7 @@ func ParseShow(body []byte) (*Show, error) {
 	if err := json.Unmarshal(body, &sj); err != nil {
 		return nil, fmt.Errorf("skyhook: decode show: %w", err)
 	}
-	s := &Show{Title: sj.Title, Slug: sj.Slug, TVDBID: sj.TVDBID}
+	s := &Show{TVDBID: sj.TVDBID}
 	for _, e := range sj.Episodes {
 		s.Episodes = append(s.Episodes, Episode{Season: e.Season, Number: e.Number, Absolute: e.Absolute, AirDate: e.AirDate})
 	}

@@ -117,8 +117,8 @@ func movedList(t *testing.T, dir, season string) string {
 }
 
 type baselineCase struct {
-	t                               *testing.T
-	list, base, rows, outAt, mirror string
+	t                                        *testing.T
+	list, base, rows, outAt, mirror, overlay string
 }
 
 func (c *baselineCase) build() error {
@@ -132,7 +132,11 @@ func (c *baselineCase) build() error {
 func (c *baselineCase) baseline(mode string) string {
 	c.t.Helper()
 	var out bytes.Buffer
-	args := []string{"baseline", mode, "-baseline", c.base, "-list", c.list, "-aod", aodFixture, "-commit", "c", "-overlay", c.t.TempDir(), "-counts", c.rows, "-mirror", c.mirror}
+	ov := c.overlay
+	if ov == "" {
+		ov = c.t.TempDir()
+	}
+	args := []string{"baseline", mode, "-baseline", c.base, "-list", c.list, "-aod", aodFixture, "-commit", "c", "-overlay", ov, "-counts", c.rows, "-mirror", c.mirror}
 	if err := run(c.t.Context(), args, &out); err != nil {
 		c.t.Fatalf("baseline %s: %v", mode, err)
 	}
@@ -195,5 +199,30 @@ func TestACountThatRevealsACollisionBlocksAndIsNotBaselined(t *testing.T) {
 	b, err := guard.LoadBaseline(c.base)
 	if err != nil || len(b.Collisions) != 0 {
 		t.Errorf("pruned baseline = %+v, %v; want no collision recorded", b, err)
+	}
+}
+
+func TestBaselinePruneDropsACollisionAnEntryMovesAClaimOnto(t *testing.T) {
+	noFloors(t)
+	c := newBaselineCase(t, "1")
+	c.rows = writeFixture(t, filepath.Dir(c.base), "counts.json", []anidb.Row{countRow(30, 2)})
+	if out := c.baseline("init"); !strings.Contains(out, "2 collision(s), 0 uncounted node(s)") {
+		t.Fatalf("baseline init printed %q, want AniDB 30 on AniDB 10's 1x1 and 1x2", out)
+	}
+	eps := []skyhook.Episode{{Season: 1, Number: 2, AirDate: "2020-06-01"}}
+	c.overlay = t.TempDir()
+	writeFixture(t, c.overlay, "30.json", map[string]any{
+		"anidb_id": 30, "title": "Node with no database entry", "justification": "test",
+		"set":      map[string]any{"episodeoffset": "1"},
+		"evidence": map[string]string{"anidb": "https://anidb.net/anime/30"},
+		"upstream": "TODO-PR",
+		"captured": map[string]any{
+			"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40),
+			"node_sha256": strings.Repeat("b", 64),
+			"tvdb":        map[string]any{"series": 5000, "seasons": []int{1}, "episodes": eps, "sha256": skyhook.Hash(eps)},
+		},
+	})
+	if out := c.baseline("prune"); !strings.Contains(out, "0 collision(s), 0 uncounted node(s)") {
+		t.Errorf("baseline prune with AniDB 30 moved onto 1x2 and 1x3 printed %q, want both collisions out of the baseline", out)
 	}
 }

@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -334,6 +335,37 @@ func TestBuildBlocksOnACollisionOutsideTheBaseline(t *testing.T) {
 	}
 	if err := run(t.Context(), []string{"baseline", "init", "-baseline", base, "-list", list, "-aod", aodFixture, "-mirror", mirrorFixture, "-commit", "c"}, &out); err == nil {
 		t.Error("a second baseline init overwrote the baseline")
+	}
+}
+
+func TestCollisionsNamesAShowNoTVDBSeriesReaches(t *testing.T) {
+	rep := guard.CollisionReport{
+		Blocking:  []guard.Collision{{Target: "TMDB 99 S1E1", Claims: []string{"1 ep1", "3 ep1"}, Nodes: []int{1, 3}}},
+		Uncounted: []guard.Uncounted{{AniDB: 4}},
+	}
+	absent := filepath.Join(t.TempDir(), "baseline.json")
+	if _, err := collisions(absent, &rep, slog.New(slog.DiscardHandler)); err == nil || !strings.Contains(err.Error(), "AniDB 4 on no TVDB series") {
+		t.Errorf("collisions(uncounted AniDB 4 at series 0) = %v, want it named on no TVDB series", err)
+	}
+	rep.Uncounted = nil
+	if _, err := collisions(absent, &rep, slog.New(slog.DiscardHandler)); err == nil || !strings.Contains(err.Error(), "TMDB 99 S1E1 on no TVDB series") {
+		t.Errorf("collisions(TMDB 99 S1E1 at series 0) = %v, want it named on no TVDB series", err)
+	}
+}
+
+func TestCollisionsNamesTheSideAnUnresolvedNodeIsOn(t *testing.T) {
+	absent := filepath.Join(t.TempDir(), "baseline.json")
+	for _, tc := range []struct {
+		u    guard.Unresolved
+		want string
+	}{
+		{guard.Unresolved{Episodes: []int{1}, TMDB: 99, AniDB: 5}, "AniDB 5, season 0 episodes [1] of TMDB 99"},
+		{guard.Unresolved{Episodes: []int{2}, Series: 10, AniDB: 5}, "AniDB 5, season 0 episodes [2] of TVDB 10"},
+	} {
+		rep := guard.CollisionReport{Unresolved: []guard.Unresolved{tc.u}}
+		if _, err := collisions(absent, &rep, slog.New(slog.DiscardHandler)); err == nil || !strings.Contains(err.Error(), tc.want) {
+			t.Errorf("collisions(unresolved %+v) = %v, want it to name %q", tc.u, err, tc.want)
+		}
 	}
 }
 

@@ -100,7 +100,7 @@ A build stops before publishing when one of these checks fails, and the previous
 - An Anime-Lists entry on a shared TVDB series has no episode count in any source, so its episodes cannot be placed.
 - An input is larger than its limit, does not parse, or does not match its published SHA-256.
 
-Anime-Lists already had some of these collisions and entries with no episode count when animap started. `checks/collision-baseline.json` lists them, and they stop a build only on a series animap corrects, as [docs/overlay.md](docs/overlay.md#collisions-on-other-series) explains.
+Anime-Lists already had some of these collisions and entries with no episode count when animap started. `checks/collision-baseline.json` lists them. A listed collision stops a build only when animap moves an episode onto it, and a listed entry with no count stops one only on a series animap corrects, as [docs/overlay.md](docs/overlay.md#collisions-anime-lists-already-has) explains.
 
 ## Data sources and licence
 

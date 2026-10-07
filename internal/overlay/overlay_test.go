@@ -9,7 +9,6 @@ import (
 	"testing"
 
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
 )
 
@@ -45,12 +44,15 @@ func TestValidate(t *testing.T) {
 		{"empty set", func(e *Entry) { e.Set = Set{} }},
 		{"bad season", func(e *Entry) { e.Set.DefaultTVDBSeason = new("b") }},
 		{"empty tvdbid", func(e *Entry) { e.Set.TVDBID = new("") }},
+		{"empty season alone", func(e *Entry) { e.Set.DefaultTVDBSeason = new("") }},
+		{"empty season on a series", func(e *Entry) { e.Set.TVDBID, e.Set.DefaultTVDBSeason = new("91391"), new("") }},
+		{"empty season on another marker", func(e *Entry) { e.Set.TVDBID, e.Set.DefaultTVDBSeason = new("OVA"), new("") }},
 		{"bad tvdbid", func(e *Entry) { e.Set.TVDBID = new("-3") }},
 		{"bad imdb list", func(e *Entry) { e.Set.IMDbID = new("tt0000001,nope") }},
 		{"bad tmdb list", func(e *Entry) { e.Set.TMDBID = new("1,,2") }},
-		{"row without a side", func(e *Entry) { e.Set.MappingList = &[]schema.Row{{AniDBSeason: 1}} }},
+		{"row without a side", func(e *Entry) { e.Set.MappingList = &[]Row{{AniDBSeason: 1}} }},
 		{"row with a bad pair", func(e *Entry) {
-			e.Set.MappingList = &[]schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: [][]int{{1, 0}}}}
+			e.Set.MappingList = &[]Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: [][]int{{1, 0}}}}
 		}},
 		{"short commit", func(e *Entry) { e.Captured.AnimeListsCommit = "abc" }},
 		{"bad node hash", func(e *Entry) { e.Captured.NodeSHA256 = "zz" }},
@@ -65,6 +67,40 @@ func TestValidate(t *testing.T) {
 				t.Errorf("Validate(%s) = %v, want ErrInvalid", tc.name, err)
 			}
 		})
+	}
+}
+
+func TestValidateAcceptsAFilmsEmptySeason(t *testing.T) {
+	e := valid()
+	e.Set = Set{TVDBID: new("movie"), DefaultTVDBSeason: new("")}
+	if err := e.Validate(); err != nil {
+		t.Errorf("Validate(tvdbid movie, defaulttvdbseason empty) = %v, want nil", err)
+	}
+	up := node()
+	up.Attrs["tvdbid"], up.Attrs["defaulttvdbseason"] = "movie", ""
+	if !Landed(up, &e) {
+		t.Errorf("Landed(a film node, %+v) = false, want true", e.Set.Attrs())
+	}
+}
+
+func TestLandedKeepsAnExplicitZeroOffset(t *testing.T) {
+	up := node()
+	up.Rows = []animelists.Row{{Attrs: map[string]string{"anidbseason": "1", "tvdbseason": "1", "start": "1", "end": "9", "offset": "0"}}}
+	e := valid()
+	e.Set = Set{MappingList: &[]Row{{AniDBSeason: 1, TVDBSeason: new(1), Start: 1, End: 9, Offset: new(0)}}}
+	body, err := json.Marshal(e)
+	if err != nil {
+		t.Fatal(err)
+	}
+	back, err := decode(body)
+	if err != nil || back.Validate() != nil {
+		t.Fatalf("Setup: decode(%s) = %v", body, err)
+	}
+	if !Landed(up, &back) {
+		t.Errorf("Landed(rows with offset=\"0\", %s) = false, want true", body)
+	}
+	if got, want := Patch(node(), &back).Canonical(), up.Canonical(); got != want {
+		t.Errorf("Patch(...).Canonical() = %q, want %q", got, want)
 	}
 }
 
@@ -163,7 +199,7 @@ func TestApply(t *testing.T) {
 	}
 
 	clear := valid()
-	clear.Set = Set{MappingList: &[]schema.Row{}}
+	clear.Set = Set{MappingList: &[]Row{}}
 	if rows := Patch(up, &clear).Rows; len(rows) != 0 {
 		t.Errorf("mapping_list [] left %d rows", len(rows))
 	}
@@ -191,7 +227,7 @@ func TestLanded(t *testing.T) {
 		t.Error("an absent node reads as landed")
 	}
 	rows := valid()
-	rows.Set = Set{MappingList: &[]schema.Row{}}
+	rows.Set = Set{MappingList: &[]Row{}}
 	if Landed(node(), &rows) {
 		t.Error("a node that still has rows reads as landed for mapping_list []")
 	}

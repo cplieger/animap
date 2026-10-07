@@ -2,6 +2,7 @@ package guard
 
 import (
 	"errors"
+	"reflect"
 	"slices"
 	"strings"
 	"testing"
@@ -85,12 +86,11 @@ func run(nodes []*animelists.Node, entries []overlay.Entry, f *anidb.Facts) Coll
 	for _, n := range nodes {
 		m[n.AniDBID] = n
 	}
-	return Collisions(overlay.Apply(m, entries), entries, nil, f)
+	return Collisions(m, entries, nil, f)
 }
 
-// The 226/582 shape: the patched node's AniDB special defaults onto TVDB
-// 0x1, which a sibling film filed under specials already claims.
-func TestCollisionDefaultSpecialAgainstSibling(t *testing.T) {
+// The baseline reads no mirror specials, so this collision is not upstream's either.
+func TestCollisionOwnSpecialLeftAsMasterHasItDoesNotBlock(t *testing.T) {
 	nodes := []*animelists.Node{
 		node(226, "tvdbid=72922 defaulttvdbseason=1 tmdbtv=34165 tmdbseason=1"),
 		node(582, "tvdbid=72922 defaulttvdbseason=0 tmdbtv=34165 tmdbseason=0"),
@@ -98,21 +98,28 @@ func TestCollisionDefaultSpecialAgainstSibling(t *testing.T) {
 	}
 	e := entry(226, overlay.Set{DefaultTVDBSeason: new("2"), TMDBSeason: new("2")})
 	rep := run(nodes, []overlay.Entry{e}, facts(map[int]anidb.Anime{226: fin(13, 1)}, map[int]int{582: 2, 583: 25}))
-	targets := map[string]bool{}
-	for _, c := range rep.Blocking {
-		targets[c.Target] = true
-	}
-	if !targets["TVDB 0x1"] || !targets["TMDB 34165 S0E1"] || len(rep.Blocking) != 2 {
-		t.Errorf("Blocking = %+v, want TVDB 0x1 and TMDB 34165 S0E1", rep.Blocking)
-	}
-	if len(rep.Unresolved) == 0 {
-		t.Error("siblings the mirror does not list, beside a season-0 claim, were not reported")
+	if len(rep.Blocking)+len(rep.Upstream)+len(rep.Unresolved) != 0 {
+		t.Errorf("Blocking %+v, Upstream %+v, Unresolved %+v; want none", rep.Blocking, rep.Upstream, rep.Unresolved)
 	}
 }
 
-// The Gall Force shape: the patched node is clean, but two untouched
-// siblings on the series it lands on claim the same special.
-func TestCollisionBetweenUntouchedSiblingsOnATouchedSeries(t *testing.T) {
+func TestCollisionOwnSpecialMovedOntoATakenEpisodeBlocks(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(226, "tvdbid=72922 defaulttvdbseason=1"),
+		node(582, "tvdbid=72922 defaulttvdbseason=0"),
+		node(583, "tvdbid=72922 defaulttvdbseason=1 episodeoffset=13"),
+	}
+	e := entry(226, overlay.Set{MappingList: &[]overlay.Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 2}}}}})
+	rep := run(nodes, []overlay.Entry{e}, facts(map[int]anidb.Anime{226: fin(13, 1)}, map[int]int{582: 2, 583: 25}))
+	if len(rep.Blocking) != 1 || !slices.Equal(rep.Blocking[0].Claims, []string{"226 S1", "582 ep2"}) {
+		t.Errorf("Blocking = %+v, want TVDB 0x2 claimed by 226 S1 and 582 ep2", rep.Blocking)
+	}
+	if len(rep.Unresolved) != 2 {
+		t.Errorf("Unresolved = %+v, want AniDB 582 and 583, which the mirror does not list", rep.Unresolved)
+	}
+}
+
+func TestCollisionBetweenUnchangedSiblingsOnATouchedSeriesIsBaselined(t *testing.T) {
 	nodes := []*animelists.Node{
 		node(2114, "tvdbid=138691 defaulttvdbseason=1"),
 		node(2888, "tvdbid=138691 defaulttvdbseason=0"),
@@ -120,11 +127,146 @@ func TestCollisionBetweenUntouchedSiblingsOnATouchedSeries(t *testing.T) {
 	}
 	f := facts(map[int]anidb.Anime{2114: fin(1), 2888: fin(1), 2891: fin(1)}, nil)
 	rep := run(nodes, []overlay.Entry{entry(2114, overlay.Set{DefaultTVDBSeason: new("2")})}, f)
-	if len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TVDB 0x1" {
-		t.Errorf("Blocking = %+v, want TVDB 0x1 claimed by 2888 and 2891", rep.Blocking)
+	base := &Baseline{Version: BaselineVersion, Collisions: []BaselineEntry{{Series: 138691, Target: "TVDB 0x1", Nodes: []int{2888, 2891}}}}
+	baselined, novel, _ := base.Split(rep.Upstream)
+	if len(rep.Blocking) != 0 || len(baselined) != 1 || len(novel) != 0 {
+		t.Errorf("Blocking = %+v, baselined %+v, novel %+v; want TVDB 0x1 (2888, 2891) baselined and nothing blocking", rep.Blocking, baselined, novel)
 	}
 	if len(rep.Unresolved) != 0 {
 		t.Errorf("Unresolved = %+v, want none (every sibling's specials are known)", rep.Unresolved)
+	}
+}
+
+func TestCollisionNewBetweenUnchangedSiblingsOnATouchedSeriesIsNovel(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(2114, "tvdbid=138691 defaulttvdbseason=1"),
+		node(2888, "tvdbid=138691 defaulttvdbseason=0"),
+		node(2891, "tvdbid=138691 defaulttvdbseason=0"),
+	}
+	f := facts(map[int]anidb.Anime{2114: fin(1), 2888: fin(1), 2891: fin(1)}, nil)
+	rep := run(nodes, []overlay.Entry{entry(2114, overlay.Set{DefaultTVDBSeason: new("2")})}, f)
+	_, novel, _ := (&Baseline{Version: BaselineVersion}).Split(rep.Upstream)
+	if len(novel) != 1 || novel[0].Target != "TVDB 0x1" || !slices.Equal(novel[0].Nodes, []int{2888, 2891}) {
+		t.Errorf("novel = %+v, want TVDB 0x1 claimed by 2888 and 2891", novel)
+	}
+}
+
+func TestCollisionOnANewClaimBlocksDespiteTheBaseline(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1"),
+		node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=5"),
+		node(3, "tvdbid=10 defaulttvdbseason=0"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(1), 2: fin(1, 1), 3: fin(1)}, nil)
+	rep := run(nodes, []overlay.Entry{entry(1, overlay.Set{DefaultTVDBSeason: new("0")})}, f)
+	base := &Baseline{Version: BaselineVersion, Collisions: []BaselineEntry{{Series: 10, Target: "TVDB 0x1", Nodes: []int{1, 2, 3}}}}
+	baselined, _, _ := base.Split(rep.Upstream)
+	want := []string{"1 ep1", "2 S1 (default)", "3 ep1"}
+	if len(rep.Blocking) != 1 || !slices.Equal(rep.Blocking[0].Claims, want) || len(baselined) != 0 {
+		t.Errorf("Blocking = %+v, baselined %+v; want TVDB 0x1 claimed by %v blocking and nothing baselined", rep.Blocking, baselined, want)
+	}
+}
+
+func TestCollisionUnresolvedOnlyAgainstAnIntroducedClaim(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1"),
+		node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=10"),
+		node(3, "tvdbid=10 defaulttvdbseason=0"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(3, 1), 3: fin(1)}, map[int]int{2: 2})
+	clean := run(nodes, []overlay.Entry{entry(1, overlay.Set{EpisodeOffset: new("1")})}, f)
+	if len(clean.Unresolved) != 0 {
+		t.Errorf("0x1 is claimed by AniDB 1 S1 as upstream and by unchanged AniDB 3: Unresolved = %+v, want none", clean.Unresolved)
+	}
+	moved := entry(1, overlay.Set{MappingList: &[]overlay.Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 5}}}}})
+	claimed := run(nodes, []overlay.Entry{moved}, f)
+	if len(claimed.Unresolved) != 1 || claimed.Unresolved[0].AniDB != 2 || !slices.Equal(claimed.Unresolved[0].Episodes, []int{5}) {
+		t.Errorf("AniDB 1 S1 moved onto 0x5: Unresolved = %+v, want AniDB 2 on episode 5", claimed.Unresolved)
+	}
+}
+
+func TestCollisionAClaimTheEntryLeavesIsBaselined(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1"),
+		node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=1"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(2), 2: fin(1)}, nil)
+	rep := run(nodes, []overlay.Entry{entry(1, overlay.Set{TMDBTV: new("50")})}, f)
+	base := &Baseline{Version: BaselineVersion, Collisions: []BaselineEntry{{Series: 10, Target: "TVDB 1x2", Nodes: []int{1, 2}}}}
+	baselined, novel, _ := base.Split(rep.Upstream)
+	if len(rep.Blocking) != 0 || len(baselined) != 1 || len(novel) != 0 {
+		t.Errorf("Blocking %+v, baselined %+v, novel %+v; want TVDB 1x2 baselined and nothing blocking", rep.Blocking, baselined, novel)
+	}
+}
+
+// Upstream, AniDB 1 already claims 1x2, with its episode 2.
+func TestCollisionAMovedClaimBlocks(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1"),
+		node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=1"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(2), 2: fin(1)}, nil)
+	rep := run(nodes, []overlay.Entry{entry(1, overlay.Set{EpisodeOffset: new("1")})}, f)
+	if len(rep.Blocking) != 1 || !slices.Equal(rep.Blocking[0].Claims, []string{"1 ep1", "2 ep1"}) {
+		t.Errorf("Blocking = %+v, want TVDB 1x2 claimed by 1 ep1 and 2 ep1", rep.Blocking)
+	}
+}
+
+func TestCollisionARowRestatingTheDefaultIntroducesNothing(t *testing.T) {
+	sp := animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-5;"}
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1", sp),
+		node(2, "tvdbid=10 defaulttvdbseason=2"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(1, 1, 2), 2: fin(1, 2)}, nil)
+	e := entry(1, overlay.Set{MappingList: &[]overlay.Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 5}, {2, 2}}}}})
+	if rep := run(nodes, []overlay.Entry{e}, f); len(rep.Blocking)+len(rep.Upstream) != 0 {
+		t.Errorf("S2 now rowed onto 0x2, where it and AniDB 2 S2 default: Blocking %+v, Upstream %+v; want none", rep.Blocking, rep.Upstream)
+	}
+}
+
+// Without the mirror, the row is a new claim, so no baseline can hold the collision.
+func TestCollisionARowRestatingTheDefaultOntoAClaimTheBaselineSeesBlocks(t *testing.T) {
+	sp := animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-5;"}
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1", sp),
+		node(2, "tvdbid=10 defaulttvdbseason=0 episodeoffset=1"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(1, 1, 2), 2: fin(1)}, nil)
+	e := entry(1, overlay.Set{MappingList: &[]overlay.Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 5}, {2, 2}}}}})
+	rep := run(nodes, []overlay.Entry{e}, f)
+	want := []Collision{{Target: "TVDB 0x2", Claims: []string{"1 S2", "2 ep1"}, Nodes: []int{1, 2}, Series: 10}}
+	if !reflect.DeepEqual(rep.Blocking, want) || len(rep.Upstream) != 0 {
+		t.Errorf("S2 rowed onto 0x2, where AniDB 2 ep1 sits: Blocking %+v, Upstream %+v; want %+v and nothing upstream", rep.Blocking, rep.Upstream, want)
+	}
+}
+
+// Upstream, 0x2 shows S1's row label first and hides S2's default claim behind it.
+func TestCollisionAnEpisodeHiddenBehindAnotherClaimIsNotNew(t *testing.T) {
+	sp := animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-2;"}
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1", sp),
+		node(2, "tvdbid=10 defaulttvdbseason=0 episodeoffset=1"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(1, 1, 2), 2: fin(1)}, nil)
+	e := entry(1, overlay.Set{MappingList: &[]overlay.Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 8}}}}})
+	if rep := run(nodes, []overlay.Entry{e}, f); len(rep.Blocking) != 0 {
+		t.Errorf("S2 defaults onto 0x2 as upstream: Blocking = %+v, want none", rep.Blocking)
+	}
+}
+
+// A Target carries no series, so the moved node's 1x1 matches its old one.
+func TestCollisionCreatedOrMovedNodeBlocks(t *testing.T) {
+	sib := node(2, "tvdbid=10 defaulttvdbseason=1")
+	f := facts(map[int]anidb.Anime{1: fin(1), 2: fin(1)}, nil)
+	moved := run([]*animelists.Node{node(1, "tvdbid=20 defaulttvdbseason=1"), sib}, []overlay.Entry{entry(1, overlay.Set{TVDBID: new("10")})}, f)
+	created := entry(1, overlay.Set{TVDBID: new("10"), DefaultTVDBSeason: new("1")})
+	created.Create = true
+	made := run([]*animelists.Node{sib}, []overlay.Entry{created}, f)
+	for name, rep := range map[string]CollisionReport{"moved": moved, "created": made} {
+		if len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TVDB 1x1" || len(rep.Upstream) != 0 {
+			t.Errorf("%s: Blocking %+v, Upstream %+v; want TVDB 1x1 blocking", name, rep.Blocking, rep.Upstream)
+		}
 	}
 }
 
@@ -143,23 +285,18 @@ func TestCollisionUntouchedSeriesIsReportedNotBlocking(t *testing.T) {
 func TestCollisionTMDBBlockingRule(t *testing.T) {
 	f := facts(map[int]anidb.Anime{1: fin(3)}, map[int]int{2: 3, 3: 3})
 	nodes := []*animelists.Node{
-		node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+		node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=3"),
 		node(2, "tvdbid=30 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
 		node(3, "tvdbid=40 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
 	}
-	// 1 is patched onto TMDB S2, 2 and 3 still collide on S1 but sit on
-	// other TVDB series and are not the patched node: not blocking.
 	ok := run(nodes, []overlay.Entry{entry(1, overlay.Set{TMDBSeason: new("2")})}, f)
 	if len(ok.Blocking) != 0 {
 		t.Errorf("Blocking = %+v, want none", ok.Blocking)
 	}
-	// Patched onto the S1 the others claim: the patched node is a claimant.
 	bad := run(nodes, []overlay.Entry{entry(1, overlay.Set{TMDBSeason: new("1")})}, f)
 	if len(bad.Blocking) != 3 {
 		t.Errorf("Blocking = %+v, want TMDB 99 S1E1-E3", bad.Blocking)
 	}
-	// One untouched claimant on the patched node's series and one elsewhere
-	// share a TMDB episode: neither is patched and only one is on the series.
 	mixed := []*animelists.Node{
 		node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=98 tmdbseason=1"),
 		node(2, "tvdbid=10 defaulttvdbseason=2 tmdbtv=99 tmdbseason=1"),
@@ -167,7 +304,187 @@ func TestCollisionTMDBBlockingRule(t *testing.T) {
 	}
 	two := run(mixed, []overlay.Entry{entry(1, overlay.Set{TMDBSeason: new("2")})}, f)
 	if len(two.Blocking) != 0 {
-		t.Errorf("Blocking = %+v, want none (one series claimant, none patched)", two.Blocking)
+		t.Errorf("Blocking = %+v, want none (one series claimant, none changed)", two.Blocking)
+	}
+	apart := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+		node(2, "tvdbid=30 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+		node(4, "tvdbid=30 defaulttvdbseason=2"),
+	}
+	left := run(apart, []overlay.Entry{entry(1, overlay.Set{DefaultTVDBSeason: new("2")})}, facts(map[int]anidb.Anime{1: fin(3)}, map[int]int{2: 3, 4: 3}))
+	if len(left.Blocking)+len(left.Upstream) != 0 {
+		t.Errorf("Blocking %+v, Upstream %+v; want none (no TMDB claim introduced, one claimant per series)", left.Blocking, left.Upstream)
+	}
+}
+
+func TestCollisionChangedNodeOffTVDBBlocksOnTMDB(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+		node(2, "tvdbid=10 defaulttvdbseason=2"),
+		node(3, "tvdbid=movie defaulttvdbseason= tmdbtv=98 tmdbseason=1"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(1), 2: fin(1), 3: fin(1)}, nil)
+	rep := run(nodes, []overlay.Entry{entry(3, overlay.Set{TMDBTV: new("99")})}, f)
+	if len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TMDB 99 S1E1" || len(rep.Upstream) != 0 || len(rep.Touched) != 0 {
+		t.Errorf("report = %+v, want TMDB 99 S1E1 (1, 3) blocking, nothing upstream, no series touched", rep)
+	}
+}
+
+func TestCollisionChangedNodeOffTVDBRowRestatingTheDefaultBlocks(t *testing.T) {
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=movie tmdbtv=99 tmdbseason=0"),
+		node(3, "tvdbid=movie defaulttvdbseason= tmdbtv=99 tmdbseason=1"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(1), 3: fin(1, 1)}, nil)
+	e := entry(3, overlay.Set{MappingList: &[]overlay.Row{{AniDBSeason: 0, TMDBSeason: new(0), Episodes: [][]int{{1, 1}}}}})
+	rep := run(nodes, []overlay.Entry{e}, f)
+	want := []Collision{{Target: "TMDB 99 S0E1", Claims: []string{"1 ep1", "3 S1"}, Nodes: []int{1, 3}}}
+	if !reflect.DeepEqual(rep.Blocking, want) {
+		t.Errorf("S1 rowed onto TMDB 99 S0E1, where AniDB 1 ep1 sits: Blocking = %+v, want %+v", rep.Blocking, want)
+	}
+}
+
+func TestCollisionChangedNodeOffTVDBChecksItsWholeTMDBShow(t *testing.T) {
+	film := node(3, "tvdbid=movie defaulttvdbseason= tmdbtv=98 tmdbseason=1")
+	onto99 := []overlay.Entry{entry(3, overlay.Set{TMDBTV: new("99")})}
+	collision := func(series int) []Collision {
+		return []Collision{{Target: "TMDB 99 S1E1", Claims: []string{"1 ep1", "3 ep1"}, Nodes: []int{1, 3}, Series: series}}
+	}
+	tests := []struct {
+		name                  string
+		others                []*animelists.Node
+		entries               []overlay.Entry
+		counted               []int
+		wantBlocking          []Collision
+		wantUncounted         []Uncounted
+		wantUpstreamUncounted []Uncounted
+	}{
+		{
+			name:    "lone_untouched_series",
+			others:  []*animelists.Node{node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1")},
+			entries: onto99, counted: []int{1}, wantBlocking: collision(0),
+		},
+		{
+			name:    "another_film",
+			others:  []*animelists.Node{node(1, "tvdbid=movie tmdbtv=99 tmdbseason=1")},
+			entries: onto99, counted: []int{1}, wantBlocking: collision(0),
+		},
+		{
+			name:    "uncounted_claimant",
+			others:  []*animelists.Node{node(1, "tvdbid=movie tmdbtv=99 tmdbseason=1")},
+			entries: onto99, wantUncounted: []Uncounted{{AniDB: 1}},
+		},
+		{
+			name:    "claim_left_as_upstream",
+			others:  []*animelists.Node{node(1, "tvdbid=movie tmdbtv=98 tmdbseason=1")},
+			entries: []overlay.Entry{entry(3, overlay.Set{IMDbID: new("tt0000001")})}, counted: []int{1},
+		},
+		{
+			name: "show_a_checked_series_reaches",
+			others: []*animelists.Node{
+				node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+				node(2, "tvdbid=10 defaulttvdbseason=2 tmdbtv=99 tmdbseason=2"),
+			},
+			entries: onto99, counted: []int{1}, wantBlocking: collision(0),
+			wantUncounted:         []Uncounted{{AniDB: 2}},
+			wantUpstreamUncounted: []Uncounted{{Series: 10, AniDB: 2}},
+		},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			listed := map[int]anidb.Anime{3: fin(1)}
+			for _, id := range tc.counted {
+				listed[id] = fin(1)
+			}
+			rep := run(append(slices.Clone(tc.others), film), tc.entries, facts(listed, nil))
+			if !reflect.DeepEqual(rep.Blocking, tc.wantBlocking) || len(rep.Upstream) != 0 {
+				t.Errorf("Blocking %+v, Upstream %+v; want %+v and nothing upstream", rep.Blocking, rep.Upstream, tc.wantBlocking)
+			}
+			if !slices.Equal(rep.Uncounted, tc.wantUncounted) || !slices.Equal(rep.UpstreamUncounted, tc.wantUpstreamUncounted) {
+				t.Errorf("Uncounted %+v, UpstreamUncounted %+v; want %+v and %+v", rep.Uncounted, rep.UpstreamUncounted, tc.wantUncounted, tc.wantUpstreamUncounted)
+			}
+		})
+	}
+}
+
+func TestCollisionTMDBPlacesEveryClaimantsSpecials(t *testing.T) {
+	special := func(series int) []Collision {
+		return []Collision{{Target: "TMDB 99 S0E1", Claims: []string{"1 ep1", "3 S1 (default)"}, Nodes: []int{1, 3}, Series: series}}
+	}
+	ontoSpecials := []overlay.Entry{entry(1, overlay.Set{TMDBSeason: new("0")})}
+	tests := []struct {
+		name           string
+		nodes          []*animelists.Node
+		entries        []overlay.Entry
+		listed         map[int]anidb.Anime
+		database       map[int]int
+		wantBlocking   []Collision
+		wantUnresolved []Unresolved
+	}{
+		{
+			name: "own_special_with_no_series",
+			nodes: []*animelists.Node{
+				node(1, "tvdbid=movie tmdbtv=99 tmdbseason=0"),
+				node(3, "tvdbid=movie defaulttvdbseason= tmdbtv=98 tmdbseason=1"),
+			},
+			entries: []overlay.Entry{entry(3, overlay.Set{TMDBTV: new("99")})},
+			listed:  map[int]anidb.Anime{1: fin(1), 3: fin(1, 1)}, wantBlocking: special(0),
+		},
+		{
+			name: "special_on_another_series",
+			nodes: []*animelists.Node{
+				node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+				node(3, "tvdbid=20 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+			},
+			entries: ontoSpecials, listed: map[int]anidb.Anime{1: fin(1), 3: fin(1, 1)}, wantBlocking: special(10),
+		},
+		{
+			name: "special_with_no_series",
+			nodes: []*animelists.Node{
+				node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+				node(3, "tvdbid=movie tmdbtv=99 tmdbseason=1"),
+			},
+			entries: ontoSpecials, listed: map[int]anidb.Anime{1: fin(1), 3: fin(1, 1)}, wantBlocking: special(10),
+		},
+		{
+			name: "unlisted_on_another_series",
+			nodes: []*animelists.Node{
+				node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+				node(3, "tvdbid=20 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+			},
+			entries: ontoSpecials, listed: map[int]anidb.Anime{1: fin(1)}, database: map[int]int{3: 1},
+			wantUnresolved: []Unresolved{{Episodes: []int{1}, Series: 10, TMDB: 99, AniDB: 3}},
+		},
+		{
+			name: "unlisted_with_its_special_rowed_elsewhere",
+			nodes: []*animelists.Node{
+				node(1, "tvdbid=10 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1"),
+				node(3, "tvdbid=20 defaulttvdbseason=1 tmdbtv=99 tmdbseason=1",
+					animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tmdbseason": "0"}, Text: ";1-5;"}),
+			},
+			entries: ontoSpecials, listed: map[int]anidb.Anime{1: fin(1)}, database: map[int]int{3: 1},
+		},
+		{
+			name: "unlisted_beside_a_node_with_no_series",
+			nodes: []*animelists.Node{
+				node(1, "tvdbid=movie tmdbtv=99 tmdbseason=1"),
+				node(3, "tvdbid=movie defaulttvdbseason= tmdbtv=98 tmdbseason=0"),
+			},
+			entries: []overlay.Entry{entry(3, overlay.Set{TMDBTV: new("99")})},
+			listed:  map[int]anidb.Anime{3: fin(1)}, database: map[int]int{1: 1},
+			wantUnresolved: []Unresolved{{Episodes: []int{1}, TMDB: 99, AniDB: 1}},
+		},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			rep := run(tc.nodes, tc.entries, facts(tc.listed, tc.database))
+			if !reflect.DeepEqual(rep.Blocking, tc.wantBlocking) {
+				t.Errorf("Blocking = %+v, want %+v", rep.Blocking, tc.wantBlocking)
+			}
+			if !reflect.DeepEqual(rep.Unresolved, tc.wantUnresolved) {
+				t.Errorf("Unresolved = %+v, want %+v", rep.Unresolved, tc.wantUnresolved)
+			}
+		})
 	}
 }
 
@@ -185,24 +502,44 @@ func TestCollisionAbsoluteResolvesThroughLayout(t *testing.T) {
 	}
 }
 
+func TestCollisionUntouchedAbsoluteNodeReachesTheBaseline(t *testing.T) {
+	eps := []skyhook.Episode{{Season: 1, Number: 1, Absolute: 1}, {Season: 2, Number: 1, Absolute: 11}}
+	nodes := []*animelists.Node{
+		node(1, "tvdbid=10 defaulttvdbseason=a"),
+		node(2, "tvdbid=10 defaulttvdbseason=1"),
+		node(3, "tvdbid=10 defaulttvdbseason=a episodeoffset=10"),
+	}
+	e := entry(3, overlay.Set{TMDBTV: new("50")})
+	e.Captured.TVDB = &overlay.CapturedTVDB{Series: 10, Episodes: eps}
+	rep := run(nodes, []overlay.Entry{e}, facts(map[int]anidb.Anime{1: fin(1), 2: fin(1), 3: fin(1)}, nil))
+	_, novel, _ := (&Baseline{Version: BaselineVersion}).Split(rep.Upstream)
+	if len(rep.Blocking) != 0 || len(novel) != 1 || novel[0].Target != "TVDB 1x1" || !slices.Equal(novel[0].Nodes, []int{1, 2}) {
+		t.Errorf("Blocking %+v, novel %+v; want no blocking and TVDB 1x1 (1, 2) novel", rep.Blocking, novel)
+	}
+}
+
 func TestCollisionRowsCoverAndRedirect(t *testing.T) {
 	f := facts(map[int]anidb.Anime{1: fin(2, 1), 2: fin(1)}, nil)
-	sp := animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-1;"}
-	reg := animelists.Row{Attrs: map[string]string{"anidbseason": "1", "tvdbseason": "0"}, Text: ";1-2;"}
+	reg := animelists.Row{Attrs: map[string]string{"anidbseason": "1", "tvdbseason": "0"}, Text: ";1-3;"}
 	nodes := []*animelists.Node{
-		node(1, "tvdbid=10 defaulttvdbseason=1", sp),
-		node(2, "tvdbid=10 defaulttvdbseason=0", reg),
+		node(1, "tvdbid=10 defaulttvdbseason=1"),
+		node(2, "tvdbid=10 defaulttvdbseason=0 episodeoffset=1", reg),
 	}
-	e := entry(1, overlay.Set{DefaultTVDBSeason: new("1")})
-	if rep := run(nodes, []overlay.Entry{e}, f); len(rep.Blocking) != 0 {
-		t.Errorf("node 2's row moves its episode 1 to 0x2, away from node 1's 0x1: %+v", rep.Blocking)
+	onto := func(target int) []overlay.Entry {
+		sp := overlay.Row{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, target}}}
+		if target == 0 {
+			sp.Episodes = [][]int{{1}}
+		}
+		return []overlay.Entry{entry(1, overlay.Set{MappingList: &[]overlay.Row{sp}})}
+	}
+	if rep := run(nodes, onto(2), f); len(rep.Blocking) != 0 {
+		t.Errorf("node 2's row moves its episode 1 to 0x3, away from node 1's S1 on 0x2: %+v", rep.Blocking)
 	}
 	nodes[1].Rows = nil
-	if rep := run(nodes, []overlay.Entry{e}, f); len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TVDB 0x1" {
-		t.Errorf("without the row node 2 defaults onto 0x1: %+v, want one collision", rep.Blocking)
+	if rep := run(nodes, onto(2), f); len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TVDB 0x2" {
+		t.Errorf("without the row node 2's offset puts it on 0x2: %+v, want one collision", rep.Blocking)
 	}
-	nodes[0].Rows[0].Text = ";1-0;"
-	if rep := run(nodes, []overlay.Entry{e}, f); len(rep.Blocking) != 0 {
+	if rep := run(nodes, onto(0), f); len(rep.Blocking) != 0 {
 		t.Errorf("a ;1-0; row maps node 1's special to nothing: %+v, want no collision", rep.Blocking)
 	}
 }
@@ -278,8 +615,6 @@ func TestCollisionBridgeParentSpecials(t *testing.T) {
 	}
 }
 
-// On a touched series a node the mirror does not list is unresolved, one it
-// lists is placed, and a special it lists can collide.
 func TestCollisionSiblingSpecialsComeFromTheMirror(t *testing.T) {
 	nodes := map[int]*animelists.Node{
 		1: node(1, "tvdbid=10 defaulttvdbseason=1"),
