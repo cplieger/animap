@@ -1,0 +1,74 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4141",
+    "tvdb": "https://thetvdb.com/series/strawberry-100/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "start": 1,
+        "end": 4,
+        "offset": 1
+      }
+    ]
+  },
+  "title": "Ichigo 100% (2005)",
+  "justification": "AniDB 1-4 (2005-06-20 to 2005-10-31) = TVDB 0x02-0x05 (2005-06-20 to 2005-10-31), was 0x03-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1e04c978e3d8e9c53fed8b79dd993a3aac2e8251ffca82a4d65b7e7f5f27c743",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2004-09-23"
+        ],
+        [
+          0,
+          2,
+          15,
+          "2005-06-20"
+        ],
+        [
+          0,
+          3,
+          16,
+          "2005-08-29"
+        ],
+        [
+          0,
+          4,
+          17,
+          "2005-09-26"
+        ],
+        [
+          0,
+          5,
+          18,
+          "2005-10-31"
+        ],
+        [
+          0,
+          6,
+          11,
+          "2005-12-18"
+        ]
+      ],
+      "series": 80759
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "128a2a41c1793d35b160e144fe5e82e0c6401e4c217ecac4e4a624ebded83fc2"
+  },
+  "anilist_ids": [
+    981
+  ],
+  "anidb_id": 4141
+}

@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16560",
+    "tvdb": "https://thetvdb.com/series/karakai-jouzu-no-takagi-san/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Karakai Jouzu no Takagi-san",
+  "justification": "AniDB special S1-S2 (2022-11-16) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "11a958beecaff5af4b12c81dab30522bf504fd17180bfdabbbb98fe07b5fb596",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2018-07-11"
+        ],
+        [
+          0,
+          2,
+          38,
+          "2022-06-10"
+        ]
+      ],
+      "series": 337936
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "777d976bf91b821a8355e6c8ddddedfa944f8aabb9d63ff4eee3a7c334f54ba8"
+  },
+  "anilist_ids": [
+    138425
+  ],
+  "anidb_id": 16560
+}

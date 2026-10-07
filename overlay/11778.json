@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11778",
+    "tvdb": "https://thetvdb.com/series/gantz/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Gantz O",
+  "justification": "AniDB 1 (2016-10-14) = TVDB 0x01 (2016-10-14), was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f8f3ddc73848cab31aef950751eb14369885e79db786f383af19cede419a7688",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-10-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-01-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-04-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-04-22"
+        ]
+      ],
+      "series": 78916
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f2971568afb23f9854a14b2dc25ea28edfbcd98fd7eeffd97a60eef1eb1d5e80"
+  },
+  "anilist_ids": [
+    21496
+  ],
+  "anidb_id": 11778
+}

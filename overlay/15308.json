@@ -1,0 +1,167 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15308",
+    "tvdb": "https://thetvdb.com/series/psycho-pass/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 401,
+        "end": 403,
+        "offset": -385
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Psycho-Pass 3: First Inspector",
+  "justification": "AniDB special S1 (2020-07-15) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fe7a0ae7d2eec09997a4261142cbf7bf9696bed18ef834cd59461f3505aada52",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-07-10"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-07-17"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-07-24"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-07-31"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-08-07"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-08-07"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-08-14"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2014-08-21"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2014-09-04"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2014-09-11"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-09-18"
+        ],
+        [
+          0,
+          12,
+          59,
+          "2015-01-09"
+        ],
+        [
+          0,
+          13,
+          35,
+          "2019-01-25"
+        ],
+        [
+          0,
+          14,
+          36,
+          "2019-02-15"
+        ],
+        [
+          0,
+          15,
+          37,
+          "2019-03-18"
+        ],
+        [
+          0,
+          16,
+          60,
+          "2020-03-27"
+        ],
+        [
+          0,
+          17,
+          47,
+          "2020-03-27"
+        ],
+        [
+          0,
+          18,
+          48,
+          "2020-03-27"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2020-03-27"
+        ],
+        [
+          0,
+          20,
+          61,
+          "2023-07-11"
+        ]
+      ],
+      "series": 262090
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3cb92dbe07e8c122b6058e34c53bfaeafeaf4f4bf405e4eaac5ae978e45ce1a1"
+  },
+  "anilist_ids": [
+    113917
+  ],
+  "anidb_id": 15308
+}

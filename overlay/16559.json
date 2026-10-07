@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16559",
+    "tvdb": "https://thetvdb.com/series/karakai-jouzu-no-takagi-san/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Karakai Jouzu no Takagi-san 3",
+  "justification": "AniDB special S1-S2 (2022-03-05 to 2022-03-26) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "cc9dda9ff071c6f350eebbb9f8519351f2dcdba0ab3c16dd32cd1cc0cb6a44a8",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2018-07-11"
+        ],
+        [
+          0,
+          2,
+          38,
+          "2022-06-10"
+        ],
+        [
+          3,
+          1,
+          26,
+          "2022-01-08"
+        ],
+        [
+          3,
+          2,
+          27,
+          "2022-01-15"
+        ],
+        [
+          3,
+          3,
+          28,
+          "2022-01-22"
+        ],
+        [
+          3,
+          4,
+          29,
+          "2022-01-29"
+        ],
+        [
+          3,
+          5,
+          30,
+          "2022-02-05"
+        ],
+        [
+          3,
+          6,
+          31,
+          "2022-02-12"
+        ],
+        [
+          3,
+          7,
+          32,
+          "2022-02-19"
+        ],
+        [
+          3,
+          8,
+          33,
+          "2022-02-26"
+        ],
+        [
+          3,
+          9,
+          34,
+          "2022-03-05"
+        ],
+        [
+          3,
+          10,
+          35,
+          "2022-03-12"
+        ],
+        [
+          3,
+          11,
+          36,
+          "2022-03-19"
+        ],
+        [
+          3,
+          12,
+          37,
+          "2022-03-26"
+        ]
+      ],
+      "series": 337936
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "94a68a4e50bf55412ff1417ed280b4a776375973e1d53d244844a91381c68853"
+  },
+  "anilist_ids": [
+    138424
+  ],
+  "anidb_id": 16559
+}

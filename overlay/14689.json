@@ -1,0 +1,133 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14689",
+    "tvdb": "https://thetvdb.com/series/demon-slayer-kimetsu-no-yaiba/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kimetsu no Yaiba: Kyoudai no Kizuna",
+  "justification": "AniDB special S1 (2019-08-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2543d08427e13be27bc3054cfc76d93c419893fe99bca4ffd65e9f4c4d9cc662",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-03-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2020-10-16"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2021-09-11"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2021-09-12"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2021-09-18"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2021-09-19"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2021-09-23"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-08-26"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2020-08-26"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2020-08-26"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2024-02-02"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2025-07-18"
+        ]
+      ],
+      "series": 348545
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3ca5340c5e7b1fbad0091843e025d473e38ae1094af5aebd8b442c3d0165bbd5"
+  },
+  "anidb_id": 14689
+}

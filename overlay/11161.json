@@ -1,0 +1,95 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11161",
+    "tvdb": "https://thetvdb.com/series/kantai-collection-kan-colle/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "KanColle: Itsuka Ano Umi de",
+  "justification": "AniDB special S1 (2023-02-12) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d43610dbdb9224c9c6628ea3a6d6a1936e7a684b3ed8c6e086584da835fcc2e4",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-11-27"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2022-11-04"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2022-11-11"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2022-11-18"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2022-12-16"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2022-12-23"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2023-01-20"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2023-02-12"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2023-03-25"
+        ]
+      ],
+      "series": 279533
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a4e02c58b555e7ddbb35691e8cb5476fe7fe316156c47f687700106461bcda43"
+  },
+  "anilist_ids": [
+    21294
+  ],
+  "anidb_id": 11161
+}

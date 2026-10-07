@@ -1,0 +1,76 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8068",
+    "tvdb": "https://thetvdb.com/series/isshoni-training/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 1,
+        "episodes": [
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Issho ni Training Ofuro: Bathtime with Hinako \u0026 Hiyoko",
+  "justification": "AniDB special S1 (2010-12-24) = TVDB 0x01 (2010-12-24), was 1x04 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f86775aebab7e66dfb3689b3de78246051615e76c2b3fd4130a63ff3d393789b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-12-24"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2009-04-24"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2010-02-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2010-12-24"
+        ]
+      ],
+      "series": 91431
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d7ba9540c70e6a478b84cfb9caa74616877590c430e3bef39af2715a82ca5516"
+  },
+  "anilist_ids": [
+    9744
+  ],
+  "anidb_id": 8068
+}

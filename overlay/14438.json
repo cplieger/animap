@@ -1,0 +1,178 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14438",
+    "tvdb": "https://thetvdb.com/series/laid-back-camp/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Yuru Camp",
+  "justification": "AniDB special S1-S3 (no AniDB date) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "95e10baddc530e38b2766777825f274ea672e4be06b6d4c5b15625cdae879617",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-03-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-05-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2018-07-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-07-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2020-01-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-01-13"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2020-01-20"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2020-01-27"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2020-02-03"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2020-02-10"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2020-02-17"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-02-24"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2020-03-02"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2020-03-09"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2020-03-16"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2020-03-23"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2020-04-29"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2021-07-28"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2021-05-26"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2024-06-26"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2024-08-28"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2024-10-23"
+        ]
+      ],
+      "series": 330692
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d3a712be7df345dd82dc8277dfe8a223c28fd6cdb809520162b951d039b366d6"
+  },
+  "anilist_ids": [
+    104460
+  ],
+  "anidb_id": 14438
+}

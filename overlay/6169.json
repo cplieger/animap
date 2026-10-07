@@ -1,0 +1,165 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6169",
+    "tvdb": "https://thetvdb.com/series/spice-and-wolf/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ookami to Koushinryou II",
+  "justification": "AniDB special S4 (2009-12-02) = TVDB 0x05 (2009-12-02), was unmapped, by title, order breaking a same-title tie. AniDB special S5 (2010-01-06) = TVDB 0x06 (2010-01-06), was 0x05, by title, order breaking a same-title tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "03cc3fbfc705c523a8ccd6e8d6e900869e6675ea1eca26a0235e3e835cb00021",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          7,
+          "2008-05-30"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-10-07"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-11-04"
+        ],
+        [
+          0,
+          4,
+          14,
+          "2009-04-30"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-12-02"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2010-01-06"
+        ],
+        [
+          2,
+          1,
+          15,
+          "2009-07-09"
+        ],
+        [
+          2,
+          2,
+          16,
+          "2009-07-16"
+        ],
+        [
+          2,
+          3,
+          17,
+          "2009-07-23"
+        ],
+        [
+          2,
+          4,
+          18,
+          "2009-07-30"
+        ],
+        [
+          2,
+          5,
+          19,
+          "2009-08-06"
+        ],
+        [
+          2,
+          6,
+          20,
+          "2009-08-13"
+        ],
+        [
+          2,
+          7,
+          21,
+          "2009-08-20"
+        ],
+        [
+          2,
+          8,
+          22,
+          "2009-08-27"
+        ],
+        [
+          2,
+          9,
+          23,
+          "2009-09-03"
+        ],
+        [
+          2,
+          10,
+          24,
+          "2009-09-10"
+        ],
+        [
+          2,
+          11,
+          25,
+          "2009-09-17"
+        ],
+        [
+          2,
+          12,
+          26,
+          "2009-09-24"
+        ]
+      ],
+      "series": 81178
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "9e6934b7d89dacdac27d636ace2b4e07b0cdf707706f913ed513c63af96bcf4e"
+  },
+  "anilist_ids": [
+    5341
+  ],
+  "anidb_id": 6169
+}

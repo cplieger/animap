@@ -1,0 +1,184 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15873",
+    "tvdb": "https://thetvdb.com/series/my-hero-academia/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Boku no Hero Academia the Movie: World Heroes' Mission",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "022ca86b4051708337d0a6624c4a7bab5e7003be7773249688cd7eedb2ab7b3b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-11-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-03-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-06-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-08-30"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-02-13"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2019-02-13"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2019-12-20"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2020-08-15"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2020-08-15"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2020-07-15"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2021-10-29"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2022-02-16"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2022-06-16"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2022-06-16"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2023-10-20"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2024-04-06"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2024-04-13"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2024-04-20"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2024-04-27"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2024-08-02"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2025-02-19"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2024-04-12"
+        ],
+        [
+          0,
+          23,
+          0,
+          "2026-05-02"
+        ],
+        [
+          0,
+          24,
+          0,
+          "2026-08-03"
+        ]
+      ],
+      "series": 305074
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "95f04bf6a8569bd4f6dea150757a1710dc5ac70a09a5a4920ee54038e2c02ff0"
+  },
+  "anilist_ids": [
+    126659
+  ],
+  "anidb_id": 15873
+}

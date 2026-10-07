@@ -1,0 +1,73 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8586",
+    "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "IS: Infinite Stratos Encore - Koi ni Kogareru Rokujuusou",
+  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f6bec99b3d0c344c03e170b5898c07a1b5ae7958028325ad81f3f55bca86865d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-12-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-10-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-10-30"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-11-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-06-30"
+        ]
+      ],
+      "series": 219131
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1ae568b1157f210e864924f388d336db1e0720ee54b4fb1676f61c96006b7e81"
+  },
+  "anilist_ids": [
+    10794
+  ],
+  "anidb_id": 8586
+}

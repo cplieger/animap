@@ -1,0 +1,150 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11008",
+    "tvdb": "https://thetvdb.com/series/the-fruit-of-grisaia/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            8
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Grisaia no Meikyuu: Caprice no Mayu 0",
+  "justification": "AniDB special S1 (2015-07-23) = TVDB 0x08 (2015-07-23), was 0x01, by title. AniDB special S2 (2015-04-12) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "83ce4fb0c80626d55873c982723666ddb5728efd12ec4a7cf578ca986cc36f33",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-01-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-02-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-03-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2015-04-22"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-05-27"
+        ],
+        [
+          0,
+          7,
+          14,
+          "2015-04-12"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-07-23"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-08-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2015-09-18"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2015-10-23"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2015-11-26"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2015-12-25"
+        ],
+        [
+          0,
+          14,
+          25,
+          "2019-03-15"
+        ],
+        [
+          0,
+          15,
+          26,
+          "2019-03-15"
+        ],
+        [
+          0,
+          16,
+          27,
+          "2020-11-27"
+        ]
+      ],
+      "series": 281949
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4dbab72e11bf7b8488a4203584b005e45a39769d988e43db0baec5b8cea1b643"
+  },
+  "anilist_ids": [
+    21005
+  ],
+  "anidb_id": 11008
+}

@@ -1,0 +1,101 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8694",
+    "tvdb": "https://thetvdb.com/series/a-certain-magical-index/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Toaru Majutsu no Index: Endymion no Kiseki",
+  "justification": "AniDB special S2-S5 (no AniDB date) have no TVDB episode, was 0x02-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e7e19938494f56377b3330fdb0be89dfd6ed47e7b47332b8d034945d40f6e315",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-01-23"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-05-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-01-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-06-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-02-23"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-08-08"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2018-12-26"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2019-04-30"
+        ]
+      ],
+      "series": 83322
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b422f2961d52d49b2ff152aa056508897acf42f176cf012cda01b6c4bbfa1a06"
+  },
+  "anilist_ids": [
+    11743
+  ],
+  "anidb_id": 8694
+}

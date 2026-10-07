@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12395",
+    "tvdb": "https://thetvdb.com/series/tsugumomo/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tsugumomo",
+  "justification": "AniDB special S1 (2017-04-02) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "8366d2ec9ce8b2f9f022883cd15276a5474fa17eac4dd0a7bdaca9fb3463633c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2020-01-22"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2017-04-02"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2017-04-09"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2017-04-16"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2017-04-23"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2017-04-30"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2017-05-07"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2017-05-14"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2017-05-21"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2017-05-28"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2017-06-04"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2017-06-11"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2017-06-18"
+        ]
+      ],
+      "series": 321532
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "da21de7b0a027f44edf9a7af7abe0276ea17dbf0697c83acd8d1e5c1d6fc1c53"
+  },
+  "anilist_ids": [
+    97625
+  ],
+  "anidb_id": 12395
+}

@@ -1,0 +1,134 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17981",
+    "tvdb": "https://thetvdb.com/series/bang-dream-its-mygo/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Bang Dream! It's MyGo!!!!!",
+  "justification": "AniDB special S1-S2 (2023-09-07 to 2023-06-22) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9482e4a1a956528eacaf18c12c80316afa0cf0ba1d1b7e454735400e2e4ad95b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2024-09-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2024-11-08"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2023-06-29"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-06-29"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-06-29"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-07-06"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-07-13"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-07-20"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-07-27"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-08-03"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-08-10"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-08-17"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-08-24"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2023-08-31"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2023-09-14"
+        ]
+      ],
+      "series": 433560
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "47d4c4c49fa3dfebba34dd935d2fcb5fc4a4f89b422561d02030aec273e46753"
+  },
+  "anilist_ids": [
+    163571
+  ],
+  "anidb_id": 17981
+}

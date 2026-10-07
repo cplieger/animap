@@ -1,0 +1,101 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4852",
+    "tvdb": "https://thetvdb.com/series/agent-aika/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Aika R-16",
+  "justification": "AniDB special S3-S5 (2007-04-25 to (none)) have no TVDB episode, was 0x03-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0960e1eab6a2e55bb54d2686b1f879c8f0644f61a818979b7d75430820bfae83",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1998-05-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2007-01-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-08-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2009-10-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-12-22"
+        ],
+        [
+          2,
+          1,
+          8,
+          "2007-04-25"
+        ],
+        [
+          2,
+          2,
+          9,
+          "2007-07-27"
+        ],
+        [
+          2,
+          3,
+          10,
+          "2007-10-26"
+        ]
+      ],
+      "series": 80900
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2183b69b79c40505cd81036f6335aaa1b33d02fb5612def455d012d7d63af5ca"
+  },
+  "anilist_ids": [
+    2163
+  ],
+  "anidb_id": 4852
+}

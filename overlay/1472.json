@@ -1,0 +1,60 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1472",
+    "tvdb": "https://thetvdb.com/series/genma-wars/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Genma Taisen",
+  "justification": "AniDB 2 (1983-03-12) = TVDB 0x01 (1983-03-12), was 0x02 (no such TVDB episode). AniDB 3 (1983-03-12) = TVDB 0x01 (1983-03-12), was 0x03 (no such TVDB episode). AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "bb7220f0423e5c23e8784b961368c7838ed4c09eebf9a1af9e4722cb50d51046",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1983-03-12"
+        ]
+      ],
+      "series": 141751
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "9a07c7fdc9a33a3d86bfafe6d25bc03626fe4393cf80a1feaa443c98ea3948fc"
+  },
+  "anilist_ids": [
+    1626
+  ],
+  "anidb_id": 1472
+}

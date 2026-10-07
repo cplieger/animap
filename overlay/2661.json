@@ -1,0 +1,181 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2661",
+    "tvdb": "https://thetvdb.com/series/star-blazers/seasons/official/3",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/85230"
+  },
+  "set": {
+    "tvdbid": "77773"
+  },
+  "title": "Uchuu Senkan Yamato III",
+  "justification": "tvdbid 85230 to 77773 (TVDB 85230 is gone from TVDB's official order). AniDB 1-5 (1980-10-11 to 1980-11-08) = TVDB 3x01-3x05 (1980-10-10 to 1980-11-07), was TVDB 85230 3x01-3x05, by title. AniDB 6 (1980-11-15) = TVDB 3x06 (1980-11-14), was TVDB 85230 3x06, by title, air date breaking a tie. AniDB 7-18 (1980-11-22 to 1981-02-14) = TVDB 3x07-3x18 (1980-11-21 to 1981-02-14), was TVDB 85230 3x07-3x18, by title. AniDB 19-20 (1981-02-21 to 1981-02-28) = TVDB 3x19-3x20 (1981-02-21 to 1981-02-28), was TVDB 85230 3x19-3x20, by title, order breaking a same-title tie. AniDB 21 (1981-03-07) = TVDB 3x21 (1981-03-07), was TVDB 85230 3x21, by title. AniDB 22 (1981-03-14) = TVDB 3x22 (1981-03-14), was TVDB 85230 3x22, by title, order breaking a same-title tie. AniDB 23-25 (1981-03-21 to 1981-04-04) = TVDB 3x23-3x25 (1981-03-21 to 1981-04-04), was TVDB 85230 3x23-3x25, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a5757375c26220cca81969109ebbfd4636d64edef2dbf76bdd66395dac9a7bf0",
+      "seasons": [
+        3
+      ],
+      "episodes": [
+        [
+          3,
+          1,
+          53,
+          "1980-10-10"
+        ],
+        [
+          3,
+          2,
+          54,
+          "1980-10-17"
+        ],
+        [
+          3,
+          3,
+          55,
+          "1980-10-24"
+        ],
+        [
+          3,
+          4,
+          56,
+          "1980-10-31"
+        ],
+        [
+          3,
+          5,
+          57,
+          "1980-11-07"
+        ],
+        [
+          3,
+          6,
+          58,
+          "1980-11-14"
+        ],
+        [
+          3,
+          7,
+          59,
+          "1980-11-21"
+        ],
+        [
+          3,
+          8,
+          60,
+          "1980-11-28"
+        ],
+        [
+          3,
+          9,
+          61,
+          "1980-12-05"
+        ],
+        [
+          3,
+          10,
+          62,
+          "1980-12-12"
+        ],
+        [
+          3,
+          11,
+          63,
+          "1980-12-19"
+        ],
+        [
+          3,
+          12,
+          64,
+          "1981-01-02"
+        ],
+        [
+          3,
+          13,
+          65,
+          "1981-01-10"
+        ],
+        [
+          3,
+          14,
+          66,
+          "1981-01-17"
+        ],
+        [
+          3,
+          15,
+          67,
+          "1981-01-24"
+        ],
+        [
+          3,
+          16,
+          68,
+          "1981-01-31"
+        ],
+        [
+          3,
+          17,
+          69,
+          "1981-02-07"
+        ],
+        [
+          3,
+          18,
+          70,
+          "1981-02-14"
+        ],
+        [
+          3,
+          19,
+          71,
+          "1981-02-21"
+        ],
+        [
+          3,
+          20,
+          72,
+          "1981-02-28"
+        ],
+        [
+          3,
+          21,
+          73,
+          "1981-03-07"
+        ],
+        [
+          3,
+          22,
+          74,
+          "1981-03-14"
+        ],
+        [
+          3,
+          23,
+          75,
+          "1981-03-21"
+        ],
+        [
+          3,
+          24,
+          76,
+          "1981-03-28"
+        ],
+        [
+          3,
+          25,
+          77,
+          "1981-04-04"
+        ]
+      ],
+      "series": 77773
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a65fa7b9615eb1a703f6e47e202c47b7b25789c3a6b0e957d065c6fc22af0e57"
+  },
+  "anilist_ids": [
+    1652
+  ],
+  "anidb_id": 2661
+}

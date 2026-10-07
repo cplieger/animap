@@ -1,0 +1,98 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12654",
+    "tvdb": "https://thetvdb.com/series/kabaneri-of-the-iron-fortress/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Koutetsujou no Kabaneri: Unato Kessen",
+  "justification": "AniDB special S2 (2019-05-10) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d741ddc194b299bccacb7e18a5b0d78646c5e3add05cf0d80e2f3df9c23a2a74",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-12-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-01-07"
+        ],
+        [
+          0,
+          3,
+          13,
+          "2019-09-13"
+        ],
+        [
+          0,
+          4,
+          14,
+          "2019-09-13"
+        ],
+        [
+          0,
+          5,
+          15,
+          "2019-09-13"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2019-05-10"
+        ]
+      ],
+      "series": 305082
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4e058d388a532804a4dc63c691e187a4cd2af288367270a9e5fa7fbc545f9217"
+  },
+  "anilist_ids": [
+    97918
+  ],
+  "anidb_id": 12654
+}

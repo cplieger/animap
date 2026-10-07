@@ -1,0 +1,58 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1416",
+    "tvdb": "https://thetvdb.com/series/toward-the-terra/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Terra e...",
+  "justification": "AniDB special S1 (1980-04-26) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "14a07aee563675e69ab2a7e30958edbb4c0d2cb23d07f8f1e196756b019c228e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1980-04-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2007-12-19"
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ]
+      ],
+      "series": 80241
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "42678249c2b94d43181ea8f9b388550a7467e299cb84d401acf57188ad4aaedb"
+  },
+  "anilist_ids": [
+    2560
+  ],
+  "anidb_id": 1416
+}

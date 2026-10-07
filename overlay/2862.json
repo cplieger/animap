@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2862",
+    "tvdb": "https://thetvdb.com/series/eien-no-aseria-spirit-of-eternity-sword/seasons/official/1",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/201561"
+  },
+  "set": {
+    "tvdbid": "475279"
+  },
+  "title": "Eien no Aseria",
+  "justification": "tvdbid 201561 to 475279 (TVDB 201561 is gone from TVDB's official order). AniDB 1-2 (2005-06-24 to 2006-03-24) = TVDB 1x01-1x02 (2005-06-24 to 2006-03-24), was TVDB 201561 1x01-1x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "99d3641034204f02283c0007bac3a5bf23dd83d6da84f29b2822494d45e46999",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2005-06-24"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2006-03-24"
+        ]
+      ],
+      "series": 475279
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "27a0792e847c3fbeaaa21d65552a01b0e332abccb853e7bb52e1c2bdc473b31e"
+  },
+  "anilist_ids": [
+    503
+  ],
+  "anidb_id": 2862
+}

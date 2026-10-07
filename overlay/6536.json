@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6536",
+    "tvdb": "https://thetvdb.com/series/yatterman/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "2"
+  },
+  "title": "Gekijouban Yatterman: Shin Yattermecha Daishuugou! Omocha no Kuni de Daiketsudan Da Koron!",
+  "justification": "AniDB 1 (2009-08-22) = TVDB 0x03 (2009-08-22), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "decd833762b7767166198d9ac33dd3834cf9fa82e68816d60e65716f0177cd0d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2008-05-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-11-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-08-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ]
+      ],
+      "series": 250266
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "fab551f300d37eb592c75d2253df99a4e53a44e7fdd311fe5e3a6ed9b0cb7a62"
+  },
+  "anilist_ids": [
+    6693
+  ],
+  "anidb_id": 6536
+}

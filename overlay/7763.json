@@ -1,0 +1,84 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7763",
+    "tvdb": "https://thetvdb.com/series/immortal-grand-prix/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "IGPX: Immortal Grand Prix",
+  "justification": "AniDB 1-5 (2003-09-15 to 2003-09-19) = TVDB 0x01-0x05 (2003-09-15 to 2003-09-19), was 1x01-1x05. AniDB special S1-S5 (no AniDB date) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "8b4334b71d37440c65c946c0cf2d2a91f74607460b5c92ea4e8b62c39d992012",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2003-09-15"
+        ],
+        [
+          0,
+          2,
+          2,
+          "2003-09-16"
+        ],
+        [
+          0,
+          3,
+          3,
+          "2003-09-17"
+        ],
+        [
+          0,
+          4,
+          4,
+          "2003-09-18"
+        ],
+        [
+          0,
+          5,
+          5,
+          "2003-09-19"
+        ]
+      ],
+      "series": 73011
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ec6516e9c2e78ba92466233e729f68253b01fe5098621c0bef38d44106aa68dc"
+  },
+  "anilist_ids": [
+    1409
+  ],
+  "anidb_id": 7763
+}

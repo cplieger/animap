@@ -1,0 +1,189 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18067",
+    "tvdb": "https://thetvdb.com/series/demon-slayer-kimetsu-no-yaiba/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            15
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kimetsu no Yaiba: Hashira Geiko Hen",
+  "justification": "AniDB special S1 (2024-05-04) = TVDB 0x15 (2024-02-02), was 0x01, by title. AniDB special S2 (2024-03-16) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "324472044bcedfcf09d5de4a6ce2c065123449ed50fc57e52e15ad9f6d96e8c6",
+      "seasons": [
+        0,
+        5
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-03-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2020-10-16"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2021-02-14"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2021-09-11"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2021-09-12"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2021-09-18"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2021-09-19"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2021-09-23"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-08-26"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2020-08-26"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2020-08-26"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2024-02-02"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2025-07-18"
+        ],
+        [
+          5,
+          1,
+          56,
+          "2024-05-12"
+        ],
+        [
+          5,
+          2,
+          57,
+          "2024-05-19"
+        ],
+        [
+          5,
+          3,
+          58,
+          "2024-05-26"
+        ],
+        [
+          5,
+          4,
+          59,
+          "2024-06-02"
+        ],
+        [
+          5,
+          5,
+          60,
+          "2024-06-09"
+        ],
+        [
+          5,
+          6,
+          61,
+          "2024-06-16"
+        ],
+        [
+          5,
+          7,
+          62,
+          "2024-06-23"
+        ],
+        [
+          5,
+          8,
+          63,
+          "2024-06-30"
+        ]
+      ],
+      "series": 348545
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "0be60207693e70b2908b6fb819e01bf3591ffb7d1dd140fc10bb3839c81d205b"
+  },
+  "anilist_ids": [
+    166240
+  ],
+  "anidb_id": 18067
+}

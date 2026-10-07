@@ -1,0 +1,218 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10784",
+    "tvdb": "https://thetvdb.com/series/the-rolling-girls/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6
+          ],
+          [
+            4,
+            7,
+            8
+          ],
+          [
+            5,
+            9,
+            10
+          ],
+          [
+            6,
+            11,
+            12
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "The Rolling Girls",
+  "justification": "AniDB special S1 (2015-03-18) = TVDB 0x01+0x02 (2015-03-18), was 0x01, one AniDB episode spanning two TVDB episodes. AniDB special S2 (2015-04-15) = TVDB 0x03+0x04 (2015-04-15), was 0x02, one AniDB episode spanning two TVDB episodes. AniDB special S3 (2015-05-20) = TVDB 0x05+0x06 (2015-05-20), was 0x03, one AniDB episode spanning two TVDB episodes. AniDB special S4 (2015-06-17) = TVDB 0x07+0x08 (2015-06-17), was 0x04, one AniDB episode spanning two TVDB episodes. AniDB special S5 (2015-07-15) = TVDB 0x09+0x10 (2015-07-15), was 0x05, one AniDB episode spanning two TVDB episodes. AniDB special S6 (2015-08-19) = TVDB 0x11+0x12 (2015-08-19), was 0x06, one AniDB episode spanning two TVDB episodes. AniDB special S7-S8 (2015-03-01 to 2015-03-18) have no TVDB episode, was 0x07-0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "cc4188695fa31449051acf49a4fda48cdde5af6c2b469e74b97ac95916fa2c34",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-03-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-03-18"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-04-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-04-15"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2015-05-20"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-05-20"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2015-06-17"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-06-17"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-07-15"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2015-07-15"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2015-08-19"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2015-08-19"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2015-01-12"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2015-01-18"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2015-01-25"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2015-02-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2015-02-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2015-02-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2015-02-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2015-03-01"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2015-03-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2015-03-15"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2015-03-22"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2015-03-29"
+        ]
+      ],
+      "series": 284585
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "0590b377ec646e42ad27c1e0246c0e345aea910e41dfc887aca055ccf1180e8e"
+  },
+  "anilist_ids": [
+    20815
+  ],
+  "anidb_id": 10784
+}

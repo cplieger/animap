@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10960",
+    "tvdb": "https://thetvdb.com/series/showa-genroku-rakugo-shinju/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Shouwa Genroku Rakugo Shinjuu (2016)",
+  "justification": "AniDB special S1 (2016-02-24) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d6237b724953bb656b81fcad9ca131edd2290937f2508fe7c133f2076ff1e870",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-03-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-08-07"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-01-09"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-01-16"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-01-23"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-01-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-02-06"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-02-13"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-02-20"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-02-27"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-03-05"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-03-12"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-03-19"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-03-26"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2016-04-02"
+        ]
+      ],
+      "series": 304316
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "718ef60776d84102932ac169d6c2395abd0a56d28805eb6194e604462cf85841"
+  },
+  "anilist_ids": [
+    20972
+  ],
+  "anidb_id": 10960
+}

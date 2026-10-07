@@ -1,0 +1,103 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3684",
+    "tvdb": "https://thetvdb.com/series/rakugo-tennyo-oyui/seasons/official/1",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/261271"
+  },
+  "set": {
+    "tvdbid": "311739"
+  },
+  "title": "Rakugo Tennyo Oyui",
+  "justification": "tvdbid 261271 to 311739 (TVDB 261271 is gone from TVDB's official order). AniDB 1-12 (2006-01-06 to 2006-03-24) = TVDB 1x01-1x12 (2006-01-05 to 2006-03-23), was TVDB 261271 1x01-1x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "7e4632490204fb2d0dd3fe8e86795c3301951c9bb8cf6acb7fd78c7c40b1844f",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          0,
+          "2006-01-05"
+        ],
+        [
+          1,
+          2,
+          0,
+          "2006-01-12"
+        ],
+        [
+          1,
+          3,
+          0,
+          "2006-01-19"
+        ],
+        [
+          1,
+          4,
+          0,
+          "2006-01-26"
+        ],
+        [
+          1,
+          5,
+          0,
+          "2006-02-02"
+        ],
+        [
+          1,
+          6,
+          0,
+          "2006-02-09"
+        ],
+        [
+          1,
+          7,
+          0,
+          "2006-02-16"
+        ],
+        [
+          1,
+          8,
+          0,
+          "2006-02-23"
+        ],
+        [
+          1,
+          9,
+          0,
+          "2006-03-02"
+        ],
+        [
+          1,
+          10,
+          0,
+          "2006-03-09"
+        ],
+        [
+          1,
+          11,
+          0,
+          "2006-03-16"
+        ],
+        [
+          1,
+          12,
+          0,
+          "2006-03-23"
+        ]
+      ],
+      "series": 311739
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "63d2311fa095899487cafcb4e0c776f06edb658bf4aaf248884808af71c36ee4"
+  },
+  "anilist_ids": [
+    2244
+  ],
+  "anidb_id": 3684
+}

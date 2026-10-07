@@ -1,0 +1,140 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12571",
+    "tvdb": "https://thetvdb.com/series/blood-blockade-battlefront/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kekkai Sensen \u0026 Beyond",
+  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c77cb4db38e8c0d15dc57492dbbf734c1522f3ea5af7775676909eb01bb2cf2a",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-06-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-07-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-06-03"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-07-04"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2017-10-08"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2017-10-15"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2017-10-22"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2017-10-29"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2017-11-05"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2017-11-12"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2017-11-19"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2017-11-26"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2017-12-03"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2017-12-10"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2017-12-17"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2017-12-24"
+        ]
+      ],
+      "series": 289886
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e43da62143605f9a8faff1561660d6f8a9f167e13611910c697d79c50312a796"
+  },
+  "anilist_ids": [
+    97886
+  ],
+  "anidb_id": 12571
+}

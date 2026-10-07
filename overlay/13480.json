@@ -1,0 +1,150 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13480",
+    "tvdb_s0": "https://thetvdb.com/series/one-room/seasons/official/0",
+    "tvdb_s2": "https://thetvdb.com/series/one-room/seasons/official/2"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 2,
+        "start": 2,
+        "end": 13,
+        "offset": -1
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "One Room: Second Season",
+  "justification": "AniDB 1 (2018-07-03) = TVDB 0x02 (2018-07-03), was 2x01. AniDB 2-13 (2018-07-09 to 2018-09-24) = TVDB 2x01-2x12 (2018-07-10 to 2018-09-25), was 2x02-2x13. AniDB special S1 (2018-11-30) = TVDB 0x03 (2018-11-30), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "03c032904d4baa65580f1443923af1f4457bd8419df020bd953a70f507e4fdb1",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2017-05-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-07-03"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2018-11-30"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2018-07-10"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2018-07-17"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2018-07-24"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2018-07-31"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2018-08-07"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2018-08-14"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2018-08-21"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2018-08-28"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2018-09-04"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2018-09-11"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2018-09-18"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2018-09-25"
+        ]
+      ],
+      "series": 319995
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "642fc901f95fe45903bcda65d282e78960bc3bfaadd94631165c151eff19c0a1"
+  },
+  "anilist_ids": [
+    100133
+  ],
+  "anidb_id": 13480
+}

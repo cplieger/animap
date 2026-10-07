@@ -1,0 +1,134 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17134",
+    "tvdb": "https://thetvdb.com/series/the-low-tier-character-tomozaki-kun/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Jaku Chara Tomozaki-kun 2nd Stage",
+  "justification": "AniDB special S1-S2 (2023-12-18 to 2024-02-15) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9e01659da9f2911312248b0a76cd83c8e5ef532df1c551e5d35b3d023c748f60",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2021-05-07"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2021-06-02"
+        ],
+        [
+          2,
+          1,
+          15,
+          "2024-01-03"
+        ],
+        [
+          2,
+          2,
+          16,
+          "2024-01-10"
+        ],
+        [
+          2,
+          3,
+          17,
+          "2024-01-17"
+        ],
+        [
+          2,
+          4,
+          18,
+          "2024-01-24"
+        ],
+        [
+          2,
+          5,
+          19,
+          "2024-01-31"
+        ],
+        [
+          2,
+          6,
+          20,
+          "2024-02-07"
+        ],
+        [
+          2,
+          7,
+          21,
+          "2024-02-14"
+        ],
+        [
+          2,
+          8,
+          22,
+          "2024-02-21"
+        ],
+        [
+          2,
+          9,
+          23,
+          "2024-02-28"
+        ],
+        [
+          2,
+          10,
+          24,
+          "2024-03-06"
+        ],
+        [
+          2,
+          11,
+          25,
+          "2024-03-13"
+        ],
+        [
+          2,
+          12,
+          26,
+          "2024-03-20"
+        ],
+        [
+          2,
+          13,
+          27,
+          "2024-03-27"
+        ]
+      ],
+      "series": 388737
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "60ba0eeeabc3b831b9b1023c74a7002736dbb2d87cbcb520149114dd535e8f2c"
+  },
+  "anilist_ids": [
+    143866
+  ],
+  "anidb_id": 17134
+}

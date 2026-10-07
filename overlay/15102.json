@@ -2,8 +2,8 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/15102",
     "anilist": "https://anilist.co/anime/111734",
-    "tvdb": "https://thetvdb.com/series/given/seasons/official/0",
-    "tmdb": "https://www.themoviedb.org/movie/632632"
+    "tmdb": "https://www.themoviedb.org/movie/632632",
+    "tvdb": "https://thetvdb.com/series/given/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -16,11 +16,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Given Movie",
-  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2020-08-22 = 0x1 2020-08-22. The node has no TMDB TV mapping; its TMDB film 632632 was released 2020-08-22, within a day, under the series title, which AniList's English title extends with \"The Movie\". AniDB lists 1 special(s).",
+  "justification": "AniDB 1 regular episode(s) = TVDB official order, air dates within a day: 1 2020-08-22 = 0x1 2020-08-22. The node has no TMDB TV mapping; its TMDB film 632632 was released 2020-08-22, within a day, under the series title, which AniList's English title extends with \"The Movie\". AniDB lists 1 special(s). AniDB special S1 has no TVDB episode (Anime-Lists pull request 629 maps it 1-0).",
   "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
@@ -56,8 +65,8 @@
       ],
       "series": 361218
     },
-    "at": "2026-10-05",
-    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "7652755c7024e45e5c2ab8f8bb0474cc717ab280c61c6bbc7c1f5d28fe297c94"
   },
   "anilist_ids": [

@@ -1,0 +1,126 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15415",
+    "tvdb": "https://thetvdb.com/series/im-standing-on-a-million-lives/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "100-man no Inochi no Ue ni Ore wa Tatte Iru",
+  "justification": "AniDB special S1 (2021-07-03) = TVDB 0x02 (2021-07-03), was 0x01, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "5a421bbec9e60c1698dba99f2022109824725e980be171138f94a8e64a2bb68c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2020-10-02"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-07-03"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2020-10-02"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2020-10-09"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2020-10-16"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2020-10-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2020-10-30"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2020-11-06"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2020-11-13"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2020-11-20"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2020-11-27"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2020-12-04"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2020-12-11"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2020-12-25"
+        ]
+      ],
+      "series": 383518
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2fd24fcded14cb6af37ade6b045040f732c09ecad41ce9386fe471b4c2dcb5c5"
+  },
+  "anilist_ids": [
+    116242
+  ],
+  "anidb_id": 15415
+}

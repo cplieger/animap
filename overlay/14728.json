@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14728",
+    "tvdb": "https://thetvdb.com/series/tsugumomo/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tsugu Tsugumomo",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "43c5c67989b878bdebc0d3ef6986fc7ee79ea875747de11dba02f371b1fc2dc4",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2020-01-22"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2020-04-05"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2020-04-12"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2020-04-19"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2020-04-26"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2020-05-03"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2020-05-10"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2020-05-17"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2020-05-24"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2020-05-31"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2020-06-07"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2020-06-14"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2020-06-21"
+        ]
+      ],
+      "series": 321532
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "288926e1e70a2cfcd91d7591db377a98579d2b2be55a0bc713235fe8f588a7e1"
+  },
+  "anilist_ids": [
+    108266
+  ],
+  "anidb_id": 14728
+}

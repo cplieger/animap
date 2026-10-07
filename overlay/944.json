@@ -1,0 +1,57 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/944",
+    "tvdb": "https://thetvdb.com/series/sengoku-majin-goshogun/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Sengoku Majin Goushougun: Toki no Etranger",
+  "justification": "AniDB 1 (1985-04-27) = TVDB 0x02 (1985-04-27), was 0x01. AniDB 3 (1985-04-27) = TVDB 0x02 (1985-04-27), was 0x03 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1364a5eb01ba5c16b3b6804c0227a73f7d7f7ab0b7cdf0cff3fbc7efe38af709",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1982-04-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1985-04-27"
+        ]
+      ],
+      "series": 251582
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e22dbab462662f3e097eb3475e4cc53f5e5be728784418dfceac48bf07cd0f0d"
+  },
+  "anilist_ids": [
+    2511
+  ],
+  "anidb_id": 944
+}

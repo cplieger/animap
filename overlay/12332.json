@@ -1,0 +1,151 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12332",
+    "tvdb": "https://thetvdb.com/series/free-iwatobi-swim-club/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            8
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Free! Timeless Medley",
+  "justification": "AniDB special S8 (2017-07-01) has no TVDB episode, was 0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6249903032cd4c9c282e02fed42295c1b4b5e7b7f0a95eeda472ecacde9c1569",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-09-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-09-11"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-11-06"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-11-06"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-03-18"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-12-05"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2017-04-22"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2017-07-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2019-07-05"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2018-06-23"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2021-09-17"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2022-04-22"
+        ]
+      ],
+      "series": 270065
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "5ed328a844363830adfa43a538b52ac9633596c6ab26e87f40ee4cec47c6b3f7"
+  },
+  "anidb_id": 12332
+}

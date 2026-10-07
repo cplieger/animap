@@ -1,0 +1,153 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/753",
+    "tvdb": "https://thetvdb.com/series/yu-yu-hakusho/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Yuu Yuu Hakusho: Meikai Shitou Hen - Honoo no Kizuna",
+  "justification": "AniDB 1 (1994-04-09) = TVDB 0x02 (1994-04-09), was 0x02+0x03, by title. AniDB 3 (1994-04-09) = TVDB 0x02 (1994-04-09), was 0x03, by film identity. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "55c8ad06649481669a6194337b7afb145facd794e52b67aaf26c45c899ca01be",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          113,
+          "1993-07-10"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1994-04-09"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1994-10-05"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1994-10-05"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1994-10-05"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          13,
+          0,
+          "1996-02-07"
+        ],
+        [
+          0,
+          14,
+          0,
+          "1994-10-05"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2009-10-27"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2009-10-27"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2018-10-26"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2018-10-26"
+        ]
+      ],
+      "series": 76665
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4d024b8badceb512f7d3b3bac2136caae0ec35af6c7db879e7fd2cc22896ea20"
+  },
+  "anilist_ids": [
+    883
+  ],
+  "anidb_id": 753
+}

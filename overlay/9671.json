@@ -1,0 +1,65 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9671",
+    "tvdb": "https://thetvdb.com/series/toriko/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Toriko: Bishokushin no Special Menu",
+  "justification": "AniDB 1 (2013-07-27) = TVDB 0x04 (2013-07-27), was 0x05 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e70b1791a40375008af882b222b6a45d1b56efc7860059b01b6db5d350f2ee1f",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-10-12"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2010-10-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-03-19"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-07-27"
+        ]
+      ],
+      "series": 247231
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "136307ff5dd5dbcba3dee81492e21703eb710589ff8ead33ba5cf72f0be08c24"
+  },
+  "anilist_ids": [
+    17699
+  ],
+  "anidb_id": 9671
+}

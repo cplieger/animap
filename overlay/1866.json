@@ -1,0 +1,51 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1866",
+    "tvdb": "https://thetvdb.com/series/gosenzosama-banbanzai/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Maroko",
+  "justification": "AniDB 2 (1990-03-19) = TVDB 0x01 (1990-03-19), was 0x02 (no such TVDB episode). AniDB 3 (1990-03-19) = TVDB 0x01 (1990-03-19), was 0x03 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "63a5f7c0a676af9300de505db2b868130c37fca0cc66bc1dfc3a969a010c7aea",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1990-03-19"
+        ]
+      ],
+      "series": 84348
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a8a863e4edd6f2bef2a5a98877e3bf91694c94017b49a061c8bf170901f75c45"
+  },
+  "anilist_ids": [
+    4640
+  ],
+  "anidb_id": 1866
+}

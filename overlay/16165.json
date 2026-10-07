@@ -1,0 +1,73 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16165",
+    "tvdb": "https://thetvdb.com/series/the-quintessential-quintuplets/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Go-Toubun no Hanayome",
+  "justification": "AniDB special S1-S2 (2022-05-21 to 2022-09-17) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "69289f2a28f8709486b94355d659b82e9c5ddc7366419e6a069f76e3ada7180a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          28,
+          "2022-05-20"
+        ],
+        [
+          0,
+          2,
+          26,
+          "2023-09-02"
+        ],
+        [
+          0,
+          3,
+          27,
+          "2023-09-09"
+        ],
+        [
+          0,
+          4,
+          29,
+          "2024-12-24"
+        ],
+        [
+          0,
+          5,
+          30,
+          "2024-12-24"
+        ]
+      ],
+      "series": 355966
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "0ff058208b8b660cbadd1483ee50e4496f1ac4caea9533d56f9951306dd076b1"
+  },
+  "anilist_ids": [
+    131520
+  ],
+  "anidb_id": 16165
+}

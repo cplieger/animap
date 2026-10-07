@@ -1,0 +1,64 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13626",
+    "tvdb": "https://thetvdb.com/series/saekano-how-to-raise-a-boring-girlfriend/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Saenai Heroine no Sodatekata Fine",
+  "justification": "AniDB special S1-S3 (2020-09-23) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "7758fbce7c315ecf38fe230c1e68245009ebd609f01b5396250a19572107ba1c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-01-09"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-04-06"
+        ],
+        [
+          0,
+          3,
+          24,
+          "2019-10-26"
+        ]
+      ],
+      "series": 281275
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a1f76a337b3d9e5bea72b63af64e51699ba34d0bc48f4277e2a432aa15d0d61d"
+  },
+  "anilist_ids": [
+    100675
+  ],
+  "anidb_id": 13626
+}

@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14591",
+    "tvdb": "https://thetvdb.com/series/karakai-jouzu-no-takagi-san/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Karakai Jouzu no Takagi-san 2",
+  "justification": "AniDB special S1-S2 (2019-09-18 to 2019-10-16) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "34520382cfc2c98040a7e2f9fe183501067b96d5648821354208c03f5579e6d9",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2018-07-11"
+        ],
+        [
+          0,
+          2,
+          38,
+          "2022-06-10"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2019-07-07"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2019-07-14"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2019-07-21"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2019-07-28"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2019-08-04"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2019-08-11"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2019-08-18"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2019-08-25"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2019-09-01"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2019-09-08"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2019-09-15"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2019-09-22"
+        ]
+      ],
+      "series": 337936
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "00ceb775fb508f539f03cf434d5706a33a732fb6f3b0d2806faed5f292e832dc"
+  },
+  "anilist_ids": [
+    107068
+  ],
+  "anidb_id": 14591
+}

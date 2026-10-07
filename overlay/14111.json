@@ -1,0 +1,218 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14111",
+    "tvdb": "https://thetvdb.com/series/kaguya-sama-love-is-war/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Ren'ai Zunousen",
+  "justification": "AniDB special S1-S2 (2019-01-05 to 2019-02-01) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "489bb3a7e73e1130b604e62ed0ea79e7fddd0a42a3d84b5035299f3cbbe35a29",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          42,
+          "2021-05-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-10-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-04-03"
+        ],
+        [
+          0,
+          5,
+          44,
+          "2023-04-05"
+        ],
+        [
+          0,
+          6,
+          45,
+          "2023-04-05"
+        ],
+        [
+          0,
+          7,
+          46,
+          "2023-04-05"
+        ],
+        [
+          0,
+          8,
+          47,
+          "2023-04-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2022-12-17"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-04-04"
+        ],
+        [
+          0,
+          15,
+          48,
+          "2025-12-31"
+        ],
+        [
+          0,
+          16,
+          49,
+          "2025-12-31"
+        ],
+        [
+          0,
+          17,
+          0,
+          ""
+        ],
+        [
+          0,
+          18,
+          0,
+          ""
+        ],
+        [
+          0,
+          19,
+          0,
+          ""
+        ],
+        [
+          0,
+          20,
+          0,
+          ""
+        ],
+        [
+          0,
+          21,
+          0,
+          ""
+        ],
+        [
+          0,
+          22,
+          0,
+          ""
+        ],
+        [
+          1,
+          1,
+          1,
+          "2019-01-12"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2019-01-19"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2019-01-26"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2019-02-02"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2019-02-09"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2019-02-16"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2019-02-23"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2019-03-02"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2019-03-09"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2019-03-16"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2019-03-23"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2019-03-30"
+        ]
+      ],
+      "series": 354198
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e55bdf5bee660db942d8e9296cae02f83bfcb3cea184d662ef69ff12aa7bd655"
+  },
+  "anilist_ids": [
+    101921
+  ],
+  "anidb_id": 14111
+}

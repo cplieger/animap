@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18484",
+    "tvdb": "https://thetvdb.com/series/sorairo-utility/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Sorairo Utility (2025)",
+  "justification": "AniDB special S1 (2025-01-03) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "7020581a0a33ae78ccfb7d61bc33d815eebe911e2da06618d4da946f79e9442b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-12-31"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2025-01-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2025-01-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2025-01-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2025-01-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2025-02-01"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2025-02-08"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2025-02-15"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2025-02-22"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2025-03-01"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2025-03-08"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2025-03-15"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2025-03-22"
+        ]
+      ],
+      "series": 445890
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f306cb82024638acf8c32f2268e662e1dee5dbce5594567d1845edd64cec8f8f"
+  },
+  "anilist_ids": [
+    174596
+  ],
+  "anidb_id": 18484
+}

@@ -1,0 +1,98 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10326",
+    "tvdb": "https://thetvdb.com/series/tamako-market/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tamako Love Story",
+  "justification": "AniDB special S1 (2014-10-10) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f16db0a24a93b3426bb884221df0a881b3335bf9d8f6c3eebc09ab8b210f0e3b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-03-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-04-17"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-05-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-06-19"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-07-17"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-08-21"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-04-26"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2014-04-26"
+        ]
+      ],
+      "series": 264534
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "14a61a52a30dd7956dc9357856790279a7ec76391eb754db8cf418b78c6f186a"
+  },
+  "anilist_ids": [
+    20519
+  ],
+  "anidb_id": 10326
+}

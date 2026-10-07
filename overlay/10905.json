@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10905",
+    "tvdb": "https://thetvdb.com/series/death-parade/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Death Parade",
+  "justification": "AniDB special S1 (2015-03-07) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1b86924936dfa8715a12878dd8786665d1bfd37bd7ccf64a3b7938f22f7b2c40",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2013-03-02"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2015-01-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2015-01-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2015-01-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2015-01-31"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2015-02-07"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2015-02-14"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2015-02-21"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2015-02-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2015-03-07"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2015-03-14"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2015-03-21"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2015-03-28"
+        ]
+      ],
+      "series": 289177
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "df80600f4c2d99a6a7bcdfe06387ab21dfc66ea11ac4e4d1873d88c65b4e970d"
+  },
+  "anilist_ids": [
+    20931
+  ],
+  "anidb_id": 10905
+}

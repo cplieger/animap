@@ -1,0 +1,123 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17328",
+    "tvdb": "https://thetvdb.com/series/onii-chan-wa-oshimai/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Onii-chan wa Oshimai!",
+  "justification": "AniDB special S1 (2022-12-23) has no TVDB episode, was 0x01. AniDB special S3 (2023-03-23) = TVDB 0x01 (2023-03-23), was 0x03 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a74e779d0e60fd4fcd7b4a5f5b2d6046d48a218159bfdbc598bc2220e98f9097",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-03-23"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2023-01-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-01-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-01-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-01-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-02-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-02-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-02-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-02-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-03-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-03-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-03-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2023-03-23"
+        ]
+      ],
+      "series": 419278
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "887b3ee113e4e5ba86aaadd0402a95d7bc80a20c32e4b7989c4471003716ae09"
+  },
+  "anilist_ids": [
+    147864
+  ],
+  "anidb_id": 17328
+}

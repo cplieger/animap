@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15028",
+    "tvdb": "https://thetvdb.com/series/zombie-land-saga/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Zombie Land Saga Revenge",
+  "justification": "AniDB special S2 (2021-04-08) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9db4f7569c8047dc5b6166944ae5592ac1cfe6a30e5040bb1e45206bc72e94e3",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2020-09-01"
+        ],
+        [
+          0,
+          2,
+          25,
+          "2026-01-19"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2019-11-29"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2021-04-08"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2021-04-15"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2021-04-22"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2021-04-29"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2021-05-06"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2021-05-13"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2021-05-20"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2021-05-27"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2021-06-03"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2021-06-10"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2021-06-17"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2021-06-24"
+        ]
+      ],
+      "series": 351953
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "6ddf626eea651648ba999df7ff956dd5f32d85a3d4ad27f02f6f68d34d74cd1e"
+  },
+  "anilist_ids": [
+    110733
+  ],
+  "anidb_id": 15028
+}

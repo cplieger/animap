@@ -1,0 +1,126 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2742",
+    "tvdb": "https://thetvdb.com/series/jinki-extend/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Jinki:Extend",
+  "justification": "AniDB special S1 (2006-02-22) = TVDB 0x01 (2006-02-22), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f77abbc4d2854efe69b4da4af6783a1fc1476a863b31df2e0dbeeb57642d3ca3",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2006-02-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ],
+        [
+          1,
+          1,
+          1,
+          "2005-01-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2005-01-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2005-01-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2005-01-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2005-02-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2005-02-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2005-02-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2005-02-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2005-03-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2005-03-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2005-03-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2005-03-23"
+        ]
+      ],
+      "series": 80819
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "537808b5b1267cafabdcd97ea5a9f5de4ec9a26d152f9f95ef776a3a5758b453"
+  },
+  "anilist_ids": [
+    141
+  ],
+  "anidb_id": 2742
+}

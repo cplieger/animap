@@ -1,0 +1,60 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1036",
+    "tvdb": "https://thetvdb.com/series/yotoden-chronicle-of-the-warlord-period/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Sengoku Kitan Youtouden Soushuuhen",
+  "justification": "AniDB 2 (1989-05-27) = TVDB 0x01 (1989-05-27), was 0x02 (no such TVDB episode). AniDB 3 (1989-05-27) = TVDB 0x01 (1989-05-27), was 0x03 (no such TVDB episode). AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "ee7fb560e7e53a50bb97f2a6f7b2d69291e02e54e09b42210c62963866e0250b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1989-05-27"
+        ]
+      ],
+      "series": 171491
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e30af229541a707ff35d8117087748c68f64959bf389b5c1ac1a033feb8796b1"
+  },
+  "anilist_ids": [
+    1378
+  ],
+  "anidb_id": 1036
+}

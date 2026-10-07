@@ -1,0 +1,46 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17955",
+    "tvdb": "https://thetvdb.com/series/blue-lock/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Blue Lock: Episode Nagi",
+  "justification": "AniDB special S1 (2024-04-19) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1f30880aa8bf92848d5e3a3f94e6d1a34fed2ff028316d9fe9b7c97d13c1252d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2024-04-19"
+        ]
+      ],
+      "series": 408629
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c7d7d47379e8dad450a38bc32061206b886659531dd7500451830692d4f81eb1"
+  },
+  "anilist_ids": [
+    163147
+  ],
+  "anidb_id": 17955
+}

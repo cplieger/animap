@@ -1,0 +1,120 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10994",
+    "tvdb": "https://thetvdb.com/series/rainy-cocoa/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            13,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ame-iro Cocoa",
+  "justification": "AniDB 13 (2015-06-28) = TVDB 0x01 (2015-06-28), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "00738c264c8d56104e6635516077cc77b8cf0de05c41d6539be11b4eeb0b2da2",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-06-28"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2015-04-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2015-04-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2015-04-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2015-04-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2015-05-03"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2015-05-10"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2015-05-17"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2015-05-24"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2015-05-31"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2015-06-07"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2015-06-14"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2015-06-21"
+        ]
+      ],
+      "series": 293647
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "898dbfab6a16c19f7eb19ed1d76b4cffcfcbcae6c52407472935a98a12766c68"
+  },
+  "anilist_ids": [
+    21054
+  ],
+  "anidb_id": 10994
+}

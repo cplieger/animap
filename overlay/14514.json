@@ -1,0 +1,123 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14514",
+    "tvdb": "https://thetvdb.com/series/the-helpful-fox-senko-san/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            12,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Sewayaki Kitsune no Senko-san",
+  "justification": "AniDB special S1 (2019-04-10) has no TVDB episode, was 0x01. AniDB special S12 (2019-09-25) = TVDB 0x01 (2019-09-25), was 0x12 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8af65320c56ea840871ab5f0dbc9e8776831b57d274a4cb83207aa5f19f3196",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-09-25"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2019-04-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2019-04-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2019-04-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2019-05-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2019-05-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2019-05-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2019-05-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2019-05-29"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2019-06-05"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2019-06-12"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2019-06-19"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2019-06-26"
+        ]
+      ],
+      "series": 360579
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "cf93bb196c09407166d90c0d0d5bb4a20fae7780937f71aa129903db5e5acba0"
+  },
+  "anilist_ids": [
+    105914
+  ],
+  "anidb_id": 14514
+}

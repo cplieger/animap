@@ -1,0 +1,135 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12982",
+    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Soushuuhen Haikyuu!!",
+  "justification": "AniDB special S1 (2017-04-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3e5f0e70489fc4a1a617829dc8632f7154cfacbba4593ddd2464c4a3e5a3da95",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2014-11-09"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-07-03"
+        ],
+        [
+          0,
+          3,
+          30,
+          "2016-05-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-09-18"
+        ],
+        [
+          0,
+          5,
+          63,
+          "2017-08-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-09-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2017-09-29"
+        ],
+        [
+          0,
+          8,
+          64,
+          "2019-12-21"
+        ],
+        [
+          0,
+          9,
+          65,
+          "2019-12-21"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          14,
+          91,
+          "2024-02-16"
+        ],
+        [
+          0,
+          15,
+          0,
+          ""
+        ]
+      ],
+      "series": 278157
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e9281330356867fbcd93fcacc26382a4381e45068fa316fff397d163af4e126d"
+  },
+  "anidb_id": 12982
+}

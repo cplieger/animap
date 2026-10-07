@@ -1,0 +1,124 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5116",
+    "tvdb": "https://thetvdb.com/series/zombie-loan/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Zombie-Loan",
+  "justification": "AniDB special S1-S2 (2008-04-25) = TVDB 0x01-0x02 (2008-04-25), was 1x12-1x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "dd6c9900d5382b9f20445a70e30e796ad8d53b82515a00c734c83915f46ecffc",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2008-04-25"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2008-04-25"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2007-07-03"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2007-07-10"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2007-07-17"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2007-07-24"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2007-07-31"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2007-08-07"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2007-08-14"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2007-08-21"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2007-08-28"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2007-09-04"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2007-09-11"
+        ]
+      ],
+      "series": 80330
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ac501010d638fee320bd757c464812bd39c3736f04cb06ab1c33e71ee23fb150"
+  },
+  "anilist_ids": [
+    2404
+  ],
+  "anidb_id": 5116
+}

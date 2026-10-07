@@ -1,0 +1,220 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9977",
+    "tvdb": "https://thetvdb.com/series/fate-stay-night-unlimited-blade-works/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 1,
+        "start": 2,
+        "end": 13,
+        "offset": -1
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Fate/Stay Night: Unlimited Blade Works (2014)",
+  "justification": "AniDB special S1 (2025-03-19) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "67152ea02ab2095a5a95af346170920f87e580a8e5d998cc66548650bc34fd4b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-10-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-10-07"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2014-10-12"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2014-10-19"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2014-10-26"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2014-11-02"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2014-11-09"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2014-11-16"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2014-11-23"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2014-11-30"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2014-12-07"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2014-12-14"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2014-12-21"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2014-12-28"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2015-04-04"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2015-04-11"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2015-04-18"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2015-04-25"
+        ],
+        [
+          1,
+          17,
+          17,
+          "2015-05-02"
+        ],
+        [
+          1,
+          18,
+          18,
+          "2015-05-09"
+        ],
+        [
+          1,
+          19,
+          19,
+          "2015-05-16"
+        ],
+        [
+          1,
+          20,
+          20,
+          "2015-05-23"
+        ],
+        [
+          1,
+          21,
+          21,
+          "2015-05-30"
+        ],
+        [
+          1,
+          22,
+          22,
+          "2015-06-06"
+        ],
+        [
+          1,
+          23,
+          23,
+          "2015-06-13"
+        ],
+        [
+          1,
+          24,
+          24,
+          "2015-06-20"
+        ],
+        [
+          1,
+          25,
+          25,
+          "2015-06-27"
+        ]
+      ],
+      "series": 278626
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f84cfb30b7777a3eb773e680d0281330b1e1045f47a16569c43f907199edc983"
+  },
+  "anilist_ids": [
+    19603
+  ],
+  "anidb_id": 9977
+}

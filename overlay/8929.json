@@ -1,0 +1,107 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8929",
+    "tvdb": "https://thetvdb.com/series/blood-lad/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Blood Lad",
+  "justification": "AniDB special S1 (2014-09-02) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "4ee35518af9cbd570c93b2947410b4c3e6b8707d0c0fb375b00015012f6f32cc",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2013-12-04"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2013-07-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2013-07-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2013-07-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2013-07-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2013-08-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2013-08-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2013-08-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2013-08-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2013-09-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2013-09-09"
+        ]
+      ],
+      "series": 269875
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "604fcc544ba7d41d8aa0f8b1a8c1290563a1f1978fee7f283e81c5218907ce34"
+  },
+  "anilist_ids": [
+    11633
+  ],
+  "anidb_id": 8929
+}

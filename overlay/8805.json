@@ -1,0 +1,105 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8805",
+    "tvdb": "https://thetvdb.com/series/tiger-and-bunny/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Tiger \u0026 Bunny",
+  "justification": "AniDB 2 (2014-02-08) = TVDB 0x05 (2014-02-08), was 0x03, by title. AniDB special S1-S6 (no AniDB date) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2227e6d352fa3353220aba8c8bc11c7a27aa1cf548aa60a5f301cc55de6316d7",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-05-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-09-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-12-21"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-01-29"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-02-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-09-19"
+        ]
+      ],
+      "series": 246381
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "bc96ffa66b28f6e3f188c2c84108da0487697cf3d17fee245c281111b36a9332"
+  },
+  "anilist_ids": [
+    12015
+  ],
+  "anidb_id": 8805
+}

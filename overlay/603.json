@@ -1,0 +1,129 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/603",
+    "tvdb": "https://thetvdb.com/series/nadia-the-secret-of-blue-water/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            11
+          ],
+          [
+            3,
+            11
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Fushigi no Umi no Nadia Gekijou You Original Ban",
+  "justification": "AniDB 2 (1991-06-29) = TVDB 0x11 (1991-06-29), was 0x12. AniDB 3 (1991-06-29) = TVDB 0x11 (1991-06-29), was 0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c523dd7f9ce0467305de29e4327883873588516d281a3ff09a0a3ba1aafaf73b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2003-02-18"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1991-06-29"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1991-06-21"
+        ],
+        [
+          0,
+          13,
+          0,
+          "1991-06-21"
+        ],
+        [
+          0,
+          14,
+          0,
+          "1991-06-21"
+        ]
+      ],
+      "series": 81789
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7be6e36dfa93703c57763eedce9a1b9a98e1a32c9069f9121d57175c80ef1ad2"
+  },
+  "anilist_ids": [
+    1252
+  ],
+  "anidb_id": 603
+}

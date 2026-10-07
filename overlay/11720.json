@@ -1,0 +1,77 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11720",
+    "tvdb": "https://thetvdb.com/series/bakuon/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Bakuon!! OAD",
+  "justification": "AniDB 2 (2016-12-20) = TVDB 0x06 (2016-12-20), was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0fe7ac7d9693c3903c0223254942fad6aa367e580dfbbb5514ca50a96dbba489",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-03-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-08-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-09-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-10-20"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-11-18"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2016-12-20"
+        ]
+      ],
+      "series": 304987
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "fb96128b28e5dc98f7dfaeaf0c89da734eff1e8a29dd0c67f73ec40a49da2a7c"
+  },
+  "anilist_ids": [
+    21441
+  ],
+  "anidb_id": 11720
+}

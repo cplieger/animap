@@ -1,0 +1,144 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6014",
+    "tvdb": "https://thetvdb.com/series/ef/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ef - a Tale of Melodies.",
+  "justification": "AniDB special S2 (2009-05-29) = TVDB 0x04 (2008-09-27), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "33d6c68905efe97d11dc09dc243202a80449a8e2b594b3c74aa629281516559e",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-08-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-05-10"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2008-09-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2008-09-27"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2008-05-10"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2008-10-06"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2008-10-13"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2008-10-20"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2008-10-27"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2008-11-03"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2008-11-10"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2008-11-17"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2008-11-24"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2008-12-01"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2008-12-08"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2008-12-15"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2008-12-22"
+        ]
+      ],
+      "series": 80904
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "8e5f90b0310d8c2417f170b0227b0a3f3e0920b0a3cfac101df67f66baf6f68b"
+  },
+  "anilist_ids": [
+    4789
+  ],
+  "anidb_id": 6014
+}

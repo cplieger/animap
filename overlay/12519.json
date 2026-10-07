@@ -1,0 +1,103 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12519",
+    "tvdb": "https://thetvdb.com/series/fategrand-order/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Fate/Grand Order: First Order",
+  "justification": "AniDB special S2 (2016-12-31) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "8ea1507f5b2747f0a001b477e2a242f46dc1ed9220ce3acd762060dde8d63390",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2016-12-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-12-31"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-12-31"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-12-31"
+        ],
+        [
+          0,
+          5,
+          4,
+          "2019-08-04"
+        ],
+        [
+          0,
+          6,
+          2,
+          "2020-12-05"
+        ],
+        [
+          0,
+          7,
+          3,
+          "2021-05-15"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2019-12-21"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2019-12-28"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-02-01"
+        ]
+      ],
+      "series": 353666
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "aec5da8d46d3a673b205b0a52ec54f35f538c2c172055785ba1e7163ff0c6a3b"
+  },
+  "anilist_ids": [
+    97815
+  ],
+  "anidb_id": 12519
+}

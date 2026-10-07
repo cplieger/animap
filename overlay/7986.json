@@ -1,0 +1,37 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7986",
+    "tvdb": "https://thetvdb.com/series/da-capo-ii/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": []
+  },
+  "title": "D.C. I\u0026II P.S.P. Re-Animated",
+  "justification": "AniDB 1 (2010-10-28) = TVDB 0x01 (2010-10-28), was 0x03 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a05750ab5a1a266d85b022df19aec916f629b9e4b210711a5e988d6163783405",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-10-28"
+        ]
+      ],
+      "series": 84371
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d77652270ddfb59978a62af3f53eb97e848efb2426796f0cf3c90b272158f0c3"
+  },
+  "anilist_ids": [
+    9353
+  ],
+  "anidb_id": 7986
+}

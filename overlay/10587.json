@@ -1,0 +1,146 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10587",
+    "tvdb": "https://thetvdb.com/series/non-non-biyori/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Non Non Biyori Repeat",
+  "justification": "AniDB special S1-S4 (2015-06-15 to 2015-08-06) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "70391f9d4694a75996be37d1fe85991ef1c3b77ebeced818b237b3e3a71d794a",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-07-23"
+        ],
+        [
+          0,
+          2,
+          26,
+          "2016-09-23"
+        ],
+        [
+          0,
+          3,
+          27,
+          "2018-08-25"
+        ],
+        [
+          0,
+          4,
+          40,
+          "2022-03-23"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2015-07-07"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2015-07-14"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2015-07-21"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2015-07-28"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2015-08-04"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2015-08-11"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2015-08-18"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2015-08-25"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2015-09-01"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2015-09-08"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2015-09-15"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2015-09-22"
+        ]
+      ],
+      "series": 272316
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "5315ca472ef0bfcfa30a8c6c2ddf4ae705d7103a73503a178f3dac060ce7a4f7"
+  },
+  "anilist_ids": [
+    20694
+  ],
+  "anidb_id": 10587
+}

@@ -1,0 +1,83 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11551",
+    "tvdb": "https://thetvdb.com/series/nisekoi/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nisekoi: (2016)",
+  "justification": "AniDB 2 (2016-01-04) = TVDB 0x07 (2016-01-04), was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0f02fdf6d49b2ad60bae903d5b00ab778da0d9b12ab459bd1623d4bd608db053",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-10-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-02-04"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-04-03"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-01-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-04-03"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2016-01-04"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-04-01"
+        ]
+      ],
+      "series": 275670
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4ea7661791ad63e47d0c3a24ac2ec25d09c1a9a1eb2614f73cecff355d541ba5"
+  },
+  "anilist_ids": [
+    119947
+  ],
+  "anidb_id": 11551
+}

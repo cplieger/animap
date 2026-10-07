@@ -1,0 +1,118 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12046",
+    "tvdb": "https://thetvdb.com/series/fate-extra-last-encore/seasons/official/2"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 2,
+        "start": 11,
+        "end": 13,
+        "offset": -10
+      }
+    ]
+  },
+  "title": "Fate/Extra: Last Encore",
+  "justification": "AniDB 11-13 (2018-07-29) = TVDB 2x01-2x03 (2018-07-29), was 1x11-1x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a9488fbd771b91aa85e461428dd155c03ef9ffcac9d66566c697cc9365d73bee",
+      "seasons": [
+        0,
+        1,
+        2
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2018-01-28"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2018-02-04"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2018-02-11"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2018-02-18"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2018-02-25"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2018-03-04"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2018-03-11"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2018-03-18"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2018-03-25"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2018-04-01"
+        ],
+        [
+          2,
+          1,
+          11,
+          "2018-07-29"
+        ],
+        [
+          2,
+          2,
+          12,
+          "2018-07-29"
+        ],
+        [
+          2,
+          3,
+          13,
+          "2018-07-29"
+        ]
+      ],
+      "series": 337018
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c35f5021e7de2279e535edd8911bf2457c785ef876535fe3cce1a236c7b7a2e0"
+  },
+  "anilist_ids": [
+    21717
+  ],
+  "anidb_id": 12046
+}

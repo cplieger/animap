@@ -1,0 +1,131 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17954",
+    "tvdb": "https://thetvdb.com/series/blue-lock/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Blue Lock vs. U-20 Japan",
+  "justification": "AniDB special S1 (2024-10-06) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "1dad7f8a3379b8a6e0f454da1b128e4e4aac69b8409d658e54d69d683c204ca6",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2024-04-19"
+        ],
+        [
+          2,
+          1,
+          25,
+          "2024-10-05"
+        ],
+        [
+          2,
+          2,
+          26,
+          "2024-10-12"
+        ],
+        [
+          2,
+          3,
+          27,
+          "2024-10-19"
+        ],
+        [
+          2,
+          4,
+          28,
+          "2024-10-26"
+        ],
+        [
+          2,
+          5,
+          29,
+          "2024-11-02"
+        ],
+        [
+          2,
+          6,
+          30,
+          "2024-11-09"
+        ],
+        [
+          2,
+          7,
+          31,
+          "2024-11-16"
+        ],
+        [
+          2,
+          8,
+          32,
+          "2024-11-23"
+        ],
+        [
+          2,
+          9,
+          33,
+          "2024-11-30"
+        ],
+        [
+          2,
+          10,
+          34,
+          "2024-12-07"
+        ],
+        [
+          2,
+          11,
+          35,
+          "2024-12-14"
+        ],
+        [
+          2,
+          12,
+          36,
+          "2024-12-21"
+        ],
+        [
+          2,
+          13,
+          37,
+          "2024-12-28"
+        ],
+        [
+          2,
+          14,
+          38,
+          "2024-12-28"
+        ]
+      ],
+      "series": 408629
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a5c460cda93386c6fa7ce740d8a4a71ada644ad1c43e7766104ffc371d10a99b"
+  },
+  "anilist_ids": [
+    163146
+  ],
+  "anidb_id": 17954
+}

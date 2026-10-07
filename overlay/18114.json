@@ -1,0 +1,188 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18114",
+    "tvdb": "https://thetvdb.com/series/30-sai-made-doutei-da-to-mahoutsukai-ni-nareru-rashii/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "30-sai made Doutei da to Mahou Tsukai ni Nareru Rashii",
+  "justification": "AniDB special S1-S2 (2020-12-24 to 2020-11-24) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "460ced259daea9bfaca8539858f4198ac545c46035589f9b5938ee555e1d50cc",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-12-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2023-12-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2024-01-05"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2024-01-19"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2024-02-02"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2024-02-16"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2024-03-01"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2024-03-15"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2024-03-29"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2024-04-05"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2024-04-12"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2024-12-13"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2024-01-11"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2024-01-18"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2024-01-25"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2024-02-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2024-02-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2024-02-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2024-02-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2024-02-29"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2024-03-07"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2024-03-14"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2024-03-21"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2024-03-28"
+        ]
+      ],
+      "series": 441567
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b7eb6b16e380a810f5efbeeb3a96d2188d640454524cbd3c897054c6a506fdd4"
+  },
+  "anilist_ids": [
+    167087
+  ],
+  "anidb_id": 18114
+}

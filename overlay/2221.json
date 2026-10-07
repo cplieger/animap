@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2221",
+    "tvdb": "https://thetvdb.com/series/getter-robo/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1"
+  },
+  "title": "Great Mazinger Tai Getter Robo",
+  "justification": "AniDB 1 (1975-03-21) = TVDB 0x02 (1975-03-21), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8dda73408089a5263594d3b95344f85adbb94e7b7ec4e12a59bf88ebfbf0e1e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          53,
+          "1974-07-25"
+        ],
+        [
+          0,
+          2,
+          52,
+          "1975-03-21"
+        ],
+        [
+          0,
+          3,
+          149,
+          "1975-07-26"
+        ],
+        [
+          0,
+          4,
+          157,
+          "1976-07-18"
+        ]
+      ],
+      "series": 112641
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4e00ffd0af6b481578a9e7cd2833aed772e1f9fb356a319cde2b269f9f855e38"
+  },
+  "anilist_ids": [
+    4385
+  ],
+  "anidb_id": 2221
+}

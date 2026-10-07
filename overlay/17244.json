@@ -1,0 +1,123 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17244",
+    "tvdb": "https://thetvdb.com/series/futoku-no-guild/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Futoku no Guild",
+  "justification": "AniDB special S1 (2022-09-17) has no TVDB episode, was 0x01. AniDB special S2 (2022-12-18) = TVDB 0x01 (2022-12-18), was 0x02 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c43fb3d6e1e382680319c16416eb13379f4cab575f7aa200005301339175a20c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2022-12-18"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2022-10-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2022-10-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2022-10-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2022-10-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2022-11-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2022-11-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2022-11-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2022-11-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2022-11-30"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2022-12-07"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2022-12-14"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2022-12-21"
+        ]
+      ],
+      "series": 417674
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c487945dd50236b09e11046dceedd050e313729d4d7623b20e565eb2da38c196"
+  },
+  "anilist_ids": [
+    146233
+  ],
+  "anidb_id": 17244
+}

@@ -1,0 +1,137 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10417",
+    "tvdb": "https://thetvdb.com/series/selector-infected-wixoss/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Selector Infected Wixoss",
+  "justification": "AniDB special S4 (2014-08-27) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "046ce4ac3a8219ea5ba578bbb1110f80ab144d9adbff5afc5c12b340e8eae6cf",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-08-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-10-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-12-19"
+        ],
+        [
+          0,
+          4,
+          25,
+          "2016-02-13"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2014-04-03"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2014-04-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2014-04-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2014-04-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2014-05-01"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2014-05-08"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2014-05-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2014-05-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2014-05-30"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2014-06-06"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2014-06-13"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2014-06-20"
+        ]
+      ],
+      "series": 278327
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ec18855560b8e593f8c7ad80724306235cfa5721b098cf9ba2bae4909e7b7c4f"
+  },
+  "anilist_ids": [
+    20615
+  ],
+  "anidb_id": 10417
+}

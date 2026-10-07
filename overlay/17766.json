@@ -1,0 +1,185 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17766",
+    "tvdb": "https://thetvdb.com/series/watashi-no-oshi-wa-akuyaku-reijou/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Watashi no Oshi wa Akuyaku Reijou.",
+  "justification": "AniDB special S7 (2023-09-24) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b445850a608e9f974f0328e0dd94fedc096c6348c533d73711b5d9ef62d1b444",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-10-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2023-10-11"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2023-10-18"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2023-10-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2023-11-01"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2023-11-08"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2023-11-15"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2023-11-22"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2023-11-29"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2023-12-06"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2023-12-13"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2023-12-21"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2023-10-03"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-10-10"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-10-17"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-10-24"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-10-31"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-11-07"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-11-14"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-11-21"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-11-28"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-12-05"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-12-12"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2023-12-19"
+        ]
+      ],
+      "series": 428350
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "966afd85aaaeab127acc41999c96b367f03c4033092bffc5c6dadd74efbdd91f"
+  },
+  "anilist_ids": [
+    158704
+  ],
+  "anidb_id": 17766
+}

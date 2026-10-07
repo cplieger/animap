@@ -1,0 +1,125 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16027",
+    "tvdb": "https://thetvdb.com/series/goblin-slayer/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Goblin Slayer II",
+  "justification": "AniDB special S1 (2023-10-06) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "8a2be3ce267bb9fac413709ebc87aef9f5bb0b9739009a9a1ab3bbc71db9a5f6",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-12-16"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2020-02-01"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2023-10-06"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2023-10-13"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2023-10-20"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2023-10-27"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2023-11-03"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2023-11-10"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2023-11-17"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2023-11-24"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2023-12-01"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2023-12-08"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2023-12-15"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2023-12-22"
+        ]
+      ],
+      "series": 350166
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "db3e1f7268e71a53ba5feb3844b40f12dcba453d08ce45bd8a272fb7b47867fa"
+  },
+  "anilist_ids": [
+    129188
+  ],
+  "anidb_id": 16027
+}

@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14401",
+    "tvdb": "https://thetvdb.com/series/is-the-order-a-rabbit/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Gochuumon wa Usagi Desuka?? Sing for You",
+  "justification": "AniDB 1 (2019-09-26) = TVDB 0x01 (2019-09-26), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e9566b9be78114eaaee154efad1084df4574cafaa7633edaa3c80d846503c356",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2019-09-26"
+        ],
+        [
+          0,
+          2,
+          25,
+          "2017-11-11"
+        ]
+      ],
+      "series": 278818
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a51b75f0e0a9b94a601ac68bd14fd30533dbca52d4ddfa1690b5759f2a13d07c"
+  },
+  "anilist_ids": [
+    104199
+  ],
+  "anidb_id": 14401
+}

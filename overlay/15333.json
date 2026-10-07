@@ -1,0 +1,125 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15333",
+    "tvdb": "https://thetvdb.com/series/gundam-build-divers-rerise/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gundam Build Divers Re:Rise (2020)",
+  "justification": "AniDB special S1 (2020-07-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "62818a09f2c54a164ae204deb8dc89c7ae806a7918ccc7de977b75be3b5ed323",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-11-30"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2020-04-09"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2020-04-16"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2020-04-23"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2020-04-30"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2020-05-07"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2020-07-09"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2020-07-16"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2020-07-23"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2020-07-30"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2020-08-06"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2020-08-13"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2020-08-20"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2020-08-27"
+        ]
+      ],
+      "series": 369139
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "8a33f1937119cd94b19460ca9cf2a815fe0d401dcfabe199f25805b3bac14928"
+  },
+  "anilist_ids": [
+    114233
+  ],
+  "anidb_id": 15333
+}

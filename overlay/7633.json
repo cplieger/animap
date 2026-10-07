@@ -1,0 +1,75 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7633",
+    "tvdb": "https://thetvdb.com/series/293065-show/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kyojin no Hoshi: Dai League Ball",
+  "justification": "AniDB 2 (1970-03-21) = TVDB 0x03 (1970-03-21), was 0x04. AniDB 3 (1970-03-21) = TVDB 0x03 (1970-03-21), was 0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3fa91a0b3eb2ce85d8545e598be5fc576b6388f6ae1fe102638355b273292fd4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1969-07-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1969-12-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1970-03-21"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1970-08-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1982-08-21"
+        ]
+      ],
+      "series": 293065
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "45b4c62454651ea39827ab8f9498015c80bc0ec0de06f57875d731dc18934bc4"
+  },
+  "anilist_ids": [
+    17445
+  ],
+  "anidb_id": 7633
+}

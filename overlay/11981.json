@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11981",
+    "tvdb": "https://thetvdb.com/series/eromanga-sensei/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eromanga-sensei",
+  "justification": "AniDB special S1-S2 (2016-07-26 to 2016-08-30) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d1a5cf2d1a97e33cc3ccb212d618729e0facf28036d752c3e44894d81722627a",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-01-16"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2019-01-16"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2017-04-09"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2017-04-16"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2017-04-23"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2017-04-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2017-05-07"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2017-05-14"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2017-05-21"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2017-05-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2017-06-04"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2017-06-11"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2017-06-18"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2017-06-25"
+        ]
+      ],
+      "series": 319410
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3ba0c84970cc01bdbc43f180775ecd2fe014712dceb859a0c8642a4d5255eaf2"
+  },
+  "anilist_ids": [
+    21685
+  ],
+  "anidb_id": 11981
+}

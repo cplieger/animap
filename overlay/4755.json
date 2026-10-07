@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4755",
+    "tvdb": "https://thetvdb.com/series/dance/seasons/official/1",
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/452956"
+  },
+  "set": {
+    "tvdbid": "481922"
+  },
+  "title": "Asatte Dance",
+  "justification": "tvdbid 452956 to 481922 (TVDB 452956 is gone from TVDB's official order). AniDB 1-2 (1991-07-25 to 1991-10-21) = TVDB 1x01-1x02 (1991-07-25 to 1991-10-20), was TVDB 452956 1x01-1x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d8ac7728e2f8db42cc629e0518611e84e4d0b9222f4e4cb37c26ce413b5df35d",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          0,
+          "1991-07-25"
+        ],
+        [
+          1,
+          2,
+          0,
+          "1991-10-20"
+        ]
+      ],
+      "series": 481922
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "957a45705e9a1474924ef9f43133449c01a4a66d36841a8cf2ae21466e68323f"
+  },
+  "anilist_ids": [
+    8643
+  ],
+  "anidb_id": 4755
+}

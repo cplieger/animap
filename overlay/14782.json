@@ -1,0 +1,52 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14782",
+    "tvdb": "https://thetvdb.com/series/goblin-slayer/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Goblin Slayer: Goblin's Crown",
+  "justification": "AniDB special S1 (2020-07-29) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6f14f99128512357ce6afd18c3a15c44accb18bc4f2779ec53789a777dca31cf",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-12-16"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2020-02-01"
+        ]
+      ],
+      "series": 350166
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ab080597128d0f5d92e4067dbba302b5f382db90e30c4a46c40af1b2ff9c6ca9"
+  },
+  "anilist_ids": [
+    108623
+  ],
+  "anidb_id": 14782
+}

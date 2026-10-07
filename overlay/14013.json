@@ -1,0 +1,64 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14013",
+    "tvdb": "https://thetvdb.com/series/violet-evergarden/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Violet Evergarden",
+  "justification": "AniDB special S1 (2021-10-13) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6de46c8280a716426eb55e3066ae3d83fe3320b3a70303f78696ed05800c7634",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-07-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2019-09-06"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2020-09-18"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-12-15"
+        ]
+      ],
+      "series": 330139
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "11529814eadd6c482ecb7f51980a8fe4d751004d6b8c9c12ccaa09645222329e"
+  },
+  "anilist_ids": [
+    103047
+  ],
+  "anidb_id": 14013
+}

@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13657",
+    "tvdb": "https://thetvdb.com/series/dragon-ball-super/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "2"
+  },
+  "title": "Dragon Ball Super: Broly",
+  "justification": "AniDB 1 (2018-12-14) = TVDB 0x03 (2018-12-14), was 0x05 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "96f19051a5ae63bb44ec88db68fa2aa25f42d641fac6c96c826a2fcd6427824c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          3,
+          0,
+          "2018-12-14"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-06-11"
+        ]
+      ],
+      "series": 295068
+    },
+    "at": "2026-10-06",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "809a4bd683e0f1d6215835248663b39b6e06883bf7982c2bacbc09969f3d91a2"
+  },
+  "anilist_ids": [
+    101302
+  ],
+  "anidb_id": 13657
+}
