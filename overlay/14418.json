@@ -1,0 +1,48 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14418",
+    "tvdb": "https://thetvdb.com/series/high-score-girl/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "High Score Girl: Extra Stage",
+  "justification": "AniDB 1-3 (2019-03-20) = TVDB 0x01-0x03 (2019-03-20), by order: TVDB's only specials, numbered between season 1's last episode and season 2's first, with the same runtimes. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "08a7803f253227953bd84bcbfa93fcbc2bc39376e39a3c894d05369f8f90dd1f",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-03-20"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2019-03-20"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2019-03-20"
+        ]
+      ],
+      "series": 346673
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ba5b2d9cbc5516946d6a6d4529ebb64e454d1ef40fadce610080133b84988bc8"
+  },
+  "anilist_ids": [
+    104307
+  ],
+  "anidb_id": 14418
+}

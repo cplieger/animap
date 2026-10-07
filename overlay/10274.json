@@ -1,0 +1,60 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10274",
+    "tvdb": "https://thetvdb.com/series/mushi-shi/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Mushishi Tokubetsu Hen: Hihamu Kage",
+  "justification": "AniDB 1 (2014-01-04) = TVDB 0x01 (2014-01-04), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "8208f9bff9d77cb63697ceea71bf387b9cb336675c8437431d1a02bf9b0517ea",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2014-01-04"
+        ],
+        [
+          0,
+          2,
+          38,
+          "2014-08-20"
+        ],
+        [
+          0,
+          4,
+          49,
+          "2015-05-16"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2006-05-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ]
+      ],
+      "series": 79214
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2a9a94c77ee02955d09f0836104e05e23da57696d82b97d7c02a7f7a6d2fe354"
+  },
+  "anilist_ids": [
+    20526
+  ],
+  "anidb_id": 10274
+}

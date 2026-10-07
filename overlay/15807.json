@@ -1,0 +1,132 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15807",
+    "tvdb": "https://thetvdb.com/series/kaguya-sama-love-is-war/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Kaguya-sama wa Kokurasetai? Tensai-tachi no Ren'ai Zunousen (2021)",
+  "justification": "AniDB 1 (2021-05-19) = TVDB 0x01 (2021-05-19), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "d84d121321b6bf8413c7e98f0ab6e6764817ec9076e5da9bb6ac886d8943bfd3",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          42,
+          "2021-05-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-10-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-04-03"
+        ],
+        [
+          0,
+          5,
+          44,
+          "2023-04-05"
+        ],
+        [
+          0,
+          6,
+          45,
+          "2023-04-05"
+        ],
+        [
+          0,
+          7,
+          46,
+          "2023-04-05"
+        ],
+        [
+          0,
+          8,
+          47,
+          "2023-04-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2022-12-17"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-04-04"
+        ],
+        [
+          0,
+          15,
+          48,
+          "2025-12-31"
+        ],
+        [
+          0,
+          16,
+          49,
+          "2025-12-31"
+        ],
+        [
+          0,
+          17,
+          0,
+          ""
+        ],
+        [
+          0,
+          18,
+          0,
+          ""
+        ],
+        [
+          0,
+          19,
+          0,
+          ""
+        ],
+        [
+          0,
+          20,
+          0,
+          ""
+        ],
+        [
+          0,
+          21,
+          0,
+          ""
+        ],
+        [
+          0,
+          22,
+          0,
+          ""
+        ]
+      ],
+      "series": 354198
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "78c00c26226f5de23c5a0291ad53d634a437fd50030e1824b91e257ecd7537fc"
+  },
+  "anilist_ids": [
+    125368
+  ],
+  "anidb_id": 15807
+}

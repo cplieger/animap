@@ -1,0 +1,60 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9734",
+    "tvdb": "https://thetvdb.com/series/date-a-live/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Date a Live: Date to Date",
+  "justification": "AniDB 1 (2013-12-06) = TVDB 0x01 (2013-12-06), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "7dfd2dea9385050923da5ecd6573490a38fa47163fd5ebd6fba7a05a31ff8fd5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2013-12-06"
+        ],
+        [
+          0,
+          2,
+          24,
+          "2014-12-09"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-08-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-08-14"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2020-11-13"
+        ]
+      ],
+      "series": 264663
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "bd286a6ed6d7840fc636b12ccdbfbe12f549410ed0f0fb3ed409cf5bfabfb53b"
+  },
+  "anilist_ids": [
+    17641
+  ],
+  "anidb_id": 9734
+}

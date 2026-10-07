@@ -907,16 +907,6 @@
       "detail": "AniDB 7229 S1 matches the date but no title agrees"
     },
     {
-      "anilist_id": 8857,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 7630,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 240291 at TMDB 44684 S0E1 with 8168 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 8861,
       "type": "TV",
       "gaps": [
@@ -1105,16 +1095,6 @@
       "detail": "AniDB 7531 S7 matches the date but no title agrees"
     },
     {
-      "anilist_id": 9982,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 8132,
-      "reason": "unmappable",
-      "detail": "no run of 9 TVDB specials airs within a day of AniDB's episodes (first 2011-04-15) on TVDB 114801 season 0"
-    },
-    {
       "anilist_id": 10020,
       "type": "ONA",
       "gaps": [
@@ -1195,16 +1175,6 @@
       ],
       "reason": "unmappable",
       "detail": "AniDB 8148 S2 matches the date but no title agrees"
-    },
-    {
-      "anilist_id": 10681,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 8375,
-      "reason": "upstream",
-      "detail": "AniDB and TVDB agree episode by episode, but the proven mapping collides on TVDB series 249864: TVDB 0x1 claimed by 8348 S1 (default), 8375 ep1; TVDB 0x2 claimed by 8348 S2 (default), 8375 S2 (default); the other node's default special is the Anime-Lists value to fix"
     },
     {
       "anilist_id": 10794,
@@ -1471,17 +1441,6 @@
       "detail": "no TVDB series names this entry: a SkyHook title search (romaji and English) found no show listing its AniList or AniDB id"
     },
     {
-      "anilist_id": 14353,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved",
-        "movie_no_route"
-      ],
-      "anidb_id": 9253,
-      "reason": "upstream",
-      "detail": "AniDB and TVDB agree episode by episode, but the proven mapping collides on TVDB series 289177: TVDB 0x1 claimed by 9253 ep1, 10905 S1 (default); the other node's default special is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 14407,
       "type": "MOVIE",
       "gaps": [
@@ -1630,16 +1589,6 @@
       "detail": "the proven mapping collides on TVDB series 257518 at TMDB 62742 S0E1 with 8969 ep1; that claim is the Anime-Lists value to fix"
     },
     {
-      "anilist_id": 16904,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 9605,
-      "reason": "unmappable",
-      "detail": "2 runs of TVDB specials match AniDB's dates: 0x1, 0x3"
-    },
-    {
       "anilist_id": 16934,
       "type": "SPECIAL",
       "gaps": [
@@ -1677,16 +1626,6 @@
       "detail": "no special of AniDB 9393 airs within a day of the AniList start date 2013-04-24"
     },
     {
-      "anilist_id": 17641,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 9734,
-      "reason": "upstream",
-      "detail": "TVDB 264663 already has a collision, which an overlay entry on the series would make blocking: TMDB 46004 S0E1 claimed by 9734 ep1, 10688 ep1"
-    },
-    {
       "anilist_id": 18393,
       "type": "OVA",
       "gaps": [
@@ -1704,16 +1643,6 @@
       "anidb_id": 9803,
       "reason": "upstream",
       "detail": "the proven mapping collides on TVDB series 269875 at TMDB 57577 S0E1 with 8929 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
-      "anilist_id": 18753,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 9890,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 267435 at TMDB 65676 S0E1 with 9310 S1 (default), 10601 S1 (default), 14764 S1 (default); that claim is the Anime-Lists value to fix"
     },
     {
       "anilist_id": 18857,
@@ -1834,16 +1763,6 @@
       "detail": "sources disagree: the TVDB check failed: AniList 20472: S1 lands on TVDB 0x1, which the capture does not hold"
     },
     {
-      "anilist_id": 20497,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 10232,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 272316 at TMDB 66875 S0E1 with 10587 S1 (default), 14914 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 20522,
       "type": "SPECIAL",
       "gaps": [
@@ -1860,16 +1779,6 @@
       ],
       "reason": "unmappable",
       "detail": "sources disagree: the mapping collides on TVDB 272697, TMDB 61695 S0E1 claimed by 9518 S1 (default), 10726 ep1"
-    },
-    {
-      "anilist_id": 20526,
-      "type": "SPECIAL",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 10274,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 79214 at TVDB 0x1 with 10384 S1 (default); that claim is the Anime-Lists value to fix"
     },
     {
       "anilist_id": 20531,
@@ -2204,16 +2113,6 @@
       "detail": "AniDB 9749 S1 matches the date but no title agrees"
     },
     {
-      "anilist_id": 21039,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 10892,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 279830 at TMDB 61663 S0E1 with 10539 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 21068,
       "type": "SPECIAL",
       "gaps": [
@@ -2424,16 +2323,6 @@
       "detail": "sources disagree: the mapping collides on TVDB 289884, TMDB 62564 S0E1 claimed by 10889 S1 (default), 12962 ep1, 13491 ep1"
     },
     {
-      "anilist_id": 21386,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 11637,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 293088 at TMDB 63926 S0E1 with 11123 S1 (default), 12430 S1 (default), 17576 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 21387,
       "type": "SPECIAL",
       "gaps": [
@@ -2560,16 +2449,6 @@
       ],
       "reason": "upstream",
       "detail": "anime-offline-database has no AniDB id for this AniList entry, and AniList names no PARENT, PREQUEL or SIDE_STORY relation that reaches one AniDB id"
-    },
-    {
-      "anilist_id": 21660,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 11941,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 289882 at TMDB 62745 S0E1 with 10894 S1 (default), 13829 S1 (default), 15111 S1 (default), 16032 S1 (default), 17652 S1 (default), 18267 S1 (default); that claim is the Anime-Lists value to fix"
     },
     {
       "anilist_id": 21688,
@@ -2719,16 +2598,6 @@
       "anidb_id": 12424,
       "reason": "upstream",
       "detail": "AniDB and TVDB agree episode by episode, but the proven mapping collides on TVDB series 314361: TVDB 0x1 claimed by 12035 S1 (default), 12424 ep1; the other node's default special is the Anime-Lists value to fix"
-    },
-    {
-      "anilist_id": 97815,
-      "type": "SPECIAL",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 12519,
-      "reason": "unmappable",
-      "detail": "sources disagree: the mapping collides on TVDB 353666, TMDB 90677 S0E2 claimed by 12519 S2 (default), 13643 ep1"
     },
     {
       "anilist_id": 97936,
@@ -3129,16 +2998,6 @@
       "detail": "the proven mapping collides on TVDB series 318860 at TMDB 69295 S0E1 with 12234 S1 (default), 17294 S1 (default); that claim is the Anime-Lists value to fix"
     },
     {
-      "anilist_id": 101426,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 13991,
-      "reason": "unmappable",
-      "detail": "sources disagree: the mapping collides on TVDB 337936, TVDB 0x2 claimed by 13991 S2 (default), 16560 ep1"
-    },
-    {
       "anilist_id": 101432,
       "type": "SPECIAL",
       "gaps": [
@@ -3317,16 +3176,6 @@
       ],
       "reason": "unmappable",
       "detail": "AniDB 13637 S1 matches the date but no title agrees"
-    },
-    {
-      "anilist_id": 104307,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 14418,
-      "reason": "unmappable",
-      "detail": "AniDB episodes aired 2019-03-20 and 2019-03-20 could map to TVDB 0x1 or 0x2 within a day, and no title or day offset tells them apart"
     },
     {
       "anilist_id": 104368,
@@ -3696,16 +3545,6 @@
       "detail": "no special of AniDB 14185 airs within a day of the AniList start date 2019-03-19"
     },
     {
-      "anilist_id": 125368,
-      "type": "OVA",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 15807,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 354198 at TVDB 0x1 with 14111 S1 (default), 15207 S1 (default), 15806 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 127090,
       "type": "TV",
       "gaps": [
@@ -3947,16 +3786,6 @@
       "detail": "AniDB 16296 S1 matches the date but no title agrees"
     },
     {
-      "anilist_id": 154966,
-      "type": "SPECIAL",
-      "gaps": [
-        "season0_unresolved"
-      ],
-      "anidb_id": 17636,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 436779 at TVDB 0x1 with 18093 S1 (default); that claim is the Anime-Lists value to fix"
-    },
-    {
       "anilist_id": 155011,
       "type": "TV",
       "gaps": [
@@ -4020,16 +3849,6 @@
       ],
       "reason": "unmappable",
       "detail": "no special of AniDB 17547 airs within a day of the AniList start date 2023-12-10"
-    },
-    {
-      "anilist_id": 171627,
-      "type": "MOVIE",
-      "gaps": [
-        "movie_special_unresolved"
-      ],
-      "anidb_id": 18324,
-      "reason": "upstream",
-      "detail": "the proven mapping collides on TVDB series 397934 at TVDB 0x1 with 15914 S1 (default); that claim is the Anime-Lists value to fix"
     },
     {
       "anilist_id": 174383,

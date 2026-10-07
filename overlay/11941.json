@@ -1,0 +1,72 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11941",
+    "tvdb": "https://thetvdb.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darouka: Familia Myth - Dungeon ni Onsen o Motomeru no wa Machigatte Iru Darouka",
+  "justification": "AniDB 1 (2016-12-07) = TVDB 0x01 (2016-12-07), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "1826795f93a38dfdb75673f8e881e495b7330b0007a1d3d0e4d710e0232bc9ba",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          60,
+          "2016-12-07"
+        ],
+        [
+          0,
+          2,
+          61,
+          "2019-02-15"
+        ],
+        [
+          0,
+          3,
+          65,
+          "2019-07-06"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-01-29"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-04-28"
+        ],
+        [
+          0,
+          6,
+          68,
+          "2022-07-09"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2023-03-04"
+        ]
+      ],
+      "series": 289882
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b9f1e2c98a02e1e288f78be83ed51754fe3a80183742ba3e02e6b8d95183f7ad"
+  },
+  "anilist_ids": [
+    21660
+  ],
+  "anidb_id": 11941
+}

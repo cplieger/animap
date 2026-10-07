@@ -1,0 +1,48 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9890",
+    "tvdb": "https://thetvdb.com/series/my-teen-romantic-comedy-snafu/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Yahari Ore no Seishun Lovecome wa Machigatte Iru. Kochira to Shite mo Karera Kanojora no Yukusue ni Sachi Ookaran Koto o Negawazaru o Enai.",
+  "justification": "AniDB 1 (2013-09-19) = TVDB 0x01 (2013-09-19), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "2307d4696e9ee30f71b3739a2bc80fdbe24658ecc0779601ddf58443438e4197",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2013-09-19"
+        ],
+        [
+          0,
+          2,
+          28,
+          "2016-10-27"
+        ],
+        [
+          0,
+          3,
+          41,
+          "2023-04-27"
+        ]
+      ],
+      "series": 267435
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b0fb8afdd50cd57e130e2806fef6a5420070d898584c8b3ff3b1b5b36993a66a"
+  },
+  "anilist_ids": [
+    18753
+  ],
+  "anidb_id": 9890
+}

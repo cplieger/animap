@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10232",
+    "tvdb": "https://thetvdb.com/series/non-non-biyori/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Non Non Biyori: Okinawa e Iku Koto ni Natta",
+  "justification": "AniDB 1 (2014-07-23) = TVDB 0x01 (2014-07-23), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "fc99f5958858003d7a348f46c465e0ff4b792962f6dc827ee5a300e77f4935af",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-07-23"
+        ],
+        [
+          0,
+          2,
+          26,
+          "2016-09-23"
+        ],
+        [
+          0,
+          3,
+          27,
+          "2018-08-25"
+        ],
+        [
+          0,
+          4,
+          40,
+          "2022-03-23"
+        ]
+      ],
+      "series": 272316
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1b4dc75b7c185a2ff3d5e5ae939602f47c0c1bcbffd6c22b836b31bf9eace7e7"
+  },
+  "anilist_ids": [
+    20497
+  ],
+  "anidb_id": 10232
+}

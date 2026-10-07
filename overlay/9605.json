@@ -1,0 +1,96 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9605",
+    "tvdb": "https://thetvdb.com/series/k/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Gekijouban K: Missing Kings",
+  "justification": "AniDB 1 (2014-07-12) = TVDB 0x01 (2014-07-12), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "d2619e9c489d4ffd894f864f8bb07f15fa25eb6fe1cd2e71d32849bb8f3105aa",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2014-07-12"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-02-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-07-12"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-12-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2018-07-07"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2018-08-04"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2018-09-01"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2018-10-06"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2018-11-03"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2018-12-01"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2018-07-07"
+        ]
+      ],
+      "series": 261249
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3a367ab66aa897f8f3a5f04b74acabfa9189a1a26cc7c55185542006e7d48aed"
+  },
+  "anilist_ids": [
+    16904
+  ],
+  "anidb_id": 9605
+}

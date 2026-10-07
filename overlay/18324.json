@@ -1,0 +1,78 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18324",
+    "tvdb": "https://thetvdb.com/series/chainsaw-man/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Gekijouban Chainsaw Man: Reze Hen",
+  "justification": "AniDB 1 (2025-09-19) = TVDB 0x01 (2025-09-19), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "59e7349aa96512db10f9a2c05e404a39982b2bd910978f48fde38d7e4a8600ce",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2025-09-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2025-09-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2025-09-05"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2025-09-05"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2025-09-05"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2025-09-05"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2025-09-05"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2025-09-05"
+        ]
+      ],
+      "series": 397934
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f701d6383992fe3dc35340d9b53f6804fde36f21fb4a90b4401db09d007269fe"
+  },
+  "anilist_ids": [
+    171627
+  ],
+  "anidb_id": 18324
+}
