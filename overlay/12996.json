@@ -1,0 +1,192 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12996",
+    "tvdb": "https://thetvdb.com/series/free-iwatobi-swim-club/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            12,
+            13,
+            14,
+            15
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            3,
+            13
+          ],
+          [
+            4,
+            14
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tokubetsuban Free! Take Your Marks",
+  "justification": "AniDB 1 (2017-10-28) is the whole film and spans TVDB 0x12-0x15 (2017-10-28), its four parts by title; AniDB 2-5 (2017-10-28) = TVDB 0x12-0x15 (2017-10-28), part by part in order. The offset put AniDB 1-5 on 0x12-0x16, and 0x16 is a later film. AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "6249903032cd4c9c282e02fed42295c1b4b5e7b7f0a95eeda472ecacde9c1569",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-09-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-09-11"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-11-06"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-11-06"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-03-18"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-12-05"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2017-04-22"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2017-07-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2019-07-05"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2018-06-23"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2021-09-17"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2022-04-22"
+        ]
+      ],
+      "series": 270065
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d3d20755bc9ac7d76b78b6feb8871269328fbe5ca5c8f7ff52b979879eaa0d90"
+  },
+  "anilist_ids": [
+    98497
+  ],
+  "anidb_id": 12996
+}

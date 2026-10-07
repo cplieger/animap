@@ -4,6 +4,7 @@
     "tvdb": "https://thetvdb.com/series/blood-c/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -15,8 +16,8 @@
     ]
   },
   "title": "Gekijouban Blood-C: The Last Dark",
-  "justification": "AniDB special S1-S4 (2012-04-08 to 2012-05-16) = TVDB 0x05-0x08 (2012-04-08 to 2012-05-16), was 0x01-0x04, by title, air date breaking a tie. AniDB special S5 (2012-05-25) = TVDB 0x09 (2012-05-23), was 0x05, by position inside a run of title matches. AniDB special S6 (2012-05-27) = TVDB 0x10 (2012-05-27), was 0x06, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "justification": "AniDB 1 (2012-06-02) = TVDB 0x01 (2012-06-02), by title and runtime. The empty offset placed no episode. AniDB special S1-S4 (2012-04-08 to 2012-05-16) = TVDB 0x05-0x08 (2012-04-08 to 2012-05-16), was 0x01-0x04, by title, air date breaking a tie. AniDB special S5 (2012-05-25) = TVDB 0x09 (2012-05-23), was 0x05, by position inside a run of title matches. AniDB special S6 (2012-05-27) = TVDB 0x10 (2012-05-27), was 0x06, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "1912bfef103d916051d52eb060f46f519bd3d591c800bfb87f5cbde85aa8ae10",
@@ -87,7 +88,7 @@
       ],
       "series": 249864
     },
-    "at": "2026-10-06",
+    "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "540329588dde696f37bd7a01a153b47ee5ba774ca94cf1d5a4f053250edb3abb"
   },

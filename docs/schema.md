@@ -53,7 +53,7 @@ A row in `mapping_list` says where some of the title's AniDB episodes land:
 | `tmdb_season` | integer | The TMDB season, on a TMDB row. |
 | `start`, `end` | integer | A range of AniDB episodes. With no `end`, a regular range runs to the end of the title. |
 | `offset` | integer | Add it to each episode in the range. |
-| `episodes` | array of arrays | Single episodes, each `[anidb, target]`. `[anidb, a, b]` means one AniDB episode spans two target episodes. `[anidb]` alone means the episode has no counterpart on that side. |
+| `episodes` | array of arrays | Single episodes, each `[anidb, target]`. `[anidb, a, b]` means one AniDB episode spans two target episodes, and a longer pair spans more. `[anidb]` alone means the episode has no counterpart on that side. |
 
 A row takes priority over the record's default season and offset for the episodes it names.
 

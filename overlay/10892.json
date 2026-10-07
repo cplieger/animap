@@ -1,0 +1,42 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10892",
+    "tvdb": "https://thetvdb.com/series/your-lie-in-april/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Shigatsu wa Kimi no Uso: Moments",
+  "justification": "AniDB 1 (2015-05-15) = TVDB 0x01 (2015-05-15), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "154d3547f85425ae3f227869984653e4fcb09a7260beecd628488c631abca5b6",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          23,
+          "2015-05-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-05-31"
+        ]
+      ],
+      "series": 279830
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2dd1e0791211c385974bcc00dab3e199788191fcf8dd8c5f8b49c1c4f4b4586c"
+  },
+  "anilist_ids": [
+    21039
+  ],
+  "anidb_id": 10892
+}

@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17636",
+    "tvdb": "https://thetvdb.com/series/fate-strange-fake/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Fate Strange Fake: Whispers of Dawn",
+  "justification": "AniDB 1 (2023-07-02) = TVDB 0x01 (2023-07-01), by title, TVDB's only special. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "39c7c945f795c653b673b2174be8de6326be5b980f8794f0a72f634076bebaae",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-07-01"
+        ]
+      ],
+      "series": 436779
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "49bbe31b3f50c5af4935a6be6fdbbaf8b97c00eb6dd5729e627d893e1931cd03"
+  },
+  "anilist_ids": [
+    154966
+  ],
+  "anidb_id": 17636
+}

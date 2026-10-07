@@ -1,0 +1,120 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7630",
+    "tvdb": "https://thetvdb.com/series/nichijou-my-ordinary-life/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Nichijou: Nichijou no 0 Wa",
+  "justification": "AniDB 1 (2011-03-12) = TVDB 0x01 (2011-03-12), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "052998c3aa93448723b01ef2c884a77bf80a639298b0bfad18dae8bbb412fbc5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2011-03-12"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-07-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2011-08-26"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-09-30"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-10-28"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2011-11-25"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2011-12-22"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-01-27"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-02-24"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2012-03-30"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2012-04-27"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2012-05-25"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2012-06-29"
+        ]
+      ],
+      "series": 240291
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "5a27e59f8b8f392ba2a5eac94b1710da58022a7a21174fcf3332ffdedbaec701"
+  },
+  "anilist_ids": [
+    8857
+  ],
+  "anidb_id": 7630
+}

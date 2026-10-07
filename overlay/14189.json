@@ -1,0 +1,97 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14189",
+    "tvdb": "https://thetvdb.com/series/the-disastrous-life-of-saiki-k/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Saiki Kusuo no Sainan: Kanketsuhen",
+  "justification": "AniDB 1 (2018-12-28) = TVDB 0x02 (2018-12-28), by title and runtime; AniDB 2-3 are its two halves and land on it too. All three were on 0x96, which TVDB does not have. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "3e38c22511eeb66409c603a108d48e0fd8db34cdd356b25609fcd2c39710f77c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-08-04"
+        ],
+        [
+          0,
+          2,
+          49,
+          "2018-12-28"
+        ],
+        [
+          0,
+          3,
+          50,
+          "2019-12-30"
+        ],
+        [
+          0,
+          4,
+          51,
+          "2019-12-30"
+        ],
+        [
+          0,
+          5,
+          52,
+          "2019-12-30"
+        ],
+        [
+          0,
+          6,
+          53,
+          "2019-12-30"
+        ],
+        [
+          0,
+          7,
+          54,
+          "2019-12-30"
+        ],
+        [
+          0,
+          8,
+          55,
+          "2019-12-30"
+        ]
+      ],
+      "series": 313435
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7e9fa901176f48471092a798eab8255df62cb457a8c76e8c5118682af5de1196"
+  },
+  "anilist_ids": [
+    104580
+  ],
+  "anidb_id": 14189
+}

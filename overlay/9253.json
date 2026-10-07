@@ -1,0 +1,36 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9253",
+    "tvdb": "https://thetvdb.com/series/death-parade/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0"
+  },
+  "title": "Death Billiards",
+  "justification": "AniDB 1 (2013-03-02) = TVDB 0x01 (2013-03-02), by title, TVDB's only special. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "f7505df0149ba0c68b3dcc20e496b890eb4797995a04039efccdc9ab8de11147",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2013-03-02"
+        ]
+      ],
+      "series": 289177
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "5781f94d759bf5a493a3fdf26c528be3b8590330aee79ab53c2e18e7dcb461f8"
+  },
+  "anilist_ids": [
+    14353
+  ],
+  "anidb_id": 9253
+}
