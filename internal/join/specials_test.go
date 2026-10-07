@@ -1,6 +1,7 @@
 package join
 
 import (
+	"reflect"
 	"slices"
 	"testing"
 
@@ -54,6 +55,9 @@ func TestApplySpecials(t *testing.T) {
 	}
 	if s := records[5]; s.TVDBSeason == nil || *s.TVDBSeason != 1 || !slices.Equal(s.MappingList[0].Episodes[0], []int{1, 13}) {
 		t.Errorf("a special a row places on season 1 = %+v, want season 1, [1 13]", s)
+	}
+	if got, want := r.TVDBPlacement, []schema.Segment{{Start: 1, End: 2, Season: new(0), Episode: new(4)}}; !reflect.DeepEqual(got, want) {
+		t.Errorf("bridged record placement = %s, want %s", segString(got), segString(want))
 	}
 	if records[2].AniDBParent != nil || records[1].TVDBID != 0 {
 		t.Error("a skipped bridge changed its record")

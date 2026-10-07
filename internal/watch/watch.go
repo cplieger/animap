@@ -77,45 +77,21 @@ func movieGaps(rec *schema.Record) []Gap {
 	return out
 }
 
-// season0Gaps checks that every AniDB episode 1..episodes of a record filed
-// under season 0 resolves to a TVDB season-0 episode: a row names it (a
-// "-0" pair counts as resolved), or an explicit offset places the run. An
-// absent offset is not "the numbering matches": it is ambiguous.
+// season0Gaps checks a record filed under season 0: it is fully mapped when
+// the build published where every regular episode lands and every landing is
+// a TVDB special or none. A run on a regular season means the record's
+// season 0 is wrong, so seadex-scout cannot compare it either.
 func season0Gaps(rec *schema.Record, unresolved Gap) []Gap {
-	if rec.TVDBEpisodeOffset != nil {
+	switch {
+	case len(rec.TVDBPlacement) > 0 && !slices.ContainsFunc(rec.TVDBPlacement, onRealSeason):
 		return nil
-	}
-	n := rec.Episodes
-	if rec.Type == "MOVIE" && n == 0 {
-		n = 1
-	}
-	if n == 0 {
+	case rec.Episodes == 0:
 		return []Gap{EpisodeCountUnknown}
 	}
-	for k := 1; k <= n; k++ {
-		if !season0Resolved(rec.MappingList, k) {
-			return []Gap{unresolved}
-		}
-	}
-	return nil
+	return []Gap{unresolved}
 }
 
-func season0Resolved(rows []schema.Row, k int) bool {
-	for _, r := range rows {
-		if r.AniDBSeason != 1 || r.TVDBSeason == nil || *r.TVDBSeason != 0 {
-			continue
-		}
-		for _, p := range r.Episodes {
-			if len(p) > 0 && p[0] == k {
-				return true
-			}
-		}
-		if r.Start > 0 && r.Start <= k && (r.End == 0 || k <= r.End) {
-			return true
-		}
-	}
-	return false
-}
+func onRealSeason(s schema.Segment) bool { return s.Season != nil && *s.Season != 0 }
 
 // Entry is one watched id with its gaps.
 type Entry struct {

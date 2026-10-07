@@ -4,6 +4,8 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+
+	"github.com/cplieger/animap/internal/schema"
 )
 
 // SideRow is a parsed row that names a season on one side, TVDB or TMDB.
@@ -28,9 +30,69 @@ func (n *Node) SideRows(seasonAttr string) []SideRow {
 		if err != nil {
 			continue
 		}
-		out = append(out, SideRow{Pairs: sr.Episodes, Season: s, AniDBSeason: sr.AniDBSeason, Start: sr.Start, End: sr.End, Offset: sr.Offset})
+		out = append(out, sideRow(sr, s))
 	}
 	return out
+}
+
+// TVDBRows are the published rows that name a TVDB season, in order, the
+// same rows SideRows("tvdbseason") reads from the node they came from.
+func TVDBRows(rows []schema.Row) []SideRow {
+	var out []SideRow
+	for _, r := range rows {
+		if r.TVDBSeason != nil {
+			out = append(out, sideRow(r, *r.TVDBSeason))
+		}
+	}
+	return out
+}
+
+func sideRow(r schema.Row, season int) SideRow {
+	return SideRow{Pairs: r.Episodes, Season: season, AniDBSeason: r.AniDBSeason, Start: r.Start, End: r.End, Offset: r.Offset}
+}
+
+// Source says how Place placed an AniDB regular episode.
+type Source int
+
+const (
+	// Unplaced means no row covers the episode and the default cannot place it.
+	Unplaced Source = iota
+	// ByRow means a row covers it; no targets then means no counterpart.
+	ByRow
+	// ByOffset means the default season, shifted by the offset the node states.
+	ByOffset
+	// ByAbsentOffset means the default season with no offset stated, read as 0.
+	ByAbsentOffset
+)
+
+// Default is where a side files an episode no row covers: Season, else
+// Absolute for an absolute-numbered title. Offset is nil when the node
+// states none.
+type Default struct {
+	Season   *int
+	Offset   *int
+	Absolute func(number int) (season, episode int, ok bool)
+}
+
+// Place resolves AniDB regular episode k: the first row covering it wins,
+// else the default season at k plus the offset.
+func Place(rows []SideRow, d Default, k int) (targets [][2]int, src Source) {
+	if covered, t := Targets(rows, 1, k); covered {
+		return t, ByRow
+	}
+	src, ep := ByAbsentOffset, k
+	if d.Offset != nil {
+		src, ep = ByOffset, k+*d.Offset
+	}
+	switch {
+	case d.Season != nil:
+		return [][2]int{{*d.Season, ep}}, src
+	case d.Absolute != nil:
+		if s, e, ok := d.Absolute(ep); ok {
+			return [][2]int{{s, e}}, src
+		}
+	}
+	return nil, Unplaced
 }
 
 // Sources are the AniDB episode numbers the row names.

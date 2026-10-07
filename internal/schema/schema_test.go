@@ -25,7 +25,8 @@ func sample() *Document {
 			{
 				AniListID: 1, AniDBID: 2, Type: "TV", Episodes: 12, TVDBID: 3, TVDBSeason: new(0), TVDBEpisodeOffset: new(0),
 				TMDBTVID: 4, TMDBSeason: new(1), TMDBMovieIDs: []int{5}, IMDbIDs: []string{"tt0000001"},
-				MappingList: []Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 2}, {3}}}},
+				MappingList:   []Row{{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 2}, {3}}}},
+				TVDBPlacement: []Segment{{Start: 1, End: 11, Season: new(0), Episode: new(1)}, {Start: 12, End: 12}},
 			},
 			{AniDBID: 9, TVDBID: 7, TVDBAbsolute: true},
 		},
@@ -59,7 +60,7 @@ func TestEncodeIsMinifiedDeterministicAndKeepsExplicitZeros(t *testing.T) {
 	if bytes.HasSuffix(a, []byte("\n")) || bytes.Contains(a, []byte("\n  ")) {
 		t.Error("encoding is not minified")
 	}
-	for _, want := range []string{`"tvdb_season":0`, `"tvdb_episode_offset":0`, `"anidb_season":0`, `"episodes":[[1,2],[3]]`} {
+	for _, want := range []string{`"tvdb_season":0`, `"tvdb_episode_offset":0`, `"anidb_season":0`, `"episodes":[[1,2],[3]]`, `"tvdb_placement":[{"start":1,"end":11,"season":0,"episode":1},{"start":12,"end":12}]`} {
 		if !bytes.Contains(a, []byte(want)) {
 			t.Errorf("encoding lacks %s", want)
 		}
@@ -171,11 +172,11 @@ func TestContentHashIgnoresGeneratedAtAndSources(t *testing.T) {
 func TestCensus(t *testing.T) {
 	recs := []Record{
 		{AniListID: 1, AniDBID: 10, TVDBID: 5, MappingList: []Row{{}}},
-		{AniListID: 2, AniDBID: 10, TVDBID: 5},
+		{AniListID: 2, AniDBID: 10, TVDBID: 5, TVDBPlacement: []Segment{{Start: 1, End: 1}}},
 		{AniListID: 3},
 		{AniDBID: 11, TMDBMovieIDs: []int{1}},
 	}
-	want := Populations{Records: 4, AniListWithAniDB: 2, AniDBWithTVDB: 1, WithTMDB: 1, WithMappingList: 1}
+	want := Populations{Records: 4, AniListWithAniDB: 2, AniDBWithTVDB: 1, WithTMDB: 1, WithMappingList: 1, WithPlacement: 1}
 	if got := Census(recs); got != want {
 		t.Errorf("Census = %+v, want %+v", got, want)
 	}
@@ -199,7 +200,7 @@ func TestJSONSchemaMatchesStructTags(t *testing.T) {
 	for name, typ := range map[string]reflect.Type{
 		"": reflect.TypeFor[Document](), "record": reflect.TypeFor[Record](), "row": reflect.TypeFor[Row](),
 		"sources": reflect.TypeFor[Sources](), "attribution": reflect.TypeFor[Attribution](),
-		"parent_specials": reflect.TypeFor[ParentSpecials](),
+		"parent_specials": reflect.TypeFor[ParentSpecials](), "segment": reflect.TypeFor[Segment](),
 	} {
 		props := js.Properties
 		if name != "" {

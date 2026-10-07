@@ -15,9 +15,8 @@ import (
 
 func TestGaps(t *testing.T) {
 	s0, s1 := new(0), new(1)
-	row := func(pairs ...[]int) []schema.Row {
-		return []schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: pairs}}
-	}
+	placed := []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(3)}, {Start: 2, End: 2}}
+	onSeason1 := []schema.Segment{{Start: 1, End: 1, Season: new(1), Episode: new(1)}}
 	for _, tc := range []struct {
 		rec  *schema.Record
 		name string
@@ -30,26 +29,20 @@ func TestGaps(t *testing.T) {
 		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5}, "series without a season", []Gap{NoTVDBSeason}},
 		{&schema.Record{AniDBID: 1, Type: "OVA"}, "no tvdb", []Gap{NoTVDB}},
 		{&schema.Record{AniDBID: 1, Type: "UNKNOWN"}, "unknown type", []Gap{UnknownType}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, MappingList: row([]int{1, 3}, []int{2})}, "season 0 every episode rowed, -0 counts", nil},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, MappingList: row([]int{1, 3})}, "season 0 one episode unrowed", []Gap{Season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0, TVDBEpisodeOffset: new(4)}, "season 0 explicit offset", nil},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0}, "season 0 no offset no rows", []Gap{Season0Unresolved}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "season 0 placed", nil},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0, TVDBEpisodeOffset: new(4)}, "season 0 not placed", []Gap{Season0Unresolved}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "a placement on another season does not resolve", []Gap{Season0Unresolved}},
 		{&schema.Record{AniDBID: 1, Type: "SPECIAL", TVDBID: 5, TVDBSeason: s0}, "season 0 count unknown", []Gap{EpisodeCountUnknown}},
-		{&schema.Record{
-			AniDBID: 1, Type: "OVA", Episodes: 4, TVDBID: 5, TVDBSeason: s0,
-			MappingList: []schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Start: 1, End: 4, Offset: 2}},
-		}, "season 0 ranged row", nil},
-		{&schema.Record{
-			AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0,
-			MappingList: []schema.Row{{AniDBSeason: 1, TVDBSeason: new(1), Episodes: [][]int{{1, 1}}}},
-		}, "a row on another season does not resolve", []Gap{Season0Unresolved}},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", TMDBMovieIDs: []int{9}}, "movie Radarr route", nil},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", IMDbIDs: []string{"tt0000001"}}, "movie IMDb route", nil},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s1}, "movie Sonarr season route", nil},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE"}, "movie no route", []Gap{MovieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0, MappingList: row([]int{1, 7})}, "movie special resolved", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special unresolved despite Radarr", []Gap{MovieSpecialUnresolved}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0}, "movie special unresolved, no route", []Gap{MovieSpecialUnresolved, MovieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "movie special resolved", nil},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1, TMDBMovieIDs: []int{9}}, "movie special placed on another season, Radarr route", []Gap{MovieSpecialUnresolved}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "movie special placed on another season, no route", []Gap{MovieSpecialUnresolved, MovieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special unresolved despite Radarr", []Gap{MovieSpecialUnresolved}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0}, "movie special unresolved, no route", []Gap{MovieSpecialUnresolved, MovieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special count unknown", []Gap{EpisodeCountUnknown}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if got := Gaps(tc.rec); !slices.Equal(got, tc.want) {
@@ -211,8 +204,9 @@ func TestClassifyUnmappable(t *testing.T) {
 func TestGapsBridgedRecord(t *testing.T) {
 	bridged := &schema.Record{
 		AniListID: 9, Type: "SPECIAL", Episodes: 1, TVDBID: 5, TVDBSeason: new(0),
-		AniDBParent: &schema.ParentSpecials{AniDBID: 100, Specials: []int{1}},
-		MappingList: []schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: [][]int{{1, 8}}}},
+		AniDBParent:   &schema.ParentSpecials{AniDBID: 100, Specials: []int{1}},
+		MappingList:   []schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: [][]int{{1, 8}}}},
+		TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(8)}},
 	}
 	if g := Gaps(bridged); g != nil {
 		t.Errorf("Gaps(a bridged special) = %v, want fully mapped", g)

@@ -104,7 +104,20 @@
         "tmdb_episode_offset": { "type": "integer" },
         "tmdb_movie_ids": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "$ref": "#/$defs/id" } },
         "imdb_ids": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "type": "string", "pattern": "^tt[0-9]{7,10}$" } },
-        "mapping_list": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/row" } }
+        "mapping_list": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/row" } },
+        "tvdb_placement": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/segment" } }
+      }
+    },
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end"],
+      "dependentRequired": { "season": ["episode"], "episode": ["season"] },
+      "properties": {
+        "start": { "$ref": "#/$defs/id" },
+        "end": { "$ref": "#/$defs/id" },
+        "season": { "$ref": "#/$defs/season" },
+        "episode": { "$ref": "#/$defs/id" }
       }
     },
     "row": {

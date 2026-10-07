@@ -458,34 +458,36 @@ func (c *seriesCheck) claims(id int, n *animelists.Node, sd side) map[Target][]s
 		}
 	}
 	rows := n.SideRows(seasonAttr)
-	off, _ := strconv.Atoi(n.Attr(offAttr))
-	dflt := n.Attr(dfltAttr)
+	d := c.fallback(n.Attr(dfltAttr), n.Attr(offAttr), sd)
 	for k := 1; k <= c.facts.Count(id); k++ {
 		label := fmt.Sprintf("%d ep%d", id, k)
-		if covered, targets := animelists.Targets(rows, 1, k); covered {
-			for _, t := range targets {
-				cl.add(t[0], t[1], label)
-			}
-			continue
-		}
-		if s, ep, ok := c.defaultTarget(dflt, sd, k+off); ok {
-			cl.add(s, ep, label)
+		targets, _ := animelists.Place(rows, d, k)
+		for _, t := range targets {
+			cl.add(t[0], t[1], label)
 		}
 	}
 	c.specialClaims(cl, id, rows)
 	return cl.out
 }
 
-func (c *seriesCheck) defaultTarget(dflt string, sd side, ep int) (season, episode int, ok bool) {
+// fallback reads a node's default for animelists.Place. An absent offset
+// counts as 0 here: a collision through it must still be seen.
+func (c *seriesCheck) fallback(dflt, off string, sd side) animelists.Default {
+	var d animelists.Default
+	if o, err := strconv.Atoi(off); err == nil {
+		d.Offset = &o
+	}
 	if s, err := strconv.Atoi(dflt); err == nil && s >= 0 {
-		return s, ep, true
+		d.Season = &s
+	} else if dflt == "a" && sd == sideTVDB {
+		d.Absolute = c.absoluteAt
 	}
-	if dflt == "a" && sd == sideTVDB {
-		if e, found := c.absolute[ep]; found {
-			return e.Season, e.Number, true
-		}
-	}
-	return 0, 0, false
+	return d
+}
+
+func (c *seriesCheck) absoluteAt(number int) (season, episode int, ok bool) {
+	e, found := c.absolute[number]
+	return e.Season, e.Number, found
 }
 
 // specialClaims adds the AniDB specials: through their rows, else each

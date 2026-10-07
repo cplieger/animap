@@ -43,6 +43,7 @@ Every field except the record's id is left out when it has no value. Four intege
 | `tmdb_movie_ids` | array of integers | TMDB movie ids. |
 | `imdb_ids` | array of strings | IMDb ids, each `tt` followed by 7 to 10 digits. |
 | `mapping_list` | array of rows | Per-episode mappings. Present only with a `tvdb_id` or a `tmdb_tv_id`. |
+| `tvdb_placement` | array of segments | The TVDB episode each regular episode lands on. See [TVDB placement](#tvdb-placement). |
 
 A row in `mapping_list` says where some of the title's AniDB episodes land:
 
@@ -56,6 +57,27 @@ A row in `mapping_list` says where some of the title's AniDB episodes land:
 | `episodes` | array of arrays | Single episodes, each `[anidb, target]`. `[anidb, a, b]` means one AniDB episode spans two target episodes, and a longer pair spans more. `[anidb]` alone means the episode has no counterpart on that side. |
 
 A row takes priority over the record's default season and offset for the episodes it names.
+
+## TVDB placement
+
+`tvdb_placement` answers, for each regular episode from 1 to `episodes`, which TVDB episode it is. animap works it out from the record's own fields, with the rule its collision check uses:
+
+1. The first `mapping_list` row with `anidb_season` 1 and a `tvdb_season` that names the episode decides it. A `[k]` pair says it has no TVDB episode.
+2. Otherwise the episode lands on `tvdb_season`, at its number plus `tvdb_episode_offset`.
+
+The field is present only when every regular episode has an answer, and every target is episode 1 or later. So a record has no `tvdb_placement` when an episode needs the offset and the record has none. An absent offset does not say that the numbers match. A record with `tvdb_absolute` and no rows for every episode has none either.
+
+Each segment covers a run of AniDB episodes:
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `start`, `end` | integer | The first and last AniDB regular episode of the run. |
+| `season` | integer | The TVDB season of the run. Absent when these episodes have no TVDB episode. |
+| `episode` | integer | The TVDB episode that `start` lands on. `start` plus one lands on `episode` plus one, and so on to `end`. Absent with `season`. |
+
+An AniDB episode that spans several TVDB episodes appears in one segment for each. For example, `[{"start":1,"end":2,"season":0,"episode":9},{"start":3,"end":3}]` puts episodes 1 and 2 on TVDB specials 9 and 10, and says episode 3 has no TVDB episode.
+
+`tvdb_placement` is optional in version 1. A reader may ignore it, and every other field keeps its meaning.
 
 ## Which records exist
 

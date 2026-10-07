@@ -65,6 +65,7 @@ func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node, facts *ani
 		if n := nodes[out[i].AniDBID]; out[i].AniDBID > 0 && n != nil {
 			fill(&out[i], n, &st)
 		}
+		out[i].TVDBPlacement = placement(&out[i])
 	}
 	return out, st
 }
