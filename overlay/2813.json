@@ -1,0 +1,42 @@
+{
+  "anidb_id": 2813,
+  "title": "Turn A Gundam I: Chikyuukou",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2002-02-09) = TVDB 0x01 (2002-02-09), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2813",
+    "tvdb": "https://thetvdb.com/series/turn-a-gundam/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "127cf6f9d3ce455d65d8c9b4c8f859f0990af85c45068f95bd24078e3175bc0d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2002-02-09"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2002-02-10"
+        ]
+      ],
+      "series": 71585
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "be9624cb4100cae14a2859344f40a24fe88ab72b426a9ba955a6b0b30cf83f67"
+  },
+  "anilist_ids": [
+    3963
+  ],
+  "upstream": "TODO-PR"
+}

@@ -1,0 +1,190 @@
+{
+  "anidb_id": 8090,
+  "title": "Hagane no Renkinjutsushi: Milos no Seinaru Hoshi",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            21
+          ],
+          [
+            2,
+            21
+          ],
+          [
+            3,
+            21
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 2-3 (2011-07-02) are the film in two parts, which AniDB 1 is whole on its row to 0x21, and land on 0x21 too. They were unplaced. AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 6107's special S2. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8090",
+    "tvdb": "https://thetvdb.com/series/fullmetal-alchemist-brotherhood/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "b22ea4e6442712f09d655d9863ef426829917ebee4ae2fae4b351b6ea648e677",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          21,
+          "2009-08-26"
+        ],
+        [
+          0,
+          2,
+          39,
+          "2009-12-23"
+        ],
+        [
+          0,
+          3,
+          56,
+          "2010-04-21"
+        ],
+        [
+          0,
+          4,
+          68,
+          "2010-08-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-08-26"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2009-09-30"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2009-10-28"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2009-11-25"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2009-12-23"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2010-01-27"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2010-02-24"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2010-03-24"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2010-04-21"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2010-05-26"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2010-06-23"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2010-07-21"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2010-08-25"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2010-09-22"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2010-10-27"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2010-11-24"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2011-07-02"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2010-10-24"
+        ]
+      ],
+      "series": 85249
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "61c3b952a6952dc51fbe5a1627193af29babdc174f488793e605417a7bf6776d"
+  },
+  "anilist_ids": [
+    9135
+  ],
+  "upstream": "TODO-PR"
+}

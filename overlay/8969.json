@@ -1,0 +1,48 @@
+{
+  "anidb_id": 8969,
+  "title": "Sankarea (2012)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2012-06-08) = TVDB 0x01 (2012-06-08), by title. AniDB 2 keeps its row to 0x03. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8969",
+    "tvdb": "https://thetvdb.com/series/sankarea-undying-love/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "6809ecba7c93958324adc9065b2c628eee71fff3d390de90d10c678697482c7f",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2012-06-08"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2012-11-30"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2012-11-09"
+        ]
+      ],
+      "series": 257518
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d5839579ed97f946312dc42c1c66a307cf082013e42d14aafec9f85b67945184"
+  },
+  "anilist_ids": [
+    13055
+  ],
+  "upstream": "TODO-PR"
+}

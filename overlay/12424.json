@@ -1,0 +1,42 @@
+{
+  "anidb_id": 12424,
+  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Kibou Hen - Kibou no Gakuen to Zetsubou no Koukousei",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2016-09-29) = TVDB 0x01 (2016-09-29), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12424",
+    "tvdb": "https://thetvdb.com/series/danganronpa-3-the-end-of-hopes-peak-academy-side-despair/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "c82fabd14e8bd80fb5102b6b13dc688c371f016d89bb2d4aab54720bba5cd390",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2016-09-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-01-12"
+        ]
+      ],
+      "series": 314361
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c99d4f05c0d48d879aec57f097bc882c03d00f43613175e1f0f211c538b0a0ee"
+  },
+  "anilist_ids": [
+    97672
+  ],
+  "upstream": "TODO-PR"
+}

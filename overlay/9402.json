@@ -1,0 +1,36 @@
+{
+  "anidb_id": 9402,
+  "title": "Joshiraku (2013)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2013-02-08) = TVDB 0x01 (2013-02-08), by title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9402",
+    "tvdb": "https://thetvdb.com/series/joshiraku/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "f858b66964b8378f09fd3ef6d7550f530611f8e3c4866840efb2677cb1c96ed6",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2013-02-08"
+        ]
+      ],
+      "series": 259651
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b7348654f4c62f1e2c8161f63ed043f25bf0f133b8800ca9ad00186bf47a201a"
+  },
+  "anilist_ids": [
+    15591
+  ],
+  "upstream": "TODO-PR"
+}

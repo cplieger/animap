@@ -1,0 +1,77 @@
+{
+  "anidb_id": 9245,
+  "title": "Ebiten: Kouritsu Ebisugawa Koukou Tenmonbu - Gigazon 23 Part II Himitsu Kudasai",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 1 (2013-01-26) = TVDB 0x06 (2013-01-26), by the anime's title. It was unplaced. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9245",
+    "tvdb": "https://thetvdb.com/series/ebiten/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "49a79a2ec09761efc861f63d6c8f3f93c29b01d147d1ad69e34c369336d52a2b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-11-30"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-12-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-01-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-02-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-03-29"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-01-26"
+        ]
+      ],
+      "series": 259656
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b71221acae17e2012367fd8b3dceca34f8ae829e7dee7c9c9a7856571f87cf66"
+  },
+  "anilist_ids": [
+    14889
+  ],
+  "upstream": "TODO-PR"
+}

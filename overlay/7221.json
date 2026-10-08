@@ -1,0 +1,47 @@
+{
+  "anidb_id": 7221,
+  "title": "Suzumiya Haruhi no Shoushitsu",
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 1 (2010-02-06) = TVDB 0x01 (2010-02-06), by title, the only special TVDB lists. The empty offset placed no episode. AniDB special S1 (2010-12-18) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7221",
+    "tvdb": "https://thetvdb.com/series/the-melancholy-of-haruhi-suzumiya/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "819018ac3637384ebae298b5b7f746c957e030dcc0cc79d4014c55df78398e38",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          29,
+          "2010-02-06"
+        ]
+      ],
+      "series": 79414
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "bc24fb61869fda9c5130247d07ff194e6630d2079944c2e0af3a4a95d76cc3c9"
+  },
+  "anilist_ids": [
+    7311
+  ],
+  "upstream": "TODO-PR"
+}

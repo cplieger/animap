@@ -1,0 +1,120 @@
+{
+  "anidb_id": 11000,
+  "title": "Shinmai Maou no Testament: Toujou Basara no Hard Sweet na Nichijou",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2015-06-24) = TVDB 0x01 (2015-06-22), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11000",
+    "tvdb": "https://thetvdb.com/series/the-testament-of-sister-new-devil/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "107a944539f020de1c33b14f769bbeee51aacd3b3fdd1e43e1bb76f1881838dc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2015-06-22"
+        ],
+        [
+          0,
+          2,
+          24,
+          "2016-01-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-03-27"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-04-24"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2015-05-29"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-06-26"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2015-07-31"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-08-28"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-12-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2016-01-29"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2016-02-26"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2016-03-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2016-04-27"
+        ],
+        [
+          0,
+          14,
+          25,
+          "2018-03-28"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2018-03-28"
+        ]
+      ],
+      "series": 284719
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3ca9c48b467464de23fd9b521155b1a335f2e2de11f9ed7c204b0ef05daa7a5a"
+  },
+  "anilist_ids": [
+    21247
+  ],
+  "upstream": "TODO-PR"
+}

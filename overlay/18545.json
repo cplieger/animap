@@ -1,0 +1,54 @@
+{
+  "anidb_id": 18545,
+  "title": "Watashi no Shiawase na Kekkon: Watashi no Shiawase no Katachi",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2024-03-15) = TVDB 0x01 (2024-03-15), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18545",
+    "tvdb": "https://thetvdb.com/series/watashi-no-shiawase-na-kekkon/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "8b2a90cb3fa0611eecd7b77efbad47b7d9bb5c9a1e8733a1d07418a59985f4a7",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2024-03-15"
+        ],
+        [
+          0,
+          2,
+          27,
+          "2026-10-25"
+        ],
+        [
+          0,
+          3,
+          28,
+          "2026-10-25"
+        ],
+        [
+          0,
+          4,
+          29,
+          "2026-10-25"
+        ]
+      ],
+      "series": 418665
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e7672fd93f99d659ec68ffbefb0676234e09c467a92e9ed52be93f4042ce0f4e"
+  },
+  "anilist_ids": [
+    167486
+  ],
+  "upstream": "TODO-PR"
+}

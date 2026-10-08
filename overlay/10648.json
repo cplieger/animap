@@ -1,0 +1,36 @@
+{
+  "anidb_id": 10648,
+  "title": "Hitsugi no Chaika: Avenging Battle - Nerawareta Hitsugi / Yomigaeru Iseki",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2015-03-10) = TVDB 0x01 (2015-03-10), by title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10648",
+    "tvdb": "https://thetvdb.com/series/chaika-the-coffin-princess/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "2ca98161dab27511f9282d2a568e3bcd14c2720230cbc353c9e9472bd918caf7",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          23,
+          "2015-03-10"
+        ]
+      ],
+      "series": 278127
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "9a02265c484c630d56cb37836e68934aceb7e9e3508b1346023853e6651059f2"
+  },
+  "anilist_ids": [
+    20724
+  ],
+  "upstream": "TODO-PR"
+}

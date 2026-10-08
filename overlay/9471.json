@@ -1,0 +1,36 @@
+{
+  "anidb_id": 9471,
+  "title": "Sket Dance: Imouto no Nayami ni Nayamu Ani ni Nayamu Imouto to Sono Nakama-tachi",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2013-02-05) = TVDB 0x01 (2013-02-05), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9471",
+    "tvdb": "https://thetvdb.com/series/sket-dance/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "56142eb23e3a6a579b6e06a916de4aaba68802915fbc44549e581c55aa7584bc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-02-05"
+        ]
+      ],
+      "series": 247805
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f3ae26f155dabe85fc8e4c3a57b8dcfe688d3c3c60a19d2b6468d53cf19045c0"
+  },
+  "anilist_ids": [
+    16395
+  ],
+  "upstream": "TODO-PR"
+}

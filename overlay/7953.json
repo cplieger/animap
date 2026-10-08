@@ -1,0 +1,42 @@
+{
+  "anidb_id": 7953,
+  "title": "Gakuen Mokushiroku: High School of the Dead - Drifters of the Dead",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2011-04-26) = TVDB 0x01 (2011-02-10), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7953",
+    "tvdb": "https://thetvdb.com/series/highschool-of-the-dead/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "327fccb3cb3fe691d6569fb4837787126de9f72960294724868a8171117695c4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2011-02-10"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-02-10"
+        ]
+      ],
+      "series": 171591
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b6a7c6e5679bd093ab205dd696a6d43381c1485f12ce81d3bcf5cbfc9e5728fc"
+  },
+  "anilist_ids": [
+    9515
+  ],
+  "upstream": "TODO-PR"
+}

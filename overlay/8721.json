@@ -1,0 +1,138 @@
+{
+  "anidb_id": 8721,
+  "title": "Shijou Saikyou no Deshi Ken'ichi (2012)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-11 (2012-03-16 to 2014-05-16) = TVDB 0x01-0x11 (2012-03-14 to 2014-05-16), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8721",
+    "tvdb": "https://thetvdb.com/series/historys-strongest-disciple-kenichi/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "58234c1ae9111a359a9d0e86a04981cdac1fd2c986c84636e335e74f6e347998",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-03-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-06-18"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-11-16"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-09-16"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-09-16"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-11-18"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-11-18"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2014-02-14"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2014-02-14"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2014-05-16"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-05-16"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2013-11-18"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2013-11-18"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2014-02-14"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2014-05-16"
+        ],
+        [
+          0,
+          16,
+          0,
+          ""
+        ],
+        [
+          0,
+          17,
+          0,
+          ""
+        ],
+        [
+          0,
+          18,
+          0,
+          ""
+        ]
+      ],
+      "series": 80000
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f08d066acf0a965200cf1e2854d2e53118225eb5980b1cd30028fc0e6090f171"
+  },
+  "anilist_ids": [
+    11813
+  ],
+  "upstream": "TODO-PR"
+}

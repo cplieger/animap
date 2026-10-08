@@ -1,0 +1,107 @@
+{
+  "anidb_id": 8650,
+  "title": "Un-Go: Inga-ron",
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 1 (2011-11-19) = TVDB 0x01 (2011-11-19), by the anime's title. The empty offset placed no episode. AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8650",
+    "tvdb": "https://thetvdb.com/series/un-go/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "54169a06a9df8b6c7c6dddbe6a15bd4148ef3b463f9a5fd03c52094ffda6c184",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2011-11-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-11-08"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-11-20"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-12-10"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-01-15"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2012-02-04"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-03-27"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2012-04-06"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-04-13"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-04-19"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-04-24"
+        ]
+      ],
+      "series": 252472
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "03d9e0dc12a426489d588a02efc1f31e1f0ddd8c7e6b096fdadf0a91094bfff7"
+  },
+  "anilist_ids": [
+    11531
+  ],
+  "upstream": "TODO-PR"
+}

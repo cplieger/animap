@@ -1,0 +1,36 @@
+{
+  "anidb_id": 13248,
+  "title": "Hajimete no Gal: Hajimete no Bunkasai",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2017-12-26) = TVDB 0x01 (2017-12-26), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13248",
+    "tvdb": "https://thetvdb.com/series/my-first-girlfriend-is-a-gal/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "ce2db5bea222a9f3e843e212e7a14582ea989fab2d17c7d58b8f3970bb242fff",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2017-12-26"
+        ]
+      ],
+      "series": 329422
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d276f74b969cf13809e42055af03d642f6884c7e080bb156d4a6dad2ecbb1537"
+  },
+  "anilist_ids": [
+    98878
+  ],
+  "upstream": "TODO-PR"
+}

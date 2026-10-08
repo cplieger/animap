@@ -1,0 +1,36 @@
+{
+  "anidb_id": 13840,
+  "title": "Masamune-kun no Revenge (2018)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2018-07-27) = TVDB 0x01 (2018-07-27), by title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13840",
+    "tvdb": "https://thetvdb.com/series/masamune-kuns-revenge/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "b8f08cc572ec47efe7b96a761b78f26f9512aa821632201d3abac65a8d4eaed6",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2018-07-27"
+        ]
+      ],
+      "series": 318860
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "664b4ca5e5bf8a0ccd207d3ef7cc40e375bea5499ba7c9717b8333ac0bea72fd"
+  },
+  "anilist_ids": [
+    101213
+  ],
+  "upstream": "TODO-PR"
+}

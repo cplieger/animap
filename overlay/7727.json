@@ -1,34 +1,28 @@
 {
-  "evidence": {
-    "anidb": "https://anidb.net/anime/9496",
-    "tvdb": "https://thetvdb.com/series/witch-craft-works/seasons/official/0"
-  },
+  "anidb_id": 7727,
+  "title": "IS: Infinite Stratos",
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
-        "start": 1,
-        "end": 6,
-        "offset": 1
-      },
-      {
-        "anidb_season": 0,
-        "tvdb_season": 0,
         "episodes": [
           [
-            7
+            1,
+            2
           ]
         ]
       }
     ]
   },
-  "title": "Witch Craft Works",
-  "justification": "AniDB special S1-S6 (2014-03-26 to 2014-08-27) = TVDB 0x02-0x07 (2014-03-26 to 2014-08-27), was 0x01-0x06, by title and runtime. AniDB special S7 (2022-03-29) has no TVDB episode, was 0x07, the TVDB episode of S6. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "AniDB special S1 (no AniDB date) = TVDB 0x02 (2011-10-26), was unplaced, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7727",
+    "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
+  },
   "captured": {
     "tvdb": {
-      "sha256": "cb12db6c8b577609a7030f395765d158c10fc245563da8a46c4009bd52179af5",
+      "sha256": "8419193e99c7e0d96e4695fe125402a2532e1b5e80c948b718fa67914be35d94",
       "seasons": [
         0,
         1
@@ -38,125 +32,113 @@
           0,
           1,
           0,
-          "2015-01-07"
+          "2011-12-07"
         ],
         [
           0,
           2,
           0,
-          "2014-03-26"
+          "2011-10-26"
         ],
         [
           0,
           3,
           0,
-          "2014-04-25"
+          "2013-10-30"
         ],
         [
           0,
           4,
           0,
-          "2014-05-28"
+          "2014-11-26"
         ],
         [
           0,
           5,
           0,
-          "2014-06-20"
-        ],
-        [
-          0,
-          6,
-          0,
-          "2014-07-25"
-        ],
-        [
-          0,
-          7,
-          0,
-          "2014-08-27"
+          "2016-06-30"
         ],
         [
           1,
           1,
           1,
-          "2014-01-05"
+          "2011-01-06"
         ],
         [
           1,
           2,
           2,
-          "2014-01-12"
+          "2011-01-13"
         ],
         [
           1,
           3,
           3,
-          "2014-01-19"
+          "2011-01-20"
         ],
         [
           1,
           4,
           4,
-          "2014-01-26"
+          "2011-01-27"
         ],
         [
           1,
           5,
           5,
-          "2014-02-03"
+          "2011-02-03"
         ],
         [
           1,
           6,
           6,
-          "2014-02-10"
+          "2011-02-10"
         ],
         [
           1,
           7,
           7,
-          "2014-02-19"
+          "2011-02-17"
         ],
         [
           1,
           8,
           8,
-          "2014-02-26"
+          "2011-02-24"
         ],
         [
           1,
           9,
           9,
-          "2014-03-05"
+          "2011-03-03"
         ],
         [
           1,
           10,
           10,
-          "2014-03-10"
+          "2011-03-10"
         ],
         [
           1,
           11,
           11,
-          "2014-03-17"
+          "2011-03-24"
         ],
         [
           1,
           12,
           12,
-          "2014-03-24"
+          "2011-03-31"
         ]
       ],
-      "series": 275611
+      "series": 219131
     },
     "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
-    "node_sha256": "8ce972e87fc087f200e4c5482e08f5c9079c1e4916f11075ae1a21c702dbde73"
+    "node_sha256": "23e7bae36eda76d324e31125169ccf17fc10d5498f8b9ca2c768af683608ea6e"
   },
   "anilist_ids": [
-    20503
+    9041
   ],
-  "anidb_id": 9496
+  "upstream": "TODO-PR"
 }

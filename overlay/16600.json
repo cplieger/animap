@@ -1,0 +1,42 @@
+{
+  "anidb_id": 16600,
+  "title": "Yuukoku no Moriarty (2022)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-2 (2022-04-27) = TVDB 0x01-0x02 (2022-09-23 to 2022-09-25), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16600",
+    "tvdb": "https://thetvdb.com/series/moriarty-the-patriot/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "db0e18f7d3768d0b9bd7ee1396a2219d58e0d27be24313fbad9ab18d20c48314",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2022-09-23"
+        ],
+        [
+          0,
+          2,
+          19,
+          "2022-09-25"
+        ]
+      ],
+      "series": 385542
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3e4e99d3c4ef41fe7aadcb11d1e2e10e84c3bd62da31af660eb6d712e295e06b"
+  },
+  "anilist_ids": [
+    138700
+  ],
+  "upstream": "TODO-PR"
+}

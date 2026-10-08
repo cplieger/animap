@@ -1,45 +1,14 @@
 {
+  "anidb_id": 2853,
+  "title": "Shin Kidou Senki Gundam Wing: Operation Meteor",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-4 (1996-04-25 to 1996-10-25) = TVDB 0x01-0x04 (1996-04-25 to 1996-10-25), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
   "evidence": {
-    "anidb": "https://anidb.net/anime/496",
+    "anidb": "https://anidb.net/anime/2853",
     "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-wing/seasons/official/0"
   },
-  "set": {
-    "mapping_list": [
-      {
-        "anidb_season": 1,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            2,
-            8
-          ],
-          [
-            3,
-            8
-          ]
-        ]
-      },
-      {
-        "anidb_season": 0,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            1,
-            11
-          ],
-          [
-            2
-          ],
-          [
-            3
-          ]
-        ]
-      }
-    ]
-  },
-  "title": "Shin Kidou Senki Gundam Wing: Endless Waltz Tokubetsu Hen",
-  "justification": "AniDB special S1 (2025-07-26) = TVDB 0x11 (2025-07-26), was 0x01, by title. AniDB special S2-S3 (no AniDB date) have no TVDB episode, was 0x02-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "3af4a5d7350ed4f9f8eb6026256339063334bd8e6a79ecd34aca7e525e89b4b9",
@@ -118,10 +87,10 @@
     },
     "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
-    "node_sha256": "e72eaca621d4649d27231318f5a4636f65ea6c366ac45bacca04f2a768343cce"
+    "node_sha256": "bb87754f8c157028b0b12fac99d4972451c3538cec2683ce3cf1116ae163e1a6"
   },
   "anilist_ids": [
-    2273
+    3626
   ],
-  "anidb_id": 496
+  "upstream": "TODO-PR"
 }

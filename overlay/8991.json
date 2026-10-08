@@ -1,0 +1,42 @@
+{
+  "anidb_id": 8991,
+  "title": "Upotte!!: Miatte Waratte",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2012-10-13) = TVDB 0x01 (2012-10-13), by the anime's title; 0x02 is a streaming bonus by its TVDB title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8991",
+    "tvdb": "https://thetvdb.com/series/upotte/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "026845a504e5af65f7dc76cf8a9fb427c5603f11cbcd3f9d6b6c6478ca869f48",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2012-10-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-08-31"
+        ]
+      ],
+      "series": 257887
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "3fc1662a999fa0092947e9fa1a88f7a2a9332517c5449959c80dd3285b17df89"
+  },
+  "anilist_ids": [
+    14173
+  ],
+  "upstream": "TODO-PR"
+}

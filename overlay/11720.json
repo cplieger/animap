@@ -15,11 +15,12 @@
           ]
         ]
       }
-    ]
+    ],
+    "episodeoffset": "0"
   },
   "title": "Bakuon!! OAD",
-  "justification": "AniDB 2 (2016-12-20) = TVDB 0x06 (2016-12-20), was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "justification": "AniDB 1 (2016-03-18) = TVDB 0x01 (2016-03-18), by order: TVDB's only special not matched by title to AniDB 2 or to AniDB 11253's specials. The empty offset placed no episode. AniDB 2 (2016-12-20) = TVDB 0x06 (2016-12-20), was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "0fe7ac7d9693c3903c0223254942fad6aa367e580dfbbb5514ca50a96dbba489",
@@ -66,7 +67,7 @@
       ],
       "series": 304987
     },
-    "at": "2026-10-06",
+    "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "fb96128b28e5dc98f7dfaeaf0c89da734eff1e8a29dd0c67f73ec40a49da2a7c"
   },

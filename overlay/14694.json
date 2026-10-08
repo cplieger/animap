@@ -1,0 +1,48 @@
+{
+  "anidb_id": 14694,
+  "title": "Otona no Bouguya-san (Rimen)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-3 (2019-03-06 to 2019-03-20) = TVDB 0x01-0x03 (2019-03-06 to 2019-03-20), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14694",
+    "tvdb": "https://thetvdb.com/series/otonabougu/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "9a2b2f2397805c7d804b33ccc6e715e09e6b2accdd8c05316e7914426040afbe",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-03-06"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2019-03-13"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2019-03-20"
+        ]
+      ],
+      "series": 353608
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b94829c2d07bd5171634980c2e6222e53371c4fb7743bffdded1448f40558514"
+  },
+  "anilist_ids": [
+    108355
+  ],
+  "upstream": "TODO-PR"
+}

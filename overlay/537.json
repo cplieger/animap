@@ -1,0 +1,157 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/537",
+    "tvdb": "https://thetvdb.com/series/patlabor/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            10
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "WXIII: Patlabor the Movie 3",
+  "justification": "AniDB special S2-S3 (no AniDB date) have no TVDB episode, was 0x02-0x03, which are AniDB 1518. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "80f69c7f4f490874875aecd9811fd952a2e97dccf800fac20b8018b282e47229",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1988-04-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1988-06-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1988-07-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1988-09-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1988-11-10"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1988-12-08"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1989-06-23"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1989-07-15"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1993-08-23"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2001-12-10"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2009-11-27"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2009-11-27"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2009-11-27"
+        ],
+        [
+          0,
+          14,
+          0,
+          ""
+        ],
+        [
+          0,
+          15,
+          0,
+          "2016-10-15"
+        ],
+        [
+          0,
+          16,
+          0,
+          ""
+        ]
+      ],
+      "series": 80789
+    },
+    "at": "2026-10-08",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c6f4e4e1586501d8e4970f34dc27fdb6937c1625bba82bf871a4b75fe9712987"
+  },
+  "anilist_ids": [
+    1290
+  ],
+  "anidb_id": 537
+}

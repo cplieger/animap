@@ -1,0 +1,83 @@
+{
+  "anidb_id": 6128,
+  "title": "Gunslinger Girl: Il Teatrino OVA",
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 1-2 (2008-10-24) = TVDB 0x01-0x02 (2008-11-24), by title and order. The empty offset placed no episode. AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6128",
+    "tvdb": "https://thetvdb.com/series/gunslinger-girl/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "f5f0e04dd546075dbe479c1b6c29c2f5ad66381f792545bcb001f8b52f9919ef",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2008-11-24"
+        ],
+        [
+          0,
+          2,
+          28,
+          "2008-11-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ],
+        [
+          0,
+          7,
+          0,
+          ""
+        ]
+      ],
+      "series": 78812
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1091b358bcc342859e905a5d0b9ec15a412cda0839951c2bc191fe9efbddd5ed"
+  },
+  "anilist_ids": [
+    4765
+  ],
+  "upstream": "TODO-PR"
+}

@@ -1,0 +1,36 @@
+{
+  "anidb_id": 11489,
+  "title": "Gekijouban KanColle",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2016-11-26) = TVDB 0x01 (2016-11-27), by title and runtime, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11489",
+    "tvdb": "https://thetvdb.com/series/kantai-collection-kan-colle/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "230f2df46569dacf276140e05bd3dede52c60bcc730b42e2233f1408c4fd8419",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-11-27"
+        ]
+      ],
+      "series": 279533
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "e03f7045efee3b95c18f6fd3f28586418af4547f7efc1aa15eca7daad48274c8"
+  },
+  "anilist_ids": [
+    21295
+  ],
+  "upstream": "TODO-PR"
+}
