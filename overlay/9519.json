@@ -1,0 +1,36 @@
+{
+  "anidb_id": 9519,
+  "title": "Mondaiji-tachi ga Isekai kara Kurusou Desu yo?: Onsen Man'yuuki",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2013-07-20) = TVDB 0x01 (2013-07-20), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9519",
+    "tvdb": "https://thetvdb.com/series/problem-children-are-coming-from-another-world-arent-they/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "722fa5e09699a9a02166097ee8f14fce969446d58830a8a8ca209fd1fbd24643",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2013-07-20"
+        ]
+      ],
+      "series": 264531
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "6edcdbca05dd0d730328d1bd15009eb2e555911ec4d625e088f5e6ffe4c8c31b"
+  },
+  "anilist_ids": [
+    16444
+  ],
+  "upstream": "TODO-PR"
+}

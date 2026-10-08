@@ -37,6 +37,10 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1,
+            5
+          ],
+          [
             2
           ]
         ]
@@ -44,8 +48,8 @@
     ]
   },
   "title": "Slam Dunk",
-  "justification": "AniDB special S2 (1995-04-08) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "justification": "AniDB special S1 (1994-04-09) = TVDB 0x05 (1994-04-09), was 0x01, by title. AniDB special S2 (1995-04-08) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "6db77f05e2f769506ca66811996033c17f53046e3348c533a1b0411685ba842e",
@@ -660,7 +664,7 @@
       ],
       "series": 72491
     },
-    "at": "2026-10-06",
+    "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "f5f352e81f0c00e4e76665813e304d03fb11cb6a9be24d9d0d152a92d6ed96d6"
   },

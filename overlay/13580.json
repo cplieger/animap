@@ -1,0 +1,53 @@
+{
+  "anidb_id": 13580,
+  "title": "Eromanga-sensei OVA",
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 1-2 (2019-01-16) = TVDB 0x01-0x02 (2019-01-16), by title and order. The empty offset placed no episode. AniDB special S1 (2019-01-16) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13580",
+    "tvdb": "https://thetvdb.com/series/eromanga-sensei/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "febb5c401eb91c10fc3c7b9fd83ffbfe86703ef0f4519dd711565c82efceacf8",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-01-16"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2019-01-16"
+        ]
+      ],
+      "series": 319410
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "8b24d611780e4eee123161e631bd5ac2c98d2e6516fdb282745876945604c0b5"
+  },
+  "anilist_ids": [
+    100523
+  ],
+  "upstream": "TODO-PR"
+}

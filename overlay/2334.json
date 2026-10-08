@@ -1,0 +1,42 @@
+{
+  "anidb_id": 2334,
+  "title": "Silent Mobius: The Motion Picture",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (1991-08-17) = TVDB 0x01 (1991-08-17), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2334",
+    "tvdb": "https://thetvdb.com/series/silent-mobius/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "d3aa2e64eb0a16af134808d98ac5ccad51b2b49c9eaaff6a032604e20916cc2b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1991-08-17"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1992-07-18"
+        ]
+      ],
+      "series": 72493
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "ea32814ac53ccd01f6cbfb026486137da8030cfcce5233f678e9ad53e709b597"
+  },
+  "anilist_ids": [
+    2099
+  ],
+  "upstream": "TODO-PR"
+}

@@ -1,0 +1,119 @@
+{
+  "anidb_id": 12035,
+  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Zetsubou Hen",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 12424. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12035",
+    "tvdb": "https://thetvdb.com/series/danganronpa-3-the-end-of-hopes-peak-academy-side-despair/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "0f2854fee119b83b9da47076ccf04a58ed6713e8796e69b9af4fba2d4e47c8dd",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          12,
+          "2016-09-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-01-12"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-07-14"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-07-21"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-07-28"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-08-04"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-08-11"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-08-18"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-08-25"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-08-29"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-09-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-09-15"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-09-22"
+        ]
+      ],
+      "series": 314361
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "faf12ff7d3eca031a035f39309e6c89387ea2be5ab0a4f3b22052b26025e6e6f"
+  },
+  "anilist_ids": [
+    21825
+  ],
+  "upstream": "TODO-PR"
+}

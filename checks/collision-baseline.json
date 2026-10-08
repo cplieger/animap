@@ -5356,22 +5356,6 @@
       "series": 85230
     },
     {
-      "target": "TVDB 0x2",
-      "nodes": [
-        6107,
-        8090
-      ],
-      "series": 85249
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        6107,
-        8090
-      ],
-      "series": 85249
-    },
-    {
       "target": "TMDB 45502 S0E1",
       "nodes": [
         8528,

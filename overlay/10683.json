@@ -1,0 +1,48 @@
+{
+  "anidb_id": 10683,
+  "title": "Yamada-kun to Nananin no Majo",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-2 (2014-12-17 to 2015-05-15) = TVDB 0x01-0x02 (2014-12-17 to 2015-05-15), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10683",
+    "tvdb": "https://thetvdb.com/series/yamada-kun-and-the-seven-witches-2015/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "f36747b7f1334e164c8c7e70a080b3d3e96fe7b2b22c369a7e10fccbc392bc4b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-17"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-05-15"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-08-26"
+        ]
+      ],
+      "series": 289744
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "361bd91e14feecc575264c439dd658b64937bf9e6e3c318b75284bf3959d6b2d"
+  },
+  "anilist_ids": [
+    20740
+  ],
+  "upstream": "TODO-PR"
+}

@@ -1,0 +1,137 @@
+{
+  "anidb_id": 8860,
+  "title": "Ebiten: Kouritsu Ebisugawa Koukou Tenmonbu",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB special S6 (2013-02-22) has no TVDB episode, was 0x06, which is AniDB 9245. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8860",
+    "tvdb": "https://thetvdb.com/series/ebiten/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "95f17cb04969846e37aab1c2e1a1949ad96fae94e58b4913f8288a4f9114c936",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-11-30"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-12-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-01-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-02-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-03-29"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-01-26"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2012-07-14"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2012-07-21"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2012-07-28"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2012-08-04"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2012-08-11"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2012-08-18"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2012-08-25"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2012-09-01"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2012-09-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2012-09-15"
+        ]
+      ],
+      "series": 259656
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1591474c60826466ecc1622ec777c91f0bf27bb57c596a512902933170152d13"
+  },
+  "anilist_ids": [
+    14073
+  ],
+  "upstream": "TODO-PR"
+}

@@ -1,0 +1,66 @@
+{
+  "anidb_id": 10113,
+  "title": "Yuusha ni Narenakatta Ore wa Shibushibu Shuushoku o Ketsui Shimashita.: Yuusha ni Narenakatta Ore no Imouto ga Joukyou Shite Kimashita.",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2014-03-10) = TVDB 0x01 (2014-03-07), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10113",
+    "tvdb": "https://thetvdb.com/series/yu-shibu/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "e25a3453ab8e240761027a591cf94203c9402af729c312d21ef1a1031f2d040b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2014-03-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-12-27"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-01-31"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-02-28"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-03-28"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-04-25"
+        ]
+      ],
+      "series": 273002
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "2f4c77b8e5c8bdcb28d0951e1e3efac72d1970e984db2cb9243946ab1d27275a"
+  },
+  "anilist_ids": [
+    20551
+  ],
+  "upstream": "TODO-PR"
+}

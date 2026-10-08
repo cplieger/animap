@@ -1,0 +1,164 @@
+{
+  "anidb_id": 5418,
+  "title": "Gunslinger Girl: Il Teatrino",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02, which are AniDB 6128. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5418",
+    "tvdb": "https://thetvdb.com/series/gunslinger-girl/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "789b920f0799c722ebdc10f8219107c78b6094069848aa0d2b210cf38e254e24",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2008-11-24"
+        ],
+        [
+          0,
+          2,
+          28,
+          "2008-11-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ],
+        [
+          0,
+          7,
+          0,
+          ""
+        ],
+        [
+          2,
+          1,
+          14,
+          "2008-01-07"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2008-01-14"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2008-01-21"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2008-01-28"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2008-02-04"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2008-02-11"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2008-02-18"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2008-02-25"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2008-03-03"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2008-03-10"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2008-03-17"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2008-03-24"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2008-03-31"
+        ]
+      ],
+      "series": 78812
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a96297354016f5e3bc1e7a14098a386b77af55df1b0ff744a95be2a6ab8e824d"
+  },
+  "anilist_ids": [
+    3231
+  ],
+  "upstream": "TODO-PR"
+}

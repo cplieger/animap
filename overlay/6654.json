@@ -1,0 +1,48 @@
+{
+  "anidb_id": 6654,
+  "title": "Minami-ke Betsubara",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2009-06-23) = TVDB 0x01 (2009-06-23), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6654",
+    "tvdb": "https://thetvdb.com/series/minami-ke/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "5cb039183e6c272ff6c675c0aad20000c6912d541fbebaf7707542feb9962440",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-06-23"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-10-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-08-06"
+        ]
+      ],
+      "series": 81463
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d9b0e0f6d30526c522066400b8cdb0cc8a4042a890d695a4eb86fab989adf96f"
+  },
+  "anilist_ids": [
+    5713
+  ],
+  "upstream": "TODO-PR"
+}

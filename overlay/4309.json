@@ -1,0 +1,140 @@
+{
+  "anidb_id": 4309,
+  "title": "Minami-ke",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02, which are AniDB 6654 and AniDB 9267. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4309",
+    "tvdb": "https://thetvdb.com/series/minami-ke/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "961c829e16f23ebaaf91b22ab42cfafe047ee4718fe6aeaba2d37a85c7ba6aa9",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-06-23"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-10-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-08-06"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2007-10-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2007-10-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2007-10-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2007-10-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2007-11-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2007-11-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2007-11-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2007-11-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2007-12-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2007-12-10"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2007-12-17"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2007-12-24"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2007-12-31"
+        ]
+      ],
+      "series": 81463
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "b9c8c683f3df37aec889e02f3c761bbd4a7020c1cf82ef379f42a56a7b32a3bc"
+  },
+  "anilist_ids": [
+    2963
+  ],
+  "upstream": "TODO-PR"
+}

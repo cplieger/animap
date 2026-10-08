@@ -1,0 +1,48 @@
+{
+  "anidb_id": 11136,
+  "title": "Strike the Blood: Valkyria no Oukoku Hen",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-2 (2015-11-25 to 2015-12-23) = TVDB 0x01-0x02 (2015-11-25 to 2015-12-23), by the anime's title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11136",
+    "tvdb": "https://thetvdb.com/series/strike-the-blood/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "82bf7ba0baf3937fe8174bf76c8390b768f469a4280939ab1d14bac6e295e220",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-11-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-12-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2020-01-29"
+        ]
+      ],
+      "series": 272129
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "5c9e30533b9db16f28f1f8007c1f9569e1d40e4241b11ccae5efc59fad273f8f"
+  },
+  "anilist_ids": [
+    21098
+  ],
+  "upstream": "TODO-PR"
+}

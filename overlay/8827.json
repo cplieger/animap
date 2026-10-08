@@ -1,0 +1,36 @@
+{
+  "anidb_id": 8827,
+  "title": "Hanasaku Iroha: Home Sweet Home",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2013-03-09) = TVDB 0x01 (2013-03-09), by title and runtime, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8827",
+    "tvdb": "https://thetvdb.com/series/hanasaku-iroha-blossoms-for-tomorrow/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "7c60e47be75e21e71bd819797f57eae5bc94ee8ca701908f4f1fa3922a42fefb",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-03-09"
+        ]
+      ],
+      "series": 246521
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "1166ff4029ef1c93e2c9f97dabbfe9dea3b3f4843ea4b1032221a645df15c3f2"
+  },
+  "anilist_ids": [
+    14175
+  ],
+  "upstream": "TODO-PR"
+}

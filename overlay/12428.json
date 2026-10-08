@@ -1,0 +1,48 @@
+{
+  "anidb_id": 12428,
+  "title": "High School Fleet (2017)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-2 (2017-03-31 to 2017-05-24) = TVDB 0x01-0x02 (2017-03-31 to 2017-05-24), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12428",
+    "tvdb": "https://thetvdb.com/series/high-school-fleet/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "7b4bcc2db3b257ae445d33d557b2e394fbadf81e698bb53e18958570a5bcaac3",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2017-03-31"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2017-05-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2020-01-18"
+        ]
+      ],
+      "series": 306743
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "9d98e44d4092d3276baa972e4077e1d6651ce7f68d5de09aea4b94cdcd87923d"
+  },
+  "anilist_ids": [
+    97667
+  ],
+  "upstream": "TODO-PR"
+}

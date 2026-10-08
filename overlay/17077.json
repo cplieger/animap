@@ -1,0 +1,42 @@
+{
+  "anidb_id": 17077,
+  "title": "Sasaki to Miyano: Koi ni Kizuku Mae no Chotto Shita Hanashi.",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2022-07-27) = TVDB 0x01 (2022-07-22), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17077",
+    "tvdb": "https://thetvdb.com/series/404886-/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "6bda66d59fbcf843f9ddb3e9558dfb30ffba57402490717ebf9c34c7b43c861b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2022-07-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2023-02-17"
+        ]
+      ],
+      "series": 404886
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "26c214e227723b4bbd66617ab59c0545db50662620e72516e388f1a07603302a"
+  },
+  "anilist_ids": [
+    143082
+  ],
+  "upstream": "TODO-PR"
+}

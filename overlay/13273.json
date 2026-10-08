@@ -17,11 +17,12 @@
           ]
         ]
       }
-    ]
+    ],
+    "episodeoffset": "0"
   },
   "title": "Grisaia: Phantom Trigger the Animation",
-  "justification": "AniDB special S1-S2 (2020-11-21 to 2019-07-26) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "justification": "AniDB 1-3 (2019-03-15 to 2020-11-27) = TVDB 0x01-0x03 (2019-03-15 to 2020-11-27), by title and order. The empty offset placed no episode. AniDB special S1-S2 (2020-11-21 to 2019-07-26) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "49b0d68267d97740342ff52d2ec188c7ba243cfa2e2636647bf853414717d047",
@@ -50,7 +51,7 @@
       ],
       "series": 447951
     },
-    "at": "2026-10-06",
+    "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "ecf32a0e0cb7648e7cb34b9e6ba6561ce91a894694bd48e183fff7ab1c5eb9db"
   },

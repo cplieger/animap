@@ -1,0 +1,54 @@
+{
+  "anidb_id": 8505,
+  "title": "Asobi ni Iku yo! Asobi ni Oide",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2011-06-15) = TVDB 0x01 (2011-06-15), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8505",
+    "tvdb": "https://thetvdb.com/series/cat-planet-cuties/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "5c855a8c02a9f0e9a7ad4c4e3465260246d5390ed18dd9328e857ebde102021d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2011-06-15"
+        ],
+        [
+          0,
+          14,
+          14,
+          "2011-06-15"
+        ],
+        [
+          0,
+          15,
+          15,
+          "2011-06-15"
+        ],
+        [
+          0,
+          16,
+          16,
+          "2011-06-15"
+        ]
+      ],
+      "series": 173301
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "97afd67aae2e2dbf7643ce81b271c6caee57a5e25adeb9f8cc4f0667de6aafbd"
+  },
+  "anilist_ids": [
+    9618
+  ],
+  "upstream": "TODO-PR"
+}

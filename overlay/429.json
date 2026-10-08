@@ -1,0 +1,48 @@
+{
+  "anidb_id": 429,
+  "title": "X",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (1996-08-03) = TVDB 0x01 (1996-08-03), by title and runtime. AniDB 2-3 are its two parts and keep their rows to it. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/429",
+    "tvdb": "https://thetvdb.com/series/x/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "93c8a90a892f4652e75eb54593c836e17adf1dea0e6826dcd5a112ccd54e66e4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1996-08-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2001-10-03"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1992-11-21"
+        ]
+      ],
+      "series": 70865
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "657b166f3deb89d5263bfd4f0bae8b3c11ac92f072dcf367ae0094129a44937e"
+  },
+  "anilist_ids": [
+    155
+  ],
+  "upstream": "TODO-PR"
+}

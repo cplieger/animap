@@ -1,0 +1,47 @@
+{
+  "anidb_id": 7013,
+  "title": "Tetsuwan Birdy Decode: The Cipher",
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB 1 (2009-07-22) = TVDB 0x01 (2009-05-28), by title, the only special TVDB lists. The empty offset placed no episode. AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7013",
+    "tvdb": "https://thetvdb.com/series/birdy-the-mighty-decode/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "30ad80e9f14978e89e9cad2a21a7bb113e15cc41a7e588d52eadf697fbcc627e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2009-05-28"
+        ]
+      ],
+      "series": 82884
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "d12b3d0ebef195a63e6c7d199cdee7d3f7e4a2975a24aaf15d48b2686a5c7f82"
+  },
+  "anilist_ids": [
+    6380
+  ],
+  "upstream": "TODO-PR"
+}

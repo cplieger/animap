@@ -1,0 +1,42 @@
+{
+  "anidb_id": 13515,
+  "title": "Boku no Kanojo ga Majime Sugiru Shobitch na Ken (2018)",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2018-03-26) = TVDB 0x01 (2018-03-26), by order: TVDB lists two specials and 0x02 is AniDB 13217's special S1 by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13515",
+    "tvdb": "https://thetvdb.com/series/my-girlfriend-is-shobitch/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "f1110029e4c46622e3adfc4d8523367dba08e6e1952dfb28fbf695ef45d5320c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2018-03-26"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-03-26"
+        ]
+      ],
+      "series": 334706
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4be4bfe5e0c0d2b547053fa7d8caae6e93ff7dfb025aede82b0e5c7c524665c5"
+  },
+  "anilist_ids": [
+    100518
+  ],
+  "upstream": "TODO-PR"
+}

@@ -1,7 +1,7 @@
 {
   "evidence": {
-    "anidb": "https://anidb.net/anime/496",
-    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-wing/seasons/official/0"
+    "anidb": "https://anidb.net/anime/777",
+    "tvdb": "https://thetvdb.com/series/patlabor/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -9,6 +9,10 @@
         "anidb_season": 1,
         "tvdb_season": 0,
         "episodes": [
+          [
+            1,
+            8
+          ],
           [
             2,
             8
@@ -24,25 +28,21 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1,
-            11
+            1
           ],
           [
             2
-          ],
-          [
-            3
           ]
         ]
       }
     ]
   },
-  "title": "Shin Kidou Senki Gundam Wing: Endless Waltz Tokubetsu Hen",
-  "justification": "AniDB special S1 (2025-07-26) = TVDB 0x11 (2025-07-26), was 0x01, by title. AniDB special S2-S3 (no AniDB date) have no TVDB episode, was 0x02-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "title": "Kidou Keisatsu Patlabor",
+  "justification": "AniDB special S1-S2 (2006-04-25 to (none)) have no TVDB episode, was 0x01-0x02, which are AniDB 1518. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
   "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
-      "sha256": "3af4a5d7350ed4f9f8eb6026256339063334bd8e6a79ecd34aca7e525e89b4b9",
+      "sha256": "80f69c7f4f490874875aecd9811fd952a2e97dccf800fac20b8018b282e47229",
       "seasons": [
         0
       ],
@@ -51,77 +51,107 @@
           0,
           1,
           0,
-          "1996-04-25"
+          "1988-04-25"
         ],
         [
           0,
           2,
           0,
-          "1996-04-25"
+          "1988-06-25"
         ],
         [
           0,
           3,
           0,
-          "1996-10-25"
+          "1988-07-25"
         ],
         [
           0,
           4,
           0,
-          "1996-10-25"
+          "1988-09-25"
         ],
         [
           0,
           5,
           0,
-          "1997-01-25"
+          "1988-11-10"
         ],
         [
           0,
           6,
           0,
-          "1997-04-25"
+          "1988-12-08"
         ],
         [
           0,
           7,
           0,
-          "1997-07-25"
+          "1989-06-23"
         ],
         [
           0,
           8,
           0,
-          "1998-08-01"
+          "1989-07-15"
         ],
         [
           0,
           9,
           0,
-          "2014-01-29"
+          "1993-08-23"
         ],
         [
           0,
           10,
           0,
-          "2025-07-25"
+          "2001-12-10"
         ],
         [
           0,
           11,
           0,
-          "2025-07-26"
+          "2009-11-27"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2009-11-27"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2009-11-27"
+        ],
+        [
+          0,
+          14,
+          0,
+          ""
+        ],
+        [
+          0,
+          15,
+          0,
+          "2016-10-15"
+        ],
+        [
+          0,
+          16,
+          0,
+          ""
         ]
       ],
-      "series": 79327
+      "series": 80789
     },
-    "at": "2026-10-07",
+    "at": "2026-10-08",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
-    "node_sha256": "e72eaca621d4649d27231318f5a4636f65ea6c366ac45bacca04f2a768343cce"
+    "node_sha256": "5419857b6e68141af1fcbc3a8d3b9d659a6e3915e6a6dd8960c325cfe593ec7a"
   },
   "anilist_ids": [
-    2273
+    1095
   ],
-  "anidb_id": 496
+  "anidb_id": 777
 }

@@ -1,0 +1,72 @@
+{
+  "anidb_id": 10397,
+  "title": "Witch Craft Works: Takamiya-kun to Imouto no Warudakumi",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2015-01-07) = TVDB 0x01 (2015-01-07), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10397",
+    "tvdb": "https://thetvdb.com/series/witch-craft-works/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "b6430d8a847411d763b7aa86b16d2cd3bd3e043e70f69bafb5fddd3464286135",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-01-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-03-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-04-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-05-28"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-06-20"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-07-25"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-08-27"
+        ]
+      ],
+      "series": 275611
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "a03cd40413712ccb5ac04e60d3f71f8f6bd1ce0a8aaa40ce2ebc17e91d48b1da"
+  },
+  "anilist_ids": [
+    20601
+  ],
+  "upstream": "TODO-PR"
+}

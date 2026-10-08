@@ -1,0 +1,102 @@
+{
+  "anidb_id": 6083,
+  "title": "Kiss x Sis",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1-12 (2008-12-22 to 2015-04-06) = TVDB 0x01-0x12 (2008-12-22 to 2015-04-06), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6083",
+    "tvdb": "https://thetvdb.com/series/kissxsis/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "e303731a9b3b9962fead1c782048990fb7c8f5160596d2c77615f14cda21b335",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2008-12-22"
+        ],
+        [
+          0,
+          2,
+          2,
+          "2009-05-22"
+        ],
+        [
+          0,
+          3,
+          3,
+          "2009-11-20"
+        ],
+        [
+          0,
+          4,
+          13,
+          "2010-06-04"
+        ],
+        [
+          0,
+          5,
+          17,
+          "2010-11-22"
+        ],
+        [
+          0,
+          6,
+          18,
+          "2011-06-22"
+        ],
+        [
+          0,
+          7,
+          19,
+          "2011-11-30"
+        ],
+        [
+          0,
+          8,
+          20,
+          "2012-07-06"
+        ],
+        [
+          0,
+          9,
+          21,
+          "2013-02-06"
+        ],
+        [
+          0,
+          10,
+          22,
+          "2013-11-06"
+        ],
+        [
+          0,
+          11,
+          23,
+          "2014-08-06"
+        ],
+        [
+          0,
+          12,
+          24,
+          "2015-04-06"
+        ]
+      ],
+      "series": 84768
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "7988db8d39d271a329ee04ffd4b25a0dbd7a65f102b5e5a0ba68e2354e335ad4"
+  },
+  "anilist_ids": [
+    5042
+  ],
+  "upstream": "TODO-PR"
+}

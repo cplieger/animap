@@ -1,0 +1,48 @@
+{
+  "anidb_id": 8448,
+  "title": "Kore wa Zombie Desuka? Ee, Kore ga Saishuukai Desuka?",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2011-06-10) = TVDB 0x01 (2011-06-10), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8448",
+    "tvdb": "https://thetvdb.com/series/is-this-a-zombie/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "d36889e291418fb3aeb697deba62a1ab8e3ea97a1e69eb989be538dfb7461f46",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2011-06-10"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2012-04-01"
+        ],
+        [
+          0,
+          3,
+          25,
+          "2012-10-20"
+        ]
+      ],
+      "series": 220571
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "4f23d66dc80e709e200e2212ec2be38166a172640af707cc198dee894b8238cd"
+  },
+  "anilist_ids": [
+    10209
+  ],
+  "upstream": "TODO-PR"
+}

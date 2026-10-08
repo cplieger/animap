@@ -1,0 +1,36 @@
+{
+  "anidb_id": 9803,
+  "title": "Blood Lad: Wagahai wa Neko de wa Nai",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (2013-12-04) = TVDB 0x01 (2013-12-04), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9803",
+    "tvdb": "https://thetvdb.com/series/blood-lad/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "95d17d6512f71cd73338adffab892e04f95e948b09c0ceb7e6b1fd063aaebb29",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          11,
+          "2013-12-04"
+        ]
+      ],
+      "series": 269875
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "76a7704771b1ed14a0ac29310be86fee672f8f9a0cd3cad5fed5d20cdf15311e"
+  },
+  "anilist_ids": [
+    18441
+  ],
+  "upstream": "TODO-PR"
+}

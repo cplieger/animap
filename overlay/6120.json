@@ -1,0 +1,119 @@
+{
+  "anidb_id": 6120,
+  "title": "Tetsuwan Birdy Decode:02",
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "justification": "AniDB special S1 (2009-01-01) has no TVDB episode, was 0x01, which is AniDB 7013, the only special TVDB lists. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6120",
+    "tvdb": "https://thetvdb.com/series/birdy-the-mighty-decode/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "94bf488dfd164f2fc41e81f5b1d4888834834673a684eb1ae24582761e37c24e",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2009-05-28"
+        ],
+        [
+          2,
+          1,
+          15,
+          "2009-01-10"
+        ],
+        [
+          2,
+          2,
+          16,
+          "2009-01-17"
+        ],
+        [
+          2,
+          3,
+          17,
+          "2009-01-24"
+        ],
+        [
+          2,
+          4,
+          18,
+          "2009-01-31"
+        ],
+        [
+          2,
+          5,
+          19,
+          "2009-02-07"
+        ],
+        [
+          2,
+          6,
+          20,
+          "2009-02-14"
+        ],
+        [
+          2,
+          7,
+          21,
+          "2009-02-21"
+        ],
+        [
+          2,
+          8,
+          22,
+          "2009-02-28"
+        ],
+        [
+          2,
+          9,
+          23,
+          "2009-03-07"
+        ],
+        [
+          2,
+          10,
+          24,
+          "2009-03-14"
+        ],
+        [
+          2,
+          11,
+          25,
+          "2009-03-21"
+        ],
+        [
+          2,
+          12,
+          26,
+          "2009-03-28"
+        ]
+      ],
+      "series": 82884
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "c31b884a57865bba713251fee683408565093d253550b69800c3427a4e0f3054"
+  },
+  "anilist_ids": [
+    5074
+  ],
+  "upstream": "TODO-PR"
+}

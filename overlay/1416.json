@@ -14,11 +14,12 @@
           ]
         ]
       }
-    ]
+    ],
+    "episodeoffset": "0"
   },
   "title": "Terra e...",
-  "justification": "AniDB special S1 (1980-04-26) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "justification": "AniDB 1 (1980-04-26) = TVDB 0x01 (1980-04-26), by title and runtime. The empty offset placed no episode. AniDB special S1 (1980-04-26) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "14a07aee563675e69ab2a7e30958edbb4c0d2cb23d07f8f1e196756b019c228e",
@@ -47,7 +48,7 @@
       ],
       "series": 80241
     },
-    "at": "2026-10-06",
+    "at": "2026-10-07",
     "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
     "node_sha256": "42678249c2b94d43181ea8f9b388550a7467e299cb84d401acf57188ad4aaedb"
   },

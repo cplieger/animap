@@ -1,0 +1,36 @@
+{
+  "anidb_id": 277,
+  "title": "Juubee Ninpuuchou",
+  "set": {
+    "episodeoffset": "0"
+  },
+  "justification": "AniDB 1 (1993-06-05) = TVDB 0x01 (1993-06-05), by title and runtime, the film TVDB's season 0 lists. AniDB 2-3 are its two parts and keep their rows to it. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/277",
+    "tvdb": "https://thetvdb.com/series/ninja-scroll/seasons/official/0"
+  },
+  "captured": {
+    "tvdb": {
+      "sha256": "64f660327ca3cee02e562655d59c6f69afa3613d515435739abc0605b42651be",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1993-06-05"
+        ]
+      ],
+      "series": 72842
+    },
+    "at": "2026-10-07",
+    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "node_sha256": "f03ab5d592ec112428b1bf5d872b1b91f595366a80454ca1ad194ec3aea691e3"
+  },
+  "anilist_ids": [
+    617
+  ],
+  "upstream": "TODO-PR"
+}
