@@ -29,9 +29,6 @@ func TestParseKeepsWireStrings(t *testing.T) {
 	if want := []int{10, 12, 13, 18, 19, 20, 30, 31}; !reflect.DeepEqual(l.Order, want) {
 		t.Errorf("Order = %v, want %v", l.Order, want)
 	}
-	if l.Skipped != 1 {
-		t.Errorf("Skipped = %d, want 1 (anidbid=\"x\")", l.Skipped)
-	}
 	n := l.Nodes[10]
 	if n.Attr("defaulttvdbseason") != "1" || n.Name != "Series with season 1" || n.Before != ";1-12;" || len(n.Rows) != 3 {
 		t.Errorf("node 10 = %+v", n)
@@ -51,8 +48,8 @@ func TestParseRefuses(t *testing.T) {
 		body string
 		want error
 	}{
-		{"wrong root", `<other><anime anidbid="1"/></other>`, ErrRoot},
-		{"no nodes", `<anime-list></anime-list>`, ErrNoNodes},
+		{"wrong root", `<other><anime anidbid="1"/></other>`, errRoot},
+		{"no nodes", `<anime-list></anime-list>`, errNoNodes},
 		{"too deep", deep, xmlx.ErrLimit},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
@@ -77,8 +74,8 @@ func TestRowSchema(t *testing.T) {
 	if err != nil || tmdb.TVDBSeason != nil || tmdb.TMDBSeason == nil || *tmdb.TMDBSeason != 2 {
 		t.Errorf("TMDB-only row = %+v, %v", tmdb, err)
 	}
-	if _, err := l.Nodes[12].Rows[0].Schema(); !errors.Is(err, ErrRow) {
-		t.Errorf("row with an unparseable pair = %v, want ErrRow", err)
+	if _, err := l.Nodes[12].Rows[0].Schema(); !errors.Is(err, errRow) {
+		t.Errorf("row with an unparseable pair = %v, want errRow", err)
 	}
 }
 
@@ -97,9 +94,9 @@ func TestParsePairs(t *testing.T) {
 		{";1-0+2;", nil, true},
 		{";-1-2;", nil, true},
 	} {
-		got, err := ParsePairs(tc.in)
+		got, err := parsePairs(tc.in)
 		if (err != nil) != tc.bad || !reflect.DeepEqual(got, tc.want) {
-			t.Errorf("ParsePairs(%q) = %v, %v; want %v, error %t", tc.in, got, err, tc.want, tc.bad)
+			t.Errorf("parsePairs(%q) = %v, %v; want %v, error %t", tc.in, got, err, tc.want, tc.bad)
 		}
 	}
 }

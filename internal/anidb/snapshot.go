@@ -24,9 +24,9 @@ const Repository = "https://github.com/notseteve/AnimeAggregations"
 // Bounds on what Extract and LoadSnapshot read. The 2026-10-01 archive is
 // 103 MB, 874 MB unpacked; its largest anime file is 2.1 MB.
 const (
-	MaxArchiveBytes  = 1 << 30
-	MaxUnpackedBytes = 4 << 30
-	MaxFileBytes     = 8 << 20
+	maxArchiveBytes  = 1 << 30
+	maxUnpackedBytes = 4 << 30
+	maxFileBytes     = 8 << 20
 	maxSnapshotBytes = 64 << 20
 )
 
@@ -46,12 +46,12 @@ type Snapshot struct {
 // with no episodes object gives no list. A damaged or truncated archive, or
 // one with no anime file under the commit's directory, is an error.
 func Extract(r io.Reader, commit string) (*Snapshot, []error, error) {
-	return extract(r, commit, MaxArchiveBytes, MaxUnpackedBytes)
+	return extract(r, commit, maxArchiveBytes, maxUnpackedBytes)
 }
 
 func extract(r io.Reader, commit string, maxArchive, maxUnpacked int64) (*Snapshot, []error, error) {
 	if !commitRE.MatchString(commit) {
-		return nil, nil, fmt.Errorf("%w: commit %q is not a 40-hex commit", ErrInvalid, commit)
+		return nil, nil, fmt.Errorf("%w: commit %q is not a 40-hex commit", errInvalid, commit)
 	}
 	limited := &io.LimitedReader{R: r, N: maxArchive + 1}
 	zr, err := gzip.NewReader(limited)
@@ -71,11 +71,11 @@ func extract(r io.Reader, commit string, maxArchive, maxUnpacked int64) (*Snapsh
 	}
 	switch {
 	case limited.N <= 0 || unpacked.N <= 0:
-		return nil, nil, fmt.Errorf("%w: archive over %d bytes, or over %d unpacked", ErrInvalid, maxArchive, maxUnpacked)
+		return nil, nil, fmt.Errorf("%w: archive over %d bytes, or over %d unpacked", errInvalid, maxArchive, maxUnpacked)
 	case err != nil:
 		return nil, nil, fmt.Errorf("anidb: archive: %w", err)
 	case len(s.Anime) == 0:
-		return nil, nil, fmt.Errorf("%w: archive holds no anime file for commit %s", ErrInvalid, commit)
+		return nil, nil, fmt.Errorf("%w: archive holds no anime file for commit %s", errInvalid, commit)
 	}
 	slices.Sort(s.Refused)
 	return s, refusals, nil
@@ -111,11 +111,11 @@ func (s *Snapshot) readArchive(tr *tar.Reader, dir string) ([]error, error) {
 func (s *Snapshot) readFile(tr *tar.Reader, h *tar.Header, stem string) (refusal, err error) {
 	aid, err := strconv.Atoi(stem)
 	if err != nil || aid <= 0 {
-		return fmt.Errorf("%w: %s is not named for an AniDB id", ErrInvalid, h.Name), nil
+		return fmt.Errorf("%w: %s is not named for an AniDB id", errInvalid, h.Name), nil
 	}
-	if h.Size > MaxFileBytes {
+	if h.Size > maxFileBytes {
 		s.Refused = append(s.Refused, aid)
-		return fmt.Errorf("%w: AniDB %d: file is %d bytes", ErrInvalid, aid, h.Size), nil
+		return fmt.Errorf("%w: AniDB %d: file is %d bytes", errInvalid, aid, h.Size), nil
 	}
 	body, err := io.ReadAll(tr)
 	if err != nil {
@@ -151,10 +151,10 @@ type rawEpisode struct {
 func parse(aid int, body []byte) (a Anime, listed bool, err error) {
 	var f animeFile
 	if err := json.Unmarshal(body, &f); err != nil {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", ErrInvalid, aid, err)
+		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
 	}
 	if f.AnimeID != aid {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: file is for anime_id %d", ErrInvalid, aid, f.AnimeID)
+		return Anime{}, false, fmt.Errorf("%w: AniDB %d: file is for anime_id %d", errInvalid, aid, f.AnimeID)
 	}
 	if f.Episodes == nil {
 		return Anime{}, false, nil
@@ -164,15 +164,15 @@ func parse(aid int, body []byte) (a Anime, listed bool, err error) {
 	a.Specials = sortedEpisodes(f.Episodes["SPECIAL"])
 	for i, e := range regular {
 		if e.Number != i+1 {
-			return Anime{}, false, fmt.Errorf("%w: AniDB %d: regular episodes are not 1 to %d", ErrInvalid, aid, len(regular))
+			return Anime{}, false, fmt.Errorf("%w: AniDB %d: regular episodes are not 1 to %d", errInvalid, aid, len(regular))
 		}
 		a.Regular = append(a.Regular, e.AirDate)
 	}
 	if err := checkSpecials(a.Specials); err != nil {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", ErrInvalid, aid, err)
+		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
 	}
 	if err := checkDates(a.Regular); err != nil {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", ErrInvalid, aid, err)
+		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
 	}
 	return a, true, nil
 }
@@ -233,38 +233,38 @@ func LoadSnapshot(path string) (*Snapshot, error) {
 		return nil, err
 	}
 	if st.Size() > maxSnapshotBytes {
-		return nil, fmt.Errorf("%w: %s is %d bytes", ErrInvalid, path, st.Size())
+		return nil, fmt.Errorf("%w: %s is %d bytes", errInvalid, path, st.Size())
 	}
 	body, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
-	s, err := DecodeSnapshot(body)
+	s, err := decodeSnapshot(body)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", path, err)
 	}
 	return s, nil
 }
 
-// DecodeSnapshot parses a snapshot file and holds it to the rules Extract
+// decodeSnapshot parses a snapshot file and holds it to the rules Extract
 // applies to each anime file.
-func DecodeSnapshot(body []byte) (*Snapshot, error) {
+func decodeSnapshot(body []byte) (*Snapshot, error) {
 	var s Snapshot
 	if err := strictjson.Decode(body, &s); err != nil {
-		return nil, fmt.Errorf("%w: %w", ErrInvalid, err)
+		return nil, fmt.Errorf("%w: %w", errInvalid, err)
 	}
 	if !commitRE.MatchString(s.Commit) {
-		return nil, fmt.Errorf("%w: commit %q is not a 40-hex commit", ErrInvalid, s.Commit)
+		return nil, fmt.Errorf("%w: commit %q is not a 40-hex commit", errInvalid, s.Commit)
 	}
 	for id, a := range s.Anime {
 		if err := checkListed(id, a); err != nil {
-			return nil, fmt.Errorf("%w: AniDB %d: %w", ErrInvalid, id, err)
+			return nil, fmt.Errorf("%w: AniDB %d: %w", errInvalid, id, err)
 		}
 	}
 	for i, id := range s.Refused {
 		_, listed := s.Anime[id]
 		if id <= 0 || listed || (i > 0 && id <= s.Refused[i-1]) {
-			return nil, fmt.Errorf("%w: refused ids are positive, sorted, each once and not listed; AniDB %d is not", ErrInvalid, id)
+			return nil, fmt.Errorf("%w: refused ids are positive, sorted, each once and not listed; AniDB %d is not", errInvalid, id)
 		}
 	}
 	if s.Anime == nil {

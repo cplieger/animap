@@ -251,7 +251,7 @@ func runCheck(args []string, stdout io.Writer) error {
 	if err != nil {
 		return err
 	}
-	_, aod, err := offlinedb.Load(*aodPath, offlinedb.DefaultLimits)
+	aod, err := offlinedb.Load(*aodPath, offlinedb.DefaultLimits)
 	if err != nil {
 		return err
 	}

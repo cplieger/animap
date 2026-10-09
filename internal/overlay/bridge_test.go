@@ -56,8 +56,8 @@ func TestBridgeValidate(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			b := validBridge()
 			tc.mut(&b)
-			if err := b.Validate(); !errors.Is(err, ErrInvalid) {
-				t.Errorf("Validate(%s) = %v, want ErrInvalid", tc.name, err)
+			if err := b.Validate(); !errors.Is(err, errInvalid) {
+				t.Errorf("Validate(%s) = %v, want errInvalid", tc.name, err)
 			}
 		})
 	}
@@ -84,8 +84,8 @@ func TestLoadBridges(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(dir, BridgeDir, "376.json"), ub, 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := LoadBridges(dir); !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), "title") {
-		t.Errorf("a bridge with no title = %v, want ErrInvalid naming it", err)
+	if _, err := LoadBridges(dir); !errors.Is(err, errInvalid) || !strings.Contains(err.Error(), "title") {
+		t.Errorf("a bridge with no title = %v, want errInvalid naming it", err)
 	}
 	if err := os.WriteFile(filepath.Join(dir, BridgeDir, "376.json"), b, 0o600); err != nil {
 		t.Fatal(err)
@@ -93,8 +93,8 @@ func TestLoadBridges(t *testing.T) {
 	if err := os.Rename(filepath.Join(dir, BridgeDir, "376.json"), filepath.Join(dir, BridgeDir, "377.json")); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := LoadBridges(dir); !errors.Is(err, ErrInvalid) {
-		t.Errorf("a bridge named for another AniList id = %v, want ErrInvalid", err)
+	if _, err := LoadBridges(dir); !errors.Is(err, errInvalid) {
+		t.Errorf("a bridge named for another AniList id = %v, want errInvalid", err)
 	}
 }
 
@@ -111,8 +111,8 @@ func TestLoadBridgesRefusesTrailingData(t *testing.T) {
 		if err := os.WriteFile(filepath.Join(dir, BridgeDir, "376.json"), append(append(good, '\n'), trailer...), 0o600); err != nil {
 			t.Fatal(err)
 		}
-		if _, err := LoadBridges(dir); !errors.Is(err, ErrInvalid) {
-			t.Errorf("LoadBridges(a bridge followed by %s) = %v, want ErrInvalid", name, err)
+		if _, err := LoadBridges(dir); !errors.Is(err, errInvalid) {
+			t.Errorf("LoadBridges(a bridge followed by %s) = %v, want errInvalid", name, err)
 		}
 	}
 }
@@ -145,8 +145,8 @@ func TestLoadBridgesRefusesHandCopiedAniDBFacts(t *testing.T) {
 			if err := os.WriteFile(filepath.Join(dir, BridgeDir, "376.json"), body, 0o600); err != nil {
 				t.Fatal(err)
 			}
-			if _, err := LoadBridges(dir); !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), `unknown field "`+field+`"`) {
-				t.Errorf("LoadBridges(a bridge with %s) = %v, want ErrInvalid naming the unknown field", field, err)
+			if _, err := LoadBridges(dir); !errors.Is(err, errInvalid) || !strings.Contains(err.Error(), `unknown field "`+field+`"`) {
+				t.Errorf("LoadBridges(a bridge with %s) = %v, want errInvalid naming the unknown field", field, err)
 			}
 		})
 	}

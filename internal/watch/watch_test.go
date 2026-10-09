@@ -22,31 +22,31 @@ func TestGaps(t *testing.T) {
 		name string
 		want []Gap
 	}{
-		{nil, "no record", []Gap{NoRecord}},
+		{nil, "no record", []Gap{noRecord}},
 		{&schema.Record{AniListID: 1, Type: "SPECIAL"}, "type-only", []Gap{NoAniDB}},
 		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: s1}, "series season", nil},
 		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBAbsolute: true}, "absolute run", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5}, "series without a season", []Gap{NoTVDBSeason}},
-		{&schema.Record{AniDBID: 1, Type: "OVA"}, "no tvdb", []Gap{NoTVDB}},
-		{&schema.Record{AniDBID: 1, Type: "UNKNOWN"}, "unknown type", []Gap{UnknownType}},
+		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5}, "series without a season", []Gap{noTVDBSeason}},
+		{&schema.Record{AniDBID: 1, Type: "OVA"}, "no tvdb", []Gap{noTVDB}},
+		{&schema.Record{AniDBID: 1, Type: "UNKNOWN"}, "unknown type", []Gap{unknownType}},
 		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "season 0 placed", nil},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0, TVDBEpisodeOffset: new(4)}, "season 0 not placed", []Gap{Season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "a placement on another season does not resolve", []Gap{Season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "SPECIAL", TVDBID: 5, TVDBSeason: s0}, "season 0 count unknown", []Gap{EpisodeCountUnknown}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0, TVDBEpisodeOffset: new(4)}, "season 0 not placed", []Gap{season0Unresolved}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "a placement on another season does not resolve", []Gap{season0Unresolved}},
+		{&schema.Record{AniDBID: 1, Type: "SPECIAL", TVDBID: 5, TVDBSeason: s0}, "season 0 count unknown", []Gap{episodeCountUnknown}},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", TMDBMovieIDs: []int{9}}, "movie Radarr route", nil},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", IMDbIDs: []string{"tt0000001"}}, "movie IMDb route", nil},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s1}, "movie Sonarr season route", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE"}, "movie no route", []Gap{MovieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE"}, "movie no route", []Gap{movieNoRoute}},
 		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "movie special resolved", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1, TMDBMovieIDs: []int{9}}, "movie special placed on another season, Radarr route", []Gap{MovieSpecialUnresolved}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "movie special placed on another season, no route", []Gap{MovieSpecialUnresolved, MovieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special unresolved despite Radarr", []Gap{MovieSpecialUnresolved}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0}, "movie special unresolved, no route", []Gap{MovieSpecialUnresolved, MovieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special count unknown", []Gap{EpisodeCountUnknown}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1, TMDBMovieIDs: []int{9}}, "movie special placed on another season, Radarr route", []Gap{movieSpecialUnresolved}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "movie special placed on another season, no route", []Gap{movieSpecialUnresolved, movieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special unresolved despite Radarr", []Gap{movieSpecialUnresolved}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0}, "movie special unresolved, no route", []Gap{movieSpecialUnresolved, movieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special count unknown", []Gap{episodeCountUnknown}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			if got := Gaps(tc.rec); !slices.Equal(got, tc.want) {
-				t.Errorf("Gaps(%+v) = %v, want %v", tc.rec, got, tc.want)
+			if got := gaps(tc.rec); !slices.Equal(got, tc.want) {
+				t.Errorf("gaps(%+v) = %v, want %v", tc.rec, got, tc.want)
 			}
 		})
 	}
@@ -59,21 +59,21 @@ func TestEvaluate(t *testing.T) {
 		{AniDBID: 3, Type: "TV"},
 	}}
 	got := Evaluate([]int{3, 2, 1}, doc)
-	if len(got) != 2 || got[0].AniListID != 2 || got[1].AniListID != 3 || !slices.Equal(got[1].Gaps, []Gap{NoRecord}) {
+	if len(got) != 2 || got[0].AniListID != 2 || got[1].AniListID != 3 || !slices.Equal(got[1].Gaps, []Gap{noRecord}) {
 		t.Errorf("Evaluate = %+v, want 2 (no_anidb) then 3 (no_record; AniDB-keyed records are not AniList ids)", got)
 	}
 }
 
 func TestClassify(t *testing.T) {
 	backlog := &Backlog{Entries: []Entry{
-		{AniListID: 1, Gaps: []Gap{Season0Unresolved}},
-		{AniListID: 2, Gaps: []Gap{MovieSpecialUnresolved, MovieNoRoute}},
-		{AniListID: 3, Gaps: []Gap{NoTVDB}},
+		{AniListID: 1, Gaps: []Gap{season0Unresolved}},
+		{AniListID: 2, Gaps: []Gap{movieSpecialUnresolved, movieNoRoute}},
+		{AniListID: 3, Gaps: []Gap{noTVDB}},
 	}}
 	c := Classify([]Entry{
-		{AniListID: 1, Gaps: []Gap{Season0Unresolved}},
-		{AniListID: 2, Gaps: []Gap{MovieNoRoute}},
-		{AniListID: 4, Gaps: []Gap{NoTVDB}},
+		{AniListID: 1, Gaps: []Gap{season0Unresolved}},
+		{AniListID: 2, Gaps: []Gap{movieNoRoute}},
+		{AniListID: 4, Gaps: []Gap{noTVDB}},
 		{AniListID: 1 + 4, Gaps: nil},
 	}, backlog, nil)
 	ids := func(es []Entry) []int {
@@ -86,7 +86,7 @@ func TestClassify(t *testing.T) {
 	if !slices.Equal(ids(c.Known), []int{1, 2}) || !slices.Equal(ids(c.New), []int{4, 5}) || !slices.Equal(ids(c.Resolved), []int{3}) {
 		t.Errorf("Classify = known %v new %v resolved %v", ids(c.Known), ids(c.New), ids(c.Resolved))
 	}
-	grown := Classify([]Entry{{AniListID: 1, Gaps: []Gap{Season0Unresolved, NoTVDBSeason}}}, backlog, nil)
+	grown := Classify([]Entry{{AniListID: 1, Gaps: []Gap{season0Unresolved, noTVDBSeason}}}, backlog, nil)
 	if !slices.Equal(ids(grown.New), []int{1}) {
 		t.Errorf("a backlog entry with a new gap kind is not new: %+v", grown)
 	}
@@ -128,8 +128,8 @@ func TestFetchIDs(t *testing.T) {
 		{"malformed page", pages{"1": "not json"}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			if _, err := FetchIDs(t.Context(), tc.p, cfg); !errors.Is(err, ErrIncomplete) {
-				t.Errorf("FetchIDs(%s) = %v, want ErrIncomplete", tc.name, err)
+			if _, err := FetchIDs(t.Context(), tc.p, cfg); !errors.Is(err, errIncomplete) {
+				t.Errorf("FetchIDs(%s) = %v, want errIncomplete", tc.name, err)
 			}
 		})
 	}
@@ -178,14 +178,14 @@ func TestTrackedListsTrackEachGapOnce(t *testing.T) {
 
 func TestClassifyUnmappable(t *testing.T) {
 	unmappable := &Backlog{Entries: []Entry{
-		{AniListID: 1, Gaps: []Gap{NoTVDB}, Reason: "unmappable"},
+		{AniListID: 1, Gaps: []Gap{noTVDB}, Reason: "unmappable"},
 		{AniListID: 2, Gaps: []Gap{NoAniDB}, Reason: "upstream"},
-		{AniListID: 3, Gaps: []Gap{Season0Unresolved}, Reason: "unmappable"},
+		{AniListID: 3, Gaps: []Gap{season0Unresolved}, Reason: "unmappable"},
 	}}
 	c := Classify([]Entry{
-		{AniListID: 1, Gaps: []Gap{NoTVDB}},
-		{AniListID: 3, Gaps: []Gap{Season0Unresolved, EpisodeCountUnknown}},
-		{AniListID: 4, Gaps: []Gap{NoTVDB}},
+		{AniListID: 1, Gaps: []Gap{noTVDB}},
+		{AniListID: 3, Gaps: []Gap{season0Unresolved, episodeCountUnknown}},
+		{AniListID: 4, Gaps: []Gap{noTVDB}},
 	}, &Backlog{}, unmappable)
 	ids := func(es []Entry) (out []int) {
 		for _, e := range es {
@@ -208,8 +208,8 @@ func TestGapsBridgedRecord(t *testing.T) {
 		MappingList:   []schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: [][]int{{1, 8}}}},
 		TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(8)}},
 	}
-	if g := Gaps(bridged); g != nil {
-		t.Errorf("Gaps(a bridged special) = %v, want fully mapped", g)
+	if g := gaps(bridged); g != nil {
+		t.Errorf("gaps(a bridged special) = %v, want fully mapped", g)
 	}
 }
 

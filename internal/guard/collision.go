@@ -14,13 +14,13 @@ import (
 	"github.com/cplieger/animap/internal/skyhook"
 )
 
-// Target is one episode on one side: TV is 0 on the TVDB side and the TMDB
+// target is one episode on one side: TV is 0 on the TVDB side and the TMDB
 // tv id on the TMDB side.
-type Target struct {
+type target struct {
 	TV, Season, Episode int
 }
 
-func (t Target) String() string {
+func (t target) label() string {
 	if t.TV == 0 {
 		return fmt.Sprintf("TVDB %dx%d", t.Season, t.Episode)
 	}
@@ -190,8 +190,8 @@ type claim struct {
 	introduced bool
 }
 
-func collide(series int, claims map[Target][]claim, keep func([]claim) bool) (ours, theirs []Collision) {
-	keys := slices.SortedFunc(maps.Keys(claims), func(a, b Target) int {
+func collide(series int, claims map[target][]claim, keep func([]claim) bool) (ours, theirs []Collision) {
+	keys := slices.SortedFunc(maps.Keys(claims), func(a, b target) int {
 		return cmp.Or(cmp.Compare(a.TV, b.TV), cmp.Compare(a.Season, b.Season), cmp.Compare(a.Episode, b.Episode))
 	})
 	for _, t := range keys {
@@ -199,7 +199,7 @@ func collide(series int, claims map[Target][]claim, keep func([]claim) bool) (ou
 		if distinctNodes(cl) < 2 || (keep != nil && !keep(cl)) {
 			continue
 		}
-		col := Collision{Series: series, Target: t.String()}
+		col := Collision{Series: series, Target: t.label()}
 		for _, x := range cl {
 			col.Claims = append(col.Claims, x.label)
 			if !slices.Contains(col.Nodes, x.node) {
@@ -285,7 +285,7 @@ func (c *seriesCheck) check(sibs []int, byTMDB map[int][]int) pass {
 	r.ours, r.theirs = collide(c.series, tvdb, nil)
 	r.unresolved = c.unresolved(sibs, tvdb, 0)
 	claimants := slices.Clone(sibs)
-	keep := func(cl []claim) bool { return c.reportsTMDB(sibs, cl) }
+	keep := func(cl []claim) bool { return reportsTMDB(sibs, cl) }
 	for _, tv := range c.tmdbIDs(sibs) {
 		s := c.show(tv, byTMDB[tv], keep)
 		r.ours, r.theirs = append(r.ours, s.ours...), append(r.theirs, s.theirs...)
@@ -317,8 +317,8 @@ func (c *seriesCheck) addLayout(t *overlay.CapturedTVDB) {
 	}
 }
 
-func (c *seriesCheck) sideClaims(ids []int, sd side) map[Target][]claim {
-	out := map[Target][]claim{}
+func (c *seriesCheck) sideClaims(ids []int, sd side) map[target][]claim {
+	out := map[target][]claim{}
 	for _, id := range ids {
 		now := c.claims(id, c.nodes[id], sd)
 		put := c.introduced(id, now, sd)
@@ -333,15 +333,15 @@ func (c *seriesCheck) sideClaims(ids []int, sd side) map[Target][]claim {
 // claim: every target of a created node or one moved to another TVDB
 // series, else each where upstream placed a different episode or none, and
 // on TVDB each target of a bridged special.
-func (c *seriesCheck) introduced(id int, now map[Target][]string, sd side) map[Target]bool {
+func (c *seriesCheck) introduced(id int, now map[target][]string, sd side) map[target]bool {
 	if !c.changed[id] {
 		return nil
 	}
-	var was map[Target][]string
+	var was map[target][]string
 	if up := c.upstream[id]; up != nil && up.Attr("tvdbid") == c.nodes[id].Attr("tvdbid") {
 		was = c.claims(id, up, sd)
 	}
-	out := map[Target]bool{}
+	out := map[target]bool{}
 	for t, ls := range now {
 		for _, l := range ls {
 			if !slices.ContainsFunc(was[t], func(w string) bool { return sameEpisode(w, l) }) {
@@ -359,8 +359,8 @@ func (c *seriesCheck) introduced(id int, now map[Target][]string, sd side) map[T
 
 // specialTargets must place specials as specialClaims does, or a bridged
 // special's claim is never marked introduced.
-func specialTargets(rows []animelists.SideRow, ks []int) []Target {
-	var out []Target
+func specialTargets(rows []animelists.SideRow, ks []int) []target {
+	var out []target
 	for _, k := range ks {
 		named := false
 		for _, r := range rows {
@@ -370,11 +370,11 @@ func specialTargets(rows []animelists.SideRow, ks []int) []Target {
 			named = true
 			_, targets := animelists.Targets([]animelists.SideRow{r}, 0, k)
 			for _, t := range targets {
-				out = append(out, Target{Season: t[0], Episode: t[1]})
+				out = append(out, target{Season: t[0], Episode: t[1]})
 			}
 		}
 		if !named {
-			out = append(out, Target{Episode: k})
+			out = append(out, target{Episode: k})
 		}
 	}
 	return out
@@ -414,7 +414,7 @@ func (c *seriesCheck) offTVDB(byTMDB map[int][]int) pass {
 
 // reportsTMDB is the TMDB rule: this series reports a shared TMDB episode
 // only when two claimants sit on it or a claim on it is introduced.
-func (c *seriesCheck) reportsTMDB(sibs []int, cl []claim) bool {
+func reportsTMDB(sibs []int, cl []claim) bool {
 	on := 0
 	for _, x := range cl {
 		if x.introduced {
@@ -438,20 +438,20 @@ func sameEpisode(a, b string) bool {
 // claimer collects each target's labels, the first one being the label the
 // target's collision shows.
 type claimer struct {
-	out map[Target][]string
+	out map[target][]string
 	tv  int
 }
 
 func (cl claimer) add(season, ep int, label string) {
-	t := Target{TV: cl.tv, Season: season, Episode: ep}
+	t := target{TV: cl.tv, Season: season, Episode: ep}
 	if !slices.Contains(cl.out[t], label) {
 		cl.out[t] = append(cl.out[t], label)
 	}
 }
 
-func (c *seriesCheck) claims(id int, n *animelists.Node, sd side) map[Target][]string {
+func (c *seriesCheck) claims(id int, n *animelists.Node, sd side) map[target][]string {
 	seasonAttr, dfltAttr, offAttr := sd.attrs()
-	cl := claimer{out: map[Target][]string{}}
+	cl := claimer{out: map[target][]string{}}
 	if sd == sideTMDB {
 		if cl.tv = positiveAttr(n, "tmdbtv"); cl.tv == 0 {
 			return nil
@@ -528,7 +528,7 @@ func coveredSpecials(rows []animelists.SideRow) map[int]bool {
 // unresolved finds the claimants whose unread specials could land on a
 // season-0 claim of tv, 0 being the TVDB side; only a touched check reads
 // specials, so only it can tell.
-func (c *seriesCheck) unresolved(claimants []int, claims map[Target][]claim, tv int) []Unresolved {
+func (c *seriesCheck) unresolved(claimants []int, claims map[target][]claim, tv int) []Unresolved {
 	if !c.touched {
 		return nil
 	}
@@ -560,7 +560,7 @@ func (c *seriesCheck) uncounted(sibs []int) []Uncounted {
 	return out
 }
 
-func seasonZeroClaims(covered map[int]bool, tvdb map[Target][]claim, against func(claim) bool) []int {
+func seasonZeroClaims(covered map[int]bool, tvdb map[target][]claim, against func(claim) bool) []int {
 	var hit []int
 	for t, cl := range tvdb {
 		if t.Season != 0 || covered[t.Episode] {

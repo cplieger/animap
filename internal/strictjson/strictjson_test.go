@@ -21,8 +21,8 @@ func TestDecode(t *testing.T) {
 func TestDecodeRefusesTrailingData(t *testing.T) {
 	for _, body := range []string{`{"x":1} ]`, `{"x":1}}`, `{"x":1} {"x":2}`, `{"x":1} null`, `{"x":1} 1`, `{"x":1} x`, `{"x":1},`} {
 		var d doc
-		if err := Decode([]byte(body), &d); !errors.Is(err, ErrTrailing) {
-			t.Errorf("Decode(%q) = %v, want ErrTrailing", body, err)
+		if err := Decode([]byte(body), &d); !errors.Is(err, errTrailing) {
+			t.Errorf("Decode(%q) = %v, want errTrailing", body, err)
 		}
 	}
 }
@@ -30,7 +30,7 @@ func TestDecodeRefusesTrailingData(t *testing.T) {
 func TestDecodeRefusesAMalformedDocument(t *testing.T) {
 	for _, body := range []string{``, ` `, `{"x":1,"y":2}`, `{"x":"1"}`, `{"x":1`, `]`} {
 		var d doc
-		if err := Decode([]byte(body), &d); err == nil || errors.Is(err, ErrTrailing) {
+		if err := Decode([]byte(body), &d); err == nil || errors.Is(err, errTrailing) {
 			t.Errorf("Decode(%q) = %v, want the decoder's error", body, err)
 		}
 	}

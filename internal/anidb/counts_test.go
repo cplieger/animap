@@ -29,12 +29,12 @@ func encode(t *testing.T, rows any) []byte {
 func TestDecodeRows(t *testing.T) {
 	second := row()
 	second.AniDBID, second.Evidence = 18239, "https://anidb.net/anime/18239"
-	got, err := DecodeRows(encode(t, []Row{row(), second}))
+	got, err := decodeRows(encode(t, []Row{row(), second}))
 	if err != nil || len(got) != 2 || got[0] != row() || got[1] != second {
-		t.Fatalf("DecodeRows(two valid rows) = %+v, %v", got, err)
+		t.Fatalf("decodeRows(two valid rows) = %+v, %v", got, err)
 	}
-	if got, err := DecodeRows([]byte("[]")); err != nil || len(got) != 0 {
-		t.Errorf("DecodeRows([]) = %+v, %v, want no rows", got, err)
+	if got, err := decodeRows([]byte("[]")); err != nil || len(got) != 0 {
+		t.Errorf("decodeRows([]) = %+v, %v, want no rows", got, err)
 	}
 }
 
@@ -57,8 +57,8 @@ func TestDecodeRefuses(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			r := row()
 			tc.mut(&r)
-			if _, err := DecodeRows(encode(t, []Row{r})); !errors.Is(err, ErrInvalid) {
-				t.Errorf("DecodeRows(%+v) = %v, want ErrInvalid", r, err)
+			if _, err := decodeRows(encode(t, []Row{r})); !errors.Is(err, errInvalid) {
+				t.Errorf("decodeRows(%+v) = %v, want errInvalid", r, err)
 			}
 		})
 	}
@@ -82,12 +82,12 @@ func TestDecodeRefuses(t *testing.T) {
 		"a string count":  []byte(`[{"anidb_id":17281,"regular_episodes":"2","evidence":"https://anidb.net/anime/17281","date":"2026-10-04","justification":"x"}]`),
 		"a decimal count": []byte(`[{"anidb_id":17281,"regular_episodes":2.5,"evidence":"https://anidb.net/anime/17281","date":"2026-10-04","justification":"x"}]`),
 	} {
-		if _, err := DecodeRows(body); !errors.Is(err, ErrInvalid) {
-			t.Errorf("DecodeRows(%s) = %v, want ErrInvalid", name, err)
+		if _, err := decodeRows(body); !errors.Is(err, errInvalid) {
+			t.Errorf("decodeRows(%s) = %v, want errInvalid", name, err)
 		}
 	}
-	if _, err := DecodeRows(encode(t, many[:maxRows])); err != nil {
-		t.Errorf("DecodeRows(%d rows, the bound) = %v, want accepted", maxRows, err)
+	if _, err := decodeRows(encode(t, many[:maxRows])); err != nil {
+		t.Errorf("decodeRows(%d rows, the bound) = %v, want accepted", maxRows, err)
 	}
 }
 
@@ -106,7 +106,7 @@ func TestLoadRows(t *testing.T) {
 	if err := os.WriteFile(p, []byte("["+strings.Repeat(" ", maxCountsFileSize)+"]"), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := LoadRows(p); !errors.Is(err, ErrInvalid) {
-		t.Errorf("LoadRows(over %d bytes) = %v, want ErrInvalid", maxCountsFileSize, err)
+	if _, err := LoadRows(p); !errors.Is(err, errInvalid) {
+		t.Errorf("LoadRows(over %d bytes) = %v, want errInvalid", maxCountsFileSize, err)
 	}
 }

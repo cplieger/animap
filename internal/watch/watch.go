@@ -24,37 +24,37 @@ type Gap string
 // The values are stored in the tracked checks/unmappable.json and
 // watch/backlog.json, so a rename changes their file format.
 const (
-	NoRecord               Gap = "no_record"
+	noRecord               Gap = "no_record"
 	NoAniDB                Gap = "no_anidb"
-	UnknownType            Gap = "unknown_type"
-	NoTVDB                 Gap = "no_tvdb"
-	NoTVDBSeason           Gap = "no_tvdb_season"
-	Season0Unresolved      Gap = "season0_unresolved"
-	EpisodeCountUnknown    Gap = "episode_count_unknown"
-	MovieNoRoute           Gap = "movie_no_route"
-	MovieSpecialUnresolved Gap = "movie_special_unresolved"
+	unknownType            Gap = "unknown_type"
+	noTVDB                 Gap = "no_tvdb"
+	noTVDBSeason           Gap = "no_tvdb_season"
+	season0Unresolved      Gap = "season0_unresolved"
+	episodeCountUnknown    Gap = "episode_count_unknown"
+	movieNoRoute           Gap = "movie_no_route"
+	movieSpecialUnresolved Gap = "movie_special_unresolved"
 )
 
-// Gaps returns what rec lacks, nil when it is fully mapped. A nil rec is a
+// gaps returns what rec lacks, nil when it is fully mapped. A nil rec is a
 // watched id with no record at all.
-func Gaps(rec *schema.Record) []Gap {
+func gaps(rec *schema.Record) []Gap {
 	switch {
 	case rec == nil:
-		return []Gap{NoRecord}
+		return []Gap{noRecord}
 	case rec.AniDBID == 0 && rec.AniDBParent == nil:
 		return []Gap{NoAniDB}
 	case rec.Type == "MOVIE":
 		return movieGaps(rec)
 	case rec.TVDBID == 0 && (rec.Type == "" || rec.Type == "UNKNOWN"):
-		return []Gap{UnknownType}
+		return []Gap{unknownType}
 	case rec.TVDBID == 0:
-		return []Gap{NoTVDB}
+		return []Gap{noTVDB}
 	case rec.TVDBSeason != nil && *rec.TVDBSeason == 0:
-		return season0Gaps(rec, Season0Unresolved)
+		return season0Gaps(rec, season0Unresolved)
 	case rec.TVDBAbsolute || (rec.TVDBSeason != nil && *rec.TVDBSeason >= 1):
 		return nil
 	default:
-		return []Gap{NoTVDBSeason}
+		return []Gap{noTVDBSeason}
 	}
 }
 
@@ -67,12 +67,12 @@ func movieGaps(rec *schema.Record) []Gap {
 		case rec.TVDBAbsolute || (rec.TVDBSeason != nil && *rec.TVDBSeason >= 1):
 			sonarr = true
 		case rec.TVDBSeason != nil && *rec.TVDBSeason == 0:
-			out = season0Gaps(rec, MovieSpecialUnresolved)
+			out = season0Gaps(rec, movieSpecialUnresolved)
 			sonarr = len(out) == 0
 		}
 	}
 	if !radarr && !sonarr {
-		out = append(out, MovieNoRoute)
+		out = append(out, movieNoRoute)
 	}
 	return out
 }
@@ -86,7 +86,7 @@ func season0Gaps(rec *schema.Record, unresolved Gap) []Gap {
 	case len(rec.TVDBPlacement) > 0 && !slices.ContainsFunc(rec.TVDBPlacement, onRealSeason):
 		return nil
 	case rec.Episodes == 0:
-		return []Gap{EpisodeCountUnknown}
+		return []Gap{episodeCountUnknown}
 	}
 	return []Gap{unresolved}
 }
@@ -113,7 +113,7 @@ func Evaluate(ids []int, doc *schema.Document) []Entry {
 	var out []Entry
 	for _, id := range slices.Sorted(slices.Values(ids)) {
 		rec := byAniList[id]
-		if g := Gaps(rec); len(g) > 0 {
+		if g := gaps(rec); len(g) > 0 {
 			e := Entry{AniListID: id, Gaps: g}
 			if rec != nil {
 				e.Type, e.AniDBID, e.TVDBID = rec.Type, rec.AniDBID, rec.TVDBID
@@ -260,8 +260,8 @@ type Getter interface {
 	Get(ctx context.Context, url string, maxBytes int64) ([]byte, error)
 }
 
-// ErrIncomplete reports a listing that cannot be trusted as the whole set.
-var ErrIncomplete = errors.New("watch: listing is incomplete")
+// errIncomplete reports a listing that cannot be trusted as the whole set.
+var errIncomplete = errors.New("watch: listing is incomplete")
 
 const maxPageBytes = 4 << 20
 
@@ -278,12 +278,12 @@ func FetchIDs(ctx context.Context, g Getter, c *Config) ([]int, error) {
 			return nil, err
 		}
 		if total >= 0 && p.TotalItems != total {
-			return nil, fmt.Errorf("%w: totalItems moved from %d to %d", ErrIncomplete, total, p.TotalItems)
+			return nil, fmt.Errorf("%w: totalItems moved from %d to %d", errIncomplete, total, p.TotalItems)
 		}
 		total = p.TotalItems
 		for _, id := range p.ids {
 			if seen[id] {
-				return nil, fmt.Errorf("%w: id %d repeats", ErrIncomplete, id)
+				return nil, fmt.Errorf("%w: id %d repeats", errIncomplete, id)
 			}
 			seen[id] = true
 			ids = append(ids, id)
@@ -293,7 +293,7 @@ func FetchIDs(ctx context.Context, g Getter, c *Config) ([]int, error) {
 		}
 	}
 	if len(ids) != total {
-		return nil, fmt.Errorf("%w: collected %d of %d", ErrIncomplete, len(ids), total)
+		return nil, fmt.Errorf("%w: collected %d of %d", errIncomplete, len(ids), total)
 	}
 	return ids, nil
 }
@@ -306,7 +306,7 @@ type listPage struct {
 
 func fetchPage(ctx context.Context, g Getter, c *Config, page int) (*listPage, error) {
 	if page > c.MaxPages {
-		return nil, fmt.Errorf("%w: more than %d pages", ErrIncomplete, c.MaxPages)
+		return nil, fmt.Errorf("%w: more than %d pages", errIncomplete, c.MaxPages)
 	}
 	q := url.Values{"page": {strconv.Itoa(page)}, "perPage": {strconv.Itoa(c.PerPage)}, "fields": {c.IDField}}
 	body, err := g.Get(ctx, c.ListURL+"?"+q.Encode(), maxPageBytes)
@@ -318,13 +318,13 @@ func fetchPage(ctx context.Context, g Getter, c *Config, page int) (*listPage, e
 		listPage
 	}
 	if err := json.Unmarshal(body, &raw); err != nil {
-		return nil, fmt.Errorf("%w: page %d: %w", ErrIncomplete, page, err)
+		return nil, fmt.Errorf("%w: page %d: %w", errIncomplete, page, err)
 	}
 	p := raw.listPage
 	for _, it := range raw.Items {
 		var id int
 		if err := json.Unmarshal(it[c.IDField], &id); err != nil || id <= 0 {
-			return nil, fmt.Errorf("%w: page %d has a non-positive or missing %s", ErrIncomplete, page, c.IDField)
+			return nil, fmt.Errorf("%w: page %d has a non-positive or missing %s", errIncomplete, page, c.IDField)
 		}
 		p.ids = append(p.ids, id)
 	}

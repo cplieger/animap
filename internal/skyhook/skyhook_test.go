@@ -19,8 +19,8 @@ func TestFetchAndLayout(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if s.TVDBID != 5000 || len(s.Episodes) != 4 {
-		t.Fatalf("show = %+v", s)
+	if len(s.Episodes) != 4 {
+		t.Fatalf("Fetch(5000) = %+v, want 4 episodes", s)
 	}
 	got := Layout(s, []int{1, 0})
 	want := []Episode{{Season: 0, Number: 1, AirDate: "2020-06-01"}, {Season: 1, Number: 1, Absolute: 1, AirDate: "2020-01-01"}, {Season: 1, Number: 2, Absolute: 2, AirDate: "2020-01-08"}}

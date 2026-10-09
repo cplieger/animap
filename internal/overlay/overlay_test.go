@@ -18,7 +18,7 @@ func valid() Entry {
 		AniDBID: 544, Title: "Oh! Super Milk-chan", Justification: "AniDB 1-12 = TVDB 2x01-2x12, same dates.",
 		Set:      Set{DefaultTVDBSeason: new("2"), TMDBSeason: new("2")},
 		Evidence: map[string]string{"anidb": "https://anidb.net/anime/544", "tvdb": "https://thetvdb.com/series/x/seasons/official/2"},
-		Upstream: UpstreamPending,
+		Upstream: upstreamPending,
 		Captured: Captured{
 			At: "2026-10-05", AnimeListsCommit: strings.Repeat("a", 40), NodeSHA256: strings.Repeat("b", 64),
 			TVDB: &CapturedTVDB{Series: 91391, Seasons: []int{2}, Episodes: eps, SHA256: skyhook.Hash(eps)},
@@ -63,8 +63,8 @@ func TestValidate(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			e := valid()
 			tc.mut(&e)
-			if err := e.Validate(); !errors.Is(err, ErrInvalid) {
-				t.Errorf("Validate(%s) = %v, want ErrInvalid", tc.name, err)
+			if err := e.Validate(); !errors.Is(err, errInvalid) {
+				t.Errorf("Validate(%s) = %v, want errInvalid", tc.name, err)
 			}
 		})
 	}
@@ -79,7 +79,7 @@ func TestValidateAcceptsAFilmsEmptySeason(t *testing.T) {
 	up := node()
 	up.Attrs["tvdbid"], up.Attrs["defaulttvdbseason"] = "movie", ""
 	if !Landed(up, &e) {
-		t.Errorf("Landed(a film node, %+v) = false, want true", e.Set.Attrs())
+		t.Errorf("Landed(a film node, %+v) = false, want true", e.Set.attrs())
 	}
 }
 
@@ -125,8 +125,8 @@ func TestLoadDir(t *testing.T) {
 
 	misnamed := t.TempDir()
 	write(t, misnamed, "545.json", valid())
-	if _, err := LoadDir(misnamed); !errors.Is(err, ErrInvalid) {
-		t.Errorf("misnamed file: %v, want ErrInvalid", err)
+	if _, err := LoadDir(misnamed); !errors.Is(err, errInvalid) {
+		t.Errorf("misnamed file: %v, want errInvalid", err)
 	}
 
 	unknown := t.TempDir()
@@ -140,24 +140,24 @@ func TestLoadDir(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(unknown, "544.json"), b, 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := LoadDir(unknown); !errors.Is(err, ErrInvalid) {
-		t.Errorf("unknown key: %v, want ErrInvalid", err)
+	if _, err := LoadDir(unknown); !errors.Is(err, errInvalid) {
+		t.Errorf("unknown key: %v, want errInvalid", err)
 	}
 
 	unjustified := t.TempDir()
 	e := valid()
 	e.Justification = ""
 	write(t, unjustified, "544.json", e)
-	if _, err := LoadDir(unjustified); !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), "justification") {
-		t.Errorf("an entry with no justification: %v, want ErrInvalid naming it", err)
+	if _, err := LoadDir(unjustified); !errors.Is(err, errInvalid) || !strings.Contains(err.Error(), "justification") {
+		t.Errorf("an entry with no justification: %v, want errInvalid naming it", err)
 	}
 
 	big := t.TempDir()
-	if err := os.WriteFile(filepath.Join(big, "544.json"), make([]byte, MaxFileBytes+1), 0o600); err != nil {
+	if err := os.WriteFile(filepath.Join(big, "544.json"), make([]byte, maxFileBytes+1), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := LoadDir(big); !errors.Is(err, ErrInvalid) {
-		t.Errorf("oversize file: %v, want ErrInvalid", err)
+	if _, err := LoadDir(big); !errors.Is(err, errInvalid) {
+		t.Errorf("oversize file: %v, want errInvalid", err)
 	}
 }
 
@@ -171,8 +171,8 @@ func TestLoadDirRefusesTrailingData(t *testing.T) {
 		if err := os.WriteFile(filepath.Join(dir, "544.json"), append(append(good, '\n'), trailer...), 0o600); err != nil {
 			t.Fatal(err)
 		}
-		if _, err := LoadDir(dir); !errors.Is(err, ErrInvalid) {
-			t.Errorf("LoadDir(an entry followed by %s) = %v, want ErrInvalid", name, err)
+		if _, err := LoadDir(dir); !errors.Is(err, errInvalid) {
+			t.Errorf("LoadDir(an entry followed by %s) = %v, want errInvalid", name, err)
 		}
 	}
 }
@@ -283,8 +283,8 @@ func TestDecodeRefusesHandCopiedAniDBFacts(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		if _, err := decode(body); !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), `unknown field "`+field+`"`) {
-			t.Errorf("decode(an entry with %s) = %v, want ErrInvalid naming the unknown field", field, err)
+		if _, err := decode(body); !errors.Is(err, errInvalid) || !strings.Contains(err.Error(), `unknown field "`+field+`"`) {
+			t.Errorf("decode(an entry with %s) = %v, want errInvalid naming the unknown field", field, err)
 		}
 	}
 }

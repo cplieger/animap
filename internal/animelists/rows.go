@@ -9,8 +9,8 @@ import (
 	"github.com/cplieger/animap/internal/schema"
 )
 
-// ErrRow reports a mapping row that does not parse in the list's syntax.
-var ErrRow = errors.New("animelists: unparseable mapping row")
+// errRow reports a mapping row that does not parse in the list's syntax.
+var errRow = errors.New("animelists: unparseable mapping row")
 
 // Schema converts a row to its published shape. Any unparseable part fails
 // the whole row: a guessed value is worse than a dropped row.
@@ -18,13 +18,13 @@ func (r Row) Schema() (schema.Row, error) {
 	var out schema.Row
 	var err error
 	if out.AniDBSeason, err = atoiMin(r.Attrs["anidbseason"], 0); err != nil {
-		return schema.Row{}, fmt.Errorf("%w: anidbseason: %w", ErrRow, err)
+		return schema.Row{}, fmt.Errorf("%w: anidbseason: %w", errRow, err)
 	}
 	if out.TVDBSeason, err = optSeason(r.Attrs["tvdbseason"]); err != nil {
-		return schema.Row{}, fmt.Errorf("%w: tvdbseason: %w", ErrRow, err)
+		return schema.Row{}, fmt.Errorf("%w: tvdbseason: %w", errRow, err)
 	}
 	if out.TMDBSeason, err = optSeason(r.Attrs["tmdbseason"]); err != nil {
-		return schema.Row{}, fmt.Errorf("%w: tmdbseason: %w", ErrRow, err)
+		return schema.Row{}, fmt.Errorf("%w: tmdbseason: %w", errRow, err)
 	}
 	for _, f := range []struct {
 		dst  *int
@@ -33,24 +33,24 @@ func (r Row) Schema() (schema.Row, error) {
 	}{{&out.Start, "start", 1}, {&out.End, "end", 1}} {
 		if v := strings.TrimSpace(r.Attrs[f.name]); v != "" {
 			if *f.dst, err = atoiMin(v, f.min); err != nil {
-				return schema.Row{}, fmt.Errorf("%w: %s: %w", ErrRow, f.name, err)
+				return schema.Row{}, fmt.Errorf("%w: %s: %w", errRow, f.name, err)
 			}
 		}
 	}
 	if v := strings.TrimSpace(r.Attrs["offset"]); v != "" {
 		if out.Offset, err = strconv.Atoi(v); err != nil {
-			return schema.Row{}, fmt.Errorf("%w: offset: %w", ErrRow, err)
+			return schema.Row{}, fmt.Errorf("%w: offset: %w", errRow, err)
 		}
 	}
-	if out.Episodes, err = ParsePairs(r.Text); err != nil {
+	if out.Episodes, err = parsePairs(r.Text); err != nil {
 		return schema.Row{}, err
 	}
 	return out, nil
 }
 
-// ParsePairs reads ";a-b;c-d+e;f-0;" as [[a,b],[c,d,e],[f]]. A "-0" target
+// parsePairs reads ";a-b;c-d+e;f-0;" as [[a,b],[c,d,e],[f]]. A "-0" target
 // is the list's "no corresponding episode" and yields a one-element pair.
-func ParsePairs(text string) ([][]int, error) {
+func parsePairs(text string) ([][]int, error) {
 	var out [][]int
 	for part := range strings.SplitSeq(text, ";") {
 		part = strings.TrimSpace(part)
@@ -59,7 +59,7 @@ func ParsePairs(text string) ([][]int, error) {
 		}
 		pair, err := parsePair(part)
 		if err != nil {
-			return nil, fmt.Errorf("%w: pair %q", ErrRow, part)
+			return nil, fmt.Errorf("%w: pair %q", errRow, part)
 		}
 		out = append(out, pair)
 	}
@@ -107,11 +107,11 @@ func RowFromSchema(s schema.Row) Row {
 	if s.Offset != 0 {
 		attrs["offset"] = strconv.Itoa(s.Offset)
 	}
-	return Row{Attrs: attrs, Text: FormatPairs(s.Episodes)}
+	return Row{Attrs: attrs, Text: formatPairs(s.Episodes)}
 }
 
-// FormatPairs is the inverse of ParsePairs.
-func FormatPairs(pairs [][]int) string {
+// formatPairs is the inverse of parsePairs.
+func formatPairs(pairs [][]int) string {
 	if len(pairs) == 0 {
 		return ""
 	}

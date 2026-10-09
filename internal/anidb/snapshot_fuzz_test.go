@@ -67,8 +67,8 @@ func FuzzParse_acceptsOnlyAWellFormedList(f *testing.F) {
 		}
 		valid := decodeErr == nil && file.AnimeID == aid && (file.Episodes == nil || (isOneToN(regular) && dated))
 		if !valid {
-			if err == nil || !errors.Is(err, ErrInvalid) {
-				t.Fatalf("parse(%d, %q) = %+v, %v; want ErrInvalid", aid, body, a, err)
+			if err == nil || !errors.Is(err, errInvalid) {
+				t.Fatalf("parse(%d, %q) = %+v, %v; want errInvalid", aid, body, a, err)
 			}
 			return
 		}

@@ -41,46 +41,46 @@ func LoadRows(path string) ([]Row, error) {
 		return nil, err
 	}
 	if st.Size() > maxCountsFileSize {
-		return nil, fmt.Errorf("%w: %s is %d bytes", ErrInvalid, path, st.Size())
+		return nil, fmt.Errorf("%w: %s is %d bytes", errInvalid, path, st.Size())
 	}
 	body, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
-	rows, err := DecodeRows(body)
+	rows, err := decodeRows(body)
 	if err != nil {
 		return nil, fmt.Errorf("%s: %w", path, err)
 	}
 	return rows, nil
 }
 
-// DecodeRows parses and validates a JSON list of rows, which must be sorted
+// decodeRows parses and validates a JSON list of rows, which must be sorted
 // by AniDB id with no id twice.
-func DecodeRows(body []byte) ([]Row, error) {
+func decodeRows(body []byte) ([]Row, error) {
 	var rows []Row
 	if err := strictjson.Decode(body, &rows); err != nil {
-		return nil, fmt.Errorf("%w: %w", ErrInvalid, err)
+		return nil, fmt.Errorf("%w: %w", errInvalid, err)
 	}
 	if rows == nil {
-		return nil, fmt.Errorf("%w: not a JSON list", ErrInvalid)
+		return nil, fmt.Errorf("%w: not a JSON list", errInvalid)
 	}
 	if len(rows) > maxRows {
-		return nil, fmt.Errorf("%w: %d rows, at most %d", ErrInvalid, len(rows), maxRows)
+		return nil, fmt.Errorf("%w: %d rows, at most %d", errInvalid, len(rows), maxRows)
 	}
 	for i := range rows {
-		if err := rows[i].Validate(); err != nil {
+		if err := rows[i].validate(); err != nil {
 			return nil, err
 		}
 		if i > 0 && rows[i].AniDBID <= rows[i-1].AniDBID {
-			return nil, fmt.Errorf("%w: AniDB %d follows AniDB %d; rows are sorted by AniDB id, each once", ErrInvalid, rows[i].AniDBID, rows[i-1].AniDBID)
+			return nil, fmt.Errorf("%w: AniDB %d follows AniDB %d; rows are sorted by AniDB id, each once", errInvalid, rows[i].AniDBID, rows[i-1].AniDBID)
 		}
 	}
 	return rows, nil
 }
 
-// Validate checks one row: a positive count, the AniDB page of the same
+// validate checks one row: a positive count, the AniDB page of the same
 // anime as its evidence, a date and a one-line justification.
-func (r *Row) Validate() error {
+func (r *Row) validate() error {
 	var err error
 	switch {
 	case r.AniDBID <= 0:
@@ -95,7 +95,7 @@ func (r *Row) Validate() error {
 		err = errors.New("justification must be one non-empty line")
 	}
 	if err != nil {
-		return fmt.Errorf("%w: AniDB %d: %w", ErrInvalid, r.AniDBID, err)
+		return fmt.Errorf("%w: AniDB %d: %w", errInvalid, r.AniDBID, err)
 	}
 	return nil
 }

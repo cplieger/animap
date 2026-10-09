@@ -29,7 +29,7 @@ func TestPlan(t *testing.T) {
 	evaluated := map[string]bool{"a": true, "b": true, "c": true, "d": true, "gone": true}
 	actions, deferred := Plan([]Want{want("a"), want("b"), want("c"), want("d")}, evaluated, existing, 10)
 	got := kinds(actions)
-	wantKinds := map[string]Kind{"b": Edit, "c": Reopen, "d": Create, "gone": Close}
+	wantKinds := map[string]Kind{"b": edit, "c": reopen, "d": Create, "gone": Close}
 	if len(got) != len(wantKinds) || len(deferred) != 0 {
 		t.Fatalf("Plan = %+v, deferred %v", actions, deferred)
 	}
@@ -39,7 +39,7 @@ func TestPlan(t *testing.T) {
 		}
 	}
 	for _, a := range actions {
-		if a.Kind == Reopen && a.Number != 3 || a.Kind == Close && a.Number != 4 {
+		if a.Kind == reopen && a.Number != 3 || a.Kind == Close && a.Number != 4 {
 			t.Errorf("action %+v targets the wrong issue", a)
 		}
 	}
@@ -53,7 +53,7 @@ func TestPlanCapsCreates(t *testing.T) {
 	}
 	open := []Issue{{Number: 1, State: "OPEN", Title: "title a", Body: "old " + Marker("a")}}
 	actions, _ = Plan([]Want{want("a")}, nil, open, 0)
-	if len(actions) != 1 || actions[0].Kind != Edit {
+	if len(actions) != 1 || actions[0].Kind != edit {
 		t.Errorf("an edit is not a create and must not be capped: %+v", actions)
 	}
 }

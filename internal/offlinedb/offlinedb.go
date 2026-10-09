@@ -33,11 +33,11 @@ var DefaultLimits = Limits{
 	MaxSources:   64,
 }
 
-// Errors a caller can branch on.
+// Errors Load wraps.
 var (
-	ErrTooLarge = errors.New("offlinedb: bound exceeded")
-	ErrLicense  = errors.New("offlinedb: metadata does not declare the ODbL")
-	ErrFormat   = errors.New("offlinedb: malformed database")
+	errTooLarge = errors.New("offlinedb: bound exceeded")
+	errLicense  = errors.New("offlinedb: metadata does not declare the ODbL")
+	errFormat   = errors.New("offlinedb: malformed database")
 )
 
 // Entry is one database entry, reduced to its join fields.
@@ -49,36 +49,27 @@ type Entry struct {
 	Episodes int
 }
 
-// Meta is the database's first line.
-type Meta struct {
-	LicenseName string
-	LicenseURL  string
-	LastUpdate  string
-}
-
-// Load checks the file size, then streams it through Read.
-func Load(path string, lim Limits) (Meta, []Entry, error) {
+// Load checks the file size, then streams it through read.
+func Load(path string, lim Limits) ([]Entry, error) {
 	st, err := os.Stat(path)
 	if err != nil {
-		return Meta{}, nil, err
+		return nil, err
 	}
 	if st.Size() > lim.MaxFileBytes {
-		return Meta{}, nil, fmt.Errorf("%w: file is %d bytes", ErrTooLarge, st.Size())
+		return nil, fmt.Errorf("%w: file is %d bytes", errTooLarge, st.Size())
 	}
 	f, err := os.Open(path)
 	if err != nil {
-		return Meta{}, nil, err
+		return nil, err
 	}
 	defer func() { _ = f.Close() }()
-	return Read(io.LimitReader(f, lim.MaxFileBytes), lim)
+	return read(io.LimitReader(f, lim.MaxFileBytes), lim)
 }
 
 type metaLine struct {
 	License struct {
 		Name string `json:"name"`
-		URL  string `json:"url"`
 	} `json:"license"`
-	LastUpdate string `json:"lastUpdate"`
 }
 
 type entryLine struct {
@@ -87,15 +78,14 @@ type entryLine struct {
 	Episodes int      `json:"episodes"`
 }
 
-// Read decodes a metadata line then one entry per line. A malformed line
-// fails the read: the file is machine-generated, so one bad line means a
-// broken file.
-func Read(r io.Reader, lim Limits) (Meta, []Entry, error) {
+// read checks the metadata line declares the ODbL, then decodes one entry
+// per line. A malformed line fails the read: the file is machine-generated,
+// so one bad line means a broken file.
+func read(r io.Reader, lim Limits) ([]Entry, error) {
 	sc := bufio.NewScanner(r)
 	sc.Buffer(make([]byte, 0, min(64<<10, lim.MaxLineBytes)), lim.MaxLineBytes)
-	meta, err := readMeta(sc)
-	if err != nil {
-		return Meta{}, nil, err
+	if err := readMeta(sc); err != nil {
+		return nil, err
 	}
 	var out []Entry
 	for line := 2; sc.Scan(); line++ {
@@ -103,50 +93,50 @@ func Read(r io.Reader, lim Limits) (Meta, []Entry, error) {
 			continue
 		}
 		if len(out) >= lim.MaxEntries {
-			return Meta{}, nil, fmt.Errorf("%w: more than %d entries", ErrTooLarge, lim.MaxEntries)
+			return nil, fmt.Errorf("%w: more than %d entries", errTooLarge, lim.MaxEntries)
 		}
 		e, err := parseEntry(sc.Bytes(), lim)
 		if err != nil {
-			return Meta{}, nil, fmt.Errorf("line %d: %w", line, err)
+			return nil, fmt.Errorf("line %d: %w", line, err)
 		}
 		out = append(out, e)
 	}
 	if err := sc.Err(); err != nil {
-		return Meta{}, nil, scanError(err)
+		return nil, scanError(err)
 	}
 	if len(out) == 0 {
-		return Meta{}, nil, fmt.Errorf("%w: no entries", ErrFormat)
+		return nil, fmt.Errorf("%w: no entries", errFormat)
 	}
-	return meta, out, nil
+	return out, nil
 }
 
-func readMeta(sc *bufio.Scanner) (Meta, error) {
+func readMeta(sc *bufio.Scanner) error {
 	if !sc.Scan() {
 		if err := sc.Err(); err != nil {
-			return Meta{}, scanError(err)
+			return scanError(err)
 		}
-		return Meta{}, fmt.Errorf("%w: empty file", ErrFormat)
+		return fmt.Errorf("%w: empty file", errFormat)
 	}
 	var ml metaLine
 	if err := json.Unmarshal(sc.Bytes(), &ml); err != nil {
-		return Meta{}, fmt.Errorf("%w: metadata line: %w", ErrFormat, err)
+		return fmt.Errorf("%w: metadata line: %w", errFormat, err)
 	}
 	if !strings.Contains(ml.License.Name, "ODbL") {
-		return Meta{}, fmt.Errorf("%w: %q", ErrLicense, ml.License.Name)
+		return fmt.Errorf("%w: %q", errLicense, ml.License.Name)
 	}
-	return Meta{LicenseName: ml.License.Name, LicenseURL: ml.License.URL, LastUpdate: ml.LastUpdate}, nil
+	return nil
 }
 
 func parseEntry(b []byte, lim Limits) (Entry, error) {
 	var el entryLine
 	if err := json.Unmarshal(b, &el); err != nil {
-		return Entry{}, fmt.Errorf("%w: %w", ErrFormat, err)
+		return Entry{}, fmt.Errorf("%w: %w", errFormat, err)
 	}
 	if len(el.Sources) > lim.MaxSources {
-		return Entry{}, fmt.Errorf("%w: %d sources", ErrTooLarge, len(el.Sources))
+		return Entry{}, fmt.Errorf("%w: %d sources", errTooLarge, len(el.Sources))
 	}
 	if !schema.ValidType(el.Type) {
-		return Entry{}, fmt.Errorf("%w: type %q is not one animap publishes", ErrFormat, el.Type)
+		return Entry{}, fmt.Errorf("%w: type %q is not one animap publishes", errFormat, el.Type)
 	}
 	e := Entry{Type: el.Type, Episodes: max(el.Episodes, 0)}
 	for _, s := range el.Sources {
@@ -161,7 +151,7 @@ func parseEntry(b []byte, lim Limits) (Entry, error) {
 
 func scanError(err error) error {
 	if errors.Is(err, bufio.ErrTooLong) {
-		return fmt.Errorf("%w: %w", ErrTooLarge, err)
+		return fmt.Errorf("%w: %w", errTooLarge, err)
 	}
 	return err
 }

@@ -11,16 +11,16 @@ import (
 	"github.com/cplieger/animap/internal/skyhook"
 )
 
-// Cause is why an entry or a bridge needs a human.
-type Cause string
+// cause is why an entry or a bridge needs a human.
+type cause string
 
 const (
 	// NodeChanged is a node that moved without taking the entry's values.
-	NodeChanged Cause = "node-changed"
+	NodeChanged cause = "node-changed"
 	// Landed is a node that now carries every value the entry sets.
-	Landed Cause = "landed"
+	Landed cause = "landed"
 	// TVDBLayout is a changed official order, or a series SkyHook dropped.
-	TVDBLayout Cause = "tvdb-layout"
+	TVDBLayout cause = "tvdb-layout"
 )
 
 // Finding is one cause on one entry or bridge. Before and After are set
@@ -28,7 +28,7 @@ const (
 type Finding struct {
 	Key     string            `json:"key"`
 	Path    string            `json:"path"`
-	Cause   Cause             `json:"cause"`
+	Cause   cause             `json:"cause"`
 	Title   string            `json:"title"`
 	Before  []skyhook.Episode `json:"before,omitempty"`
 	After   []skyhook.Episode `json:"after,omitempty"`
@@ -107,11 +107,11 @@ func decideEntry(e *overlay.Entry, o *Observation) (findings []Finding, evaluate
 	k := KeysOf(e.AniDBID)
 	evaluated = append(make([]string, 0, 3), k.Node, k.Landed)
 	if animelists.HashOf(o.Node) != e.Captured.NodeSHA256 {
-		cause, key := NodeChanged, k.Node
+		c, key := NodeChanged, k.Node
 		if overlay.Landed(o.Node, e) {
-			cause, key = Landed, k.Landed
+			c, key = Landed, k.Landed
 		}
-		findings = append(findings, Finding{Key: key, Cause: cause, AniDB: e.AniDBID, Title: e.Title, Path: e.Path()})
+		findings = append(findings, Finding{Key: key, Cause: c, AniDB: e.AniDBID, Title: e.Title, Path: e.Path()})
 	}
 	if c := e.Captured.TVDB; c == nil || o.LayoutRead || o.LayoutAbsent {
 		evaluated = append(evaluated, k.TVDB)
@@ -127,7 +127,7 @@ func decideEntry(e *overlay.Entry, o *Observation) (findings []Finding, evaluate
 // needs it.
 func decideBridge(b *overlay.Bridge, o *Observation) (findings []Finding, evaluated []string) {
 	k := SpecialKeys(b.AniListID)
-	f := func(c Cause, key string) Finding {
+	f := func(c cause, key string) Finding {
 		return Finding{Key: key, Cause: c, AniDB: b.ParentAniDBID, AniList: b.AniListID, Title: b.Title, Path: b.Path()}
 	}
 	evaluated = append(make([]string, 0, 3), k.Node)

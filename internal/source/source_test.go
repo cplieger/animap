@@ -15,7 +15,7 @@ import (
 func TestGetRevalidatesFromThePersistedCache(t *testing.T) {
 	var full, revalidated atomic.Int32
 	srv := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.Header.Get("User-Agent") != UserAgent {
+		if r.Header.Get("User-Agent") != userAgent {
 			t.Errorf("User-Agent = %q", r.Header.Get("User-Agent"))
 		}
 		if r.URL.Path == "/missing" {

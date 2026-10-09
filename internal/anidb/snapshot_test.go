@@ -72,7 +72,7 @@ func TestExtract(t *testing.T) {
 	if !reflect.DeepEqual(s.Anime, want) {
 		t.Errorf("Extract anime = %+v, want %+v", s.Anime, want)
 	}
-	if !slices.Equal(s.Refused, []int{13}) || len(refusals) != 1 || !errors.Is(refusals[0], ErrInvalid) {
+	if !slices.Equal(s.Refused, []int{13}) || len(refusals) != 1 || !errors.Is(refusals[0], errInvalid) {
 		t.Errorf("Extract refused %v with %v, want AniDB 13 refused for its gap", s.Refused, refusals)
 	}
 	if s.Commit != commit {
@@ -110,11 +110,11 @@ func TestExtractRefusesAnArchiveOverItsBounds(t *testing.T) {
 	if _, _, err := extract(bytes.NewReader(body), commit, int64(len(body)), 16<<10); err != nil {
 		t.Fatalf("Setup: extract(within both bounds) = %v", err)
 	}
-	if _, _, err := extract(bytes.NewReader(body), commit, int64(len(body))-1, 16<<10); !errors.Is(err, ErrInvalid) {
-		t.Errorf("extract(one byte over the archive bound) = %v, want ErrInvalid", err)
+	if _, _, err := extract(bytes.NewReader(body), commit, int64(len(body))-1, 16<<10); !errors.Is(err, errInvalid) {
+		t.Errorf("extract(one byte over the archive bound) = %v, want errInvalid", err)
 	}
-	if _, _, err := extract(bytes.NewReader(body), commit, int64(len(body)), unpacked); !errors.Is(err, ErrInvalid) {
-		t.Errorf("extract(%d unpacked bytes allowed, a 4 KiB file inside) = %v, want ErrInvalid", unpacked, err)
+	if _, _, err := extract(bytes.NewReader(body), commit, int64(len(body)), unpacked); !errors.Is(err, errInvalid) {
+		t.Errorf("extract(%d unpacked bytes allowed, a 4 KiB file inside) = %v, want errInvalid", unpacked, err)
 	}
 }
 
@@ -137,8 +137,8 @@ func TestParseRefuses(t *testing.T) {
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			_, _, err := parse(10, []byte(tc.body))
-			if !errors.Is(err, ErrInvalid) || !strings.Contains(err.Error(), tc.says) {
-				t.Errorf("parse(%s) = %v; want ErrInvalid naming %q", tc.name, err, tc.says)
+			if !errors.Is(err, errInvalid) || !strings.Contains(err.Error(), tc.says) {
+				t.Errorf("parse(%s) = %v; want errInvalid naming %q", tc.name, err, tc.says)
 			}
 		})
 	}
@@ -172,8 +172,8 @@ func TestSnapshotRoundTrip(t *testing.T) {
 
 func TestDecodeSnapshotRefuses(t *testing.T) {
 	ok := `{"commit":"` + commit + `","anime":{"1":{"regular":["2005-04-01"],"specials":[{"number":1,"air_date":""}],"finished":true}},"refused":[2]}`
-	if _, err := DecodeSnapshot([]byte(ok)); err != nil {
-		t.Fatalf("Setup: DecodeSnapshot(valid) = %v", err)
+	if _, err := decodeSnapshot([]byte(ok)); err != nil {
+		t.Fatalf("Setup: decodeSnapshot(valid) = %v", err)
 	}
 	for _, body := range []string{
 		strings.Replace(ok, commit, "main", 1),
@@ -188,8 +188,8 @@ func TestDecodeSnapshotRefuses(t *testing.T) {
 		ok + " ]",
 		ok + "}",
 	} {
-		if s, err := DecodeSnapshot([]byte(body)); !errors.Is(err, ErrInvalid) {
-			t.Errorf("DecodeSnapshot(%s) = %+v, %v; want ErrInvalid", body, s, err)
+		if s, err := decodeSnapshot([]byte(body)); !errors.Is(err, errInvalid) {
+			t.Errorf("decodeSnapshot(%s) = %+v, %v; want errInvalid", body, s, err)
 		}
 	}
 }
@@ -200,7 +200,7 @@ func TestLoadSnapshotRefusesAnOversizeFile(t *testing.T) {
 	if err := os.WriteFile(path, []byte(valid+strings.Repeat(" ", maxSnapshotBytes)), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := LoadSnapshot(path); !errors.Is(err, ErrInvalid) {
-		t.Errorf("LoadSnapshot(oversize) = %v, want ErrInvalid", err)
+	if _, err := LoadSnapshot(path); !errors.Is(err, errInvalid) {
+		t.Errorf("LoadSnapshot(oversize) = %v, want errInvalid", err)
 	}
 }

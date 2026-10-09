@@ -36,8 +36,8 @@ type Kind string
 // scripts/apply-issues.sh has one case per Kind and stops on any other.
 const (
 	Create Kind = "create"
-	Reopen Kind = "reopen"
-	Edit   Kind = "edit"
+	reopen Kind = "reopen"
+	edit   Kind = "edit"
 	Close  Kind = "close"
 )
 
@@ -83,7 +83,7 @@ func Plan(want []Want, evaluated map[string]bool, existing []Issue, limit int) (
 		body := Render(w)
 		if is, ok := open[w.Key]; ok {
 			if is.Body != body || is.Title != w.Title {
-				actions = append(actions, Action{Kind: Edit, Key: w.Key, Number: is.Number, Title: w.Title, Body: body})
+				actions = append(actions, Action{Kind: edit, Key: w.Key, Number: is.Number, Title: w.Title, Body: body})
 			}
 			continue
 		}
@@ -94,7 +94,7 @@ func Plan(want []Want, evaluated map[string]bool, existing []Issue, limit int) (
 		limit--
 		a := Action{Kind: Create, Key: w.Key, Title: w.Title, Body: body, Labels: w.Labels, Pin: w.Pin}
 		if is, ok := closed[w.Key]; ok {
-			a.Kind, a.Number = Reopen, is.Number
+			a.Kind, a.Number = reopen, is.Number
 		}
 		actions = append(actions, a)
 	}

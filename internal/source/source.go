@@ -19,11 +19,11 @@ import (
 	"github.com/cplieger/httpx/v5"
 )
 
-// UserAgent identifies animap to every upstream.
-const UserAgent = "animap (+https://github.com/cplieger/animap)"
+// userAgent identifies animap to every upstream.
+const userAgent = "animap (+https://github.com/cplieger/animap)"
 
-// MaxCacheBytes bounds the persisted cache file.
-const MaxCacheBytes = 64 << 20
+// maxCacheBytes bounds the persisted cache file.
+const maxCacheBytes = 64 << 20
 
 // ErrNotFound reports a 404, which callers treat as an answer, not a failure.
 var ErrNotFound = errors.New("source: not found")
@@ -74,7 +74,7 @@ func New(path string, interval time.Duration, log *slog.Logger) (*Client, error)
 		return c, nil
 	case err != nil:
 		return nil, err
-	case len(body) > MaxCacheBytes:
+	case len(body) > maxCacheBytes:
 		log.Warn("source: cache over its bound, starting empty", "path", path, "bytes", len(body))
 		return c, nil
 	}
@@ -107,7 +107,7 @@ func (c *Client) Get(ctx context.Context, rawURL string, maxBytes int64) ([]byte
 		if reqErr != nil {
 			return httpx.ConditionalResult{}, reqErr
 		}
-		req.Header.Set("User-Agent", UserAgent)
+		req.Header.Set("User-Agent", userAgent)
 		req.Header.Set("Accept", "application/json")
 		return httpx.DoConditional(c.http, req, v, maxBytes)
 	}, httpx.WithMaxAttempts(3), httpx.WithBaseDelay(2*time.Second), httpx.WithLogger(c.log), httpx.WithLabel(u.Host))
@@ -148,7 +148,7 @@ func (c *Client) Save(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
-	if len(body) > MaxCacheBytes {
+	if len(body) > maxCacheBytes {
 		return fmt.Errorf("source: cache is %d bytes, over its bound", len(body))
 	}
 	_, err = atomicfile.WriteFile(ctx, c.path, body)
