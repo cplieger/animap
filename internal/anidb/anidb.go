@@ -13,9 +13,9 @@ import (
 	"slices"
 )
 
-// ErrInvalid wraps every refusal of a mirror file, a snapshot file or a
+// errInvalid wraps every refusal of a mirror file, a snapshot file or a
 // counts file.
-var ErrInvalid = errors.New("anidb: invalid")
+var errInvalid = errors.New("anidb: invalid")
 
 // Episode is one numbered AniDB episode. AirDate is YYYY-MM-DD, or "" when
 // AniDB has no date.

@@ -87,7 +87,7 @@ func upstreamReport(overlayDir, listPath, aodPath, countsPath, mirrorPath string
 	if err != nil {
 		return guard.CollisionReport{}, err
 	}
-	_, aod, err := offlinedb.Load(aodPath, offlinedb.DefaultLimits)
+	aod, err := offlinedb.Load(aodPath, offlinedb.DefaultLimits)
 	if err != nil {
 		return guard.CollisionReport{}, err
 	}

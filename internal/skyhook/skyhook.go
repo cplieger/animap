@@ -12,8 +12,8 @@ import (
 	"strings"
 )
 
-// BaseURL is SkyHook's show endpoint; the TVDB series id is appended.
-const BaseURL = "https://skyhook.sonarr.tv/v1/tvdb/shows/en/"
+// baseURL is SkyHook's show endpoint; the TVDB series id is appended.
+const baseURL = "https://skyhook.sonarr.tv/v1/tvdb/shows/en/"
 
 const maxShowBytes = 16 << 20
 
@@ -57,7 +57,6 @@ func (e Episode) Line() string {
 // Show is the part of a SkyHook show animap reads.
 type Show struct {
 	Episodes []Episode
-	TVDBID   int
 }
 
 type showJSON struct {
@@ -67,16 +66,14 @@ type showJSON struct {
 		Number   int    `json:"episodeNumber"`
 		Absolute int    `json:"absoluteEpisodeNumber"`
 	} `json:"episodes"`
-	TVDBID int `json:"tvdbId"`
 }
 
-// ParseShow decodes a SkyHook show body.
-func ParseShow(body []byte) (*Show, error) {
+func parseShow(body []byte) (*Show, error) {
 	var sj showJSON
 	if err := json.Unmarshal(body, &sj); err != nil {
 		return nil, fmt.Errorf("skyhook: decode show: %w", err)
 	}
-	s := &Show{TVDBID: sj.TVDBID}
+	s := &Show{}
 	for _, e := range sj.Episodes {
 		s.Episodes = append(s.Episodes, Episode{Season: e.Season, Number: e.Number, Absolute: e.Absolute, AirDate: e.AirDate})
 	}
@@ -90,11 +87,11 @@ type Getter interface {
 
 // Fetch reads one show. A 404 surfaces as the getter's not-found error.
 func Fetch(ctx context.Context, g Getter, tvdbID int) (*Show, error) {
-	body, err := g.Get(ctx, fmt.Sprintf("%s%d", BaseURL, tvdbID), maxShowBytes)
+	body, err := g.Get(ctx, fmt.Sprintf("%s%d", baseURL, tvdbID), maxShowBytes)
 	if err != nil {
 		return nil, err
 	}
-	return ParseShow(body)
+	return parseShow(body)
 }
 
 // Layout returns the show's episodes on the given seasons, sorted. A nil

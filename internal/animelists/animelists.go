@@ -35,10 +35,10 @@ const (
 	maxTextBytes  = 8 << 20
 )
 
-// Errors a caller can branch on. A bound breach wraps *xmlx.LimitError.
+// Errors Parse returns. A bound breach wraps *xmlx.LimitError.
 var (
-	ErrRoot    = errors.New("animelists: root element is not anime-list")
-	ErrNoNodes = errors.New("animelists: list carries no anime nodes")
+	errRoot    = errors.New("animelists: root element is not anime-list")
+	errNoNodes = errors.New("animelists: list carries no anime nodes")
 	ErrTooBig  = errors.New("animelists: body exceeds the size bound")
 )
 
@@ -60,10 +60,8 @@ type Row struct {
 // List is the decoded file: nodes keyed by AniDB id, plus the ids in
 // document order. A repeated AniDB id keeps its first node.
 type List struct {
-	Nodes      map[int]*Node
-	Order      []int
-	Duplicates int
-	Skipped    int
+	Nodes map[int]*Node
+	Order []int
 }
 
 // Parse decodes a whole list body under the size, preflight and budget bounds.
@@ -83,7 +81,7 @@ func Parse(body []byte) (*List, error) {
 		return nil, limitError(err)
 	}
 	if len(l.list.Order) == 0 {
-		return nil, ErrNoNodes
+		return nil, errNoNodes
 	}
 	return l.list, nil
 }
@@ -102,7 +100,7 @@ type listXML struct {
 
 func (l *listXML) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	if start.Name.Local != "anime-list" {
-		return ErrRoot
+		return errRoot
 	}
 	return walk(d, func(t xml.StartElement) error {
 		if t.Name.Local != "anime" {
@@ -113,11 +111,9 @@ func (l *listXML) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			return err
 		}
 		if n == nil {
-			l.list.Skipped++
 			return nil
 		}
 		if _, dup := l.list.Nodes[n.AniDBID]; dup {
-			l.list.Duplicates++
 			return nil
 		}
 		l.list.Nodes[n.AniDBID] = n
@@ -235,11 +231,11 @@ func (n *Node) Canonical() string {
 		b.WriteString("\nmapping")
 		writeAttrs(&b, r.Attrs)
 		b.WriteString(" text=")
-		b.WriteString(CanonicalPairs(r.Text))
+		b.WriteString(canonicalPairs(r.Text))
 	}
 	if strings.TrimSpace(n.Before) != "" {
 		b.WriteString("\nbefore text=")
-		b.WriteString(CanonicalPairs(n.Before))
+		b.WriteString(canonicalPairs(n.Before))
 	}
 	return b.String()
 }
@@ -250,8 +246,8 @@ func writeAttrs(b *strings.Builder, attrs map[string]string) {
 	}
 }
 
-// CanonicalPairs trims each ;-separated pair, drops empties and re-joins.
-func CanonicalPairs(text string) string {
+// canonicalPairs trims each ;-separated pair, drops empties and re-joins.
+func canonicalPairs(text string) string {
 	var parts []string
 	for p := range strings.SplitSeq(text, ";") {
 		if p = strings.TrimSpace(p); p != "" {

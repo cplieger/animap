@@ -133,7 +133,7 @@ func TestCollisionBetweenUnchangedSiblingsOnATouchedSeriesIsBaselined(t *testing
 	}
 	f := facts(map[int]anidb.Anime{2114: fin(1), 2888: fin(1), 2891: fin(1)}, nil)
 	rep := run(nodes, []overlay.Entry{entry(2114, overlay.Set{DefaultTVDBSeason: new("2")})}, f)
-	base := &Baseline{Version: BaselineVersion, Collisions: []BaselineEntry{{Series: 138691, Target: "TVDB 0x1", Nodes: []int{2888, 2891}}}}
+	base := &Baseline{Version: baselineVersion, Collisions: []BaselineEntry{{Series: 138691, Target: "TVDB 0x1", Nodes: []int{2888, 2891}}}}
 	baselined, novel, _ := base.Split(rep.Upstream)
 	if len(rep.Blocking) != 0 || len(baselined) != 1 || len(novel) != 0 {
 		t.Errorf("Blocking = %+v, baselined %+v, novel %+v; want TVDB 0x1 (2888, 2891) baselined and nothing blocking", rep.Blocking, baselined, novel)
@@ -151,7 +151,7 @@ func TestCollisionNewBetweenUnchangedSiblingsOnATouchedSeriesIsNovel(t *testing.
 	}
 	f := facts(map[int]anidb.Anime{2114: fin(1), 2888: fin(1), 2891: fin(1)}, nil)
 	rep := run(nodes, []overlay.Entry{entry(2114, overlay.Set{DefaultTVDBSeason: new("2")})}, f)
-	_, novel, _ := (&Baseline{Version: BaselineVersion}).Split(rep.Upstream)
+	_, novel, _ := (&Baseline{Version: baselineVersion}).Split(rep.Upstream)
 	if len(novel) != 1 || novel[0].Target != "TVDB 0x1" || !slices.Equal(novel[0].Nodes, []int{2888, 2891}) {
 		t.Errorf("novel = %+v, want TVDB 0x1 claimed by 2888 and 2891", novel)
 	}
@@ -165,7 +165,7 @@ func TestCollisionOnANewClaimBlocksDespiteTheBaseline(t *testing.T) {
 	}
 	f := facts(map[int]anidb.Anime{1: fin(1), 2: fin(1, 1), 3: fin(1)}, nil)
 	rep := run(nodes, []overlay.Entry{entry(1, overlay.Set{DefaultTVDBSeason: new("0")})}, f)
-	base := &Baseline{Version: BaselineVersion, Collisions: []BaselineEntry{{Series: 10, Target: "TVDB 0x1", Nodes: []int{1, 2, 3}}}}
+	base := &Baseline{Version: baselineVersion, Collisions: []BaselineEntry{{Series: 10, Target: "TVDB 0x1", Nodes: []int{1, 2, 3}}}}
 	baselined, _, _ := base.Split(rep.Upstream)
 	want := []string{"1 ep1", "2 S1 (default)", "3 ep1"}
 	if len(rep.Blocking) != 1 || !slices.Equal(rep.Blocking[0].Claims, want) || len(baselined) != 0 {
@@ -198,7 +198,7 @@ func TestCollisionAClaimTheEntryLeavesIsBaselined(t *testing.T) {
 	}
 	f := facts(map[int]anidb.Anime{1: fin(2), 2: fin(1)}, nil)
 	rep := run(nodes, []overlay.Entry{entry(1, overlay.Set{TMDBTV: new("50")})}, f)
-	base := &Baseline{Version: BaselineVersion, Collisions: []BaselineEntry{{Series: 10, Target: "TVDB 1x2", Nodes: []int{1, 2}}}}
+	base := &Baseline{Version: baselineVersion, Collisions: []BaselineEntry{{Series: 10, Target: "TVDB 1x2", Nodes: []int{1, 2}}}}
 	baselined, novel, _ := base.Split(rep.Upstream)
 	if len(rep.Blocking) != 0 || len(baselined) != 1 || len(novel) != 0 {
 		t.Errorf("Blocking %+v, baselined %+v, novel %+v; want TVDB 1x2 baselined and nothing blocking", rep.Blocking, baselined, novel)
@@ -518,7 +518,7 @@ func TestCollisionUntouchedAbsoluteNodeReachesTheBaseline(t *testing.T) {
 	e := entry(3, overlay.Set{TMDBTV: new("50")})
 	e.Captured.TVDB = &overlay.CapturedTVDB{Series: 10, Episodes: eps}
 	rep := run(nodes, []overlay.Entry{e}, facts(map[int]anidb.Anime{1: fin(1), 2: fin(1), 3: fin(1)}, nil))
-	_, novel, _ := (&Baseline{Version: BaselineVersion}).Split(rep.Upstream)
+	_, novel, _ := (&Baseline{Version: baselineVersion}).Split(rep.Upstream)
 	if len(rep.Blocking) != 0 || len(novel) != 1 || novel[0].Target != "TVDB 1x1" || !slices.Equal(novel[0].Nodes, []int{1, 2}) {
 		t.Errorf("Blocking %+v, novel %+v; want no blocking and TVDB 1x1 (1, 2) novel", rep.Blocking, novel)
 	}

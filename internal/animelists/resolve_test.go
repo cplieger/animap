@@ -25,10 +25,10 @@ func TestPlace(t *testing.T) {
 		{"a_row_to_no_episode", Default{Season: new(0), Offset: new(9)}, 2, nil, ByRow},
 		{"a_range_row", Default{Season: new(0)}, 6, [][2]int{{2, 2}}, ByRow},
 		{"the_stated_offset", Default{Season: new(0), Offset: new(9)}, 3, [][2]int{{0, 12}}, ByOffset},
-		{"an_absent_offset_reads_as_zero", Default{Season: new(1)}, 3, [][2]int{{1, 3}}, ByAbsentOffset},
+		{"an_absent_offset_reads_as_zero", Default{Season: new(1)}, 3, [][2]int{{1, 3}}, byAbsentOffset},
 		{"an_absolute_layout", Default{Offset: new(100), Absolute: layout}, 4, [][2]int{{3, 4}}, ByOffset},
-		{"an_absolute_number_the_layout_lacks", Default{Absolute: layout}, 4, nil, Unplaced},
-		{"no_default", Default{Offset: new(1)}, 3, nil, Unplaced},
+		{"an_absolute_number_the_layout_lacks", Default{Absolute: layout}, 4, nil, unplaced},
+		{"no_default", Default{Offset: new(1)}, 3, nil, unplaced},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			targets, src := Place(rows, tc.d, tc.k)

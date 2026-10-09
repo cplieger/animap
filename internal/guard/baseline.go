@@ -16,8 +16,8 @@ import (
 // have: the baseline only shrinks.
 var ErrBaselineGrew = errors.New("guard: the collision baseline gained an entry")
 
-// BaselineVersion is the file format version.
-const BaselineVersion = 1
+// baselineVersion is the file format version.
+const baselineVersion = 1
 
 // Baseline is the tracked set of collisions the overlay leaves as
 // Anime-Lists has them, and of nodes with no regular episode count on
@@ -65,7 +65,7 @@ var basisRE = regexp.MustCompile(`^[a-z0-9-]+(/[a-z0-9-]+)*$`)
 func LoadBaseline(path string) (*Baseline, error) {
 	body, err := os.ReadFile(path)
 	if errors.Is(err, os.ErrNotExist) {
-		return &Baseline{Version: BaselineVersion}, nil
+		return &Baseline{Version: baselineVersion}, nil
 	}
 	if err != nil {
 		return nil, err
@@ -74,8 +74,8 @@ func LoadBaseline(path string) (*Baseline, error) {
 	if err := strictjson.Decode(body, &b); err != nil {
 		return nil, fmt.Errorf("guard: baseline %s: %w", path, err)
 	}
-	if b.Version != BaselineVersion {
-		return nil, fmt.Errorf("guard: baseline %s: version %d, want %d", path, b.Version, BaselineVersion)
+	if b.Version != baselineVersion {
+		return nil, fmt.Errorf("guard: baseline %s: version %d, want %d", path, b.Version, baselineVersion)
 	}
 	if b.Basis != "" && !basisRE.MatchString(b.Basis) {
 		return nil, fmt.Errorf("guard: baseline %s: basis %q is not lowercase words joined by - and /", path, b.Basis)
@@ -85,7 +85,7 @@ func LoadBaseline(path string) (*Baseline, error) {
 
 // NewBaseline records cols and unc, measured under basis, sorted by series.
 func NewBaseline(cols []Collision, unc []Uncounted, commit, basis string) *Baseline {
-	b := &Baseline{Version: BaselineVersion, AnimeListsCommit: commit, Basis: basis, Uncounted: slices.Clone(unc)}
+	b := &Baseline{Version: baselineVersion, AnimeListsCommit: commit, Basis: basis, Uncounted: slices.Clone(unc)}
 	for _, c := range cols {
 		b.Collisions = append(b.Collisions, BaselineEntry{Series: c.Series, Target: c.Target, Nodes: slices.Clone(c.Nodes)})
 	}

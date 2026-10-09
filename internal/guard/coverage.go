@@ -12,9 +12,9 @@ import (
 	"github.com/cplieger/animap/internal/schema"
 )
 
-// MinRatio is the share of each previous population a build must keep.
+// minRatio is the share of each previous population a build must keep.
 // Weekly upstream churn is a few dozen ids, so 10% is far outside it.
-const MinRatio = 0.9
+const minRatio = 0.9
 
 // Floors apply when there is no previous release: half of the 2026-10
 // measurement.
@@ -53,8 +53,8 @@ func Coverage(prev *schema.Populations, cur schema.Populations, acceptShrink boo
 		if p.prev > 0 && p.cur == 0 {
 			return fmt.Errorf("%w: %s went from %d to 0", ErrCoverage, p.name, p.prev)
 		}
-		if !acceptShrink && float64(p.cur) < MinRatio*float64(p.prev) {
-			return fmt.Errorf("%w: %s fell from %d to %d, below %.0f%%", ErrCoverage, p.name, p.prev, p.cur, MinRatio*100)
+		if !acceptShrink && float64(p.cur) < minRatio*float64(p.prev) {
+			return fmt.Errorf("%w: %s fell from %d to %d, below %.0f%%", ErrCoverage, p.name, p.prev, p.cur, minRatio*100)
 		}
 	}
 	return nil

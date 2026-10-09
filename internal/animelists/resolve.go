@@ -55,14 +55,14 @@ func sideRow(r schema.Row, season int) SideRow {
 type Source int
 
 const (
-	// Unplaced means no row covers the episode and the default cannot place it.
-	Unplaced Source = iota
+	// unplaced means no row covers the episode and the default cannot place it.
+	unplaced Source = iota
 	// ByRow means a row covers it; no targets then means no counterpart.
 	ByRow
 	// ByOffset means the default season, shifted by the offset the node states.
 	ByOffset
-	// ByAbsentOffset means the default season with no offset stated, read as 0.
-	ByAbsentOffset
+	// byAbsentOffset means the default season with no offset stated, read as 0.
+	byAbsentOffset
 )
 
 // Default is where a side files an episode no row covers: Season, else
@@ -80,7 +80,7 @@ func Place(rows []SideRow, d Default, k int) (targets [][2]int, src Source) {
 	if covered, t := Targets(rows, 1, k); covered {
 		return t, ByRow
 	}
-	src, ep := ByAbsentOffset, k
+	src, ep := byAbsentOffset, k
 	if d.Offset != nil {
 		src, ep = ByOffset, k+*d.Offset
 	}
@@ -92,7 +92,7 @@ func Place(rows []SideRow, d Default, k int) (targets [][2]int, src Source) {
 			return [][2]int{{s, e}}, src
 		}
 	}
-	return nil, Unplaced
+	return nil, unplaced
 }
 
 // Sources are the AniDB episode numbers the row names.

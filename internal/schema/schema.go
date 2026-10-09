@@ -18,14 +18,14 @@ import (
 // Version is the schema version every document carries.
 const Version = 1
 
-// MaxDocumentBytes bounds a document on both encode and decode.
-const MaxDocumentBytes = 12 << 20
+// maxDocumentBytes bounds a document on both encode and decode.
+const maxDocumentBytes = 12 << 20
 
-// ErrTooLarge reports a document over MaxDocumentBytes.
-var ErrTooLarge = errors.New("schema: document exceeds the size bound")
+// errTooLarge reports a document over maxDocumentBytes.
+var errTooLarge = errors.New("schema: document exceeds the size bound")
 
-// ErrType reports a record type outside the published vocabulary.
-var ErrType = errors.New("schema: type outside the published vocabulary")
+// errType reports a record type outside the published vocabulary.
+var errType = errors.New("schema: type outside the published vocabulary")
 
 var types = []string{"TV", "MOVIE", "OVA", "ONA", "SPECIAL", "UNKNOWN"}
 
@@ -40,7 +40,7 @@ type Document struct {
 	Version     int         `json:"version"`
 	GeneratedAt string      `json:"generated_at"`
 	Sources     Sources     `json:"sources"`
-	Attribution Attribution `json:"attribution"`
+	Attribution attribution `json:"attribution"`
 	Records     []Record    `json:"records"`
 }
 
@@ -81,8 +81,8 @@ type OverlaySource struct {
 	SpecialOfParent int    `json:"special_of_parent,omitempty"`
 }
 
-// Attribution carries the licence notice the ODbL requires inside the file.
-type Attribution struct {
+// attribution carries the licence notice the ODbL requires inside the file.
+type attribution struct {
 	License            string `json:"license"`
 	LicenseURL         string `json:"license_url"`
 	ContentsLicense    string `json:"contents_license"`
@@ -91,7 +91,7 @@ type Attribution struct {
 }
 
 // DefaultAttribution is the notice every release ships.
-var DefaultAttribution = Attribution{
+var DefaultAttribution = attribution{
 	License:            "ODbL-1.0",
 	LicenseURL:         "https://opendatacommons.org/licenses/odbl/1-0/",
 	ContentsLicense:    "DbCL-1.0",
@@ -164,14 +164,14 @@ type Segment struct {
 }
 
 // Encode returns the minified document with no HTML escaping and no
-// trailing newline, refusing one over MaxDocumentBytes.
+// trailing newline, refusing one over maxDocumentBytes.
 func Encode(doc *Document) ([]byte, error) {
 	b, err := marshal(doc)
 	if err != nil {
 		return nil, err
 	}
-	if len(b) > MaxDocumentBytes {
-		return nil, fmt.Errorf("%w: %d bytes", ErrTooLarge, len(b))
+	if len(b) > maxDocumentBytes {
+		return nil, fmt.Errorf("%w: %d bytes", errTooLarge, len(b))
 	}
 	return b, nil
 }
@@ -187,15 +187,15 @@ func marshal(v any) ([]byte, error) {
 }
 
 // Decode reads a document strictly: unknown members, trailing data, a wrong
-// version, a type outside the vocabulary ([ErrType]) and a body over
-// MaxDocumentBytes are all errors.
+// version, a type outside the vocabulary and a body over
+// maxDocumentBytes are all errors.
 func Decode(r io.Reader) (*Document, error) {
-	body, err := io.ReadAll(io.LimitReader(r, MaxDocumentBytes+1))
+	body, err := io.ReadAll(io.LimitReader(r, maxDocumentBytes+1))
 	if err != nil {
 		return nil, err
 	}
-	if len(body) > MaxDocumentBytes {
-		return nil, ErrTooLarge
+	if len(body) > maxDocumentBytes {
+		return nil, errTooLarge
 	}
 	var doc Document
 	if err := strictjson.Decode(body, &doc); err != nil {
@@ -206,7 +206,7 @@ func Decode(r io.Reader) (*Document, error) {
 	}
 	for i := range doc.Records {
 		if t := doc.Records[i].Type; !ValidType(t) {
-			return nil, fmt.Errorf("%w: record %d has type %q", ErrType, i, t)
+			return nil, fmt.Errorf("%w: record %d has type %q", errType, i, t)
 		}
 	}
 	return &doc, nil
@@ -217,7 +217,7 @@ func Decode(r io.Reader) (*Document, error) {
 // record does not publish.
 func ContentHash(doc *Document) (string, error) {
 	b, err := marshal(struct {
-		Attribution Attribution `json:"attribution"`
+		Attribution attribution `json:"attribution"`
 		Records     []Record    `json:"records"`
 		Version     int         `json:"version"`
 	}{doc.Attribution, doc.Records, doc.Version})

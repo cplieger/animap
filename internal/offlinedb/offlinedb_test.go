@@ -12,12 +12,12 @@ import (
 const meta = `{"license":{"name":"Open Data Commons Open Database License (ODbL) v1.0","url":"u"},"lastUpdate":"2026-10-04"}`
 
 func TestLoadMini(t *testing.T) {
-	m, entries, err := Load("../../testdata/aod-mini.jsonl", DefaultLimits)
+	entries, err := Load("../../testdata/aod-mini.jsonl", DefaultLimits)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if m.LastUpdate != "2026-10-04" || len(entries) != 11 {
-		t.Fatalf("Load = %+v, %d entries", m, len(entries))
+	if len(entries) != 11 {
+		t.Fatalf("Load = %d entries, want 11", len(entries))
 	}
 	want := Entry{Type: "TV", AniList: []int{100}, AniDB: []int{10}, MAL: []int{1000}, Episodes: 12}
 	if !reflect.DeepEqual(entries[0], want) {
@@ -36,19 +36,19 @@ func TestReadRefuses(t *testing.T) {
 		body string
 		want error
 	}{
-		{"no licence", `{"license":{"name":"MIT"}}` + "\n" + line, ErrLicense},
-		{"malformed metadata", "nope\n" + line, ErrFormat},
-		{"malformed entry", meta + "\n" + line + "\n{bad", ErrFormat},
-		{"empty", "", ErrFormat},
-		{"no entries", meta + "\n", ErrFormat},
-		{"line over the cap", meta + "\n" + `{"sources":["` + strings.Repeat("x", 300) + `"]}`, ErrTooLarge},
-		{"too many entries", meta + "\n" + strings.Repeat(line+"\n", 3), ErrTooLarge},
-		{"too many sources", meta + "\n" + `{"sources":["a","b","c"]}`, ErrTooLarge},
-		{"unpublished type", meta + "\n" + `{"sources":["https://anilist.co/anime/1"],"type":"TV\n@x"}`, ErrFormat},
+		{"no licence", `{"license":{"name":"MIT"}}` + "\n" + line, errLicense},
+		{"malformed metadata", "nope\n" + line, errFormat},
+		{"malformed entry", meta + "\n" + line + "\n{bad", errFormat},
+		{"empty", "", errFormat},
+		{"no entries", meta + "\n", errFormat},
+		{"line over the cap", meta + "\n" + `{"sources":["` + strings.Repeat("x", 300) + `"]}`, errTooLarge},
+		{"too many entries", meta + "\n" + strings.Repeat(line+"\n", 3), errTooLarge},
+		{"too many sources", meta + "\n" + `{"sources":["a","b","c"]}`, errTooLarge},
+		{"unpublished type", meta + "\n" + `{"sources":["https://anilist.co/anime/1"],"type":"TV\n@x"}`, errFormat},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			if _, _, err := Read(strings.NewReader(tc.body), small); !errors.Is(err, tc.want) {
-				t.Errorf("Read(%s) = %v, want %v", tc.name, err, tc.want)
+			if _, err := read(strings.NewReader(tc.body), small); !errors.Is(err, tc.want) {
+				t.Errorf("read(%s) = %v, want %v", tc.name, err, tc.want)
 			}
 		})
 	}
@@ -59,14 +59,14 @@ func TestLoadRefusesOversizeFile(t *testing.T) {
 	if err := os.WriteFile(p, []byte(meta+"\n"+`{"sources":[]}`+"\n"), 0o600); err != nil {
 		t.Fatal(err)
 	}
-	if _, _, err := Load(p, Limits{MaxFileBytes: 10, MaxLineBytes: 1 << 10, MaxEntries: 10, MaxSources: 10}); !errors.Is(err, ErrTooLarge) {
-		t.Errorf("Load(oversize) = %v, want ErrTooLarge", err)
+	if _, err := Load(p, Limits{MaxFileBytes: 10, MaxLineBytes: 1 << 10, MaxEntries: 10, MaxSources: 10}); !errors.Is(err, errTooLarge) {
+		t.Errorf("Load(oversize) = %v, want errTooLarge", err)
 	}
 }
 
 func TestSourceIDs(t *testing.T) {
 	body := meta + "\n" + `{"sources":["https://anilist.co/anime/7","https://anilist.co/anime/7","https://anidb.net/anime/0","https://anidb.net/anime/x","https://kitsu.app/anime/3"],"episodes":-1}`
-	_, entries, err := Read(strings.NewReader(body), DefaultLimits)
+	entries, err := read(strings.NewReader(body), DefaultLimits)
 	if err != nil {
 		t.Fatal(err)
 	}

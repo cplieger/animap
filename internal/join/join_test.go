@@ -15,7 +15,7 @@ import (
 
 func fixtures(t *testing.T) ([]offlinedb.Entry, map[int]*animelists.Node) {
 	t.Helper()
-	_, entries, err := offlinedb.Load("../../testdata/aod-mini.jsonl", offlinedb.DefaultLimits)
+	entries, err := offlinedb.Load("../../testdata/aod-mini.jsonl", offlinedb.DefaultLimits)
 	if err != nil {
 		t.Fatal(err)
 	}

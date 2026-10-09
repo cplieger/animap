@@ -27,8 +27,8 @@ func entry() *overlay.Entry {
 	}
 }
 
-func causes(fs []Finding) []Cause {
-	var out []Cause
+func causes(fs []Finding) []cause {
+	var out []cause
 	for _, f := range fs {
 		out = append(out, f.Cause)
 	}
@@ -45,16 +45,16 @@ func TestDecide(t *testing.T) {
 	for _, tc := range []struct {
 		name      string
 		obs       Observation
-		want      []Cause
+		want      []cause
 		evaluated []string
 	}{
 		{"unchanged", Observation{Node: upstream(), Layout: layout, LayoutRead: true}, nil, all},
-		{"landed", Observation{Node: landed, Layout: layout, LayoutRead: true}, []Cause{Landed}, all},
-		{"node changed", Observation{Node: moved, Layout: layout, LayoutRead: true}, []Cause{NodeChanged}, all},
-		{"node removed", Observation{Layout: layout, LayoutRead: true}, []Cause{NodeChanged}, all},
-		{"layout changed", Observation{Node: upstream(), Layout: changedLayout, LayoutRead: true}, []Cause{TVDBLayout}, all},
-		{"series gone", Observation{Node: upstream(), LayoutAbsent: true}, []Cause{TVDBLayout}, all},
-		{"layout unreadable", Observation{Node: moved}, []Cause{NodeChanged}, all[:2]},
+		{"landed", Observation{Node: landed, Layout: layout, LayoutRead: true}, []cause{Landed}, all},
+		{"node changed", Observation{Node: moved, Layout: layout, LayoutRead: true}, []cause{NodeChanged}, all},
+		{"node removed", Observation{Layout: layout, LayoutRead: true}, []cause{NodeChanged}, all},
+		{"layout changed", Observation{Node: upstream(), Layout: changedLayout, LayoutRead: true}, []cause{TVDBLayout}, all},
+		{"series gone", Observation{Node: upstream(), LayoutAbsent: true}, []cause{TVDBLayout}, all},
+		{"layout unreadable", Observation{Node: moved}, []cause{NodeChanged}, all[:2]},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			f, ev := Decide(OfEntry(entry()), &tc.obs)
@@ -88,7 +88,7 @@ func TestDecideCreatedEntry(t *testing.T) {
 	}
 	appeared := upstream()
 	appeared.Attrs["defaulttvdbseason"] = "2"
-	if f, _ := Decide(OfEntry(e), &Observation{Node: appeared, Layout: layout, LayoutRead: true}); !slices.Equal(causes(f), []Cause{Landed}) {
+	if f, _ := Decide(OfEntry(e), &Observation{Node: appeared, Layout: layout, LayoutRead: true}); !slices.Equal(causes(f), []cause{Landed}) {
 		t.Errorf("node added upstream with the entry's values: %v, want landed", causes(f))
 	}
 }
@@ -113,13 +113,13 @@ func TestDecideSpecial(t *testing.T) {
 	for _, tc := range []struct {
 		name      string
 		mut       func(*Observation)
-		want      []Cause
+		want      []cause
 		evaluated []string
 	}{
 		{"unchanged", func(*Observation) {}, nil, all},
-		{"parent node changed", func(o *Observation) { o.Node = moved }, []Cause{NodeChanged}, all},
-		{"layout changed", func(o *Observation) { o.Layout = layout[:1] }, []Cause{TVDBLayout}, all},
-		{"linked in the release", func(o *Observation) { o.Linked, o.LinkedRead = 999, true }, []Cause{Landed}, withLanded},
+		{"parent node changed", func(o *Observation) { o.Node = moved }, []cause{NodeChanged}, all},
+		{"layout changed", func(o *Observation) { o.Layout = layout[:1] }, []cause{TVDBLayout}, all},
+		{"linked in the release", func(o *Observation) { o.Linked, o.LinkedRead = 999, true }, []cause{Landed}, withLanded},
 		{"read in the release, not linked", func(o *Observation) { o.LinkedRead = true }, nil, withLanded},
 		{"nothing read but the node", func(o *Observation) { o.LayoutRead = false }, nil, all[:1]},
 	} {

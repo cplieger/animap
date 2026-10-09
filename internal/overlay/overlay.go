@@ -28,8 +28,8 @@ import (
 
 // Bounds on the overlay directory.
 const (
-	MaxEntries   = 1000
-	MaxFileBytes = 64 << 10
+	maxEntries   = 1000
+	maxFileBytes = 64 << 10
 )
 
 const (
@@ -37,11 +37,11 @@ const (
 	attrDefaultSeason = "defaulttvdbseason"
 )
 
-// UpstreamPending is the upstream value of an entry not yet filed.
-const UpstreamPending = "TODO-PR"
+// upstreamPending is the upstream value of an entry not yet filed.
+const upstreamPending = "TODO-PR"
 
-// ErrInvalid wraps every validation failure.
-var ErrInvalid = errors.New("overlay: invalid entry")
+// errInvalid wraps every validation failure.
+var errInvalid = errors.New("overlay: invalid entry")
 
 // Entry is one overlay file.
 type Entry struct {
@@ -102,8 +102,7 @@ func (r *Row) listRow() animelists.Row {
 	return lr
 }
 
-// Attrs returns the set attributes by their list names.
-func (s *Set) Attrs() map[string]string {
+func (s *Set) attrs() map[string]string {
 	out := map[string]string{}
 	for name, p := range map[string]*string{
 		attrTVDBID: s.TVDBID, attrDefaultSeason: s.DefaultTVDBSeason, "episodeoffset": s.EpisodeOffset,
@@ -153,19 +152,19 @@ func LoadDir(dir string) ([]Entry, error) {
 	if err != nil {
 		return nil, err
 	}
-	if len(paths) > MaxEntries {
-		return nil, fmt.Errorf("%w: %d files, at most %d", ErrInvalid, len(paths), MaxEntries)
+	if len(paths) > maxEntries {
+		return nil, fmt.Errorf("%w: %d files, at most %d", errInvalid, len(paths), maxEntries)
 	}
 	slices.Sort(paths)
 	var out []Entry
 	seen := map[int]bool{}
 	for _, p := range paths {
-		e, err := LoadFile(p)
+		e, err := loadFile(p)
 		if err != nil {
 			return nil, err
 		}
 		if seen[e.AniDBID] {
-			return nil, fmt.Errorf("%w: %s: AniDB %d appears twice", ErrInvalid, p, e.AniDBID)
+			return nil, fmt.Errorf("%w: %s: AniDB %d appears twice", errInvalid, p, e.AniDBID)
 		}
 		seen[e.AniDBID] = true
 		out = append(out, e)
@@ -173,8 +172,7 @@ func LoadDir(dir string) ([]Entry, error) {
 	return out, nil
 }
 
-// LoadFile reads one entry with ReadEntry and validates it.
-func LoadFile(path string) (Entry, error) {
+func loadFile(path string) (Entry, error) {
 	e, err := ReadEntry(path)
 	if err != nil {
 		return Entry{}, err
@@ -193,8 +191,8 @@ func ReadEntry(path string) (Entry, error) {
 	if err != nil {
 		return Entry{}, err
 	}
-	if st.Size() > MaxFileBytes {
-		return Entry{}, fmt.Errorf("%w: %s is %d bytes", ErrInvalid, path, st.Size())
+	if st.Size() > maxFileBytes {
+		return Entry{}, fmt.Errorf("%w: %s is %d bytes", errInvalid, path, st.Size())
 	}
 	body, err := os.ReadFile(path)
 	if err != nil {
@@ -205,7 +203,7 @@ func ReadEntry(path string) (Entry, error) {
 		return Entry{}, fmt.Errorf("%s: %w", path, err)
 	}
 	if want := strconv.Itoa(e.AniDBID) + ".json"; filepath.Base(path) != want {
-		return Entry{}, fmt.Errorf("%w: %s must be named %s", ErrInvalid, path, want)
+		return Entry{}, fmt.Errorf("%w: %s must be named %s", errInvalid, path, want)
 	}
 	return e, nil
 }
@@ -213,7 +211,7 @@ func ReadEntry(path string) (Entry, error) {
 func decode(body []byte) (Entry, error) {
 	var e Entry
 	if err := strictjson.Decode(body, &e); err != nil {
-		return Entry{}, fmt.Errorf("%w: %w", ErrInvalid, err)
+		return Entry{}, fmt.Errorf("%w: %w", errInvalid, err)
 	}
 	return e, nil
 }
@@ -222,11 +220,11 @@ func decode(body []byte) (Entry, error) {
 // own rules.
 func (e *Entry) Validate() error {
 	if e.AniDBID <= 0 {
-		return fmt.Errorf("%w: anidb_id must be positive", ErrInvalid)
+		return fmt.Errorf("%w: anidb_id must be positive", errInvalid)
 	}
 	for _, check := range []func() error{e.validateText, e.validateSet, e.validateCaptured} {
 		if err := check(); err != nil {
-			return fmt.Errorf("%w: AniDB %d: %w", ErrInvalid, e.AniDBID, err)
+			return fmt.Errorf("%w: AniDB %d: %w", errInvalid, e.AniDBID, err)
 		}
 	}
 	return nil
@@ -239,8 +237,8 @@ func (e *Entry) validateText() error {
 	if e.Create && strings.TrimSpace(e.Name) == "" {
 		return errors.New("create needs a name")
 	}
-	if e.Upstream != UpstreamPending && !upstreamRE.MatchString(e.Upstream) {
-		return fmt.Errorf("upstream %q is neither %s nor an Anime-Lists PR or issue URL", e.Upstream, UpstreamPending)
+	if e.Upstream != upstreamPending && !upstreamRE.MatchString(e.Upstream) {
+		return fmt.Errorf("upstream %q is neither %s nor an Anime-Lists PR or issue URL", e.Upstream, upstreamPending)
 	}
 	return validateEvidence(e.Evidence)
 }
@@ -259,7 +257,7 @@ func validateEvidence(ev map[string]string) error {
 }
 
 func (e *Entry) validateSet() error {
-	attrs := e.Set.Attrs()
+	attrs := e.Set.attrs()
 	if len(attrs) == 0 && e.Set.MappingList == nil {
 		return errors.New("set is empty")
 	}
@@ -365,7 +363,7 @@ func Patch(n *animelists.Node, e *Entry) *animelists.Node {
 	} else {
 		c = n.Clone()
 	}
-	maps.Copy(c.Attrs, e.Set.Attrs())
+	maps.Copy(c.Attrs, e.Set.attrs())
 	if e.Set.MappingList != nil {
 		c.Rows = nil
 		for i := range *e.Set.MappingList {
@@ -381,7 +379,7 @@ func Landed(u *animelists.Node, e *Entry) bool {
 	if u == nil {
 		return false
 	}
-	for k, v := range e.Set.Attrs() {
+	for k, v := range e.Set.attrs() {
 		if u.Attr(k) != strings.TrimSpace(v) {
 			return false
 		}

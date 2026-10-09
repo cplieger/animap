@@ -120,7 +120,7 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if digest != c.aodSHA {
 		return nil, nil, fmt.Errorf("build: %s has sha256 %s, want %s", c.aodPath, digest, c.aodSHA)
 	}
-	_, entries, err := offlinedb.Load(c.aodPath, offlinedb.DefaultLimits)
+	entries, err := offlinedb.Load(c.aodPath, offlinedb.DefaultLimits)
 	if err != nil {
 		return nil, nil, err
 	}

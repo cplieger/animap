@@ -107,9 +107,9 @@ func TestDecodeIsStrict(t *testing.T) {
 }
 
 func TestDecodeRefusesOversize(t *testing.T) {
-	big := bytes.Repeat([]byte(" "), MaxDocumentBytes+1)
-	if _, err := Decode(bytes.NewReader(big)); !errors.Is(err, ErrTooLarge) {
-		t.Errorf("Decode(oversize) = %v, want ErrTooLarge", err)
+	big := bytes.Repeat([]byte(" "), maxDocumentBytes+1)
+	if _, err := Decode(bytes.NewReader(big)); !errors.Is(err, errTooLarge) {
+		t.Errorf("Decode(oversize) = %v, want errTooLarge", err)
 	}
 }
 
@@ -120,8 +120,8 @@ func TestDecodeRefusesAnUnpublishedType(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if _, err := Decode(bytes.NewReader(b)); !errors.Is(err, ErrType) {
-		t.Errorf("Decode(type %q) = %v, want ErrType", doc.Records[0].Type, err)
+	if _, err := Decode(bytes.NewReader(b)); !errors.Is(err, errType) {
+		t.Errorf("Decode(type %q) = %v, want errType", doc.Records[0].Type, err)
 	}
 	doc.Records[0].Type = ""
 	b, _ = Encode(doc)
@@ -199,7 +199,7 @@ func TestJSONSchemaMatchesStructTags(t *testing.T) {
 	}
 	for name, typ := range map[string]reflect.Type{
 		"": reflect.TypeFor[Document](), "record": reflect.TypeFor[Record](), "row": reflect.TypeFor[Row](),
-		"sources": reflect.TypeFor[Sources](), "attribution": reflect.TypeFor[Attribution](),
+		"sources": reflect.TypeFor[Sources](), "attribution": reflect.TypeFor[attribution](),
 		"parent_specials": reflect.TypeFor[ParentSpecials](), "segment": reflect.TypeFor[Segment](),
 	} {
 		props := js.Properties

@@ -59,8 +59,8 @@ func LoadBridges(dir string) ([]Bridge, error) {
 	if err != nil {
 		return nil, err
 	}
-	if len(paths) > MaxEntries {
-		return nil, fmt.Errorf("%w: %d bridges, at most %d", ErrInvalid, len(paths), MaxEntries)
+	if len(paths) > maxEntries {
+		return nil, fmt.Errorf("%w: %d bridges, at most %d", errInvalid, len(paths), maxEntries)
 	}
 	slices.Sort(paths)
 	out := make([]Bridge, 0, len(paths))
@@ -85,8 +85,8 @@ func ReadBridge(path string) (Bridge, error) {
 	if err != nil {
 		return Bridge{}, err
 	}
-	if st.Size() > MaxFileBytes {
-		return Bridge{}, fmt.Errorf("%w: %s is %d bytes", ErrInvalid, path, st.Size())
+	if st.Size() > maxFileBytes {
+		return Bridge{}, fmt.Errorf("%w: %s is %d bytes", errInvalid, path, st.Size())
 	}
 	body, err := os.ReadFile(path)
 	if err != nil {
@@ -94,10 +94,10 @@ func ReadBridge(path string) (Bridge, error) {
 	}
 	var b Bridge
 	if err := strictjson.Decode(body, &b); err != nil {
-		return Bridge{}, fmt.Errorf("%w: %s: %w", ErrInvalid, path, err)
+		return Bridge{}, fmt.Errorf("%w: %s: %w", errInvalid, path, err)
 	}
 	if want := strconv.Itoa(b.AniListID) + ".json"; filepath.Base(path) != want {
-		return Bridge{}, fmt.Errorf("%w: %s must be named %s", ErrInvalid, path, want)
+		return Bridge{}, fmt.Errorf("%w: %s must be named %s", errInvalid, path, want)
 	}
 	return b, nil
 }
@@ -106,7 +106,7 @@ func ReadBridge(path string) (Bridge, error) {
 // fingerprint that matches its list.
 func (b *Bridge) Validate() error {
 	if err := b.validate(); err != nil {
-		return fmt.Errorf("%w: AniList %d: %w", ErrInvalid, b.AniListID, err)
+		return fmt.Errorf("%w: AniList %d: %w", errInvalid, b.AniListID, err)
 	}
 	return nil
 }
