@@ -10,7 +10,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/cplieger/runesafe/v2"
+	"github.com/cplieger/runesafe/v3"
 )
 
 // Want is one issue a run wants open.
