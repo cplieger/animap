@@ -85,14 +85,14 @@ func TestPacePerHost(t *testing.T) {
 				t.Fatal(err)
 			}
 		}
-		if el := time.Since(start); el != 2*time.Second {
-			t.Errorf("three requests to one host took %v, want 2s", el)
+		if el := time.Since(start); el != 3*time.Second {
+			t.Errorf("three requests to one host took %v, want 3s: the first waits a gap after New", el)
 		}
 		if err := c.pace(t.Context(), "b.example"); err != nil {
 			t.Fatal(err)
 		}
-		if el := time.Since(start); el != 2*time.Second {
-			t.Errorf("a first request to another host waited: %v", el)
+		if el := time.Since(start); el != 3*time.Second {
+			t.Errorf("a first request to another host, a gap after New, waited: %v", el)
 		}
 	})
 }

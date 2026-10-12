@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Environment:
-#   CACHE_DIR (optional) inputs and the HTTP validator cache, default ./.cache
+#   CACHE_DIR (optional) inputs, the AniDB mirror snapshot, the HTTP validator
+#     cache and the date check's TVDB layouts, default ./.cache
 #   DRY_RUN=1 (optional) write actions.json and apply nothing
 set -euo pipefail
 
@@ -62,9 +63,25 @@ go run ./cmd/animap drift -overlay overlay -list "$list" "${release[@]}" \
   -cache "$CACHE_DIR/http.json" -out "$WORK/drift.json"
 args+=(-drift "$WORK/drift.json")
 
+# The date check only raises leads, so a failure here leaves its issues as
+# they are and the rest of the run goes on. It reads the AniDB mirror at the
+# commit the build is pinned to.
+MIRROR_COMMIT=$(sed -n 's/^  MIRROR_COMMIT: //p' .github/workflows/publish.yaml)
+if mirror=$(MIRROR_COMMIT="$MIRROR_COMMIT" bash scripts/fetch-mirror.sh) \
+  && go run ./cmd/animap datecheck -list "$list" -overlay overlay -mirror "$mirror" \
+    -layouts "$CACHE_DIR/layouts.json" -out "$WORK/datecheck.json"; then
+  args+=(-datecheck "$WORK/datecheck.json")
+else
+  echo "drift: WARNING the date check did not run, its issues are left as they are" >&2
+fi
+
 gh run list --repo "$REPO" --workflow publish.yaml --limit 100 --json conclusion,status,createdAt,url >"$WORK/runs.json"
 args+=(-runs "$WORK/runs.json")
-gh issue list --repo "$REPO" --label animap --state all --limit 1000 --json number,state,title,body >"$WORK/existing.json"
+# Every page of every animap issue, open and closed: an issue a capped
+# listing left out would have its key opened a second time.
+gh api --paginate --slurp "repos/${REPO}/issues?labels=animap&state=all&per_page=100" \
+  | jq '[.[][] | select(.pull_request == null) | {number, state: (.state | ascii_upcase), title, body: (.body // "")}]' \
+    >"$WORK/existing.json"
 
 go run ./cmd/animap issues "${args[@]}"
 if [ "$DRY_RUN" = "1" ]; then

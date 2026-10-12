@@ -118,6 +118,7 @@ To notice when TheTVDB changes an episode order, each correction on a TVDB serie
 - [The animap.json schema](docs/schema.md) lists every field, which records exist, and how to read the file in Go.
 - [The overlay](docs/overlay.md) is animap's set of corrections to Anime-Lists, with the bar each one meets and how to add one.
 - [The watch set](docs/watch.md) defines what "fully mapped" means for each type, and how a gap becomes an issue.
+- [The date check](docs/date-check.md) flags mappings that AniDB and TVDB air dates contradict.
 - [Data sources and licences](docs/sources.md) covers each source and the licence that applies.
 
 ## Contributing

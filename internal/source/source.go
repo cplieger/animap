@@ -34,9 +34,11 @@ type cached struct {
 	Body         []byte `json:"body"`
 }
 
-// Client fetches with one request per Interval per host. The zero value is
-// not usable; call New.
+// Client fetches with one request per Interval per host, counting New as
+// a request to every host: a client started right after another process's
+// last request still keeps the gap. The zero value is not usable; call New.
 type Client struct {
+	started  time.Time
 	http     *http.Client
 	last     map[string]time.Time
 	cache    map[string]cached
@@ -46,40 +48,44 @@ type Client struct {
 	mu       sync.Mutex
 }
 
-// New loads the cache at path (absent is empty) and returns a client.
-// An empty path keeps the cache in memory only.
-func New(path string, interval time.Duration, log *slog.Logger) (*Client, error) {
-	if path != "" {
-		abs, err := filepath.Abs(path)
-		if err != nil {
-			return nil, err
-		}
-		path = abs
-	}
+// NewMemory returns a client whose cache lives in memory only.
+func NewMemory(interval time.Duration, log *slog.Logger) *Client {
 	c := &Client{
+		started:  time.Now(),
 		http:     httpx.NewClient(60 * time.Second),
 		last:     map[string]time.Time{},
 		cache:    map[string]cached{},
 		log:      log,
-		path:     path,
 		interval: interval,
 	}
 	c.http.CheckRedirect = httpx.RefuseAllRedirects
+	return c
+}
+
+// New loads the cache at path (absent is empty) and returns a client.
+// An empty path keeps the cache in memory only.
+func New(path string, interval time.Duration, log *slog.Logger) (*Client, error) {
+	c := NewMemory(interval, log)
 	if path == "" {
 		return c, nil
 	}
-	body, err := os.ReadFile(path)
+	abs, err := filepath.Abs(path)
+	if err != nil {
+		return nil, err
+	}
+	c.path = abs
+	body, err := os.ReadFile(abs)
 	switch {
 	case errors.Is(err, os.ErrNotExist):
 		return c, nil
 	case err != nil:
 		return nil, err
 	case len(body) > maxCacheBytes:
-		log.Warn("source: cache over its bound, starting empty", "path", path, "bytes", len(body))
+		log.Warn("source: cache over its bound, starting empty", "path", abs, "bytes", len(body))
 		return c, nil
 	}
 	if err := json.Unmarshal(body, &c.cache); err != nil {
-		log.Warn("source: cache unreadable, starting empty", "path", path, "error", err)
+		log.Warn("source: cache unreadable, starting empty", "path", abs, "error", err)
 		c.cache = map[string]cached{}
 	}
 	return c, nil
@@ -128,7 +134,11 @@ func (c *Client) Get(ctx context.Context, rawURL string, maxBytes int64) ([]byte
 
 func (c *Client) pace(ctx context.Context, host string) error {
 	c.mu.Lock()
-	wait := time.Until(c.last[host].Add(c.interval))
+	prev, ok := c.last[host]
+	if !ok {
+		prev = c.started
+	}
+	wait := time.Until(prev.Add(c.interval))
 	c.last[host] = time.Now().Add(max(wait, 0))
 	c.mu.Unlock()
 	if wait <= 0 {
