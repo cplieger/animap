@@ -35,7 +35,7 @@ concurrency:
 
 env:
   # renovate: datasource=github-releases depName=cedya77/anime-offline-database versioning=loose
-  AOD_VERSION: 2026-40
+  AOD_VERSION: 2026-42
   # renovate: datasource=git-refs depName=AnimeAggregations packageName=https://github.com/notseteve/AnimeAggregations branch=main
   MIRROR_COMMIT: 7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983
   # renovate: datasource=github-releases depName=sigstore/cosign
