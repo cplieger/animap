@@ -16,6 +16,7 @@ on:
       - scripts/publish.sh
       - scripts/resolve.sh
       - scripts/fetch-inputs.sh
+      - scripts/fetch-mirror.sh
       - .github/workflows/publish.yaml
   schedule:
     - cron: "23 */3 * * *"
