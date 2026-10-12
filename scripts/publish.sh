@@ -45,21 +45,7 @@ load "$ROOT/scripts/fetch-inputs.sh"
 }
 echo "publish: database ${AOD_VERSION} (sha256 ${AOD_SHA256}), Anime-Lists ${LIST_COMMIT}, AniDB mirror ${MIRROR_COMMIT}"
 
-# The mirror's archive goes straight into the extractor, so AniDB's titles
-# and descriptions never reach the disk; a snapshot already kept for this
-# commit is reused, and the build validates it either way.
-mirror_snapshot() {
-  local out="$CACHE_DIR/mirror/${MIRROR_COMMIT}.json"
-  mkdir -p "$CACHE_DIR/mirror"
-  if [ ! -f "$out" ]; then
-    curl --proto '=https' --proto-redir '=https' --tlsv1.2 --connect-timeout 20 --max-time 600 \
-      --retry 3 --retry-delay 5 -fsSL --max-filesize 1073741824 \
-      "https://codeload.github.com/notseteve/AnimeAggregations/tar.gz/${MIRROR_COMMIT}" \
-      | (cd "$ROOT" && go run ./cmd/animap mirror extract -commit "$MIRROR_COMMIT" -out "$out") >&2 || return 1
-  fi
-  printf '%s\n' "$out"
-}
-MIRROR_PATH=$(mirror_snapshot)
+MIRROR_PATH=$(MIRROR_COMMIT="$MIRROR_COMMIT" bash "$ROOT/scripts/fetch-mirror.sh")
 
 WORK=$(mktemp -d)
 trap 'rm -rf "$WORK"' EXIT

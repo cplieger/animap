@@ -1,15 +1,18 @@
 package main
 
 import (
+	"cmp"
 	"context"
 	"flag"
 	"fmt"
+	"log/slog"
 	"maps"
 	"slices"
 	"strings"
 	"time"
 	"unicode/utf8"
 
+	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/issues"
 	"github.com/cplieger/animap/internal/schema"
@@ -37,19 +40,26 @@ type workflowRun struct {
 	URL        string    `json:"url"`
 }
 
+// issueInputs keeps the date-check leads apart from the other wants: they
+// are planned under their own limit, and each plan closes only the keys
+// its own run evaluated.
 type issueInputs struct {
-	evaluated map[string]bool
-	watch     *watchResult
-	wants     []issues.Want
+	evaluated     map[string]bool
+	leadEvaluated map[string]bool
+	watch         *watchResult
+	wants         []issues.Want
+	leads         []issues.Want
 }
 
-func runIssues(ctx context.Context, args []string) error {
+func runIssues(ctx context.Context, args []string, log *slog.Logger) error {
 	fs := flag.NewFlagSet("issues", flag.ContinueOnError)
 	driftPath := fs.String("drift", "", "drift.json from animap drift")
 	watchPath := fs.String("watch", "", "watch.json from animap watch")
 	runsPath := fs.String("runs", "", "gh run list --json conclusion,status,createdAt,url for publish.yaml")
 	existingPath := fs.String("existing", "", "gh issue list --json number,state,title,body")
+	datePath := fs.String("datecheck", "", "datecheck.json from animap datecheck")
 	limit := fs.Int("limit", 10, "most creates and reopens per run")
+	leadLimit := fs.Int("lead-limit", 50, "most date-check lead creates and reopens, edits, and closes per run")
 	out := fs.String("out", "actions.json", "output path")
 	if err := parse(fs, args); err != nil {
 		return err
@@ -63,7 +73,7 @@ func runIssues(ctx context.Context, args []string) error {
 	}
 	// The order is the order the create limit is spent in: publish health
 	// and overlay drift are never queued behind the watch set's backlog.
-	in := &issueInputs{evaluated: map[string]bool{}}
+	in := &issueInputs{evaluated: map[string]bool{}, leadEvaluated: map[string]bool{}}
 	if err := in.addRuns(*runsPath, time.Now()); err != nil {
 		return err
 	}
@@ -73,12 +83,83 @@ func runIssues(ctx context.Context, args []string) error {
 	if err := in.addWatch(*watchPath, existing); err != nil {
 		return err
 	}
+	if err := in.addDateCheck(*datePath, existing); err != nil {
+		return err
+	}
 	actions, deferred := issues.Plan(in.wants, in.evaluated, existing, *limit)
 	if in.watch != nil && in.watch.Complete {
 		dash, _ := issues.Plan([]issues.Want{dashboardWant(in.watch, deferred)}, nil, existing, 1)
 		actions = append(actions, dash...)
 	}
-	return writeJSON(ctx, *out, actions)
+	leads, waiting := issues.Plan(in.leads, in.leadEvaluated, existing, *leadLimit)
+	leads, held := capUpdates(leads, *leadLimit)
+	if len(waiting)+held > 0 {
+		log.Info("issues: date-check leads over this run's limit wait for a later run", "waiting", len(waiting), "held", held)
+	}
+	return writeJSON(ctx, *out, append(actions, leads...))
+}
+
+// capUpdates keeps at most limit edits and limit closes of a plan and
+// returns how many it held back. A held edit still differs, and a held
+// close is still due, on the next run, so a change that touches every lead
+// spreads over several runs instead of one burst against GitHub's limits on
+// content-creating requests:
+// https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
+func capUpdates(actions []issues.Action, limit int) (kept []issues.Action, held int) {
+	left := map[issues.Kind]int{issues.Edit: limit, issues.Close: limit}
+	for _, a := range actions {
+		if n, capped := left[a.Kind]; capped {
+			if n <= 0 {
+				held++
+				continue
+			}
+			left[a.Kind] = n - 1
+		}
+		kept = append(kept, a)
+	}
+	return kept, held
+}
+
+// addDateCheck also evaluates every lead issue whose node left the list,
+// so its issue closes.
+func (in *issueInputs) addDateCheck(path string, existing []issues.Issue) error {
+	if path == "" {
+		return nil
+	}
+	var d dateResult
+	if err := readJSON(path, &d); err != nil {
+		return err
+	}
+	for _, k := range d.Evaluated {
+		in.leadEvaluated[k] = true
+	}
+	owned := make(map[string]bool, len(d.Owned))
+	for _, k := range d.Owned {
+		owned[k] = true
+	}
+	for _, is := range existing {
+		if k := issues.KeyOf(is.Body); strings.HasPrefix(k, datecheck.Prefix) && !owned[k] {
+			in.leadEvaluated[k] = true
+		}
+	}
+	slices.SortStableFunc(d.Leads, func(a, b dateLead) int { return cmp.Compare(leadRank(&a), leadRank(&b)) })
+	for i := range d.Leads {
+		in.leads = append(in.leads, leadWant(&d.Leads[i]))
+	}
+	return nil
+}
+
+// leadRank orders the leads the create limit is spent on: a dead series,
+// then a target TVDB does not have, then a date mismatch, the first two
+// being facts about TVDB rather than readings of two calendars.
+func leadRank(l *dateLead) int {
+	if l.Dead {
+		return 0
+	}
+	if slices.ContainsFunc(l.Findings, func(f datecheck.Finding) bool { return f.Kind == datecheck.MissingTarget }) {
+		return 1
+	}
+	return 2
 }
 
 // addDrift also evaluates, after a complete run, every drift issue whose

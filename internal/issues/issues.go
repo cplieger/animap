@@ -37,7 +37,7 @@ type Kind string
 const (
 	Create Kind = "create"
 	reopen Kind = "reopen"
-	edit   Kind = "edit"
+	Edit   Kind = "edit"
 	Close  Kind = "close"
 )
 
@@ -83,7 +83,7 @@ func Plan(want []Want, evaluated map[string]bool, existing []Issue, limit int) (
 		body := Render(w)
 		if is, ok := open[w.Key]; ok {
 			if is.Body != body || is.Title != w.Title {
-				actions = append(actions, Action{Kind: edit, Key: w.Key, Number: is.Number, Title: w.Title, Body: body})
+				actions = append(actions, Action{Kind: Edit, Key: w.Key, Number: is.Number, Title: w.Title, Body: body})
 			}
 			continue
 		}

@@ -1,5 +1,6 @@
 // Command animap builds the animap.json mapping and runs the checks that
-// keep it honest: overlay drift, the watch set and the issue plan.
+// keep it honest: overlay drift, the watch set, the date check and the
+// issue plan.
 package main
 
 import (
@@ -25,7 +26,8 @@ commands:
   build            join the upstreams and the overlay into animap.json
   drift            check every overlay entry against upstream
   watch            check a watch set against a published animap.json
-  issues           plan issue changes from drift and watch results
+  datecheck        check every mapped episode's AniDB date against TVDB
+  issues           plan issue changes from drift, watch and date-check results
   overlay capture  record an entry's fingerprints
   overlay capture-special
                    record a special-of-parent bridge's fingerprints
@@ -66,8 +68,10 @@ func run(ctx context.Context, args []string, stdout io.Writer) error {
 		return runDrift(ctx, args[1:], log)
 	case "watch":
 		return runWatch(ctx, args[1:], log)
+	case "datecheck":
+		return runDateCheck(ctx, args[1:], log)
 	case "issues":
-		return runIssues(ctx, args[1:])
+		return runIssues(ctx, args[1:], log)
 	case "baseline":
 		return runBaseline(ctx, args[1:], stdout)
 	case "mirror":

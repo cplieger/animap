@@ -7,7 +7,7 @@ set -u
 . "$(dirname -- "$0")/lib.sh"
 new_workdir >/dev/null
 
-ENTRYPOINT="${PUBLISH_SH:-$REPO_ROOT/scripts/publish.sh}"
+ENTRYPOINT="${FETCH_MIRROR_SH:-$REPO_ROOT/scripts/fetch-mirror.sh}"
 FN=$(extract_function mirror_snapshot "$WORK/mirror_snapshot.sh") || exit 1
 
 COMMIT=7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983
@@ -44,24 +44,24 @@ want="$WORK/cache/mirror/${COMMIT}.json"
 
 snapshot EXTRACT_FAILS=1
 [ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ ! -f "$want" ] \
-  && ok "publish: a failed extract stops the run and keeps no snapshot" \
-  || no "publish: a failed extract" "rc=$_rc out=$_out"
+  && ok "fetch-mirror: a failed extract stops the run and keeps no snapshot" \
+  || no "fetch-mirror: a failed extract" "rc=$_rc out=$_out"
 
 snapshot CURL_FAILS=1
 [ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ ! -f "$want" ] \
-  && ok "publish: a failed archive download stops the run" \
-  || no "publish: a failed download" "rc=$_rc out=$_out"
+  && ok "fetch-mirror: a failed archive download stops the run" \
+  || no "fetch-mirror: a failed download" "rc=$_rc out=$_out"
 
 snapshot
 [ "$_rc" -eq 0 ] && [ "$_out" = "$want" ] && [ "$(cat "$want")" = "snapshot of archive-bytes" ] \
   && grep -q "https://codeload.github.com/notseteve/AnimeAggregations/tar.gz/${COMMIT}" "$WORK/curl.log" \
   && grep -q "^run ./cmd/animap mirror extract -commit ${COMMIT} -out ${want}$" "$WORK/go.log" \
-  && ok "publish: the pinned commit's archive is piped into mirror extract" \
-  || no "publish: the first snapshot" "rc=$_rc out=$_out err=$_err curl=$(cat "$WORK/curl.log" 2>/dev/null) go=$(cat "$WORK/go.log" 2>/dev/null)"
+  && ok "fetch-mirror: the pinned commit's archive is piped into mirror extract" \
+  || no "fetch-mirror: the first snapshot" "rc=$_rc out=$_out err=$_err curl=$(cat "$WORK/curl.log" 2>/dev/null) go=$(cat "$WORK/go.log" 2>/dev/null)"
 
 snapshot
 [ "$_rc" -eq 0 ] && [ "$_out" = "$want" ] && [ ! -f "$WORK/curl.log" ] && [ ! -f "$WORK/go.log" ] \
-  && ok "publish: a kept snapshot for the commit is reused without a download" \
-  || no "publish: a kept snapshot" "rc=$_rc out=$_out"
+  && ok "fetch-mirror: a kept snapshot for the commit is reused without a download" \
+  || no "fetch-mirror: a kept snapshot" "rc=$_rc out=$_out"
 
 report

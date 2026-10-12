@@ -224,20 +224,6 @@ func distinctNodes(cl []claim) int {
 	return len(seen)
 }
 
-type side int
-
-const (
-	sideTVDB side = iota
-	sideTMDB
-)
-
-func (sd side) attrs() (season, dflt, off string) {
-	if sd == sideTMDB {
-		return "tmdbseason", "tmdbseason", "tmdboffset"
-	}
-	return "tvdbseason", "defaulttvdbseason", "episodeoffset"
-}
-
 type seriesCheck struct {
 	nodes    map[int]*animelists.Node
 	upstream map[int]*animelists.Node
@@ -281,7 +267,7 @@ func (c *seriesCheck) specials(id int) (numbers []int, known bool) {
 
 func (c *seriesCheck) check(sibs []int, byTMDB map[int][]int) pass {
 	var r pass
-	tvdb := c.sideClaims(sibs, sideTVDB)
+	tvdb := c.sideClaims(sibs, animelists.TVDB)
 	r.ours, r.theirs = collide(c.series, tvdb, nil)
 	r.unresolved = c.unresolved(sibs, tvdb, 0)
 	claimants := slices.Clone(sibs)
@@ -298,7 +284,7 @@ func (c *seriesCheck) check(sibs []int, byTMDB map[int][]int) pass {
 
 func (c *seriesCheck) show(tv int, claimants []int, keep func([]claim) bool) pass {
 	var r pass
-	claims := c.sideClaims(claimants, sideTMDB)
+	claims := c.sideClaims(claimants, animelists.TMDB)
 	r.ours, r.theirs = collide(c.series, claims, keep)
 	r.unresolved = c.unresolved(claimants, claims, tv)
 	return r
@@ -317,7 +303,7 @@ func (c *seriesCheck) addLayout(t *overlay.CapturedTVDB) {
 	}
 }
 
-func (c *seriesCheck) sideClaims(ids []int, sd side) map[target][]claim {
+func (c *seriesCheck) sideClaims(ids []int, sd animelists.Side) map[target][]claim {
 	out := map[target][]claim{}
 	for _, id := range ids {
 		now := c.claims(id, c.nodes[id], sd)
@@ -333,7 +319,7 @@ func (c *seriesCheck) sideClaims(ids []int, sd side) map[target][]claim {
 // claim: every target of a created node or one moved to another TVDB
 // series, else each where upstream placed a different episode or none, and
 // on TVDB each target of a bridged special.
-func (c *seriesCheck) introduced(id int, now map[target][]string, sd side) map[target]bool {
+func (c *seriesCheck) introduced(id int, now map[target][]string, sd animelists.Side) map[target]bool {
 	if !c.changed[id] {
 		return nil
 	}
@@ -349,32 +335,11 @@ func (c *seriesCheck) introduced(id int, now map[target][]string, sd side) map[t
 			}
 		}
 	}
-	if sd == sideTVDB {
-		for _, t := range specialTargets(c.nodes[id].SideRows("tvdbseason"), c.bridged[id]) {
-			out[t] = true
-		}
-	}
-	return out
-}
-
-// specialTargets must place specials as specialClaims does, or a bridged
-// special's claim is never marked introduced.
-func specialTargets(rows []animelists.SideRow, ks []int) []target {
-	var out []target
-	for _, k := range ks {
-		named := false
-		for _, r := range rows {
-			if r.AniDBSeason != 0 || !slices.Contains(r.Sources(), k) {
-				continue
+	if sd == animelists.TVDB {
+		for _, k := range c.bridged[id] {
+			for _, t := range c.nodes[id].Place(animelists.TVDB, 0, k).Targets {
+				out[target{Season: t[0], Episode: t[1]}] = true
 			}
-			named = true
-			_, targets := animelists.Targets([]animelists.SideRow{r}, 0, k)
-			for _, t := range targets {
-				out = append(out, target{Season: t[0], Episode: t[1]})
-			}
-		}
-		if !named {
-			out = append(out, target{Episode: k})
 		}
 	}
 	return out
@@ -449,68 +414,55 @@ func (cl claimer) add(season, ep int, label string) {
 	}
 }
 
-func (c *seriesCheck) claims(id int, n *animelists.Node, sd side) map[target][]string {
-	seasonAttr, dfltAttr, offAttr := sd.attrs()
+func (c *seriesCheck) claims(id int, n *animelists.Node, sd animelists.Side) map[target][]string {
 	cl := claimer{out: map[target][]string{}}
-	if sd == sideTMDB {
+	if sd == animelists.TMDB {
 		if cl.tv = positiveAttr(n, "tmdbtv"); cl.tv == 0 {
 			return nil
 		}
 	}
-	rows := n.SideRows(seasonAttr)
-	d := c.fallback(n.Attr(dfltAttr), n.Attr(offAttr), sd)
 	for k := 1; k <= c.facts.Count(id); k++ {
-		label := fmt.Sprintf("%d ep%d", id, k)
-		targets, _ := animelists.Place(rows, d, k)
-		for _, t := range targets {
-			cl.add(t[0], t[1], label)
-		}
+		c.place(cl, n.Place(sd, 1, k), fmt.Sprintf("%d ep%d", id, k))
 	}
-	c.specialClaims(cl, id, rows)
+	for _, k := range c.specialNumbers(id, n.SideRows(sd)) {
+		p := n.Place(sd, 0, k)
+		label := fmt.Sprintf("%d S%d", id, k)
+		if p.Default {
+			label += byDefault
+		}
+		c.place(cl, p, label)
+	}
 	return cl.out
 }
 
-// fallback reads a node's default for animelists.Place. An absent offset
-// counts as 0 here: a collision through it must still be seen.
-func (c *seriesCheck) fallback(dflt, off string, sd side) animelists.Default {
-	var d animelists.Default
-	if o, err := strconv.Atoi(off); err == nil {
-		d.Offset = &o
+// place claims a placement's targets; an absolute number resolves through
+// the captured layouts, and claims nothing where they lack it.
+func (c *seriesCheck) place(cl claimer, p animelists.Placement, label string) {
+	for _, t := range p.Targets {
+		cl.add(t[0], t[1], label)
 	}
-	if s, err := strconv.Atoi(dflt); err == nil && s >= 0 {
-		d.Season = &s
-	} else if dflt == "a" && sd == sideTVDB {
-		d.Absolute = c.absoluteAt
+	if e, ok := c.absolute[p.Absolute]; ok {
+		cl.add(e.Season, e.Number, label)
 	}
-	return d
 }
 
-func (c *seriesCheck) absoluteAt(number int) (season, episode int, ok bool) {
-	e, found := c.absolute[number]
-	return e.Season, e.Number, found
-}
-
-// specialClaims adds the AniDB specials: through their rows, else each
-// known special k defaults onto season 0 episode k.
-func (c *seriesCheck) specialClaims(cl claimer, id int, rows []animelists.SideRow) {
-	for _, r := range rows {
-		if r.AniDBSeason != 0 {
-			continue
-		}
-		for _, k := range r.Sources() {
-			_, targets := animelists.Targets([]animelists.SideRow{r}, 0, k)
-			for _, t := range targets {
-				cl.add(t[0], t[1], fmt.Sprintf("%d S%d", id, k))
-			}
-		}
-	}
+// specialNumbers are the specials of node id a claim can come from: the
+// ones its rows name, then the AniDB specials no row names.
+func (c *seriesCheck) specialNumbers(id int, rows []animelists.SideRow) []int {
 	covered := coveredSpecials(rows)
+	var out []int
+	for _, r := range rows {
+		if r.AniDBSeason == 0 {
+			out = append(out, r.Sources()...)
+		}
+	}
 	numbers, _ := c.specials(id)
 	for _, k := range numbers {
 		if !covered[k] {
-			cl.add(0, k, fmt.Sprintf("%d S%d", id, k)+byDefault)
+			out = append(out, k)
 		}
 	}
+	return out
 }
 
 func coveredSpecials(rows []animelists.SideRow) map[int]bool {
@@ -532,18 +484,17 @@ func (c *seriesCheck) unresolved(claimants []int, claims map[target][]claim, tv 
 	if !c.touched {
 		return nil
 	}
-	sd := sideTVDB
+	sd := animelists.TVDB
 	if tv != 0 {
-		sd = sideTMDB
+		sd = animelists.TMDB
 	}
-	rowsAttr, _, _ := sd.attrs()
 	var out []Unresolved
 	for _, id := range claimants {
 		if _, known := c.specials(id); known {
 			continue
 		}
 		against := func(x claim) bool { return x.node != id && (c.changed[id] || x.introduced) }
-		if hit := seasonZeroClaims(coveredSpecials(c.nodes[id].SideRows(rowsAttr)), claims, against); len(hit) > 0 {
+		if hit := seasonZeroClaims(coveredSpecials(c.nodes[id].SideRows(sd)), claims, against); len(hit) > 0 {
 			out = append(out, Unresolved{Series: c.series, TMDB: tv, AniDB: id, Episodes: hit})
 		}
 	}

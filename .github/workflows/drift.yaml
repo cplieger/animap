@@ -17,7 +17,10 @@ concurrency:
 jobs:
   drift:
     runs-on: ubuntu-26.04
-    timeout-minutes: 30
+    # The date check refetches every TVDB series it reads once a week, at
+    # one request a second, for at most 90 minutes; docs/date-check.md has
+    # the measured duration.
+    timeout-minutes: 120
     permissions:
       contents: read
       issues: write # create, edit, reopen and close the animap-labelled issues
@@ -35,7 +38,20 @@ jobs:
           path: .cache/http.json
           key: http-${{ github.run_id }}
           restore-keys: http-
-      - name: Check drift and the watch set, then apply the issue plan
+      - name: Restore the date check's TVDB layouts
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/layouts.json
+          key: layouts-${{ github.run_id }}
+          restore-keys: layouts-
+      # publish.yaml pins the mirror commit, so its hash keys the snapshot.
+      - name: Restore the AniDB mirror snapshot
+        id: mirror-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/mirror
+          key: drift-anidb-${{ hashFiles('.github/workflows/publish.yaml', 'internal/anidb/*.go') }}
+      - name: Check drift, the watch set and the date check, then apply the issue plan
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/drift.sh
@@ -45,3 +61,15 @@ jobs:
         with:
           path: .cache/http.json
           key: http-${{ github.run_id }}
+      - name: Save the date check's TVDB layouts
+        if: ${{ !cancelled() && hashFiles('.cache/layouts.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/layouts.json
+          key: layouts-${{ github.run_id }}
+      - name: Save the AniDB mirror snapshot
+        if: ${{ !cancelled() && steps.mirror-cache.outputs.cache-hit != 'true' && hashFiles('.cache/mirror/*.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/mirror
+          key: drift-anidb-${{ hashFiles('.github/workflows/publish.yaml', 'internal/anidb/*.go') }}

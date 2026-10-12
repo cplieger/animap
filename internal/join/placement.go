@@ -7,25 +7,30 @@ import (
 	"github.com/cplieger/animap/internal/schema"
 )
 
-// placement is where r's regular episodes land on TVDB, from r's own
-// published rows, season and offset through animelists.Place. It is nil
-// unless every episode 1..r.Episodes is placed by a row or by an offset
-// r states: an absent offset says nothing, and an absolute default has no
-// layout to read here.
-func placement(r *schema.Record) []schema.Segment {
+// placement is where r's regular episodes land on TVDB, as n.Place puts
+// them; r is the record fill made from n. It is nil unless every episode
+// 1..r.Episodes is placed by a row or by an offset r states: an absent
+// offset says nothing, and an absolute default has no layout to read here.
+func placement(r *schema.Record, n *animelists.Node) []schema.Segment {
 	if r.TVDBID == 0 || r.Episodes <= 0 {
 		return nil
 	}
-	rows := animelists.TVDBRows(r.MappingList)
-	d := animelists.Default{Season: r.TVDBSeason, Offset: r.TVDBEpisodeOffset}
+	return segments(r.Episodes, func(k int) ([][2]int, bool) {
+		p := n.Place(animelists.TVDB, 1, k)
+		return p.Targets, !p.Default || (r.TVDBEpisodeOffset != nil && len(p.Targets) > 0)
+	})
+}
+
+// segments runs episodes 1..count through at. It is nil when at refuses
+// an episode or a target lies below TVDB episode 1.
+func segments(count int, at func(k int) (targets [][2]int, ok bool)) []schema.Segment {
 	var segs []schema.Segment
-	for k := 1; k <= r.Episodes; k++ {
-		targets, src := animelists.Place(rows, d, k)
-		if src != animelists.ByRow && src != animelists.ByOffset {
+	for k := 1; k <= count; k++ {
+		t, ok := at(k)
+		if !ok {
 			return nil
 		}
-		var ok bool
-		if segs, ok = placeTargets(segs, k, targets); !ok {
+		if segs, ok = placeTargets(segs, k, t); !ok {
 			return nil
 		}
 	}
