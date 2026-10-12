@@ -21,7 +21,7 @@
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
-      "sha256": "c385e4d2f20879f1d6aadc7b097285896f274b9a68f1bb68de13fbc097805eb7",
+      "sha256": "4364d8384364559866ed521808d0b791cfc9c78f111bf1a9a1e65e7f1645929d",
       "seasons": [
         0,
         1
@@ -30,7 +30,7 @@
         [
           0,
           1,
-          0,
+          25,
           "2024-11-05"
         ],
         [
@@ -108,8 +108,8 @@
       ],
       "series": 404525
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-12",
+    "anime_lists_commit": "2259423317fe7e7a9e7b41e9f80d6920ac5afc48",
     "node_sha256": "005d32059e0c5392e19b9c390bec3a2ea6d4325fa864998b1a9305af39fc8f7f"
   },
   "anilist_ids": [
