@@ -83,6 +83,8 @@ func bridge(r *schema.Record, sp Special, parent *animelists.Node) string {
 	r.TVDBID = positive(parent.Attr("tvdbid"))
 	r.TVDBSeason = &season
 	r.MappingList = []schema.Row{{AniDBSeason: 1, TVDBSeason: &season, Episodes: pairs}}
-	r.TVDBPlacement = placement(r)
+	r.TVDBPlacement = segments(len(pairs), func(k int) ([][2]int, bool) {
+		return [][2]int{{season, pairs[k-1][1]}}, true
+	})
 	return ""
 }

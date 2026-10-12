@@ -95,6 +95,42 @@ func run(nodes []*animelists.Node, entries []overlay.Entry, f *anidb.Facts) Coll
 	return Collisions(m, entries, nil, f)
 }
 
+// The guard claims exactly what the published mapping places: nothing for
+// a default below episode 1, and only the first row that covers a special.
+func TestCollisionClaimsWhereTheMappingPlaces(t *testing.T) {
+	for _, tc := range []struct {
+		name  string
+		nodes []*animelists.Node
+		f     *anidb.Facts
+	}{
+		{
+			name: "two films an offset puts below episode 1",
+			nodes: []*animelists.Node{
+				node(1497, "tvdbid=81341 defaulttvdbseason=0 episodeoffset=-1"),
+				node(1500, "tvdbid=81341 defaulttvdbseason=0 episodeoffset=-1"),
+			},
+			f: facts(map[int]anidb.Anime{1497: fin(1), 1500: fin(1)}, nil),
+		},
+		{
+			name: "a special a first row maps nowhere and a later row onto a sibling's episode",
+			nodes: []*animelists.Node{
+				node(25, "tvdbid=72462 defaulttvdbseason=1",
+					animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-0;"},
+					animelists.Row{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "1"}, Text: ";1-26;"}),
+				node(26, "tvdbid=72462 defaulttvdbseason=1 episodeoffset=25"),
+			},
+			f: facts(map[int]anidb.Anime{25: fin(25, 1), 26: fin(1)}, nil),
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			e := entry(tc.nodes[0].AniDBID, overlay.Set{TMDBSeason: new("1")})
+			if rep := run(tc.nodes, []overlay.Entry{e}, tc.f); len(rep.Blocking)+len(rep.Upstream) != 0 {
+				t.Errorf("Collisions(%s) = blocking %+v, upstream %+v; want none", tc.name, rep.Blocking, rep.Upstream)
+			}
+		})
+	}
+}
+
 // The baseline reads no mirror specials, so this collision is not upstream's either.
 func TestCollisionOwnSpecialLeftAsMasterHasItDoesNotBlock(t *testing.T) {
 	nodes := []*animelists.Node{
