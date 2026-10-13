@@ -16,7 +16,7 @@
 
 ## The AniDB mirror
 
-[AnimeAggregations](https://github.com/notseteve/AnimeAggregations) republishes AniDB's anime data as one JSON file per anime, in a new snapshot on the 1st and 15th of each month. Each build reads the snapshot pinned in `.github/workflows/publish.yaml`, and `sources.anidb_mirror` in `animap.json` names that commit. The build keeps the episode numbers, the air dates and whether AniDB records each anime's end date. The archive, with its titles and descriptions, goes straight from the download into the build and is never written to disk, the repository or a release.
+[AnimeAggregations](https://github.com/notseteve/AnimeAggregations) republishes AniDB's anime data as one JSON file per anime, in a new snapshot on the 1st and 15th of each month. Each build reads the snapshot pinned in `.github/workflows/publish.yaml`, and `sources.anidb_mirror` in `animap.json` names that commit. The build keeps the episode numbers, the air dates, whether AniDB records each anime's end date, and a SHA-256 digest of the episode titles that the date check's reviewed records compare. The archive, with its titles and descriptions, goes straight from the download into the build and is never written to disk, the repository or a release.
 
 `animap.json` publishes one fact from it: the `episodes` count of a record whose anime has an end date in the mirror. The collision check and the special-of-parent bridges also read the mirror's specials and air dates, and publish none of them. A count is a fact about AniDB's episode list, not a creative work, and it is the only part of the mirror `animap.json` publishes. The repository is labelled with the Unlicense, but its content is AniDB's data, which AniDB licenses under CC BY-NC-SA 4.0, so animap credits AniDB as the source of the counts in `NOTICE`, in the README and in the file's `attribution` member, and uses them for nothing commercial.
 
@@ -24,7 +24,7 @@ The [date check](date-check.md) compares the mirror's air dates with TVDB's. Its
 
 ## TheTVDB
 
-The overlay's TVDB fingerprints hold episode numbers and air dates from TheTVDB's official order, read through Sonarr's public metadata service. The date check reads the same service, keeps only episode numbers, absolute numbers, air dates and the series URL slug between runs, and its issues show only episode numbers and air dates. `animap.json` holds no TVDB content beyond the ids and season numbers Anime-Lists already carries.
+The overlay's TVDB fingerprints hold episode numbers and air dates from TheTVDB's official order, read through Sonarr's public metadata service. The date check reads the same service, keeps only episode numbers, absolute numbers, air dates, the series URL slug and a SHA-256 digest of each season's titles between runs, and its issues show only episode numbers and air dates. `animap.json` holds no TVDB content beyond the ids and season numbers Anime-Lists already carries.
 
 ## AniDB
 

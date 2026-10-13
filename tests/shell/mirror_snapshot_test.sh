@@ -11,7 +11,8 @@ ENTRYPOINT="${FETCH_MIRROR_SH:-$REPO_ROOT/scripts/fetch-mirror.sh}"
 FN=$(extract_function mirror_snapshot "$WORK/mirror_snapshot.sh") || exit 1
 
 COMMIT=7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983
-mkdir -p "$WORK/bin" "$WORK/root"
+mkdir -p "$WORK/bin" "$WORK/root/internal/anidb"
+printf 'package anidb\n' >"$WORK/root/internal/anidb/snapshot.go"
 cat >"$WORK/bin/curl" <<'STUB'
 #!/usr/bin/env bash
 printf '%s\n' "$*" >>"$WORK/curl.log"
@@ -40,28 +41,43 @@ snapshot() {
   _err=$(cat "$WORK/err")
 }
 
-want="$WORK/cache/mirror/${COMMIT}.json"
+kept() { find "$WORK/cache/mirror" -type f 2>/dev/null | wc -l; }
+shape="^$WORK/cache/mirror/${COMMIT}-[0-9a-f]{40}\.json$"
 
 snapshot EXTRACT_FAILS=1
-[ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ ! -f "$want" ] \
+[ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ "$(kept)" -eq 0 ] \
   && ok "fetch-mirror: a failed extract stops the run and keeps no snapshot" \
   || no "fetch-mirror: a failed extract" "rc=$_rc out=$_out"
 
 snapshot CURL_FAILS=1
-[ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ ! -f "$want" ] \
+[ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ "$(kept)" -eq 0 ] \
   && ok "fetch-mirror: a failed archive download stops the run" \
   || no "fetch-mirror: a failed download" "rc=$_rc out=$_out"
 
 snapshot
-[ "$_rc" -eq 0 ] && [ "$_out" = "$want" ] && [ "$(cat "$want")" = "snapshot of archive-bytes" ] \
+first=$_out
+[ "$_rc" -eq 0 ] && [[ "$first" =~ $shape ]] && [ "$(cat "$first")" = "snapshot of archive-bytes" ] \
   && grep -q "https://codeload.github.com/notseteve/AnimeAggregations/tar.gz/${COMMIT}" "$WORK/curl.log" \
-  && grep -q "^run ./cmd/animap mirror extract -commit ${COMMIT} -out ${want}$" "$WORK/go.log" \
+  && grep -q "^run ./cmd/animap mirror extract -commit ${COMMIT} -out ${first}$" "$WORK/go.log" \
   && ok "fetch-mirror: the pinned commit's archive is piped into mirror extract" \
   || no "fetch-mirror: the first snapshot" "rc=$_rc out=$_out err=$_err curl=$(cat "$WORK/curl.log" 2>/dev/null) go=$(cat "$WORK/go.log" 2>/dev/null)"
 
 snapshot
-[ "$_rc" -eq 0 ] && [ "$_out" = "$want" ] && [ ! -f "$WORK/curl.log" ] && [ ! -f "$WORK/go.log" ] \
+[ "$_rc" -eq 0 ] && [ "$_out" = "$first" ] && [ ! -f "$WORK/curl.log" ] && [ ! -f "$WORK/go.log" ] \
   && ok "fetch-mirror: a kept snapshot for the commit is reused without a download" \
   || no "fetch-mirror: a kept snapshot" "rc=$_rc out=$_out"
+
+printf 'package anidb // changed\n' >"$WORK/root/internal/anidb/snapshot.go"
+snapshot
+[ "$_rc" -eq 0 ] && [[ "$_out" =~ $shape ]] && [ "$_out" != "$first" ] && [ -f "$WORK/go.log" ] \
+  && [ "$(cat "$_out")" = "snapshot of archive-bytes" ] \
+  && ok "fetch-mirror: a change to the extractor's source extracts the snapshot again" \
+  || no "fetch-mirror: a changed extractor" "rc=$_rc out=$_out first=$first go=$(cat "$WORK/go.log" 2>/dev/null)"
+
+rm -rf "$WORK/root/internal/anidb"
+snapshot
+[ "$_rc" -ne 0 ] && [ -z "$_out" ] && [ ! -f "$WORK/curl.log" ] \
+  && ok "fetch-mirror: no extractor source stops the run before a download" \
+  || no "fetch-mirror: no extractor source" "rc=$_rc out=$_out"
 
 report

@@ -248,12 +248,19 @@ func validateEvidence(ev map[string]string) error {
 		return errors.New("evidence is required")
 	}
 	for k, v := range ev {
-		u, err := url.Parse(v)
-		if err != nil || u.Scheme != "https" || !slices.Contains(evidenceOK, u.Host) {
+		if !EvidenceLink(v) {
 			return fmt.Errorf("evidence %s %q is not an https link to an allowed host", k, v)
 		}
 	}
 	return nil
+}
+
+// EvidenceLink reports whether link is an https link, with no user name or
+// password, to a host whose pages can prove a mapping: AniDB, TVDB, TMDB,
+// AniList or SeaDex. Links are committed to a public repository.
+func EvidenceLink(link string) bool {
+	u, err := url.Parse(link)
+	return err == nil && u.Scheme == "https" && u.User == nil && slices.Contains(evidenceOK, u.Host)
 }
 
 func (e *Entry) validateSet() error {

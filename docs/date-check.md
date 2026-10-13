@@ -34,23 +34,47 @@ Some dates cannot decide anything, so the check leaves them out. Each rule has a
 
 Two of the skip rules above can hide a wrong mapping. They stay because flagging those cases is mostly noise. On 2026-10-06, flagging a regular episode with no TVDB episode on its date would have added 686 issues. Flagging a special that TVDB does not list would have added 1,193. In a hand-checked sample of 20 from each group, 1 was a real mapping error. A node with such an episode still gets a lead when it fails another rule, and a regular episode of that kind still counts in the order check.
 
-A date check cannot tell a wrong episode from the right episode dated differently. About 1 lead in 7 is the right episode, with AniDB and TVDB recording different air dates for it. Such a lead never passes on its own.
+A date check cannot tell a wrong episode from the right episode dated differently. About 1 lead in 7 is the right episode, with AniDB and TVDB recording different air dates for it. Such a lead never passes on its own. A person who proves the mapping right can record the lead as reviewed, which keeps its issue closed, as [Marking a lead fine](#marking-a-lead-fine) explains.
 
 ## The issues
 
 Each failing node gets one issue, labelled `lead:date-mismatch` and titled `lead: AniDB <id> ...`. It links the AniDB page and the TVDB official-order pages of the seasons involved, and shows the node as checked. A table lists each failing episode with both dates, what failed, and the TVDB episodes that air on the AniDB date. The issue holds episode numbers and dates only, never an AniDB or TVDB title.
 
-A lead is not proof. To act on one, check the episodes against AniDB, TVDB's official order and TMDB, one by one. If the node is wrong, add an overlay entry that meets the bar in [overlay.md](overlay.md), and send the same rows to Anime-Lists in a pull request. The issue closes on its own once the node passes, whether Anime-Lists fixed it or an overlay entry did. An issue closed by hand opens again on the next run while the node still fails.
+A lead is not proof. To act on one, check the episodes against AniDB, TVDB's official order and TMDB, one by one. If the node is wrong, add an overlay entry that meets the bar in [overlay.md](overlay.md), and send the same rows to Anime-Lists in a pull request. The issue closes on its own once the node passes, whether Anime-Lists fixed it or an overlay entry did. If the node is right, record the lead as reviewed. An issue closed by hand opens again on the next run while the node still fails and no reviewed record covers it.
 
 A run opens at most 50 new issues. It opens dead series first, then nodes with a missing TVDB episode, then date mismatches. The other leads wait for the next runs, so a long list arrives over several days. A run also edits at most 50 issues and closes at most 50, so a change that touches every issue spreads over several days too.
 
+## Marking a lead fine
+
+When the mapping is right and only the dates disagree, record the lead in `reviewed/`. Each record is one file named for the AniDB id, such as `reviewed/3195.json`. A lead its record covers gets no issue, and the daily run closes its open issue with a comment naming the record.
+
+Air dates are what misled the check, so they prove nothing here. Compare the episodes by title and by order on AniDB, TVDB's official order and TMDB.
+
+To write a record, run the date check locally as [How often it runs](#how-often-it-runs) shows, then run this from the repository root with the lead's AniDB id:
+
+```sh
+go run ./cmd/animap datecheck accept -datecheck datecheck.json -id 3195 -reason "<the episodes and their titles that prove the mapping>" -evidence https://anidb.net/anime/3195 -evidence https://thetvdb.com/series/kamichu/seasons/official/1
+```
+
+The reason is one paragraph that names the episodes and their titles on each side. Each `-evidence` is an https link to an AniDB, TVDB, TMDB, AniList or SeaDex page, with no user name or password in it, and at least one is required. The command refuses an id that is not a lead in that run, a dead series, an empty reason, any other link, and a record over 64 KiB. It never replaces an existing record unless you add `-force`. Commit the file it writes.
+
+A record keeps the lead's findings, each a kind and an AniDB episode such as `date-mismatch:8` or `missing-target:S1`. It also keeps three SHA-256 fingerprints from that run:
+
+- The node as checked, with the overlay applied. Titles and notes are left out, as in an overlay entry.
+- TVDB's official order on every season the check can read for the node. When AniDB lists a regular episode, that is every season of the series, because the check looks on all of them for an episode that airs on the AniDB date. For an anime with only specials, it is the seasons the node maps onto and season 0, or every season for a node with `defaulttvdbseason="a"`. It covers each episode's number and air date, a digest of each season's titles, and whether SkyHook still serves the series.
+- AniDB's episode list in the mirror: each episode's type, number, air date and titles, and whether AniDB records an end date.
+
+A record covers its lead while all three fingerprints match the current run and every current finding is one the record lists. A finding that clears changes nothing. The lead is raised again when a fingerprint changes, such as after a title edit or once SkyHook stops serving the series. It is also raised again when an episode starts to fail once it is 7 days past its air date. Its issue opens again with one sentence naming the review date and what changed. Review the lead again, then fix the mapping or write a new record with `-force`. A lead never opens again for any other reason.
+
+Pull request CI and `animap build` read every record. They refuse one that does not parse, is named for another id, or holds a malformed finding or fingerprint. A record whose node an overlay entry later changes stays valid, and its lead is raised again while the node still fails. A record whose node passes the check covers nothing and can be deleted.
+
 ## How often it runs
 
-The check runs in the daily [drift workflow](../.github/workflows/drift.yaml) and checks every node each time. It reads the Anime-Lists file at its newest commit. It reads the AniDB mirror at the commit `.github/workflows/publish.yaml` pins, which Renovate moves on the 1st and 15th of each month. It keeps each TVDB series' episode numbers and dates between runs in the Actions cache.
+The check runs in the daily [drift workflow](../.github/workflows/drift.yaml) and checks every node each time. It reads the Anime-Lists file at its newest commit. It reads the AniDB mirror at the commit `.github/workflows/publish.yaml` pins, which Renovate moves on the 1st and 15th of each month. It keeps each TVDB series' episode numbers and dates, and a digest of each season's titles, between runs in the Actions cache.
 
 A series is fetched again from SkyHook once its copy is over 6 days old, at one request a second. The copies one full read fetched come due together on the daily run a week later, so every series is read once a week. A run fetches for at most 90 minutes. A series it does not reach, or cannot read, keeps its older copy for later, and its nodes are not checked on that run, so their issues stay as they are.
 
-On 2026-10-06 the list mapped 4,291 TVDB series for nodes the mirror lists. Reading all of them took 4,291 requests and 72 minutes, and the kept copy is 11 MB. That weekly refresh fits the workflow's 120-minute limit. On the other days a run fetches only series that are new to the list.
+On 2026-10-06 the list mapped 4,291 TVDB series for nodes the mirror lists. Reading all of them took 4,291 requests and 72 minutes, and the kept copy is 11 MB. That weekly refresh fits the workflow's 120-minute limit. On the other days a run fetches only series that are new to the list. A kept copy with episodes but no title digests is fetched again like a new series, because its fingerprint could never match a fresh copy's.
 
 To run it yourself from the repository root, with Go and `curl`:
 
@@ -61,4 +85,4 @@ curl -fsSLO https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/ani
 go run ./cmd/animap datecheck -list anime-list-master.xml -mirror "$(bash scripts/fetch-mirror.sh)" -layouts .cache/layouts.json
 ```
 
-It writes the leads and the counts to `datecheck.json` and opens no issue. The first run reads every TVDB series once, so it takes as long as the weekly refresh.
+It writes the leads and the counts to `datecheck.json` and opens no issue. `scripts/fetch-mirror.sh` keeps the snapshot under `.cache/mirror/` and extracts it again when the pinned commit or animap's extractor changes, so a local run reads the snapshot in the same form as the daily run. The first run reads every TVDB series once, so it takes as long as the weekly refresh.

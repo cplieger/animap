@@ -20,23 +20,31 @@ func tvdb(s, e, abs int, date string) skyhook.Episode {
 	return skyhook.Episode{Season: s, Number: e, Absolute: abs, AirDate: date}
 }
 
+var (
+	fixtureAniDBTitles = strings.Repeat("e", 64)
+	fixtureTVDBTitles  = strings.Repeat("f", 64)
+	fixtureOtherTitles = strings.Repeat("d", 64)
+)
+
 // dateFixtures writes a mirror listing AniDB 10, 12 and 19 of the fixture
 // list, and fresh layouts: AniDB 10's episode 2 lands on the wrong date,
 // AniDB 19 matches, and AniDB 12's series 5001 is dead unless dead is false,
-// in which case it has no layout at all.
+// in which case it has no layout at all. AniDB 10 and series 5000 season 1
+// carry the title digests fixtureAniDBTitles and fixtureTVDBTitles, and the
+// others fixtureOtherTitles.
 func dateFixtures(t *testing.T, dir string, dead bool) (mirror, layouts string) {
 	t.Helper()
 	snap := anidb.Snapshot{Commit: mirrorCommit, Refused: []int{}, Anime: map[int]anidb.Anime{
-		10: {Regular: []string{"2020-01-06", "2020-01-13"}, Finished: true},
-		12: {Regular: []string{"2020-03-02"}, Finished: true},
-		19: {Regular: []string{"2020-02-03"}, Finished: true},
+		10: {Regular: []string{"2020-01-06", "2020-01-13"}, Finished: true, Titles: fixtureAniDBTitles},
+		12: {Regular: []string{"2020-03-02"}, Finished: true, Titles: fixtureOtherTitles},
+		19: {Regular: []string{"2020-02-03"}, Finished: true, Titles: fixtureOtherTitles},
 	}}
 	fresh := time.Now().UTC()
 	l := datecheck.Layouts{
 		5000: {Fetched: fresh, Slug: "series-5000", Episodes: []skyhook.Episode{
 			tvdb(1, 1, 1, "2020-01-06"), tvdb(1, 2, 2, "2020-03-02"), tvdb(1, 3, 3, "2020-01-13"),
-		}},
-		5004: {Fetched: fresh, Episodes: []skyhook.Episode{tvdb(1, 1, 1, "2020-02-03")}},
+		}, Titles: map[int]string{1: fixtureTVDBTitles}},
+		5004: {Fetched: fresh, Episodes: []skyhook.Episode{tvdb(1, 1, 1, "2020-02-03")}, Titles: map[int]string{1: fixtureOtherTitles}},
 	}
 	if dead {
 		l[5001] = datecheck.Layout{Fetched: fresh, Absent: true}
@@ -248,7 +256,7 @@ func TestLeadWantBody(t *testing.T) {
 			{Kind: datecheck.OutOfOrder, Episode: datecheck.Episode{Number: 23, AirDate: "1984-06-24"}, Target: datecheck.Target{Season: 1, Number: 23, AirDate: "1983-08-23"}},
 		},
 	}
-	w := leadWant(l)
+	w := leadWant(l, nil, nil)
 	for _, s := range []string{
 		"| 8 | 2005-08-31 | S1E9 | 2005-09-07 | dates differ | S1E8 |",
 		"| S1 | 2005-11-23 | S1E11 | none | not on TVDB | none |",
@@ -264,7 +272,7 @@ func TestLeadWantBody(t *testing.T) {
 		t.Errorf("leadWant = key %q labels %v, body %q; want the lead key, both labels and no live mention", w.Key, w.Labels, w.Body)
 	}
 	l.Slug = "../evil"
-	if body := leadWant(l).Body; !strings.Contains(body, "https://thetvdb.com/dereferrer/series/79881") || strings.Contains(body, "evil") {
+	if body := leadWant(l, nil, nil).Body; !strings.Contains(body, "https://thetvdb.com/dereferrer/series/79881") || strings.Contains(body, "evil") {
 		t.Errorf("leadWant with a bad slug links %q, want the id link only", body)
 	}
 }
@@ -272,7 +280,7 @@ func TestLeadWantBody(t *testing.T) {
 func TestLeadWantDeadSeries(t *testing.T) {
 	l := lead(4571)
 	l.Series = 178381
-	w := leadWant(&l)
+	w := leadWant(&l, nil, nil)
 	if !strings.Contains(w.Title, "TVDB 178381, which SkyHook no longer serves") || !strings.Contains(w.Body, "https://thetvdb.com/dereferrer/series/178381") ||
 		strings.Contains(w.Body, "| AniDB episode |") {
 		t.Errorf("dead-series want = %q / %q, want the dead title, the id link and no table", w.Title, w.Body)
@@ -285,7 +293,7 @@ func TestLeadWantListsAtMostTheCap(t *testing.T) {
 	for i := range maxListedLines + 5 {
 		l.Findings = append(l.Findings, datecheck.Finding{Kind: datecheck.MissingTarget, Episode: datecheck.Episode{Number: i + 1}, Target: datecheck.Target{Season: 1, Number: i + 1}})
 	}
-	body := leadWant(&l).Body
+	body := leadWant(&l, nil, nil).Body
 	if n := strings.Count(body, "| not on TVDB |"); n != maxListedLines || !strings.Contains(body, fmt.Sprintf("... %d more", 5)) {
 		t.Errorf("listed %d findings, want %d and a line naming the 5 more", n, maxListedLines)
 	}

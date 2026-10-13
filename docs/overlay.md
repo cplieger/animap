@@ -23,7 +23,7 @@ An entry that rests on a guess, a precedent that does not match exactly, or a so
 | `set` | The patched attributes, as Anime-Lists strings. `mapping_list` replaces the whole list with rows in the published shape, and `[]` deletes it. A row's `offset` of `0` is kept, for a row Anime-Lists writes with `offset="0"`. Unnamed attributes stay. |
 | `create`, `name` | Set `create` to `true`, with a `name`, to add an entry Anime-Lists does not have. |
 | `justification` | One paragraph naming the episodes and dates that prove the change. |
-| `evidence` | Links to the AniDB, TVDB, TMDB, AniList or SeaDex pages behind it, https only. |
+| `evidence` | Links to the AniDB, TVDB, TMDB, AniList or SeaDex pages behind it, https only, with no user name or password. |
 | `upstream` | The Anime-Lists pull request or issue carrying the same change, or `TODO-PR` until one is filed. Most entries came from [Anime-Lists pull request 629](https://github.com/Anime-Lists/anime-lists/pull/629). |
 | `captured` | The fingerprints the drift check compares. `animap overlay capture` writes it. |
 

@@ -15,6 +15,7 @@ import (
 	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/issues"
+	"github.com/cplieger/animap/internal/reviewed"
 	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/watch"
@@ -46,6 +47,7 @@ type workflowRun struct {
 type issueInputs struct {
 	evaluated     map[string]bool
 	leadEvaluated map[string]bool
+	leadClosings  map[string]string
 	watch         *watchResult
 	wants         []issues.Want
 	leads         []issues.Want
@@ -58,6 +60,7 @@ func runIssues(ctx context.Context, args []string, log *slog.Logger) error {
 	runsPath := fs.String("runs", "", "gh run list --json conclusion,status,createdAt,url for publish.yaml")
 	existingPath := fs.String("existing", "", "gh issue list --json number,state,title,body")
 	datePath := fs.String("datecheck", "", "datecheck.json from animap datecheck")
+	reviewedDir := fs.String("reviewed", reviewed.Dir, "reviewed date-check records")
 	limit := fs.Int("limit", 10, "most creates and reopens per run")
 	leadLimit := fs.Int("lead-limit", 50, "most date-check lead creates and reopens, edits, and closes per run")
 	out := fs.String("out", "actions.json", "output path")
@@ -73,7 +76,7 @@ func runIssues(ctx context.Context, args []string, log *slog.Logger) error {
 	}
 	// The order is the order the create limit is spent in: publish health
 	// and overlay drift are never queued behind the watch set's backlog.
-	in := &issueInputs{evaluated: map[string]bool{}, leadEvaluated: map[string]bool{}}
+	in := &issueInputs{evaluated: map[string]bool{}, leadEvaluated: map[string]bool{}, leadClosings: map[string]string{}}
 	if err := in.addRuns(*runsPath, time.Now()); err != nil {
 		return err
 	}
@@ -83,7 +86,7 @@ func runIssues(ctx context.Context, args []string, log *slog.Logger) error {
 	if err := in.addWatch(*watchPath, existing); err != nil {
 		return err
 	}
-	if err := in.addDateCheck(*datePath, existing); err != nil {
+	if err := in.addDateCheck(*datePath, *reviewedDir, existing); err != nil {
 		return err
 	}
 	actions, deferred := issues.Plan(in.wants, in.evaluated, existing, *limit)
@@ -92,6 +95,11 @@ func runIssues(ctx context.Context, args []string, log *slog.Logger) error {
 		actions = append(actions, dash...)
 	}
 	leads, waiting := issues.Plan(in.leads, in.leadEvaluated, existing, *leadLimit)
+	for i := range leads {
+		if c, ok := in.leadClosings[leads[i].Key]; ok && leads[i].Kind == issues.Close {
+			leads[i].Comment = c
+		}
+	}
 	leads, held := capUpdates(leads, *leadLimit)
 	if len(waiting)+held > 0 {
 		log.Info("issues: date-check leads over this run's limit wait for a later run", "waiting", len(waiting), "held", held)
@@ -121,13 +129,18 @@ func capUpdates(actions []issues.Action, limit int) (kept []issues.Action, held 
 }
 
 // addDateCheck also evaluates every lead issue whose node left the list,
-// so its issue closes.
-func (in *issueInputs) addDateCheck(path string, existing []issues.Issue) error {
+// so its issue closes. A lead its reviewed record covers is not wanted, so
+// its open issue closes too.
+func (in *issueInputs) addDateCheck(path, reviewedDir string, existing []issues.Issue) error {
 	if path == "" {
 		return nil
 	}
 	var d dateResult
 	if err := readJSON(path, &d); err != nil {
+		return err
+	}
+	records, err := reviewed.LoadDir(reviewedDir)
+	if err != nil {
 		return err
 	}
 	for _, k := range d.Evaluated {
@@ -144,7 +157,13 @@ func (in *issueInputs) addDateCheck(path string, existing []issues.Issue) error 
 	}
 	slices.SortStableFunc(d.Leads, func(a, b dateLead) int { return cmp.Compare(leadRank(&a), leadRank(&b)) })
 	for i := range d.Leads {
-		in.leads = append(in.leads, leadWant(&d.Leads[i]))
+		l := &d.Leads[i]
+		rec, causes := reviewOf(records, l)
+		if rec != nil && len(causes) == 0 {
+			in.leadClosings[datecheck.Key(l.AniDB)] = reviewedComment(rec)
+			continue
+		}
+		in.leads = append(in.leads, leadWant(l, rec, causes))
 	}
 	return nil
 }

@@ -20,7 +20,7 @@ import (
 
 // fin is a finished anime as the AniDB mirror lists it.
 func fin(regular int, specials ...int) anidb.Anime {
-	a := anidb.Anime{Regular: make([]string, regular), Specials: []anidb.Episode{}, Finished: true}
+	a := anidb.Anime{Regular: make([]string, regular), Specials: []anidb.Episode{}, Finished: true, Titles: fixtureOtherTitles}
 	for _, k := range specials {
 		a.Specials = append(a.Specials, anidb.Episode{Number: k})
 	}
@@ -171,6 +171,13 @@ func TestMirrorExtract(t *testing.T) {
 	got, err := anidb.LoadSnapshot(out)
 	if err != nil {
 		t.Fatal(err)
+	}
+	if a := got.Anime[10]; len(a.Titles) != 64 {
+		t.Errorf("AniDB 10 titles = %q, want a 64-hex digest of its episode titles", a.Titles)
+	}
+	for id, a := range got.Anime {
+		a.Titles = ""
+		got.Anime[id] = a
 	}
 	want := map[int]anidb.Anime{10: {Regular: []string{"2005-04-01"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-05-01"}}, Finished: true}}
 	if !reflect.DeepEqual(got.Anime, want) || !slices.Equal(got.Refused, []int{11}) || got.Commit != mirrorCommit {

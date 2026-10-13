@@ -65,6 +65,13 @@ func TestExtract(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Extract = %v", err)
 	}
+	for id, a := range s.Anime {
+		if !digestRE.MatchString(a.Titles) {
+			t.Errorf("Extract AniDB %d titles = %q, want a 64-hex digest", id, a.Titles)
+		}
+		a.Titles = ""
+		s.Anime[id] = a
+	}
 	want := map[int]Anime{
 		10: {Regular: []string{"2005-04-01", "2005-04-08"}, Specials: []Episode{{Number: 1, AirDate: "2005-05-01"}, {Number: 2}}, Finished: true},
 		11: {Regular: []string{"2026-09-30"}, Specials: []Episode{}},
@@ -144,6 +151,49 @@ func TestParseRefuses(t *testing.T) {
 	}
 }
 
+// The digest follows every title of a regular episode or a special, and
+// nothing else: the order AniDB lists titles in, and the titles of credits,
+// do not move it.
+func TestParseDigestsTheEpisodeTitles(t *testing.T) {
+	const base = `{"REGULAR":[` +
+		`{"number":2,"air_date":"2005-04-08","titles":[{"language":"ENGLISH","title":"Second"}]},` +
+		`{"number":1,"air_date":"2005-04-01","titles":[{"language":"ENGLISH","title":"Over Lord"}]}],` +
+		`"SPECIAL":[{"number":1,"titles":[{"language":"ENGLISH","title":"Memory"},{"language":"JAPANESE","title":"翼の記憶"}]}],` +
+		`"CREDITS":[{"number":1,"titles":[{"language":"ENGLISH","title":"Opening"}]}]}`
+	digest := func(t *testing.T, episodes string) string {
+		t.Helper()
+		a, _, err := parse(10, []byte(animeFileJSON(10, `null`, episodes)))
+		if err != nil {
+			t.Fatalf("parse = %v", err)
+		}
+		return a.Titles
+	}
+	want := digest(t, base)
+	if !digestRE.MatchString(want) {
+		t.Fatalf("titles = %q, want a 64-hex digest", want)
+	}
+	for _, tc := range []struct {
+		name, old, new string
+		moves          bool
+	}{
+		{"one regular episode's title", `"Over Lord"`, `"Overlord"`, true},
+		{"two regular episodes trading titles", `"Second"}]},{"number":1,"air_date":"2005-04-01","titles":[{"language":"ENGLISH","title":"Over Lord"}`, `"Over Lord"}]},{"number":1,"air_date":"2005-04-01","titles":[{"language":"ENGLISH","title":"Second"}`, true},
+		{"a special's title", `"Memory"`, `"Memories"`, true},
+		{"a title's language", `"JAPANESE"`, `"JAPANESE_TRANSLITERATED"`, true},
+		{"a credits title", `"Opening"`, `"Ending"`, false},
+		{"the order of an episode's titles", `{"language":"ENGLISH","title":"Memory"},{"language":"JAPANESE","title":"翼の記憶"}`, `{"language":"JAPANESE","title":"翼の記憶"},{"language":"ENGLISH","title":"Memory"}`, false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			if !strings.Contains(base, tc.old) {
+				t.Fatalf("Setup: the fixture lacks %q", tc.old)
+			}
+			if moved := digest(t, strings.Replace(base, tc.old, tc.new, 1)) != want; moved != tc.moves {
+				t.Errorf("digest moved=%t, want moved=%t", moved, tc.moves)
+			}
+		})
+	}
+}
+
 func TestSnapshotRoundTrip(t *testing.T) {
 	body := archive(t, map[string]string{
 		"anime/10.json": animeFileJSON(10, `"2005"`, `{"REGULAR":[{"number":1,"air_date":"2005-04-01"}],"SPECIAL":[{"number":1}]}`),
@@ -171,7 +221,7 @@ func TestSnapshotRoundTrip(t *testing.T) {
 }
 
 func TestDecodeSnapshotRefuses(t *testing.T) {
-	ok := `{"commit":"` + commit + `","anime":{"1":{"regular":["2005-04-01"],"specials":[{"number":1,"air_date":""}],"finished":true}},"refused":[2]}`
+	ok := `{"commit":"` + commit + `","anime":{"1":{"titles":"` + strings.Repeat("0", 64) + `","regular":["2005-04-01"],"specials":[{"number":1,"air_date":""}],"finished":true}},"refused":[2]}`
 	if _, err := decodeSnapshot([]byte(ok)); err != nil {
 		t.Fatalf("Setup: decodeSnapshot(valid) = %v", err)
 	}
@@ -184,6 +234,7 @@ func TestDecodeSnapshotRefuses(t *testing.T) {
 		strings.Replace(ok, `"refused":[2]`, `"refused":[1]`, 1),
 		strings.Replace(ok, `"refused":[2]`, `"refused":[3,2]`, 1),
 		strings.Replace(ok, `"refused":[2]`, `"refused":[2],"titles":[]`, 1),
+		strings.Replace(ok, strings.Repeat("0", 64), "Over Lord", 1),
 		ok + " {}",
 		ok + " ]",
 		ok + "}",
@@ -191,6 +242,10 @@ func TestDecodeSnapshotRefuses(t *testing.T) {
 		if s, err := decodeSnapshot([]byte(body)); !errors.Is(err, errInvalid) {
 			t.Errorf("decodeSnapshot(%s) = %+v, %v; want errInvalid", body, s, err)
 		}
+	}
+	untitled := strings.Replace(ok, `"titles":"`+strings.Repeat("0", 64)+`",`, "", 1)
+	if _, err := decodeSnapshot([]byte(untitled)); err == nil || !strings.Contains(err.Error(), "re-extract") {
+		t.Errorf("decodeSnapshot(an anime with no title digest) = %v, want a refusal saying to re-extract", err)
 	}
 }
 
