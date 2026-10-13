@@ -111,7 +111,7 @@ func read(path string) (Record, error) {
 	if want := strconv.Itoa(r.AniDBID) + ".json"; filepath.Base(path) != want {
 		return Record{}, fmt.Errorf("%w: %s must be named %s", errInvalid, path, want)
 	}
-	if err := r.Validate(); err != nil {
+	if err := r.validate(); err != nil {
 		return Record{}, fmt.Errorf("%s: %w", path, err)
 	}
 	return r, nil
@@ -120,7 +120,7 @@ func read(path string) (Record, error) {
 // Encode is r as its record file holds it. It refuses a record Validate
 // refuses or LoadDir could not read back.
 func (r *Record) Encode() ([]byte, error) {
-	if err := r.Validate(); err != nil {
+	if err := r.validate(); err != nil {
 		return nil, err
 	}
 	b, err := json.MarshalIndent(r, "", "  ")
@@ -134,8 +134,8 @@ func (r *Record) Encode() ([]byte, error) {
 	return b, nil
 }
 
-// Validate checks every field.
-func (r *Record) Validate() error {
+// validate checks every field.
+func (r *Record) validate() error {
 	if r.AniDBID <= 0 {
 		return fmt.Errorf("%w: anidb_id must be positive", errInvalid)
 	}

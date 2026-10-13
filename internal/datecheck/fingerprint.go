@@ -67,9 +67,9 @@ func (lay *Layout) hash(seasons []int) string {
 
 var findingKeyRE = regexp.MustCompile(`^(` + string(MissingTarget) + `|` + string(DateMismatch) + `|` + string(OutOfOrder) + `):S?[1-9]\d*$`)
 
-// Key names f by kind and AniDB episode, S before a special's number, so
+// key names f by kind and AniDB episode, S before a special's number, so
 // two targets of one episode failing alike share a key.
-func (f *Finding) Key() string {
+func (f *Finding) key() string {
 	ep := strconv.Itoa(f.Episode.Number)
 	if f.Episode.Special {
 		ep = "S" + ep
@@ -81,7 +81,7 @@ func (f *Finding) Key() string {
 func FindingKeys(fs []Finding) []string {
 	out := make([]string, 0, len(fs))
 	for i := range fs {
-		out = append(out, fs[i].Key())
+		out = append(out, fs[i].key())
 	}
 	slices.Sort(out)
 	return slices.Compact(out)
