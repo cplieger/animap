@@ -24,17 +24,18 @@ const maxLayoutsBytes = 64 << 20
 const RefetchAge = 6 * 24 * time.Hour
 
 // Layout is one series' official order as SkyHook served it at Fetched,
-// or Absent when SkyHook answered 404.
+// or Absent when SkyHook answered 404. Titles is Show.TitleHashes.
 type Layout struct {
 	Fetched  time.Time         `json:"fetched"`
+	Titles   map[int]string    `json:"titles,omitempty"`
 	Slug     string            `json:"slug,omitempty"`
 	Episodes []skyhook.Episode `json:"episodes,omitempty"`
 	Absent   bool              `json:"absent,omitempty"`
 }
 
 // Layouts keeps every series' layout between runs, by TVDB series id. It
-// holds episode numbers, air dates and the slug only; SkyHook's titles and
-// overviews are never kept.
+// holds episode numbers, air dates, the slug and a digest of each season's
+// titles; SkyHook's titles and overviews are never kept.
 type Layouts map[int]Layout
 
 // LoadLayouts reads a layouts file. A missing one is empty; an oversized or
@@ -72,7 +73,7 @@ func LayoutOf(s *skyhook.Show, fetched time.Time) Layout {
 			eps[i].AirDate = ""
 		}
 	}
-	return Layout{Fetched: fetched, Slug: s.Slug, Episodes: eps}
+	return Layout{Fetched: fetched, Slug: s.Slug, Episodes: eps, Titles: s.TitleHashes()}
 }
 
 func allSeasons(s *skyhook.Show) []int {
@@ -83,14 +84,16 @@ func allSeasons(s *skyhook.Show) []int {
 	return slices.Sorted(maps.Keys(set))
 }
 
-// Due lists the series to fetch, in order: those with no layout, then those
-// whose layout is older than maxAge, oldest first.
+// Due lists the series to fetch, in order: those with no layout or with
+// episodes and no title digests, then those whose layout is older than
+// maxAge, oldest first. A layout without title digests is due because its
+// TVDB fingerprint can never equal one taken from a fresh fetch.
 func (l Layouts) Due(series []int, maxAge time.Duration, now time.Time) []int {
 	var missing, stale []int
 	for _, id := range series {
 		lay, ok := l[id]
 		switch {
-		case !ok:
+		case !ok, len(lay.Episodes) > 0 && len(lay.Titles) == 0:
 			missing = append(missing, id)
 		case now.Sub(lay.Fetched) > maxAge:
 			stale = append(stale, id)

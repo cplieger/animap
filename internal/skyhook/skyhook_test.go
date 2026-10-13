@@ -67,3 +67,38 @@ func TestHashIsOrderFreeAndSensitive(t *testing.T) {
 		}
 	}
 }
+
+func TestTitleHashes(t *testing.T) {
+	digests := func(t *testing.T, s1e1, s1e2 string) map[int]string {
+		t.Helper()
+		s, err := parseShow([]byte(`{"slug":"x","episodes":[` +
+			`{"seasonNumber":1,"episodeNumber":1,"title":"` + s1e1 + `"},` +
+			`{"seasonNumber":1,"episodeNumber":2,"title":"` + s1e2 + `"},` +
+			`{"seasonNumber":2,"episodeNumber":1,"title":"Third"}]}`))
+		if err != nil {
+			t.Fatal(err)
+		}
+		return s.TitleHashes()
+	}
+	base := digests(t, "First", "Second")
+	if len(base) != 2 || len(base[1]) != 64 || len(base[2]) != 64 {
+		t.Fatalf("TitleHashes = %v, want a 64-hex digest for each of seasons 1 and 2", base)
+	}
+	if again := digests(t, "First", "Second"); again[1] != base[1] {
+		t.Errorf("TitleHashes is not deterministic: %s then %s", base[1], again[1])
+	}
+	for _, tc := range []struct {
+		name       string
+		s1e1, s1e2 string
+	}{
+		{"one title changed", "First!", "Second"},
+		{"two episodes trading titles", "Second", "First"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			got := digests(t, tc.s1e1, tc.s1e2)
+			if got[1] == base[1] || got[2] != base[2] {
+				t.Errorf("season 1 moved=%t, season 2 moved=%t; want only season 1 to move", got[1] != base[1], got[2] != base[2])
+			}
+		})
+	}
+}

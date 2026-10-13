@@ -27,6 +27,7 @@ commands:
   drift            check every overlay entry against upstream
   watch            check a watch set against a published animap.json
   datecheck        check every mapped episode's AniDB date against TVDB
+  datecheck accept record a date-check lead as reviewed and fine
   issues           plan issue changes from drift, watch and date-check results
   overlay capture  record an entry's fingerprints
   overlay capture-special

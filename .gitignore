@@ -8,6 +8,9 @@
 /animap.json.*
 /actions.json
 
+# The date check's output from a local run
+/datecheck.json
+
 # Local Go workspace overrides
 go.work
 go.work.sum

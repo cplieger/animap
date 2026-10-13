@@ -41,6 +41,7 @@ func TestValidate(t *testing.T) {
 		{"no evidence", func(e *Entry) { e.Evidence = nil }},
 		{"evidence on another host", func(e *Entry) { e.Evidence["x"] = "https://example.com/a" }},
 		{"evidence over http", func(e *Entry) { e.Evidence["anidb"] = "http://anidb.net/anime/544" }},
+		{"evidence with a user name", func(e *Entry) { e.Evidence["anidb"] = "https://reviewer@anidb.net/anime/544" }},
 		{"empty set", func(e *Entry) { e.Set = Set{} }},
 		{"bad season", func(e *Entry) { e.Set.DefaultTVDBSeason = new("b") }},
 		{"empty tvdbid", func(e *Entry) { e.Set.TVDBID = new("") }},

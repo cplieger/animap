@@ -10,17 +10,19 @@ import (
 
 	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/issues"
+	"github.com/cplieger/animap/internal/reviewed"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/runesafe/v3"
 )
 
 const (
-	labelLead     = "lead:date-mismatch"
-	maxNodeLine   = 2000
-	maxNodeLines  = 100
-	leadReaderJob = "Prove the right target against AniDB, TVDB's official order and TMDB, episode by episode. " +
-		"Then add an overlay entry (docs/overlay.md) and send the same rows to Anime-Lists in a pull request. " +
-		"This issue closes on its own once the node passes, whether Anime-Lists or an overlay entry fixes it. " +
+	labelLead    = "lead:date-mismatch"
+	maxNodeLine  = 2000
+	maxNodeLines = 100
+	leadFix      = "Prove the right target against AniDB, TVDB's official order and TMDB, episode by episode. " +
+		"If the node is wrong, add an overlay entry (docs/overlay.md) and send the same rows to Anime-Lists in a pull request. " +
+		"This issue closes on its own once the node passes, whether Anime-Lists or an overlay entry fixes it.\n\n"
+	leadSticks = "Closing this issue by hand does not stick, because the next run opens it again while the node fails and no reviewed record covers it. " +
 		"docs/date-check.md explains each finding and what the check skips.\n"
 )
 
@@ -28,10 +30,11 @@ const (
 // to the id link.
 var slugRE = regexp.MustCompile(`^[a-z0-9][a-z0-9-]{0,99}$`)
 
-// leadWant is the issue for one date-check lead. Its body carries AniDB
-// episode numbers and air dates, never AniDB text, and TVDB episode
-// numbers and dates, never TVDB titles.
-func leadWant(l *dateLead) issues.Want {
+// leadWant is the issue for one date-check lead, with causes naming why its
+// record rec no longer covers it. Its body carries AniDB episode numbers
+// and air dates, never AniDB text, and TVDB episode numbers and dates,
+// never TVDB titles.
+func leadWant(l *dateLead, rec *reviewed.Record, causes []reviewed.Cause) issues.Want {
 	var b strings.Builder
 	var title string
 	if l.Dead {
@@ -41,8 +44,12 @@ func leadWant(l *dateLead) issues.Want {
 		title = fmt.Sprintf("lead: AniDB %d, %d mapped episode(s) fail the date check on TVDB %d", l.AniDB, len(l.Findings), l.Series)
 		fmt.Fprintf(&b, "Anime-Lists maps AniDB %d to TVDB series %d, and TVDB's official order disagrees with AniDB's air dates. This is a lead, not a verdict.\n\n", l.AniDB, l.Series)
 	}
+	if rec != nil && len(causes) > 0 {
+		b.WriteString(reraised(rec, causes))
+	}
 	fmt.Fprintf(&b, "- AniDB: https://anidb.net/anime/%d\n", l.AniDB)
-	for _, u := range tvdbLinks(l) {
+	links := tvdbLinks(l)
+	for _, u := range links {
 		fmt.Fprintf(&b, "- TVDB: %s\n", u)
 	}
 	b.WriteString("\n")
@@ -50,7 +57,11 @@ func leadWant(l *dateLead) issues.Want {
 	if !l.Dead {
 		writeFindings(&b, l.Findings)
 	}
-	b.WriteString(leadReaderJob)
+	b.WriteString(leadFix)
+	if !l.Dead {
+		writeAccept(&b, l.AniDB, links[0])
+	}
+	b.WriteString(leadSticks)
 	return issues.Want{Key: datecheck.Key(l.AniDB), Title: title, Body: b.String(), Labels: []string{labelAnimap, labelLead}}
 }
 
@@ -78,6 +89,12 @@ func tvdbLinks(l *dateLead) []string {
 		out = append(out, fmt.Sprintf("https://thetvdb.com/series/%s/seasons/official/%d", l.Slug, s))
 	}
 	return out
+}
+
+func writeAccept(b *strings.Builder, aid int, tvdbLink string) {
+	b.WriteString("If the node is right and the dates misled the check, record it from a local run (docs/date-check.md) and commit the file it writes:\n\n```sh\n")
+	fmt.Fprintf(b, "go run ./cmd/animap datecheck accept -datecheck datecheck.json -id %d -reason \"<the episodes and their titles that prove the mapping>\" -evidence https://anidb.net/anime/%d -evidence %s\n", aid, aid, tvdbLink)
+	b.WriteString("```\n\n")
 }
 
 func writeNode(b *strings.Builder, l *dateLead) {

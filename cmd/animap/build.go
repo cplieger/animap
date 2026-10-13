@@ -20,6 +20,7 @@ import (
 	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
+	"github.com/cplieger/animap/internal/reviewed"
 	"github.com/cplieger/animap/internal/schema"
 )
 
@@ -55,6 +56,7 @@ type buildConfig struct {
 	listPath, listCommit        string
 	mirrorPath, mirrorCommit    string
 	overlayDir, prevPath        string
+	reviewedDir                 string
 	baselinePath, countsPath    string
 	out, statsPath              string
 	acceptShrink                bool
@@ -71,6 +73,7 @@ func runBuild(ctx context.Context, args []string, stdout io.Writer, log *slog.Lo
 	fs.StringVar(&c.mirrorPath, "mirror", "", "AniDB mirror snapshot written by animap mirror extract")
 	fs.StringVar(&c.mirrorCommit, "mirror-commit", "", "AniDB mirror commit the build is pinned to")
 	fs.StringVar(&c.overlayDir, "overlay", "overlay", "overlay directory")
+	fs.StringVar(&c.reviewedDir, "reviewed", reviewed.Dir, "reviewed date-check records, validated only")
 	fs.StringVar(&c.prevPath, "previous", "", "previous release's animap.json (absent file: first release)")
 	fs.StringVar(&c.baselinePath, "baseline", "checks/collision-baseline.json", "tracked collision baseline (absent file: empty)")
 	fs.StringVar(&c.countsPath, "counts", anidb.CountsPath, "tracked episode counts (absent file: none)")
@@ -142,6 +145,9 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	bridges, err := overlay.LoadBridges(c.overlayDir)
 	if err != nil {
 		return nil, nil, err
+	}
+	if _, recErr := reviewed.LoadDir(c.reviewedDir); recErr != nil {
+		return nil, nil, recErr
 	}
 	patched := overlay.Apply(list.Nodes, ov)
 	records, jst := join.Build(entries, patched, facts)

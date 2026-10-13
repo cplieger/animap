@@ -2,13 +2,16 @@
 // episodes, the specials with their numbers, and their air dates. It reads
 // them from notseteve/AnimeAggregations, a twice-monthly mirror of AniDB's
 // data, at a pinned commit, and Facts.Count is the one place a regular
-// episode count is decided. Only numbers and dates leave the package; the
-// mirror's titles and descriptions are AniDB text under CC BY-NC-SA and are
-// never kept.
+// episode count is decided. Only numbers, dates and a digest of the episode
+// titles leave the package; the mirror's titles and descriptions are AniDB
+// text under CC BY-NC-SA and are never kept.
 package anidb
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"errors"
+	"fmt"
 	"maps"
 	"slices"
 )
@@ -27,10 +30,28 @@ type Episode struct {
 // Anime is AniDB's episode list for one anime. Regular[i] is the air date
 // of regular episode i+1; Specials are sorted by number. Finished means
 // AniDB records an end date, which it can set before the last episode airs.
+// Titles is the hex SHA-256 of the regular episodes' and specials' titles;
+// LoadSnapshot refuses an anime without it.
 type Anime struct {
+	Titles   string    `json:"titles"`
 	Regular  []string  `json:"regular"`
 	Specials []Episode `json:"specials"`
 	Finished bool      `json:"finished"`
+}
+
+// Hash is the hex SHA-256 of a's episode list: each episode's type, number
+// and air date, in order, whether AniDB records an end date, and the title
+// digest.
+func (a *Anime) Hash() string {
+	h := sha256.New()
+	for i, d := range a.Regular {
+		fmt.Fprintf(h, "R%d D%s\n", i+1, d)
+	}
+	for _, sp := range a.Specials {
+		fmt.Fprintf(h, "S%d D%s\n", sp.Number, sp.AirDate)
+	}
+	fmt.Fprintf(h, "finished=%t\ntitles=%s", a.Finished, a.Titles)
+	return hex.EncodeToString(h.Sum(nil))
 }
 
 // CountBasis names the precedence in Count. A collision baseline records

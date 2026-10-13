@@ -1,7 +1,9 @@
 package datecheck
 
 import (
+	"bytes"
 	"encoding/json"
+	"maps"
 	"os"
 	"path/filepath"
 	"slices"
@@ -21,6 +23,22 @@ func TestDueFetchesMissingFirstThenOldest(t *testing.T) {
 	got := l.Due([]int{1, 2, 3, 4, 7, 5}, 7*24*time.Hour, now)
 	if want := []int{5, 7, 3, 2, 4}; !slices.Equal(got, want) {
 		t.Errorf("Due = %v, want %v (missing by id, then stale oldest first, fresh left out)", got, want)
+	}
+}
+
+// A fresh layout kept without title digests cannot be fingerprinted like a
+// new fetch, so it is fetched again before any of its nodes is judged.
+func TestDueFetchesAFreshLayoutWithoutTitleDigests(t *testing.T) {
+	eps := []skyhook.Episode{ep(1, 1, 1, "2005-08-10")}
+	l := Layouts{
+		1: {Fetched: now, Episodes: eps},
+		2: {Fetched: now, Episodes: eps, Titles: map[int]string{1: "digest"}},
+		3: {Fetched: now, Absent: true},
+		4: {Fetched: now},
+		6: {Fetched: now.Add(-8 * 24 * time.Hour), Episodes: eps, Titles: map[int]string{1: "digest"}},
+	}
+	if got := l.Due([]int{1, 2, 3, 4, 5, 6}, RefetchAge, now); !slices.Equal(got, []int{1, 5, 6}) {
+		t.Errorf("Due = %v, want [1 5 6]: the layout with episodes and no title digests among the missing, then the stale", got)
 	}
 }
 
@@ -55,6 +73,24 @@ func TestLayoutOfDropsAnUnparseableDate(t *testing.T) {
 	want := []skyhook.Episode{ep(0, 1, 0, ""), ep(1, 1, 1, "2005-08-10"), ep(1, 2, 2, "2005-08-17")}
 	if !slices.Equal(got.Episodes, want) || got.Slug != "kamichu" || !got.Fetched.Equal(now) {
 		t.Errorf("LayoutOf = %+v, want episodes %v sorted with the bad date dropped", got, want)
+	}
+}
+
+func TestLayoutOfKeepsTitleDigestsNotTitles(t *testing.T) {
+	s := &skyhook.Show{
+		Episodes: []skyhook.Episode{ep(0, 1, 0, ""), ep(1, 1, 1, "2005-08-10")},
+		Titles:   map[[2]int]string{{0, 1}: "Kamichu Special", {1, 1}: "Kamichu First"},
+	}
+	got := LayoutOf(s, now)
+	if want := s.TitleHashes(); !maps.Equal(got.Titles, want) || len(want) != 2 {
+		t.Errorf("LayoutOf titles = %v, want the show's season digests %v", got.Titles, want)
+	}
+	b, err := json.Marshal(got)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if bytes.Contains(b, []byte("Kamichu")) {
+		t.Errorf("a kept layout holds a TVDB title: %s", b)
 	}
 }
 

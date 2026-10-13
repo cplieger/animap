@@ -18,11 +18,14 @@ import (
 )
 
 // dateLead is a lead with what its issue shows: the node as checked, the
-// overlay entry that patched it, and the series slug for TVDB links.
+// overlay entry that patched it, and the series slug for TVDB links. Name
+// and Fingerprints are what a reviewed record keeps of it.
 type dateLead struct {
-	Node    string `json:"node"`
-	Overlay string `json:"overlay,omitempty"`
-	Slug    string `json:"slug,omitempty"`
+	Node         string                 `json:"node"`
+	Name         string                 `json:"name,omitempty"`
+	Overlay      string                 `json:"overlay,omitempty"`
+	Slug         string                 `json:"slug,omitempty"`
+	Fingerprints datecheck.Fingerprints `json:"fingerprints"`
 	datecheck.Lead
 }
 
@@ -59,6 +62,9 @@ type dateConfig struct {
 }
 
 func runDateCheck(ctx context.Context, args []string, log *slog.Logger) error {
+	if len(args) > 0 && args[0] == "accept" {
+		return runAccept(ctx, args[1:], log)
+	}
 	var c dateConfig
 	fs := flag.NewFlagSet("datecheck", flag.ContinueOnError)
 	fs.StringVar(&c.listPath, "list", "", "anime-list-master.xml at Anime-Lists HEAD")
@@ -198,7 +204,10 @@ func evaluate(patched map[int]*animelists.Node, entries []overlay.Entry, facts *
 			continue
 		}
 		if l := datecheck.Check(n, a, &lay, now); l != nil {
-			res.Leads = append(res.Leads, dateLead{Lead: *l, Node: n.Canonical(), Overlay: paths[aid], Slug: lay.Slug})
+			res.Leads = append(res.Leads, dateLead{
+				Lead: *l, Node: n.Canonical(), Name: n.Name, Overlay: paths[aid], Slug: lay.Slug,
+				Fingerprints: datecheck.FingerprintsOf(n, a, &lay),
+			})
 			countKinds(st.Kinds, l)
 		}
 	}

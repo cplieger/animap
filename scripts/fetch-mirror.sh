@@ -3,7 +3,9 @@
 # CACHE_DIR, extracting it from the mirror's archive when none is kept.
 # The archive goes straight into the extractor, so AniDB's titles and
 # descriptions never reach the disk; a kept snapshot is validated by
-# whatever reads it.
+# whatever reads it. A snapshot is kept per mirror commit and extractor
+# source, as the workflows key their caches, so a change to what the
+# extractor keeps extracts the snapshot again.
 set -euo pipefail
 
 MIRROR_COMMIT="${MIRROR_COMMIT:?set MIRROR_COMMIT (AnimeAggregations commit, pinned in publish.yaml)}"
@@ -15,7 +17,9 @@ CACHE_DIR="${CACHE_DIR:?}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 mirror_snapshot() {
-  local out="$CACHE_DIR/mirror/${MIRROR_COMMIT}.json"
+  local code out
+  code=$(cat "$ROOT"/internal/anidb/*.go | git hash-object --stdin) || return 1
+  out="$CACHE_DIR/mirror/${MIRROR_COMMIT}-${code}.json"
   mkdir -p "$CACHE_DIR/mirror"
   if [ ! -f "$out" ]; then
     curl --proto '=https' --proto-redir '=https' --tlsv1.2 --connect-timeout 20 --max-time 600 \

@@ -54,8 +54,10 @@ func (e Episode) Line() string {
 	return fmt.Sprintf("S%dE%d A%d D%s", e.Season, e.Number, e.Absolute, e.AirDate)
 }
 
-// Show is the part of a SkyHook show animap reads.
+// Show is the part of a SkyHook show animap reads. Titles holds each
+// episode's title by season and number.
 type Show struct {
+	Titles   map[[2]int]string
 	Slug     string
 	Episodes []Episode
 }
@@ -64,6 +66,7 @@ type showJSON struct {
 	Slug     string `json:"slug"`
 	Episodes []struct {
 		AirDate  string `json:"airDate"`
+		Title    string `json:"title"`
 		Season   int    `json:"seasonNumber"`
 		Number   int    `json:"episodeNumber"`
 		Absolute int    `json:"absoluteEpisodeNumber"`
@@ -75,11 +78,28 @@ func parseShow(body []byte) (*Show, error) {
 	if err := json.Unmarshal(body, &sj); err != nil {
 		return nil, fmt.Errorf("skyhook: decode show: %w", err)
 	}
-	s := &Show{Slug: sj.Slug}
+	s := &Show{Slug: sj.Slug, Titles: map[[2]int]string{}}
 	for _, e := range sj.Episodes {
 		s.Episodes = append(s.Episodes, Episode{Season: e.Season, Number: e.Number, Absolute: e.Absolute, AirDate: e.AirDate})
+		s.Titles[[2]int{e.Season, e.Number}] = e.Title
 	}
 	return s, nil
+}
+
+// TitleHashes is the hex SHA-256 of each season's episode numbers and
+// titles, by season.
+func (s *Show) TitleHashes() map[int]string {
+	lines := map[int][]string{}
+	for _, e := range s.Episodes {
+		lines[e.Season] = append(lines[e.Season], fmt.Sprintf("E%d %q", e.Number, strings.TrimSpace(s.Titles[[2]int{e.Season, e.Number}])))
+	}
+	out := make(map[int]string, len(lines))
+	for season, l := range lines {
+		slices.Sort(l)
+		sum := sha256.Sum256([]byte(strings.Join(l, "\n")))
+		out[season] = hex.EncodeToString(sum[:])
+	}
+	return out
 }
 
 // Getter is the fetch a Client needs; source.Client satisfies it.

@@ -4,6 +4,8 @@ import (
 	"archive/tar"
 	"cmp"
 	"compress/gzip"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -30,7 +32,10 @@ const (
 	maxSnapshotBytes = 64 << 20
 )
 
-var commitRE = regexp.MustCompile(`^[0-9a-f]{40}$`)
+var (
+	commitRE = regexp.MustCompile(`^[0-9a-f]{40}$`)
+	digestRE = regexp.MustCompile(`^[0-9a-f]{64}$`)
+)
 
 // Snapshot is every episode list the mirror holds at Commit, by AniDB id,
 // and the ids whose file Extract refused.
@@ -139,8 +144,34 @@ type animeFile struct {
 }
 
 type rawEpisode struct {
-	AirDate *string `json:"air_date"`
-	Number  int     `json:"number"`
+	AirDate *string    `json:"air_date"`
+	Titles  []rawTitle `json:"titles"`
+	Number  int        `json:"number"`
+}
+
+type rawTitle struct {
+	Language string `json:"language"`
+	Title    string `json:"title"`
+}
+
+// titleDigest is the hex SHA-256 of every title of the regular episodes and
+// specials, by type and number, independent of the order the file lists
+// them in.
+func titleDigest(episodes map[string][]rawEpisode) string {
+	var lines []string
+	for _, kind := range []string{"REGULAR", "SPECIAL"} {
+		for _, e := range episodes[kind] {
+			titles := make([]string, 0, len(e.Titles))
+			for _, t := range e.Titles {
+				titles = append(titles, strconv.Quote(t.Language)+"="+strconv.Quote(strings.TrimSpace(t.Title)))
+			}
+			slices.Sort(titles)
+			lines = append(lines, kind+" "+strconv.Itoa(e.Number)+" "+strings.Join(titles, " "))
+		}
+	}
+	slices.Sort(lines)
+	sum := sha256.Sum256([]byte(strings.Join(lines, "\n")))
+	return hex.EncodeToString(sum[:])
 }
 
 // parse returns AniDB id aid's episode list, and listed=false for a file
@@ -160,6 +191,7 @@ func parse(aid int, body []byte) (a Anime, listed bool, err error) {
 		return Anime{}, false, nil
 	}
 	a.Finished = f.EndDate != nil && *f.EndDate != ""
+	a.Titles = titleDigest(f.Episodes)
 	regular := sortedEpisodes(f.Episodes["REGULAR"])
 	a.Specials = sortedEpisodes(f.Episodes["SPECIAL"])
 	for i, e := range regular {
@@ -213,6 +245,9 @@ func checkDates(dates []string) error {
 func checkListed(id int, a Anime) error {
 	if id <= 0 {
 		return errors.New("not a positive id")
+	}
+	if !digestRE.MatchString(a.Titles) {
+		return errors.New("titles is not a 64-hex digest; re-extract the snapshot with this animap")
 	}
 	for i := 1; i < len(a.Specials); i++ {
 		if a.Specials[i].Number <= a.Specials[i-1].Number {
