@@ -1,0 +1,41 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1732",
+    "tmdb": "https://www.themoviedb.org/tv/88423/season/1",
+    "tvdb": "https://thetvdb.com/series/landlock/seasons/official/1"
+  },
+  "set": {
+    "defaulttvdbseason": "1",
+    "tmdbseason": "1"
+  },
+  "title": "Landlock",
+  "justification": "The two OVA episodes are TVDB 96231 season 1 episodes 1 Red Eye and 2 Blue Eye, AniDB Red Eye Chapter and Blue Eye Chapter (1996-06-21, 1996-09-27), and TMDB 88423 season 1 of the same titles and dates; season 0, where the node sent them, holds a 1995 pre-release item.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "336b1876a18a127522a8c39542ffd93338bcf2d55d5af9b0851d69286bfdbc71",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "1996-06-21"
+        ],
+        [
+          1,
+          2,
+          2,
+          "1996-09-27"
+        ]
+      ],
+      "series": 96231
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "e69d85706cfc47a732aae4e67cfd1933916f70322d3c71ddecd6c1ba02c8f6eb"
+  },
+  "anidb_id": 1732
+}

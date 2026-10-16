@@ -1,0 +1,129 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18086",
+    "tvdb": "https://thetvdb.com/series/oshi-no-ko/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "\"Oshi no Ko\" (2024)",
+  "justification": "AniDB special S1 \"Furikaeri Tokuban: Oshi no Ko wa Oseru Toki ni Ose! Vol.2\" (2024-09-04) is TVDB season 0 episode 2, the retrospective programme Vol.2 (2024-09-04). By default it fell on episode 1, Vol.1 (2023-05-31, AniDB 17449).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "06a0d075df17605a8c250c61fcac0a87f071f427794314c4050159450d27be90",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-05-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2024-09-04"
+        ],
+        [
+          2,
+          1,
+          12,
+          "2024-07-03"
+        ],
+        [
+          2,
+          2,
+          13,
+          "2024-07-10"
+        ],
+        [
+          2,
+          3,
+          14,
+          "2024-07-17"
+        ],
+        [
+          2,
+          4,
+          15,
+          "2024-07-24"
+        ],
+        [
+          2,
+          5,
+          16,
+          "2024-07-31"
+        ],
+        [
+          2,
+          6,
+          17,
+          "2024-08-07"
+        ],
+        [
+          2,
+          7,
+          18,
+          "2024-08-14"
+        ],
+        [
+          2,
+          8,
+          19,
+          "2024-08-21"
+        ],
+        [
+          2,
+          9,
+          20,
+          "2024-08-28"
+        ],
+        [
+          2,
+          10,
+          21,
+          "2024-09-11"
+        ],
+        [
+          2,
+          11,
+          22,
+          "2024-09-18"
+        ],
+        [
+          2,
+          12,
+          23,
+          "2024-09-25"
+        ],
+        [
+          2,
+          13,
+          24,
+          "2024-10-06"
+        ]
+      ],
+      "series": 421069
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "ff14d8943d14f54c89904a2b1ce9636abdbdadd9ca42a9c70419bab450fddf04"
+  },
+  "anidb_id": 18086
+}

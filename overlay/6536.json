@@ -1,13 +1,18 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6536",
+    "tmdb_movie": "https://www.themoviedb.org/movie/364134",
     "tvdb": "https://thetvdb.com/series/yatterman/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "2"
+    "episodeoffset": "2",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "364134"
   },
   "title": "Gekijouban Yatterman: Shin Yattermecha Daishuugou! Omocha no Kuni de Daiketsudan Da Koron!",
-  "justification": "AniDB 1 (2009-08-22) = TVDB 0x03 (2009-08-22), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 250266. The film is TMDB movie 364134 (Yatterman: All New YatterMechas Assembled! Great Decisive Battle in the Toy Kingdom! (2009)). TMDB show 89323 does not carry it, so the node leaves that show. AniDB episode 1 \"Complete Movie\" is TVDB S0E3 \"Yatterman the Movie\". TVDB S0E3 \"Yatterman the Movie\" is the only feature-length item in the show's season 0 and has the film's release date.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -43,8 +48,8 @@
       ],
       "series": 250266
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "fab551f300d37eb592c75d2253df99a4e53a44e7fdd311fe5e3a6ed9b0cb7a62"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18116",
+    "tmdb": "https://www.themoviedb.org/tv/78204/seasons",
     "tvdb": "https://thetvdb.com/series/sword-art-online-alternative-gun-gale-online/seasons/official/0"
   },
   "set": {
@@ -10,6 +11,16 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
             1
           ]
         ]
@@ -17,7 +28,7 @@
     ]
   },
   "title": "Sword Art Online Alternative: Gun Gale Online II",
-  "justification": "AniDB special S1 (2024-09-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 335815 and TMDB show 78204. AniDB S1 \"緊急特番!! 四人の証言\" (Episode S1) is TVDB S0E2 \"Sword Art Online Alternative Gun Gale Online II Emergency Special\" and has no TMDB episode (its default TMDB S0E1 is \"Refrain\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -114,8 +125,8 @@
       ],
       "series": 335815
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "23aa7d57735190c2ca8486bede5a4630989ed7fd9c6a75f2c230a95946103d8b"
   },
   "anilist_ids": [

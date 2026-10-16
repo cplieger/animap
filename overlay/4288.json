@@ -1,0 +1,33 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4288",
+    "tmdb_movie": "https://www.themoviedb.org/movie/383558",
+    "tvdb": "https://thetvdb.com/dereferrer/series/181001"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "383558"
+  },
+  "title": "Shinkai no Kantai: Submarine 707",
+  "justification": "Checked by episode title against TVDB series 181001. The film is TMDB movie 383558 (Undersea Fleet Submarine 707F (1997)). TMDB show 44557 does not carry it, so the node leaves that show. TVDB 181001 has no season 0 and no other TVDB series or movie carries the 1997 OVA, so its TVDB default stays a gap. TMDB show 44557 is Submarine 707R and has no season 0; TMDB movie 383558 Undersea Fleet Submarine 707F (1997-01-10, 50 minutes) is the OVA.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "seasons": [
+        0
+      ],
+      "episodes": null,
+      "series": 181001
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8b1e25810f74f6a5244bc22f32c674478d55135291289e52ec0970d99154a86a"
+  },
+  "anilist_ids": [
+    16251
+  ],
+  "anidb_id": 4288
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15997",
+    "tmdb_movie": "https://www.themoviedb.org/movie/843241",
     "tvdb": "https://thetvdb.com/series/the-seven-deadly-sins/seasons/official/0"
   },
   "set": {
@@ -10,14 +11,15 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1
+            1,
+            26
           ]
         ]
       }
     ]
   },
   "title": "Gekijouban Nanatsu no Taizai: Hikari ni Norowareshi Mono-tachi",
-  "justification": "AniDB special S1 (2021-06-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 284131. AniDB S1 \"見なきゃ損!! 最後に大罪人終結SP\" (Episode S1) is TVDB S0E26 \"The Seven Deadly Sins: Cursed by Light - Special finale with the gathering of the deadly sinners\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -197,8 +199,8 @@
       ],
       "series": 284131
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4ae8fe08bc7fbd41208d5cc0f260362ff964ee6e2e58fc123089ad4c35a38ec2"
   },
   "anilist_ids": [

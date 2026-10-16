@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7729",
+    "tmdb": "https://www.themoviedb.org/tv/42509/season/0",
     "tvdb": "https://thetvdb.com/series/steins-gate/seasons/official/0"
   },
   "set": {
@@ -21,11 +22,24 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2,
+            6
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Steins;Gate",
-  "justification": "AniDB special S3 (2012-09-25) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S3 (2012-09-25) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 42509 season 0 lists S2 Open the Missing Link -Divide by Zero- (2015-12-03) as E6 and has no Akihabara Map (S3); with no TMDB row they took E2 and E3, the Cooking Chapter shorts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -224,8 +238,8 @@
       ],
       "series": 244061
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "32ca8c3e2795cc78bba22615524c70c35411a81cdab0f92c58d1d4eb71b98b2b"
   },
   "anilist_ids": [

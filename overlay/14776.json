@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14776",
+    "tmdb_movie": "https://www.themoviedb.org/movie/592350",
     "tvdb": "https://thetvdb.com/series/my-hero-academia/seasons/official/0"
   },
   "set": {
@@ -11,6 +12,10 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2,
+            10
           ],
           [
             3
@@ -29,7 +34,7 @@
     ]
   },
   "title": "Boku no Hero Academia the Movie - Heroes:Rising",
-  "justification": "AniDB special S1 (2019-11-25) has no TVDB episode, was 0x01. AniDB special S3-S6 (2020-07-15 to (none)) have no TVDB episode, was 0x03-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 305074. AniDB S1 \"5分でわかるヒロアカ\" (My Hero Academia in 5 Minutes) has no TVDB episode (its default TVDB S0E1 is \"Save! Rescue Training!\", another item); AniDB S2 \"エピローグ・プラス《夢を現実に》\" (Episode S2) is TVDB S0E10 \"Heroes Rising: Epilogue Plus Picture Drama\"; AniDB S3-S6 (\"シーンセレクトビジュアルコメンタリー\" (Select Scenes: Visual Commentary) to \"Behind the Scenes with the Cast\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -185,8 +190,8 @@
       ],
       "series": 305074
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "32fbded2cc67ad4b1afb00702af10d763d24439c4852929cfc2068b4dccb33d6"
   },
   "anilist_ids": [

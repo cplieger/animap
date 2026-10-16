@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9747",
-    "tmdb": "https://www.themoviedb.org/tv/79030/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/79030/seasons",
     "tvdb": "https://thetvdb.com/series/haitai-nanafa/seasons/official/2"
   },
   "set": {
@@ -9,7 +9,7 @@
     "tmdboffset": "13"
   },
   "title": "Haitai Nanafa (2013)",
-  "justification": "AniDB 1-13 (2013-04-06 to 2013-06-29) = TVDB 2x01-2x13 and TMDB 79030 S1E14-26, same dates. Old season 1 is the 2012 series (1x1 2012-10-06, AniDB 9295). TMDB keeps one 26-episode S1, so TMDB offset 13. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 262110 and TMDB show 79030. AniDB episode 1-13 (\"はいたい! 謎の酔っぱらい!!\" (Episode 1) to \"はいたい!\" (Episode 13)) are TVDB S2E1 \"Hello! The Mysterious Drunk Girl.\" to TVDB S2E13 \"Howdy!\" and TMDB S1E14 \"はいたい! 謎の酔っぱらい!!\" (Hello! The Mysterious Drunk Girl.) to TMDB S1E26 \"はいたい!\" (Howdy!).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

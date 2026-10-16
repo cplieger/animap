@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/8992",
     "tvdb": "https://thetvdb.com/series/yurumates3dei/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/255848"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/255848",
+    "tmdb": "https://www.themoviedb.org/tv/45306/seasons"
   },
   "set": {
     "tvdbid": "475276"
   },
   "title": "Yurumates 3D",
-  "justification": "tvdbid 255848 to 475276 (TVDB 255848 is gone from TVDB's official order). AniDB 1-13 (2012-04-01 to 2012-06-26) = TVDB 1x01-1x13 (2012-04-02 to 2012-06-25), was TVDB 255848 1x01-1x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 475276 and TMDB show 45306. The node moves from TVDB 255848 to series 475276. AniDB episode 1-13 (\"ゆるめ上京する\" (Yurume Goes to Tokyo) to \"パターン妹\" (Pattern Sister)) are TVDB S1E1 \"Yurume Goes to Tokyo\" to TVDB S1E13 \"Pattern Sister\". TVDB series 255848 no longer exists; series 475276 (ゆるめいつ 3でぃ) is the same show.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

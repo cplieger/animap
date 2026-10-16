@@ -1,14 +1,15 @@
 {
-  "anidb_id": 9803,
-  "title": "Blood Lad: Wagahai wa Neko de wa Nai",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9803",
+    "tmdb": "https://www.themoviedb.org/tv/57577/seasons",
+    "tvdb": "https://thetvdb.com/series/blood-lad/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2013-12-04) = TVDB 0x01 (2013-12-04), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/9803",
-    "tvdb": "https://thetvdb.com/series/blood-lad/seasons/official/0"
-  },
+  "title": "Blood Lad: Wagahai wa Neko de wa Nai",
+  "justification": "Checked by episode title against TVDB series 269875 and TMDB show 57577. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"ブラッドラッド 我輩は猫ではない\") is TVDB S0E1 \"EX.. I am not a Cat (OVA)\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "95d17d6512f71cd73338adffab892e04f95e948b09c0ceb7e6b1fd063aaebb29",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     18441
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 9803
 }

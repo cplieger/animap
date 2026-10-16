@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/330",
-    "tvdb": "https://thetvdb.com/series/conan-the-boy-in-future/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/19239/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/80294"
   },
   "set": {
     "mapping_list": [
@@ -11,13 +12,22 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
           ]
         ]
       }
     ]
   },
   "title": "Mirai Shounen Conan",
-  "justification": "AniDB special S1 (2005-03-08) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80294 and TMDB show 19239. AniDB S1-S2 (\"Biografia personaggi buoni (ITA DVD)\" to \"Biografia personaggi cattivi (ITA DVD)\") have no TVDB episode (their defaults are other items); AniDB S3-S4 (\"Biografia mezzi obsoleti (ITA DVD)\" to \"Biografia mezzi tecnologici (ITA DVD)\") have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -198,8 +208,8 @@
       ],
       "series": 80294
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2fd4c9f7c7611fba2530ee8ec22b67d12c547117946130b073c6501e6fe474a9"
   },
   "anilist_ids": [

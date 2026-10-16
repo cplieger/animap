@@ -1,0 +1,119 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15363",
+    "tvdb": "https://thetvdb.com/series/log-horizon/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Log Horizon: Entaku Houkai",
+  "justification": "AniDB special S1 \"Mada Maniau! Log Horizon\" (2021-01-06) had no row and fell on TVDB season 0 episode 1 \"Recap - Episode 6.5\" (2013-11-11), the first season's recap (AniDB 9677 S1). S2 \"Remote Talk Show\" has no TVDB episode either. TVDB season 0 has only that recap, so both are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fc5ada4076bf3d240b5cea4d4986eb53504c5df24e62bbf4745f1c0607c27328",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-11-11"
+        ],
+        [
+          3,
+          1,
+          51,
+          "2021-01-13"
+        ],
+        [
+          3,
+          2,
+          52,
+          "2021-01-20"
+        ],
+        [
+          3,
+          3,
+          53,
+          "2021-01-27"
+        ],
+        [
+          3,
+          4,
+          54,
+          "2021-02-03"
+        ],
+        [
+          3,
+          5,
+          55,
+          "2021-02-10"
+        ],
+        [
+          3,
+          6,
+          56,
+          "2021-02-17"
+        ],
+        [
+          3,
+          7,
+          57,
+          "2021-02-24"
+        ],
+        [
+          3,
+          8,
+          58,
+          "2021-03-03"
+        ],
+        [
+          3,
+          9,
+          59,
+          "2021-03-10"
+        ],
+        [
+          3,
+          10,
+          60,
+          "2021-03-17"
+        ],
+        [
+          3,
+          11,
+          61,
+          "2021-03-24"
+        ],
+        [
+          3,
+          12,
+          62,
+          "2021-03-31"
+        ]
+      ],
+      "series": 272128
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "c4a31f39c3daee83d8eedbcb5d0bf56b97d337b62f23be7c87f203dde41856f4"
+  },
+  "anidb_id": 15363
+}

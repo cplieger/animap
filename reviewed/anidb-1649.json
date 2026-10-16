@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:1649",
+  "title": "Hamtarou no Otanjoubi: Mama o Tasunete Sanzen Techi Techi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "e7621ed6b4878b3bb38cd11177be37b098d9114805c38663a6abc4cf4e83b1a2"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The OVA is \"Happy Birthday Hamtaro: 3000 Hammy Steps In Search Of Mommy\" (AniDB 1649, Hamtarou no Otanjoubi: Mama o Tasunete Sanzen Techi Techi), TVDB 70817 S0E5 of that title. Only the date differs.",
+      "evidence": [
+        "https://anidb.net/anime/1649",
+        "https://thetvdb.com/dereferrer/series/70817"
+      ]
+    }
+  }
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/355",
+    "tmdb": "https://www.themoviedb.org/tv/34105/seasons",
     "tvdb": "https://thetvdb.com/series/golden-boy/seasons/official/0"
   },
   "set": {
@@ -17,13 +18,16 @@
           ],
           [
             3
+          ],
+          [
+            4
           ]
         ]
       }
     ]
   },
   "title": "Golden Boy",
-  "justification": "AniDB special S1-S3 (no AniDB date) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 72408 and TMDB show 34105. AniDB S1-S3 (\"Bonus\" to \"The exclusive Sketch\") have no TVDB episode (their defaults are other items); AniDB S4 \"~特別インタビュー企画~ GOLDEN BOY お勉強野郎たちの証言!\" (JP DVD Extra) has no TVDB episode (TVDB has no S0E4). TVDB season 0 holds only three one-minute creditless songs, none a bonus, an interview or a sketch.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -90,8 +94,8 @@
       ],
       "series": 72408
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e9882dde9488b6a631f5d581e781deb59325fc90b4bae67d401de8adefb08f89"
   },
   "anilist_ids": [

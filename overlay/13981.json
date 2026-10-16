@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/13981",
     "tvdb": "https://thetvdb.com/series/frame-arms-girl/seasons/official/0",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/13981"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/13981",
+    "tmdb_movie": "https://www.themoviedb.org/movie/575220"
   },
   "set": {
     "tvdbid": "325198"
   },
   "title": "Frame Arms Girl: Kyakkya Ufufu na Wonderland",
-  "justification": "tvdbid 13981 to 325198 (TVDB 13981 is gone from TVDB's official order). AniDB 1 (2019-06-29) = TVDB 0x02 (2019-06-29), was TVDB 13981 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 325198. The node moves from TVDB 13981 to series 325198. AniDB episode 1 \"Complete Movie\" is TVDB S0E2 \"Frame Arms Girl Movie: Kya Kya Ufufu na Wonderland\". The published TVDB id 13981 is a placeholder that does not exist. Series 325198, where the parent node 12563 sits, carries the film as S0E2.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,0 +1,28 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14134",
+    "tmdb": "https://www.themoviedb.org/movie/570581",
+    "tmdb_movie_570581": "https://www.themoviedb.org/movie/570581",
+    "tmdb_movie_570582": "https://www.themoviedb.org/movie/570582",
+    "tmdb_movie_667000": "https://www.themoviedb.org/movie/667000",
+    "tmdb_movie_667001": "https://www.themoviedb.org/movie/667001",
+    "tvdb": "https://thetvdb.com/movies/king-of-prism-shiny-seven-stars-i-prologue-x-yukinojou-x-taiga"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "570581,570582,667000,667001",
+    "imdbid": "tt9882750,tt10168876,tt10168898"
+  },
+  "title": "King of Prism: Shiny Seven Stars",
+  "justification": "Checked by title. The films are TMDB movies 570581 (King of Prism: Shiny Seven Stars I - Prologue x Yukinojou x Taiga (2019)), 570582 (King of Prism: Shiny Seven Stars II - Kakeru x George x Minato (2019)), 667000 (King of Prism: Shiny Seven Stars III - Leo x Yuu x Alexander (2019)), 667001 (King of Prism: Shiny Seven Stars IV - Louis x Shin x Unknown (2019)). TMDB show 88490 does not carry it, so the node leaves that show. The node moves from TVDB 362588 to the movie marker. TVDB series 362588 no longer exists. TheTVDB lists parts I-III as movies 1184, 80442 and 313785 with IMDb tt9882750, tt10168876 and tt10168898; part IV is TMDB 667001 only. The TV re-broadcast series 422824 is a different cut of twelve character episodes, so the four films take the movie marker with their TMDB and IMDb ids.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "eab13ca62c7176ccd9ed9e79f1701e0903ad4beb9b09f351deb087aa3c76408b"
+  },
+  "anidb_id": 14134
+}

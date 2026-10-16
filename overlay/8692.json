@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8692",
+    "tmdb": "https://www.themoviedb.org/tv/45782/seasons",
     "tvdb": "https://thetvdb.com/series/sword-art-online/seasons/official/0"
   },
   "set": {
@@ -29,11 +30,29 @@
             13
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ]
+        ]
       }
     ]
   },
   "title": "Sword Art Online",
-  "justification": "AniDB special S10-S13 (2013-02-27 to (none)) have no TVDB episode, was 0x10-0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 259640 and TMDB show 45782. AniDB S10-S13 (\"第2話「ビーター」ロングトレーラー\" (Sword Art Online ~Beater~ Ep.2 Long Trailer) to \"ソードアート・オンライン: ホロウ・フラグメント - 陣同窓会\" (Sword Art Online: Hollow Fragment - Cast Members` Reunion)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -364,8 +383,8 @@
       ],
       "series": 259640
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2a220f2882b4b51a4dd9338345850f97bdc6157398a2b1796b18943751553147"
   },
   "anilist_ids": [

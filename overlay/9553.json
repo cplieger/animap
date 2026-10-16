@@ -1,0 +1,143 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9553",
+    "tvdb": "https://thetvdb.com/series/the-world-god-only-knows/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kami nomi zo Shiru Sekai: Megami Hen",
+  "justification": "AniDB specials S1 \"Episode 1 Ending\" (2013-07-09) and S2 \"Episode 7 Ending\" (2013-08-20) are ending variants. With no row they fell on TVDB season 0 episodes 1 \"FLAG 0\" (AniDB 7568 S1) and 2 \"Four People and an Idol\" (AniDB 8490). TVDB lists no ending episode, so both are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0a7805e43c57b576223b78268aa10ea08f075f4d1fde6aa42334223741a5e347",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-09-17"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-09-16"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-10-18"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2012-12-18"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-06-18"
+        ],
+        [
+          3,
+          1,
+          25,
+          "2013-07-09"
+        ],
+        [
+          3,
+          2,
+          26,
+          "2013-07-16"
+        ],
+        [
+          3,
+          3,
+          27,
+          "2013-07-23"
+        ],
+        [
+          3,
+          4,
+          28,
+          "2013-07-30"
+        ],
+        [
+          3,
+          5,
+          29,
+          "2013-08-06"
+        ],
+        [
+          3,
+          6,
+          30,
+          "2013-08-13"
+        ],
+        [
+          3,
+          7,
+          31,
+          "2013-08-20"
+        ],
+        [
+          3,
+          8,
+          32,
+          "2013-08-27"
+        ],
+        [
+          3,
+          9,
+          33,
+          "2013-09-03"
+        ],
+        [
+          3,
+          10,
+          34,
+          "2013-09-10"
+        ],
+        [
+          3,
+          11,
+          35,
+          "2013-09-17"
+        ],
+        [
+          3,
+          12,
+          36,
+          "2013-09-24"
+        ]
+      ],
+      "series": 195711
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3e12fbd58a4371b0f462c71de23b2c44452bc584480ec58c902d2c45daafc289"
+  },
+  "anidb_id": 9553
+}

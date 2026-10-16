@@ -1,0 +1,24 @@
+{
+  "anilist_id": 99394,
+  "title": "Demi-chan wa Kataritai: Demi-chan no Natsuyasumi",
+  "parts": [
+    {
+      "anidb_id": 12374,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 99394 (ONA, 1 episode(s) from 2017-06-30) is AniDB 12374's special(s) S1, aired 2017-06-29. AniList's PREQUEL relation names AniList 97592, which anime-offline-database links to AniDB 12374, and the special's title matches an AniList title. TMDB 69282, where the parent's node places the special(s), agrees: S0E1 2017-06-29.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12374",
+    "anilist": "https://anilist.co/anime/99394",
+    "tmdb": "https://www.themoviedb.org/tv/69282/season/0",
+    "tvdb": "https://thetvdb.com/series/interviews-with-monster-girls/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "3d11b18ea0da0413266170e842814ef57567d0cdf937e311436ff715bc26c68a"
+  }
+}

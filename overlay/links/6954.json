@@ -1,0 +1,23 @@
+{
+  "anilist_id": 6954,
+  "title": "Kara no Kyoukai: Shuushou",
+  "parts": [
+    {
+      "anidb_id": 4932,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 6954 (SPECIAL in the offline database, OVA on AniList, 1 episode(s) from 2011-02-02, 33 min) is AniDB 4932's special(s) S2, aired 2011-02-02, 35 min, titled \"Epilogue\" / \"Shuushou/Kara no Kyoukai\" / 終章/空の境界, the AniList native title 空の境界 終章 with the words reordered and its synonym \"The Garden of Sinners: Epilogue\". The parent's node (TVDB 82099) places S2 on TVDB 0x1 \"Epilogue (Kara no Kyoukai)\", aired 2011-02-02, 33 min. AniList's PREQUEL 5205 is regular episode 7 of AniDB 4932 (2009-08-08, \"Satsujin Kousatsu (Go)\"), so the franchise parent is 4932 although the offline database links 5205 to no AniDB id. TMDB show 97825 of the parent's node answers 404 on TMDB, so the TMDB half is not provable and the bridge carries no TMDB value. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4932",
+    "anilist": "https://anilist.co/anime/6954",
+    "tvdb": "https://thetvdb.com/series/the-garden-of-sinners/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "c93cb13e1f63dd0d57909e476cd77a238b4f00f014e30e34c1c11553efc1c536"
+  }
+}

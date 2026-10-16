@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:4880",
+  "title": "Naruto Shippuuden",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:169": "1e470f3163168e96284ecee4af714dec2a4b6dc07a334c4a6422a5e62035bd14",
+        "date-mismatch:S2": "bd34cafe802d452d24ce9d26e4dfd552810cc44becf2d293a8591cd9d06b8ad5"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 169 \"The Two Disciples / Futari no Deshi\" (2010-07-14) = S8E18 \"The Two Students\" (2010-07-22); S2 \"Jump Festa 2013 - Sunny Side Battle! / Jump Festa 2013: Sunny Side Battle!!!\" (2014-09-11) = S0E11 \"Sunny Side Battle!\" (2013-10-06).",
+      "evidence": [
+        "https://anidb.net/anime/4880",
+        "https://thetvdb.com/dereferrer/series/79824"
+      ]
+    }
+  }
+}

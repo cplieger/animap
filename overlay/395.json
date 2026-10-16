@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/395",
+    "tmdb_movie": "https://www.themoviedb.org/movie/14572",
     "tvdb": "https://thetvdb.com/series/patlabor/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "14572",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -35,8 +40,8 @@
     ]
   },
   "title": "Kidou Keisatsu Patlabor 2 the Movie",
-  "justification": "AniDB special S1 (2006-07-11) has no TVDB episode, was 0x01, which is AniDB 1518. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 80789. The film is TMDB movie 14572 (Patlabor 2: The Movie (1993)). TMDB show 21738 does not carry it, so the node leaves that show. AniDB S1 \"Making File Remix\" has no TVDB episode (its default TVDB S0E1 is \"Second Unit, Move Out!\", another item). TMDB 21738 is the 1988 OVA series with no season 0; TMDB movie 14572 is the film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "80f69c7f4f490874875aecd9811fd952a2e97dccf800fac20b8018b282e47229",
@@ -143,8 +148,8 @@
       ],
       "series": 80789
     },
-    "at": "2026-10-08",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6b65a0cce6c2285e13ca9752ef21c035f90c6c54de050406a1e761da5ec6a249"
   },
   "anilist_ids": [

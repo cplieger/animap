@@ -1,0 +1,29 @@
+{
+  "anilist_id": 13357,
+  "title": "High School DxD Specials",
+  "parts": [
+    {
+      "anidb_id": 8660,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 13357 has 6 episodes (2012-03-21 to 2012-08-29); English title 'High School DxD: Fantasy Jiggles Unleashed'. AniDB 8660 S1-S6 are the 'Mousou Bakuyure Kaijo Original Video Vol.1-6' (Going Sunbathing, Akeno's Personal Training, Koneko..., Dress Break..., We Are Making Udon, Asia Transforms) on 2012-03-21, 04-25, 05-23, 06-27, 07-25, 08-29. The parent's row shifts them by one, so they land on TVDB 254653 0x02-0x07, which are 'Fantasy Jiggles Unleashed - Vol. 1..6' on exactly those six dates, and TMDB tv/45950 S0E2-7 likewise. S7 'Before Harem Special' is 0x01 and S8, S9 are other items.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8660",
+    "anilist": "https://anilist.co/anime/13357",
+    "tmdb": "https://www.themoviedb.org/tv/45950/season/0",
+    "tvdb": "https://thetvdb.com/series/high-school-dd/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "ac1ad6549ae9da812b6105b28288347ef6401a8e65d98ab55ec4ed7fcb26b743"
+  }
+}

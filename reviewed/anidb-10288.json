@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:10288",
+  "title": "Bokura wa Minna Kawai-sou",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "178fd04eddd1a765d700851b29de36611c92eabe4f60056eae29fd706b140bba"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All 15 AniDB specials match TVDB S0E1-E15 by number and title (site page, Japanese): S1 \"First Time / Hajimete no\" = 初めての, S2-S5 \"Shiro-san to Ore 1-4\" = シロさんと俺 1-4, S6 河合荘女子トーク, S8 河合荘の住子さん, S9 小悪魔麻弓さん, S10 小悪魔さやかちゃん, S11 俺の友人がMでした, S12-S14 シロさんと俺 6-8 (S7 = 5), S15 その頃ふたりは. The failing item is S1: AniDB 2014-12-26 vs TVDB 2015-01-30 for the identical title.",
+      "evidence": [
+        "https://thetvdb.com/series/the-kawai-complex-guide-to-manors-and-hostel-behavior/seasons/official/0",
+        "https://anidb.net/anime/10288",
+        "https://thetvdb.com/dereferrer/series/278196"
+      ]
+    }
+  }
+}

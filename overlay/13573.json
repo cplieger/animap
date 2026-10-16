@@ -1,0 +1,117 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13573",
+    "tvdb": "https://thetvdb.com/series/working-buddies/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            13,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hataraku Onii-san!",
+  "justification": "AniDB 13 Hataraku Onii-san! no Tokuban! (the special programme, 2018-03-30) is TVDB 340518's only special, season 0 episode 1 Special1 (2018-03-30); season 1 ends at 12. TMDB 76174 lists it as season 1 episode 13, where the TMDB default lands.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b83303188e3630523c09e69ca151ad67ec0d696eff5aeffafebecdcae2882d7e",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-03-30"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2018-01-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2018-01-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2018-01-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2018-01-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2018-02-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2018-02-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2018-02-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2018-02-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2018-03-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2018-03-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2018-03-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2018-03-23"
+        ]
+      ],
+      "series": 340518
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "d25414818ac9309239e629ce0c7d236dd168d2e638ea0219f61b419e37b60dda"
+  },
+  "anidb_id": 13573
+}

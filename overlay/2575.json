@@ -1,0 +1,68 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2575",
+    "tvdb": "https://thetvdb.com/series/nurse-witch-komugi/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nurse Witch Komugi-chan Magikarte Z",
+  "justification": "AniDB specials S1-S3 (untitled, undated) have no proven TVDB episode: the row sent S1 to season 2 episode 3, which TVDB 79109 never listed, and TVDB season 0 holds only node 258's Episode 2.5 and An Anime is Made, which nothing ties to them; without the row they defaulted onto those two.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a66c5f774773e18e40a729c348c6837205b600a89ae724c0dd88b5a6601272db",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2003-06-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2005-09-22"
+        ],
+        [
+          2,
+          1,
+          6,
+          "2004-09-10"
+        ],
+        [
+          2,
+          2,
+          7,
+          "2005-09-22"
+        ]
+      ],
+      "series": 79109
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "116496bbe033fc04c9fbc49e5698175b940b9910c2b896fb33d44f6336f0d041"
+  },
+  "anidb_id": 2575
+}

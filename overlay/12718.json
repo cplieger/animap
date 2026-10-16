@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12718",
-    "tmdb": "https://www.themoviedb.org/tv/69140/season/2",
+    "tmdb": "https://www.themoviedb.org/tv/69140/seasons",
     "tvdb": "https://thetvdb.com/series/sengoku-wildlife-caricatures/seasons/official/2"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdboffset": ""
   },
   "title": "Sengoku Choujuu Giga: Otsu",
-  "justification": "AniDB 1-13 (2017-01-15 to 2017-04-09) = TVDB 2x01-2x13 and TMDB S2E1-13, same dates and titles. Old 'S1 + 13' pointed at 1x14-1x26, which do not exist (TVDB S1 has 13). AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 317829 and TMDB show 69140. AniDB episode 1-13 (\"鶴の汁\" (Crane Soup) to \"本能寺の変\" (The Honnoji Incident)) are TVDB S2E1 \"Crane Soup\" to TVDB S2E13 \"The Honnoji Incident\" and TMDB S2E1 \"鶴の汁\" (Crane Soup) to TMDB S2E13 \"本能寺の変\" (The Honnoji Incident).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

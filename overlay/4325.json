@@ -1,0 +1,186 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4325",
+    "tvdb": "https://thetvdb.com/series/true-tears/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 2,
+        "end": 8,
+        "offset": -1,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13,
+            8
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "True Tears",
+  "justification": "AniDB special S1 Preview has no TVDB episode, but the range row covering 1-8 at offset -1 computed season 0 episode 0 for it. The range now starts at S2, so the DVD specials S2-S8 still land on TVDB 81144 season 0 episodes 1-7 Special 1-7 of the same dates (2008-03-25 to 2008-09-26), and S1 is unmapped explicitly.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6d86af4a409dba751bfbb4ef6b02acf0d7e538b913915e4de9e77c9ebc5362fb",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2008-03-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-04-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2008-05-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2008-06-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2008-07-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2008-08-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2008-09-26"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2010-03-26"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2010-03-26"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2008-01-06"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2008-01-13"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2008-01-20"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2008-01-27"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2008-02-03"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2008-02-10"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2008-02-17"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2008-02-24"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2008-03-02"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2008-03-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2008-03-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2008-03-23"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2008-03-30"
+        ]
+      ],
+      "series": 81144
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "43c94951f880bc5ab2f7f4a7b6d7589597c59d1965e275d1ee1429dcde0811a4"
+  },
+  "anidb_id": 4325
+}

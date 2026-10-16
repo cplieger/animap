@@ -20,7 +20,7 @@
     ]
   },
   "title": "Space Pirate Captain Harlock",
-  "justification": "tvdbid 100151 to 80886 (TVDB 100151 is gone from TVDB's official order). AniDB 1 (2013-09-07) = TVDB 0x05 (2013-09-07), was TVDB 100151 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80886. The node moves from TVDB 100151 to series 80886. AniDB episode 1 \"Complete Movie\" (the anime \"SPACE PIRATE CAPTAIN HARLOCK\") is TVDB S0E5 \"Harlock: Space Pirate\". TVDB series 100151 no longer exists; series 80886 is the same show.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

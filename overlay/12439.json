@@ -1,9 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12439",
+    "tmdb": "https://www.themoviedb.org/tv/64196/seasons",
+    "tmdb_movie_477447": "https://www.themoviedb.org/movie/477447",
+    "tmdb_movie_477449": "https://www.themoviedb.org/movie/477449",
     "tvdb": "https://thetvdb.com/series/overlord/seasons/official/0"
   },
   "set": {
+    "tmdbid": "477447,477449",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -38,11 +42,43 @@
             11
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            13
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Gekijouban Soushuuhen Overlord",
-  "justification": "AniDB special S1-S2 (2017-09-13) have no TVDB episode, was 0x12-0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 294002 and TMDB show 64196. The films are TMDB movies 477447 (Overlord: The Undead King (2017)), 477449 (Overlord: The Dark Hero (2017)). AniDB episode 1-2 (\"不死者の王\" (The Undead King) to \"漆黒の英雄\" (The Dark Warrior)) have no TMDB episode (their defaults are other items); AniDB S1-S2 (\"Ple Ple Pleiades 1\" to \"Ple Ple Pleiades 2\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S3-S4 (\"Theater Manners 1\" to \"Theater Manners 2\") are TMDB S0E12 \"前編用劇場マナー映像\" (The Undead King - Theater Manners) to TMDB S0E13 \"後編用劇場マナー映像\" (The Dark Hero - Theater Manners).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -426,8 +462,8 @@
       ],
       "series": 294002
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "75d827ab8e789ae9c2dff1424437d3bfa3414d41a9694e2957273c6876a52e2b"
   },
   "anilist_ids": [

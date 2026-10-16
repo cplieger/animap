@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:4510",
+  "title": "Negima!? Haru Special!?",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "6c6aede18bf6d99442e4a20f6545d3e94ff525bcf476043324463803a6d080ec"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 4510 is the single OVA \"Negima!? Haru Special!?\" (Haru = Spring) and the node places it on S0E1 \"Spring Special\" of the Negima!? series. The sibling \"Negima!? Natsu Special!?\" (AniDB 4812) goes to S0E2 \"Summer Special\", which fits. AniDB's date (2006-10-25) is the DVD date; TVDB dates the special 2006-08-17. The suggested target S1E4 \"Teacher... It's my First Time...\" is a regular episode with a different title.",
+      "evidence": [
+        "https://anidb.net/anime/4510",
+        "https://thetvdb.com/dereferrer/series/305488"
+      ]
+    }
+  }
+}

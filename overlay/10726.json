@@ -1,0 +1,161 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10726",
+    "tmdb": "https://www.themoviedb.org/movie/311056",
+    "tmdb_future": "https://www.themoviedb.org/movie/333622",
+    "tvdb": "https://thetvdb.com/movies/beyond-the-boundary-ill-be-here-past"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "311056,333622",
+    "imdbid": "tt4531412,tt4539114",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            14
+          ],
+          [
+            2,
+            15
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            16
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Kyoukai no Kanata: I'll Be Here",
+  "justification": "AniDB 10726 is the two I'll Be Here films, Past (2015-03-14) and Future (2015-04-25), which the node already places on TVDB 272697 0x14 and 0x15. TMDB 61695 season 0 has no film: its E1 and E2, where the node put them, are Idol Trial #1 and #2. TMDB lists the films as movies 311056 (Past, 2015-03-15, 82 min) and 333622 (Future, 2015-04-25, 90 min), which TheTVDB's movie entries link with IMDb tt4531412 and tt4539114. Its special S1 Bonds of Promise (Yakusoku no Kizuna, the music video) is TVDB 0x16 Bonds of Promise (2015-03-14); the stage greetings S2 and S3 have no TVDB episode. With no row they defaulted to 0x1-0x3, which are Idol Trial #1-#3 (AniDB 9518 S2-S4).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "58eacf6af2532719e449df120c3bb1bd43b4e8f8682e22f7b1ac06045f52d153",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2013-11-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-12-02"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-12-16"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-07-02"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-07-02"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-07-02"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-01-08"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2014-02-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2014-03-05"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2014-04-02"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-05-14"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2014-06-04"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2014-07-02"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2015-03-14"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2015-04-25"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2015-03-14"
+        ]
+      ],
+      "series": 272697
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "021860d7a1532d7a71b8b5602c10279c5ad746c871b3bf2140b1cc9a12ed55cc"
+  },
+  "anidb_id": 10726
+}

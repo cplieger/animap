@@ -640,20 +640,122 @@ func TestCollisionUncountedOnAnUntouchedSeries(t *testing.T) {
 	}
 }
 
-// A bridge makes its parent's series touched, and there the check places
-// the specials the mirror lists, so a sibling claiming the bridged
+// linkOn is a compiled link of AniList 9 whose AniDB claims land on TVDB
+// series 10.
+func linkOn(claims ...overlay.Claim) []overlay.Compiled {
+	return []overlay.Compiled{{AniList: 9, Series: 10, Claims: claims}}
+}
+
+func special(parent, k, season, ep int) overlay.Claim {
+	return overlay.Claim{Parent: parent, Number: k, Target: [2]int{season, ep}}
+}
+
+func regular(parent, k, season, ep int) overlay.Claim {
+	return overlay.Claim{Parent: parent, AniDBSeason: 1, Number: k, Target: [2]int{season, ep}}
+}
+
+// A link makes its parent's series touched, and there the check places
+// the specials the mirror lists, so a sibling claiming the linked
 // special's episode blocks; on an untouched series specials are not placed.
-func TestCollisionBridgeParentSpecials(t *testing.T) {
+func TestCollisionLinkOntoAnotherNodesTarget(t *testing.T) {
 	nodes := map[int]*animelists.Node{
 		1: node(1, "tvdbid=10 defaulttvdbseason=1"),
 		2: node(2, "tvdbid=10 defaulttvdbseason=0"),
 	}
 	f := facts(map[int]anidb.Anime{1: fin(3, 1), 2: fin(1)}, nil)
-	b := overlay.Bridge{AniListID: 9, ParentAniDBID: 1, Specials: []int{1}}
 	without := Collisions(nodes, nil, nil, f)
-	with := Collisions(nodes, nil, []overlay.Bridge{b}, f)
+	with := Collisions(nodes, nil, linkOn(special(1, 1, 0, 1)), f)
 	if len(without.Blocking)+len(without.Upstream) != 0 || len(with.Blocking) != 1 || with.Blocking[0].Target != "TVDB 0x1" || len(with.Touched) != 1 {
-		t.Errorf("without the bridge %+v, with it %+v; want TVDB 0x1 blocking only with it", without, with)
+		t.Errorf("without the link %+v, with it %+v; want TVDB 0x1 blocking only with it", without, with)
+	}
+}
+
+// A linked regular episode's target is a new claim, so an upstream
+// collision on it blocks once a link takes that episode, and only then.
+func TestCollisionLinkParentRegularEpisodes(t *testing.T) {
+	nodes := map[int]*animelists.Node{
+		1: node(1, "tvdbid=10 defaulttvdbseason=1"),
+		2: node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=2"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(3), 2: fin(2)}, nil)
+	without := Collisions(nodes, nil, nil, f)
+	if len(without.Blocking) != 0 || len(without.Upstream) != 1 || without.Upstream[0].Target != "TVDB 1x3" {
+		t.Fatalf("without a link: Blocking %+v, Upstream %+v; want TVDB 1x3 upstream only", without.Blocking, without.Upstream)
+	}
+	if on3 := Collisions(nodes, nil, linkOn(regular(1, 3, 1, 3)), f); len(on3.Blocking) != 1 || on3.Blocking[0].Target != "TVDB 1x3" {
+		t.Errorf("a link on ep3: Blocking %+v, want TVDB 1x3", on3.Blocking)
+	}
+	if on1 := Collisions(nodes, nil, linkOn(regular(1, 1, 1, 1)), f); len(on1.Blocking) != 0 || len(on1.Touched) != 1 {
+		t.Errorf("a link on ep1: Blocking %+v, Touched %v; want none blocking and the series touched", on1.Blocking, on1.Touched)
+	}
+}
+
+// On an absolute-numbered parent the parent entry's captured order places
+// the linked episode, which is where Compile resolved it: a sibling on that
+// TVDB episode collides upstream, and blocks once a link takes it.
+func TestCollisionLinkOnAnAbsoluteParent(t *testing.T) {
+	nodes := map[int]*animelists.Node{
+		1: node(1, "tvdbid=10 defaulttvdbseason=a"),
+		2: node(2, "tvdbid=10 defaulttvdbseason=2"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(3), 2: fin(2)}, nil)
+	tv := []skyhook.Episode{{Season: 2, Number: 1, Absolute: 3}, {Season: 2, Number: 2, Absolute: 4}}
+	e := entry(1, overlay.Set{DefaultTVDBSeason: new("a")})
+	e.Captured.TVDB = &overlay.CapturedTVDB{Series: 10, Episodes: tv}
+	without := Collisions(nodes, []overlay.Entry{e}, nil, f)
+	if len(without.Blocking) != 0 || len(without.Upstream) != 1 || without.Upstream[0].Target != "TVDB 2x1" {
+		t.Fatalf("without the link: Blocking %+v, Upstream %+v; want TVDB 2x1 upstream only", without.Blocking, without.Upstream)
+	}
+	with := Collisions(nodes, []overlay.Entry{e}, linkOn(regular(1, 3, 2, 1)), f)
+	if len(with.Blocking) != 1 || with.Blocking[0].Target != "TVDB 2x1" {
+		t.Errorf("with the link: Blocking %+v; want TVDB 2x1", with.Blocking)
+	}
+}
+
+// Two valid captures of one series can disagree on an absolute number; a
+// linked episode is claimed where Compile placed it through its parent's
+// capture, not where a later capture on the series puts that number.
+func TestCollisionLinkClaimsTheTargetCompilePublished(t *testing.T) {
+	nodes := map[int]*animelists.Node{
+		1: node(1, "tvdbid=10 defaulttvdbseason=a"),
+		2: node(2, "tvdbid=10 defaulttvdbseason=2"),
+		3: node(3, "tvdbid=10 defaulttvdbseason=a episodeoffset=10"),
+	}
+	f := facts(map[int]anidb.Anime{1: fin(3), 2: fin(1), 3: fin(1)}, nil)
+	capture := func(id int, set overlay.Set, eps ...skyhook.Episode) overlay.Entry {
+		e := entry(id, set)
+		e.Captured.TVDB = &overlay.CapturedTVDB{Series: 10, Episodes: eps, SHA256: skyhook.Hash(eps)}
+		return e
+	}
+	entries := []overlay.Entry{
+		capture(1, overlay.Set{DefaultTVDBSeason: new("a")}, skyhook.Episode{Season: 1, Number: 1, Absolute: 1}, skyhook.Episode{Season: 1, Number: 2, Absolute: 2}, skyhook.Episode{Season: 2, Number: 1, Absolute: 3}),
+		capture(3, overlay.Set{TMDBTV: new("50")}, skyhook.Episode{Season: 1, Number: 1, Absolute: 1}, skyhook.Episode{Season: 1, Number: 2, Absolute: 2}, skyhook.Episode{Season: 3, Number: 1, Absolute: 3}),
+	}
+	byID := map[int]*overlay.Entry{1: &entries[0], 3: &entries[1]}
+	link := overlay.Link{AniListID: 9, Parts: []overlay.Part{{AniDBID: 1, Episodes: []int{3}}}}
+	compiled, err := link.Compile(overlay.Apply(nodes, entries), byID, f)
+	if err != nil || len(compiled.Claims) != 1 || compiled.Claims[0].Target != [2]int{2, 1} {
+		t.Fatalf("Compile = %+v, %v; want AniDB 1 ep3 on TVDB 2x1", compiled, err)
+	}
+	rep := Collisions(nodes, entries, []overlay.Compiled{compiled}, f)
+	if len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TVDB 2x1" || !slices.Equal(rep.Blocking[0].Nodes, []int{1, 2}) {
+		t.Errorf("Blocking = %+v, want linked parent 1 and node 2 colliding on TVDB 2x1", rep.Blocking)
+	}
+}
+
+// Two links on two specials of one parent that its rows put on one TVDB
+// episode are claims of one node, which the guard cannot tell apart;
+// cmd/animap's proveLinks refuses them.
+func TestCollisionTwoLinksOfOneParentOnOneEpisode(t *testing.T) {
+	nodes := map[int]*animelists.Node{1: node(1, "tvdbid=10 defaulttvdbseason=1")}
+	nodes[1].Rows = []animelists.Row{{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-4;2-4;"}}
+	links := []overlay.Compiled{
+		{AniList: 8, Series: 10, Claims: []overlay.Claim{special(1, 1, 0, 4)}},
+		{AniList: 9, Series: 10, Claims: []overlay.Claim{special(1, 2, 0, 4)}},
+	}
+	rep := Collisions(nodes, nil, links, facts(map[int]anidb.Anime{1: fin(3, 1, 2)}, nil))
+	if len(rep.Blocking)+len(rep.Upstream) != 0 {
+		t.Errorf("Blocking %+v, Upstream %+v; want none: one node's claims never collide", rep.Blocking, rep.Upstream)
 	}
 }
 
@@ -662,7 +764,7 @@ func TestCollisionSiblingSpecialsComeFromTheMirror(t *testing.T) {
 		1: node(1, "tvdbid=10 defaulttvdbseason=1"),
 		2: node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=3"),
 	}
-	b := []overlay.Bridge{{AniListID: 9, ParentAniDBID: 1, Specials: []int{1}}}
+	b := linkOn(special(1, 1, 0, 1))
 	unlisted := Collisions(nodes, nil, b, facts(map[int]anidb.Anime{1: fin(3, 1)}, map[int]int{2: 2}))
 	if len(unlisted.Unresolved) != 1 || unlisted.Unresolved[0].AniDB != 2 {
 		t.Fatalf("AniDB 2 not in the mirror: Unresolved = %+v, want AniDB 2", unlisted.Unresolved)
@@ -671,7 +773,7 @@ func TestCollisionSiblingSpecialsComeFromTheMirror(t *testing.T) {
 		t.Errorf("AniDB 2 listed with no specials: Unresolved = %+v, Blocking = %+v; want neither", got.Unresolved, got.Blocking)
 	}
 	if got := Collisions(nodes, nil, b, facts(map[int]anidb.Anime{1: fin(3, 1), 2: fin(2, 1)}, nil)); len(got.Blocking) != 1 || got.Blocking[0].Target != "TVDB 0x1" {
-		t.Errorf("AniDB 2 listed with S1 beside the bridged S1: Blocking = %+v, want TVDB 0x1", got.Blocking)
+		t.Errorf("AniDB 2 listed with S1 beside the linked S1: Blocking = %+v, want TVDB 0x1", got.Blocking)
 	}
 }
 

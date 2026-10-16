@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:17617",
+  "title": "Sousou no Frieren",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S18": "19c143caa8649f181e19bb898c07e9865d3e34e692b120acb8feb48617660808"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S18 \"Magic Episode 17: Magic to Seal Special Techniques / Marumaru no Mahou Dai 17 Kai: Tokuiwaza o Fuujiru Mahou\" (2025-09-03) = S0E21 \"Mini Anime \"Magic of ??\" / Vol. 17: Magic to Seal Special Techniques\" (2025-09-05).",
+      "evidence": [
+        "https://anidb.net/anime/17617",
+        "https://thetvdb.com/dereferrer/series/424536"
+      ]
+    }
+  }
+}

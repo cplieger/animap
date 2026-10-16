@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10110",
+    "tmdb": "https://www.themoviedb.org/tv/75992/season/0",
     "tvdb": "https://thetvdb.com/series/engaged-to-the-unidentified/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,20 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Mikakunin de Shinkoukei",
-  "justification": "AniDB special S2 (2013-12-17) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S2 (2013-12-17) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S2 (2013-12-17) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB 10110's special S2 (the short web version of the Zentaiteki ni Sensation music video, 2013-12-17) is on neither TVDB season 0 (the PR 629 row sends it to no episode) nor TMDB 75992 season 0, whose E3 Zentai Teki ni Sensation - Music Video (2016-02-17) is the long version S3. Anime-Lists names no TMDB row, so S2 took the default S0E2, Duck Meat Tastes Greenish to Me., which is AniDB 10572's episode 1 (tmdboffset 1). The row sends S2 to no TMDB episode. S1 keeps its default, 0x1 and S0E1.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -120,8 +130,8 @@
       ],
       "series": 275633
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "47b16f98f530bfc04f5fb807d4e0773eb4d9f5d08169d75433a8bb173e6771da"
   },
   "anilist_ids": [

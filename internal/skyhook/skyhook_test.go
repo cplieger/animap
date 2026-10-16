@@ -68,37 +68,33 @@ func TestHashIsOrderFreeAndSensitive(t *testing.T) {
 	}
 }
 
-func TestTitleHashes(t *testing.T) {
-	digests := func(t *testing.T, s1e1, s1e2 string) map[int]string {
-		t.Helper()
-		s, err := parseShow([]byte(`{"slug":"x","episodes":[` +
-			`{"seasonNumber":1,"episodeNumber":1,"title":"` + s1e1 + `"},` +
-			`{"seasonNumber":1,"episodeNumber":2,"title":"` + s1e2 + `"},` +
-			`{"seasonNumber":2,"episodeNumber":1,"title":"Third"}]}`))
-		if err != nil {
-			t.Fatal(err)
-		}
-		return s.TitleHashes()
-	}
-	base := digests(t, "First", "Second")
-	if len(base) != 2 || len(base[1]) != 64 || len(base[2]) != 64 {
-		t.Fatalf("TitleHashes = %v, want a 64-hex digest for each of seasons 1 and 2", base)
-	}
-	if again := digests(t, "First", "Second"); again[1] != base[1] {
-		t.Errorf("TitleHashes is not deterministic: %s then %s", base[1], again[1])
+func TestAtAbsolute(t *testing.T) {
+	eps := []Episode{
+		{Season: 0, Number: 1, Absolute: 21},
+		{Season: 1, Number: 20, Absolute: 20},
+		{Season: 2, Number: 1, Absolute: 21},
+		{Season: 2, Number: 2, Absolute: 22},
+		{Season: 3, Number: 1, Absolute: 22},
 	}
 	for _, tc := range []struct {
-		name       string
-		s1e1, s1e2 string
+		name string
+		n    int
+		at   [2]int
+		ok   bool
 	}{
-		{"one title changed", "First!", "Second"},
-		{"two episodes trading titles", "Second", "First"},
+		{"a regular episode, beside a special with the same number", 21, [2]int{2, 1}, true},
+		{"the end of season 1", 20, [2]int{1, 20}, true},
+		{"two episodes with one number", 22, [2]int{}, false},
+		{"no episode", 23, [2]int{}, false},
+		{"zero, which TVDB uses for none", 0, [2]int{}, false},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			got := digests(t, tc.s1e1, tc.s1e2)
-			if got[1] == base[1] || got[2] != base[2] {
-				t.Errorf("season 1 moved=%t, season 2 moved=%t; want only season 1 to move", got[1] != base[1], got[2] != base[2])
+			if at, ok := AtAbsolute(eps, tc.n); at != tc.at || ok != tc.ok {
+				t.Errorf("AtAbsolute(%d) = %v, %t; want %v, %t", tc.n, at, ok, tc.at, tc.ok)
 			}
 		})
+	}
+	if _, ok := AtAbsolute([]Episode{{Season: 1, Number: 1}}, 0); ok {
+		t.Error("AtAbsolute(0) matched an episode TVDB numbers 0, which means none")
 	}
 }

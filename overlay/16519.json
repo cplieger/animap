@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16519",
-    "tvdb": "https://thetvdb.com/series/blue-lock/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/blue-lock/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/131041/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Blue Lock",
-  "justification": "AniDB special S1 (2022-10-09) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 408629 and TMDB show 131041. AniDB S1 \"あでぃしょなる・たいむ! #1 潔世一の夢\" (Additional Time! #1: Isagi Yoichi`s Dream) has no TVDB episode (its default TVDB S0E1 is \"EPISODE NAGI\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

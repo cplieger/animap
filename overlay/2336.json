@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/2336",
+    "tmdb": "https://www.themoviedb.org/tv/12971/season/0",
     "tvdb": "https://thetvdb.com/series/dragon-ball-z/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "15"
+    "episodeoffset": "15",
+    "tmdboffset": ""
   },
   "title": "Dragon Ball Z Special: Tatta Hitori no Saishuu Kessen - Freezer ni Idonda Z Senshi Son Gokuu no Chichi",
-  "justification": "AniDB 1 (1990-10-17) = TVDB 0x16 (1990-10-17), was 0x04, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (1990-10-17) = TVDB 0x16 (1990-10-17), was 0x04, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. On TMDB the special is 12971 season 0 episode 1 \"Bardock - The Father of Goku\" (1990-10-17); tmdboffset 3 sent it to episode 4 \"The History of Trunks\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -235,8 +237,8 @@
       ],
       "series": 81472
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6e704bc8437ac7c7e96413f45744669aad0f48c7bc86f87a27fdf46917f26e22"
   },
   "anilist_ids": [

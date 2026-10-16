@@ -1,0 +1,188 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/201",
+    "tmdb": "https://www.themoviedb.org/tv/42722/season/0",
+    "tvdb": "https://thetvdb.com/series/mahoromatic-automatic-maiden/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 1,
+        "end": 2,
+        "offset": 1,
+        "episodes": [
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mahoromatic: Automatic Maiden - Motto Utsukushii Mono",
+  "justification": "TMDB 42722 season 0 holds E2 Year End Special (Season 2) (2002-12-19) and E3 Summer Special (2003-08-15), which are AniDB 201's specials S1 Year End Special / Saimatsu Special (2002-12-21, TVDB 0x2 2002-12-21) and S2 Mahoromatic Summer Special / Natsu no TV Special (2003-08-15, TVDB 0x3). The two live concert specials S3 and S4 (2003-05-09) are on neither TVDB (row ;3-0;4-0;) nor TMDB. Anime-Lists names only tvdbseason in the row, so TMDB took the defaults S0E1 to S0E4; the row sends the specials to their TMDB episodes. The TVDB row is unchanged.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e8413a9d5bbed0278dd07d5b31d716faf2e7c630d450dd106a5fbc5c1e1c0144",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2001-12-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2002-12-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2003-08-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2009-10-18"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-10-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2003-09-26"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2002-09-27"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2002-10-04"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2002-10-11"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2002-10-18"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2002-10-25"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2002-11-01"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2002-11-08"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2002-11-15"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2002-11-22"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2002-11-29"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2002-12-06"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2002-12-13"
+        ],
+        [
+          2,
+          13,
+          25,
+          "2003-01-10"
+        ],
+        [
+          2,
+          14,
+          26,
+          "2003-01-17"
+        ]
+      ],
+      "series": 79035
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9d0e23d4e884c7097a6f8dc5697d7142e2f7140c9e98823a4536da6976212ca1"
+  },
+  "anilist_ids": [
+    277
+  ],
+  "anidb_id": 201
+}

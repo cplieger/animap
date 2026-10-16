@@ -1,9 +1,12 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11367",
+    "tmdb": "https://www.themoviedb.org/tv/69355/seasons",
     "tvdb": "https://thetvdb.com/series/young-kindaichis-casebook/seasons/official/6"
   },
   "set": {
+    "tmdbtv": "69355",
+    "tmdbseason": "2",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -24,7 +27,7 @@
     ]
   },
   "title": "Kindaichi Shounen no Jikenbo Returns (2015)",
-  "justification": "AniDB 1-22 (2015-10-03 to 2016-03-26) = TVDB 6x01-6x22 (2015-10-03 to 2016-03-26), was 3x01-3x22. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79460 and TMDB show 69355. Its episodes are on TMDB show 69355. AniDB episode 1-22 (\"金田一少年の決死行 File.1\" (The Death March of Young Kindaichi, File 1) to \"狐火流し殺人事件 File.4\" (The Foxfire-Floating Murders, File 4)) are TVDB S6E1 \"The Death March of Young Kindaichi File 1\" to TVDB S6E22 \"Kitsunebi Drifting Murder Case File 4\" and TMDB S2E1 \"金田一少年の決死行 File.1\" (The Death March of Young Kindaichi, File 1) to TMDB S2E22 \"狐火流し殺人事件 File.４\" (The Foxfire-Floating Murders, File 4); AniDB S1 \"明智警部の事件簿\" (The File of Inspector Akechi) is TMDB S0E1 \"明智警部の事件簿\" (The File of Inspector Akechi).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -482,8 +485,8 @@
       ],
       "series": 79460
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "15bef494407a0056654815a1d1c29dd984aaeb6e7815ac83be73760682951faa"
   },
   "anilist_ids": [

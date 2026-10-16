@@ -1,14 +1,15 @@
 {
-  "anidb_id": 13840,
-  "title": "Masamune-kun no Revenge (2018)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13840",
+    "tmdb": "https://www.themoviedb.org/tv/69295/seasons",
+    "tvdb": "https://thetvdb.com/series/masamune-kuns-revenge/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2018-07-27) = TVDB 0x01 (2018-07-27), by title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/13840",
-    "tvdb": "https://thetvdb.com/series/masamune-kuns-revenge/seasons/official/0"
-  },
+  "title": "Masamune-kun no Revenge (2018)",
+  "justification": "Checked by episode title against TVDB series 318860 and TMDB show 69295. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"うちのママにかぎって / 綱手島, ふたたび. / 12時を過ぎたシンデレラ\" (Of Course, My Mom... / Tsunade Island, Once More. / Cinderella After Twelve) is TVDB S0E1 \"Only For Our Mama / Tsunade Island, Whenever I Received It / Becoming Cinderella at 12 o'clock\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "b8f08cc572ec47efe7b96a761b78f26f9512aa821632201d3abac65a8d4eaed6",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     101213
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 13840
 }

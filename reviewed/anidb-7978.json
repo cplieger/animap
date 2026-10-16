@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:7978",
+  "title": "Onii-chan no Koto Nanka Zenzen Suki ja Naindakara ne!!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "b4e926f14f550848be52750f7baae9570049b126fe6b9333334e5300d9ebb903"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Little Sister's Diary of Brother's Perverted Habits / Imouto Yori Ai o Komete Ani no Sei Tai Kansatsuki\" = S0E1 \"From Little Sister With Love, Big Brother's Chronicle of Turn-Ons\", the only special on both sides; 2011-07-13 vs 2011-07-06 is a date difference.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/216611",
+        "https://anidb.net/anime/7978"
+      ]
+    }
+  }
+}

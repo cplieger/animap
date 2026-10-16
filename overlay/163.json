@@ -1,0 +1,125 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/163",
+    "tvdb": "https://thetvdb.com/series/fushigi-yuugi/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Fushigi Yuugi (1996)",
+  "justification": "AniDB special S4 \"Fushigi Yuugi Special: Nakago Shikkari Shinasai!\" (1996-07-25) had no row and fell on TVDB season 0 episode 4 \"OVA2 Ep 1: Enchantment's Quickening\", the first episode of the second OVA (AniDB 164). TVDB season 0 holds only the three OVA series, so S4 is unmapped like the three bus-trip specials. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c94a09976b7db5a05c25249ceb5f2a664c62e0b956146e50c97958b25391b1fa",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          53,
+          "1996-10-25"
+        ],
+        [
+          0,
+          2,
+          54,
+          "1996-10-25"
+        ],
+        [
+          0,
+          3,
+          55,
+          "1996-10-25"
+        ],
+        [
+          0,
+          4,
+          56,
+          "1997-05-25"
+        ],
+        [
+          0,
+          5,
+          57,
+          "1997-05-25"
+        ],
+        [
+          0,
+          6,
+          58,
+          "1997-05-25"
+        ],
+        [
+          0,
+          7,
+          59,
+          "1998-08-25"
+        ],
+        [
+          0,
+          8,
+          60,
+          "1998-08-25"
+        ],
+        [
+          0,
+          9,
+          61,
+          "1998-08-25"
+        ],
+        [
+          0,
+          10,
+          62,
+          "2001-12-21"
+        ],
+        [
+          0,
+          11,
+          63,
+          "2002-02-25"
+        ],
+        [
+          0,
+          12,
+          64,
+          "2002-04-25"
+        ],
+        [
+          0,
+          13,
+          65,
+          "2002-06-25"
+        ]
+      ],
+      "series": 71444
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "bfd4282a99838d4eae188bc8cb7223d7b12f718cd3130eb6cd020c3595b15ba2"
+  },
+  "anidb_id": 163
+}

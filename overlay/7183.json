@@ -1,0 +1,80 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7183",
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-00/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kidou Senshi Gundam Double O Special Edition I: Celestial Being",
+  "justification": "Special Edition I: Celestial Being (2009-10-27) is TVDB 80675 season 0 episode 1 of that title and date; the row pointed at episode 4, the 2010 film (node 7408).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fa709ca41af222161c89be95ca9e319dc36716bfd4986aa2bdf164b5a6c77743",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-10-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-12-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2010-02-23"
+        ],
+        [
+          0,
+          4,
+          51,
+          "2010-09-18"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2008-07-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2009-08-25"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2008-10-02"
+        ]
+      ],
+      "series": 80675
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "5cdc41626b3998f1c25e114220a1d5d22f59d8b901afa1d8444b60d83002c57f"
+  },
+  "anidb_id": 7183
+}

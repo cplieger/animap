@@ -1,0 +1,93 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/111",
+    "tvdb": "https://thetvdb.com/series/yukikaze/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Sentou Yousei Yukikaze",
+  "justification": "AniDB special S1 \"Aircrafts in Yukikaze from the Pilot's Eyes\" (『戦闘妖精雪風』の航空機表現) is TVDB season 0 episode 3 \"Aircrafts in Yukikaze from the Pilot's Eyes\" (「戦闘妖精雪風」の航空機表現, 28 minutes); by default it fell on episode 1, the Maeve-chan OVA (AniDB 2857). S2 \"FAF Aviation Military History\" and S3 \"CMs\" fell on episodes 2 \"Battle Fairy Yukikaze: Experimental Movie\" and 3; their titles match nothing on TVDB, so they are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f5ce36614bd22861216345995b8ed40b004714288fff501de960091dedd9727c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2005-05-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-01-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2008-01-25"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2002-08-25"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2003-02-25"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2003-08-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2004-04-23"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2005-08-26"
+        ]
+      ],
+      "series": 74924
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "2ced740726ce47bb86e30c1c49ebcb527d5f1571f8a000abd1cb5a5a0fb2b205"
+  },
+  "anidb_id": 111
+}

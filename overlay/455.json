@@ -1,6 +1,9 @@
 {
-  "anidb_id": 455,
-  "title": "Silent Mobius",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/455",
+    "tmdb": "https://www.themoviedb.org/tv/46338/seasons",
+    "tvdb": "https://thetvdb.com/series/silent-mobius/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
@@ -14,11 +17,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 2334. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/455",
-    "tvdb": "https://thetvdb.com/series/silent-mobius/seasons/official/0"
-  },
+  "title": "Silent Mobius",
+  "justification": "Checked by episode title against TVDB series 72493 and TMDB show 46338. AniDB S1 \"Karaoke\" has no TVDB episode (its default TVDB S0E1 is \"Silent Möbius\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "f26af465608cc565d37256efcaacf7367627f24ba03f32a1f35b053e17843244",
@@ -205,5 +206,5 @@
   "anilist_ids": [
     1517
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 455
 }

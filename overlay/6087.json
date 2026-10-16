@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6087",
-    "tvdb": "https://thetvdb.com/series/maria-holic/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/34667/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/84591"
   },
   "set": {
     "mapping_list": [
@@ -14,11 +15,20 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Maria Holic",
-  "justification": "AniDB special S2 (2009-03-25) = TVDB 0x03 (2008-12-25), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 84591 and TMDB show 34667. AniDB S2 \"Club AT-Xインタビュー映像\" (Club AT-X Interview) is TVDB S0E3 \"Club AT-X Interview\" and has no TMDB episode (its default TMDB S0E2 is \"Run Run Riru Ran Ran Rara (Children's Day Parody PV)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -121,8 +131,8 @@
       ],
       "series": 84591
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "21a97520b872a13800b4b34114a4e58800de7e5accb4ce71a69f98d36b18bd82"
   },
   "anilist_ids": [

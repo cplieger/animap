@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8203",
-    "tvdb": "https://thetvdb.com/series/sengoku-basara-samurai-kings/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/sengoku-basara/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -11,7 +11,7 @@
         "episodes": [
           [
             1,
-            17
+            3
           ]
         ]
       },
@@ -30,13 +30,16 @@
           ],
           [
             4
+          ],
+          [
+            5
           ]
         ]
       }
     ]
   },
   "title": "Gekijouban Sengoku Basara: The Last Party",
-  "justification": "AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "The film (AniDB episode 1, 2011-06-04) is TVDB season 0 episode 3 \"The Last Party\" (2011-06-04); the row sent it to episode 17 \"Mini Sengoku Basara Two 7\", the last DVD short of the second season (AniDB 7490 S8). AniDB specials S1-S5 are untitled and undated and have no provable TVDB episode; S5 fell by default on season 0 episode 5 \"Mini Sengoku Basara 2\", which is AniDB 6284's S3. All five are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -180,8 +183,8 @@
       ],
       "series": 87881
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ad258b06168613cfa988cd2053e1ce2a4aa8caa8870de7909701344bc084ed71"
   },
   "anilist_ids": [

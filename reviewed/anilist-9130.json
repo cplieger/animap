@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:9130",
+  "title": "AniList 9130",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "4225c82acdde09f94c404d63c0049e0705a4da5e22bed710d0867ad13f278dbd",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 14-26 (part 2) of AniDB 6470 (TVDB 72775 season 8); anime-offline-database links AniDB 6470 to AniList 6171 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/9130"
+        ],
+        "anilist_id": 9130
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 16934,
+  "title": "Chuunibyou demo Koi ga Shitai!: Kirameki no... Slapstick Noel",
+  "parts": [
+    {
+      "anidb_id": 8883,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 16934 (OVA, 1 episode from 2013-06-19) is AniDB 8883's special S1, aired 2013-06-19, titled Kirameki no... Slapstick Noel. AniList's PREQUEL 14741 is AniDB 8883 in anime-offline-database. The parent's node places S1 on TVDB 0x1 Glimmering...Explosive Festival (Slapstick Noel), 2013-06-19, and TMDB 45501 S0E14 Sparkling... Slapstick Noel, 2013-06-19.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8883",
+    "anilist": "https://anilist.co/anime/16934",
+    "tmdb": "https://www.themoviedb.org/tv/45501/season/0",
+    "tvdb": "https://thetvdb.com/series/love-chunibyo-and-other-delusions/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "c23dc91f9a4a6e66bea1f7c5f9ff5efb27b8e20482f7af72f411515e33302b03"
+  }
+}

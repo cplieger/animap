@@ -1,0 +1,138 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7019",
+    "tvdb": "https://thetvdb.com/series/nodame-cantabile-2007/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nodame Cantabile: Finale",
+  "justification": "The untitled AniDB special S2 (2010-04-26) had no pair and fell on TVDB season 0 episode 2 \"Nodame and Chiaki's Summer Tales\" (2007), AniDB 4691's S2. The only TVDB episode of 2010-04-26 is episode 5 \"Sequel of Finale\", which AniDB 6779 already owns, so S2 is unmapped. S1 stays on episode 4 \"Mine and Kiyora's Reunion\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "db4b6cdb37928f4598751b35c63bdbf6603e8abcd97ffb0d7b60eb138c6930ba",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-06-08"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2007-10-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-08-10"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2010-04-07"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2010-04-26"
+        ],
+        [
+          3,
+          1,
+          35,
+          "2010-01-15"
+        ],
+        [
+          3,
+          2,
+          36,
+          "2010-01-22"
+        ],
+        [
+          3,
+          3,
+          37,
+          "2010-01-29"
+        ],
+        [
+          3,
+          4,
+          38,
+          "2010-02-05"
+        ],
+        [
+          3,
+          5,
+          39,
+          "2010-02-12"
+        ],
+        [
+          3,
+          6,
+          40,
+          "2010-02-19"
+        ],
+        [
+          3,
+          7,
+          41,
+          "2010-02-26"
+        ],
+        [
+          3,
+          8,
+          42,
+          "2010-03-05"
+        ],
+        [
+          3,
+          9,
+          43,
+          "2010-03-12"
+        ],
+        [
+          3,
+          10,
+          44,
+          "2010-03-19"
+        ],
+        [
+          3,
+          11,
+          45,
+          "2010-03-26"
+        ]
+      ],
+      "series": 80005
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "28b19f1059cae3be75fd611d95ab2f79cc94a01324a03c38bb6880026a6d6c78"
+  },
+  "anidb_id": 7019
+}

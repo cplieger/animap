@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:15135",
+  "title": "Arifureta Shokugyou de Sekai Saikyou 2nd Season",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S14": "71ded6d687713adee93af37aa0d1076efbdba2a94e2ebcc3dad0d90cb5b31e57"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S14 \"Pre-Broadcast Special / Housou Chokuzen: Sakuhin o Moriageyou Special!\" (2022-01-06) = S0E6 \"Arifureta 2nd Season - Pre-air TV Special\" (2022-01-12).",
+      "evidence": [
+        "https://anidb.net/anime/15135",
+        "https://thetvdb.com/dereferrer/series/357019"
+      ]
+    }
+  }
+}

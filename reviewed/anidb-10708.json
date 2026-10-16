@@ -1,0 +1,33 @@
+{
+  "key": "anime:anidb:10708",
+  "title": "Gundam-san",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "4f9601434fededb80654d2453a4f0797a1d8a80d1827e1d0360d091c780919a6",
+        "date-mismatch:S10": "9a41573a2a0f118dc355b4257afbd989a87ed37da560cc119be1fa969d95a9e9",
+        "date-mismatch:S11": "3399c9be52e4ef6976523c0b25f151044e72f675da30d3e392a029f5f7ccb497",
+        "date-mismatch:S12": "91187e8a936ac7b5bbdf3e18d22b786c63450deaf15d54eff9ff8da2373a5c3b",
+        "date-mismatch:S13": "f79f79a562e6c19380affddfb6190c4c2680d2fcc63d56287766df87cd1b5227",
+        "date-mismatch:S14": "1ca6aab3d485b01906efefbb5a3e6eb6b8390154a20f920a2be87562a8206885",
+        "date-mismatch:S15": "6022d126f23f66b21a432a7cc3ea11d3081b3a4fc1a0a4f5798cfede16a7ab67",
+        "date-mismatch:S2": "3b0d7eaae071f2f61fadb01921af4c3ca136df5bbb43f00745927f39ce8c1778",
+        "date-mismatch:S3": "77bafce465194d8ca6cc56cb151abc16aef568c17e69913f9ebf78916826611c",
+        "date-mismatch:S4": "ea08247d4a04964c4647e23a0e98f44dbbb36d325fb71d2c7d06973153c8a9fc",
+        "date-mismatch:S5": "e88f0f2bb2b4a69b2eb1b5cab9ea35ce4e4e8a50e9415b772f1969a53466ecb9",
+        "date-mismatch:S6": "94850ec73e29f0ea6570c4aec5b5e8eec214cc7e147bcf7a63aa7474a307e07a",
+        "date-mismatch:S7": "2d21b737da85967149750903fc84d7f92af23e55b37167904d410b9ab50d218a",
+        "date-mismatch:S8": "7ce4d7a93c0d156aa9db9eeb4b504ac528cf377463f4eec77b0f306d66fdf9aa",
+        "date-mismatch:S9": "adc86e9a96f6d7e40bc0617b444482cc2354840802d541437999e6b82c971339"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"I Like Full Exposure (1) / Marudashi ga Suki (1)\" (2014-09-17) = S0E1 \"I like it exposed\" (2016-04-20); S2 \"I Like Full Exposure (2) / Marudashi ga Suki (2)\" (2014-09-25) = S0E1 \"I like it exposed\" (2016-04-20); S3 \"I Like Full Exposure (3) / Marudashi ga Suki (3)\" (2014-10-01) = S0E1 \"I like it exposed\" (2016-04-20); S4 \"I Like Full Exposure (4) / Marudashi ga Suki (4)\" (2014-10-08) = S0E1 \"I like it exposed\" (2016-04-20); S5 \"Amuro Can`t Go Home (1) / Modorenai Amuro-san (1)\" (2014-10-15) = S0E2 \"Amuro can't go back\" (2016-04-20); S6 \"Amuro Can`t Go Home (2) / Modorenai Amuro-san (2)\" (2014-10-22) = S0E2 \"Amuro can't go back\" (2016-04-20); S7 \"Amuro Can`t Go Home (3) / Modorenai Amuro-san (3)\" (2014-10-29) = S0E2 \"Amuro can't go back\" (2016-04-20); S8 \"Amuro Can`t Go Home (4) / Modorenai Amuro-san (4)\" (2014-11-05) = S0E2 \"Amuro can't go back\" (2016-04-20); S9 \"Female Doctor Sayla`s Puberty Counseling Room / Joi Sayla no Shishunki Soudanshitsu\" (2014-11-12) = S0E4 \"Dr. Sayla's Puberty Consultation Room\" (2016-04-20); S10 \"Haro-Man`s Sorrows (1) / Haro Otoko no Aishuu (1)\" (2014-11-19) = S0E3 \"The sadness of Haro-man\" (2016-04-20); S11 \"Haro-Man`s Sorrows (2) / Haro Otoko no Aishuu (2)\" (2014-11-26) = S0E3 \"The sadness of Haro-man\" (2016-04-20); S12 \"Haro-Man`s Sorrows (3) / Haro Otoko no Aishuu (3)\" (2014-12-03) = S0E3 \"The sadness of Haro-man\" (2016-04-20); S13 \"Haro-Man`s Sorrows (4) / Haro Otoko no Aishuu (4)\" (2014-12-10) = S0E3 \"The sadness of Haro-man\" (2016-04-20); S14 \"Solomon Holiday (Part 1) / Solomon no Kyuujitsu (Zenpen)\" (2014-12-17) = S0E5 \"Solomon's Holiday (Prequel)\" (2016-04-20); S15 \"Solomon Holiday (Part 2) / Solomon no Kyuujitsu (Kouhen)\" (2014-12-24) = S0E6 \"Solomon's Holiday (Sequel)\" (2016-04-20).",
+      "evidence": [
+        "https://thetvdb.com/series/mobile-suit-gundam-san/seasons/official/0",
+        "https://anidb.net/anime/10708",
+        "https://thetvdb.com/dereferrer/series/283136"
+      ]
+    }
+  }
+}

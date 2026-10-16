@@ -10,14 +10,29 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
+            2
+          ],
+          [
             4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Kaijuu 8 Gou",
-  "justification": "AniDB special S4 (2024-08-21) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "TVDB season 0 holds \"Hoshina's Day Off\" (episode 1), the compilation film \"Mission Recon\" (2) and the four \"Narumi's Week at Work\" shorts (4-7, 2026-09). None is one of this season's specials: S1 and S2 (pre-broadcast and Tachikawa specials), S4 (interception special) and S5-S7 (the \"Scream\", \"Warcry\" and \"Never Break Down\" lyric videos), which fell on episodes 1, 2 and 5-7. All of them are unmapped; S3 falls on season 0 episode 3, which TVDB does not have.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -138,8 +153,8 @@
       ],
       "series": 423075
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "25bd124edc61ad38842c02b9de0d13c7b752eb4565e8379a6350c770cc8ba574"
   },
   "anilist_ids": [

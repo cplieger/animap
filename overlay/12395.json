@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12395",
+    "tmdb": "https://www.themoviedb.org/tv/71000/seasons",
     "tvdb": "https://thetvdb.com/series/tsugumomo/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Tsugumomo",
-  "justification": "AniDB special S1 (2017-04-02) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 321532 and TMDB show 71000. AniDB S1 \"先行上映会直後の生放送特番\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"My Tsukumogami Master / At the Public Bath / My Master / Kokuyou's Repayment / Last Fort / Erotic Deliberative Assembly\", another item) and no TMDB episode (its default TMDB S0E1 is \"OVA: My Tsukumogami Master / At the Public Bath / My Master / Kokuyou's Repayment / Last Fort / Erotic Deliberative Assembly\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +110,8 @@
       ],
       "series": 321532
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "da21de7b0a027f44edf9a7af7abe0276ea17dbf0697c83acd8d1e5c1d6fc1c53"
   },
   "anilist_ids": [

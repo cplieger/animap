@@ -16,6 +16,9 @@
             4
           ],
           [
+            5
+          ],
+          [
             6
           ]
         ]
@@ -23,7 +26,7 @@
     ]
   },
   "title": "Spy x Family (2023)",
-  "justification": "AniDB special S3-S4 (2023-12-14 to 2023-10-14) have no TVDB episode, was 0x03-0x04. AniDB special S6 (2023-12-02) has no TVDB episode, was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S3 \"Wakuwaku Park Sennyuu Tokuban\", S4 \"Little Steps Music Video\" and S6 \"Until the End Music Video\" have no TVDB episode. S5 \"Garden Music Video\" (2023-11-25) had no row and fell on TVDB season 0 episode 5 \"Ayataka Spy x Family Movie Campaign\", an advert, so it is unmapped too.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -132,8 +135,8 @@
       ],
       "series": 405920
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a5dda0c0d2f6d2fd448fe12bec8b42843b0b33ec097ca0c709636c3b4da33dcc"
   },
   "anilist_ids": [

@@ -1,0 +1,161 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3067",
+    "tmdb": "https://www.themoviedb.org/tv/42873/seasons",
+    "tvdb": "https://thetvdb.com/series/strawberry-100/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2,
+            6
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ichigo 100%",
+  "justification": "Checked by episode title against TVDB series 80759 and TMDB show 42873. AniDB S2 \"迎えにきて! / いつだって味方だから\" (Please Come and Get Me / Always on Your Side) is TMDB S0E6 \"迎えにきて！\" (Come Pick Me Up! / I`m Always On Your Side  (Episode 10.5)); AniDB S3-S5 (\"Best Sweet Scenes\" to \"Valentine Special Event\") have no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "000c413be621c3762ff4985ba72c8df0cda19c3cea5a9351f24887299cc79928",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2004-09-23"
+        ],
+        [
+          0,
+          2,
+          15,
+          "2005-06-20"
+        ],
+        [
+          0,
+          3,
+          16,
+          "2005-08-29"
+        ],
+        [
+          0,
+          4,
+          17,
+          "2005-09-26"
+        ],
+        [
+          0,
+          5,
+          18,
+          "2005-10-31"
+        ],
+        [
+          0,
+          6,
+          11,
+          "2005-12-18"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2005-04-05"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2005-04-12"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2005-04-19"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2005-04-26"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2005-05-03"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2005-05-10"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2005-05-17"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2005-05-24"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2005-05-31"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2005-06-07"
+        ],
+        [
+          1,
+          11,
+          12,
+          "2005-06-14"
+        ],
+        [
+          1,
+          12,
+          13,
+          "2005-06-21"
+        ]
+      ],
+      "series": 80759
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "ff6e80e6fddef8eb35730fb8a5147c994250280f68d7393f741e40a33f1134ef"
+  },
+  "anilist_ids": [
+    248
+  ],
+  "anidb_id": 3067
+}

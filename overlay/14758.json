@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14758",
+    "tmdb": "https://www.themoviedb.org/tv/94664/seasons",
     "tvdb": "https://thetvdb.com/series/jobless-reincarnation-it-will-be-all-out-if-i-go-to-another-world/seasons/official/0"
   },
   "set": {
@@ -20,13 +21,79 @@
           ],
           [
             4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
           ]
         ]
       }
     ]
   },
   "title": "Mushoku Tensei: Isekai Ittara Honki Dasu",
-  "justification": "AniDB special S1-S4 (2021-01-18 to 2021-02-08) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 371310 and TMDB show 94664. AniDB S1-S3 (\"Episode 2 Opening\" to \"Episode 4 Opening\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S4 \"Episode 5 Opening\" has no TVDB episode (its default TVDB S0E4 is \"Mushoku Tensei II: Jobless Reincarnation II ~I Will Seriously Try If I Go to Another World~ Special Program\", another item) and no TMDB episode (TMDB has no S0E4); AniDB S5-S12 (\"Episode 6 Opening\" to \"Episode 11 Ending\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -201,8 +268,8 @@
       ],
       "series": 371310
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "49e276abb45fd2e39d4156128892273e096b5852cdaabbd840d1a2a70fc8411d"
   },
   "anilist_ids": [

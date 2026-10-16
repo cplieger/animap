@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:18242",
+  "title": "Koujo Denka no Kateikyoushi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:5": "d644de8d09d1ab4e4c8c6cda0f00d2524ec9bad0579095b2ac140bf7a78c5bf0",
+        "date-mismatch:S1": "bdd2878162aefd427e4a06458250406d73250fddc60d8b6ea5391046677595b8"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-12 map to S1E1-E12 with identical English titles (\"The Royal Academy at Last, Part 1/2\", \"Felicia's Decision\", \"The Girls' Battle\", ...). AniDB's dates are consistently one week earlier than TVDB's, which is why a date matcher offered the recap for ep 5. The recap AniDB S1 \"Recap: A Look Back\" is TVDB S0E1 \"Recap: A Look Back\" (date 2025-07-27 against 2025-08-03, same week shift). AniDB S2 and S3 (pre-broadcast programmes) have no TVDB episode, which is not an error.",
+      "evidence": [
+        "https://anidb.net/anime/18242",
+        "https://thetvdb.com/dereferrer/series/440861"
+      ]
+    }
+  }
+}

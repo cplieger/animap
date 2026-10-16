@@ -1,0 +1,25 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12142",
+    "anilist": "https://anilist.co/anime/21829",
+    "tmdb": "https://www.themoviedb.org/movie/557680",
+    "tvdb": "https://thetvdb.com/movies/eiyuu-kaitai"
+  },
+  "set": {
+    "tvdbid": "OVA",
+    "tmdbid": "557680",
+    "imdbid": "tt19316714"
+  },
+  "title": "\"Eiyuu\" Kaitai",
+  "justification": "The node had no value at all. AniDB 12142 is a one-episode 28-minute OVA (2016-11-23) that TVDB lists only as the movie 「英雄」解体 (thetvdb.com/movies/eiyuu-kaitai), which links TMDB movie 557680 (Heroes Dismissed, 27 min, 2016-11-23) and IMDb tt19316714. With no TVDB series the node takes the OVA marker and the TMDB and IMDb ids.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    21829
+  ],
+  "anidb_id": 12142
+}

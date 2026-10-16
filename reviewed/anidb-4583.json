@@ -1,0 +1,22 @@
+{
+  "key": "anime:anidb:4583",
+  "title": "Kyoushirou to Towa no Sora",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "29cdeba5e320ad0f03c7fa30ff82009f9d2f27fc9492514b7f4e0814aaec04d9",
+        "date-mismatch:S3": "266c426f4c9738d163e920d85e92c9228648bf128b9591022c80dfee7f921bdb",
+        "date-mismatch:S4": "0e133e9bd4a3ad40f3f651ebf790d4a2664226dd8bc1701ecfcfb148a9267ef0",
+        "date-mismatch:S5": "44d66a00a440db566f8cecbd0a5d00e5b62a5a801b2d1ec5db1c6b9fb5e71576",
+        "date-mismatch:S6": "4e80050ef4215dd945cb348bf381e7efa52dcb729967e463a3ab2990c2e17322"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All six specials map by number to TVDB season 0 with the same titles: S1 Engage = S0E1 Engage, S2 Tryst / Ouse = Tryst, S3 Kuu Shiratori Observation Diary = same, S4 Hot-Spring Angel / Onsen Tenshi = same, S5 The Real Kyoushirou to Towa no Sora = same, S6 The Distant Sky / Harukanaru Sora = same. Only the dates differ (DVD volume dates versus TVDB's grouped 2007-04-25 / 07-03 / 08-13 values). Twelve regular episodes also match by title in order.",
+      "evidence": [
+        "https://anidb.net/anime/4583",
+        "https://thetvdb.com/dereferrer/series/112781"
+      ]
+    }
+  }
+}

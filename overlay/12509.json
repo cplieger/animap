@@ -1,0 +1,62 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12509",
+    "tvdb": "https://thetvdb.com/series/kirakiraprecure-a-la-mode/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Precure Dream Stars!",
+  "justification": "AniDB special S1, The Making of Precure Dream Stars!, has no TVDB episode; its default was TVDB 321820 season 0 episode 1, the film itself. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "eac3998ed186e1879baf93c49a48f6c818b28cbae9f9d05bfc45bc4734fb68af",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2017-03-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ]
+      ],
+      "series": 321820
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "e62e6dab01d2fd6045d04380b2d620a3e4411150bd191410b72afa95a1693865"
+  },
+  "anidb_id": 12509
+}

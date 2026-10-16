@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:4635",
+  "title": "Doraemon (2005)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:172": "0db441cb85869215e023b372dabd054160bde9089ea95abc1218345e5d2330b7"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 172 \"Nobita`s Survival Trip / Nobita no Ensoku Survival\" (2010-03-26) = S6E11 \"Nobita\\'s Survival Trip\" (2010-04-23).",
+      "evidence": [
+        "https://anidb.net/anime/4635",
+        "https://thetvdb.com/dereferrer/series/281405"
+      ]
+    }
+  }
+}

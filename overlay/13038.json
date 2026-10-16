@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13038",
-    "tvdb": "https://thetvdb.com/series/our-love-has-always-been-10-centimeters-apart/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/our-love-has-always-been-10-centimeters-apart/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/74094/seasons"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Itsudatte Bokura no Koi wa 10 Centi Datta.",
-  "justification": "AniDB special S1-S2 (2018-03-21 to 2018-04-25) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 336385 and TMDB show 74094. AniDB S1-S2 (\"オープニング主題歌「ノンファンタジー」ミュージックビデオ\" (Opening Theme Song \"Non Fantasy\" MV) to \"エンディング主題歌「東京ウインターセッション」ミュージックビデオ\" (Ending Theme Song \"Tokyo Winter Session\" MV)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

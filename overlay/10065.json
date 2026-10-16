@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10065",
-    "tvdb": "https://thetvdb.com/series/psycho-pass/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/psycho-pass/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/43865/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Psycho-Pass 2",
-  "justification": "AniDB special S1 (2014-12-17) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 262090 and TMDB show 43865. AniDB S1 \"9.26パシフィコ横浜「PSYCHO-FES サイコフェス」朗読劇 特別編集版\" (Psycho-Fes Drama Recitation on 26.9.2014 in Pacifico Yokohama - Special Edited Version) has no TVDB episode (its default TVDB S0E1 is \"Criminal Coefficient / Those Capable (Extended)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

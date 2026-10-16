@@ -1,11 +1,15 @@
 {
-  "anidb_id": 6658,
-  "title": "Sora no Otoshimono",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6658",
+    "tmdb": "https://www.themoviedb.org/tv/37437/seasons",
+    "tvdb": "https://thetvdb.com/series/heavens-lost-property/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,11 +21,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02, which are AniDB 7950 and AniDB 8271. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/6658",
-    "tvdb": "https://thetvdb.com/series/heavens-lost-property/seasons/official/0"
-  },
+  "title": "Sora no Otoshimono",
+  "justification": "Checked by episode title against TVDB series 118101 and TMDB show 37437. AniDB S1-S2 (\"Cut Scenes\" to \"Fallen Down\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "644618d9ae7684eddf55193a93e8ac699c78a98d13f6e47265bed5f1c645e832",
@@ -135,12 +137,12 @@
       ],
       "series": 118101
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "00a2521985a7cd5dfecd211e7dd5f2d8b4c9a5c6388324bb32668714f4327241"
   },
   "anilist_ids": [
     5958
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 6658
 }

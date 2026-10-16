@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:20892",
+  "title": "AniList 20892",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: AniDB 9134 S13 and S14 are TVDB 194961 0x37 and 0x38 (My Little Sister Can't Be This Eroge, both parts) by title and date, but anime-offline-database counts 1 episode for this entry, so a special-of-parent bridge of two specials cannot apply; the count is anime-offline-database's to fix",
+        "evidence": [
+          "https://anilist.co/anime/20892"
+        ],
+        "anilist_id": 20892
+      }
+    ]
+  }
+}

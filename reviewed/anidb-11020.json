@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:11020",
+  "title": "Kurage no Shokudou",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "0398b9028a3874f3b071b38ba33816e7b89afa8506caba122c9f406485718c8a",
+        "gaps": [
+          "no_tvdb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: TVDB lists it only as movie 184355 (TMDB movie 332172) and has no series for it; the watch rule asks this type for a TVDB series",
+        "evidence": [
+          "https://anilist.co/anime/20721"
+        ],
+        "anilist_id": 20721
+      }
+    ]
+  }
+}

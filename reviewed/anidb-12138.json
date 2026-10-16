@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:12138",
+  "title": "Violet Evergarden",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S4": "72a90c578e9d3baa0ab2beeeb49dd3518533e8cfdfed1cb726153ef855dc8c6b"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The overlay (rows ';2-0;3-0;', from Anime-Lists pull request 629) is right: S2/S3 'Violet Evergarden in 5 Minutes 1/2' have no TVDB episode (TVDB season 0: OVA, Eternity film, Movie, Recollections). The remaining defaults are right by title: S1 '\"The Day You Understand \"I Love You\" Will Surely Come.\" / Kitto \"Ai\" o Shiru Hi ga Kuru no Darou' = S0E1 'OVA: Surely, Someday You Will Understand \"Love\"' (2018-07-04, exact); S4 'Violet Evergarden Recollections' = S0E4 'Violet Evergarden: Recollections' (AniDB 2021-10-29 vs TVDB 2022-12-15, a different release; same title). S0E2 and S0E3 are claimed by 14840/14013 (offset 1 and 2), so no collision.",
+      "evidence": [
+        "https://anidb.net/anime/12138",
+        "https://thetvdb.com/dereferrer/series/330139"
+      ]
+    }
+  }
+}

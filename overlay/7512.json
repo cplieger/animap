@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7512",
+    "tmdb": "https://www.themoviedb.org/tv/36836/seasons",
     "tvdb": "https://thetvdb.com/series/zakuro/seasons/official/0"
   },
   "set": {
@@ -37,11 +38,46 @@
             9
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ]
+        ]
       }
     ]
   },
   "title": "Otome Youkai Zakuro",
-  "justification": "AniDB special S3-S8 (2011-01-26 to 2011-04-27) = TVDB 0x04-0x09 (2011-01-26 to 2011-04-27), was 0x03-0x08, by title. AniDB special S9 (2010-11-24) has no TVDB episode, was 0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 195271 and TMDB show 36836. AniDB S1 \"御披露目の宴\" (Seiyuu Interview) has no TMDB episode (its default TMDB S0E1 is \"Picture Drama 1\", another item); AniDB S2 \"ちいさきもの劇場\" (Picture Drama 1) is TMDB S0E1 \"オリジナルピクチャードラマ1 「小さきもの劇場～裏・いざ、妖々と！～」\" (Picture Drama 1); AniDB S3 \"Picture Drama 2\" is TVDB S0E4 \"Picture Drama 2\" and TMDB S0E2 \"オリジナルピクチャードラマ2\" (Picture Drama 2); AniDB S4-S8 (\"出張版 ちいさきもの劇場 「宴春, 爛漫と」\" (Picture Drama 3) to \"Second Half of the Last Episode: 'Junjou Masquerade' Version\") are TVDB S0E5 \"Picture Drama 3\" to TVDB S0E9 \"Second Half of the Last Episode: 'Junjou Masquerade' Version\" and have no TMDB episode (TMDB has none of them); AniDB S9 \"Moon Signal Music Video\" has no TVDB episode (its default TVDB S0E9 is \"Second Half of the Last Episode: 'Junjou Masquerade' Version\", another item) and no TMDB episode (TMDB has no S0E9).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -186,8 +222,8 @@
       ],
       "series": 195271
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "22b27140125204ddf29ad5c75a890c30b06718be5cb436bc9c0d87d039d43c69"
   },
   "anilist_ids": [

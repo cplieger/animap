@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:15728",
+  "title": "Ginga Eiyuu Densetsu: Die Neue These - Gekitotsu",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:2": "66549d2def3c97a42d84bb24828b76f4612cb33a873baacda3d91f8be39a0088",
+        "date-mismatch:3": "bb3cdb2e47021581bd1711209c7dbe6f4433874760e3b7c385b433b4416f4080"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB lists Die Neue These Gekitotsu as three films; TVDB 343237 season 3 lists the same story as twelve TV episodes, four per film (ANN: the third season ran as three features and aired as twelve episodes). Film 1 = S3E1-E4, film 2 \"Movie 2\" = S3E5-E8 (to \"Inquiry\"), film 3 \"Movie 3\" = S3E9-E12 (\"Fortress vs. Fortress Akt I-III\"), in order. The flagged findings are the later episodes of each group, whose TV air dates follow the cinema dates.",
+      "evidence": [
+        "https://anidb.net/anime/15728",
+        "https://thetvdb.com/dereferrer/series/343237"
+      ]
+    }
+  }
+}

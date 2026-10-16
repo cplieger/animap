@@ -1,0 +1,132 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9862",
+    "tmdb": "https://www.themoviedb.org/tv/31713/season/0",
+    "tvdb": "https://thetvdb.com/series/street-fighter-ii-v/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Street Fighter II: Yomigaeru Fujiwara-kyou - Toki o Kaketa Fighter-tachi",
+  "justification": "The film \"Street Fighter II: Yomigaeru Fujiwara-kyou\" (1995-03-29) is TVDB season 0 episode 2 \"Street Fighter II: Return to the Fujiwara Capital\" (1995-03-29); the row had unmapped it. TMDB 31713 season 0 does not list it, and it had fallen there on episode 1, the 1994 film, so it is unmapped on TMDB.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "95aa7dda416ddf57c61bdc5c33dc2501d86e7d413f6e0b2b8faad3e8b734c839",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1994-08-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1995-03-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2000-06-24"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2005-10-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-02-12"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2010-04-28"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1995-04-10"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1995-09-04"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1995-04-10"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1995-09-04"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2008-01-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2008-02-01"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2008-03-01"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2008-04-01"
+        ]
+      ],
+      "series": 75534
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a7bb647404af1861fcf633aeacc129a6ea41fc787bacf06976768a58798da7de"
+  },
+  "anidb_id": 9862
+}

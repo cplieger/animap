@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9603",
+    "tmdb": "https://www.themoviedb.org/tv/45783/seasons",
     "tvdb": "https://thetvdb.com/series/kurokos-basketball/seasons/official/0"
   },
   "set": {
@@ -54,11 +55,61 @@
             23
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3,
+            15
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            5,
+            17
+          ],
+          [
+            6,
+            18
+          ],
+          [
+            7,
+            20
+          ],
+          [
+            8,
+            21
+          ],
+          [
+            9,
+            22
+          ],
+          [
+            10,
+            19
+          ],
+          [
+            11,
+            23
+          ]
+        ]
       }
     ]
   },
   "title": "Kuroko no Baske (2013)",
-  "justification": "AniDB special S1-S6 (2014-01-29 to 2014-06-20) = TVDB 0x13-0x18 (2014-01-29 to 2014-06-20), was 0x01-0x06, by hand review. AniDB special S7-S9 (2014-07-25 to 2014-09-24) = TVDB 0x20-0x22 (2014-07-25 to 2014-09-24), was 0x07-0x09, by hand review. AniDB special S10 (2014-06-20) = TVDB 0x19 (2014-06-20), was 0x10, by hand review. AniDB special S11 (2014-12-25) = TVDB 0x23 (2014-12-25), was 0x11, by hand review. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 257765 and TMDB show 45783. AniDB S1-S6 (\"黒子のバスケNG集 1\" (Special 1) to \"黒子のバスケNG集 6\" (Special 6)) are TVDB S0E13 \"NG-Shuu 2 1\" to TVDB S0E18 \"NG-Shuu 2 6\" and TMDB S0E13 \"NG-Shuu 2 1\" to TMDB S0E18 \"NG-Shuu 2 6\"; AniDB S7-S9 (\"黒子のバスケNG集 7\" (Special 7) to \"黒子のバスケNG集 9\" (Special 9)) are TVDB S0E20 \"NG-Shuu 2 7\" to TVDB S0E22 \"NG-Shuu 2 9\" and TMDB S0E20 \"NG-Shuu 2 7\" to TMDB S0E22 \"NG-Shuu 2 9\"; AniDB S10 \"もう一回やりませんか\" (Let`s Do That Again) is TVDB S0E19 \"Can We Do That One More Time (Episode 41.5)\" and TMDB S0E19 \"Can We Do That One More Time (Episode 41.5)\"; AniDB S11 \"お喋りでもしませんか\" (Would You Like to Chat?) is TVDB S0E23 \"Would You Like To Chat? OVA\" and TMDB S0E23 \"Would You Like to Chat?\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -467,8 +518,8 @@
       ],
       "series": 257765
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2c552d0fce9aac425c561bc0e183bcd9d2648dee9e42f9e4f4fdfad5f7fd0e27"
   },
   "anilist_ids": [

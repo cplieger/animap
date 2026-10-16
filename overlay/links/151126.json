@@ -1,0 +1,25 @@
+{
+  "anilist_id": 151126,
+  "title": "Yuusha, Yamemasu: Kenshuu Ryokou wa Mokuteki wo Miushinau na",
+  "parts": [
+    {
+      "anidb_id": 16917,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 151126 has 2 OVA episodes (2022-06-24 and 2022-08-24; 'Remember, the Work Trip is First and Foremost a Learning Opportunity'). AniDB 16917 S1 '... (Part 1)' and S2 '... (Part 2)' (前編/後編) dated 2022-06-24 and 2022-08-24. TVDB 411625 0x01 and 0x02 have the same titles (Part 1 and Part 2) and the same dates. S3 (pre-broadcast special 2022-04-01) is TVDB 0x03, not part of the entry; S4 is 'ABEMA Kaigi'.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16917",
+    "anilist": "https://anilist.co/anime/151126",
+    "tmdb": "https://www.themoviedb.org/tv/136763/season/0",
+    "tvdb": "https://thetvdb.com/series/im-quitting-heroing/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "c06e93640d4069feaaed0bcbaf0ae37e2480da0deffa0c8681c490d1f5cf7867"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/625",
+    "tmdb_movie": "https://www.themoviedb.org/movie/80741",
+    "tvdb": "https://thetvdb.com/series/initial-d/seasons/official/3"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "80741",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 3,
+        "episodes": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Initial D Third Stage",
+  "justification": "Checked by episode title against TVDB series 70900. The film is TMDB movie 80741 (Initial D: Third Stage (2001)). TMDB show 40424 does not carry it, so the node leaves that show. AniDB episode 2 \"Part 1 of 2\" (the anime \"頭文字D Third Stage\") is TVDB S3E1 \"Third Stage\"; AniDB episode 3 \"Part 2 of 2\" (the anime \"頭文字D Third Stage\") is TVDB S3E1 \"Third Stage\"; AniDB S1 \"Making of the Movie\" has no TVDB episode (its default TVDB S0E1 is \"Extra Stage, Part 1 - Beyond The Impact Blue\", another item). TMDB 40424 has no Third Stage season, so the film's TMDB value is its TMDB movie, as the series' other films have it. The two parts are halves of the film and map to its episode.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e2b05a4782e1cda9ac1bee1a2157aa93cff14a2c3124fd7b038dac2cf7e23c1e",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          40,
+          "2000-02-22"
+        ],
+        [
+          0,
+          2,
+          41,
+          "2000-02-29"
+        ],
+        [
+          0,
+          3,
+          43,
+          "2002-05-15"
+        ],
+        [
+          0,
+          4,
+          68,
+          "2007-05-30"
+        ],
+        [
+          0,
+          5,
+          69,
+          "2008-10-03"
+        ],
+        [
+          0,
+          6,
+          89,
+          "2014-08-23"
+        ],
+        [
+          0,
+          7,
+          90,
+          "2015-05-23"
+        ],
+        [
+          0,
+          8,
+          91,
+          "2016-02-06"
+        ],
+        [
+          0,
+          9,
+          88,
+          "2021-03-05"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2022-01-07"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2003-03-22"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2007-02-28"
+        ],
+        [
+          3,
+          1,
+          42,
+          "2001-01-13"
+        ]
+      ],
+      "series": 70900
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3f3dd1eecab4ce44bd1872c747fa7db39217cd9c044a77ded0d7cdca51dbe7a6"
+  },
+  "anilist_ids": [
+    187
+  ],
+  "anidb_id": 625
+}

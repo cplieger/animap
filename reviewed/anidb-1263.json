@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:1263",
+  "title": "Vampire Wars",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "71f02afc3d4cf7f451817631f7691c11a0fb5b5e8c81498fc3115bbacd4655a4",
+        "gaps": [
+          "no_tvdb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: TVDB lists it only as movie 107096 and has no series for it; the watch rule asks this type for a TVDB series",
+        "evidence": [
+          "https://anilist.co/anime/1765"
+        ],
+        "anilist_id": 1765
+      }
+    ]
+  }
+}

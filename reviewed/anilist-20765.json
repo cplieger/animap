@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:20765",
+  "title": "AniList 20765",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "a4ddcd402f2bb6c36fa810d052702ae45a0962fd3081768fa41873a7b683ef63",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 10273 S1-S12 are TVDB 278819 0x1-0x12 by title, but TVDB and TMDB date S10 2014-10-15 against AniDB's 2014-11-19, so no special-of-parent bridge can pass its one-day date rule",
+        "evidence": [
+          "https://anilist.co/anime/20765"
+        ],
+        "anilist_id": 20765
+      }
+    ]
+  }
+}

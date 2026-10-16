@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18721",
-    "tmdb": "https://www.themoviedb.org/tv/243140/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/243140/seasons",
     "tvdb": "https://thetvdb.com/series/oi-tonbo/seasons/official/1"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdboffset": "13"
   },
   "title": "Ooi! Tonbo (2024)",
-  "justification": "AniDB 1-13 (2024-10-05 to 2025-01-04) = TVDB 1x14-1x26 and TMDB S1E14-26, same dates and titles. TVDB and TMDB have no S2; 18019 keeps 1x01-1x13. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 434358 and TMDB show 243140. AniDB episode 1-13 (\"この島が好き ゴルフも大好き!\" (I Love This Island, and I Love Golf Too!) to \"とんぼの挑戦 九州のヒロインたち\" (Tonbo`s Challenge: Heroines of Kyushu)) are TVDB S1E14 \"I Love This Island, and I Love Golf Too!\" to TVDB S1E26 \"Tonbo's Challenge: Heroines of Kyushu\" and TMDB S1E14 \"この島が好き ゴルフも大好き！\" (I Love This Island and I Love Golf Too!) to TMDB S1E26 \"とんぼの挑戦 九州のヒロインたち\" (Tonbo's Challenge: Heroines of Kyushu).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

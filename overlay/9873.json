@@ -4,6 +4,7 @@
     "tvdb": "https://thetvdb.com/series/kamisama-kiss/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -15,7 +16,7 @@
     ]
   },
   "title": "Kamisama Hajimemashita (2013)",
-  "justification": "AniDB 2-6 (2015-08-20 to 2016-12-20) = TVDB 0x03-0x07 (2015-08-20 to 2016-12-20), was 0x02-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 2-6 (2015-08-20 to 2016-12-20) = TVDB 0x03-0x07 (2015-08-20 to 2016-12-20), was 0x02-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -69,8 +70,8 @@
       ],
       "series": 262106
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d030fa8433a70bd6f08917b3cc9c099c07d1c71be6064df84f3cd8540b0f9ddb"
   },
   "anidb_id": 9873

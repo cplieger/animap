@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9409",
+    "tmdb": "https://www.themoviedb.org/tv/45950/season/0",
     "tvdb": "https://thetvdb.com/series/high-school-dxd/seasons/official/0"
   },
   "set": {
@@ -16,6 +17,42 @@
           [
             10,
             11
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ],
+          [
+            22
           ]
         ]
       },
@@ -40,6 +77,12 @@
             14
           ],
           [
+            15
+          ],
+          [
+            16
+          ],
+          [
             17
           ],
           [
@@ -62,7 +105,7 @@
     ]
   },
   "title": "High School DxD New",
-  "justification": "AniDB special S1 (2013-06-25) = TVDB 0x24 (2013-06-25), was 0x19. AniDB special S11-S14 (no AniDB date) have no TVDB episode, was 0x11-0x14. AniDB special S17-S22 (no AniDB date) have no TVDB episode, was 0x17-0x22. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2013-06-25) = TVDB 0x24 (2013-06-25), was 0x19. AniDB special S11-S14 (no AniDB date) have no TVDB episode, was 0x11-0x14. AniDB special S17-S22 (no AniDB date) have no TVDB episode, was 0x17-0x22. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The undated voice-acting specials S15 Excalibur of the Moonlit Schoolyard and S16 Vampire of the Empty Classroom have no TVDB episode either: by default they took 0x15 The Unresurrected Phoenix and 0x16 Steamy Grayfia (AniDB 10691 S5). TMDB 45950 season 0 lists none of S11-S22: with no pair they took E11-E22, BorN's Maximum Titillation OVAs among them.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -291,8 +334,8 @@
       ],
       "series": 254653
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7f6100d47a0375f1425aa69a830b5bc9ded59db490183e8dab67c6040aae8b52"
   },
   "anilist_ids": [

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 4156,
+  "title": "Ichigo Mashimaro Episode 0",
+  "parts": [
+    {
+      "anidb_id": 2787,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 4156 (SPECIAL, 1 episode from 2005-06-08, 4 min) is AniDB 2787's special S1 Prologue, aired 2005-06-08. AniList's PARENT relation names AniList 488, which anime-offline-database links to AniDB 2787, and the special's title is contained in AniList's synonym Strawberry Marshmallow Prologue / Ichigo Mashimaro Prologue (AniList's own title says Episode 0, the same prologue). The parent has no row for S1, so it lands on TVDB 0x1 Prologue (2005-06-08) and on TMDB 35730 S0E1 Prologue (2005-06-08, 4 min).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2787",
+    "anilist": "https://anilist.co/anime/4156",
+    "tmdb": "https://www.themoviedb.org/tv/35730/season/0",
+    "tvdb": "https://thetvdb.com/series/strawberry-marshmallow/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "4f3f7377e1b532c4334f9cee66407bc167fab8be7b67c735248a0eb4e1365e8c"
+  }
+}

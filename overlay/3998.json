@@ -1,13 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/3998",
+    "tmdb": "https://www.themoviedb.org/tv/32377/seasons",
     "tvdb": "https://thetvdb.com/series/armored-trooper-votoms/seasons/official/0"
   },
   "set": {
+    "tmdbseason": "0",
+    "tmdboffset": "7",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +24,7 @@
     ]
   },
   "title": "Soukou Kihei Votoms: Kakuyaku Taru Itan",
-  "justification": "AniDB special S1-S2 (1994-03-16 to 1994-03-23) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 90521 and TMDB show 32377. AniDB episode 1-5 (\"回帰\" (Revolution) to \"触れ得ざる者\" (The Untouchable)) are TMDB S0E8 \"赫奕たる異端 01 「回帰」\" (Brilliantly Shining Heresy: Recurrence) to TMDB S0E12 \"赫奕たる異端 05 「触れ得ざる者」\" (Brilliantly Shining Heresy: The Untouchable); AniDB S1-S2 (\"BRIEFING I CHIRICO HISTORY\" (Briefing I: Chirico History) to \"BRIEFING II NOTICE OF THE DEFROST\" (Briefing II: Notice of the Defrost)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -147,8 +151,8 @@
       ],
       "series": 90521
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5663e505374732e68ee33653dd268ec48efe396971e8813d19d90e16cf03b042"
   },
   "anilist_ids": [

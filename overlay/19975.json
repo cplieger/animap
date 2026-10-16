@@ -1,0 +1,245 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/19975",
+    "tvdb": "https://thetvdb.com/series/jujutsu-kaisen/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ],
+          [
+            22
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Jujutsu Kaisen: Shimetsu Kaiyuu Kouhen",
+  "justification": "TVDB 377543 season 0 episodes 1-8, and TMDB 95479 season 0 episodes 1-10 (it lists no more), are the earlier seasons' specials and films (the New Year's special, Jujutsu Kaisen 0, the Pillow Talk recaps, the 2025 films and Part 1's Culling Game special, nodes 15275, 16169, 17196, 18363), so no special of this second part is one of them; the AniDB mirror does not list it yet, and without the row any special it gains would default onto them.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "9e377c3fc1477ba70be4d05fab7ecebcb2fffe719f4567eeca2ccc4ef90b0723",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-01-09"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-12-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2023-08-11"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2023-08-18"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2025-11-07"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2025-05-30"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2026-02-20"
+        ],
+        [
+          3,
+          1,
+          48,
+          "2026-01-09"
+        ],
+        [
+          3,
+          2,
+          49,
+          "2026-01-09"
+        ],
+        [
+          3,
+          3,
+          50,
+          "2026-01-16"
+        ],
+        [
+          3,
+          4,
+          51,
+          "2026-01-23"
+        ],
+        [
+          3,
+          5,
+          52,
+          "2026-01-30"
+        ],
+        [
+          3,
+          6,
+          53,
+          "2026-02-06"
+        ],
+        [
+          3,
+          7,
+          54,
+          "2026-02-13"
+        ],
+        [
+          3,
+          8,
+          55,
+          "2026-02-27"
+        ],
+        [
+          3,
+          9,
+          56,
+          "2026-03-06"
+        ],
+        [
+          3,
+          10,
+          57,
+          "2026-03-13"
+        ],
+        [
+          3,
+          11,
+          58,
+          "2026-03-20"
+        ],
+        [
+          3,
+          12,
+          59,
+          "2026-03-27"
+        ]
+      ],
+      "series": 377543
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "b1f451af91339d9b5cb2a3e3d634d170762b4024f50d4d1be407d3857ca1d742"
+  },
+  "anidb_id": 19975
+}

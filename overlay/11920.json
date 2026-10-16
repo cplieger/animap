@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11920",
-    "tvdb": "https://thetvdb.com/series/space-patrol-luluco/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/space-patrol-luluco/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/66107/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Uchuu Patrol Luluco",
-  "justification": "AniDB special S1 (2016-06-24) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 307323 and TMDB show 66107. AniDB S1 \"先行上映イベント用特別編集版\" (Special Edited Edition for Advance Screening) has no TVDB episode (its default TVDB S0E1 is \"Trigger-chan\", another item). TMDB S0E1 carries the edited edition's title, so its TMDB default stays.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,9 +1,11 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18424",
-    "tvdb": "https://thetvdb.com/series/monogatari/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/46195/season/0",
+    "tvdb": "https://thetvdb.com/series/monogatari/seasons/official/6"
   },
   "set": {
+    "tmdbseason": "5",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -17,11 +19,25 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            48
+          ],
+          [
+            2,
+            49
+          ]
+        ]
       }
     ]
   },
   "title": "Monogatari Series: Off \u0026 Monster Season",
-  "justification": "AniDB special S1 (2024-08-17) = TVDB 0x41 (2024-08-17), was 0x01, by title. AniDB special S2 (2024-09-07) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2024-08-17) = TVDB 0x41 (2024-08-17), was 0x01, by title. AniDB special S2 (2024-09-07) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. On TMDB, 46195 has no season 6; the OFF \u0026 MONSTER Season is TMDB season 5, whose episodes 1-14 are AniDB 1-14 in the same order, from \"OROKAMONOGATARI Tsukihi Undo\" (2024-07-06) to \"Shinobu Mustard\"; its episode 15 \"WAZAMONOGATARI: Karen Ogre\" is the sequel (AniDB 19436). TMDB 46195 season 0 lists S1 A Cruel Fairy Tale: The Beautiful Princess (2024-08-17) as E48 and S2 the ABEMA SP special programme (2024-09-07) as E49; with no TMDB row they took E1 and E2.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -352,8 +368,8 @@
       ],
       "series": 102261
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "71e76127c118f2197ef7144da039e952da2cce1f7cd1da3c938d0109dea56254"
   },
   "anilist_ids": [

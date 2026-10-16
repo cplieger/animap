@@ -3,13 +3,14 @@
     "anidb": "https://anidb.net/anime/4571",
     "tvdb_old": "https://thetvdb.com/dereferrer/series/178381",
     "tvdb_s0": "https://thetvdb.com/series/ghost-slayers-ayashi/seasons/official/0",
-    "tvdb_s1": "https://thetvdb.com/series/ghost-slayers-ayashi/seasons/official/1"
+    "tvdb_s1": "https://thetvdb.com/series/ghost-slayers-ayashi/seasons/official/1",
+    "tmdb": "https://www.themoviedb.org/tv/44940/seasons"
   },
   "set": {
     "tvdbid": "79543"
   },
   "title": "Tenpouibun Ayakashiayashi",
-  "justification": "tvdbid 178381 to 79543 (TVDB 178381 is gone from TVDB's official order). AniDB 1-25 (2006-10-07 to 2007-03-31) = TVDB 1x01-1x25 (2006-10-07 to 2007-03-31), was TVDB 178381 1x01-1x25. AniDB special S1-S5 (2007-08-22 to 2007-10-24) = TVDB 0x01-0x05 (2007-08-22 to 2007-10-24), was TVDB 178381 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79543 and TMDB show 44940. The node moves from TVDB 178381 to series 79543. AniDB episode 1-25 (\"妖夷, 来たる\" (The Youi Arrival) to \"ヒトハアヤシ\" (Intermission)) are TVDB S1E1 \"The Youi Arrival\" to TVDB S1E25 \"Intermission\"; AniDB S1-S5 (\"嘆きの河\" (Inferno I: The River of Wailing) to \"神話\" (Inferno V: Myth)) are TVDB S0E1 \"Inferno I: The River of Wailing\" to TVDB S0E5 \"Inferno V: Myth\". TVDB series 178381 no longer exists. Series 79543 carries all 25 episodes and the five Inferno specials by title and links the node's TMDB show 44940.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

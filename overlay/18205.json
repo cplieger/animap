@@ -1,7 +1,12 @@
 {
-  "anidb_id": 18205,
-  "title": "Watashi no Shiawase na Kekkon (2025)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18205",
+    "tmdb": "https://www.themoviedb.org/tv/196944/seasons",
+    "tvdb": "https://thetvdb.com/series/watashi-no-shiawase-na-kekkon/seasons/official/0"
+  },
   "set": {
+    "tmdbseason": "1",
+    "tmdboffset": "12",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -11,14 +16,21 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
-  "justification": "AniDB special S1 (2024-12-01) has no TVDB episode, was 0x01, which is AniDB 18545. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/18205",
-    "tvdb": "https://thetvdb.com/series/watashi-no-shiawase-na-kekkon/seasons/official/0"
-  },
+  "title": "Watashi no Shiawase na Kekkon (2025)",
+  "justification": "Checked by episode title against TVDB series 418665 and TMDB show 196944. AniDB episode 1-13 (\"もう一つの久堂家\" (Another Kudo Residence) to \"春になったら...\" (Once Spring Has Come)) are TMDB S1E13 \"もう一つの久堂家\" (Another Kudo Residence) to TMDB S1E25 \"春になったら…\" (Once Spring Has Come); AniDB S1 \"第2期キャストトーク付きリアル\u0026オンライン同時先行上映会\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"The Shape of Happiness\", another item) and no TMDB episode (its default TMDB S0E1 is \"The Shape of My Happiness\", another item). TMDB 196944 has one season; S1E13-E25 carry the 13 titles of TVDB season 2.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "2b026b405e8596146d4c02b60ccb452e3265ecc73cbb80c6f32ac249ad1ffa15",
@@ -132,12 +144,12 @@
       ],
       "series": 418665
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "33b67585c402006918eeb97469a2c5159b7a741bc1ebc74ba2ec76c308c1105f"
   },
   "anilist_ids": [
     169441
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 18205
 }

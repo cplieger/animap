@@ -1,18 +1,32 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17072",
-    "tmdb": "https://www.themoviedb.org/tv/123876/season/1",
-    "tvdb": "https://thetvdb.com/series/komi-cant-communicate/seasons/official/1",
-    "anilist": "https://anilist.co/anime/142984"
+    "anilist": "https://anilist.co/anime/142984",
+    "tmdb": "https://www.themoviedb.org/tv/123876/seasons",
+    "tvdb": "https://thetvdb.com/series/komi-cant-communicate/seasons/official/1"
   },
   "set": {
     "defaulttvdbseason": "1",
     "episodeoffset": "12",
     "tmdbseason": "1",
-    "tmdboffset": "12"
+    "tmdboffset": "12",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
   },
   "title": "Komi-san wa, Komyushou Desu. (2022)",
-  "justification": "AniDB 1-12 (2022-04-07 to 2022-06-23) = TVDB 1x13-1x24 and TMDB S1E13-24, same dates (TVDB and TMDB title each episode by its first segment). TVDB and TMDB have no S2; 16300 keeps 1x01-1x12. AniDB's specials S1-S2 (two endings) are unchanged.",
+  "justification": "Checked by episode title against TVDB series 402412 and TMDB show 123876. AniDB episode 1-12 (\"冬の訪れです. / 不良です. / 中々さんちで勉強です. / 期末テストです.\" (It`s Just the Arrival of Winter. / It`s Just a Delinquent. / It`s Just Studying at Nakanaka`s. / It`s Just a Final Exam.) to \"ホワイトデーです. / 1年間です.\" (It`s Just White Day. / It Has Just Been One Year.)) are TVDB S1E13 \"It's just the arrival of winter. Plus more.\" to TVDB S1E24 \"It's just White Day. Plus more.\" and TMDB S1E13 \"「冬の訪れです。」ほか\" (It's just the arrival of winter. Plus more.) to TMDB S1E24 \"「ホワイトデーです。」ほか\" (It's just White Day. Plus more.); AniDB S1-S2 (\"Episode 9 Ending\" to \"Episode 12 Ending\") have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -169,8 +183,8 @@
       ],
       "series": 402412
     },
-    "at": "2026-10-04",
-    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "47357a900173e6bca21b627cfc7cbf35cab7cc7d65976473268e3ecfe24b3912"
   },
   "anilist_ids": [

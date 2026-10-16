@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16727",
-    "tvdb": "https://thetvdb.com/series/i-reincarnated-into-an-otome-game-as-a-villainess-with-only-destruction-flags/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/i-reincarnated-into-an-otome-game-as-a-villainess-with-only-destruction-flags/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/997086"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Gekijouban Otome Game no Hametsu Flag shika Nai Akuyaku Reijou ni Tensei Shiteshimatta...",
-  "justification": "AniDB special S1 (2023-11-15) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 371437. AniDB S1 \"本編前スペシャル映像\" (Pre-Screening Special Video) has no TVDB episode (its default TVDB S0E1 is \"Voice Drama 1: Geordo Stuart\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

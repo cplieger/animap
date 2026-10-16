@@ -1,0 +1,58 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7658",
+    "tvdb": "https://thetvdb.com/series/heidi/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1",
+    "mapping_list": []
+  },
+  "title": "Alps no Shoujo Heidi: Alm no Yama Hen",
+  "justification": "The OVA \"Alm no Yama Hen\" (1993-04-21) is TVDB season 0 episode 2 \"Mt. Alm\"; by default it fell on episode 1 \"Heidi And Clara\" (AniDB 7659). Its row named special 1, which AniDB does not list, and is removed.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "837c9a3621afd278ee1ef1ad2d065a1675e35014bcbfb1a6046d9b5cce1443bc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1996-08-21"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1996-08-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1979-03-17"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ]
+      ],
+      "series": 82927
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "faf28b6d33a9d603b22a645018a002aee4760103285489508c0ce87517c90ec2"
+  },
+  "anidb_id": 7658
+}

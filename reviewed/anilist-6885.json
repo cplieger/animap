@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:6885",
+  "title": "AniList 6885",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5c492938d3608e5e7d5615ca06886c91820a0589567ae535e59ea06009cbadd0",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: undecided: three bonus shorts among AniDB 6398 S1-S8 (TVDB 106071 0x1-0x8), but no source says which three, and the AniList dates span S1 to S5, so they are not a consecutive run",
+        "evidence": [
+          "https://anilist.co/anime/6885"
+        ],
+        "anilist_id": 6885
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@
     "tvdb": "https://thetvdb.com/series/demon-slayer-kimetsu-no-yaiba/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Kimetsu no Yaiba: Kyoudai no Kizuna",
-  "justification": "AniDB special S1 (2019-08-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2019-08-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -125,8 +126,8 @@
       ],
       "series": 348545
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3ca5340c5e7b1fbad0091843e025d473e38ae1094af5aebd8b442c3d0165bbd5"
   },
   "anidb_id": 14689

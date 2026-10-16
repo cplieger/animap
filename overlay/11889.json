@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11889",
+    "tmdb": "https://www.themoviedb.org/tv/62327/seasons",
     "tvdb": "https://thetvdb.com/series/blood-blockade-battlefront/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "2"
+    "episodeoffset": "2",
+    "tmdboffset": "2"
   },
   "title": "Kekkai Sensen: Ousama no Restaurant no Ousama",
-  "justification": "AniDB 1 (2016-06-03) = TVDB 0x03 (2016-06-03), was 0x01, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 289886 and TMDB show 62327. AniDB episode 1 \"OAD\" (the anime \"血界戦線 王様のレストランの王様\") is TVDB S0E3 \"King of the Restaurant of Kings\" and TMDB S0E3 \"王様のレストランの王様\" (King of the Restaurant of Kings).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -43,8 +45,8 @@
       ],
       "series": 289886
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bf067a82a6c29620987fa6f3804d90c1b747c26a9f60d531de19b10631d922ce"
   },
   "anilist_ids": [

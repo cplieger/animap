@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:14934",
+  "title": "Muteking the Dancing Hero",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "a72f1b833098e4c461c009f82d9f2718197b43277f2bc1f5b1237ca3d2feddd2",
+        "date-mismatch:S2": "e4c9e4dbace64d9e25399d4eac4880f6cbf4a281bb63b1e04d99589f49343fae"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "SkyHook shows both TVDB season-0 episodes untitled, the website shows them: S0E1 \"特番「MUTEKING THE Dancing HERO 放送直前スペシャル」\" (2021-10-05, 24 min) = AniDB S1 \"Pre-Broadcast Special / Housou Chokuzen Special\" (2021-09-26, 放送直前 = just before broadcast); S0E2 \"MUTEKING THE DancingHERO - SuperHyperEdition\" (2022-01-03, 24 min) = AniDB S2 \"Muteking the Dancing Hero Super Hyper Edition\" (2021-12-26). Titles agree, order agrees, only the dates differ by 9 and 8 days (TVDB carries the later re-air/web date). The default placement S1-\u003eS0E1, S2-\u003eS0E2 is correct. Regular 1-12 match by title.",
+      "evidence": [
+        "https://thetvdb.com/series/muteking-the-dancing-hero/seasons/official/0",
+        "https://anidb.net/anime/14934",
+        "https://thetvdb.com/dereferrer/series/408919"
+      ]
+    }
+  }
+}

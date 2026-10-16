@@ -1,14 +1,15 @@
 {
-  "anidb_id": 9402,
-  "title": "Joshiraku (2013)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9402",
+    "tmdb": "https://www.themoviedb.org/tv/79040/seasons",
+    "tvdb": "https://thetvdb.com/series/joshiraku/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2013-02-08) = TVDB 0x01 (2013-02-08), by title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/9402",
-    "tvdb": "https://thetvdb.com/series/joshiraku/seasons/official/0"
-  },
+  "title": "Joshiraku (2013)",
+  "justification": "Checked by episode title against TVDB series 259651 and TMDB show 79040. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"台無屋 / 三軒本屋 / びっくり集中\" (OAD) is TVDB S0E1 \"Store of Spoils / Three Publishers / Surprising Resolve\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "f858b66964b8378f09fd3ef6d7550f530611f8e3c4866840efb2677cb1c96ed6",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     15591
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 9402
 }

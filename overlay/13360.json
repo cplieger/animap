@@ -1,0 +1,163 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13360",
+    "tvdb": "https://thetvdb.com/series/macross-delta/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            12
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Macross Delta: Gekijou no Walkure",
+  "justification": "AniDB special S1 \"Gekijouban Delta Shougekijou\" (2018-08-28) is TVDB season 0 episode 13 \"Passionate Walkure - Delta Shougekijou\" (2018-08-28) and S2, the new picture drama, is episode 14 \"Passionate Walkure - Picture Drama\". By default the seven specials fell on episodes 1-7, the TV series' prologues and mini theatre. S3-S7 (three karaoke videos, the making-of and the stage greeting) have no TVDB episode and are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3de4c1ccc8a72ab711613782bb86f1a9efefab36702d66eac70ec7ed5046cb8d",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-12-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-07-22"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-07-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-08-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-09-27"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2016-10-26"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2016-11-25"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2016-12-22"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2017-01-27"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2017-02-24"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2017-03-04"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2018-02-09"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2018-08-28"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2018-08-28"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2021-10-08"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2021-10-09"
+        ]
+      ],
+      "series": 304475
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "abd723e53eef559df3b4f80cf79b143f9c1d9f6d821101c090d2818be6b392de"
+  },
+  "anidb_id": 13360
+}

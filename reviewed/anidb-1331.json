@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:1331",
+  "title": "Manami \u0026 Nami Sprite",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:3": "9e75191ae2e05ac2bb0c3691ef7c20dd9215dcaf08022715aa90a291959801a1",
+        "missing-target:4": "c178134b5da822b6e8a9f0a3a5e1400c56171d47df7a02470f24d2debc71678a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "TVDB carries the series (SkyHook lists anidbIds [1331]) with two episodes, S1E1 and S1E2, matching AniDB Volume 1 (1997-04-21) and Volume 2; AniDB lists four volumes, so Volumes 3 and 4 have no TVDB episode (TVDB gap). The mapping is right; only the date of Volume 2 differs (1997-08-08 AniDB, 1997-07-21 TVDB).",
+      "evidence": [
+        "https://anidb.net/anime/1331",
+        "https://thetvdb.com/dereferrer/series/260798"
+      ]
+    }
+  }
+}

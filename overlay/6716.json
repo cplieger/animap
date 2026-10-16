@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6716",
+    "tmdb": "https://www.themoviedb.org/tv/35610/seasons",
     "tvdb": "https://thetvdb.com/series/inuyasha/seasons/official/7"
   },
   "set": {
-    "defaulttvdbseason": "7"
+    "defaulttvdbseason": "7",
+    "tmdbseason": "2"
   },
   "title": "Inuyasha Kanketsuhen",
-  "justification": "AniDB 1-26 (2009-10-04 to 2010-03-30) = TVDB 7x01-7x26 (2009-10-03 to 2010-03-29), was 8x01-8x26. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 71361 and TMDB show 35610. AniDB episode 1-26 (\"奈落の心臓\" (Naraku`s Heart) to \"明日へ\" (Towards Tomorrow)) are TVDB S7E1 \"Naraku's Heart\" to TVDB S7E26 \"Toward Tomorrow\" and TMDB S2E1 \"奈落の心臓\" (Naraku's Heart) to TMDB S2E26 \"明日へ\" (Toward Tomorrow).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -175,8 +177,8 @@
       ],
       "series": 71361
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c2a2377c1e2e296993ca5a5e750b8fc81bdab69aa27a35451f860a6cca69d13f"
   },
   "anilist_ids": [

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10972",
+  "title": "Himouto! Umaru-chan",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:4": "c76aa2217cad120fe3b7bfecc668a461daeb274a6e82cb6d038c512e1141b07f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All 12 regular episodes match TVDB S1E1-12 by title and order (1 Umaru and Onii-chan = Umaru and Her Brother, 3 Umaru and Her Student = Umaru and Her Disciple, 4 Umaru and Her Rival = same, 7 Umaru's Onii-chan = Umaru's Big Brother, 11 Umaru's Days = Umaru's Everyday Life, 12 Umaru and Everyone = same); 12 = 12. The flagged ep 4 is a date difference (AniDB 2015-08-03, TVDB 2015-07-30; AniDB's other dates equal TVDB's weekly Thursdays). The datecheck's suggested target (S0E4 'Himouto! Umaru-chanS 04') is the short, a different thing by title; the shorts S1-S12 sit on S0E1-12 'Himouto! Umaru-chanS 01-12' by title and number.",
+      "evidence": [
+        "https://anidb.net/anime/10972",
+        "https://thetvdb.com/dereferrer/series/293121"
+      ]
+    }
+  }
+}

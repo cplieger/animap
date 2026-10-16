@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/5671",
     "tvdb": "https://thetvdb.com/series/the-daughter-of-twenty-faces/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/84632"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/84632",
+    "tmdb": "https://www.themoviedb.org/tv/74943/seasons"
   },
   "set": {
     "tvdbid": "82084"
   },
   "title": "Nijuu-Mensou no Musume",
-  "justification": "tvdbid 84632 to 82084 (TVDB 84632 is gone from TVDB's official order). AniDB 1-22 (2008-04-13 to 2008-09-28) = TVDB 1x01-1x22 (2008-04-12 to 2008-09-28), was TVDB 84632 1x01-1x22. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 82084 and TMDB show 74943. The node moves from TVDB 84632 to series 82084. AniDB episode 1-22 (\"扉\" (Doorway) to \"チコ\" (Chiko)) are TVDB S1E1 \"Door\" to TVDB S1E22 \"Chiko\". TVDB series 84632 no longer exists. Series 82084 carries all 22 episodes by title and links the node's TMDB show 74943.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

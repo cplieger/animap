@@ -1,0 +1,29 @@
+{
+  "key": "anime:anidb:18555",
+  "title": "Hari Maware! Koinu (2024)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:10": "20b454fc40c61e85dc80bb0ad39f11275f769ff2eb57b18959436220d0f2c16a",
+        "missing-target:11": "8c8dfac65478c87aaf39840c8d5660e90c63ba622b858ff17e9a42828da7341b",
+        "missing-target:12": "03a52352d608a1374865adf07a4c4d3d14156e7831058f49fbd96ddd0b364b07",
+        "missing-target:3": "24da814c88d5ac57ed0c25987f9dcb41cd68ac1927bbe6109dea2afea43d9fee",
+        "missing-target:4": "1b40d3cc2dec4fddb0d8135492bcc8939190e66eb1b58ebeed8f6ad7241c5c0b",
+        "missing-target:5": "b2f8cfbe3491cc83c794e686419b7efb9cf66f340cb559651bfecd84eab3cb11",
+        "missing-target:6": "fac35c693a555ce81a9b08c2379d2c07f393bf38b13dc82b12b023c36af0adf8",
+        "missing-target:7": "46574ae7bb815655e4a98f1d7870125b1645cd30bcdf77f358d1af06332e3a4c",
+        "missing-target:8": "10c8520ce9e934cc6a0a026ec6d7aef02f798dcfd91993f447bfaf7e23024ae9",
+        "missing-target:9": "0316969d8678a0eb83a0c3d0f9dd11e0d5e90c37fa79a7c30980e7edc5810265"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "TVDB carries the series (439507, which lists AniDB 18555 and AniList 176283) but its season 2 has only two episodes, flagged \"series finale\" on the website, while AniDB/AniList have 12 episodes (2024-06-29 to 2024-09-21). The two episodes TVDB has match AniDB by title and order: AniDB 1 \"Koinu to Tanabata / Koinu to Beach\" = S2E1 \"Puppy and Tanabata / Puppy and the Beach\" (2024-06-29), AniDB 2 \"Koinu to Kenshuu / Koinu to Douki to Shidou Kyoukan / Koinu to Rusu Chuu no Pet\" = S2E2 \"Training with Puppy / Puppy and a Colleague / Puppy while Away\" (2024-07-13). Episodes 3-12 do not exist on TVDB, so the mapping is right and TVDB lacks the episodes (a TVDB gap, rule 9). No other season, season 0 or sibling series holds them.",
+      "evidence": [
+        "https://thetvdb.com/series/hari-maware-koinu/seasons/official/2",
+        "https://thetvdb.com/series/hari-maware-koinu/seasons/official/1",
+        "https://anidb.net/anime/18555",
+        "https://thetvdb.com/dereferrer/series/439507"
+      ]
+    }
+  }
+}

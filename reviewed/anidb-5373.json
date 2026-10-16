@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:5373",
+  "title": "Code Geass: Hangyaku no Lelouch R2",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S10": "592c790de0c7ddfe4559086fa5a5dbfd7d8f4434098dbb81045b2fbfd5f894bb"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S10 \"Picture Drama 10\" (2015-09-25) = S0E29 \"Picture Drama - Turn 12.06\" (2014-03-26).",
+      "evidence": [
+        "https://thetvdb.com/series/code-geass-lelouch-of-the-rebellion/seasons/official/0",
+        "https://anidb.net/anime/5373",
+        "https://thetvdb.com/dereferrer/series/79525"
+      ]
+    }
+  }
+}

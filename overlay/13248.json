@@ -1,14 +1,15 @@
 {
-  "anidb_id": 13248,
-  "title": "Hajimete no Gal: Hajimete no Bunkasai",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13248",
+    "tmdb": "https://www.themoviedb.org/tv/72296/seasons",
+    "tvdb": "https://thetvdb.com/series/my-first-girlfriend-is-a-gal/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2017-12-26) = TVDB 0x01 (2017-12-26), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/13248",
-    "tvdb": "https://thetvdb.com/series/my-first-girlfriend-is-a-gal/seasons/official/0"
-  },
+  "title": "Hajimete no Gal: Hajimete no Bunkasai",
+  "justification": "Checked by episode title against TVDB series 329422 and TMDB show 72296. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"はじめてのギャル はじめての文化祭\") is TVDB S0E1 \"My First Cultural Fair\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "ce2db5bea222a9f3e843e212e7a14582ea989fab2d17c7d58b8f3970bb242fff",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     98878
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 13248
 }

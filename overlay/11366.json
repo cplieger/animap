@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11366",
+    "tmdb": "https://www.themoviedb.org/tv/67710/seasons",
     "tvdb": "https://thetvdb.com/series/servamp/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             3,
@@ -16,13 +18,31 @@
           [
             4,
             3
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
           ]
         ]
       }
     ]
   },
   "title": "Servamp",
-  "justification": "AniDB special S3 (2017-01-25) = TVDB 0x04 (2017-01-25), was 0x03. AniDB special S4 (2017-02-24) = TVDB 0x03 (2017-02-24), was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 307110 and TMDB show 67710. AniDB S3 \"灰に塗れた憧憬: All the world`s a stage\" (Longing Covered in Ashes: All the World`s a Stage) is TVDB S0E4 \"Longing Covered in Ashes: All the World's a Stage\" and TMDB S0E4 \"Longing Covered in Ashes: All the World's a Stage\"; AniDB S4 \"Sleepy Life of Servamp 3\" is TVDB S0E3 \"Sleepy Life of Servamp 3\" and TMDB S0E3 \"Sleepy Life of Servamp 3\"; AniDB S5 \"Cast Event 1\" has no TVDB episode (its default TVDB S0E5 is \"SERVAMP Alice in the Garden\", another item) and no TMDB episode (TMDB has no S0E5); AniDB S6-S10 (\"Cast Event 2\" to \"Cast Event 6\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -137,8 +157,8 @@
       ],
       "series": 307110
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bda58d567f0d18475fc1268a306b0d70ea466044ef0903d6d107e4be9218b41d"
   },
   "anilist_ids": [

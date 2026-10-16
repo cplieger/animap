@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:10001",
+  "title": "Robot Girls Z",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "22048a3123b6fe07957fa6a1d49ef4a66f003deb70df1dea2ae7aa7bec1f611c",
+        "date-mismatch:S4": "656f3e9a4dc8c7c318907c98cc26acc7a2800f7bd353e80adff16f38ab5ad85f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S3 \"Episode 6.5 / Robot Girls Sanban Shoubu\" (2014-07-11) = S0E4 \"Assault! Robot Girls Three Part Challenge - Episode 6.5\" (2014-06-13); S4 \"Episode 9.5 / Senritsu! Net no Chikara\" (2014-08-08) = S0E5 \"Terror! The Power of the Network - Episode 9.5\" (2014-06-13).",
+      "evidence": [
+        "https://anidb.net/anime/10001",
+        "https://thetvdb.com/dereferrer/series/275573"
+      ]
+    }
+  }
+}

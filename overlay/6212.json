@@ -1,0 +1,102 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6212",
+    "tmdb": "https://www.themoviedb.org/tv/35730/season/0",
+    "tvdb": "https://thetvdb.com/series/strawberry-marshmallow/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ichigo Marshmallow Encore",
+  "justification": "AniDB 6212 episodes 1 and 2 (Ichigo Marshmallow Encore, 2009-01-23 and 2009-03-25) are TMDB 35730 season 0 E5 Good Afternoon (2009-01-23) and E6 See You Tomorrow (2009-03-25), the same episodes as TVDB 0x5 and 0x6 (row ;1-5;2-6;). Anime-Lists names only tvdbseason, so TMDB took the default S0E1 and S0E2, which are Prologue and Scenery. The TVDB row is unchanged.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e2e6d871379180d864915e66b4c6d9ba6a07be99fdefdc9126904ad81cd512ee",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2005-06-08"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2007-02-23"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2007-03-28"
+        ],
+        [
+          0,
+          4,
+          16,
+          "2007-04-25"
+        ],
+        [
+          0,
+          5,
+          17,
+          "2009-01-23"
+        ],
+        [
+          0,
+          6,
+          18,
+          "2009-03-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          ""
+        ]
+      ],
+      "series": 81007
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0d8f6cffafea81575b5ff1d58084acc3a0bae69d9324c4f39646b82f27750353"
+  },
+  "anilist_ids": [
+    4811
+  ],
+  "anidb_id": 6212
+}

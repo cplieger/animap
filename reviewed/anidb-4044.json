@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:4044",
+  "title": "Barbapapa Sekai o Mawaru",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:44": "4f951da873c9803008bd0ab0946231becbba9f66ce3d79378ad2897179e414e2"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All 50 AniDB episodes map 1:1 to TVDB S1E1-50 by title and order: AniDB 1 \"Farm / Bokujou (Furusato Hen)\" = S1E1 \"Home Town - Farm\", 4 \"Birds of Paradise (New Guinea)\" = S1E4 \"New Guinea - Birds of Paradise\", 24 \"Panda (Chuugoku Hen)\" = S1E24 \"China - Panda\", 31 \"Lion \u0026 Zebra (Savanna)\" = S1E31 \"Savana - Lion \u0026 Zebra\", 44 \"Baobab (Madagascar Hen)\" = S1E44 \"Madagascar - Baobab\", 50 \"Giant Squid (Nankyoku Hen)\" = S1E50 \"Antarctic - Giant Squid\". The only failing episode (44) is a TVDB date typo: S1E44 is dated 1999-07-23 while its neighbours S1E43 and S1E45 are 1999-09-22 and 1999-09-24 (AniDB 1999-09-23). The suggested targets (S1E43, S1E45) carry different titles. Mapping is right.",
+      "evidence": [
+        "https://anidb.net/anime/4044",
+        "https://thetvdb.com/dereferrer/series/120231"
+      ]
+    }
+  }
+}

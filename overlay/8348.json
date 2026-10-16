@@ -10,14 +10,19 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1
+            1,
+            2
+          ],
+          [
+            2,
+            3
           ]
         ]
       }
     ]
   },
   "title": "Blood-C",
-  "justification": "AniDB special S1 (2012-05-27) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1 \"Special Edition (Part 1)\" (2012-05-27) and S2 \"Special Edition (Part 2)\" (2012-05-31) are TVDB season 0 episodes 2 \"Special Edition (Part 1)\" (2012-05-26) and 3 \"Special Edition (Part 2)\" (2012-05-30), the same titles a day apart. Before, S1 was unmapped and S2 fell on Part 1.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -162,8 +167,8 @@
       ],
       "series": 249864
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "285f5b7cd11bfd744325f81ce4fa7970dde8678075d9432a667946ec75a457d3"
   },
   "anilist_ids": [

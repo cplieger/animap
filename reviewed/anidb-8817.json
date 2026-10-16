@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:8817",
+  "title": "Eiga Precure All Stars New Stage: Mirai no Tomodachi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "e6b481c067e93d34504173c481cc18076d43de45aa35172c8fb91feab91ec345"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1 'Complete Movie' (Pretty Cure All Stars New Stage: Mirai no Tomodachi) -\u003e TVDB S0E1 'Pretty Cure All Stars New Stage: Friends of the Future': same film, one-to-one. The 2012-03-07 (TVDB) vs 2012-03-17 (AniDB) date gap is a release-date difference. The datecheck's suggested target S1E7 'Where is it? Our Secret Base!?' is a TV episode, a different thing.",
+      "evidence": [
+        "https://anidb.net/anime/8817",
+        "https://thetvdb.com/dereferrer/series/255904"
+      ]
+    }
+  }
+}

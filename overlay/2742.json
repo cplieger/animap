@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/2742",
+    "tmdb": "https://www.themoviedb.org/tv/24856/seasons",
     "tvdb": "https://thetvdb.com/series/jinki-extend/seasons/official/0"
   },
   "set": {
@@ -14,11 +15,24 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 1,
+        "episodes": [
+          [
+            1,
+            13
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Jinki:Extend",
-  "justification": "AniDB special S1 (2006-02-22) = TVDB 0x01 (2006-02-22), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80819 and TMDB show 24856. AniDB S1 \"それから\" (And Then...) is TVDB S0E1 \"And Then\" and TMDB S1E13 \"それから\" (And Then...); AniDB S2 \"Moribito CG - DVD 2 Special\" has no TMDB episode (TMDB has no S0E2).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -115,8 +129,8 @@
       ],
       "series": 80819
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "537808b5b1267cafabdcd97ea5a9f5de4ec9a26d152f9f95ef776a3a5758b453"
   },
   "anilist_ids": [

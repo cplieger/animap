@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:15487",
+  "title": "Kageyama Tamio no Double Fantasy",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c85e8b9515a9f5cece7d990f76755c19a18eb5e60b367408cfeb60e6e1bba025",
+        "gaps": [
+          "no_tvdb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: no TVDB series or movie found for the 1994 two-part TV special (AniDB 15487) under any of its titles",
+        "evidence": [
+          "https://anilist.co/anime/139983"
+        ],
+        "anilist_id": 139983
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15830",
+    "tmdb": "https://www.themoviedb.org/tv/112601/seasons",
     "tvdb": "https://thetvdb.com/series/bakuten/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,16 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Bakuten!!",
-  "justification": "AniDB special S1 (2021-06-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 395746 and TMDB show 112601. AniDB S1 \"土屋神葉\u0026石川界人 バクテン挑戦動画 Package Edition\" (Backflip Challenge) has no TVDB episode (its default TVDB S0E1 is \"Backflip!! The Movie\", another item); AniDB S2 \"Blu－ray\u0026DVD第1巻購入者限定配信イベント\" (Limited Streaming Event) has no TVDB episode (TVDB has no S0E2).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +112,8 @@
       ],
       "series": 395746
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "43f36a4cea9bf194ec1d4015067b7b9ac40b755ad4965121084c8270134113e2"
   },
   "anilist_ids": [

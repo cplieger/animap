@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14977",
+    "tmdb": "https://www.themoviedb.org/tv/1429/seasons",
     "tvdb": "https://thetvdb.com/series/attack-on-titan/seasons/official/0"
   },
   "set": {
@@ -10,14 +11,51 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1
+            1,
+            36
+          ],
+          [
+            2,
+            37
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            33
+          ],
+          [
+            2,
+            34
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
           ]
         ]
       }
     ]
   },
   "title": "Shingeki no Kyojin: The Final Season",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 267440 and TMDB show 1429. AniDB S1-S2 (\"Chimi Chara Theater 1\" to \"Chimi Chara Theater 2\") are TVDB S0E36 \"Chimi Chara Theater 'Four-frame Survey Corps Final' 60th day\" to TVDB S0E37 \"Chimi Chara Theater 'Four-frame Survey Corps Final' 68th day\" and TMDB S0E33 \"Chibi Theater: Survey Cops: Day 60 / Day 61 / Day 62 / Day 63 / Day 64 / Day 65 / Day 66 / Day 67\" to TMDB S0E34 \"Chibi Theater: Survey Cops: Day 68 / Day 69 / Day 70 / Day 71 / Day 72 / Day 73 / Day 74 / Day 75\"; AniDB S3-S5 (\"Making video 3D model production\" to \"20分で追いつける！アニメ『進撃の巨人』\" (Catch up in 20 minutes! Anime \"Attack on Titan\" Digest)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items). TVDB S0E36-E37 and TMDB S0E33-E34 are the Final Season's two chibi-character theatre items, in order, the only ones after the earlier seasons' runs.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -462,8 +500,8 @@
       ],
       "series": 267440
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c6fe0363aed47c2125e7c20708223d612a38a581b9364a1a59a2da802d65c78a"
   },
   "anilist_ids": [

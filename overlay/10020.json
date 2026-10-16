@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10020",
-    "tvdb": "https://thetvdb.com/series/laughing-under-the-clouds/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/laughing-under-the-clouds/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/61742/seasons"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Donten ni Warau",
-  "justification": "AniDB special S1-S2 (2018-02-09 to 2018-05-07) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 284439 and TMDB show 61742. AniDB S1-S2 (\"1分でわかる映画「曇天に笑う」 解説予告\" (Understanding \"Laughing Under the Clouds\" in 1 Minute) to \"『曇天に笑う』×「豆しば」\" (Laughing Under the Clouds x Mameshiba)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17802",
+    "tmdb": "https://www.themoviedb.org/tv/217512/seasons",
     "tvdb": "https://thetvdb.com/series/16bit-sensation/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,16 @@
         "episodes": [
           [
             2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "16bit Sensation: Another Layer",
-  "justification": "AniDB special S2 (2023-09-18) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 429055 and TMDB show 217512. AniDB S2 \"16bit TV in 秋葉原 ~進め! 電波少女~\" (16bit TV in Akihabara: Forward! Electromagnetic Girl) has no TVDB episode (its default TVDB S0E2 is another item); AniDB S3 \"特別企画 Road to 冬コミ\" (Special Promotion Movie: Road to Winter Comiket) has no TVDB episode (TVDB has no S0E3). TVDB S0E2 is titled TRUE END PV on TheTVDB's season page, a 5-minute promotion.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -120,8 +124,8 @@
       ],
       "series": 429055
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1bcf168386a918a5c8ab4e2f120085272ce538c0e693bb04835240f200b4b9c1"
   },
   "anilist_ids": [

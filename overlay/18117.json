@@ -10,14 +10,31 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
           ]
         ]
       }
     ]
   },
   "title": "Your Forma",
-  "justification": "AniDB special S1 (2025-03-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S5 \"Petit Forma: Denhankyoku Nisshi Dai 1-5 Wa\" are TVDB season 0 episodes 2-6 プチ・フォルマ電犯局日誌 01-05, in the same order; episode 1 is the \"Prologue\", which AniDB does not list. The old row unmapped S1, and S2-S5 fell one slot early by default.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -144,8 +161,8 @@
       ],
       "series": 436400
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e76b10b8a32f842dca3d08c68b92fcb3a197afb8cc6334eff88609874b4bb671"
   },
   "anilist_ids": [

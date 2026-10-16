@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17765",
-    "tvdb": "https://thetvdb.com/series/bleach/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/30984/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/74796"
   },
   "set": {
     "mapping_list": [
@@ -16,11 +17,24 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Bleach: Sennen Kessen Hen - Ketsubetsu Tan",
-  "justification": "AniDB special S1-S2 (2023-09-02 to 2023-09-23) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 74796 and TMDB show 30984. AniDB S1 \"The Blood Warfare, Separation [Interlude]\" is TMDB S0E4 \"THE BLOOD WARFARE, SEPARATION［INTERLUDE］\" (The Blood Warfare, Separation (Interlude)) and has no TVDB episode (its default TVDB S0E1 is \"Memories in the Rain\", another item); AniDB S2 \"#11〜#24 LOOKBACK\" (#11~#24 LOOKBACK (5:13)) has no TVDB episode (its default TVDB S0E2 is \"The Sealed Sword Frenzy\", another item) and no TMDB episode (its default TMDB S0E2 is \"13 Court Guard Squads Omake\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -375,8 +389,8 @@
       ],
       "series": 74796
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2a304ea34ecdb7658f66949aadd7e7f01e0ca950bd7b81e1a421d68113257c33"
   },
   "anilist_ids": [

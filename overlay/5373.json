@@ -50,31 +50,40 @@
             29
           ],
           [
-            11
+            11,
+            37
           ],
           [
-            12
+            12,
+            38
           ],
           [
-            13
+            13,
+            39
           ],
           [
-            14
+            14,
+            40
           ],
           [
-            15
+            15,
+            41
           ],
           [
-            16
+            16,
+            42
           ],
           [
-            17
+            17,
+            43
           ],
           [
-            18
+            18,
+            44
           ],
           [
-            19
+            19,
+            45
           ],
           [
             20,
@@ -85,23 +94,31 @@
             46
           ],
           [
-            22
+            22,
+            13
           ],
           [
-            23
+            23,
+            13
           ],
           [
-            24
+            24,
+            13
           ],
           [
-            25
+            25,
+            13
+          ],
+          [
+            26,
+            13
           ]
         ]
       }
     ]
   },
   "title": "Code Geass: Hangyaku no Lelouch R2",
-  "justification": "AniDB special S21 (2010-04-23) = TVDB 0x46 (2010-04-23), was unmapped, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S21 (2010-04-23) = TVDB 0x46 (2010-04-23), was unmapped, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB specials S11-S19, Omake Flash Baba Theater Redux 1-9, are TVDB 79525 season 0 episodes 37-45, whose original titles on TheTVDB are 「帰ってきたBABA劇場」 1-9 (SkyHook labels them Nunnally Diary), dated with the nine R2 volumes from 2008-08-22 to 2009-04-24. S22-S26, Soubou no Oz Picture Drama 1-5 (2013-01-10), are the five parts of episode 13 双貌のオズ ピクチャードラマ (2013-01-10); S26 defaulted onto episode 26, S2's Turn 0.56. The other pairs stay.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -582,8 +599,8 @@
       ],
       "series": 79525
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1318fa685b84f10da929bd99749db0fd9372056363c6b0864d9e364458d8dd79"
   },
   "anilist_ids": [

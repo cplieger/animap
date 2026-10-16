@@ -1,0 +1,24 @@
+{
+  "anilist_id": 125308,
+  "title": "Hakumei no Tsubasa EXPANSION: Hoshi no Matsuri",
+  "parts": [
+    {
+      "anidb_id": 15309,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 125308 (ONA, 1 episode(s) from 2020-11-05) is AniDB 15309's special(s) S1, aired 2020-11-05. AniList's PREQUEL relation names AniList 113932, which anime-offline-database links to AniDB 15309, and the special's title matches an AniList title. TMDB 96420, where the parent's node places the special(s), agrees: S0E1 2020-11-05.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15309",
+    "anilist": "https://anilist.co/anime/125308",
+    "tmdb": "https://www.themoviedb.org/tv/96420/season/0",
+    "tvdb": "https://thetvdb.com/series/pokemon-twilight-wings/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "21b78d6623a195068c1a85977ec9391d28fabc76a3d27fbe26fe88ac3a6ab115"
+  }
+}

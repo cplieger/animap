@@ -1,11 +1,15 @@
 {
-  "anidb_id": 9245,
-  "title": "Ebiten: Kouritsu Ebisugawa Koukou Tenmonbu - Gigazon 23 Part II Himitsu Kudasai",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9245",
+    "tmdb": "https://www.themoviedb.org/tv/54928/seasons",
+    "tvdb": "https://thetvdb.com/series/ebiten/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 1,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -15,11 +19,9 @@
       }
     ]
   },
-  "justification": "AniDB 1 (2013-01-26) = TVDB 0x06 (2013-01-26), by the anime's title. It was unplaced. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/9245",
-    "tvdb": "https://thetvdb.com/series/ebiten/seasons/official/0"
-  },
+  "title": "Ebiten: Kouritsu Ebisugawa Koukou Tenmonbu - Gigazon 23 Part II Himitsu Kudasai",
+  "justification": "Checked by episode title against TVDB series 259656 and TMDB show 54928. AniDB episode 1 \"OAD\" (the anime \"えびてん 公立海老栖川高校天悶部 ギガゾーン23 PART II 秘密く・だ・さ・い\") is TVDB S0E6 \"Megazone 23 Part II: Please Give Me Your Secret\" and TMDB S0E6 \"ギガゾーン23 PARTII 秘密く・だ・さ・い\" (Megazone 23 Part II: Please Give Me Your Secret).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "49a79a2ec09761efc861f63d6c8f3f93c29b01d147d1ad69e34c369336d52a2b",
@@ -66,12 +68,12 @@
       ],
       "series": 259656
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b71221acae17e2012367fd8b3dceca34f8ae829e7dee7c9c9a7856571f87cf66"
   },
   "anilist_ids": [
     14889
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 9245
 }

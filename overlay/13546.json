@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13546",
+    "tmdb_movie": "https://www.themoviedb.org/movie/492999",
     "tvdb": "https://thetvdb.com/series/attack-on-titan/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "492999",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -30,7 +35,7 @@
     ]
   },
   "title": "Gekijouban Shingeki no Kyojin Season 2: Kakusei no Houkou",
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 267440. The film is TMDB movie 492999 (Attack on Titan: The Roar of Awakening (2018)). TMDB show 1429 does not carry it, so the node leaves that show. AniDB S1-S2 (\"「進撃の巨人」Reading&Live Event Orchestra\" (Reading & Live Event Orchestra Main Part) to \"Reading & Live Event Orchestra Ending Part\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -294,8 +299,8 @@
       ],
       "series": 267440
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0b79eff30e38ec3d1b92869e3b9e2380ab95f98d89991e75723fce31d75750c8"
   },
   "anilist_ids": [

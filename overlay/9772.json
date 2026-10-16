@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9772",
+    "tmdb": "https://www.themoviedb.org/tv/61440/seasons",
     "tvdb": "https://thetvdb.com/series/strike-the-blood/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Strike the Blood",
-  "justification": "AniDB special S1 (2013-12-27) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 272129 and TMDB show 61440. AniDB S1 \"ストライク・ザ・ブラッドの秘密を監視せよ!\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"Kingdom of Valkyria I\", another item) and no TMDB episode (its default TMDB S0E1 is \"Kingdom of Valkyria I\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -192,8 +202,8 @@
       ],
       "series": 272129
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f5b4a6b658d2e208ddd899bcc8b7513c2b0bc450fd6e961367f1014e905e5f03"
   },
   "anilist_ids": [

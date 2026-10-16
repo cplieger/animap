@@ -1,0 +1,102 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/19969",
+    "tmdb": "https://www.themoviedb.org/tv/203737/season/0",
+    "tvdb": "https://thetvdb.com/series/oshi-no-ko/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "\"Oshi no Ko\" Final Season",
+  "justification": "The AniDB mirror lists no episodes for this unaired final season, so any special it later gains would fall on TVDB season 0 episodes 1-7. Episodes 1 and 2 are the retrospective programmes Vol.1 (2023-05-31) and Vol.2 (2024-09-04) of the first two seasons (AniDB 17449 and 18086), and 3-7 are where 17449's behind-the-scenes specials default; TMDB 203737 season 0 likewise lists only Vol.1 and Vol.2. None can be this season's, so specials 1-7 are unmapped on both until AniDB lists them.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "tvdb": {
+      "sha256": "7401694c55ba0c131a13dee379f6d3a7bd309b7000b3c5851717ff7f6f1cfb51",
+      "seasons": [
+        0,
+        4
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-05-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2024-09-04"
+        ],
+        [
+          4,
+          1,
+          36,
+          ""
+        ]
+      ],
+      "series": 421069
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "7b8dbfd33880445e853174d890fdbff0be5abeea7e470fe61eea203ed2f514e9"
+  },
+  "anidb_id": 19969
+}

@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10066",
+    "tmdb_movie": "https://www.themoviedb.org/movie/296917",
     "tvdb": "https://thetvdb.com/series/psycho-pass/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "296917",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -17,7 +22,7 @@
     ]
   },
   "title": "Gekijouban Psycho-Pass",
-  "justification": "AniDB special S1 (2015-07-15) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 262090. The film is TMDB movie 296917 (PSYCHO-PASS: The Movie (2015)). TMDB show 43865 does not carry it, so the node leaves that show. AniDB S1 \"Making Of\" has no TVDB episode (its default TVDB S0E1 is \"Criminal Coefficient / Those Capable (Extended)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -149,8 +154,8 @@
       ],
       "series": 262090
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4ea7252cacf366f1d2534780e2adb2b397eb9a8a2a504bc7f94257b122071216"
   },
   "anilist_ids": [

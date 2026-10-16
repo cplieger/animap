@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8694",
+    "tmdb_movie": "https://www.themoviedb.org/movie/219250",
     "tvdb": "https://thetvdb.com/series/a-certain-magical-index/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "219250",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -30,7 +35,7 @@
     ]
   },
   "title": "Gekijouban Toaru Majutsu no Index: Endymion no Kiseki",
-  "justification": "AniDB special S2-S5 (no AniDB date) have no TVDB episode, was 0x02-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 83322. The film is TMDB movie 219250 (A Certain Magical Index: The Miracle of Endymion (2013)). TMDB show 30980 does not carry it, so the node leaves that show. AniDB S2-S5 (\"Cast Video 1\" to \"Cast Video 4\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -90,8 +95,8 @@
       ],
       "series": 83322
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b422f2961d52d49b2ff152aa056508897acf42f176cf012cda01b6c4bbfa1a06"
   },
   "anilist_ids": [

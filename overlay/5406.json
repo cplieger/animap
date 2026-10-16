@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/5406",
+    "tmdb": "https://www.themoviedb.org/tv/26707/seasons",
     "tvdb": "https://thetvdb.com/series/spice-and-wolf/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             2
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Ookami to Koushinryou",
-  "justification": "AniDB special S2 (2008-03-26) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81178 and TMDB show 26707. AniDB S2 \"Episode 12 Ending\" has no TVDB episode (its default TVDB S0E2 is \"'Studying' with Holo\", another item) and no TMDB episode (its default TMDB S0E2 is \"Wolf and the Amber Melancholy\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -138,8 +140,8 @@
       ],
       "series": 81178
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "60c0d00930fa2b589e7f6eb26fd7b2e644cb3e36265fee4d81e1ebd0b05c4981"
   },
   "anilist_ids": [

@@ -24,12 +24,36 @@ func fin(regular int, specials ...int) anidb.Anime {
 	for _, k := range specials {
 		a.Specials = append(a.Specials, anidb.Episode{Number: k})
 	}
+	return titled(a)
+}
+
+// titled gives every episode of a without one the title digest
+// fixtureOtherTitles, and a its extras list, which a snapshot file needs.
+func titled(a anidb.Anime) anidb.Anime {
+	for len(a.RegularTitles) < len(a.Regular) {
+		a.RegularTitles = append(a.RegularTitles, fixtureOtherTitles)
+	}
+	a.Specials = slices.Clone(a.Specials)
+	for i := range a.Specials {
+		if a.Specials[i].Titles == "" {
+			a.Specials[i].Titles = fixtureOtherTitles
+		}
+	}
+	a.Extras = append([]anidb.Episode{}, a.Extras...)
+	for i := range a.Extras {
+		if a.Extras[i].Titles == "" {
+			a.Extras[i].Titles = fixtureOtherTitles
+		}
+	}
 	return a
 }
 
 // snapshotWith writes a mirror snapshot at mirrorCommit listing listed.
 func snapshotWith(t *testing.T, dir string, listed map[int]anidb.Anime) string {
 	t.Helper()
+	for id, a := range listed {
+		listed[id] = titled(a)
+	}
 	return writeFixture(t, dir, "snapshot.json", &anidb.Snapshot{Commit: mirrorCommit, Anime: listed, Refused: []int{}})
 }
 
@@ -172,14 +196,17 @@ func TestMirrorExtract(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if a := got.Anime[10]; len(a.Titles) != 64 {
-		t.Errorf("AniDB 10 titles = %q, want a 64-hex digest of its episode titles", a.Titles)
+	if a := got.Anime[10]; len(a.Titles) != 64 || len(a.RegularTitles) != 1 || len(a.RegularTitles[0]) != 64 || len(a.Specials) != 1 || len(a.Specials[0].Titles) != 64 {
+		t.Errorf("AniDB 10 = %+v, want 64-hex digests of its titles and of each episode's", a)
 	}
 	for id, a := range got.Anime {
-		a.Titles = ""
+		a.Titles, a.RegularTitles = "", nil
+		for i := range a.Specials {
+			a.Specials[i].Titles = ""
+		}
 		got.Anime[id] = a
 	}
-	want := map[int]anidb.Anime{10: {Regular: []string{"2005-04-01"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-05-01"}}, Finished: true}}
+	want := map[int]anidb.Anime{10: {Regular: []string{"2005-04-01"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-05-01"}}, Extras: []anidb.Episode{}, Finished: true}}
 	if !reflect.DeepEqual(got.Anime, want) || !slices.Equal(got.Refused, []int{11}) || got.Commit != mirrorCommit {
 		t.Errorf("snapshot = %+v, want %+v with AniDB 11 refused", got, want)
 	}

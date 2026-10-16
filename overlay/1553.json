@@ -1,0 +1,190 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1553",
+    "tmdb": "https://www.themoviedb.org/tv/23674/season/0",
+    "tvdb": "https://thetvdb.com/series/the-phoenix/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hi no Tori",
+  "justification": "AniDB special S1, the undated \"Art Gallery\", has no TVDB or TMDB episode. By default it fell on TVDB and TMDB season 0 episode 1, the 1980 film \"Phoenix 2772\". It is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "87ace9569f97f4910bc938245c10756f886d37eea497ca41175fb4ff8f5bd86e",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1980-03-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1986-12-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1987-08-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1987-12-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-05-24"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-02-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2020-11-20"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1987-12-21"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2004-07-17"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-06-02"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-11-20"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2023-11-03"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2004-03-21"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2004-03-28"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2004-04-04"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2004-04-11"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2004-04-18"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2004-04-25"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2004-05-02"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2004-05-09"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2004-05-16"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2004-05-23"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2004-05-30"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2004-06-06"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2004-06-13"
+        ]
+      ],
+      "series": 98161
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "23d54f175bb72dac2bf3e054a345f4e1f61b85fd8f1a69e9a77d7ec17714e322"
+  },
+  "anidb_id": 1553
+}

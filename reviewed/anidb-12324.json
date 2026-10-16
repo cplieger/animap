@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:12324",
+  "title": "Sin: Nanatsu no Taizai",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "2e13d6ccbab045268804f4e3209aee67f3f3559cbcac89aefc4ec5fbab9211aa"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S3 \"Just Before the Broadcast! \"Sin: Nanatsu no Taizai\" Impatient Special Program: The Cast Bares Itself for a Mentality Test!? / Housou Chokuzen! \"Sin: Nanatsu no Taizai\" Jirashi Tokuban: Shinri Test de Cast ga Maruhadaka!?\" (2017-04-08) = S0E1 \"Premiere Special\" (2017-04-14).",
+      "evidence": [
+        "https://thetvdb.com/series/seven-mortal-sins/seasons/official/0",
+        "https://anidb.net/anime/12324",
+        "https://thetvdb.com/dereferrer/series/318951"
+      ]
+    }
+  }
+}

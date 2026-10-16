@@ -1,0 +1,44 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7132",
+    "tvdb": "https://thetvdb.com/series/akikan/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Akikan! (2009)",
+  "justification": "The OVA is TVDB season 0 episode 1 \"Perfection! The Hot Spring Panic\" (2009-10-23). The untitled AniDB special S1 \"Special 1\" fell by default on the same episode; season 0 has nothing else, so S1 is unmapped. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b4a14ee9bc1ddee13fc2396ca820611b8f62524b11366326b09b78719e3e067b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2009-10-23"
+        ]
+      ],
+      "series": 84654
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "6cf7db572438751f3ed189b4efe08fb2ee7c3cde6d9d903d6f666bef08060aaf"
+  },
+  "anidb_id": 7132
+}

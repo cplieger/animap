@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8041",
-    "tvdb": "https://thetvdb.com/series/maria-holic/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/34667/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/84591"
   },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Maria Holic Alive",
-  "justification": "AniDB special S1 (2011-04-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 84591 and TMDB show 34667. AniDB S1 \"Ending PV\" has no TVDB episode (its default TVDB S0E1 is \"X'Mas Night - Amenokisaki Holy Night Festival\", another item) and no TMDB episode (its default TMDB S0E1 is \"X'Mas Night - Amenokisaki Holy Night Festival\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -120,8 +122,8 @@
       ],
       "series": 84591
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6e48c2e9bd72d0c9c982f4f07ef4f7e427336e33d5cc13858b5212a74f1a3df4"
   },
   "anilist_ids": [

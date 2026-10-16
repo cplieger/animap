@@ -1,0 +1,147 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/113",
+    "tmdb": "https://www.themoviedb.org/tv/34771/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/79798"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Saishuuheiki Kanojo",
+  "justification": "Checked by episode title against TVDB series 79798 and TMDB show 34771. AniDB S1 \"The Making Of\" has no TVDB episode (its default TVDB S0E1 is \"Another Love Song - Mission 1\", another item) and no TMDB episode (its default TMDB S0E1 is \"Another Love Song - Mission 1\", another item); AniDB S2 \"ゲームオープニング\" (Game Opening) has no TMDB episode (its default TMDB S0E2 is \"Another Love Song - Mission 2\", another item). The Anime-Lists row sent S1 to TVDB S0E3, which TVDB does not have.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9e7b7f3c13519800cc5f06110d4861351e1384f8c8e34023ad6efaac73a2b286",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2005-08-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2005-09-21"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2002-07-02"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2002-07-09"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2002-07-16"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2002-07-23"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2002-07-30"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2002-08-06"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2002-08-13"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2002-08-20"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2002-08-27"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2002-09-03"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2002-09-10"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2002-09-17"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2002-09-24"
+        ]
+      ],
+      "series": 79798
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "43021ab8f1ae552b297ccc649d4312f9fcaceb5169c097d6011fcb14a393eff2"
+  },
+  "anilist_ids": [
+    529
+  ],
+  "anidb_id": 113
+}

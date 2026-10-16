@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15449",
-    "tvdb": "https://thetvdb.com/series/bleach/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/30984/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/74796"
   },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -26,13 +28,16 @@
           ],
           [
             6
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Bleach: Sennen Kessen Hen",
-  "justification": "AniDB special S1-S6 ((none) to 2022-12-12) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 74796 and TMDB show 30984. AniDB S1-S4 (\"Extended Ending 2\" to \"黒崎一護が 150秒で解説する『BLEACH』破面篇\" (Looking Back Bleach : Ichigo Kurosaki Explains in 150 Seconds: Arancar Arc)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S5-S6 (\"黒崎一護が 150秒で解説する『BLEACH』死神代行消失篇\" (Looking Back Bleach : Ichigo Kurosaki Explains in 150 Seconds: The Disappearance of the Acting Reaper Arc) to \"#01~#10 LOOKBACK\" (#01~#10 LOOKBACK (4:06))) have no TVDB episode (their defaults are other items) and no TMDB episode (TMDB has none of them); AniDB S7 \"Ep 05 ベレニケ・ガブリエリ “Q” フルVer.\" (Ep 05 Berenice Gabrielli \"Q\" Full Ver. (0:47)) has no TVDB episode (TVDB has no S0E7) and no TMDB episode (TMDB has no S0E7).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -387,8 +392,8 @@
       ],
       "series": 74796
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8bbec7b029bc55a3ab5389b9f5c2bbd27c17fd9f4773cddf02892a87e04824d9"
   },
   "anilist_ids": [

@@ -1,0 +1,71 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9950",
+    "tvdb": "https://thetvdb.com/series/sekaiichi-hatsukoi-the-worlds-greatest-first-love/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Sekaiichi Hatsukoi: Yokozawa Takafumi no Baai",
+  "justification": "The film (2014-03-15) is TVDB season 0 episode 3 \"The Case of Yokozawa Takafumi\" (65 minutes, 2014-03-15; Yokozawa Takafumi no Baai); the row left it unmapped. AniDB special S1 \"Sekaiichi Hatsukoi Valentine Hen\", the short shown after the film and part of TVDB's 65-minute entry, fell by default on episode 1, the 2011 OVA (AniDB 7921), and is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "da0e26b6b35c1190efd51475d32e1b884c0c055af22e14606ee081a0173d6367",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-03-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-09-27"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-03-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-02-21"
+        ]
+      ],
+      "series": 247788
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "68143c66876bc4996d3426f2196bd24a4cc7ce791c47185c0a0b8cd08e2438fb"
+  },
+  "anidb_id": 9950
+}

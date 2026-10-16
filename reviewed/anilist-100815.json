@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:100815",
+  "title": "AniList 100815",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "b57fcb47efaa6c25aaa0e888ddf7d79d77d683b04ae5ace98ec7ce3638476e3c",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 2-7 of AniDB 13691 (TVDB 102261 0x33-0x38); anime-offline-database keeps AniDB 13691 as a record with no AniList source, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/100815"
+        ],
+        "anilist_id": 100815
+      }
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 {
-  "anidb_id": 12035,
-  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Zetsubou Hen",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12035",
+    "tmdb": "https://www.themoviedb.org/tv/67674/seasons",
+    "tvdb": "https://thetvdb.com/series/danganronpa-3-the-end-of-hopes-peak-academy-side-despair/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
@@ -14,11 +17,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 12424. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/12035",
-    "tvdb": "https://thetvdb.com/series/danganronpa-3-the-end-of-hopes-peak-academy-side-despair/seasons/official/0"
-  },
+  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Zetsubou Hen",
+  "justification": "Checked by episode title against TVDB series 314361 and TMDB show 67674. AniDB S1 \"Episode 10 Video Commentary\" has no TVDB episode (its default TVDB S0E1 is \"The End of Hopes Peak Academy - Side Hope\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "0f2854fee119b83b9da47076ccf04a58ed6713e8796e69b9af4fba2d4e47c8dd",
@@ -115,5 +116,5 @@
   "anilist_ids": [
     21825
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 12035
 }

@@ -66,15 +66,21 @@ func TestExtract(t *testing.T) {
 		t.Fatalf("Extract = %v", err)
 	}
 	for id, a := range s.Anime {
-		if !digestRE.MatchString(a.Titles) {
-			t.Errorf("Extract AniDB %d titles = %q, want a 64-hex digest", id, a.Titles)
+		if err := checkListed(id, &a); err != nil {
+			t.Errorf("Extract AniDB %d = %+v, want every title digest set: %v", id, a, err)
 		}
-		a.Titles = ""
+		a.Titles, a.RegularTitles = "", nil
+		for i := range a.Specials {
+			a.Specials[i].Titles = ""
+		}
+		for i := range a.Extras {
+			a.Extras[i].Titles = ""
+		}
 		s.Anime[id] = a
 	}
 	want := map[int]Anime{
-		10: {Regular: []string{"2005-04-01", "2005-04-08"}, Specials: []Episode{{Number: 1, AirDate: "2005-05-01"}, {Number: 2}}, Finished: true},
-		11: {Regular: []string{"2026-09-30"}, Specials: []Episode{}},
+		10: {Regular: []string{"2005-04-01", "2005-04-08"}, Specials: []Episode{{Number: 1, AirDate: "2005-05-01"}, {Number: 2}}, Extras: []Episode{{Number: 101}}, Finished: true},
+		11: {Regular: []string{"2026-09-30"}, Specials: []Episode{}, Extras: []Episode{}},
 	}
 	if !reflect.DeepEqual(s.Anime, want) {
 		t.Errorf("Extract anime = %+v, want %+v", s.Anime, want)
@@ -151,6 +157,43 @@ func TestParseRefuses(t *testing.T) {
 	}
 }
 
+// Extras take Anime-Lists' season 0 numbers, and one those numbers cannot
+// tell apart is dropped without refusing the file.
+func TestParseNumbersTheExtras(t *testing.T) {
+	for _, tc := range []struct {
+		name     string
+		episodes string
+		want     []int
+	}{
+		{"each kind from its base", `{"OTHER":[{"number":13},{"number":1}],"PARODY":[{"number":1}],"PROMOTION":[{"number":2}],"CREDITS":[{"number":1}]}`, []int{101, 202, 301, 401, 413}},
+		{"a kind's 100th and the other kind past it", `{"PROMOTION":[{"number":100},{"number":101}],"OTHER":[{"number":600}]}`, []int{300, 1000}},
+		{"a credit on a special's number", `{"SPECIAL":[{"number":101}],"CREDITS":[{"number":1},{"number":2}]}`, []int{102}},
+		{"an extra numbered twice or below 1", `{"OTHER":[{"number":1},{"number":1},{"number":0}]}`, []int{401}},
+		{"an extra's malformed date, which nothing reads", `{"OTHER":[{"number":1,"air_date":"2022"},{"number":2,"air_date":"2022-10-09"}]}`, []int{401, 402}},
+		{"an unknown kind", `{"TRAILER":[{"number":1}]}`, []int{}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			a, listed, err := parse(10, []byte(animeFileJSON(10, `null`, tc.episodes)))
+			if err != nil || !listed {
+				t.Fatalf("parse = %v, listed %t; want the file kept", err, listed)
+			}
+			got := []int{}
+			for _, e := range a.Extras {
+				got = append(got, e.Number)
+				if e.AirDate != "" {
+					t.Errorf("extra %d air date = %q, want none kept", e.Number, e.AirDate)
+				}
+			}
+			if !slices.Equal(got, tc.want) {
+				t.Errorf("extras = %v, want %v", got, tc.want)
+			}
+			if err := checkListed(10, &a); err != nil {
+				t.Errorf("checkListed(parse's anime) = %v, want accepted", err)
+			}
+		})
+	}
+}
+
 // The digest follows every title of a regular episode or a special, and
 // nothing else: the order AniDB lists titles in, and the titles of credits,
 // do not move it.
@@ -194,6 +237,49 @@ func TestParseDigestsTheEpisodeTitles(t *testing.T) {
 	}
 }
 
+// Each episode's digest follows its own number and titles only, so a link
+// over some episodes is not moved by an unrelated one.
+func TestParseDigestsEachEpisode(t *testing.T) {
+	const base = `{"REGULAR":[` +
+		`{"number":1,"titles":[{"language":"ENGLISH","title":"Over Lord"}]},` +
+		`{"number":2,"titles":[{"language":"ENGLISH","title":"Second"}]}],` +
+		`"SPECIAL":[{"number":1,"titles":[{"language":"ENGLISH","title":"Memory"}]}],` +
+		`"OTHER":[{"number":1,"titles":[{"language":"ENGLISH","title":"Concert"}]}]}`
+	digests := func(t *testing.T, episodes string) []string {
+		t.Helper()
+		a, _, err := parse(10, []byte(animeFileJSON(10, `null`, episodes)))
+		if err != nil {
+			t.Fatalf("parse = %v", err)
+		}
+		if len(a.RegularTitles) != 2 || len(a.Specials) != 1 || len(a.Extras) != 1 {
+			t.Fatalf("parse = %+v, want two regular digests, one special and one extra", a)
+		}
+		return []string{a.RegularTitles[0], a.RegularTitles[1], a.Specials[0].Titles, a.Extras[0].Titles}
+	}
+	want := digests(t, base)
+	if want[0] == want[1] || want[0] == want[2] || want[2] == want[3] || slices.ContainsFunc(want, notDigest) {
+		t.Fatalf("digests = %v, want four distinct 64-hex digests", want)
+	}
+	for _, tc := range []struct {
+		name, old, new string
+		moved          []bool
+	}{
+		{"episode 2 retitled", `"Second"`, `"Seconds"`, []bool{false, true, false, false}},
+		{"the special retitled", `"Memory"`, `"Memories"`, []bool{false, false, true, false}},
+		{"the other episode retitled", `"Concert"`, `"Live"`, []bool{false, false, false, true}},
+		{"episodes 1 and 2 trading titles", `"Over Lord"}]},{"number":2,"titles":[{"language":"ENGLISH","title":"Second"`, `"Second"}]},{"number":2,"titles":[{"language":"ENGLISH","title":"Over Lord"`, []bool{true, true, false, false}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			got := digests(t, strings.Replace(base, tc.old, tc.new, 1))
+			for i := range got {
+				if moved := got[i] != want[i]; moved != tc.moved[i] {
+					t.Errorf("digest %d moved=%t, want %t", i, moved, tc.moved[i])
+				}
+			}
+		})
+	}
+}
+
 func TestSnapshotRoundTrip(t *testing.T) {
 	body := archive(t, map[string]string{
 		"anime/10.json": animeFileJSON(10, `"2005"`, `{"REGULAR":[{"number":1,"air_date":"2005-04-01"}],"SPECIAL":[{"number":1}]}`),
@@ -221,7 +307,8 @@ func TestSnapshotRoundTrip(t *testing.T) {
 }
 
 func TestDecodeSnapshotRefuses(t *testing.T) {
-	ok := `{"commit":"` + commit + `","anime":{"1":{"titles":"` + strings.Repeat("0", 64) + `","regular":["2005-04-01"],"specials":[{"number":1,"air_date":""}],"finished":true}},"refused":[2]}`
+	z, one := strings.Repeat("0", 64), strings.Repeat("1", 64)
+	ok := `{"commit":"` + commit + `","anime":{"1":{"titles":"` + z + `","regular":["2005-04-01"],"regular_titles":["` + one + `"],"specials":[{"number":1,"air_date":"","titles":"` + one + `"}],"extras":[{"number":201,"air_date":"","titles":"` + one + `"}],"finished":true}},"refused":[2]}`
 	if _, err := decodeSnapshot([]byte(ok)); err != nil {
 		t.Fatalf("Setup: decodeSnapshot(valid) = %v", err)
 	}
@@ -229,12 +316,15 @@ func TestDecodeSnapshotRefuses(t *testing.T) {
 		strings.Replace(ok, commit, "main", 1),
 		strings.Replace(ok, `"1":`, `"0":`, 1),
 		strings.Replace(ok, `"2005-04-01"`, `"2005"`, 1),
-		strings.Replace(ok, `[{"number":1,"air_date":""}]`, `[{"number":2,"air_date":""},{"number":1,"air_date":""}]`, 1),
-		strings.Replace(ok, `[{"number":1,"air_date":""}]`, `[{"number":0,"air_date":""}]`, 1),
+		strings.Replace(ok, `[{"number":1,"air_date":"","titles":"`+one+`"}]`, `[{"number":2,"air_date":"","titles":"`+one+`"},{"number":1,"air_date":"","titles":"`+one+`"}]`, 1),
+		strings.Replace(ok, `[{"number":1,"air_date":"","titles":"`+one+`"}]`, `[{"number":0,"air_date":"","titles":"`+one+`"}]`, 1),
+		strings.Replace(ok, `"number":201`, `"number":100`, 1),
+		strings.Replace(ok, `"extras":[{"number":201,"air_date":"",`, `"extras":[{"number":401,"air_date":"","titles":"`+one+`"},{"number":201,"air_date":"",`, 1),
+		strings.Replace(ok, `"specials":[{"number":1,`, `"specials":[{"number":201,`, 1),
 		strings.Replace(ok, `"refused":[2]`, `"refused":[1]`, 1),
 		strings.Replace(ok, `"refused":[2]`, `"refused":[3,2]`, 1),
 		strings.Replace(ok, `"refused":[2]`, `"refused":[2],"titles":[]`, 1),
-		strings.Replace(ok, strings.Repeat("0", 64), "Over Lord", 1),
+		strings.Replace(ok, z, "Over Lord", 1),
 		ok + " {}",
 		ok + " ]",
 		ok + "}",
@@ -243,9 +333,17 @@ func TestDecodeSnapshotRefuses(t *testing.T) {
 			t.Errorf("decodeSnapshot(%s) = %+v, %v; want errInvalid", body, s, err)
 		}
 	}
-	untitled := strings.Replace(ok, `"titles":"`+strings.Repeat("0", 64)+`",`, "", 1)
-	if _, err := decodeSnapshot([]byte(untitled)); err == nil || !strings.Contains(err.Error(), "re-extract") {
-		t.Errorf("decodeSnapshot(an anime with no title digest) = %v, want a refusal saying to re-extract", err)
+	for name, body := range map[string]string{
+		"an anime with no title digest":        strings.Replace(ok, `"titles":"`+z+`",`, "", 1),
+		"a regular episode with no digest":     strings.Replace(ok, `"regular_titles":["`+one+`"]`, `"regular_titles":[]`, 1),
+		"a regular digest that is not 64 hex":  strings.Replace(ok, `"regular_titles":["`+one+`"]`, `"regular_titles":["x"]`, 1),
+		"a special with no digest":             strings.Replace(ok, `"air_date":"","titles":"`+one+`"`, `"air_date":""`, 1),
+		"no extras, as an older extract wrote": strings.Replace(ok, `"extras":[{"number":201,"air_date":"","titles":"`+one+`"}],`, "", 1),
+		"an extra with no digest":              strings.Replace(ok, `{"number":201,"air_date":"","titles":"`+one+`"}`, `{"number":201,"air_date":""}`, 1),
+	} {
+		if _, err := decodeSnapshot([]byte(body)); err == nil || !strings.Contains(err.Error(), "re-extract") {
+			t.Errorf("decodeSnapshot(%s) = %v, want a refusal saying to re-extract", name, err)
+		}
 	}
 }
 

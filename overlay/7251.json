@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7251",
+    "tmdb": "https://www.themoviedb.org/tv/36041/seasons",
     "tvdb": "https://thetvdb.com/series/bakuman/seasons/official/0"
   },
   "set": {
@@ -14,13 +15,16 @@
           ],
           [
             2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Bakuman.",
-  "justification": "AniDB special S1 (2011-01-26) has no TVDB episode, was 0x01. AniDB special S2 (no AniDB date) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 193811 and TMDB show 36041. AniDB S1-S2 (\"Legendary Hero Opening\" to \"Saint Visual`s Girls High School Opening\") have no TVDB episode (their defaults are other items); AniDB S3 \"Saint Visual`s Girls High School Ending\" has no TVDB episode (TVDB has no S0E3).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -195,8 +199,8 @@
       ],
       "series": 193811
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5b7139b35b51a646158cb6d2fc8525360c5cce3135a12bf2b40ece0af85de38a"
   },
   "anilist_ids": [

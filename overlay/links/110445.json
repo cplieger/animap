@@ -1,0 +1,24 @@
+{
+  "anilist_id": 110445,
+  "title": "Tsuujou Kougeki ga Zentai Kougeki de Ni-kai Kougeki no Okaasan wa Suki desu ka? OVA",
+  "parts": [
+    {
+      "anidb_id": 14454,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 110445 (OVA, 1 episode(s) from 2020-03-25) is AniDB 14454's special(s) S1, aired 2020-03-25. AniList's PARENT relation names AniList 104723, which anime-offline-database links to AniDB 14454, and the special's title matches an AniList title. TMDB 88808, where the parent's node places the special(s), agrees: S0E1 2020-03-25.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14454",
+    "anilist": "https://anilist.co/anime/110445",
+    "tmdb": "https://www.themoviedb.org/tv/88808/season/0",
+    "tvdb": "https://thetvdb.com/series/do-you-love-your-mom-and-her-two-hit-multi-target-attacks/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "4f3b23634741a026220c7aa1a699c49846f3692e8b93eec4137ee02e372ac34d"
+  }
+}

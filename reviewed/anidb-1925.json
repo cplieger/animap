@@ -1,0 +1,26 @@
+{
+  "key": "anime:anidb:1925",
+  "title": "Dr. Slump: Arale-chan",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:160": "b2ecd9a9fef8336621c756450a289d4589d8d253c4143ff91ea4ad94b46d19d0",
+        "date-mismatch:161": "67c064be50164efbaa1ef25f04b652661e886cad6ff66a228183c0e888b27c21",
+        "date-mismatch:162": "5eef2e4172fda1d0f8cf1429dfb3d13c01dd64e8db83b0750ca8d57918734d39",
+        "date-mismatch:163": "ff95f5b0fcc83412bdfd9f9af940603e365bf0797ecd05e559f0575033f086cd",
+        "date-mismatch:164": "39e8643470fcb9571410a070efd48c93f0f5e25f432d8d2597cc6c254518bc38",
+        "date-mismatch:176": "169862f2bcc56ccd3869cd5e415883d537d204006fd4a3c582803d7d84a8c961",
+        "date-mismatch:177": "ddc78eb9c19e53064ff3be5615dd1c844a3be4fbe563ee9f5f0fda72457d153f",
+        "date-mismatch:179": "af1001c935b0a15cdf471d8b05712af2afaa1b371e9e13e63c9b244a3435351e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 160 \"Episode 160 / Kyoufu no Hae Ningen\" (1985-05-30) = S4E10 \"Fear the Human Fly\" (1984-05-30); 161 \"Episode 161 / Ncha! Enma Daiou-sama\" (1985-06-06) = S4E11 \"Ncha! Great King Enma\" (1984-06-06); 162 \"Episode 162 / Usonko Christmas\" (1985-06-13) = S4E12 \"The Christmas Lie\" (1984-06-13); 163 \"Episode 163 / Sekai Hitotsu Oi no Dare!!\" (1985-06-20) = S4E13 \"Who is the World's Number One!!\" (1984-06-20); 164 \"Episode 164 / Yata!! Yata!! Sekaiichi!!\" (1985-06-27) = S4E14 \"Winner! Winner! The World's Number One!!\" (1984-06-27); 176 \"Episode 176 / Kakezurimawaru Seishun Kanketsu Hen\" (1984-10-10) = S4E26 \"The Adventures of Youth Concluded\" (1984-10-03); 177 \"Episode 177 / Gobusata Niko-chan\" (1984-10-17) = S4E27 \"Sorry it's Been Such a Long Time, Niko-chan\" (1984-10-10); 179 \"Episode 179 / Ukkari Koukou Sannen Sei\" (1984-10-31) = S4E29 \"Recklessly Becoming High School Seniors\" (1984-11-14).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/37567/season/1",
+        "https://anidb.net/anime/1925",
+        "https://thetvdb.com/dereferrer/series/75112"
+      ]
+    }
+  }
+}

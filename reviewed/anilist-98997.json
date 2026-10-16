@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:98997",
+  "title": "AniList 98997",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: regular episode 13 of AniDB 11492 (TVDB 319985 0x1), which anime-offline-database links to AniList 21298; AniList splits the 13th episode off as this entry, which no record can represent",
+        "evidence": [
+          "https://anilist.co/anime/98997"
+        ],
+        "anilist_id": 98997
+      }
+    ]
+  }
+}

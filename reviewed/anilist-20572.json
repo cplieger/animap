@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:20572",
+  "title": "AniList 20572",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "db762fe863a17d16aa41c4545185102693c49cb5ebb3e00e60735c7dec18609c",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: AniDB 9875 S1 Goodbye Again is TVDB 272074 0x1 by title and date, but anime-offline-database counts 2 episodes for this entry (MAL 21659 adds the digest S2), so a special-of-parent bridge of one special cannot apply; the count is anime-offline-database's to fix",
+        "evidence": [
+          "https://anilist.co/anime/20572"
+        ],
+        "anilist_id": 20572
+      }
+    ]
+  }
+}

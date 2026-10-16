@@ -1,0 +1,25 @@
+{
+  "key": "anime:anidb:17667",
+  "title": "Shuumatsu Train Doko e Iku?",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S10": "5e0d02fc7beb163eac7dd3b251ad1a2ed39c4089cc17c75e88d5d39026e1ccec",
+        "date-mismatch:S2": "7d9a782d97e92717a7b46b1750db1acba5782a79c895d5b915b5295272dc91e0",
+        "date-mismatch:S4": "143ecb171201205445bbfc7f6640f1282fb7897b6f5711266e3ab212ba1c06ef",
+        "date-mismatch:S5": "db9122eea592de231413eeb042c8133653fc3c08f452b261c087017eebb094fe",
+        "date-mismatch:S6": "096e75c2b4a0c5174dd7e4cbd05ae27a32dd68f5e1b618b1c67f1ff6c8faa536",
+        "date-mismatch:S7": "b8feb78dd3ac20909a316266f4c0c20f9c170aa5312cf1c095ea727786e6e2f5",
+        "date-mismatch:S8": "8a6b4d9887b847c4c008f101ced2cbb03b04e88d34bb062be5049e13f54f1642",
+        "date-mismatch:S9": "6ac6266d22e3e50840342bc0a2d3221b546503848301856ab7a062c899fd4eda"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All ten specials match one to one by title, number and order: S1 Recap -\u003e S0E1 Recap; Mini Anime 1..9 (Wanwan Train Doko e Iku? 1-9 with the same question each: money or love; deserted island; cake strawberry; lottery; time machine future/past; fortune-telling; cramming; lying; aliens) -\u003e S0E2..S0E10 \"Mini Anime 01..09\" with the same questions. The 'date-mismatch' failures are 2-5 day differences of the same episodes (the two sides date them 2-5 days apart; titles and questions are identical).",
+      "evidence": [
+        "https://anidb.net/anime/17667",
+        "https://thetvdb.com/dereferrer/series/426018"
+      ]
+    }
+  }
+}

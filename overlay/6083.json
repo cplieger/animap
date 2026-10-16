@@ -1,14 +1,15 @@
 {
-  "anidb_id": 6083,
-  "title": "Kiss x Sis",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6083",
+    "tmdb": "https://www.themoviedb.org/tv/45998/seasons",
+    "tvdb": "https://thetvdb.com/series/kissxsis/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1-12 (2008-12-22 to 2015-04-06) = TVDB 0x01-0x12 (2008-12-22 to 2015-04-06), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/6083",
-    "tvdb": "https://thetvdb.com/series/kissxsis/seasons/official/0"
-  },
+  "title": "Kiss x Sis",
+  "justification": "Checked by episode title against TVDB series 84768 and TMDB show 45998. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-12 (\"ゼロから始めよう\" (Start from Scratch) to \"いつまでもイイ関係\" (A Good Relationship Forever)) are TVDB S0E1 \"Starting From Scratch\" to TVDB S0E12 \"A Beautiful Relationship to the End\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "e303731a9b3b9962fead1c782048990fb7c8f5160596d2c77615f14cda21b335",
@@ -98,5 +99,5 @@
   "anilist_ids": [
     5042
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 6083
 }

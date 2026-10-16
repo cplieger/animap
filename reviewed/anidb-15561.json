@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:15561",
+  "title": "Shuumatsu no Harem",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S6": "0f34e9322d264d18a028aa7d6e3caf2e326bc0899fcc469d45c1f22bbe5f77c3"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S6 \"Interview with Director Nobuta Yuu / Housou Chokuzen AT-X Tokuban: Nobuta Yuu Kantoku - Dokusen Special Interview\" (2022-01-07) = S0E5 \"Yu Shineda Exclusive Special Interview\" (2022-01-13).",
+      "evidence": [
+        "https://thetvdb.com/series/worlds-end-harem/seasons/official/0",
+        "https://anidb.net/anime/15561",
+        "https://thetvdb.com/dereferrer/series/388644"
+      ]
+    }
+  }
+}

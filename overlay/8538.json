@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8538",
+    "tmdb": "https://www.themoviedb.org/tv/45247/seasons",
     "tvdb": "https://thetvdb.com/series/chihayafuru/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -26,7 +28,7 @@
     ]
   },
   "title": "Chihayafuru",
-  "justification": "AniDB special S1-S4 (2011-12-21 to 2012-06-20) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 251982 and TMDB show 45247. AniDB S1-S3 (\"HOW TO 競技かるた 入門編\" (How to Competition Karuta: Introduction Part) to \"HOW TO 競技かるた STEP UP編①(おてつき\u0026きまり字編)\" (How to Competition Karuta: Step Up Part 1 (Faults \u0026 Kimariji Part))) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S4 \"HOW TO 競技かるた STEP UP編②\" (How to Competition Karuta: Step Up Part 2) has no TVDB episode (its default TVDB S0E4 is \"Live Action Movie Part 3\", another item) and no TMDB episode (TMDB has no S0E4).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -225,8 +227,8 @@
       ],
       "series": 251982
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bf8d731942f306f8d2fafd69b161b08aa3118909a88399397d1f98c90a95b156"
   },
   "anilist_ids": [

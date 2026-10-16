@@ -1,0 +1,23 @@
+{
+  "key": "anime:anidb:5269",
+  "title": "Sky Girls (2007)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "c2dc4a3598ffcf6f6a709a2be8d4952aa1188a9eab01dfbb230bb6de2031dd11",
+        "date-mismatch:S2": "f00230e7b982985589ddfe85b11d421eb183a13cd641fe79072d3287b45d141d",
+        "date-mismatch:S3": "3614f0722e6a40bfada0083660ea4a95850af9872198105602249acea8870818",
+        "date-mismatch:S4": "13b93d0678a5502f0edb360ba541a64130f31eae9ce1561b973c98aba2dede33",
+        "date-mismatch:S5": "3c097f8c96e414dc1aff6a0c55e61beb42adaaccaf7bed801d18f0d6dd8e881c",
+        "date-mismatch:S7": "b39682d389ecf20110ce10d941a008ebb0cd9b525e39745e24e81a0794bcf294"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The node's season 0 row (start 1, end 9, offset 1) sends S1-S9 to S0E2-E10 and all nine are the same fishing specials by title in the same order: Trout Fishing Contest, Mudskipper Fishing, Blackfish Fishing, Piranha Fishing, Bass Fishing Contest, Black Porgy Fishing (Progy is TVDB's typo), Red Tai Fishing, Pond Smelt Fishing on Top of Ice, Whale battle. S0E1 \"OVA\" is not an AniDB special here, which is why the offset is 1. Date gaps are 4-7 days (DVD versus broadcast). Twenty-six regular episodes match by title.",
+      "evidence": [
+        "https://anidb.net/anime/5269",
+        "https://thetvdb.com/dereferrer/series/81428"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 102429,
+  "title": "GARO: Guren no Tsuki Special",
+  "parts": [
+    {
+      "anidb_id": 11459,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList: 1 episode of 23 min, 2016-07-06, GARO 紅蓮ノ月（刻蝶）, \"The Butterfly of Time\", \"Kokuchou\", synonyms \"Episode 24/25\". AniDB 11459 S2 \"Imprint Butterfly\" (J 刻蝶) 2016-07-06; S1 \"Kyokuen\" (2015-12-26) is the other special. TVDB 303145 season 0 0x2 \"[TV Special] The Butterfly of Time\" 2016-07-06, 25 min; 0x1 \"Kyouken\" 2015-12-26 = S1. The detail's S2 is correct and the titles agree (刻蝶 = Butterfly of Time). Parent has no mapping list: S2 defaults to 0x2.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11459",
+    "anilist": "https://anilist.co/anime/102429",
+    "tmdb": "https://www.themoviedb.org/tv/64139/season/0",
+    "tvdb": "https://thetvdb.com/series/garo-crimson-moon/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "4734e4b227dca2f2bb133f6a6505927869e5a2ccf3c9eebb3c5f0204f71b786e"
+  }
+}

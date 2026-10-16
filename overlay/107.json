@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/107",
+    "tmdb": "https://www.themoviedb.org/tv/42698/seasons",
     "tvdb_s0": "https://thetvdb.com/series/earth-girl-arjuna/seasons/official/0",
     "tvdb_s1": "https://thetvdb.com/series/earth-girl-arjuna/seasons/official/1"
   },
@@ -15,11 +16,18 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 1,
+        "start": 9,
+        "end": 12,
+        "offset": 1
       }
     ]
   },
   "title": "Chikyuu Shoujo Arjuna",
-  "justification": "AniDB 9-12 (2001-03-06 to 2001-03-27) = TVDB 1x09-1x12 (2001-03-06 to 2001-03-27), was 1x10-1x13. AniDB special S1 (2001-10-25) = TVDB 0x01 (2001-10-25), was 1x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80113 and TMDB show 42698. AniDB episode 9-12 (\"ゆらぐ遺伝子\" (The Flickering Genes) to \"今\" (The Here and Now)) are TVDB S1E9 \"The Flickering Gene\" to TVDB S1E12 \"The Here and Now\" and TMDB S1E10 \"ゆらぐ遺伝子\" (The Flickering Gene) to TMDB S1E13 \"今\" (The Here and Now); AniDB S1 \"生まれる前から\" (Before Birth) is TVDB S0E1 \"Episode 8.5 - Before Birth\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -128,8 +136,8 @@
       ],
       "series": 80113
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ba918b4e5e580f9e9c9ef06f6a963402bb767cea82dbf47296745fe1f106b5d7"
   },
   "anilist_ids": [

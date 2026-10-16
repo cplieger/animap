@@ -1,0 +1,114 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9334",
+    "tmdb": "https://www.themoviedb.org/tv/65675/season/0",
+    "tvdb": "https://thetvdb.com/series/karneval/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0",
+    "tmdbseason": "0"
+  },
+  "title": "Karneval",
+  "justification": "The 2012 OVA (2012-10-25), bundled with a limited manga volume, is TVDB season 0 episode 1 \"Karneval OVA\" (2012-10-25) and TMDB 65675 season 0 episode 1 \"OVA\". With default season 1 it fell on season 1 episode 1 of the 2013 TV series (AniDB 9186). The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3ed5f2bc91abd400ef54d502d0123286d017d73dd6e76ab4e5f88334709e4cf0",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-10-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-10-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-06-21"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-06-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-07-26"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-07-26"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-08-28"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2013-08-28"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2013-09-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2013-09-25"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2013-10-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2013-10-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2013-11-22"
+        ],
+        [
+          0,
+          14,
+          0,
+          ""
+        ]
+      ],
+      "series": 267438
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "84f92f8bcd925da4e8c5ceb2d6a95344c7fb84e8887b3127c460b19c96150eab"
+  },
+  "anidb_id": 9334
+}

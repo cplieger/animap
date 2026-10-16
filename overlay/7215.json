@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7215",
+    "tmdb": "https://www.themoviedb.org/tv/45998/seasons",
     "tvdb": "https://thetvdb.com/series/kissxsis/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -26,7 +28,7 @@
     ]
   },
   "title": "Kiss x Sis (2010)",
-  "justification": "AniDB special S1-S4 ((none) to 2010-07-21) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 84768 and TMDB show 45998. AniDB S1-S4 (\"Live Action Ending\" to \"OFF SHOT集\" (OFF SHOT Collection)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -183,8 +185,8 @@
       ],
       "series": 84768
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "60b638bfdf77a991e7260a039a4440c5bd021ad6d31de6be0859702807e387da"
   },
   "anilist_ids": [

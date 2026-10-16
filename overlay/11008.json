@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11008",
+    "tmdb": "https://www.themoviedb.org/tv/61422/season/0",
     "tvdb": "https://thetvdb.com/series/the-fruit-of-grisaia/seasons/official/0"
   },
   "set": {
@@ -27,11 +28,34 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            5
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            8
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Grisaia no Meikyuu: Caprice no Mayu 0",
-  "justification": "AniDB special S1 (2015-07-23) = TVDB 0x08 (2015-07-23), was 0x01, by title. AniDB special S2 (2015-04-12) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2015-07-23) = TVDB 0x08 (2015-07-23), was 0x01, by title. AniDB special S2 (2015-04-12) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 61422 season 0 lists The Cocoon of Caprice 0 (2015-04-12, 47 min) as E5 and the Crude Cream Party of the Takizono Basketball Club! special S1 (2015-07-23) as E8; the opening S2 has no TMDB episode. With no TMDB row the film took E1 and S1 E1.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -139,8 +163,8 @@
       ],
       "series": 281949
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4dbab72e11bf7b8488a4203584b005e45a39769d988e43db0baec5b8cea1b643"
   },
   "anilist_ids": [

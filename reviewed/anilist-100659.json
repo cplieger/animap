@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:100659",
+  "title": "AniList 100659",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
+        "gaps": [
+          "no_record"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: adult title: anime-offline-database carries MAL 35000 and AniDB 12909 with no AniList source (AniList hides adult titles from its API), so no record exists for this AniList id",
+        "evidence": [
+          "https://anilist.co/anime/100659"
+        ],
+        "anilist_id": 100659
+      }
+    ]
+  }
+}

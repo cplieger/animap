@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:2593",
+  "title": "AniList 2593",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c01bfad44340c7a3885bad0197c61cca802259052847e86c5fee63ea7f3abfa7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 1 of AniDB 4932 (one anime holding the 7 films, which anime-offline-database links to no AniList entry), so this entry has no AniDB id; it is TVDB 82099 1x1. A bridge takes only specials, and a record cannot start at a node's episode 1",
+        "evidence": [
+          "https://anilist.co/anime/2593"
+        ],
+        "anilist_id": 2593
+      }
+    ]
+  }
+}

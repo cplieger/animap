@@ -1,9 +1,11 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/405",
+    "tmdb": "https://www.themoviedb.org/tv/57706/seasons",
     "tvdb": "https://thetvdb.com/series/ranma-1-2/seasons/official/0"
   },
   "set": {
+    "tmdboffset": "3",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -25,11 +27,32 @@
             5
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Ranma 1/2 (1993)",
-  "justification": "AniDB special S3-S5 (1993-10-21 to 1994-06-17) have no TVDB episode, was 0x03-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 76932 and TMDB show 57706. AniDB episode 1-6 (\"シャンプー豹変! 反転宝珠の禍\" (The Curse of the Contrary Jewel) to \"道を継ぐ者・後編\" (The One to Carry On (Part 2))) are TMDB S0E4 \"シャンプー豹変! 反転宝珠の禍\" (Shampoo's Sudden Switch - The Curse of the Contrary Jewel) to TMDB S0E9 \"道を継ぐ者（後編）\" (The One to Carry On (2)); AniDB S1-S2 (\"Music Video 1\" to \"Music Video 2\") have no TMDB episode (their defaults are other items); AniDB S3-S5 (\"Episode 1 Next Episode Preview\" to \"Episode 5 Next Episode Preview\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -167,8 +190,8 @@
       ],
       "series": 76932
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "84d65ce4d1601f14405f747b4042468d4a8ebaac6be4c83e251fccb5aa632381"
   },
   "anilist_ids": [

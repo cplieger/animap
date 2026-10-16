@@ -1,6 +1,9 @@
 {
-  "anidb_id": 7727,
-  "title": "IS: Infinite Stratos",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7727",
+    "tmdb": "https://www.themoviedb.org/tv/46025/seasons",
+    "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
@@ -12,14 +15,22 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
       }
     ]
   },
-  "justification": "AniDB special S1 (no AniDB date) = TVDB 0x02 (2011-10-26), was unplaced, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/7727",
-    "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
-  },
+  "title": "IS: Infinite Stratos",
+  "justification": "Checked by episode title against TVDB series 219131 and TMDB show 46025. AniDB S1 \"One Off Festival\" is TVDB S0E2 \"One Off Festival\" and TMDB S0E2 \"ワンオフ・フェスティバル ライブステージスクリーン映像\" (One Off Festival).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "8419193e99c7e0d96e4695fe125402a2532e1b5e80c948b718fa67914be35d94",
@@ -133,12 +144,12 @@
       ],
       "series": 219131
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "23e7bae36eda76d324e31125169ccf17fc10d5498f8b9ca2c768af683608ea6e"
   },
   "anilist_ids": [
     9041
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 7727
 }

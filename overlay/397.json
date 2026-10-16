@@ -1,13 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/397",
-    "tvdb": "https://thetvdb.com/series/dragon-ball-z/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/movie/39108"
   },
   "set": {
-    "episodeoffset": "12"
+    "episodeoffset": "12",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "39108"
   },
   "title": "Dragon Ball Z: Ryuuken Bakuhatsu!! Gokuu ga Yaraneba Dare ga Yaru",
-  "justification": "AniDB 1 (1995-07-15) = TVDB 0x13 (1995-07-15), was 0x20, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (1995-07-15) = TVDB 0x13 (1995-07-15), was 0x20, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB season 0 of 12971 lists only TV specials, and tmdboffset 19 sent the film to episode 20, which does not exist; TMDB lists it as movie 39108 \"Dragon Ball Z: Wrath of the Dragon\" (1995).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -235,8 +239,8 @@
       ],
       "series": 81472
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "236f65b2bcc3a23fcd164be0445b5b6203db9b2c6bdf7edff7e972dfdd6455ab"
   },
   "anilist_ids": [

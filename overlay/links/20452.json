@@ -1,0 +1,25 @@
+{
+  "anilist_id": 20452,
+  "title": "Senki Zesshou Symphogear G: Senki Zesshou Shinai Symphogear",
+  "parts": [
+    {
+      "anidb_id": 9465,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 20452 has 2 episodes (2014-02-05, 2014-03-05; English 'Non-Songs of the Valkyries'). AniDB 9465 S1, S2 are 'The Non-Songs of the Valkyries 1, 2' on 2014-02-05 and 2014-03-05; TVDB 254667 0x01, 0x02 are 'Not-So-Superb Song of the Valkyries: Symphogear 1, 2' on the same days and TMDB tv/63322 S0E1-2 agree. S3 'Miku Kohinata Transformation' (undated) is another item.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9465",
+    "anilist": "https://anilist.co/anime/20452",
+    "tmdb": "https://www.themoviedb.org/tv/63322/season/0",
+    "tvdb": "https://thetvdb.com/series/superb-song-of-the-valkyries-symphogear/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "8e4c4eaa7bff09095cc2d6c895b6b095e8ee4ae915ca904b047a2dc35ba891a9"
+  }
+}

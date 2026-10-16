@@ -1,0 +1,66 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2456",
+    "tmdb": "https://www.themoviedb.org/tv/9113/season/0",
+    "tvdb": "https://thetvdb.com/series/aquarian-age/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0",
+    "tmdbseason": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Aquarian Age: Saga II",
+  "justification": "TVDB 83584 has no season 2. The film Saga II ~Don't forget me...~ (2003-11-21) is season 0 episode 1 Aquarian Age Saga II ~ Don't forget me... ~ (2003-11-21; episode 2 lists it again undated) and TMDB 9113 season 0 episode 1 Aquarian Age: Saga II - Don't Forget Me... (2003-11-21). The five AniDB specials (DVD bonus videos, a tutorial) have no TVDB or TMDB episode. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "dfc33290ff73443ed47a90a355bd207e4cafdc7db0dd979a4891545edd053a99",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2003-11-21"
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ]
+      ],
+      "series": 83584
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "6a5a3dda2532b9dea623346d10b685066371962278a3f956fc920f777b7972b2"
+  },
+  "anidb_id": 2456
+}

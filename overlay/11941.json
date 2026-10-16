@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11941",
+    "tmdb": "https://www.themoviedb.org/tv/62745/seasons",
     "tvdb": "https://thetvdb.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darouka: Familia Myth - Dungeon ni Onsen o Motomeru no wa Machigatte Iru Darouka",
-  "justification": "AniDB 1 (2016-12-07) = TVDB 0x01 (2016-12-07), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 289882 and TMDB show 62745. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OVA\" (the anime \"ダンジョンに出会いを求めるのは間違っているだろうか FAMILIA MYTH ダンジョンに温泉を求めるのは間違っているだろうか\") is TVDB S0E1 \"OVA: Is It Wrong to Expect a Hot Spring in a Dungeon?\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "1826795f93a38dfdb75673f8e881e495b7330b0007a1d3d0e4d710e0232bc9ba",

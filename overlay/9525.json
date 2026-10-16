@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9525",
+    "tmdb": "https://www.themoviedb.org/tv/48561/seasons",
     "tvdb": "https://thetvdb.com/series/tamako-market/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,100 @@
         "episodes": [
           [
             7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            7
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            10,
+            8
+          ],
+          [
+            11,
+            9
+          ],
+          [
+            12,
+            9
+          ],
+          [
+            13,
+            10
+          ],
+          [
+            14,
+            10
+          ],
+          [
+            15,
+            11
+          ],
+          [
+            16,
+            11
+          ],
+          [
+            17,
+            12
+          ],
+          [
+            18,
+            12
           ]
         ]
       }
     ]
   },
   "title": "Tamako Market",
-  "justification": "AniDB special S7 (2013-03-20) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 264534 and TMDB show 48561. AniDB S7 \"WEBドラマ 第1話 飛べなくなっちゃったらどうしよう\" (Web Drama 1) has no TVDB episode (its default TVDB S0E7 is \"Tamako Love Story\", another item); AniDB S8 \"Web Drama 2\" is TMDB S0E7 \"WEBドラマ 1-2話\" (Web Drama 01-02) and has no TVDB episode (its default TVDB S0E8 is \"Dera-chan of the Southern Island\", another item); AniDB S9 \"Web Drama 3\" is TMDB S0E8 \"WEBドラマ 3-4話\" (Web Drama 03-04) and has no TVDB episode (TVDB has no S0E9); AniDB S10-S11 (\"Web Drama 4\" to \"Web Drama 5\") are TMDB S0E8 \"WEBドラマ 3-4話\" (Web Drama 03-04) to TMDB S0E9 \"WEBドラマ 5-6話\" (Web Drama 05-06) and have no TVDB episode (TVDB has none of them); AniDB S12-S13 (\"Web Drama 6\" to \"Web Drama 7\") are TMDB S0E9 \"WEBドラマ 5-6話\" (Web Drama 05-06) to TMDB S0E10 \"WEBドラマ 7-8話\" (Web Drama 07-08) and have no TVDB episode (TVDB has none of them); AniDB S14-S15 (\"Web Drama 8\" to \"Web Drama 9\") are TMDB S0E10 \"WEBドラマ 7-8話\" (Web Drama 07-08) to TMDB S0E11 \"WEBドラマ 9-10話\" (Web Drama 09-10) and have no TVDB episode (TVDB has none of them); AniDB S16-S17 (\"Web Drama 10\" to \"Web Drama 11\") are TMDB S0E11 \"WEBドラマ 9-10話\" (Web Drama 09-10) to TMDB S0E12 \"WEBドラマ 11-12話\" (Web Drama 11-12) and have no TVDB episode (TVDB has none of them); AniDB S18 \"Web Drama 12\" is TMDB S0E12 \"WEBドラマ 11-12話\" (Web Drama 11-12) and has no TVDB episode (TVDB has no S0E18).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -150,8 +238,8 @@
       ],
       "series": 264534
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "aaa5ada4001d2c46019f3149b9724a28b51ea4fe223ef42bc035665cf06aaf5b"
   },
   "anilist_ids": [

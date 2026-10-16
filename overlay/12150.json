@@ -1,0 +1,194 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12150",
+    "tvdb": "https://thetvdb.com/series/trickster/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Trickster: Edogawa Ranpo \"Shounen Tanteidan\" yori",
+  "justification": "AniDB special S1, the year-end pizza party event (2016-12-27), had no row and fell on TVDB season 0 episode 1 \"OVA 1: Fruit of Smoke\" (2016-12-22), the first volume of the OVA AniDB 12455. Season 0 holds only the two OVA volumes, so S1 is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0faf47fbde9cf5e493f39eaedf5ae04c3e08fb058ab06ca798e46bd64c807c3c",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-12-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-12-22"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-10-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-10-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-10-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-10-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-11-01"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-11-08"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-11-15"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-11-22"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-11-29"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-12-06"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-12-13"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-12-20"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2017-01-10"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2017-01-17"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2017-01-24"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2017-01-31"
+        ],
+        [
+          1,
+          17,
+          17,
+          "2017-02-07"
+        ],
+        [
+          1,
+          18,
+          18,
+          "2017-02-14"
+        ],
+        [
+          1,
+          19,
+          19,
+          "2017-02-21"
+        ],
+        [
+          1,
+          20,
+          20,
+          "2017-02-28"
+        ],
+        [
+          1,
+          21,
+          21,
+          "2017-03-07"
+        ],
+        [
+          1,
+          22,
+          22,
+          "2017-03-14"
+        ],
+        [
+          1,
+          23,
+          23,
+          "2017-03-21"
+        ],
+        [
+          1,
+          24,
+          24,
+          "2017-03-28"
+        ]
+      ],
+      "series": 315093
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f71dd2c153b39e92209e12117b7b8b9c93c08892196cb3767f998479c1577995"
+  },
+  "anidb_id": 12150
+}

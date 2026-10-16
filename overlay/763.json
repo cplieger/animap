@@ -1,13 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/763",
-    "tvdb": "https://thetvdb.com/series/dragon-ball-z/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/movie/39102"
   },
   "set": {
-    "episodeoffset": "3"
+    "episodeoffset": "3",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "39102"
   },
   "title": "Dragon Ball Z: Super Saiya-jin Da Son Gokuu",
-  "justification": "AniDB 1 (1991-03-09) = TVDB 0x04 (1991-03-09), was 0x05, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (1991-03-09) = TVDB 0x04 (1991-03-09), was 0x05, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB season 0 of 12971 lists only TV specials, where the film fell on episode 5 \"Plan to Eradicate the Saiyans (1)\"; TMDB lists it as movie 39102 \"Dragon Ball Z: Lord Slug\" (1991).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -235,8 +239,8 @@
       ],
       "series": 81472
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "744490f42a4a38f85bd36e7aa83f0f21a94d624f1c76770d9c8a8d605bd770fa"
   },
   "anilist_ids": [

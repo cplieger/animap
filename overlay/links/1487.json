@@ -1,0 +1,24 @@
+{
+  "anilist_id": 1487,
+  "title": ".hack//Unison",
+  "parts": [
+    {
+      "anidb_id": 24,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 1487 (SPECIAL, 1 episode from 2003-10-24) is AniDB 24's special S2, aired 2003-10-24, titled Unison. AniList's PREQUEL 48 is AniDB 24 in anime-offline-database. The parent's node places it on TVDB 0x6 Unison, 2003-10-24, and TMDB 8864 S0E7 Unison, 2003-10-24.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/24",
+    "anilist": "https://anilist.co/anime/1487",
+    "tmdb": "https://www.themoviedb.org/tv/8864/season/0",
+    "tvdb": "https://thetvdb.com/series/dothack/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "46e63851eb27a2e8b4a55b36e8626176f34d6162d3fa27f49c59b2078e675dfd"
+  }
+}

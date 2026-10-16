@@ -1,0 +1,29 @@
+{
+  "anilist_id": 20761,
+  "title": "Mangaka-san to Assistant-san to THE ANIMATION: Mini OVAs",
+  "parts": [
+    {
+      "anidb_id": 10295,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 20761 has 6 Mini OVAs (2014-06-25 to 2014-11-26). AniDB 10295 S1-S6 'Mini OVA: Ashisu-san's Day Off / We Won't Know Unless We Try', 'Mangaka's Dream', 'Studying on a Date', 'Protect the Cute', 'Sister VS Editor-in-Chief', 'Perfect Nap / Angry Assistant' on 2014-06-25, 07-23, 08-27, 09-24, 10-29, 11-26. TVDB 278976 0x01-0x06 carry the same six titles on the same dates; TMDB tv/69217 S0E1-6 likewise.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10295",
+    "anilist": "https://anilist.co/anime/20761",
+    "tmdb": "https://www.themoviedb.org/tv/69217/season/0",
+    "tvdb": "https://thetvdb.com/series/the-comic-artist-and-his-assistants/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "0f27199f1cf0ecc479bb265530e31fb004ccbec613dd8fcfac2035325fe874b4"
+  }
+}

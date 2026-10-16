@@ -1,0 +1,55 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16164",
+    "tvdb": "https://thetvdb.com/series/dr-stone/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Dr. Stone: Ryuusui",
+  "justification": "The TV special is TVDB season 0 episode 2 \"Dr. STONE: Ryusui\" (2022-07-10). AniDB special S1 \"Ending\" (2022-07-10), a creditless ending, had no row and fell on season 0 episode 1, the Stone Wars eve-of-battle video (AniDB 14491 S2). TVDB lists no ending, so it is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "18d574b9d35d9e146b3ff410ad229617c385e9c6c0e5e53554a2e49e94deceb8",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2020-10-11"
+        ],
+        [
+          0,
+          2,
+          36,
+          "2022-07-10"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-10-04"
+        ]
+      ],
+      "series": 355774
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "87bb78b05e8ba54728e1c717255e3f1d6b2a27c68c5abbe0c45a604d6c8f7968"
+  },
+  "anidb_id": 16164
+}

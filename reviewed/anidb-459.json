@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:459",
+  "title": "Maze Bakunetsu Jikuu (1997)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:10": "f1adc1324b8e655b3fecd5c2e425afe3a397154709ab332c552b5ad6f07411bd",
+        "date-mismatch:7": "f483849fdfcc200357ffe42f9134047b2ac9f18910147979048209ef4bc1d44d",
+        "date-mismatch:8": "a366cf2c81189b642a33dfdf9781e1a91e4ff0dee4e03869eb51103834c5cd3e",
+        "date-mismatch:9": "aa2913903efab989d8b8f80025efdb688a54e44e221f2040d298dff00d886079"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The four failing rows are the node's own reorder, ;7-8;8-9;9-10;10-7;, and each row names the TVDB episode with the identical title: AniDB 7 \"A Brave and Beautiful Lady Knight\" = S1E8 \"A Brave and Beautiful Lady Knight\", 8 \"A Conspiracy in the Evil Underground Labyrinth\" = S1E9, 9 \"A Sad Collapse of a Prosperous Empire\" = S1E10, 10 \"Whirlwind and Lightning Rod: A Showdown at High Noon\" = S1E7. TVDB aired order puts \"Whirlwind\" at E7 and AniDB puts it at E10 (AniDB skips 1997-06-05); TVDB aired order is the target and the titles prove the rows. AniDB 1-6 and 11-25 land on S1E1-6 and S1E11-25 with identical titles (25 = 25 episodes). Side defect, not a lead: specials S2 \"Central Park Media Behind the Scenes\", S3 \"Central Park Media Big Sister-Brother Mini-Featurette\" and S4 \"Art Gallery\" default onto S0E2, S0E3 and S0E4 (\"Bold and Radical Adventurer!!\", \"Tenpen Kyoui no Giant\", \"Hot Springs\"), which belong to nodes 602 (default S0 from E1: the two 1996 OVA episodes) and 3374 (pairs onto S0E3); S4 also collides with S1 (row 1-4). These DVD extras have no TVDB counterpart; they should be unmapped (2-0;3-0;4-0), see the feedback file.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/81432",
+        "https://anidb.net/anime/459"
+      ]
+    }
+  }
+}

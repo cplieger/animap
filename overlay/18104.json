@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18104",
+    "tmdb": "https://www.themoviedb.org/tv/94664/seasons",
     "tvdb": "https://thetvdb.com/series/jobless-reincarnation-it-will-be-all-out-if-i-go-to-another-world/seasons/official/0"
   },
   "set": {
@@ -13,14 +14,28 @@
             1
           ],
           [
-            2
+            2,
+            3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            3
           ]
         ]
       }
     ]
   },
   "title": "Mushoku Tensei II: Isekai Ittara Honki Dasu (2024)",
-  "justification": "AniDB special S1-S2 (2024-03-30 to 2024-05-20) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 371310 and TMDB show 94664. AniDB S1 \"第2クール先行上映イベント\" (Second Cour Advance Screening Stage Greeting Event) has no TVDB episode (its default TVDB S0E1 is \"Eris the Goblin Slayer\", another item) and no TMDB episode (its default TMDB S0E1 is \"Eris the Goblin Slayer\", another item); AniDB S2 \"転移迷宮編 放送直前スペシャル\" (Episode S2) is TVDB S0E3 \"Mushoku Tensei II ~I'll be serious when I go to another world~ [Transfer Labyrinth Edition] Last Minute Special\" and TMDB S0E3 \"転移迷宮編直前スペシャル\" (Ten'i Meikyuu Hen: Housou Chokuzen Special).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -201,8 +216,8 @@
       ],
       "series": 371310
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "401d535214e0ea021ad07d9f633570e2a00b25e3fffb758ded1a257363c6e905"
   },
   "anilist_ids": [

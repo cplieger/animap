@@ -1,0 +1,25 @@
+{
+  "anilist_id": 170661,
+  "title": "Temple Specials",
+  "parts": [
+    {
+      "anidb_id": 17827,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 170661 (SPECIAL, 2 episode(s) from 2023-10-25) is AniDB 17827's special(s) S1-S2, aired 2023-10-25 to 2023-11-22. AniList's PARENT relation names AniList 160447, which anime-offline-database links to AniDB 17827, and the special's title matches an AniList title. TMDB 218613, where the parent's node places the special(s), agrees: S0E1 2023-10-25, S0E2 2023-11-22.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17827",
+    "anilist": "https://anilist.co/anime/170661",
+    "tmdb": "https://www.themoviedb.org/tv/218613/season/0",
+    "tvdb": "https://thetvdb.com/series/tenpuru-no-one-can-live-on-loneliness/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "3b57070066864c608440e63b1f5ba6d28bab62fb8eb5ee4a479b42921239c67e"
+  }
+}

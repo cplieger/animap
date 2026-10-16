@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:2542",
+  "title": "Bishoujo Senshi Sailor Moon: Sailor Stars",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "3d4e966c058297e83c18db6e95aa5e5743885dd64df114e4380c3a159cb70db5",
+        "date-mismatch:S4": "0403470512a19c19fb20fbdd7ebb62e13b253191d913c1a08e96714e84938210"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S3 \"Sailor Moon Sailor Stars Hero Club 2\" (1997-03-21) = S0E16 \"Sailor Stars Hero Club Vol. 2\" (1997-09-26); S4 \"Sailor Moon Sailor Stars Hero Club 3\" (1997-06-21) = S0E17 \"Sailor Stars Hero Club Vol. 3\" (1997-07-21).",
+      "evidence": [
+        "https://anidb.net/anime/2542",
+        "https://thetvdb.com/dereferrer/series/78500"
+      ]
+    }
+  }
+}

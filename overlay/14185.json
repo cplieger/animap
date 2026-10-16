@@ -8,17 +8,14 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
-        "episodes": [
-          [
-            11,
-            27
-          ]
-        ]
+        "start": 1,
+        "end": 11,
+        "offset": 16
       }
     ]
   },
   "title": "Golden Kamuy (2018)",
-  "justification": "AniDB special S11 (2018-12-18) = TVDB 0x27 (2018-12-18), was 0x11, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S11, the second season's \"Golden Douga Gekijou\" shorts #13-#23 (2018-10-09 to 2018-12-18, weekly), are TVDB season 0 episodes 17-27 in the same order and on the same dates: S1 Miteru Hen = 17 \"#12 - Watching... Episode\", S2 Edogai-kun = 18, S5 Ukii! = 21 \"#16 - Screeching\", S11 Futari no Hokuro-kun = 27 \"#22 - Two Little Moles\". The old row placed only S11; S1-S10 fell on episodes 1-10, the OADs and the first season's shorts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -457,8 +454,8 @@
       ],
       "series": 338455
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "874244b68e861ec6a5352cde31e78b5fc00040e25867e2fd88d20ebdffedd1ab"
   },
   "anilist_ids": [

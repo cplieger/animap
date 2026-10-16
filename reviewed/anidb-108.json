@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:108",
+  "title": "Galaxy Angel",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "048345352ff5e92ffa36f9c51486ccd83b4e23218f15d10b9a0c23a91908b95e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The only failing row is AniDB S1 \"Deco Pizza\" (2001-12-21) -\u003e S1E21 \"Deco Pizza\" (2001-09-08): identical title, and the neighbours confirm it (AniDB 20 \"Special Survival Combo\" = S1E20, AniDB 21 \"Sign Girl Special Secret Fried Roll\" = S1E22 \"Mascot Girl Special Secret Baked Wrap\" via the offset row). AniDB S2 \"Five Sukiyaki Lunch Boxes\" = S1E26 \"I'd like 5 Sukiyaki Lunches\" (both 2002-01-25). The 26 \"I see N to M GA courses\" specials map to the \"Now I get it! GA lecture N\" episodes S0E6-E31 by number (S3 = lectures 1-2 ... S9 = lectures 23-26). The date difference is a video release versus the TV broadcast.",
+      "evidence": [
+        "https://anidb.net/anime/108",
+        "https://thetvdb.com/dereferrer/series/79289"
+      ]
+    }
+  }
+}

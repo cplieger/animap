@@ -1,0 +1,27 @@
+{
+  "anilist_id": 10020,
+  "title": "Ore no Imouto ga Konna ni Kawaii Wake ga Nai TRUE ROUTE",
+  "parts": [
+    {
+      "anidb_id": 7525,
+      "specials": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "justification": "AniList 10020 is the four 'TRUE ROUTE' episodes (2011-02-22 to 2011-05-31). AniDB 7525 S1-S4 are 'There's No Way My Little Sister's Life Advice Can End Like This (True Route)', 'There's No Way My Kouhai Can Be This Rotten', '... Cute', 'There's No Way This Is My Little Sister's Last Episode' on 2011-02-22, 03-29, 04-26, 05-31: all four AniList dates, and S1 even carries 'TRUE ROUTE' in its Japanese title. TVDB 194961 0x01-0x04 have the same four titles and dates. The other 18 specials (Animated Commentary, openings) belong to AniList 10108 or nothing.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7525",
+    "anilist": "https://anilist.co/anime/10020",
+    "tmdb": "https://www.themoviedb.org/tv/56353/season/0",
+    "tvdb": "https://thetvdb.com/series/my-little-sister-cant-be-this-cute/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "502f3f3a70ba52d1f4391779237015b74c969e0ee4819940d992798b5a7ab112"
+  }
+}

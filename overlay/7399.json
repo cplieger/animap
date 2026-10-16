@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7399",
-    "tvdb": "https://thetvdb.com/series/sd-gundam-legend-of-the-three-kingdoms-brave-battle-warriors/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/sd-gundam-legend-of-the-three-kingdoms-brave-battle-warriors/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/45403/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "SD Gundam Sangokuden: Brave Battle Warriors",
-  "justification": "AniDB special S1 (2010-12-25) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 156411 and TMDB show 45403. AniDB S1 \"Opening (Christmas ver.)\" has no TVDB episode (its default TVDB S0E1 is \"Super Movie Version\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

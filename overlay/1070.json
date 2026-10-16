@@ -1,9 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1070",
-    "tvdb": "https://thetvdb.com/series/dragon-ball-z/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/movie/44251"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "44251",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -26,7 +30,7 @@
     ]
   },
   "title": "Dragon Ball Z: Kiken na Futari! Super Senshi wa Nemurenai",
-  "justification": "AniDB 1 (1994-03-12) = TVDB 0x10 (1994-03-12), was 0x17, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (1994-03-12) = TVDB 0x10 (1994-03-12), was 0x17, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB season 0 of 12971 lists only TV specials, and tmdboffset 16 sent the film to episode 17, which does not exist; TMDB lists it as movie 44251 \"Dragon Ball Z: Broly - Second Coming\" (1994).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -254,8 +258,8 @@
       ],
       "series": 81472
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a52d4ecbd1f7fc495b56cb96240a812bc2bd3520db21a4ba83f7969eaecb0916"
   },
   "anilist_ids": [

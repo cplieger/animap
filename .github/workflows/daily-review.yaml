@@ -1,0 +1,103 @@
+# scripts/daily-review.sh does the work so CI and a local DRY_RUN=1 run
+# plan the same issues.
+name: Daily review
+
+on:
+  schedule:
+    - cron: "41 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-26.04
+    # The TVDB refresh (90 minute budget) and the TMDB refresh (60 minute
+    # budget) run side by side; docs/date-check.md has the measured
+    # durations.
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      issues: write # create, edit, reopen and close the animap-labelled issues
+      actions: read # gh run list for the publish health check
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: Restore the HTTP validator cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/http.json
+          key: http-${{ github.run_id }}
+          restore-keys: http-
+      - name: Restore the TVDB layouts
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/layouts-tvdb.json
+          key: layouts-tvdb-${{ github.run_id }}
+          restore-keys: layouts-tvdb-
+      - name: Restore the TMDB layouts
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/layouts-tmdb.json
+          key: layouts-tmdb-${{ github.run_id }}
+          restore-keys: layouts-tmdb-
+      # publish.yaml saves the database under aod-<sha256>; fetch-inputs.sh
+      # re-verifies whichever it restores against the release's sha256.
+      - name: Restore the anime-offline-database download
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/aod
+          key: aod-${{ github.run_id }}
+          restore-keys: aod-
+      # publish.yaml pins the mirror commit, so its hash keys the snapshot.
+      - name: Restore the AniDB mirror snapshot
+        id: mirror-cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/mirror
+          key: drift-anidb-${{ hashFiles('.github/workflows/publish.yaml', 'internal/anidb/*.go') }}
+      - name: Review the date checks, overlay drift and the watch set, then apply the issue plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+        run: bash scripts/daily-review.sh
+      - name: Upload the review for local accepts
+        if: ${{ !cancelled() && hashFiles('review.json') != '' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: review
+          path: review.json
+          retention-days: 7
+      - name: Save the HTTP validator cache
+        if: ${{ !cancelled() && hashFiles('.cache/http.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/http.json
+          key: http-${{ github.run_id }}
+      - name: Save the TVDB layouts
+        if: ${{ !cancelled() && hashFiles('.cache/layouts-tvdb.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/layouts-tvdb.json
+          key: layouts-tvdb-${{ github.run_id }}
+      - name: Save the TMDB layouts
+        if: ${{ !cancelled() && hashFiles('.cache/layouts-tmdb.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/layouts-tmdb.json
+          key: layouts-tmdb-${{ github.run_id }}
+      - name: Save the AniDB mirror snapshot
+        if: ${{ !cancelled() && steps.mirror-cache.outputs.cache-hit != 'true' && hashFiles('.cache/mirror/*.json') != '' }}
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .cache/mirror
+          key: drift-anidb-${{ hashFiles('.github/workflows/publish.yaml', 'internal/anidb/*.go') }}

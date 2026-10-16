@@ -1,0 +1,24 @@
+{
+  "anilist_id": 20695,
+  "title": "Sekai Seifuku: Bouryaku no Zvezda - Shin Zvezda Daisakusen",
+  "parts": [
+    {
+      "anidb_id": 10212,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 20695 (SPECIAL, 1 episode(s) from 2014-10-15) is AniDB 10212's special(s) S1, aired 2014-10-15. AniList's PREQUEL relation names AniList 20496, which anime-offline-database links to AniDB 10212, and the special's title matches an AniList title. TMDB 70545, where the parent's node places the special(s), agrees: S0E1 2014-10-15.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10212",
+    "anilist": "https://anilist.co/anime/20695",
+    "tmdb": "https://www.themoviedb.org/tv/70545/season/0",
+    "tvdb": "https://thetvdb.com/series/world-conquest-zvezda-plot/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "e9d2a1d93981b0370e9001391a6ce37bc33bd80ffd4191e044a64c382cf092ad"
+  }
+}

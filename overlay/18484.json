@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18484",
+    "tmdb": "https://www.themoviedb.org/tv/245876/seasons",
     "tvdb": "https://thetvdb.com/series/sorairo-utility/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Sorairo Utility (2025)",
-  "justification": "AniDB special S1 (2025-01-03) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 445890 and TMDB show 245876. AniDB S1 \"放送直前特番\" (Pre-Broadcast Special) has no TVDB episode (its default TVDB S0E1 is \"Sky Blue Utility - OVA\", another item) and no TMDB episode (its default TMDB S0E1 is \"Sorairo Utility x Birdie Wing: Golf Girls' Story Mini Anime 1\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +118,8 @@
       ],
       "series": 445890
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f306cb82024638acf8c32f2268e662e1dee5dbce5594567d1845edd64cec8f8f"
   },
   "anilist_ids": [

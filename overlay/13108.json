@@ -1,9 +1,18 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13108",
+    "tmdb_movie_648969": "https://www.themoviedb.org/movie/648969",
+    "tmdb_movie_659896": "https://www.themoviedb.org/movie/659896",
+    "tmdb_movie_843248": "https://www.themoviedb.org/movie/843248",
+    "tmdb_movie_994311": "https://www.themoviedb.org/movie/994311",
+    "tmdb_movie_994319": "https://www.themoviedb.org/movie/994319",
     "tvdb": "https://thetvdb.com/series/gundam-reconguista-in-g/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "648969,659896,843248,994311,994319",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -83,7 +92,7 @@
     ]
   },
   "title": "Gekijouban Gundam G no Reconguista",
-  "justification": "AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB special S5-S10 (no AniDB date) = TVDB 0x16-0x21 (2020-01-28 to 2020-05-27), was 0x05-0x10, by title. AniDB special S11-S21 (no AniDB date) have no TVDB episode, was 0x11-0x21. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 283929. The films are TMDB movies 648969 (Gundam Reconguista in G Movie I: Go! Core Fighter (2019)), 659896 (Gundam Reconguista in G Movie II: Bellri's Fierce Charge (2020)), 843248 (Gundam Reconguista in G Movie III:  Legacy from Space (2021)), 994311 (Gundam Reconguista in G Movie IV: Love That Cries Out in Battle (2022)), 994319 (Gundam Reconguista in G Movie V: Beyond the Peril of Death (2022)). TMDB show 61414 does not carry it, so the node leaves that show. AniDB S1-S4 (\"富野由悠季インタビューPV（イベント会場公開版）\" (Tomino Yoshiyuki Interview Digest Event Commentary 1) to \"Digest Commentary Storyboard\") have no TVDB episode (their defaults are other items); AniDB S5-S10 (\"モビルスーツ学園「帰ってきたＧ-レコ甲子園」 1\" (Mobile Suit Academy: The Return of `G-Reco Koushien` 1) to \"モビルスーツ学園「帰ってきたＧ-レコ甲子園」 6\" (Mobile Suit Academy: The Return of `G-Reco Koushien` 6)) are TVDB S0E16 \"The return of 'G-Reco Koushien' - Episode 1\" to TVDB S0E21 \"The return of 'G-Reco Koushien' - Episode 6\"; AniDB S11-S21 (\"モビルスーツ学園「帰ってきたＧ-レコ甲子園」 7\" (Mobile Suit Academy: The Return of `G-Reco Koushien` 7) to \"「富野由悠季から君へ2 'Update of G'」ドキュメントIII\" (From Yoshiyuki Tomino To You 2 \"Update of G\" Document III (26:11))) have no TVDB episode (their defaults are other items). S5-S10 and the five films are matched by their numbers and titles on both sides.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -221,8 +230,8 @@
       ],
       "series": 283929
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "603e6e1db25970af5b582f1126e00dc86aa7e216f24c47c20c293a6fcaf30b3f"
   },
   "anidb_id": 13108

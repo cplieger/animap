@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:3392",
+  "title": "Macross Plus Movie Edition",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "8280aaac6b2b1e096dc9a145d5f11084e7667255dc8401bcba18df328ef15a96"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The overlay row (justification: \"by title and runtime\") sends AniDB S1 \"Macross A Future Chronicle\" (1995-10-07) to TVDB S0E2 \"Macross A Future Chronicle\" (1994-08-25): identical title. The TVDB date is the 1994 OVA-era making-of; the film (AniDB regular ep 1, \"Movie Edition\") is S0E1 (1995-10-07) and AniDB 2-6 (parts) also land on S0E1 through the overlay rows. The \"suggested target\" S0E1 in the lead is only a date match to the film itself, which is already claimed by the regular episodes.",
+      "evidence": [
+        "https://anidb.net/anime/3392",
+        "https://thetvdb.com/dereferrer/series/81832"
+      ]
+    }
+  }
+}

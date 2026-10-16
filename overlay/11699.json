@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11699",
+    "tmdb": "https://www.themoviedb.org/tv/62430/seasons",
     "tvdb": "https://thetvdb.com/series/the-heroic-legend-of-arslan-2015/seasons/official/0"
   },
   "set": {
@@ -10,7 +11,8 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1
+            1,
+            12
           ],
           [
             2,
@@ -73,11 +75,79 @@
             18
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            17
+          ],
+          [
+            3,
+            18
+          ],
+          [
+            4,
+            19
+          ],
+          [
+            5,
+            20
+          ],
+          [
+            6,
+            21
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15,
+            22
+          ],
+          [
+            16,
+            23
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ]
+        ]
       }
     ]
   },
   "title": "Arslan Senki: Fuujin Ranbu",
-  "justification": "AniDB special S1 (2015-12-28) has no TVDB episode, was 0x01. AniDB special S2-S4 (2016-03-27 to 2016-10-05) = TVDB 0x13-0x15 (2016-03-27 to 2016-10-05), was 0x02-0x04, by title. AniDB special S5 (2016-10-05) = TVDB 0x16 (2016-10-05), was 0x05, by position inside a run of title matches. AniDB special S6 (2016-10-05) = TVDB 0x17 (2016-10-05), was 0x06, by title. AniDB special S7 (2016-09-07) = TVDB 0x18 (2016-09-07), was 0x07, by position inside a run of title matches. AniDB special S8-S10 (2016-10-05 to 2016-12-07) = TVDB 0x19-0x21 (2016-10-05 to 2016-12-07), was 0x08-0x10, by title, order breaking a same-title tie. AniDB special S11-S18 (2016-09-07 to 2016-12-07) have no TVDB episode, was 0x11-0x18. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 291630 and TMDB show 62430. AniDB S1-S6 (\"企業戦士アルスラーン #1\" (Corporate Warrior Arslan #1) to \"企業戦士アルスラーン #6\" (Corporate Warrior Arslan #6)) are TVDB S0E12 \"Corporate Warrior Arslan - Chapter I: Corporate Warrior! Arslan\" to TVDB S0E17 \"Corporate Warrior Arslan - Chapter VI: Showdown! Arslan\" and TMDB S0E16 \"Corporate Warrior Arslan Chapter I: Corporate Warrior! Arslan\" to TMDB S0E21 \"Corporate Warrior Arslan Chapter VI: Showdown! Arslan\"; AniDB S7-S10 (\"アル戦4コマ劇場 やさすぃ~ン2 / 戦闘力\" (Arslan`s Short Comedy Sketch) to \"アル戦4コマ劇場 やさすぃ~ン? / 結果にコミット\" (Arslan`s Short Comedy Sketch)) are TVDB S0E18 \"Arslan's Short Comedy Sketch S2 Episode 1\" to TVDB S0E21 \"Arslan's Short Comedy Sketch S2 Episode 4\" and have no TMDB episode (their defaults are other items); AniDB S11-S14 (\"ミニ朗読劇 第一章「少年ひとり, 騎士ひとり」 / 収録後インタビュー\" (Mini Drama Recitation 1 / Interview) to \"ミニ朗読劇 第四章「旅人たちの四行詩[ルバイヤード]」 / 収録後インタビュー\" (Mini Drama Recitation 4 / Interview)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S15-S16 (\"朗読劇「試される, 王の器.」~昼の部~\" (Drama Recitation: Daytime Part) to \"朗読劇「試される, 王の器.」~夜の部~\" (Drama Recitation: Night Part)) are TMDB S0E22 \"Drama Recitation: Daytime Part\" to TMDB S0E23 \"Drama Recitation: Night Part\" and have no TVDB episode (their defaults are other items); AniDB S17-S18 (\"アル戦ぶらり旅 ギラン (江ノ島) へヤシャスィーン! (前編)\" (Enoshima Trip Report (First Part)) to \"アル戦ぶらり旅 ギラン (江ノ島) へヤシャスィーン! (後編)\" (Enoshima Trip Report (Second Part))) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items). TMDB S0E12 to S0E15 are 2-minute items whose English titles name the Mini Drama Recitations and whose Japanese titles name the 4-panel sketches, so none of AniDB S7 to S14 is placed on them.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -264,8 +334,8 @@
       ],
       "series": 291630
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0ca36cc5f28fabf64d91c7e06b9b7b644d77de42061bdf68c95c95858aabe6f2"
   },
   "anilist_ids": [

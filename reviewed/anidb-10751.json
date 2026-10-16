@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10751",
+  "title": "Military!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "9ebf9825c539bb6445f5e3449a97ebd84d909aaee6229cf84a65de4ed8de8ebc"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1 \"The Bright Light That Occasionally Destroys! / Tamatama Shoumetsu Suru Shiroki Hikari!\" = S0E1 \"The Bright Light That Occasionally Destroys!\" (same title, the series' single special); dates 2015-03-20 vs 2015-08-08 (BD). Regular 1-12 match title for title.",
+      "evidence": [
+        "https://anidb.net/anime/10751",
+        "https://thetvdb.com/dereferrer/series/289310"
+      ]
+    }
+  }
+}

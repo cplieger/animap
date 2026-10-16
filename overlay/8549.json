@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8549",
+    "tmdb": "https://www.themoviedb.org/tv/45241/seasons",
     "tvdb": "https://thetvdb.com/series/muv-luv-alternative-total-eclipse/seasons/official/0"
   },
   "set": {
@@ -18,11 +19,24 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Muv-Luv Alternative: Total Eclipse",
-  "justification": "AniDB special S1 (2012-10-08) = TVDB 0x02 (2012-10-08), was 0x01. AniDB special S2 (2012-11-19) = TVDB 0x01 (2012-11-19), was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 259636 and TMDB show 45241. AniDB S1 \"Analyze Special\" is TVDB S0E2 \"Analyze Special\" and has no TMDB episode (its default TMDB S0E1 is \"Pre-Climax Special\", another item); AniDB S2 \"クライマックス直前スペシャル\" (Pre-Climax Special) is TVDB S0E1 \"Pre-Climax Special\" and TMDB S0E1 \"Pre-Climax Special\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -191,8 +205,8 @@
       ],
       "series": 259636
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "72e20be1b105077b1a37062d240d5b4e628e35ec31ad4cea755cf5f3fb6c7918"
   },
   "anilist_ids": [

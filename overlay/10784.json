@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10784",
+    "tmdb": "https://www.themoviedb.org/tv/70634/seasons",
     "tvdb": "https://thetvdb.com/series/the-rolling-girls/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -50,7 +52,7 @@
     ]
   },
   "title": "The Rolling Girls",
-  "justification": "AniDB special S1 (2015-03-18) = TVDB 0x01+0x02 (2015-03-18), was 0x01, one AniDB episode spanning two TVDB episodes. AniDB special S2 (2015-04-15) = TVDB 0x03+0x04 (2015-04-15), was 0x02, one AniDB episode spanning two TVDB episodes. AniDB special S3 (2015-05-20) = TVDB 0x05+0x06 (2015-05-20), was 0x03, one AniDB episode spanning two TVDB episodes. AniDB special S4 (2015-06-17) = TVDB 0x07+0x08 (2015-06-17), was 0x04, one AniDB episode spanning two TVDB episodes. AniDB special S5 (2015-07-15) = TVDB 0x09+0x10 (2015-07-15), was 0x05, one AniDB episode spanning two TVDB episodes. AniDB special S6 (2015-08-19) = TVDB 0x11+0x12 (2015-08-19), was 0x06, one AniDB episode spanning two TVDB episodes. AniDB special S7-S8 (2015-03-01 to 2015-03-18) have no TVDB episode, was 0x07-0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 284585 and TMDB show 70634. AniDB S1 \"ちび☆R☆G コロコロ劇場 #1 必殺技 / #2 アダ名\" (Chibi Rolling Specials: #1 Special Move / #2 Nickname) is TVDB S0E1 \"Chibi #1 Special Move\" + TVDB S0E2 \"Chibi #2 Nickname\" and TMDB S0E1 \"チビR☆G コロコロ劇場 #1 必殺技\" (Chibi #1 Special Move) + TMDB S0E2 \"チビR☆G コロコロ劇場 #2 アダ名\" (Chibi #2 Nickname); AniDB S2 \"ちびR☆G コロコロ劇場 #3 きこえない / #4 仕切り屋\" (Chibi Rolling Specials: #3 I Can`t Hear You / #4 Sorting Duty) is TVDB S0E3 \"Chibi #3 I Can't Hear You\" + TVDB S0E4 \"Chibi #4 Sorting Duty\" and TMDB S0E3 \"チビR☆G コロコロ劇場 #3 きこえない\" (Chibi #3 I Can't Hear You) + TMDB S0E4 \"チビR☆G コロコロ劇場 #4 仕切り屋\" (Chibi #4 Sorting Duty); AniDB S3 \"ちびR☆G コロコロ劇場 #5 召喚 / #6 真面目にやって下さい\" (Chibi Rolling Specials: #5 Summoning / #6 Please Take This Seriously) is TVDB S0E5 \"Chibi #5 Summoning\" + TVDB S0E6 \"Chibi #6 Please Take This Seriously\" and TMDB S0E5 \"チビR☆G コロコロ劇場 #5 召喚\" (Chibi #5 Summoning) + TMDB S0E6 \"チビR☆G コロコロ劇場 #6 真面目にやって下さい\" (Chibi #6 Please Take This Seriously); AniDB S4 \"ちびR☆G コロコロ劇場 #7 モサになったら / #8 アイデンティティー\" (Chibi Rolling Specials: #7 If I Were to Become Best / #8 Identity) is TVDB S0E7 \"Chibi #7 If I Were to Become a Best\" + TVDB S0E8 \"Chibi #8 Identity\" and TMDB S0E7 \"チビR☆G コロコロ劇場 #7 モサになったら\" (Chibi #7 If I Were to Become a Best) + TMDB S0E8 \"チビR☆G コロコロ劇場 #8 アイデンティティー\" (Chibi #8 Identity); AniDB S5 \"ちびR☆G コロコロ劇場 #9 気を抜くと / #10 うわさ\" (Chibi Rolling Specials: #9 Letting Your Guard Down / #10 Gossip) is TVDB S0E9 \"Chibi #9 Letting Your Guard Down\" + TVDB S0E10 \"Chibi #10 Gossip\" and TMDB S0E9 \"チビR☆G コロコロ劇場 #9 気を抜くと\" (Chibi #9 Letting Your Guard Down) + TMDB S0E10 \"チビR☆G コロコロ劇場 #10 うわさ\" (Chibi #10 Gossip); AniDB S6 \"ちびR☆G コロコロ劇場 #11 いきだおれ / #12 ヒーロー\" (Chibi Rolling Specials: #11 Fallen Over / #12 Hero) is TVDB S0E11 \"Chibi #11 Fallen Over\" + TVDB S0E12 \"Chibi #12 Hero\" and TMDB S0E11 \"チビR☆G コロコロ劇場 #11 いきだおれ\" (Chibi #11 Fallen Over) + TMDB S0E12 \"チビR☆G コロコロ劇場 #12 ヒーロー\" (Chibi #12 Hero); AniDB S7-S8 (\"Episode 8 Ending\" to \"「ローリング☆ガールズ」第1話&第2話 先行上映会 キャスト☆トークイベント\" (\"The Rolling Girls\" Ep.01~02 Advance Screening & Cast Stage Greeting Event)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -207,8 +209,8 @@
       ],
       "series": 284585
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0590b377ec646e42ad27c1e0246c0e345aea910e41dfc887aca055ccf1180e8e"
   },
   "anilist_ids": [

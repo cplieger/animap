@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:13263",
+  "title": "AniList 13263",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "576ead5cbd4c46fa9f5cc3f5aca926e56a272de677d3fc8ea79eb2557a47b8fd",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: parts 1-3 are AniDB 8160 S1-S3 and parts 4-6 AniDB 8880 S2-S4 (TVDB 275798 0x3-0x8), so the six episodes span two parents and a bridge names one",
+        "evidence": [
+          "https://anilist.co/anime/13263"
+        ],
+        "anilist_id": 13263
+      }
+    ]
+  }
+}

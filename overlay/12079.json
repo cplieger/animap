@@ -1,0 +1,41 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12079",
+    "tmdb": "https://www.themoviedb.org/tv/71511/season/0",
+    "tvdb": "https://thetvdb.com/series/rainbow-days/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1",
+    "tmdboffset": "1"
+  },
+  "title": "Niji-iro Days: Niji-iro Biyori",
+  "justification": "The OAD (2016-09-23) is TVDB season 0 episode 2 \"OVA\" (2016-09-23) and TMDB 71511 season 0 episode 2 \"OVA\". With no offset it fell on episode 1 \"Recap: After School Special\" on both, the TV series' special (AniDB 11487).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c42b03ab4e95f9ceeba0350fabf5dc88477484a798e12f929b0d0bd1cb767047",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-04-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-09-23"
+        ]
+      ],
+      "series": 303728
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9bb4b71c6c47d480be26264b2bed4f5a01a4f9d3b74a537a1faf4f9d29b8c69f"
+  },
+  "anidb_id": 12079
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8929",
+    "tmdb": "https://www.themoviedb.org/tv/57577/seasons",
     "tvdb": "https://thetvdb.com/series/blood-lad/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Blood Lad",
-  "justification": "AniDB special S1 (2014-09-02) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 269875 and TMDB show 57577. AniDB S1 \"English Dub Outtakes\" has no TVDB episode (its default TVDB S0E1 is \"EX.. I am not a Cat (OVA)\", another item) and no TMDB episode (its default TMDB S0E1 is \"I'm Not a Cat\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -96,8 +98,8 @@
       ],
       "series": 269875
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "604fcc544ba7d41d8aa0f8b1a8c1290563a1f1978fee7f283e81c5218907ce34"
   },
   "anilist_ids": [

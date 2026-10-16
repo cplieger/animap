@@ -1,0 +1,24 @@
+{
+  "anilist_id": 20045,
+  "title": "IS: Infinite Stratos 2 - Hitonatsu no Omoide",
+  "parts": [
+    {
+      "anidb_id": 9849,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 20045 (OVA, 1 episode(s) from 2013-10-30) is AniDB 9849's special(s) S1 'Hitonatsu no Omoide', aired 2013-10-30, and AniDB lists MAL 20045 on AniDB 9849. The parent's patched mapping list places S1 on TVDB 219131 0x3 'IS: Infinite Stratos 2 Long Vacation Edition - The Memories of One Summer', also 2013-10-30.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9849",
+    "anilist": "https://anilist.co/anime/20045",
+    "tmdb": "https://www.themoviedb.org/tv/46025/season/0",
+    "tvdb": "https://thetvdb.com/series/is-infinite-stratos/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "55b727d908af01f51490e3a69f59cf20274ef651ea85986715ad602b3e3ddb9e"
+  }
+}

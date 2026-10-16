@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9332",
+    "tmdb": "https://www.themoviedb.org/tv/56090/seasons",
     "tvdb": "https://thetvdb.com/series/problem-children-are-coming-from-another-world-arent-they/seasons/official/0"
   },
   "set": {
@@ -8,16 +9,44 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
           ]
         ]
       }
     ]
   },
   "title": "Mondaiji-tachi ga Isekai kara Kurusou Desu yo?",
-  "justification": "AniDB special S1 (2013-01-12) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 264531 and TMDB show 56090. AniDB S1 \"End Card 1\" has no TVDB episode (its default TVDB S0E1 is \"Chronicles of a Walk in the Spa\", another item) and no TMDB episode (its default TMDB S0E1 is \"Chronicles of a walk in the spa\", another item); AniDB S2-S10 (\"End Card 2\" to \"End Card 10\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -96,8 +125,8 @@
       ],
       "series": 264531
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "445ace6ac5991047793cf317582d5cfa127597b95d67ff7643202cd8505100ef"
   },
   "anilist_ids": [

@@ -1,14 +1,45 @@
 {
-  "anidb_id": 8505,
-  "title": "Asobi ni Iku yo! Asobi ni Oide",
-  "set": {
-    "episodeoffset": "0"
-  },
-  "justification": "AniDB 1 (2011-06-15) = TVDB 0x01 (2011-06-15), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
   "evidence": {
     "anidb": "https://anidb.net/anime/8505",
+    "tmdb": "https://www.themoviedb.org/tv/37806/seasons",
     "tvdb": "https://thetvdb.com/series/cat-planet-cuties/seasons/official/0"
   },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            14
+          ],
+          [
+            2,
+            15
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Asobi ni Iku yo! Asobi ni Oide",
+  "justification": "Checked by episode title against TVDB series 173301 and TMDB show 37806. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Come Drop By\" is TVDB S0E1 \"Come Drop By\"; AniDB S1-S2 (\"Owari\" to \"Ichika Special\") are TVDB S0E14 \"Owari Special\" to TVDB S0E15 \"Ichika Special\" and TMDB S0E2 \"Owari Special\" to TMDB S0E3 \"Ichika Special\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "5c855a8c02a9f0e9a7ad4c4e3465260246d5390ed18dd9328e857ebde102021d",
@@ -43,12 +74,12 @@
       ],
       "series": 173301
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "97afd67aae2e2dbf7643ce81b271c6caee57a5e25adeb9f8cc4f0667de6aafbd"
   },
   "anilist_ids": [
     9618
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8505
 }

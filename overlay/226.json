@@ -1,0 +1,132 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/226",
+    "tmdb": "https://www.themoviedb.org/tv/34165/season/2",
+    "tvdb": "https://thetvdb.com/series/weiß-kreuz/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "tmdbseason": "2",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Weiss Kreuz Gluhen",
+  "justification": "TVDB 72922 has no season 3; Knight Hunters Eternity is season 2, 13 episodes with AniDB's titles and dates: 1 White Flames, 2 God Hurts Those He Loves, 7 Jeepstar, 13 Tomorrow. TMDB 34165 season 2 is Knight Hunters Eternity, from Last Mission 01: White Flames (2002-11-28). AniDB special S1, a cast interview, has no TVDB or TMDB episode; its default was season 0 episode 1 Verbrechen, node 582's OVA.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "353ca16fb6acba1c50d93c5ae1a0b13bc9440da3dec92948935b18c63d758073",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          ""
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ],
+        [
+          2,
+          1,
+          26,
+          "2002-11-28"
+        ],
+        [
+          2,
+          2,
+          27,
+          "2002-12-05"
+        ],
+        [
+          2,
+          3,
+          28,
+          "2002-12-12"
+        ],
+        [
+          2,
+          4,
+          29,
+          "2002-12-19"
+        ],
+        [
+          2,
+          5,
+          30,
+          "2002-12-26"
+        ],
+        [
+          2,
+          6,
+          31,
+          "2003-01-05"
+        ],
+        [
+          2,
+          7,
+          32,
+          "2003-01-09"
+        ],
+        [
+          2,
+          8,
+          33,
+          "2003-01-16"
+        ],
+        [
+          2,
+          9,
+          34,
+          "2003-01-23"
+        ],
+        [
+          2,
+          10,
+          35,
+          "2003-01-30"
+        ],
+        [
+          2,
+          11,
+          36,
+          "2003-02-06"
+        ],
+        [
+          2,
+          12,
+          37,
+          "2003-02-13"
+        ],
+        [
+          2,
+          13,
+          38,
+          "2003-02-20"
+        ]
+      ],
+      "series": 72922
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0b835e1dd07968d97a9603a66b6face0018b8cbb2a784708ff80c33a6b137967"
+  },
+  "anidb_id": 226
+}

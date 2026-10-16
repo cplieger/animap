@@ -1,14 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7986",
+    "tmdb": "https://www.themoviedb.org/tv/26444/seasons",
     "tvdb": "https://thetvdb.com/series/da-capo-ii/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0",
+    "tmdboffset": "22",
     "mapping_list": []
   },
   "title": "D.C. I\u0026II P.S.P. Re-Animated",
-  "justification": "AniDB 1 (2010-10-28) = TVDB 0x01 (2010-10-28), was 0x03 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 84371 and TMDB show 26444. AniDB episode 1 \"OVA\" is TVDB S0E1 \"Da Capo: D.C. I \u0026 II P.S.P. OVA\" and TMDB S0E23 \"Da Capo D.C. I \u0026 II P.S.P. OVA 音夢\" (Da Capo: D.C. I \u0026 II P.S.P. OVA).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -26,8 +28,8 @@
       ],
       "series": 84371
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d77652270ddfb59978a62af3f53eb97e848efb2426796f0cf3c90b272158f0c3"
   },
   "anilist_ids": [

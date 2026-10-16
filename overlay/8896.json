@@ -1,0 +1,92 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8896",
+    "tvdb": "https://thetvdb.com/series/squid-girl/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            9
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kore ga Umi e no Ai ja Naika!",
+  "justification": "This music video \"Kore ga Umi e no Ai ja Naika!\" is TVDB season 0 episode 9 これが海への愛じゃなイカ！; the row sent it to episode 7, the \"SP ja Naika!?\" special (AniDB 8294 S2). TVDB's dates for the two are swapped, and the titles decide.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2367d29f5b4af85fdd1e481602d15701edf05218dcccfb8b0e9490ab4cc05ff6",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-05-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-05-18"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-08-08"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-06-07"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-09-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-07-06"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-01-11"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2011-06-07"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-11-01"
+        ]
+      ],
+      "series": 195721
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "2700388754287dae5d1a3c490ca0d72f5ac1959879a3ef1dcc82534e714d6da9"
+  },
+  "anidb_id": 8896
+}

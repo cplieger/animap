@@ -1,0 +1,24 @@
+{
+  "anilist_id": 110851,
+  "title": "Fate/Grand Order: Zettai Majuu Sensen Babylonia - Initium Iter",
+  "parts": [
+    {
+      "anidb_id": 14238,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 110851 (SPECIAL, 1 episode(s) from 2019-08-03) is AniDB 14238's special(s) S1, titled Initium Iter, aired 2019-08-04. AniList's SEQUEL relation names AniList 103275, which anime-offline-database links to AniDB 14238, and AniDB 14238 itself lists MAL 40206, this entry's MAL id. The special's title matches an AniList title. The parent's node places the special on TVDB 0x5 Episode 0 Initium Iter, 2019-08-04. TMDB 90677, where the parent's node places the special(s), agrees: S0E1 Initium Iter, 2019-08-04.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14238",
+    "anilist": "https://anilist.co/anime/110851",
+    "tmdb": "https://www.themoviedb.org/tv/90677/season/0",
+    "tvdb": "https://thetvdb.com/series/fategrand-order---absolute-demonic-front-babylonia/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "c0362e85b39becc0e881b17f5c7b3e2d71a71c1158f06f973c53087336390a9c"
+  }
+}

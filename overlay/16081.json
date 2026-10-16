@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16081",
+    "tmdb": "https://www.themoviedb.org/tv/60833/seasons",
     "tvdb": "https://thetvdb.com/series/the-irregular-at-magic-high-school/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "60833",
+    "tmdbseason": "0",
+    "tmdboffset": "7",
+    "tmdbid": "",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -16,11 +21,23 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Mahouka Koukou no Rettousei: Tsuioku Hen",
-  "justification": "AniDB special S1-S2 ((none) to 2022-03-16) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278329 and TMDB show 60833. Its episodes are on TMDB show 60833. AniDB episode 1 \"TV Special\" (the anime \"魔法科高校の劣等生 追憶編\") is TMDB S0E8 \"追憶編\" (Reminiscence Arc); AniDB S1-S2 (\"新春特別映像\" (New Year`s Special Video) to \"もう一つの追憶編\" (One More Reminiscence Arc)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -92,8 +109,8 @@
       ],
       "series": 278329
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2b95d2fd190ce4438ae69defbbd409840a485999d0116d7a28945371cc53ac54"
   },
   "anilist_ids": [

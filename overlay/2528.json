@@ -1,0 +1,60 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2528",
+    "tmdb": "https://www.themoviedb.org/movie/36198",
+    "tvdb": "https://thetvdb.com/series/digimon-frontier/seasons/official/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "36198",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Digimon Frontier: Ornismon Fukkatsu!!",
+  "justification": "TVDB 380653 season 0 holds the film once, episode 1 Digimon Frontier: Regeneration of Ancient Digimon (2002-07-20), the AniDB date of the complete movie; the row pointed at episode 7, which does not exist. The specials (an interview, a stage greeting) have no TVDB episode. TMDB 8991 has no season 0; the film is TMDB movie 36198 Digimon: Island of Lost Digimon (2002-07-20).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9e545df778bee3dbb1422920c6014d719ef192370f85d7eced706d0d0a888282",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2002-07-20"
+        ]
+      ],
+      "series": 380653
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "682b51ed01205389a9dc752e88349dd82f2089eaa5576d423ac6098f5148d7e0"
+  },
+  "anidb_id": 2528
+}

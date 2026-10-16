@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15732",
-    "tvdb": "https://thetvdb.com/series/natsumes-book-of-friends/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/natsumes-book-of-friends/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/773621"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Natsume Yuujinchou: Ishi Okoshi to Ayashiki Raihousha",
-  "justification": "AniDB special S1 (2021-05-26) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 82788. AniDB S1 \"大ヒット御礼舞台挨拶\" (Stage Greeting) has no TVDB episode (its default TVDB S0E1 is \"Nyanko-sensei and First Errand\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

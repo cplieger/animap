@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:541",
+  "title": "Dr. Rin ni Kiite Mite!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:51": "b846b18a50b7780d437842fc8384f3075a42ddeed7da8fb3cb7029f6136afa77"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-51 = S1E1-51 with identical or translated titles throughout (\"The Rumored Feng Shui Master!\" = same, 4 \"Big Pinch on the Shikigami Bus!\" = \"Great Crisis on the Bus with Shikigami!\", 22 \"Tian Xia Wu Di of Happiness!\" = \"Shiawase no tin-haa-moo-tekku!\", 51 \"Haoyung Laila. We`ve Come a Long Way\" = \"We`ve Come a Long Way\"). The one failure is AniDB 51 (2002-02-25) against TVDB 2002-02-18; TVDB S0E1 \"Summary\" is the 2002-02-25 episode and has no match with the finale title, so the suggested target is wrong, and TVDB is a week early from E44 on (a New Year gap). Special S1 \"Mini Specials Compilaton\" defaults to S0E1 \"Summary\" (plausible, not proven, not a lead row).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/167801",
+        "https://anidb.net/anime/541"
+      ]
+    }
+  }
+}

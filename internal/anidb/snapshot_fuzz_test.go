@@ -27,7 +27,9 @@ func FuzzParse_acceptsOnlyAWellFormedList(f *testing.F) {
 		{`{"anime_id":7,"episodes":{"SPECIAL":[{"number":2},{"number":1}]}}`, 7},
 		{`{"anime_id":7,"episodes":{"SPECIAL":[{"number":1},{"number":1}]}}`, 7},
 		{`{"anime_id":7,"episodes":{}}`, 7},
+		{`{"anime_id":7,"episodes":{"REGULAR":[{"number":1,"titles":[{"language":"ENGLISH","title":"A"}]}],"SPECIAL":[{"number":3,"titles":[]}]}}`, 7},
 		{`{"anime_id":7,"episodes":{"REGULAR":[{"number":1},{"number":3}]}}`, 7},
+		{`{"anime_id":7,"episodes":{"SPECIAL":[{"number":101}],"CREDITS":[{"number":1},{"number":1},{"number":150}],"OTHER":[{"number":2,"air_date":"x"},{"number":1}]}}`, 7},
 		{`{"anime_id":7,"episodes":{"REGULAR":[{"number":0}]}}`, 7},
 		{`{"anime_id":7,"episodes":{"REGULAR":[{"number":1,"air_date":"2005-13-01"}]}}`, 7},
 		{`{"anime_id":8,"episodes":{"REGULAR":[{"number":1}]}}`, 7},
@@ -74,6 +76,11 @@ func FuzzParse_acceptsOnlyAWellFormedList(f *testing.F) {
 		}
 		if err != nil || listed != (file.Episodes != nil) || len(a.Regular) != len(regular) || len(a.Specials) != len(specials) {
 			t.Fatalf("parse(%d, %q) = %+v, listed %t, %v; want %d regular and %d specials", aid, body, a, listed, err, len(regular), len(specials))
+		}
+		if listed {
+			if cerr := checkListed(aid, &a); aid > 0 && cerr != nil {
+				t.Fatalf("parse(%d, %q) = %+v, which the snapshot loader refuses: %v", aid, body, a, cerr)
+			}
 		}
 		for i := 1; i < len(a.Specials); i++ {
 			if a.Specials[i].Number <= a.Specials[i-1].Number {

@@ -1,0 +1,43 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9449",
+    "tvdb": "https://thetvdb.com/series/astro-boy-2003/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tetsuwan Atom: Chikyuu Saigo no Hi",
+  "justification": "\"Tetsuwan Atom: Chikyuu Saigo no Hi\" (2001-07-20), a short for the Tezuka Osamu World cinema, has no TVDB episode. By default it fell on TVDB season 0 episode 1 \"Remaking of Astro Boy\" (2005-03-29), a making-of. It is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b1e1db418f82d528717f8950c44d09ba7989043ea4896b58a4482f2b3ab12191",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2005-03-29"
+        ]
+      ],
+      "series": 79252
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "16a7fa96f053f1cbe061050b070bcfe67d64df86e8d5eecc7d9122e211ad2859"
+  },
+  "anidb_id": 9449
+}

@@ -6,16 +6,6 @@
   "set": {
     "mapping_list": [
       {
-        "anidb_season": 1,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            21,
-            28
-          ]
-        ]
-      },
-      {
         "anidb_season": 0,
         "tvdb_season": 0,
         "episodes": [
@@ -62,18 +52,27 @@
             14
           ],
           [
+            15
+          ],
+          [
             16
+          ],
+          [
+            17
           ],
           [
             18,
             23
+          ],
+          [
+            19
           ]
         ]
       }
     ]
   },
   "title": "Mahou Shoujo Lyrical Nanoha StrikerS",
-  "justification": "AniDB 21 (2007-08-20) = TVDB 0x28 (2017-07-22), was 3x21, by title. AniDB special S1-S14 (2007-10-24 to 2008-02-27) have no TVDB episode, was 0x01-0x14. AniDB special S16 (2007-07-25) has no TVDB episode, was 0x16. AniDB special S18 (2015-02-25) = TVDB 0x23 (2015-02-25), was 0x18, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "The 26 regular episodes are TVDB season 3 episodes 1-26 by title, from \"Wing to the Sky\" to \"To The Promised Sky\"; episode 21 \"Kessen\" (2007-08-20) is episode 21 \"The Decisive Battle\" (2007-08-20), so the row that sent it to season 0 episode 28, a 2017 film bonus, is removed. AniDB special S18, the \"Midchilda Academy\" picture drama, is season 0 episode 23 \"StrikerS Picture Drama ~Midchilda Academy~\". The other specials (transformation scenes, actor interviews, the Lyrical Party digest, the episode 26 ending) have no TVDB episode; S15, S17 and S19 had fallen by default on the ViVid Strike! and Triangle Heart specials. All of them are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -458,8 +457,8 @@
       ],
       "series": 81115
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0c72e7744f4ff1a6b10116190441ae6fc4e2f523f71a631717658f1632511ad6"
   },
   "anilist_ids": [

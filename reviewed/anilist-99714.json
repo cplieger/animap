@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:99714",
+  "title": "AniList 99714",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "82b23caf75ed6c39efeb07e4bd195b043eff709a09ebf43cd14d0eb0eba58dc0",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 1-13 of AniDB 13263 (TVDB 79895 9x1-9x13); anime-offline-database keeps AniDB 13263 as a record with no AniList source, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/99714"
+        ],
+        "anilist_id": 99714
+      }
+    ]
+  }
+}

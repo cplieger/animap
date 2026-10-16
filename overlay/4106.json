@@ -1,0 +1,32 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4106",
+    "tmdb_movie": "https://www.themoviedb.org/movie/582409",
+    "tvdb": "https://thetvdb.com/dereferrer/series/72858"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "582409"
+  },
+  "title": "Monster Farm 5: Circus Caravan",
+  "justification": "Checked by episode title against TVDB series 72858. The film is TMDB movie 582409 (Monster Farm 5: Circus Caravan OVA - Kessei!! Orcoro Circus (2005)). TMDB show 15130 does not carry it, so the node leaves that show. TVDB 72858 has no season 0 and no other TVDB series or movie carries the 2005 OVA, so its TVDB default stays a gap. TMDB show 15130 has no season 0; TMDB movie 582409, released 2005-11-16 and titled like AniDB's main title, is the OVA.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "seasons": [
+        0
+      ],
+      "episodes": null,
+      "series": 72858
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "19c82f81b00c6b2818c7e31ff7a5e8e80513a336ca89fe7150f51ed8f24828c0"
+  },
+  "anilist_ids": [
+    15937
+  ],
+  "anidb_id": 4106
+}

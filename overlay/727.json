@@ -9,7 +9,7 @@
     "episodeoffset": "0"
   },
   "title": "Uchuu Kaizoku Captain Herlock: Arcadia-gou no Nazo",
-  "justification": "tvdbid 100151 to 80886 (TVDB 100151 is gone from TVDB's official order). AniDB 1 (1978-07-22) = TVDB 0x01 (1978-07-22), was TVDB 100151 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80886. The node moves from TVDB 100151 to series 80886. AniDB episode 1 \"Complete Movie\" (the anime \"宇宙海賊キャプテン・ハーロック アルカディア号の謎\") is TVDB S0E1 \"Mystery of the Arcadia\". TVDB series 100151 no longer exists; series 80886 is the same show.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

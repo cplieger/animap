@@ -1,24 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4923",
+    "tmdb": "https://www.themoviedb.org/tv/45532/seasons",
     "tvdb": "https://thetvdb.com/series/big-windup/seasons/official/0"
   },
   "set": {
-    "mapping_list": [
-      {
-        "anidb_season": 0,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            1,
-            1
-          ]
-        ]
-      }
-    ]
+    "mapping_list": []
   },
   "title": "Ookiku Furikabutte",
-  "justification": "AniDB special S1 (2008-02-27) = TVDB 0x01 (2008-02-27), was 1x26 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81108 and TMDB show 45532. AniDB S1 \"基本のキホン!\" (The Basics of Basics) is TVDB S0E1 \"Basics of the Basics!\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -193,8 +183,8 @@
       ],
       "series": 81108
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "61f63819dc4bc28f3a5a7931198de97b9f08edf94050a35b9baaf4de14a113c3"
   },
   "anilist_ids": [

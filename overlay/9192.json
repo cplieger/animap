@@ -1,0 +1,21 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9192",
+    "tmdb": "https://www.themoviedb.org/movie/125080",
+    "tvdb": "https://thetvdb.com/movies/topo-gigio-and-the-missile-war"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbid": "125080"
+  },
+  "title": "Topo Gigio no Botan Sensou",
+  "justification": "TVDB 80406 is gone; TVDB lists the 1967 film only as movie 167966 Toppo Jîjo no botan sensô (Topo Gigio and the Missile War, トッポ・ジージョのボタン戦争, 1967-07-20), with IMDb tt0062382, the node's own, and TMDB movie 125080. The Topo Gigio series 304212, 381325 and 474887 hold other material.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9a9b3a1f3c6ee9ebecd2ff55e8d3b11340152cb7886ab7dec10f499b8562c1be"
+  },
+  "anidb_id": 9192
+}

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11210",
-    "tvdb": "https://thetvdb.com/series/dragon-ball-super/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/dragon-ball-super/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/62715/seasons"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Dragon Ball Super",
-  "justification": "AniDB special S3-S4 (no AniDB date) have no TVDB episode, was 0x03-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 295068 and TMDB show 62715. AniDB S3-S4 (\"Catching Up on the Dragon Ball Universe: Christopher R. Sabat & Hero D. Sabat\" to \"Watching Dragon Ball Super: with Jason Douglas & Ian Sinclair\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,0 +1,29 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9451",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1293127",
+    "tvdb": "https://thetvdb.com/series/astro-boy-2003/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "episodeoffset": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "1293127",
+    "mapping_list": []
+  },
+  "title": "Tetsuwan Atom Tokubetsu Hen: Ivan no Wakusei - Robot to Ningen no Yuujou",
+  "justification": "Checked by title. The film is TMDB movie 1293127 (Astro Boy: Ivan's Planet - Robot and Human Friendship (2003)). TMDB show 12050 does not carry it, so the node leaves that show. The node moves from TVDB 79252 to the movie marker. This 20-minute short of 2003-09-13, 鉄腕アトム 特別編 イワンの惑星 ～ロボットと人間の友情～, is not TVDB S0E1 Remaking of Astro Boy (a making-of), and TheTVDB has no series episode or movie for it under its Japanese or English titles. TMDB has it as movie 1293127 Astro Boy: Ivan's Planet - Robot and Human Friendship (Japan 2003-09-13, 20 minutes). AniDB types it a film, so the node takes the movie marker.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "16a7fa96f053f1cbe061050b070bcfe67d64df86e8d5eecc7d9122e211ad2859"
+  },
+  "anilist_ids": [
+    18637
+  ],
+  "anidb_id": 9451
+}

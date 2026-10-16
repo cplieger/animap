@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/352",
+    "tmdb": "https://www.themoviedb.org/tv/34785/seasons",
     "tvdb": "https://thetvdb.com/series/h2-1995/seasons/official/1"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 1,
+        "tmdb_season": 1,
         "episodes": [
           [
             1,
@@ -22,6 +24,7 @@
       {
         "anidb_season": 1,
         "tvdb_season": 1,
+        "tmdb_season": 1,
         "episodes": [
           [
             39,
@@ -32,7 +35,7 @@
     ]
   },
   "title": "H2",
-  "justification": "AniDB special S1-S2 (1997-11-14) = TVDB 1x39-1x40 (1997-11-14), was 1x38-1x39. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 138561 and TMDB show 34785. AniDB episode 39 \"夏への誓い ここからスタート!\" (Summer Pledge, From Now On) is TMDB S1E41 \"夏への誓いここからスタート！\" (Summer Pledge, From Now On); AniDB S1-S2 (\"心のギブスがとれてねえぞ\" (The Psychological Barrier Unable to Clear) to \"いつまでも変わらない夢\" (The Dream That Never Changes)) are TVDB S1E39 \"The Psychological Barrier Unable to Clear\" to TVDB S1E40 \"The Dream That Never Changes\" and TMDB S1E39 \"心のギプスがとれてねえぞ\" (The Psychological Barrier Unable to Clear) to TMDB S1E40 \"いつまでも変わらない夢\" (The Dream That Never Changes).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -291,8 +294,8 @@
       ],
       "series": 138561
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "dc602edd7bdf98872b1e0bcd2ff5861e0244453d5b6e63221a1cc9da8366b328"
   },
   "anilist_ids": [

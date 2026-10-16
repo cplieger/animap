@@ -1,0 +1,25 @@
+{
+  "anilist_id": 179126,
+  "title": "Elf-san wa Yaserarenai. Specials",
+  "parts": [
+    {
+      "anidb_id": 18412,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 179126 (ONA, 2 episode(s) from 2024-10-06) is AniDB 18412's special(s) S1-S2, aired 2024-10-06 to 2024-10-20. AniList's PARENT relation names AniList 173388, which anime-offline-database links to AniDB 18412, and the special's title matches an AniList title. On TMDB 243743 the parent's node places the special(s) where TMDB's dates disagree (AniDB S1 aired 2024-10-06, TMDB 243743 S0E1 2024-07-07; AniDB S2 aired 2024-10-20, TMDB 243743 S0E2 2024-07-14), so the bridged record publishes no TMDB value.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18412",
+    "anilist": "https://anilist.co/anime/179126",
+    "tmdb": "https://www.themoviedb.org/tv/243743/season/0",
+    "tvdb": "https://thetvdb.com/series/plus-sized-elf/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "b8cd3618bf4b3566b93d81d6f45d7ad03863b063a5f3001ee944c5dc3d8b1863"
+  }
+}

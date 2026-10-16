@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:8126",
+  "title": "Gintama'",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "e9357f5ad88b5881797f6876fe22ba40302ba16de7126dfc525061de2eee069a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Row ;1-6; sends AniDB S1 \"Cherry Blossom Festival (2011) / Sakura Matsuri (2011)\" to S0E6 \"Sakura Festival 2011\" (銀魂桜祭り2011（仮）), the same event by title. The flag is a date difference (AniDB 2011-08-21, TVDB 2012-08-22, TVDB's own date looks a year late). Regular episodes 1-51 -\u003e S5E1-S5E51 (51 episodes both sides, first/last titles checked: AniDB 51 \"We're Sorry\" = S5E51).",
+      "evidence": [
+        "https://thetvdb.com/series/gintama/seasons/official/0",
+        "https://anidb.net/anime/8126",
+        "https://thetvdb.com/dereferrer/series/79895"
+      ]
+    }
+  }
+}

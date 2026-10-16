@@ -1,0 +1,24 @@
+{
+  "anilist_id": 4059,
+  "title": "CLANNAD: Mou Hitotsu no Sekai, Tomoyo-hen",
+  "parts": [
+    {
+      "anidb_id": 5101,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 4059 (OVA, 1 episode(s) from 2008-07-16) is AniDB 5101's special(s) S2 'Another World: Tomoyo Arc' (Mou Hitotsu no Sekai, Tomoyo Hen), aired 2008-07-16, and AniDB lists MAL 4059 on AniDB 5101. The parent's mapping row places S2 on TVDB 80644 0x2 'Another World: Tomoyo Chapter', also 2008-07-16.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5101",
+    "anilist": "https://anilist.co/anime/4059",
+    "tmdb": "https://www.themoviedb.org/tv/24835/season/0",
+    "tvdb": "https://thetvdb.com/series/clannad/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "6e93d6325a236e62817e3640df3ac533ef93bf95f572c1543dc2d131ddf69263"
+  }
+}

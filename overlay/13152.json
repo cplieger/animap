@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13152",
-    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/80834/seasons"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Shoujo Kageki Revue Starlight",
-  "justification": "AniDB special S4-S5 (2018-07-06 to 2018-09-28) have no TVDB episode, was 0x04-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 346988 and TMDB show 80834. AniDB S4-S5 (\"第零話「放送直前特番」\" (Episode 0: Special Program) to \"Re LIVE スタリラ予習 SP\" (Re LIVE Starlight Preparation Special)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

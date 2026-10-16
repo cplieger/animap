@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8805",
+    "tmdb": "https://www.themoviedb.org/tv/39659/seasons",
     "tvdb": "https://thetvdb.com/series/tiger-and-bunny/seasons/official/0"
   },
   "set": {
@@ -20,8 +21,21 @@
         ]
       },
       {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -40,13 +54,22 @@
           ],
           [
             6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
           ]
         ]
       }
     ]
   },
   "title": "Gekijouban Tiger \u0026 Bunny",
-  "justification": "AniDB 2 (2014-02-08) = TVDB 0x05 (2014-02-08), was 0x03, by title. AniDB special S1-S6 (no AniDB date) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 246381 and TMDB show 39659. AniDB episode 1 \"The Beginning\" has no TMDB episode (its default TMDB S0E1 is \"Pilot\", another item); AniDB episode 2 \"The Rising\" is TVDB S0E5 \"Tiger \u0026 Bunny: The Rising\" and has no TMDB episode (its default TMDB S0E2 is \"TIGER \u0026 BUNNY Special Edition Side Bunny\", another item); AniDB S1-S3 (\"The Beginning: Hero Countdown 1 - 5th Place\" to \"The Beginning: Hero Countdown 3 - 3rd Place\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S4-S6 (\"The Beginning: Hero Countdown 4 - 2nd Place\" to \"The Beginning: Anime Expo 2012 Highlight Reel\") have no TVDB episode (their defaults are other items) and no TMDB episode (TMDB has none of them); AniDB S7-S9 (\"The Beginning: US Premiere Event\" to \"The Beginning: World Premiere Event\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -94,8 +117,8 @@
       ],
       "series": 246381
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bc96ffa66b28f6e3f188c2c84108da0487697cf3d17fee245c281111b36a9332"
   },
   "anilist_ids": [

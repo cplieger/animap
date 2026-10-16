@@ -1,0 +1,58 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7659",
+    "tvdb": "https://thetvdb.com/series/heidi/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": []
+  },
+  "title": "Alps no Shoujo Heidi: Heidi to Clara Hen",
+  "justification": "The OVA \"Heidi to Clara Hen\" (1993-04-21) is TVDB season 0 episode 1 \"Heidi And Clara\", where the default places it. Its row sent special 1, which AniDB does not list, to episode 3, the 1979 film (AniDB 7660); the row is removed. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "837c9a3621afd278ee1ef1ad2d065a1675e35014bcbfb1a6046d9b5cce1443bc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1996-08-21"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1996-08-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1979-03-17"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ]
+      ],
+      "series": 82927
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "eab4081a6abce47c16a10ee69ddab54ad871296851f5cae6e7fb863fd08354e2"
+  },
+  "anidb_id": 7659
+}

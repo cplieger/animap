@@ -1,0 +1,268 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15749",
+    "tmdb": "https://www.themoviedb.org/tv/80713/seasons",
+    "tvdb": "https://thetvdb.com/series/dropkick-on-my-devil/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Jashin-chan Dropkick X",
+  "justification": "Checked by episode title against TVDB series 347215 and TMDB show 80713. AniDB S1-S17 (\"Mini Anime Birthday Edition 1\" to \"まめアニメ 釧路編\" (Mini Anime Kushiro Edition)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S18 \"エキュートを勝ちとるのは誰だ!? 略して...エキュ誰!?\" (Seiyuu Audition) has no TVDB episode (TVDB has no S0E18) and no TMDB episode (its default TMDB S0E18 is \"Hokkaido Arc #5\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d47e60c4b5bdd90daec8738c77b9ee72ddc9fc6f11867e95f943f2137e3190a5",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-09-25"
+        ],
+        [
+          0,
+          2,
+          12,
+          "2018-10-01"
+        ],
+        [
+          0,
+          3,
+          24,
+          "2020-04-30"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-11-16"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2022-04-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2022-04-13"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2022-04-20"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2022-04-27"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2022-05-05"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2022-05-12"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2022-05-19"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2022-05-26"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2022-06-02"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2022-06-09"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2022-06-16"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2022-06-23"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2023-12-27"
+        ],
+        [
+          3,
+          1,
+          25,
+          "2022-07-06"
+        ],
+        [
+          3,
+          2,
+          26,
+          "2022-07-13"
+        ],
+        [
+          3,
+          3,
+          27,
+          "2022-07-20"
+        ],
+        [
+          3,
+          4,
+          28,
+          "2022-07-27"
+        ],
+        [
+          3,
+          5,
+          29,
+          "2022-08-03"
+        ],
+        [
+          3,
+          6,
+          30,
+          "2022-08-10"
+        ],
+        [
+          3,
+          7,
+          31,
+          "2022-08-17"
+        ],
+        [
+          3,
+          8,
+          32,
+          "2022-08-24"
+        ],
+        [
+          3,
+          9,
+          33,
+          "2022-08-31"
+        ],
+        [
+          3,
+          10,
+          34,
+          "2022-09-07"
+        ],
+        [
+          3,
+          11,
+          35,
+          "2022-09-14"
+        ],
+        [
+          3,
+          12,
+          36,
+          "2022-09-21"
+        ]
+      ],
+      "series": 347215
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "58365a12b9309fc268746648985e70fc52f39d450f4ad97a13b0127a0a55351f"
+  },
+  "anilist_ids": [
+    124641
+  ],
+  "anidb_id": 15749
+}

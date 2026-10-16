@@ -1,11 +1,15 @@
 {
-  "anidb_id": 8899,
-  "title": "Joshiraku",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8899",
+    "tmdb": "https://www.themoviedb.org/tv/79040/seasons",
+    "tvdb": "https://thetvdb.com/series/joshiraku/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -14,11 +18,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1 (2012-09-26) has no TVDB episode, was 0x01, which is AniDB 9402, the only special TVDB lists. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8899",
-    "tvdb": "https://thetvdb.com/series/joshiraku/seasons/official/0"
-  },
+  "title": "Joshiraku",
+  "justification": "Checked by episode title against TVDB series 259651 and TMDB show 79040. AniDB S1 \"女子落語協会一門の女子トーーーク! 第一席\" (Special 1) has no TVDB episode (its default TVDB S0E1 is \"Store of Spoils / Three Publishers / Surprising Resolve\", another item) and no TMDB episode (its default TMDB S0E1 is \"Store of Spoils / Three Publishers / Surprising Resolve\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "fc4ab62bb34161d2cd1a11da6b607440bb32cbcbbbee28c90536119d8a893741",
@@ -114,12 +116,12 @@
       ],
       "series": 259651
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1703714ef94e150c6619c44f6271ec45a367e5950969dae62db2f2e67a5ec994"
   },
   "anilist_ids": [
     12679
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8899
 }

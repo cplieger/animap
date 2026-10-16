@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14397",
+    "tmdb_movie": "https://www.themoviedb.org/movie/572154",
     "tvdb": "https://thetvdb.com/series/rascal-does-not-dream-of-bunny-girl-senpai/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "572154",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -20,7 +25,7 @@
     ]
   },
   "title": "Seishun Buta Yarou wa Yumemiru Shoujo no Yume o Minai",
-  "justification": "AniDB special S1-S2 (2019-11-27) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 345596. The film is TMDB movie 572154 (Rascal Does Not Dream of a Dreaming Girl (2019)). TMDB show 82739 does not carry it, so the node leaves that show. AniDB S1-S2 (\"初日舞台挨拶\" (Opening Day Stage Greeting) to \"青春ブタ野郎はパーティーガールの夢を見ない\" (Rascal Does Not Dream of a Party Girl)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -86,8 +91,8 @@
       ],
       "series": 345596
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3061f7df41868eefae81fc6c338fc187f612d530914f8e9126dc6ce197dfab37"
   },
   "anilist_ids": [

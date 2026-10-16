@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13491",
+    "tmdb": "https://www.themoviedb.org/movie/482150",
     "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "482150",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -33,7 +38,7 @@
     ]
   },
   "title": "Liz to Aoi Tori",
-  "justification": "AniDB special S1-S3 (2018-12-05) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S3 (2018-12-05) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The film is TMDB movie 482150 (Liz and the Blue Bird, 91 min, IMDb tt7089878 as on the node), not TMDB 62564 S0E1, which is The Everyday Life of Band Part 1.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -219,8 +224,8 @@
       ],
       "series": 289884
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "41b1841a709f973cb521d4704511d635e47f935bff644ee43c80737a9c090c4c"
   },
   "anilist_ids": [

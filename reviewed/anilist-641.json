@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:641",
+  "title": "AniList 641",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 3067 S2 is TVDB 80759 0x6 by title, but AniDB gives S2 no air date, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/641"
+        ],
+        "anilist_id": 641
+      }
+    ]
+  }
+}

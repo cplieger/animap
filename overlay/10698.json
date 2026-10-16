@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10698",
+    "tmdb": "https://www.themoviedb.org/tv/60816/seasons",
     "tvdb": "https://thetvdb.com/series/selector-infected-wixoss/seasons/official/0"
   },
   "set": {
@@ -20,13 +21,40 @@
           ],
           [
             4
+          ],
+          [
+            5
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            5,
+            9
           ]
         ]
       }
     ]
   },
   "title": "Selector Spread Wixoss",
-  "justification": "AniDB special S1-S4 (2014-12-06 to 2015-04-22) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278327 and TMDB show 60816. AniDB S1-S2 (\"Episode 10 Ending\" to \"Episode 12 Ending\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S3-S4 (\"夢限少女になりたいの! 二人でWIXOSSやってみた! 4\" (We Tried Playing WIXOSS! 4) to \"夢限少女になりたいの! 二人でWIXOSSやってみた! 5\" (We Tried Playing WIXOSS! 5)) are TMDB S0E7 \"夢限少女になりたいの! 二人でWIXOSSやってみた! 4\" to TMDB S0E8 \"夢限少女になりたいの! 二人でWIXOSSやってみた! 5\" and have no TVDB episode (their defaults are other items); AniDB S5 \"夢限少女になりたいの! 二人でWIXOSSやってみた! 6\" (We Tried Playing WIXOSS! 6) is TMDB S0E9 \"夢限少女になりたいの! 二人でWIXOSSやってみた! 6\" and has no TVDB episode (TVDB has no S0E5).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -135,8 +163,8 @@
       ],
       "series": 278327
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "92fe2d9dc0d7fac083a66926cd04866c9076aee647d9fe7e6858ad970518698e"
   },
   "anilist_ids": [

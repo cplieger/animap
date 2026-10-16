@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12994",
+    "tmdb": "https://www.themoviedb.org/tv/65336/seasons",
     "tvdb": "https://thetvdb.com/series/march-comes-in-like-a-lion/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Sangatsu no Lion (2017)",
-  "justification": "AniDB special S1 (2017-10-07) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 306269 and TMDB show 65336. AniDB S1 \"第2シリーズスタート! ひふみんが迫るアニメ「3月のライオン」\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"March comes in like a lion meets Bump of Chicken\", another item) and no TMDB episode (its default TMDB S0E1 is \"Omnibus Special Episode\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -234,8 +236,8 @@
       ],
       "series": 306269
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3f42cf69395b78ad971c35ea6ad1cc83818e03065a0d6eccf84d2ad06f743046"
   },
   "anilist_ids": [

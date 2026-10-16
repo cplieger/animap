@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14488",
+    "tmdb": "https://www.themoviedb.org/tv/88046/seasons",
     "tvdb": "https://thetvdb.com/series/fire-force/seasons/official/0"
   },
   "set": {
@@ -28,11 +29,35 @@
             6
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
       }
     ]
   },
   "title": "En'en no Shouboutai",
-  "justification": "AniDB special S1-S6 (2020-03-31 to 2020-09-29) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 355480 and TMDB show 88046. AniDB S1-S6 (\"Inside the Episode - Episode 5\" to \"Inside the Episode - Episode 24\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -369,8 +394,8 @@
       ],
       "series": 355480
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6c91312e4d63cb45453323f2cf867e3114a5b36d046ab11a26adae46c6cd6e1f"
   },
   "anilist_ids": [

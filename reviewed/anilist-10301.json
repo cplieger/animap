@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:10301",
+  "title": "AniList 10301",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 7931 S1 Let's Happy / Day Dream (2011-10-19) is TVDB 218531 0x1 by title, but TVDB and TMDB date it 2011-09-21, four weeks apart, so no special-of-parent bridge can pass its one-day date rule",
+        "evidence": [
+          "https://anilist.co/anime/10301"
+        ],
+        "anilist_id": 10301
+      }
+    ]
+  }
+}

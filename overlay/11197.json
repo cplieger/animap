@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11197",
-    "tvdb": "https://thetvdb.com/series/selector-infected-wixoss/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/selector-infected-wixoss/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/372765"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Gekijouban Selector Destructed Wixoss",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278327. AniDB S1 \"劇場マナームービー\" (Theater Manners Movie) has no TVDB episode (its default TVDB S0E1 is \"Midoriko-san and Piruluk-tan 1\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

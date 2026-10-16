@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15271",
-    "tvdb": "https://thetvdb.com/series/megalobox/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/megalobox/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/77939/seasons"
   },
   "set": {
     "mapping_list": [
@@ -18,7 +19,7 @@
     ]
   },
   "title": "Nomad: Megalo Box 2",
-  "justification": "AniDB special S1 (2021-07-28) = TVDB 0x04 (2021-07-28), was 0x01, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 341437 and TMDB show 77939. AniDB S1 \"NOMAD メガロボクス2 新作ショートアニメ\" (Nomad and the Hummingbird) is TVDB S0E4 \"The Hummingbird and the Nomad\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

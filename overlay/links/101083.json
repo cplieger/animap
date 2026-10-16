@@ -1,0 +1,36 @@
+{
+  "anilist_id": 101083,
+  "title": "Overlord: Ple Ple Pleiades 2",
+  "parts": [
+    {
+      "anidb_id": 12952,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  ],
+  "justification": "AniList 101083 (ONA, 13 episode(s) from 2018-01-09) is AniDB 12952's special(s) S1-S13, aired 2018-01-09 to 2018-04-03. AniList's PARENT relation names the parent entry, which anime-offline-database links to AniDB 12952. The parent's row anidbseason 0 -\u003e tvdbseason 0, start 1 end 13 offset 15 puts S1-S13 on TVDB 0x16-0x28, which carry the same titles and dates.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12952",
+    "anilist": "https://anilist.co/anime/101083",
+    "tmdb": "https://www.themoviedb.org/tv/64196/season/0",
+    "tvdb": "https://thetvdb.com/series/overlord/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "138df0cfa91c4f0ef99ec467816b4edac18e1e2ac7288e434361d9474a2af44a"
+  }
+}

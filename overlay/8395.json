@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8395",
+    "tmdb": "https://www.themoviedb.org/tv/46671/seasons",
     "tvdb": "https://thetvdb.com/series/the-future-diary/seasons/official/0"
   },
   "set": {
@@ -21,11 +22,26 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Mirai Nikki (2011)",
-  "justification": "AniDB special S1-S2 (2012-01-27 to 2012-03-30) = TVDB 0x03-0x04 (2012-01-27 to 2012-03-30), was 0x01-0x02, by title. AniDB special S3 (no AniDB date) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 249827 and TMDB show 46671. AniDB S1-S2 (\"裏未来日記 #5 平坂黄泉(川原慶久バージョン)\" (Extra #5 Yomotsu Hirasaka (Yoshihisa Kawahara Version)) to \"おまけ #10 雨流みねね, 西島真澄 (台詞クリアー版)\" (Extra #10 Uryuu Minene, Nishijima Masumi (Clear dialogue version))) are TVDB S0E3 \"Extra #5 Yomotsu Hirasaka (Yoshihisa Kawahara Version)\" to TVDB S0E4 \"Extra #10 Uryuu Minene, Nishijima Masumi (Clear dialogue version)\" and have no TMDB episode (their defaults are other items); AniDB S3 \"Episode S3\" has no TVDB episode (its default TVDB S0E3 is \"Extra #5 Yomotsu Hirasaka (Yoshihisa Kawahara Version)\", another item) and no TMDB episode (TMDB has no S0E3).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -218,8 +234,8 @@
       ],
       "series": 249827
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9f7d3a07c6c4220df07c9ce1cd411947276ba25d9e7445350f9cca3fb703ea9c"
   },
   "anilist_ids": [

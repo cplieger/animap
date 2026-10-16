@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14438",
-    "tvdb": "https://thetvdb.com/series/laid-back-camp/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/laid-back-camp/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/566466"
   },
   "set": {
     "mapping_list": [
@@ -23,7 +24,7 @@
     ]
   },
   "title": "Eiga Yuru Camp",
-  "justification": "AniDB special S1-S3 (no AniDB date) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 330692. AniDB S1-S3 (\"Making Commentary\" to \"Theater Greeting Collection\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

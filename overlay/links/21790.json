@@ -1,0 +1,25 @@
+{
+  "anilist_id": 21790,
+  "title": "Joker Game: Kuroneko Yoru no Bouken",
+  "parts": [
+    {
+      "anidb_id": 11481,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList: 2 episodes of 5 min, 2016-07-27 and 2016-09-28, 黒猫ヨルの冒険. AniDB 11481 S1 \"Kuroneko Yoru no Bouken (Zenpen)\" / \"The Black Cat Yoru's Adventure (Part 1)\" (J 黒猫ヨルの冒険 (前編)) 2016-07-27 and S2 \"(Kouhen)\" (後編) 2016-09-28 are the whole specials list. TVDB 305078 season 0: 0x1 \"Kuroneko Yoru no Bouken #1\" 2016-07-27, 0x2 \"#2\" 2016-09-28. The titles match exactly, so the detail's \"no title agrees\" was a failure of the heuristic. Parent has no mapping list: defaults to 0x1-0x2.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11481",
+    "anilist": "https://anilist.co/anime/21790",
+    "tmdb": "https://www.themoviedb.org/tv/65949/season/0",
+    "tvdb": "https://thetvdb.com/series/joker-game/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "2a64805f8241cb0642514a6b5aeec93c52300b49cb1a79de27d16bcf4ea8a9e4"
+  }
+}

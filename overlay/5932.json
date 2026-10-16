@@ -1,0 +1,47 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5932",
+    "tvdb": "https://thetvdb.com/series/lucky-star/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Lucky Star OVA: JK",
+  "justification": "The OVA is TVDB season 0 episode 1 \"JK\" (2008-09-26). AniDB specials S1 and S2 \"Eizou Tokuten 1-2\" (video bonuses, 2008-09-26) had no row; S1 fell on the OVA's own episode and S2 on season 0 episode 2, which TVDB does not have. TVDB lists no bonus video, so both are unmapped. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "8cbe22b86d14d76d1eb3a68e00b57dc365ed1a3ef91abc710a4a376ca5b7c8cb",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          25,
+          "2008-09-26"
+        ]
+      ],
+      "series": 80177
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0147a0524401dcc92f4cd82a47f058d9aaac24ad908a9fc02a0a05e5fc9bae12"
+  },
+  "anidb_id": 5932
+}

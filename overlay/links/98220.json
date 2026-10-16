@@ -1,0 +1,26 @@
+{
+  "anilist_id": 98220,
+  "title": "ViVid Strike! OVA",
+  "parts": [
+    {
+      "anidb_id": 12264,
+      "specials": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "justification": "AniList: OVA, 3 episodes of 18 min, 2017-01-25 to 2017-03-29 (synonym \"Episodes 5.5 + 5.75 + 13\"). AniDB 12264 S1-S3: \"Mixed Magical Battle\" 2017-01-25, \"Watchful Eyes\" 2017-02-22, \"Summertime Vacation\" 2017-03-29. S4 \"Vivid Xmas\" (2016-12-25) and S5 (undated) are other extras. TVDB 81115 season 0 0x15 \"ViVid Strike! Mixed Magical Battle\" 2017-01-25, 0x16 \"ViVid Strike! Watchful Eyes\" 2017-02-22, 0x17 \"ViVid Strike! Summer Time Vacation\" 2017-03-29, 0x18 \"ViVid Xmas\": the parent's row offset 14 already maps S1-S4 there. Titles, order and dates agree. No other node claims 0x15-0x17 (13301 starts at 0x14 offset 13: its S1 is 0x14).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12264",
+    "anilist": "https://anilist.co/anime/98220",
+    "tmdb": "https://www.themoviedb.org/tv/19836/season/0",
+    "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "8085a442cb92f12946f24918d3de0d1f3e36a7951c367a5a96da0b70472d49a4"
+  }
+}

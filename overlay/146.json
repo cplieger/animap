@@ -9,7 +9,7 @@
     "mapping_list": []
   },
   "title": "Rockman.EXE",
-  "justification": "tvdbid 71682 to 72172 (TVDB 71682 is gone from TVDB's official order). AniDB 1-25 (2002-03-04 to 2002-08-26) = TVDB 1x01-1x25 (2002-03-04 to 2002-08-26), was TVDB 71682 1x01-1x25. AniDB 26-56 (2002-09-02 to 2003-03-31) = TVDB 1x26-1x56 (2002-09-02 to 2003-03-31), was TVDB 71682 2x01-2x31. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 72172. The node moves from TVDB 71682 to series 72172. AniDB episode 1-56 (\"プラグイン! ロックマン\" (Plug in! Rockman!) to \"ウイルスバスターズ!\" (Virus Busters!)) are TVDB S1E1 \"Jack-In! MegaMan!\" to TVDB S1E56 \"Virus Busters!\". TVDB series 71682 no longer exists. Series 72172 carries all 56 episodes by title in its first season; its second season is Rockman.EXE Axess (node 1143), so the old season 2 row goes.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

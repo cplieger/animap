@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12962",
+    "tmdb": "https://www.themoviedb.org/movie/460400",
     "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "460400",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -48,7 +53,7 @@
     ]
   },
   "title": "Gekijouban Hibike! Euphonium: Todoketai Melody",
-  "justification": "AniDB special S1-S8 (2017-09-30 to (none)) have no TVDB episode, was 0x01-0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S8 (2017-09-30 to (none)) have no TVDB episode, was 0x01-0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The film is TMDB movie 460400 (May the Melody Reach You!, 2017-09-30, 105 min, IMDb tt6973828 as on the node), not TMDB 62564 S0E1, which is The Everyday Life of Band Part 1.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -234,8 +239,8 @@
       ],
       "series": 289884
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4ed09647989a54217274ba47fa4453bb8bfc7a00284116b62b17aec68d636db6"
   },
   "anilist_ids": [

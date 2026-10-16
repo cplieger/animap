@@ -1,0 +1,23 @@
+{
+  "key": "anime:anidb:717",
+  "title": "Kidou Senshi Gundam 0083: Stardust Memory",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:11": "61cacd40043481a5cdc5340c3bd10ad7960786e2734cbfc032fb915030e435ec",
+        "date-mismatch:2": "1d429624aebddfabfb52cefd5402e2ddaac96b46ecfb79e113033ef246ebefac",
+        "date-mismatch:3": "abef9c7c928fae918fe695f945b2fbfb7f5be40859de22b6d3c7c9a7f8ccbda3",
+        "date-mismatch:4": "1f1ef440ac6cb5b285b9d8f9a5f53873058881cfd4204c49d034bd00f014fb69",
+        "date-mismatch:7": "8a25713660ad0c2e89d6b076f7f6431711ff641053e6fdca72c0bdc16a05d888",
+        "date-mismatch:9": "887a685b944f3da1cedfc25943827b065d4a8a271e5ed5bba7e46cbe95a0e090"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-13 = S1E1-13 by title in order (\"Stolen Gundam\" = \"Gundamjack\", \"Endless Chase\" = \"Endless Pursuit\", \"Into Battle, Albion!\", \"Attack and Retreat on the Burning Sand\", \"Gundam, to the Sea of Stars\", \"The Warrior of Von Braun\", \"With Shining Blue Fire\", \"Conspiracy Sector\", \"The Nightmare of Solomon\", \"Colliding War Zones\", \"La Vie en Rose\", \"Assault on the Point of No Return\", \"A Storm Raging Through\"). The failures are date slots: TVDB gives E2 the date of E1 and E3 the date of AniDB 2, so its dates run one episode behind from E2 to E12; the title order is exact. Overlay (PR 629): S1 \"The Mayfly of Space\" = S0E2 (1992-09-07), S2 \"The Mayfly of Space 2\" = S0E3 (2016-01-29), S3 interview unmapped; right by title.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/80783",
+        "https://anidb.net/anime/717"
+      ]
+    }
+  }
+}

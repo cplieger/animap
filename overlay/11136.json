@@ -1,14 +1,15 @@
 {
-  "anidb_id": 11136,
-  "title": "Strike the Blood: Valkyria no Oukoku Hen",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11136",
+    "tmdb": "https://www.themoviedb.org/tv/61440/seasons",
+    "tvdb": "https://thetvdb.com/series/strike-the-blood/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1-2 (2015-11-25 to 2015-12-23) = TVDB 0x01-0x02 (2015-11-25 to 2015-12-23), by the anime's title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/11136",
-    "tvdb": "https://thetvdb.com/series/strike-the-blood/seasons/official/0"
-  },
+  "title": "Strike the Blood: Valkyria no Oukoku Hen",
+  "justification": "Checked by episode title against TVDB series 272129 and TMDB show 61440. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-2 (\"Volume 1\" to \"Volume 2\") are TVDB S0E1 \"Kingdom of Valkyria I\" to TVDB S0E2 \"Kingdom of Valkyria II\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "82bf7ba0baf3937fe8174bf76c8390b768f469a4280939ab1d14bac6e295e220",
@@ -44,5 +45,5 @@
   "anilist_ids": [
     21098
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 11136
 }

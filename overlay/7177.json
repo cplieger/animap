@@ -1,0 +1,181 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7177",
+    "tmdb": "https://www.themoviedb.org/movie/71172",
+    "tvdb": "https://thetvdb.com/movies/gintama-the-movie"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "71172"
+  },
+  "title": "Gekijouban Gintama: Shin`yaku Benizakura Hen",
+  "justification": "The film is TMDB movie 71172 (IMDb tt1636780 as on the node; TheTVDB movie 20099 links both). TMDB 57041 season 0 does not list it or its Benizakura special: by default the film took E1 Jump Festa 2005 Special. TVDB 0x4 Gintama: The Movie stays.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "aa14d35719bcd00291c544edd7e3f3ad15d5e816986271bc4a9fa960f38bc5dc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2005-09-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2008-09-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2010-03-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2010-04-24"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2010-12-15"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2012-08-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-07-06"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2013-06-29"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2014-11-09"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-08-26"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-08-26"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2015-11-03"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2016-08-04"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2016-11-04"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2019-08-29"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2019-09-04"
+        ],
+        [
+          0,
+          17,
+          370,
+          "2021-01-08"
+        ],
+        [
+          0,
+          18,
+          368,
+          "2021-01-15"
+        ],
+        [
+          0,
+          19,
+          369,
+          "2021-01-20"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2010-03-25"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2023-11-10"
+        ],
+        [
+          0,
+          23,
+          0,
+          "2024-06-21"
+        ],
+        [
+          0,
+          24,
+          0,
+          "2024-11-22"
+        ],
+        [
+          0,
+          25,
+          0,
+          "2025-10-03"
+        ],
+        [
+          0,
+          26,
+          0,
+          "2026-02-13"
+        ]
+      ],
+      "series": 79895
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8b46442d4e6d81a19b350fb4e8f5616c8a2c546eb0b210473bafa8462fd3c0af"
+  },
+  "anidb_id": 7177
+}

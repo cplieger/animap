@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:14",
+  "title": "RahXephon",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "c3a9871402796e7bffeb5f12992a1c8132ba0ce6ebec0cb5cd189c6f3f9520fb"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The only failing special is AniDB S1 'Special Compilation: Memory / Tokubetsu Henshuuban: Tsubasa no Kioku - Memory' (2002-04-10, a recap special), sent by the Anime-Lists row ;1-3; to TVDB S0E3 'The Wings of Recollection' (2003-08-19). 'Tsubasa no Kioku' is 'Wings of Memory/Recollection': the same programme by title, and MAL 5288 is the same 'RahXephon: Tsubasa no Kioku - Memory' recap (35 min). The other rows are right too: S2 'Ichiko Hashimoto - The Fate of Katun' and S3 'Interview Hiroki Kanno' are unmapped (;2-0;3-0;) and TVDB S0E1 'Pluralitas Concentio' (the film) and S0E2 'Intermezzo' are not claimed by this node. The date gap is TVDB dating the compilation by its 2003 DVD release. The 26 regular episodes match TVDB S1 by title and order (Invasion of the Capital = Over Lord ... Far Beyond Eternity = Time Enough for Love).",
+      "evidence": [
+        "https://anidb.net/anime/14",
+        "https://thetvdb.com/dereferrer/series/72720"
+      ]
+    }
+  }
+}

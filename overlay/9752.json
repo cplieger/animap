@@ -1,0 +1,116 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9752",
+    "tmdb": "https://www.themoviedb.org/tv/45893/season/0",
+    "tvdb": "https://thetvdb.com/series/hidamari-sketch/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            11
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hidamari Sketch: Sae Hiro Sotsugyou Hen",
+  "justification": "Episode 2 \"February 28 - March 1, Graduation Sketch\" (2013-11-27) is TVDB season 0 episode 11 \"February 28th-March 1st: Graduation Sketch\" and TMDB 45893 season 0 episode 11; with no pair it fell on episode 2, a 2007 special. On TMDB, episode 1 \"Exam Sketch\" is episode 10, as on TVDB; the row named no TMDB season, so it fell on TMDB episode 1.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0870b9ea7edbe82a21972a908e4879a2c467825f1203aed22e14dbe982678f85",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2007-10-19"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2007-10-19"
+        ],
+        [
+          0,
+          3,
+          28,
+          "2009-03-25"
+        ],
+        [
+          0,
+          4,
+          29,
+          "2009-10-18"
+        ],
+        [
+          0,
+          5,
+          30,
+          "2009-10-25"
+        ],
+        [
+          0,
+          6,
+          43,
+          "2010-10-24"
+        ],
+        [
+          0,
+          7,
+          44,
+          "2010-10-31"
+        ],
+        [
+          0,
+          8,
+          45,
+          "2011-10-30"
+        ],
+        [
+          0,
+          9,
+          46,
+          "2011-11-06"
+        ],
+        [
+          0,
+          10,
+          59,
+          "2013-11-27"
+        ],
+        [
+          0,
+          11,
+          60,
+          "2013-11-27"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2007-12-12"
+        ]
+      ],
+      "series": 82154
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "ce6c9bb605581769a0fad25b2fe4a3da90a0c713b50d09afd5e43760edaecbfa"
+  },
+  "anidb_id": 9752
+}

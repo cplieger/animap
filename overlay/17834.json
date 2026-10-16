@@ -14,13 +14,16 @@
           ],
           [
             2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Blue Archive the Animation",
-  "justification": "AniDB special S1-S2 (2024-01-20 to 2024-03-30) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S2 (2024-01-20 to 2024-03-30) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S3 \"April Fools' Day Shibaseki Ramen\" (2024-04-01) has no TVDB episode. By default it fell on TVDB season 0 episode 3, 60秒予告 (a 60-second preview, 2023-12-31). It is unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -123,8 +126,8 @@
       ],
       "series": 430095
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ffc467f543646bd72f12559a8158b969d8ae275f183dec932135843b581c1af8"
   },
   "anilist_ids": [

@@ -1,14 +1,15 @@
 {
-  "anidb_id": 695,
-  "title": "Slam Dunk (1994)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/695",
+    "tmdb_movie": "https://www.themoviedb.org/movie/338379",
+    "tvdb": "https://thetvdb.com/series/slam-dunk/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (1994-03-12) = TVDB 0x01 (1994-03-12), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/695",
-    "tvdb": "https://thetvdb.com/series/slam-dunk/seasons/official/0"
-  },
+  "title": "Slam Dunk (1994)",
+  "justification": "Checked by episode title against TVDB series 72491. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"SLAM DUNK (1994)\") is TVDB S0E1 \"Movie 1 - Slam Dunk!\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "7eb82695affb0f434bd131753fa7a03dcedeaa800d2afc5d79d397ba96933a31",
@@ -62,5 +63,5 @@
   "anilist_ids": [
     1764
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 695
 }

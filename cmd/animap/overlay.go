@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
+	"slices"
 	"time"
 
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
@@ -23,123 +23,32 @@ import (
 // pace is the minimum gap between two requests to one host.
 const pace = time.Second
 
-// driftResult is one drift run. Owned lists every key the overlay's current
-// entries and bridges can hold; Complete says the run read all of them,
-// which is what gives it authority over a deleted entry's issues.
-type driftResult struct {
-	Findings  []drift.Finding `json:"findings"`
-	Evaluated []string        `json:"evaluated"`
-	Owned     []string        `json:"owned"`
-	Complete  bool            `json:"complete"`
-}
-
-func runDrift(ctx context.Context, args []string, log *slog.Logger) error {
-	fs := flag.NewFlagSet("drift", flag.ContinueOnError)
-	overlayDir := fs.String("overlay", "overlay", "overlay directory")
-	listPath := fs.String("list", "", "anime-list-master.xml at Anime-Lists HEAD")
-	releasePath := fs.String("release", "", "latest published animap.json, for whether a bridge is still needed")
-	cachePath := fs.String("cache", "", "HTTP validator cache file")
-	out := fs.String("out", "drift.json", "output path")
-	if err := parse(fs, args); err != nil {
-		return err
-	}
-	if err := required(fs, "list"); err != nil {
-		return err
-	}
-	list, err := readList(*listPath)
-	if err != nil {
-		return err
-	}
-	entries, bridges, err := loadOverlay(*overlayDir)
-	if err != nil {
-		return err
-	}
-	linked, err := releaseLinks(*releasePath)
-	if err != nil {
-		return err
-	}
-	client, err := source.New(*cachePath, pace, log)
-	if err != nil {
-		return err
-	}
-	o := observer{client: client, log: log}
-	res := driftResult{Complete: true}
+// aniDBByAniList is the AniDB ids anime-offline-database gives each
+// AniList id, sorted.
+func aniDBByAniList(entries []offlinedb.Entry) map[int][]int {
+	out := map[int][]int{}
 	for i := range entries {
-		e := &entries[i]
-		obs := o.observe(ctx, list.Nodes[e.AniDBID], e.AniDBID, e.Captured.TVDB)
-		res.add(drift.Decide(drift.OfEntry(e), &obs))
-		res.Owned = append(res.Owned, drift.KeysOf(e.AniDBID).All()...)
-	}
-	patched := overlay.Apply(list.Nodes, entries)
-	for i := range bridges {
-		b := &bridges[i]
-		obs := o.observe(ctx, patched[b.ParentAniDBID], b.ParentAniDBID, b.Captured.TVDB)
-		if linked != nil {
-			obs.Linked, obs.LinkedRead = linked[b.AniListID], true
+		for _, al := range entries[i].AniList {
+			for _, ad := range entries[i].AniDB {
+				if !slices.Contains(out[al], ad) {
+					out[al] = append(out[al], ad)
+				}
+			}
 		}
-		res.add(drift.Decide(drift.OfBridge(b), &obs))
-		res.Owned = append(res.Owned, drift.SpecialKeys(b.AniListID).All()...)
 	}
-	if err := client.Save(ctx); err != nil {
-		log.Warn("drift: cache not saved", "error", err)
+	for _, ids := range out {
+		slices.Sort(ids)
 	}
-	log.Info("drift: done", "entries", len(entries), "bridges", len(bridges), "findings", len(res.Findings))
-	return writeJSON(ctx, *out, res)
+	return out
 }
 
-func (r *driftResult) add(f []drift.Finding, ev []string) {
-	r.Findings = append(r.Findings, f...)
-	r.Evaluated = append(r.Evaluated, ev...)
-}
-
-func loadOverlay(dir string) ([]overlay.Entry, []overlay.Bridge, error) {
+func loadOverlay(dir string) ([]overlay.Entry, []overlay.Link, error) {
 	entries, err := overlay.LoadDir(dir)
 	if err != nil {
 		return nil, nil, err
 	}
-	bridges, err := overlay.LoadBridges(dir)
-	return entries, bridges, err
-}
-
-// releaseLinks is nil when no document was given, which leaves every
-// bridge's landed key unevaluated.
-func releaseLinks(path string) (map[int]int, error) {
-	if path == "" {
-		return nil, nil
-	}
-	doc, err := readPrevious(path)
-	if err != nil || doc == nil {
-		return nil, err
-	}
-	out := make(map[int]int, len(doc.Records))
-	for i := range doc.Records {
-		if r := &doc.Records[i]; r.AniListID > 0 {
-			out[r.AniListID] = r.AniDBID
-		}
-	}
-	return out, nil
-}
-
-type observer struct {
-	client *source.Client
-	log    *slog.Logger
-}
-
-func (o observer) observe(ctx context.Context, node *animelists.Node, aid int, tv *overlay.CapturedTVDB) drift.Observation {
-	obs := drift.Observation{Node: node}
-	if tv == nil {
-		return obs
-	}
-	show, err := skyhook.Fetch(ctx, o.client, tv.Series)
-	switch {
-	case errors.Is(err, source.ErrNotFound):
-		obs.LayoutAbsent = true
-	case err != nil:
-		o.log.Warn("drift: SkyHook unreadable, layout left unevaluated", "anidb", aid, "series", tv.Series, "error", err)
-	default:
-		obs.Layout, obs.LayoutRead = skyhook.Layout(show, tv.Seasons), true
-	}
-	return obs
+	links, err := overlay.LoadLinks(dir)
+	return entries, links, err
 }
 
 // runCapture is how an author writes an entry's fingerprints and how a
@@ -243,11 +152,7 @@ func runCheck(args []string, stdout io.Writer) error {
 	if err != nil {
 		return err
 	}
-	entries, err := overlay.LoadDir(*overlayDir)
-	if err != nil {
-		return err
-	}
-	bridges, err := overlay.LoadBridges(*overlayDir)
+	entries, links, err := loadOverlay(*overlayDir)
 	if err != nil {
 		return err
 	}
@@ -259,9 +164,8 @@ func runCheck(args []string, stdout io.Writer) error {
 	if err != nil {
 		return err
 	}
-	patched := overlay.Apply(list.Nodes, entries)
-	proofErr := proveBridges(bridges, patched, facts)
-	rep := guard.Collisions(list.Nodes, entries, bridges, facts)
+	proven, proofErr := proveLinks(links, overlay.Apply(list.Nodes, entries), entries, facts, aod)
+	rep := guard.Collisions(list.Nodes, entries, proven.compiled, facts)
 	_, colErr := collisions(*baselinePath, &rep, slog.New(slog.DiscardHandler))
 	b, err := json.MarshalIndent(rep, "", "  ")
 	if err != nil {
@@ -271,18 +175,4 @@ func runCheck(args []string, stdout io.Writer) error {
 		return err
 	}
 	return errors.Join(proofErr, colErr)
-}
-
-// proveBridges proves every bridge against its parent's specials at the
-// pinned mirror, so a snapshot bump that renumbers or redates one fails.
-func proveBridges(bridges []overlay.Bridge, patched map[int]*animelists.Node, facts *anidb.Facts) error {
-	var proofs []error
-	for i := range bridges {
-		b := &bridges[i]
-		parent, _ := facts.Anime(b.ParentAniDBID)
-		if err := b.Prove(patched[b.ParentAniDBID], parent.Specials); err != nil {
-			proofs = append(proofs, err)
-		}
-	}
-	return errors.Join(proofs...)
 }

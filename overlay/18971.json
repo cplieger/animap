@@ -1,0 +1,120 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18971",
+    "tvdb": "https://thetvdb.com/series/yano-kun-no-futsuu-no-hibi-453230/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Yano-kun no Futsuu no Hibi",
+  "justification": "AniDB special S2 \"Housou Kinen Special Tokuban\" (2025-09-30) is TVDB season 0 episode 1, 矢野くんの普通の日々 放送記念スペシャル特番 (2025-10-02). S1, the YouTube live stream (2025-09-13), has no TVDB episode; by default it took episode 1.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9d7eb3caa064f7f46daeed63f2ca9637ec12904ed274cc7da2d3821d94ae0a16",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2025-10-02"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2025-10-01"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2025-10-08"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2025-10-15"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2025-10-22"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2025-10-29"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2025-11-05"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2025-11-12"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2025-11-19"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2025-11-26"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2025-12-03"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2025-12-10"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2025-12-17"
+        ]
+      ],
+      "series": 453230
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9ddf3b76373541c08ed5f3cea6da69bf89e9e31b765b35db38f3a628469d6449"
+  },
+  "anidb_id": 18971
+}

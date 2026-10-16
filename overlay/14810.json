@@ -1,0 +1,89 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14810",
+    "tmdb": "https://www.themoviedb.org/tv/63525/season/0",
+    "tvdb": "https://thetvdb.com/series/hyperdimension-neptunia-the-animation/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "3",
+    "tmdboffset": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            3,
+            3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Choujigen Game Neptune The Animation (2019)",
+  "justification": "The three OVA episodes are TVDB 267705 season 0 episodes 4 Neptune's Summer Vacation (守護女神のなつやすみ, 2019-07-08), 5 Nep-Nep Festival and 3 Little Purple in A Sunny Spot (陽だまりの茄花), AniDB 1 Neptune's Summer Vacation, 2 Nep-Nep Festival and 3 Little Purple Sunshine; offset 1 put them on a missing episode, Little Purple and Summer Vacation. On TMDB 63525 season 0 they are episodes 2 Nep's Summer Vacation, 5 Nep-Nep Festival and 6 Little Purple Sunshine.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "570de376e6224fb3f15b8b43af47c7856867f61585070dc6dd6459d4aab08123",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          3,
+          16,
+          "2022-07-03"
+        ],
+        [
+          0,
+          4,
+          14,
+          "2019-07-08"
+        ],
+        [
+          0,
+          5,
+          15,
+          "2021-12-15"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-05-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2020-05-15"
+        ]
+      ],
+      "series": 267705
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "ab138ff8bb6b8b761c6e808adf49e0bfdbba4bd645558a3ce1b44474eb9de9e4"
+  },
+  "anidb_id": 14810
+}

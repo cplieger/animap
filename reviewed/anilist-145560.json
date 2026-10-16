@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:145560",
+  "title": "AniList 145560",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "16c539a6a473c8ab94ecc99a80f7a88586755acaeda885546fe1fecce782fe69",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 13624 S4 is TVDB 357019 0x4 by title, but TVDB dates it 2020-01-19 against AniDB's 2020-03-19, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/145560"
+        ],
+        "anilist_id": 145560
+      }
+    ]
+  }
+}

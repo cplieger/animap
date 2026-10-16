@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:8660",
+  "title": "High School DxD",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S8": "4c91cb1c6674d3d9513df1c8028311b9f36f0e891f730518189494e3cba060de",
+        "date-mismatch:S9": "9ec669a03421db5a7f28fde16a8a7808d24e1fd8dd18023c52e6a9b3d328aae4"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-12 match S1E1-E12 title for title. Specials: S7 \"Before Harem Special\" = E1 (pair ;7-1;), S1-S6 \"Mousou Bakuyure Kaijo Original Video Vol. 1-6\" = E2-E7 \"Fantasy Jiggles Unleashed Vol. 1-6\" (row, titles agree by volume number), S8 \"I'm Harvesting Breasts!\" = E8 exact, S9 \"I'm Searching for Breasts!\" = E9 exact (default placement). The two failing dates (2012-09-06 vs 2012-09-20, 2013-05-31 vs 2013-05-21) are release-date differences on identically titled episodes. Note 8925 (High School DxD OAD, offset 7) also lands on E8/E9: AniDB lists the same two OADs twice (as specials here, as 8925's episodes 1-2); both resolving to the one TVDB episode is a duplicate listing, not an error.",
+      "evidence": [
+        "https://anidb.net/anime/8660",
+        "https://thetvdb.com/dereferrer/series/254653"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:8180",
+  "title": "Ikoku Meiro no Croisee The Animation",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "7cfc08fc017cb66ce217d10154fc9637ae2a16621c1d46dd3ceaaa0a50d9bb74",
+        "date-mismatch:S3": "64a325d99c4bc7c3deb176e7743d0a0cf7cb4f3e05ebadd517966227cc749308",
+        "date-mismatch:S4": "229db8ed808d7b57ad7c9f0bb14efb5a107824a76ae03848e621985c3b88c9d8",
+        "date-mismatch:S5": "0791ef3eeda676422183a51c7d5a38636a9335a8407bd798125f145e65141789"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S2 \"SD Yune \u0026 Alice: Special Movie - Galerie Compilation / SD Yune \u0026 Alice Special Eizou Galerie Hen\" (2011-06-23) = S0E11 \"Yune \u0026 Alice 4: Galerie Compilation\" (2011-12-21); S3 \"SD Yune \u0026 Alice: Special Movie - Hula Hoop / SD Yune \u0026 Alice Special Eizou Hula Hoop Hen\" (2011-07-07) = S0E13 \"Yune \u0026 Alice 5: Hula Hoop\" (2012-01-25); S4 \"SD Yune \u0026 Alice: Special Movie - Hiccup / SD Yune \u0026 Alice Special Eizou Shakkuri Hen\" (2011-07-14) = S0E15 \"Yune \u0026 Alice 6: Hiccup\" (2012-02-22); S5 \"SD Yune \u0026 Alice: Special Movie - Cat / SD Yune \u0026 Alice Special Eizou Neko Hen\" (2011-07-21) = S0E17 \"Yune \u0026 Alice 7: Cat\" (2012-03-21).",
+      "evidence": [
+        "https://anidb.net/anime/8180",
+        "https://thetvdb.com/dereferrer/series/249870"
+      ]
+    }
+  }
+}

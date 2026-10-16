@@ -1,14 +1,15 @@
 {
-  "anidb_id": 7953,
-  "title": "Gakuen Mokushiroku: High School of the Dead - Drifters of the Dead",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7953",
+    "tmdb": "https://www.themoviedb.org/tv/56998/seasons",
+    "tvdb": "https://thetvdb.com/series/highschool-of-the-dead/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2011-04-26) = TVDB 0x01 (2011-02-10), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/7953",
-    "tvdb": "https://thetvdb.com/series/highschool-of-the-dead/seasons/official/0"
-  },
+  "title": "Gakuen Mokushiroku: High School of the Dead - Drifters of the Dead",
+  "justification": "Checked by episode title against TVDB series 171591 and TMDB show 56998. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"学園黙示録 HIGHSCHOOL OF THE DEAD どりふたーず おぶ ざ でっど\") is TVDB S0E1 \"Drifters of the DEAD\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "327fccb3cb3fe691d6569fb4837787126de9f72960294724868a8171117695c4",
@@ -38,5 +39,5 @@
   "anilist_ids": [
     9515
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 7953
 }

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17220",
-    "tvdb": "https://thetvdb.com/series/grisaia-phantom-trigger-the-animation-2024/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/grisaia-phantom-trigger-the-animation-2024/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/280906/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Grisaia: Phantom Trigger",
-  "justification": "AniDB special S1 (2024-12-17) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 447951 and TMDB show 280906. AniDB S1 \"だいたい120秒でわかるグリザイアファントムトリガー\" (Learn About Grisaia Phantom Trigger in Approx. 120 Seconds) has no TVDB episode (its default TVDB S0E1 is \"SORD\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

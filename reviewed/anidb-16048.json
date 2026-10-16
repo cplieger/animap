@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:16048",
+  "title": "Kuro Gal ni Natta kara Shin'yuu to Shite Mita.",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "d737727417a6893cddd870c76415fcf9d0215e4bd155c9526dcd59126872ddf2"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-8 (\"From Today, You're My Bitch\" .. \"Till the End...\") map to S1E1-E8 (\"Starting Today, You Are My Woman\" .. \"I'll Do It Till the End\"): same meaning, same order, same count (8). Only ep 1 differs in date (AniDB 2021-02-11, TVDB 2021-04-05). The suggested S0E1 is \"Special Program: Shallow Playboy and Gal First Appearance Video\" dated 2021-02-11, a promo that shares the date and is not episode 1.",
+      "evidence": [
+        "https://anidb.net/anime/16048",
+        "https://thetvdb.com/dereferrer/series/397617"
+      ]
+    }
+  }
+}

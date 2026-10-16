@@ -1,6 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14239",
+    "tmdb_movie_637202": "https://www.themoviedb.org/movie/637202",
+    "tmdb_movie_637462": "https://www.themoviedb.org/movie/637462",
     "tvdb": "https://thetvdb.com/series/fategrand-order/seasons/official/0"
   },
   "set": {
@@ -14,13 +16,16 @@
           ],
           [
             2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Gekijouban Fate/Grand Order: Shinsei Entaku Ryouiki Camelot",
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 353666. AniDB S1-S3 (\"Fate Project 2020 1\" to \"Fate Project 2020 3\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -92,8 +97,8 @@
       ],
       "series": 353666
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bfedc7af9e8047e7b351b48563154b3839c5fd3d0424e6dd0110273ec30924cf"
   },
   "anidb_id": 14239

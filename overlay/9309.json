@@ -1,9 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9309",
+    "tmdb_movie": "https://www.themoviedb.org/movie/212156",
     "tvdb": "https://thetvdb.com/series/the-garden-of-sinners/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "212156",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -27,7 +31,7 @@
     ]
   },
   "title": "Gekijouban Kara no Kyoukai: Mirai Fukuin - The Garden of Sinners Recalled Out Summer",
-  "justification": "AniDB special S1 (2013-09-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 82099. The film is TMDB movie 212156 (The Garden of Sinners: Future Gospel (2013)). TMDB show 97825 does not carry it, so the node leaves that show. AniDB S1 \"Cinema Intro\" has no TVDB episode (its default TVDB S0E1 is \"Epilogue (Kara no Kyoukai)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -63,8 +67,8 @@
       ],
       "series": 82099
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a3db64896cd71cfe4046fa377b7e8f4ffdbc57ad512f50c287d39b0ea2aa7bd7"
   },
   "anilist_ids": [

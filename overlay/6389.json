@@ -1,0 +1,68 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6389",
+    "tvdb": "https://thetvdb.com/series/hayate-the-combat-butler/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hayate no Gotoku!! Atsu ga Natsui ze - Mizugi Hen!",
+  "justification": "The OVA (AniDB episode 1, 2009-03-06) is TVDB season 0 episode 1 \"'Tis the Hot Summer Swimsuit Edition!\" (2009-03-06). AniDB special S1 \"Hayate no Gotoku!! 3D\" fell by default on the same episode; TVDB lists no 3D version, so S1 is unmapped. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9818e29da04c53a6ac4631fdb57a92fce7ba01a178fe42d00f8082462aac993b",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-03-06"
+        ],
+        [
+          0,
+          2,
+          78,
+          "2011-08-27"
+        ],
+        [
+          0,
+          3,
+          103,
+          "2014-06-18"
+        ],
+        [
+          0,
+          4,
+          104,
+          "2014-09-18"
+        ],
+        [
+          0,
+          5,
+          105,
+          "2014-12-16"
+        ]
+      ],
+      "series": 80554
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "05a12aa69adb3f64e68fda257cf274a0a6e517a325b310f28d913079c4ee06bd"
+  },
+  "anidb_id": 6389
+}

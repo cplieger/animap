@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/5335",
     "tvdb": "https://thetvdb.com/series/the-melancholy-of-haruhi-chan-suzumiya/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/85438"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/85438",
+    "tmdb": "https://www.themoviedb.org/tv/95710/seasons"
   },
   "set": {
     "tvdbid": "474010"
   },
   "title": "Suzumiya Haruhi-chan no Yuuutsu",
-  "justification": "tvdbid 85438 to 474010 (TVDB 85438 is gone from TVDB's official order). AniDB 1-25 (2009-02-14 to 2009-05-08) = TVDB 1x01-1x25 (2009-02-14 to 2009-05-08), was TVDB 85438 1x01-1x25. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 474010 and TMDB show 95710. The node moves from TVDB 85438 to series 474010. AniDB episode 1-25 (\"第1話\" (Episode 1) to \"第25話\" (Episode 25)) are TVDB S1E1 \"My body may be a crane, but my mind is a falcon!\" to TVDB S1E25 \"'The Melancholy of Haruhi-chan Suzumiya' PC game?!\". TVDB series 85438 no longer exists. Series 474010 is the only series for 涼宮ハルヒちゃんの憂鬱; its 25 site titles equal the subtitles of AniDB's numbered episodes, in order.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

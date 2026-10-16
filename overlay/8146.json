@@ -4,6 +4,7 @@
     "tvdb": "https://thetvdb.com/series/death-note/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Death Note: R - Genshi Suru Kami",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -41,8 +42,8 @@
       ],
       "series": 79481
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "25e467f4aed41a9cc59c04ded4768f128f63b66f46148329b496031a1c864700"
   },
   "anidb_id": 8146

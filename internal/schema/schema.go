@@ -126,8 +126,9 @@ type Record struct {
 	TVDBPlacement     []Segment       `json:"tvdb_placement,omitempty"`
 }
 
-// ParentSpecials is set on an AniList record that AniDB files as specials
-// of another anime: AniList episode i is special Specials[i-1] of AniDBID.
+// ParentSpecials is set on an AniList record that AniDB files as season-zero
+// episodes of another anime: AniList episode i is AniDBID's season 0
+// episode Specials[i-1], in Anime-Lists' numbering.
 //
 //nolint:govet // fieldalignment: member order is the published JSON order
 type ParentSpecials struct {

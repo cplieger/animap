@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:12430",
+  "title": "One Punch Man (2019)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "17372e5793dc70f8762435221622377825fb8bf28dbb3ccf27941432af0663b4"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The overlay (rows ';1-8;2-9;3-10;4-11;5-12;6-13;7-14;8-0;9-0;', from Anime-Lists pull request 629) is right by title: S1 'Ichigeki de Wakaru! Maji Furikaeri!' = S0E8 'A Super Serious Look Back!' (2019-04-03 exact); S2 'Saitama and the Mediocre Gang' = S0E9 (AniDB 2019-10-25, TVDB 2019-10-17, the only date gap, same title); S3 'Fishing with the Old Boys', S4 'Genos and Amnesia', S5 'Games and Rivals', S6 'Puri-Puri Prisoner and the Jailbreak', S7 'The Murder Case That Is Just Too Impossible 2' = S0E10-14 by title and exact date. S8/S9 (Episode 1 Opening, Episode 9 Ending) are broadcast placeholders with no TVDB episode (correctly '-0'). Regular 1-12 match S2 1-12.",
+      "evidence": [
+        "https://anidb.net/anime/12430",
+        "https://thetvdb.com/dereferrer/series/293088"
+      ]
+    }
+  }
+}

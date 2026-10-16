@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/537",
+    "tmdb_movie": "https://www.themoviedb.org/movie/16402",
     "tvdb": "https://thetvdb.com/series/patlabor/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "16402",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -28,6 +33,9 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
             2
           ],
           [
@@ -38,8 +46,8 @@
     ]
   },
   "title": "WXIII: Patlabor the Movie 3",
-  "justification": "AniDB special S2-S3 (no AniDB date) have no TVDB episode, was 0x02-0x03, which are AniDB 1518. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 80789. The film is TMDB movie 16402 (Patlabor WXIII the Movie (2002)). TMDB show 21738 does not carry it, so the node leaves that show. AniDB S1-S3 (\"パイロットフィルム\" (Pilot Film (1:46)) to \"meet the cast WXIII もう一つの証言\" (meet the cast WXIII one more testimony (27:50))) have no TVDB episode (their defaults are other items). TMDB 21738 is the 1988 OVA series with no season 0; TMDB movie 16402 is the film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "80f69c7f4f490874875aecd9811fd952a2e97dccf800fac20b8018b282e47229",
@@ -146,8 +154,8 @@
       ],
       "series": 80789
     },
-    "at": "2026-10-08",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c6f4e4e1586501d8e4970f34dc27fdb6937c1625bba82bf871a4b75fe9712987"
   },
   "anilist_ids": [

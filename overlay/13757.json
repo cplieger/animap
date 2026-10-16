@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13757",
-    "tvdb": "https://thetvdb.com/series/how-not-to-summon-a-demon-lord/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/how-not-to-summon-a-demon-lord/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/80563/seasons"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu",
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 347425 and TMDB show 80563. AniDB S1-S2 (\"異世界魔王と芹澤優と和氣あず未 第3回\" (Serizawa Yuu, Waki Azumi, and a Demon Lord 3) to \"異世界魔王と芹澤優と和氣あず未 第7回\" (Serizawa Yuu, Waki Azumi, and a Demon Lord 7)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

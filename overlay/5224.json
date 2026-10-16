@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/5224",
-    "tmdb": "https://www.themoviedb.org/tv/44750/season/2",
+    "tmdb": "https://www.themoviedb.org/tv/44750/seasons",
     "tvdb": "https://thetvdb.com/series/buzzer-beater/seasons/official/2"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdbseason": "2"
   },
   "title": "Buzzer Beater (2007)",
-  "justification": "TVDB 80503 is dead (the dereferrer and SkyHook both 404). AniDB 1-13 (2007-07-04 to 2007-09-26) = TVDB 156221 2x01-2x13 and TMDB 44750 S2E1-13, same dates and titles. Sibling 2808 (the 2005 series) keeps S1. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 156221 and TMDB show 44750. Its episodes are on TMDB show 44750. The node moves from TVDB 80503 to series 156221. AniDB episode 1-13 (\"OUT OF BOUNDS\" (Out of Bounds) to \"JAM\" (Jam)) are TVDB S2E1 \"Out of Bounds\" to TVDB S2E13 \"JAM\" and TMDB S2E1 \"Out of Bounds\" to TMDB S2E13 \"Jam\". TVDB series 80503 no longer exists. Series 156221 holds the 2007 series as its second season, all 13 titles equal.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

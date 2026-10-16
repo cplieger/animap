@@ -1,0 +1,71 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7991",
+    "tvdb": "https://thetvdb.com/series/berserk-2016/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Berserk: Ougon Jidai Hen",
+  "justification": "AniDB specials S1 \"Music Video\" (2012-02-03) and S2 \"The Great Berserk Exhibition Interview with Dr. Kentaro Miura\" had no row and fell on TVDB season 0 episodes 1 and 2, the Golden Age Arc films I and II, which are this node's own episodes 1 and 2. TVDB lists neither extra, so both are unmapped. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9d56bda1a05209814f20de64a79c62260cc9452e7b2825ea9391def6bd712a39",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-02-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-06-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-02-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2017-04-07"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2017-06-02"
+        ]
+      ],
+      "series": 307111
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f52864cee16f9589cfda68c16a7976afff33f3674c75434fc05fb55130ccd449"
+  },
+  "anidb_id": 7991
+}

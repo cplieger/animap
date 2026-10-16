@@ -1,0 +1,62 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8418",
+    "tvdb": "https://thetvdb.com/series/wish-upon-the-pleiades/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Houkago no Pleiades",
+  "justification": "The 2011-06-04 film has no TVDB or TMDB episode: TVDB 227891 season 0 holds only the ONA's four nights (node 8076), where it defaulted to First Night, and TheTVDB search finds no movie entry for it.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2b9fa733ea1d08906445b908ef0f1d44d7010aee8a591560918cbdcce645b4f4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-02-01"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-02-02"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-02-03"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-02-04"
+        ]
+      ],
+      "series": 227891
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "bff9f1daf5a42c19077d4abc63ddd372584c256f264c19879dd31208fc100be9"
+  },
+  "anidb_id": 8418
+}

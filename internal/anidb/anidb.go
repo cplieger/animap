@@ -1,17 +1,15 @@
 // Package anidb answers what episodes AniDB lists for an anime: the regular
-// episodes, the specials with their numbers, and their air dates. It reads
-// them from notseteve/AnimeAggregations, a twice-monthly mirror of AniDB's
-// data, at a pinned commit, and Facts.Count is the one place a regular
-// episode count is decided. Only numbers, dates and a digest of the episode
-// titles leave the package; the mirror's titles and descriptions are AniDB
-// text under CC BY-NC-SA and are never kept.
+// episodes and specials with their numbers and air dates, and the other
+// kinds with their numbers. It reads them from notseteve/AnimeAggregations,
+// a twice-monthly mirror of AniDB's data, at a pinned commit, and
+// Facts.Count is the one place a regular episode count is decided. Only
+// numbers, dates and a digest of the episode titles leave the package; the
+// mirror's titles and descriptions are AniDB text under CC BY-NC-SA and are
+// never kept.
 package anidb
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
 	"errors"
-	"fmt"
 	"maps"
 	"slices"
 )
@@ -20,38 +18,43 @@ import (
 // counts file.
 var errInvalid = errors.New("anidb: invalid")
 
-// Episode is one numbered AniDB episode. AirDate is YYYY-MM-DD, or "" when
-// AniDB has no date.
+// Episode is one numbered AniDB episode. A special's AirDate is YYYY-MM-DD,
+// or "" when AniDB has no date; Extract leaves an extra's empty and
+// LoadSnapshot does not check it, since nothing reads it. Titles is the hex
+// SHA-256 of the episode's titles.
 type Episode struct {
 	AirDate string `json:"air_date"`
+	Titles  string `json:"titles"`
 	Number  int    `json:"number"`
 }
 
 // Anime is AniDB's episode list for one anime. Regular[i] is the air date
-// of regular episode i+1; Specials are sorted by number. Finished means
-// AniDB records an end date, which it can set before the last episode airs.
-// Titles is the hex SHA-256 of the regular episodes' and specials' titles;
-// LoadSnapshot refuses an anime without it.
+// of regular episode i+1; Specials and Extras (credits, promotions, parodies
+// and other episodes, under their Anime-Lists season 0 numbers from 101)
+// are sorted by number. Finished means AniDB records an
+// end date, which it can set before the last episode airs. Titles is the
+// hex SHA-256 of the regular episodes' and specials' titles,
+// RegularTitles[i] that of regular episode i+1 alone; LoadSnapshot refuses
+// an anime without them or Extras.
 type Anime struct {
-	Titles   string    `json:"titles"`
-	Regular  []string  `json:"regular"`
-	Specials []Episode `json:"specials"`
-	Finished bool      `json:"finished"`
+	Titles        string    `json:"titles"`
+	Regular       []string  `json:"regular"`
+	RegularTitles []string  `json:"regular_titles"`
+	Specials      []Episode `json:"specials"`
+	Extras        []Episode `json:"extras"`
+	Finished      bool      `json:"finished"`
 }
 
-// Hash is the hex SHA-256 of a's episode list: each episode's type, number
-// and air date, in order, whether AniDB records an end date, and the title
-// digest.
-func (a *Anime) Hash() string {
-	h := sha256.New()
-	for i, d := range a.Regular {
-		fmt.Fprintf(h, "R%d D%s\n", i+1, d)
+// SeasonZero is the episode Anime-Lists numbers k in season 0: the special
+// k, else the extra k; extra reports the second.
+func (a *Anime) SeasonZero(k int) (e Episode, extra, ok bool) {
+	if i := slices.IndexFunc(a.Specials, func(e Episode) bool { return e.Number == k }); i >= 0 {
+		return a.Specials[i], false, true
 	}
-	for _, sp := range a.Specials {
-		fmt.Fprintf(h, "S%d D%s\n", sp.Number, sp.AirDate)
+	if i := slices.IndexFunc(a.Extras, func(e Episode) bool { return e.Number == k }); i >= 0 {
+		return a.Extras[i], true, true
 	}
-	fmt.Fprintf(h, "finished=%t\ntitles=%s", a.Finished, a.Titles)
-	return hex.EncodeToString(h.Sum(nil))
+	return Episode{}, false, false
 }
 
 // CountBasis names the precedence in Count. A collision baseline records

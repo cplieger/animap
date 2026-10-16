@@ -1,0 +1,54 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8076",
+    "tmdb": "https://www.themoviedb.org/tv/86762/season/0",
+    "tvdb": "https://thetvdb.com/series/wish-upon-the-pleiades/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0",
+    "tmdbseason": "0"
+  },
+  "title": "Houkago no Pleiades",
+  "justification": "The 2011 ONA's four nights are TVDB 227891 season 0 episodes 1-4 First Night to Fourth Night (2011-02-01 to 02-04) and TMDB 86762 season 0 episodes 1-4 of those dates; season 1, where the node sent them, is the 2015 TV series (node 10958). The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2b9fa733ea1d08906445b908ef0f1d44d7010aee8a591560918cbdcce645b4f4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-02-01"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-02-02"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-02-03"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-02-04"
+        ]
+      ],
+      "series": 227891
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "fba0b57cd2eb2cb5018c257a915c957c900c45c5615ad2841297e7b146fb80f6"
+  },
+  "anidb_id": 8076
+}

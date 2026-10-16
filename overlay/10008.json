@@ -29,6 +29,16 @@
             5
           ],
           [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8,
+            54
+          ],
+          [
             9
           ],
           [
@@ -36,6 +46,9 @@
           ],
           [
             11
+          ],
+          [
+            12
           ],
           [
             13
@@ -55,7 +68,7 @@
     ]
   },
   "title": "Girls und Panzer Gekijouban",
-  "justification": "AniDB special S5 (2017-12-22) has no TVDB episode, was 0x05. AniDB special S9-S11 (2017-12-22) have no TVDB episode, was 0x09-0x11. AniDB special S13 (no AniDB date) has no TVDB episode, was 0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S5 (2017-12-22) has no TVDB episode, was 0x05. AniDB special S9-S11 (2017-12-22) have no TVDB episode, was 0x09-0x11. AniDB special S13 (no AniDB date) has no TVDB episode, was 0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S8 The Humble Akiyama Yukari's Tank Course (Sensha Kouza, 2017-12-22) is TVDB 262098 season 0 episode 54 Akiyama Yukari's Tank Corner - Aiming (2017-12-22), the only Tank Corner of that day; S6, S7 and S12 (a concert making-of, a screening, a drift tour) have no TVDB episode, and their defaults fell on the TV series' character pictures and Tank Corner 01 (node 9227).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -547,8 +560,8 @@
       ],
       "series": 262098
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2de0cb21fcf546f5d12d4d0f1eded0b73cb46a40b4001c67a7ccdbd21d8731ae"
   },
   "anilist_ids": [

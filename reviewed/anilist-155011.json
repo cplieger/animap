@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:155011",
+  "title": "AniList 155011",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "82b23caf75ed6c39efeb07e4bd195b043eff709a09ebf43cd14d0eb0eba58dc0",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: the TV re-edit of the films of AniDB 7991 (the node's TVDB placement); anime-offline-database keeps AniDB 7991 as a record with no AniList source, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/155011"
+        ],
+        "anilist_id": 155011
+      }
+    ]
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5459",
+    "tmdb": "https://www.themoviedb.org/movie/26595",
+    "tmdb_specials": "https://www.themoviedb.org/tv/8864/season/0",
+    "tvdb": "https://thetvdb.com/series/dothack/seasons/official/0"
+  },
+  "set": {
+    "tmdbid": "26595",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            13
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            10
+          ]
+        ]
+      }
+    ]
+  },
+  "title": ".hack//G.U. Trilogy",
+  "justification": "The film is TMDB movie 26595 .hack//G.U. Trilogy (93 min, IMDb tt1164545 as on the node). TMDB 8864 season 0 does not list the film: the offset 11 put it on E12, Quantum's Ogura Yui's YuiYui Cooking. The special S2 Parody Mode is TMDB S0E10 .hack//G.U. Trilogy (Parody Mode) (2008-03-25) and TVDB 0x13; S1 The Making of is on neither.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "56b482ec036515ac3d08e710634e584c45f8130e01b84c20f13fb8d3c969e89c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2003-03-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2002-06-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2002-09-09"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2002-12-12"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2003-04-10"
+        ],
+        [
+          0,
+          6,
+          28,
+          "2003-10-24"
+        ],
+        [
+          0,
+          8,
+          29,
+          "2003-11-16"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2011-01-28"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2011-02-25"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2011-04-07"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2008-03-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2008-03-25"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2007-01-18"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2012-01-21"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2012-06-28"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2011-01-27"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2011-02-24"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2011-03-24"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2011-01-27"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2011-02-24"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2011-03-24"
+        ],
+        [
+          0,
+          23,
+          0,
+          "2003-10-24"
+        ],
+        [
+          0,
+          24,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          25,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          26,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          27,
+          0,
+          "2017-10-20"
+        ],
+        [
+          0,
+          32,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          33,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          34,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          35,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          36,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          37,
+          0,
+          "2006-05-18"
+        ]
+      ],
+      "series": 79099
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a4c8f6e4a05f4244cf5b57497c0fc18a62c7c3d0c0938a5362aa27685607b203"
+  },
+  "anidb_id": 5459
+}

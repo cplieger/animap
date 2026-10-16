@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12675",
+    "tmdb": "https://www.themoviedb.org/tv/69500/season/0",
     "tvdb": "https://thetvdb.com/series/natsumes-book-of-friends/seasons/official/0"
   },
   "set": {
@@ -24,11 +25,31 @@
             4
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
       }
     ]
   },
   "title": "Natsume Yuujinchou Roku",
-  "justification": "AniDB special S4 (2017-06-21) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S4 (2017-06-21) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. On TMDB 69500 season 0 The Stump of the Suzunaru Tree (2017-09-27) is E10 and A Fragment of Fantasy (2017-10-25) E11; TMDB lists neither the broadcast memorial special S3 nor the episode 11 ending S4. With no TMDB row S1-S4 took E1-E4, the 3D Nyanko-sensei Theater shorts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -197,8 +218,8 @@
       ],
       "series": 82788
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "dc4dcaa4b885eba81181259262d64c3656ee25e0c01cdf3c06a1821bb936ef8e"
   },
   "anilist_ids": [

@@ -1,0 +1,46 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13436",
+    "anilist": "https://anilist.co/anime/100168",
+    "tmdb": "https://www.themoviedb.org/tv/84553-blade-runner-black-lotus/season/0",
+    "tvdb": "https://thetvdb.com/series/blade-runner-black-lotus/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "356155",
+    "defaulttvdbseason": "0",
+    "episodeoffset": "1"
+  },
+  "title": "Blade Runner: Black Out 2022",
+  "justification": "AniDB 13436 has 1 regular episode, 2017-09-26 (16 minutes on AniList), and is the prequel of Blade Runner: Black Lotus (AniDB 14511). TVDB 356155 season 0 episode 2 \"Black Out 2022\" aired 2017-09-26 (16 min). Anime-Lists filed the node as a movie with no TVDB series. AniDB 1 = TVDB 0x2, offset 1 on season 0. TVDB 0x1 is a different special. TMDB 84553 season 0 lists only \"Benefit or Hazard\", so no TMDB tv value changes.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6ce5069423f3d86123629c09021898aaa8f9254ab749144181aea441a17f0036",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-11-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-09-26"
+        ]
+      ],
+      "series": 356155
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "608b9bcd2d4c468c7772ed882b36f6a28a8fa66df92da00a4da6fe0e70bb1486"
+  },
+  "anilist_ids": [
+    100168
+  ],
+  "anidb_id": 13436
+}

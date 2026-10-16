@@ -1,14 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/497",
+    "tmdb": "https://www.themoviedb.org/tv/21735/seasons",
     "tvdb": "https://thetvdb.com/series/macross-7/seasons/official/0"
   },
   "set": {
     "defaulttvdbseason": "0",
-    "episodeoffset": "16"
+    "episodeoffset": "16",
+    "tmdbseason": "0",
+    "tmdboffset": "16"
   },
   "title": "Macross Dynamite 7",
-  "justification": "AniDB 1-4 (1997-12-18 to 1998-08-25) = TVDB 0x17-0x20 (1997-12-18 to 1998-08-25), was 3x01-3x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 72347 and TMDB show 21735. AniDB episode 1-4 (\"漂流 ~WONDER~\" (Wonder) to \"銀河クジラの歌う星 ~ZORA~\" (The Planet Where Galactic Whales Sing)) are TVDB S0E17 \"Macross Dynamite 7 EP 1 - Wonder\" to TVDB S0E20 \"Macross Dynamite 7 EP 4 - Zola: The Planet Where The Whales Sing\" and TMDB S0E17 \"マクロス ダイナマイト7「漂流 ～WONDER～」\" (Macross Dynamite 7 EP 1 - Wonder (Drifting)) to TMDB S0E20 \"マクロス ダイナマイト7「銀河クジラの歌う星 ～ZOLA～」\" (Macross Dynamite 7 EP 4 - Zola (The Galactic Whales' Singing Star)).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -146,8 +149,8 @@
       ],
       "series": 72347
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b205035a730a524c5e06237d2a456ade9e82c61671b4e4765ff35e2835fe471a"
   },
   "anilist_ids": [

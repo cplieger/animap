@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17096",
+    "tmdb": "https://www.themoviedb.org/tv/154524/seasons",
     "tvdb": "https://thetvdb.com/series/urusei-yatsura/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,19 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Urusei Yatsura (2022)",
-  "justification": "AniDB special S1 (2023-03-22) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 414096 and TMDB show 154524. AniDB S1 \"「ラムのラブソング」covered by ラム (CV:上坂すみれ) - Music Video メイキング映像\" (Episode 23 Insert Song \"Lum`s Love Song\" (covered by Uesaka Sumire) - The Making of Music Video) has no TVDB episode (its default TVDB S0E1 is \"Urusei Yatsura x Onitsuka Tiger Collaboration\", another item); AniDB S2-S3 (\"「ラムのラブソング」covered by ラム (CV:上坂すみれ) - Music Video Short Ver.\" (Episode 23 Insert Song \"Lum`s Love Song\" (covered by Uesaka Sumire) - Music Video Short Ver.) to \"「ラムのラブソング」covered by ラム (CV:上坂すみれ)\" (Episode 23 Insert Song \"Lum`s Love Song\" (covered by Uesaka Sumire) - Music Video)) have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -174,8 +181,8 @@
       ],
       "series": 414096
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e61350da31d5fed625cc9c3aeebb95961f9fab37046fb5bc924ee813123c209b"
   },
   "anilist_ids": [

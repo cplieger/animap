@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:15945",
+  "title": "Kuma Kuma Kuma Bear Punch!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S10": "d25a569c496862ac0b875d839e97fb0a05ecb3aad0a89d77b92ddd5140be9317"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S10 \"Welcome Back Bear! Tea Party! / Okaeri Kuma-san! Tea Party!\" (2023-04-22) = S0E17 \"Welcome Back Mr. Bear! Tea Party!\" (2023-04-30).",
+      "evidence": [
+        "https://thetvdb.com/series/kuma-kuma-kuma-bear/seasons/official/0",
+        "https://anidb.net/anime/15945",
+        "https://thetvdb.com/dereferrer/series/386572"
+      ]
+    }
+  }
+}

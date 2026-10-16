@@ -1,0 +1,25 @@
+{
+  "anilist_id": 98060,
+  "title": "Getsuyoubi no Tawawa Specials",
+  "parts": [
+    {
+      "anidb_id": 12462,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList: 2 episodes (synonyms \"Episode 13\", \"Episode 14\", 5 min, bonus), 2016-12-29, 月曜日のたわわ 特典. The relation is PREQUEL to AniList 97716, which anime-offline-database links to AniDB 12462 (docs allow PREQUEL when PARENT is absent). AniDB 12462 lists exactly two specials, both 2016-12-29: S1 \"The Careless but Loveable Cute Junior\" (うっかり者だが愛され上手の可愛い後輩) and S2 \"Ai and Private Film\". TVDB 318271 season 0: 0x1 \"The Careless but Loveable Cute Junior\" and 0x2 \"Ai and Private Film\", both 2016-12-29; 0x3 \"Part 13\" (2021) belongs to the sequel. Titles identical, order identical. Parent has no mapping list.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12462",
+    "anilist": "https://anilist.co/anime/98060",
+    "tmdb": "https://www.themoviedb.org/tv/68455/season/0",
+    "tvdb": "https://thetvdb.com/series/tawawa-on-monday/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "e3cdfc787100346629a1d9fcde26546c0f2efb60bb476c9e556227b2791b66f4"
+  }
+}

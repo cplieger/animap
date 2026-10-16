@@ -1,0 +1,27 @@
+{
+  "anilist_id": 99841,
+  "title": "Bakuon!! no Kobeya",
+  "parts": [
+    {
+      "anidb_id": 11253,
+      "specials": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "justification": "AniList 99841 (SPECIAL, 4 episode(s) from 2016-08-04) is AniDB 11253's special(s) S1-S4, aired 2016-08-24 to 2016-11-18. AniList's PARENT relation names AniList 21197, which anime-offline-database links to AniDB 11253. overlay/11253.json places S1-S4 on TVDB 304987 0x2-0x5 'Bakuon's Closet Shorts Vol. 1-4', which carry the same titles on the same dates.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11253",
+    "anilist": "https://anilist.co/anime/99841",
+    "tmdb": "https://www.themoviedb.org/tv/65926/season/0",
+    "tvdb": "https://thetvdb.com/series/bakuon/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "22abaf9d797de03c5afb0d79cda0d8a13f4b1528db59e50c43bfb0e793dc75cf"
+  }
+}

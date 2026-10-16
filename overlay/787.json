@@ -1,0 +1,134 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/787",
+    "tvdb": "https://thetvdb.com/series/mirage-of-blaze/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Honoo no Mirage",
+  "justification": "AniDB special S1 \"Soushuuhen: Muyou no Michi\" (recap of episodes 1-4, 2002-02-04) had no row and fell on TVDB season 0 episode 1 \"Rebels of the River Edge - Chapter 1: Dearest Wish\" (2004-07-28), the OVA AniDB 2172. TVDB season 0 holds only that OVA's three chapters, so S1 is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "910392d761c6ed5ee0dee0e4688fd0f66df67c61cd6ebdeb763807f33ce367d8",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2004-07-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2004-09-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2004-11-26"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2002-01-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2002-01-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2002-01-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2002-01-28"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2002-02-04"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2002-02-11"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2002-02-18"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2002-02-25"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2002-03-04"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2002-03-11"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2002-03-18"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2002-03-25"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2002-04-08"
+        ]
+      ],
+      "series": 81780
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f806197e5a9c4115933e8466a473dbdda436aec48ad27edfbe0192c95ab400e6"
+  },
+  "anidb_id": 787
+}

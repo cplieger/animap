@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17862",
-    "tvdb": "https://thetvdb.com/series/rascal-does-not-dream-of-bunny-girl-senpai/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/rascal-does-not-dream-of-bunny-girl-senpai/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1086591"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Seishun Buta Yarou wa Ransel Girl no Yume o Minai",
-  "justification": "AniDB special S1-S2 (2023-12-22 to 2024-06-26) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 345596. AniDB S1-S2 (\"「不可思議のカルテ」Music Video\" (Fukashigi no Karte Music Video) to \"公開記念舞台挨拶\" (Premiere Commemoration Stage Greeting)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

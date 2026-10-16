@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:146664",
+  "title": "AniList 146664",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "ccd48eb385eaafe3f74cce00e08d2773279d04f0e128edb5da266ed974182420",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 27-52 of AniDB 3529 (TVDB 72280 season 2); anime-offline-database links AniDB 3529 to AniList 111 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/146664"
+        ],
+        "anilist_id": 146664
+      }
+    ]
+  }
+}

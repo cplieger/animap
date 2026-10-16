@@ -1,0 +1,161 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9417",
+    "tvdb": "https://thetvdb.com/series/wake-up-girls/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Wake Up, Girls!",
+  "justification": "AniDB specials S1-S6 \"Wake Up, Introduction!\" (one per member, 2014-03-28 to 2014-08-22) had no row and fell on TVDB season 0 episodes 1-6, the films and specials of 10245, 10977, 11852 and 12625. TVDB lists no introduction shorts, so they are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "50c27d7c934c0a508f457a6aefeaf343eca62a0f3e07ce369302c01ea6a1981b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-01-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-12-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-09-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-12-11"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-02-11"
+        ],
+        [
+          0,
+          6,
+          19,
+          "2017-11-21"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2014-01-11"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2014-01-18"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2014-01-25"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2014-02-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2014-02-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2014-02-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2014-02-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2014-03-01"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2014-03-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2014-03-15"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2014-03-22"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2014-03-29"
+        ]
+      ],
+      "series": 275609
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3b18be95f2df0eed530fe473b2786e90117b2c38d792ac8284983fbfc0180b96"
+  },
+  "anidb_id": 9417
+}

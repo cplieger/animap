@@ -1,0 +1,29 @@
+{
+  "anilist_id": 21416,
+  "title": "One Punch Man OVA",
+  "parts": [
+    {
+      "anidb_id": 11123,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList: OVA, 6 episodes of 13 min, 2015-12-24 to 2016-05-27 (TVDB 12 min). AniDB 11123 S1-S6 on 2015-12-24, 2016-01-29, 02-24, 03-25, 04-22, 05-27 (S7-S24 are undated mini theatres and pre-broadcast specials, not in the run). TVDB 293088 season 0 0x2-0x7 on the same dates: 0x2 \"The Shadow That Snuck Up Too Close\" = S1 Shinobiyori-sugiru Kage; 0x3 \"The Disciple Who Sucks at Storytelling\" = S2; 0x4 \"The Overly-Complicated Ninja\" = S3; 0x5 \"The Excessively Pushy Bang\" = S4; 0x6 \"The Sisters With Too Much Going On\" = S5; 0x7 \"The Far Too Impossible Case of Murder\" = S6. 0x1 \"Road to Hero\" is AniDB 11637. The parent's row (Anime-Lists and overlay/11123.json, which only unmaps S7-S14 and S17) places them there; no other node claims 0x2-0x7 (12430 takes 0x8-0x14, 17576 0x17).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11123",
+    "anilist": "https://anilist.co/anime/21416",
+    "tmdb": "https://www.themoviedb.org/tv/63926/season/0",
+    "tvdb": "https://thetvdb.com/series/one-punch-man/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "96c50bc471cc4a06b221cdc663e6402f3b3847660f300c00f9276660e24b2d9b"
+  }
+}

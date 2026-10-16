@@ -1,0 +1,24 @@
+{
+  "anilist_id": 376,
+  "title": "Elfen Lied: Tooriame nite - Arui wa, Shoujo wa Ikani Shite Sono Shinjou ni Itatta ka?",
+  "parts": [
+    {
+      "anidb_id": 1544,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 376 (OVA, 1 episode(s) from 2005-04-21) is AniDB 1544's special S1, aired 2005-04-21, titled \"In Passing Showers: Or, \"Just How Did the Young Girl Arrive at Those Feelings?\" - Regenschauer\" (AniList English: \"Elfen Lied: Just How Did the Young Girl Arrive at Those Feelings?\"). AniList's PARENT relation names AniList 226, which anime-offline-database links to AniDB 1544. The parent's mapping row (anidbseason 0, tvdbseason 0, ;1-1;) places S1 on TVDB 75941 0x1 \"In the Passing Rain\", 2005-04-21. TMDB 42671, where the parent's node places the special, agrees: S0E1 \"In the Passing Rain\", 2005-04-21.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1544",
+    "anilist": "https://anilist.co/anime/376",
+    "tmdb": "https://www.themoviedb.org/tv/42671/season/0",
+    "tvdb": "https://thetvdb.com/series/elfen-lied/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "c0ddf3464c762725d48a0c0b16fc6f498c7261d720979e77a06178475530a464"
+  }
+}

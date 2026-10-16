@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9227",
+    "tmdb": "https://www.themoviedb.org/tv/43967/seasons",
     "tvdb": "https://thetvdb.com/series/girls-und-panzer/seasons/official/0"
   },
   "set": {
@@ -39,7 +40,7 @@
           ],
           [
             9,
-            3
+            8
           ],
           [
             10,
@@ -63,23 +64,23 @@
           ],
           [
             15,
-            501
+            56
           ],
           [
             16,
-            502
+            57
           ],
           [
             17,
-            7
+            3
           ],
           [
             18,
-            17
+            18
           ],
           [
             19,
-            22
+            23
           ],
           [
             20,
@@ -87,19 +88,19 @@
           ],
           [
             21,
-            6
+            4
           ],
           [
             22,
-            18
+            17
           ],
           [
             23,
-            32
+            30
           ],
           [
             24,
-            4
+            5
           ],
           [
             25,
@@ -111,11 +112,11 @@
           ],
           [
             27,
-            9
+            6
           ],
           [
             28,
-            13
+            14
           ],
           [
             29,
@@ -123,32 +124,93 @@
           ],
           [
             30,
-            5
+            7
           ],
           [
             31,
-            14
+            13
           ],
           [
             32,
-            23
+            22
           ],
           [
-            34,
-            30
-          ],
-          [
-            35,
+            33,
             31
           ],
           [
+            34,
+            32
+          ],
+          [
+            35,
+            33
+          ],
+          [
+            36,
+            58
+          ],
+          [
+            37,
+            59
+          ],
+          [
+            38,
+            60
+          ],
+          [
+            39,
+            61
+          ],
+          [
             40
+          ],
+          [
+            41
+          ],
+          [
+            42
+          ],
+          [
+            43
+          ],
+          [
+            44
           ],
           [
             45
           ],
           [
             46
+          ],
+          [
+            47
+          ],
+          [
+            48
+          ],
+          [
+            49
+          ],
+          [
+            50,
+            44
+          ],
+          [
+            51
+          ],
+          [
+            52
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            50,
+            55
           ],
           [
             51
@@ -161,7 +223,7 @@
     ]
   },
   "title": "Girls und Panzer",
-  "justification": "AniDB special S40 (2013-09-25) has no TVDB episode, was 0x40. AniDB special S45-S46 ((none) to 2016-02-24) have no TVDB episode, was 0x45-0x46. AniDB special S51-S52 ((none) to 2016-03-26) have no TVDB episode, was 0x51-0x52. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 262098 and TMDB show 43967. AniDB S9 \"不肖・秋山優花里の戦車講座~第一回~\" (The Humble Akiyama Yukari`s Tank Course 1) is TVDB S0E8 \"Akiyama Yukari's Tank Corner 01\"; AniDB S15-S16 (\"不肖・秋山優花里の戦車講座~イベント出張編~\" (The Humble Akiyama Yukari`s Tank Course EX 1) to \"不肖・秋山優花里の戦車講座~番外編~\" (The Humble Akiyama Yukari`s Tank Course EX 2)) are TVDB S0E56 \"Akiyama Yukari's Tank Corner - Event Business Trip\" to TVDB S0E57 \"Akiyama Yukari's Tank Corner - Extra Edition (from 1st Heartful Tank Disc)\"; AniDB S17 \"Character Picture Akiyama Yukari\" is TVDB S0E3 \"Character Picture Akiyama Yukari\"; AniDB S18 \"サウンドドラマ 第4話\" (Character Picture Akiyama Yukari Ver2) is TVDB S0E18 \"Character Picture Akiyama Yukari Ver. 2\"; AniDB S19 \"サウンドドラマ 第7話\" (Character Picture Akiyama Yukari Ver3) is TVDB S0E23 \"Character Picture Akiyama Yukari Ver. 3\"; AniDB S21 \"Character Picture Isuzu Hana\" is TVDB S0E4 \"Character Picture Isuzu Hana\"; AniDB S22 \"サウンドドラマ 第5話\" (Character Picture Isuzu Hana Ver2) is TVDB S0E17 \"Character Picture Isuzu Hana Ver. 2\"; AniDB S23 \"サウンドドラマ 第11話\" (Character Picture Isuzu Hana Ver3) is TVDB S0E30 \"Character Picture Isuzu Hana Ver. 3\"; AniDB S24 \"Character Picture Nishizumi Miho\" is TVDB S0E5 \"Character Picture Nishizumi Miho\"; AniDB S27 \"Character Picture Reizei Mako\" is TVDB S0E6 \"Character Picture Reizei Mako\"; AniDB S28 \"サウンドドラマ 第2話\" (Character Picture Reizei Mako ver2) is TVDB S0E14 \"Character Picture Reizei Mako Ver. 2\"; AniDB S30 \"Character Picture Takebe Saori\" is TVDB S0E7 \"Character Picture Takebe Saori\"; AniDB S31 \"サウンドドラマ 第3話\" (Character Picture Takebe Saori Ver2) is TVDB S0E13 \"Character Picture Takebe Saori Ver. 2\"; AniDB S32 \"サウンドドラマ 第8話\" (Character Picture Takebe Saori Ver3) is TVDB S0E22 \"Character Picture Takebe Saori Ver. 3\"; AniDB S33-S35 (\"サウンドドラマ 第12話\" (Character Picture) to \"日本戦車道連盟ニュース 2\" (Die Madchen und Panzer Wochenschau 2)) are TVDB S0E31 \"Character Picture\" to TVDB S0E33 \"Japan Sensha-Dō Federation News 2\"; AniDB S36-S39 (\"料理です!\" (Picture Drama 1) to \"戦車トークです!\" (Picture Drama 4)) are TVDB S0E58 \"Picture drama: Cooking!\" to TVDB S0E61 \"Picture drama: Tank Talk!\"; AniDB S40-S49 (\"Fan Event Report 01\" to \"ハートフル・ラビット・ファンミーティング\" (Heartful Rabbit Fan Meeting)) have no TVDB episode (their defaults are other items); AniDB S50 \"『ガールズ＆パンツァー』「不肖・秋山優花里の戦車講座～EXTRA～」\" (Akiyama Yukari`s Tank Course Extra) is TVDB S0E44 \"Akiyama Yukari's Tank Corner - Extra (from the big bluray box)\" and TMDB S0E55 \"不肖・秋山優花里の戦車講座～EXTRA～\" (Akiyama Yukari's Tank Corner Extra); AniDB S51-S52 (\"Sound Team Symposium\" to \"Image Music Video\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -726,8 +788,8 @@
       ],
       "series": 262098
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d85844e11e8af120556ccacb784b45219fa510ad572a0c64c3b5612b30a40552"
   },
   "anilist_ids": [

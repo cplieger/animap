@@ -1,14 +1,15 @@
 {
-  "anidb_id": 8448,
-  "title": "Kore wa Zombie Desuka? Ee, Kore ga Saishuukai Desuka?",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8448",
+    "tmdb": "https://www.themoviedb.org/tv/38420/seasons",
+    "tvdb": "https://thetvdb.com/series/is-this-a-zombie/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2011-06-10) = TVDB 0x01 (2011-06-10), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8448",
-    "tvdb": "https://thetvdb.com/series/is-this-a-zombie/seasons/official/0"
-  },
+  "title": "Kore wa Zombie Desuka? Ee, Kore ga Saishuukai Desuka?",
+  "justification": "Checked by episode title against TVDB series 220571 and TMDB show 38420. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"はい, これが1%の奇跡です / ようこそ! 危険地帯へ / 一年で一番床を叩かれる日\" (Yes, This is 1% Miracle / Welcome, to the Danger Zone / The Sun Illuminates the Ground Most of the Year) is TVDB S0E1 \"Eh? This Is The Final Episode?\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "d36889e291418fb3aeb697deba62a1ab8e3ea97a1e69eb989be538dfb7461f46",
@@ -44,5 +45,5 @@
   "anilist_ids": [
     10209
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8448
 }

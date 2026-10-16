@@ -110,6 +110,34 @@ gh_get() {
 }
 tag_at() { gh_get "repos/${REPO}/git/ref/tags/$1" .object.sha; }
 
+# Poll $LATEST_URL until its redirect names tag $1. GitHub's latest-download
+# redirect is cached and lags the release by a minute or more
+# (https://github.com/cplieger/animap/actions/runs/38617059716), so the delay
+# grows to 60 s and the poll gives up once 600 s have elapsed, curl time
+# included, or after 30 polls. A failed curl is retried, never read as
+# another tag.
+await_latest() {
+  local tag=$1 location rc start elapsed delay=5 polls=0
+  start=$(date +%s)
+  while :; do
+    rc=0
+    location=$(curl -sI -o /dev/null -w '%{redirect_url}' --connect-timeout 10 --max-time 20 "$LATEST_URL") || rc=$?
+    polls=$((polls + 1))
+    elapsed=$(($(date +%s) - start))
+    if [ "$rc" -ne 0 ]; then
+      location="nothing, curl exited ${rc}"
+    elif [[ "$location" == *"/${tag}/"* ]]; then
+      return 0
+    fi
+    if [ "$elapsed" -ge 600 ] || [ "$polls" -ge 30 ]; then
+      echo "publish: ERROR released ${tag} but after ${polls} polls over ${elapsed}s the latest download URL resolves to: ${location:-no redirect}" >&2
+      return 1
+    fi
+    sleep "$delay"
+    delay=$((delay * 2 > 60 ? 60 : delay * 2))
+  done
+}
+
 # Each lookup is its own assignment so a failed one stops the run: inside a
 # test such as [ -n "$(...)" ] its exit status is dropped and it reads as absent.
 TAG="v$(date -u +%Y.%m.%d)"
@@ -171,21 +199,5 @@ fi
 gh release create "$TAG" animap.json animap.json.sha256 animap.json.sigstore.json \
   --repo "$REPO" --title "$TAG" --latest --verify-tag --notes-file notes.md
 
-# GitHub repoints the latest download URL a moment after the release
-# exists, so poll until it serves this tag.
-attempt=1
-while :; do
-  location=$(curl -sI -o /dev/null -w '%{redirect_url}' --connect-timeout 10 --max-time 20 "$LATEST_URL" || true)
-  case "$location" in
-    *"/${TAG}/"*)
-      echo "publish: released ${TAG} (${RECORDS} records); latest pointer verified"
-      break
-      ;;
-  esac
-  if [ "$attempt" -ge 10 ]; then
-    echo "publish: ERROR released ${TAG} but the latest download URL resolves to: ${location}" >&2
-    exit 1
-  fi
-  attempt=$((attempt + 1))
-  sleep 3
-done
+await_latest "$TAG"
+echo "publish: released ${TAG} (${RECORDS} records); latest pointer verified"

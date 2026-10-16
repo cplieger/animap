@@ -1,0 +1,19 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18177",
+    "tmdb": "https://www.themoviedb.org/tv/233785/season/1",
+    "tvdb": "https://thetvdb.com/series/mr-osomatsu/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "other"
+  },
+  "title": "Matsuinu",
+  "justification": "TVDB 438986 is gone and no TVDB entry carries these twelve 2023 shorts: TheTVDB search finds nothing for Matsuinu or まついぬ, nor does SkyHook, and the parent Mr. Osomatsu 300989 does not list them among its seasons and 33 specials. A TV short series with no TVDB entry takes the marker other. TMDB 233785 Matsuinu season 1 holds the 12 episodes, so the TMDB values stay.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "daf99d9fa46726d2bba9df9710bf46480f02e34f627010c391c9a8a83e80b4f5"
+  },
+  "anidb_id": 18177
+}

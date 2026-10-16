@@ -1,0 +1,34 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2114",
+    "tvdb": "https://thetvdb.com/series/gall-force/seasons/official/2"
+  },
+  "set": {
+    "defaulttvdbseason": "2",
+    "mapping_list": []
+  },
+  "title": "Rhea Gall Force",
+  "justification": "TVDB 138691 Gall Force now holds one season per OVA run; season 1 has three episodes, so the row to episode 4 lands nowhere. Season 2 episode 1 Rhea Gall Force (1989-03-21) is the OVA, AniDB's Exodus of the same date.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3e5f234562b29110508c61a7bcd9f6442c095645ba5e8331186ad1fe4534c9d2",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          5,
+          "1989-03-21"
+        ]
+      ],
+      "series": 138691
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "db5b043419c77fd762033a65446965a9e8515019d3066735ee8e0fa022b75d19"
+  },
+  "anidb_id": 2114
+}

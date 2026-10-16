@@ -1,14 +1,15 @@
 {
-  "anidb_id": 10638,
-  "title": "Nisekoi OAD",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10638",
+    "tmdb": "https://www.themoviedb.org/tv/62640/seasons",
+    "tvdb": "https://thetvdb.com/series/nisekoi/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1-3 (2014-10-03 to 2015-04-03) = TVDB 0x01-0x03 (2014-10-03 to 2015-04-03), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/10638",
-    "tvdb": "https://thetvdb.com/series/nisekoi/seasons/official/0"
-  },
+  "title": "Nisekoi OAD",
+  "justification": "Checked by episode title against TVDB series 275670 and TMDB show 62640. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-3 (\"フンシツ / ミコサン\" (Loss / Shrine Maiden) to \"セントウ / サービス\" (Bath House / Service)) are TVDB S0E1 \"Loss / Shrine Maiden\" to TVDB S0E3 \"Bath House / Service\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "0f02fdf6d49b2ad60bae903d5b00ab778da0d9b12ab459bd1623d4bd608db053",
@@ -68,5 +69,5 @@
   "anilist_ids": [
     20728
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 10638
 }

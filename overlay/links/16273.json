@@ -1,0 +1,24 @@
+{
+  "anilist_id": 16273,
+  "title": "Acchi Kocchi: PLACE=PRINCESS",
+  "parts": [
+    {
+      "anidb_id": 8890,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 16273 (OVA, 1 episode(s) from 2012-11-07) is AniDB 8890's special(s) S1, aired 2012-11-16. AniList's PREQUEL relation names AniList 12291, which anime-offline-database links to AniDB 8890, the special's title matches the AniList native title, and AniDB lists MAL 16273 on AniDB 8890. TVDB 257888 0x1 'Place = Princess' aired the same day.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8890",
+    "anilist": "https://anilist.co/anime/16273",
+    "tmdb": "https://www.themoviedb.org/tv/63712/season/0",
+    "tvdb": "https://thetvdb.com/series/place-to-place/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "810956fc6ca61efa5ac3a8bbb532e69f3503fc2c8039d46c13bb513f0e2039b0"
+  }
+}

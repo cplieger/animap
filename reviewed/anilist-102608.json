@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:102608",
+  "title": "AniList 102608",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "db762fe863a17d16aa41c4545185102693c49cb5ebb3e00e60735c7dec18609c",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: two episodes: AniDB 8836 S1 is TVDB 193811 0x2 Otter Goes Back to the Sea!, but S2 (the REVERSI PV) has no TVDB episode, so a bridge of both specials cannot be proven and one of one special does not match the count",
+        "evidence": [
+          "https://anilist.co/anime/102608"
+        ],
+        "anilist_id": 102608
+      }
+    ]
+  }
+}

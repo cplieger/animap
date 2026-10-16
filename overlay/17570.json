@@ -1,0 +1,121 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17570",
+    "tvdb": "https://thetvdb.com/series/haikyu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Haikyuu!! Final",
+  "justification": "AniDB special S1, a release-commemoration programme (2024-02-17), has no TVDB episode; its default was TVDB 278157 season 0 episode 1, the 2014 OVA The Arrival of Lev (node 10954). The film stays on episodes 14-15.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3e5f0e70489fc4a1a617829dc8632f7154cfacbba4593ddd2464c4a3e5a3da95",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2014-11-09"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-07-03"
+        ],
+        [
+          0,
+          3,
+          30,
+          "2016-05-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-09-18"
+        ],
+        [
+          0,
+          5,
+          63,
+          "2017-08-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-09-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2017-09-29"
+        ],
+        [
+          0,
+          8,
+          64,
+          "2019-12-21"
+        ],
+        [
+          0,
+          9,
+          65,
+          "2019-12-21"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2014-09-25"
+        ],
+        [
+          0,
+          14,
+          91,
+          "2024-02-16"
+        ],
+        [
+          0,
+          15,
+          0,
+          ""
+        ]
+      ],
+      "series": 278157
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "56f403fae0927534ba9185c927d9143a0e15005fd42c350488c1c9b7e76eebe9"
+  },
+  "anidb_id": 17570
+}

@@ -1,11 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7763",
+    "tmdb": "https://www.themoviedb.org/tv/34690/seasons",
     "tvdb": "https://thetvdb.com/series/immortal-grand-prix/seasons/official/0"
   },
   "set": {
     "defaulttvdbseason": "0",
     "episodeoffset": "0",
+    "tmdbtv": "34690",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -25,13 +27,22 @@
           ],
           [
             5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
           ]
         ]
       }
     ]
   },
   "title": "IGPX: Immortal Grand Prix",
-  "justification": "AniDB 1-5 (2003-09-15 to 2003-09-19) = TVDB 0x01-0x05 (2003-09-15 to 2003-09-19), was 1x01-1x05. AniDB special S1-S5 (no AniDB date) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 73011 and TMDB show 34690. Its episodes are on TMDB show 34690. AniDB episode 1-5 (\"Episode 1\" to \"Episode 5\") are TVDB S0E1 \"Part 1\" to TVDB S0E5 \"Part 5\" and TMDB S1E1 \"Part 1\" to TMDB S1E5 \"Part 5\"; AniDB S1-S5 (\"Movie version\" to \"Interview Lance Henriksen as Andrei\") have no TVDB episode (their defaults are other items) and no TMDB episode (TMDB has none of them); AniDB S6-S8 (\"Interview Mark Hamill as Yamma\" to \"Interview Sean Akins and Jason Demarco Co-writers and Co-Producers\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them). The five 2003 parts are TVDB season 0 \"Part 1\" to \"Part 5\", one a day like AniDB's, the only such run on the show; TMDB show 34690 is that run. The DVD extras have no episode on either side.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -73,8 +84,8 @@
       ],
       "series": 73011
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ec6516e9c2e78ba92466233e729f68253b01fe5098621c0bef38d44106aa68dc"
   },
   "anilist_ids": [

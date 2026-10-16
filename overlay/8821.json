@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8821",
-    "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/181522"
   },
   "set": {
     "mapping_list": [
@@ -25,7 +26,7 @@
     ]
   },
   "title": "Magical Girl Lyrical Nanoha The Movie 2nd A's",
-  "justification": "AniDB special S1-S2 (2013-03-22) = TVDB 0x21-0x22 (2013-03-22), was 0x01-0x02, by title. AniDB special S3 (2012-04-01) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81115. AniDB S1-S2 (\"ミニピクチャードラマ~魔法家族リリカルヴォルケン~\" (Mini Picture Drama: Magical Family Lyrical Wolken) to \"ミニピクチャードラマ~医療少女メディカルシャマル~\" (Mini Picture Drama: Nurse Girl Medical Shamal)) are TVDB S0E21 \"Mahou Shoujo Lyrical Nanoha: The Movie 2nd A's Mini Picture Drama ~Magical Family Lyrical Wolken~\" to TVDB S0E22 \"Mahou Shoujo Lyrical Nanoha: The Movie 2nd A's Mini Picture Drama ~Nurse Girl Medical Shamal~\"; AniDB S3 \"アニメコンテンツエキスポ2012\" (Anime Contents Expo 2012) has no TVDB episode (its default TVDB S0E3 is \"Triangle Heart: Sazanami Joshiryō ~ Fragrant Breeze Fall\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

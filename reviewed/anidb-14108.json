@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:14108",
+  "title": "Monster Strike the Movie: Sora no Kanata",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "a59987e17329b930bd626fc26f6c58d30e2c9ff09d04866604ac0dc268316c7c"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1 \"Complete Movie\" is the film \"Monster Strike the Movie: Sora no Kanata\"; the row sends it to S0E8 \"Monster Strike The Movie: Sora no Kanata\". Title is identical; only the date differs (2018-10-05 against 2018-10-15). The suggested S4E13 \"Arthur Returns\" (2018-10-06) is a date coincidence with a TV episode.",
+      "evidence": [
+        "https://anidb.net/anime/14108",
+        "https://thetvdb.com/dereferrer/series/301920"
+      ]
+    }
+  }
+}

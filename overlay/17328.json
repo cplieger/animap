@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17328",
+    "tmdb": "https://www.themoviedb.org/tv/198152/seasons",
     "tvdb": "https://thetvdb.com/series/onii-chan-wa-oshimai/seasons/official/0"
   },
   "set": {
@@ -13,6 +14,9 @@
             1
           ],
           [
+            2
+          ],
+          [
             3,
             1
           ]
@@ -21,7 +25,7 @@
     ]
   },
   "title": "Onii-chan wa Oshimai!",
-  "justification": "AniDB special S1 (2022-12-23) has no TVDB episode, was 0x01. AniDB special S3 (2023-03-23) = TVDB 0x01 (2023-03-23), was 0x03 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 419278 and TMDB show 198152. AniDB S1 \"公開直前特番\" (Pre-Broadcast Special) has no TVDB episode (its default TVDB S0E1 is \"Onimai Sisters\", another item); AniDB S2 \"第1話先行配信\" (Pre-Air Special) has no TVDB episode (TVDB has no S0E2); AniDB S3 \"おしまいの直前に! 'ONIMAI SISTERS'が大集合SP\" (Episode S3) is TVDB S0E1 \"Onimai Sisters\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -112,8 +116,8 @@
       ],
       "series": 419278
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "887b3ee113e4e5ba86aaadd0402a95d7bc80a20c32e4b7989c4471003716ae09"
   },
   "anilist_ids": [

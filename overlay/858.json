@@ -1,0 +1,61 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/858",
+    "tmdb": "https://www.themoviedb.org/tv/13549/season/0",
+    "tvdb": "https://thetvdb.com/series/science-ninja-team-gatchaman/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "1",
+    "tmdbseason": "0",
+    "tmdboffset": ""
+  },
+  "title": "Gatchaman",
+  "justification": "The three OVA episodes \"Gatchaman vs the Turtle King\" (1994-10-01), \"The Mystery of Red Impulse\" (1995-01-01) and \"Final Countdown: 0002\" (1995-04-01) are TVDB 73887 season 0 episodes 2-4 under those titles and dates (episode 1 is the 1978 film), and TMDB 13549 season 0 episodes 1-3 \"The Dragon King\", \"The Red Specter\" and \"The Final Countdown\" on the same dates. By default they fell on the 1972 TV series' season 1 episodes 1-3 (AniDB 3513).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "855251366cf828f5a912667887163270062a437d5d6b9f332a67998992f4e10f",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1978-07-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1994-10-01"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1995-01-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1995-04-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-08-23"
+        ]
+      ],
+      "series": 73887
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "09b49242355e82053caca3c9291bd501fa7fbdc8eabbc0ae885ff078ea9703a0"
+  },
+  "anidb_id": 858
+}

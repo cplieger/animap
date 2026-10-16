@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:7270",
+  "title": "AniList 7270",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "0e64f46cff2b2478f3c6a0c7157a216e822e96f6120af5e9a39a8d00ba83b74f",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: the three compilation films are three AniDB anime of their own (7183, 7184, 7403 on TVDB 80675 0x1-0x3) with no AniList link in anime-offline-database, and one record cannot cover three nodes",
+        "evidence": [
+          "https://anilist.co/anime/7270"
+        ],
+        "anilist_id": 7270
+      }
+    ]
+  }
+}

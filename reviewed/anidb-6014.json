@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:6014",
+  "title": "Ef - a Tale of Melodies.",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "e75b50f08d011184bdeb75f05fcd53e829c053839683310f6f91b21764ad5e63",
+        "date-mismatch:S2": "bcebac6e41ad02a149df27198745ad36777b053eded4d70280c4b4103c3e3e90"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Ef - a Tale of Melodies: Prelude, Pre-airing Special / Ef - a Tale of Melodies: Prelude, Housou Kaishi Chokuzen Kinkyuu Kikaku! Gotou Mai + Sono Ta no Ki no Mi Ki no Mama!\" (2008-09-30) = S0E2 \"Prelude\" (2008-05-10); S2 \"Reunion (Colour Version) / Reunion (Color Ver.)\" (2009-05-29) = S0E4 \"Reunion (Colour Version)\" (2008-09-27).",
+      "evidence": [
+        "https://anidb.net/anime/6014",
+        "https://thetvdb.com/dereferrer/series/80904"
+      ]
+    }
+  }
+}

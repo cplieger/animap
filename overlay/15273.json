@@ -1,0 +1,24 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15273",
+    "tmdb": "https://www.themoviedb.org/movie/649523",
+    "tvdb": "https://thetvdb.com/movies/happy-go-lucky-days"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbid": "649523"
+  },
+  "title": "Dounika Naru Hibi",
+  "justification": "tvdbid empty to movie, tmdbid 649523. TVDB lists it as the movie どうにかなる日々 (thetvdb.com/movies/happy-go-lucky-days, Japan 2020-10-23, 54 minutes, TMDB movie 649523, IMDb tt13033818). AniDB 1 \"Complete Movie\" (2020-09-15) is the advance online screening of the same 54-minute film (official release 2020-10-23); TMDB's original title どうにかなる日々 matches AniList's native title. AniDB's specials (cast talks) are not part of the film. AniDB dates from the AniDB mirror at 7dd9b8e.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    113416
+  ],
+  "anidb_id": 15273
+}

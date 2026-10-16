@@ -1,9 +1,12 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14782",
-    "tvdb": "https://thetvdb.com/series/goblin-slayer/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/82591/seasons",
+    "tmdb_movie": "https://www.themoviedb.org/movie/631132",
+    "tvdb": "https://thetvdb.com/dereferrer/series/350166"
   },
   "set": {
+    "tmdbid": "631132",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -13,11 +16,30 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Goblin Slayer: Goblin's Crown",
-  "justification": "AniDB special S1 (2020-07-29) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 350166 and TMDB show 82591. The film is TMDB movie 631132 (Goblin Slayer: Goblin's Crown (2020)). AniDB episode 1 \"Complete Movie\" (the anime \"ゴブリンスレイヤー GOBLIN`S CROWN\") has no TMDB episode (its default TMDB S0E2 is \"Special Episode: The Priestess's Log\", another item); AniDB S1 \"特別編: 女神官の記録用紙\" (Special Episode: The Priestess`s Log) is TMDB S0E2 \"Special Episode: The Priestess's Log\" and has no TVDB episode (its default TVDB S0E1 is \"Recap: Adventure Sheet\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -41,8 +63,8 @@
       ],
       "series": 350166
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ab080597128d0f5d92e4067dbba302b5f382db90e30c4a46c40af1b2ff9c6ca9"
   },
   "anilist_ids": [

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8879",
-    "tvdb": "https://thetvdb.com/series/so-i-cant-play-h/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/so-i-cant-play-h/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/45234/seasons"
   },
   "set": {
     "mapping_list": [
@@ -18,7 +19,7 @@
     ]
   },
   "title": "Dakara Boku wa, H ga Dekinai.",
-  "justification": "AniDB special S1 (2012-08-24) = TVDB 0x01 (2012-08-24), was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 259642 and TMDB show 45234. AniDB S1 \"いきなり入れちゃった\" (I Was Suddenly Put) is TVDB S0E1 \"I Was Suddenly Put\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

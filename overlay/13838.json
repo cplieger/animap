@@ -1,0 +1,221 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13838",
+    "tmdb": "https://www.themoviedb.org/tv/66999/season/3",
+    "tvdb": "https://thetvdb.com/series/shounen-ashibe-go-go-goma-chan/seasons/official/3"
+  },
+  "set": {
+    "defaulttvdbseason": "3",
+    "tmdbseason": "3"
+  },
+  "title": "Shounen Ashibe: Go! Go! Goma-chan (2018)",
+  "justification": "TVDB 310027 and TMDB 66999 have no season 5; season 3 on both holds the 2018 series' 32 episodes in AniDB's order (TVDB lists AniDB 13838): 1 Super Seal Goma-chan, 2 We Have No Tomorrow!, 3 Gomabo Is Here!, 32 Everyone's Feelings; TMDB season 3 starts on 2018-04-03, AniDB's first date.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "7aafb5b4bcc9491fbd6f6e4dedee5bb4783815d52d495ec00b30aed35e8ddcf3",
+      "seasons": [
+        3
+      ],
+      "episodes": [
+        [
+          3,
+          1,
+          65,
+          "2018-04-03"
+        ],
+        [
+          3,
+          2,
+          66,
+          "2018-04-10"
+        ],
+        [
+          3,
+          3,
+          67,
+          "2018-04-17"
+        ],
+        [
+          3,
+          4,
+          68,
+          "2018-04-24"
+        ],
+        [
+          3,
+          5,
+          69,
+          "2018-05-08"
+        ],
+        [
+          3,
+          6,
+          70,
+          "2018-05-15"
+        ],
+        [
+          3,
+          7,
+          71,
+          "2018-05-22"
+        ],
+        [
+          3,
+          8,
+          72,
+          "2018-06-05"
+        ],
+        [
+          3,
+          9,
+          73,
+          "2018-06-12"
+        ],
+        [
+          3,
+          10,
+          74,
+          "2018-06-19"
+        ],
+        [
+          3,
+          11,
+          75,
+          "2018-06-26"
+        ],
+        [
+          3,
+          12,
+          76,
+          "2018-07-03"
+        ],
+        [
+          3,
+          13,
+          77,
+          "2018-07-10"
+        ],
+        [
+          3,
+          14,
+          78,
+          "2018-09-04"
+        ],
+        [
+          3,
+          15,
+          79,
+          "2018-09-11"
+        ],
+        [
+          3,
+          16,
+          80,
+          "2018-09-18"
+        ],
+        [
+          3,
+          17,
+          81,
+          "2018-10-02"
+        ],
+        [
+          3,
+          18,
+          82,
+          "2018-10-09"
+        ],
+        [
+          3,
+          19,
+          83,
+          "2018-10-16"
+        ],
+        [
+          3,
+          20,
+          84,
+          "2018-10-30"
+        ],
+        [
+          3,
+          21,
+          85,
+          "2018-11-06"
+        ],
+        [
+          3,
+          22,
+          86,
+          "2018-11-13"
+        ],
+        [
+          3,
+          23,
+          87,
+          "2018-11-20"
+        ],
+        [
+          3,
+          24,
+          88,
+          "2018-12-04"
+        ],
+        [
+          3,
+          25,
+          89,
+          "2018-12-11"
+        ],
+        [
+          3,
+          26,
+          90,
+          "2018-12-18"
+        ],
+        [
+          3,
+          27,
+          91,
+          "2019-01-08"
+        ],
+        [
+          3,
+          28,
+          92,
+          "2019-01-15"
+        ],
+        [
+          3,
+          29,
+          93,
+          "2019-01-15"
+        ],
+        [
+          3,
+          30,
+          94,
+          "2019-02-05"
+        ],
+        [
+          3,
+          31,
+          95,
+          "2019-02-19"
+        ],
+        [
+          3,
+          32,
+          96,
+          "2019-02-26"
+        ]
+      ],
+      "series": 310027
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "7abdb7df8cafac128a6f40e5b25bfa3d92fe0c259eccf72143326f62f31e9453"
+  },
+  "anidb_id": 13838
+}

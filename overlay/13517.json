@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13517",
+    "tmdb": "https://www.themoviedb.org/tv/77939/seasons",
     "tvdb": "https://thetvdb.com/series/megalobox/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,28 @@
         "episodes": [
           [
             4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
           ]
         ]
       }
     ]
   },
   "title": "Megalo Box",
-  "justification": "AniDB special S4 (no AniDB date) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 341437 and TMDB show 77939. AniDB S4 \"Making of Megalo Box 1\" has no TVDB episode (its default TVDB S0E4 is \"The Hummingbird and the Nomad\", another item); AniDB S5-S9 (\"Making of Megalo Box 2\" to \"Ashita no Joe Exhibition\") have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -132,8 +148,8 @@
       ],
       "series": 341437
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4d9af1c8dde71a5bc1fc4839b5c63e22fe4de0385eb163b69f63002e265ba968"
   },
   "anilist_ids": [

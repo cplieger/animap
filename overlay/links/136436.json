@@ -1,0 +1,24 @@
+{
+  "anilist_id": 136436,
+  "title": "Kobayashi-san Chi no Maidragon S: Nippon no Omotenashi (Attend wa Dragon desu)",
+  "parts": [
+    {
+      "anidb_id": 14678,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 136436 has 1 OVA episode (2022-01-19; 'Japanese Hospitality (The Attendant Is a Dragon)'). AniDB 14678 S1 'Extra Episode: Japanese Hospitality (The Attendant Is a Dragon)' (番外編 ニッポンのおもてなし) is dated 2022-01-19; the node's pair ;1-30; lands it on TVDB 318893 0x30 'Japanese Hospitality (The Attendant Is a Dragon)' (abs 27, 2022-01-19). The other 2022-01-19 special, S22 'Mini Dra EX5: Training' (named by the detail), goes to 0x29 'Mini Dragon EX5: Training' by the range row, so the date-only collision is resolved by titles.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14678",
+    "anilist": "https://anilist.co/anime/136436",
+    "tmdb": "https://www.themoviedb.org/tv/69291/season/0",
+    "tvdb": "https://thetvdb.com/series/miss-kobayashis-dragon-maid/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "3bb156e993745cfb30943338442b04d51b726b8635f352b2cea534cd6707fd42"
+  }
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/5274",
+    "tmdb": "https://www.themoviedb.org/tv/27866/seasons",
     "tvdb": "https://thetvdb.com/series/ef/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -18,7 +20,7 @@
     ]
   },
   "title": "Ef - a Tale of Memories.",
-  "justification": "AniDB special S1 (2008-09-26) = TVDB 0x03 (2008-09-26), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80904 and TMDB show 27866. AniDB S1 \"Recollections\" is TVDB S0E3 \"Recollections\" and TMDB S0E3 \"Recollections\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -133,8 +135,8 @@
       ],
       "series": 80904
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3a95fb4c8e3b09f16c1c5e36d3e37a3679aca1b559601ab7badb09ee6f6aeb63"
   },
   "anilist_ids": [

@@ -1,14 +1,15 @@
 {
-  "anidb_id": 2813,
-  "title": "Turn A Gundam I: Chikyuukou",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2813",
+    "tmdb_movie": "https://www.themoviedb.org/movie/75175",
+    "tvdb": "https://thetvdb.com/series/turn-a-gundam/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2002-02-09) = TVDB 0x01 (2002-02-09), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/2813",
-    "tvdb": "https://thetvdb.com/series/turn-a-gundam/seasons/official/0"
-  },
+  "title": "Turn A Gundam I: Chikyuukou",
+  "justification": "Checked by episode title against TVDB series 71585. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"ターンエーガンダムI 地球光\") is TVDB S0E1 \"Earth Light\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "127cf6f9d3ce455d65d8c9b4c8f859f0990af85c45068f95bd24078e3175bc0d",
@@ -38,5 +39,5 @@
   "anilist_ids": [
     3963
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 2813
 }

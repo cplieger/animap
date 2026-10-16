@@ -1,0 +1,24 @@
+{
+  "anilist_id": 165557,
+  "title": "Kaguya-sama wa Kokurasetai: Ultra Romantic 3rd Season Teaser PV - Ishigami Yuu wa Kataritai",
+  "parts": [
+    {
+      "anidb_id": 15806,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 165557 (ONA, 1 episode(s) from 2021-10-21) is AniDB 15806's special(s) S1, aired 2021-10-21. AniList's PARENT relation names AniList 125367, which anime-offline-database links to AniDB 15806, and the special's title (Ishigami Yuu wa Kataritai) matches an AniList title. The parent's node, as overlay/15806.json patches it, places S1 on TVDB 0x2 Yu Ishigami Wants to Chat, 2021-10-20. TMDB 83121, where the parent's node places the special(s) through the overlay's TMDB rows, agrees: S0E3 Yu Ishigami Wants to Chat 2021-10-21.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15806",
+    "anilist": "https://anilist.co/anime/165557",
+    "tmdb": "https://www.themoviedb.org/tv/83121/season/0",
+    "tvdb": "https://thetvdb.com/series/kaguya-sama-love-is-war/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "3eea3a81a705a98b06f452ed5edd96a8f61dfa6b8beba0524d7a2dfb79aafcee"
+  }
+}

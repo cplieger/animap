@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:13964",
+  "title": "Majutsushi Orphen Hagure Tabi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "ae6d93b763765b8948312ef6d3f1d5b11860405e4f9d82b2814be427e1439cc4"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular episodes 1-13 = S1E1-13 by title and date. The one flagged special, S1 \"Celestial Artifacts / Tennin no Isan\" (2020-04-08), goes by default to S0E1 \"Celestial Artifacts\" (2020-05-08): the same title, a one-month date difference only. S0E2 and S0E3 (2023-01-04 and 2023-01-17) are the Urbanrama recap specials of AniDB 17644, not this node's.",
+      "evidence": [
+        "https://thetvdb.com/series/sorcerous-stabber-orphen/seasons/official/0",
+        "https://anidb.net/anime/13964",
+        "https://thetvdb.com/dereferrer/series/372939"
+      ]
+    }
+  }
+}

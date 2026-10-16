@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:8244",
+  "title": "Happy Kappy",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:20": "ca115b3ecdefe0f0b360580033ba26928ff0031f070c640ce3d923538ed06a24",
+        "date-mismatch:S1": "e7f6cf3cc39015d590e6677725202399467a4af2a410a67b48e6f0332aad002c"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All 25 regular episodes map by title and order to TVDB S1E1-25 (TVDB titles are the romaji of AniDB's, e.g. 2 Soratobu Guri-chan = Sora Tobu Guri-chan, 7 Sayonara Kappy = Sayonara Kappi, 20 Koi Suru Wan-chan = Koisuru wan-chan, 25 Happy Da ne! Kappy! = Happi da Ne! Kappi!). Counts 25 = 25. The flagged ep 20 is a one-week date shift (AniDB 2011-08-24 vs TVDB 2011-08-31) shared by eps 19-21, a broadcast break. The special S1 'Kappy! I Like You Very Much! / Kappy Daisuki!' = S0E1 'Kappi Daisuki! (Recap Special)'. The datecheck's suggested target for ep 20 (the recap special) is a different thing by title.",
+      "evidence": [
+        "https://anidb.net/anime/8244",
+        "https://thetvdb.com/dereferrer/series/248348"
+      ]
+    }
+  }
+}

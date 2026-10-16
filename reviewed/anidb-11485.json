@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11485",
+  "title": "Cardfight!! Vanguard G: Girs Crisis Hen",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:10": "aa708145250d9a5eb0e7d532611512fa75b6579b6a40a589b3b14d27a8257d0a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "26 AniDB episodes map by default to TVDB S6E1-E26 (26 episodes) with identical titles in the same order (\"The G Quest Begins!\" ... \"GIRS Crisis\"). The single failure is episode 10 \"Legendary / Densetsu no D\": TVDB S6E10 \"Legendary D\" has the date 2016-02-05 while its neighbours are weekly on Sundays (E9 2015-12-06, E11 2015-12-20); AniDB has 2015-12-13, the exact slot. A TVDB date error. The suggested target S0E80 is a different show's \"Mini Van 2\" short.",
+      "evidence": [
+        "https://anidb.net/anime/11485",
+        "https://thetvdb.com/dereferrer/series/245821"
+      ]
+    }
+  }
+}

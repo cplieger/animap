@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:18101",
+  "title": "Yubisaki to Renren",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:S13": "9b5e7fd6b09614bfeb4a90eecb91ef9701e58a6430ba4da33cc9db13b45c064e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-12 map to S1E1-12 with matching titles (\"Yuki's World\", \"To Affection\", ..., \"Our World\"). Specials S1-S12 \"Yubisaki Petit 1-12\" are TVDB S0E1-12 \"Mini Anime #1-12\" (website: ミニアニメ Sign.1-12), same count, same order, dates one day apart (Sat/Sun). The lone failure is AniDB S13 \"Episode 12 Ending\" (2024-03-23), an extra ending-sequence entry that TVDB does not list (season 0 has exactly the 12 minis); a special TVDB does not list is no mapping error and nothing in TVDB sits at S0E13.",
+      "evidence": [
+        "https://thetvdb.com/series/a-sign-of-affection/seasons/official/0",
+        "https://anidb.net/anime/18101",
+        "https://thetvdb.com/dereferrer/series/436899"
+      ]
+    }
+  }
+}

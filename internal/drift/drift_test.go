@@ -74,9 +74,16 @@ func TestDecideLayoutFindingCarriesBothLists(t *testing.T) {
 	if len(f) != 1 || !reflect.DeepEqual(f[0].Before, layout) || !reflect.DeepEqual(f[0].After, after) {
 		t.Fatalf("finding = %+v", f)
 	}
+	if f[0].Gone {
+		t.Errorf("a moved layout reads as a series gone: %+v", f[0])
+	}
 	gone, _ := Decide(OfEntry(entry()), &Observation{Node: upstream(), LayoutAbsent: true})
-	if gone[0].After != nil || !strings.HasPrefix(gone[0].Key, "drift:tvdb:") {
-		t.Errorf("series-gone finding = %+v, want nil After", gone[0])
+	if !gone[0].Gone || gone[0].After != nil || !strings.HasPrefix(gone[0].Key, "drift:tvdb:") {
+		t.Errorf("series-gone finding = %+v, want Gone and nil After", gone[0])
+	}
+	emptied, _ := Decide(OfEntry(entry()), &Observation{Node: upstream(), LayoutRead: true})
+	if len(emptied) != 1 || emptied[0].Gone {
+		t.Errorf("a season TVDB emptied = %+v, want one finding, the series still served", emptied)
 	}
 }
 
@@ -93,49 +100,44 @@ func TestDecideCreatedEntry(t *testing.T) {
 	}
 }
 
-func bridge() *overlay.Bridge {
-	return &overlay.Bridge{
-		AniListID: 376, ParentAniDBID: 544, Specials: []int{1}, Title: "OVA",
-		Captured: overlay.BridgeCaptured{
-			NodeSHA256: upstream().Hash(),
-			TVDB:       &overlay.CapturedTVDB{Series: 91391, Seasons: []int{2}, Episodes: layout, SHA256: skyhook.Hash(layout)},
-		},
+func link() *overlay.Link {
+	return &overlay.Link{
+		AniListID: 2269, Title: "Compilation",
+		Parts:    []overlay.Part{{AniDBID: 4169, Whole: true}, {AniDBID: 4168, Whole: true}, {AniDBID: 4169, Specials: []int{1}}},
+		Captured: overlay.LinkCaptured{AniDBSHA256: "captured digest"},
 	}
 }
 
-func TestDecideSpecial(t *testing.T) {
-	moved := upstream()
-	moved.Attrs["tvdbid"] = "1"
-	var base Observation
-	base.Node, base.Layout, base.LayoutRead = upstream(), layout, true
-	all := []string{"drift:special:376:node", "drift:special:376:tvdb"}
-	withLanded := []string{"drift:special:376:node", "drift:special:376:landed", "drift:special:376:tvdb"}
+func TestDecideLink(t *testing.T) {
+	both := []string{"drift:link:2269:landed", "drift:link:2269:anidb"}
 	for _, tc := range []struct {
 		name      string
-		mut       func(*Observation)
+		obs       Observation
 		want      []cause
 		evaluated []string
 	}{
-		{"unchanged", func(*Observation) {}, nil, all},
-		{"parent node changed", func(o *Observation) { o.Node = moved }, []cause{NodeChanged}, all},
-		{"layout changed", func(o *Observation) { o.Layout = layout[:1] }, []cause{TVDBLayout}, all},
-		{"linked in the release", func(o *Observation) { o.Linked, o.LinkedRead = 999, true }, []cause{Landed}, withLanded},
-		{"read in the release, not linked", func(o *Observation) { o.LinkedRead = true }, nil, withLanded},
-		{"nothing read but the node", func(o *Observation) { o.LayoutRead = false }, nil, all[:1]},
+		{"unchanged", Observation{AODRead: true, AniDB: "captured digest", AniDBRead: true}, nil, both},
+		{"landed", Observation{AOD: []int{4169}, AODRead: true, AniDB: "captured digest", AniDBRead: true}, []cause{Landed}, both},
+		{"an AniDB episode changed", Observation{AODRead: true, AniDB: "new digest", AniDBRead: true}, []cause{AniDBChanged}, both},
+		{"landed and changed", Observation{AOD: []int{9}, AODRead: true, AniDB: "new digest", AniDBRead: true}, []cause{Landed, AniDBChanged}, both},
+		{"anime-offline-database unread", Observation{AniDB: "new digest", AniDBRead: true}, []cause{AniDBChanged}, both[1:]},
+		{"the mirror unread", Observation{AOD: []int{9}, AODRead: true}, []cause{Landed}, both[:1]},
+		{"nothing read", Observation{AOD: []int{9}, AniDB: "new digest"}, nil, nil},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			o := base
-			tc.mut(&o)
-			f, ev := Decide(OfBridge(bridge()), &o)
+			f, ev := Decide(OfLink(link()), &tc.obs)
 			if got := causes(f); !slices.Equal(got, tc.want) {
-				t.Errorf("Decide(bridge) causes = %v, want %v", got, tc.want)
+				t.Errorf("Decide(link) causes = %v, want %v", got, tc.want)
 			}
 			if !slices.Equal(ev, tc.evaluated) {
-				t.Errorf("Decide(bridge) evaluated = %v, want %v", ev, tc.evaluated)
+				t.Errorf("Decide(link) evaluated = %v, want %v", ev, tc.evaluated)
 			}
 			for _, x := range f {
-				if x.Path != "overlay/special-of-parent/376.json" || x.AniList != 376 {
-					t.Errorf("finding %+v does not name the bridge file", x)
+				if x.Path != "overlay/links/2269.json" || x.AniList != 2269 || x.AniDB != 4169 || !slices.Equal(x.AniDBIDs, []int{4169, 4168}) {
+					t.Errorf("finding %+v does not name the link file and its anime", x)
+				}
+				if x.Cause == Landed && x.Linked != tc.obs.AOD[0] {
+					t.Errorf("landed finding links AniDB %d, want %d", x.Linked, tc.obs.AOD[0])
 				}
 			}
 		})

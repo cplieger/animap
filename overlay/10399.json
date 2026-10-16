@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10399",
+    "tmdb": "https://www.themoviedb.org/tv/65332/season/0",
     "tvdb": "https://thetvdb.com/series/amagi-brilliant-park/seasons/official/0"
   },
   "set": {
@@ -21,11 +22,24 @@
             8
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 2,
+        "end": 8,
+        "offset": -1,
+        "episodes": [
+          [
+            1,
+            8
+          ]
+        ]
       }
     ]
   },
   "title": "Amagi Brilliant Park",
-  "justification": "AniDB special S1 (2015-06-26) = TVDB 0x08 (2015-06-26), was 0x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2015-06-26) = TVDB 0x08 (2015-06-26), was 0x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 65332 season 0 has the TVDB order: E1-E7 Exciting Mini Theater: Graffiti Backstage 1-7 = S2-S8, E8 No Time to Take It Easy! = S1. The rows named only TVDB, so on TMDB S1-S8 took E1-E8.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -164,8 +178,8 @@
       ],
       "series": 280330
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f2c027aec3dbbb8ff0d881c4ffbc68ced88169a5f857e2f3eec48279ca9572af"
   },
   "anilist_ids": [

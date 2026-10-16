@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/717",
-    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-0083-stardust-memory/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-0083-stardust-memory/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/72677/seasons"
   },
   "set": {
     "mapping_list": [
@@ -25,7 +26,7 @@
     ]
   },
   "title": "Kidou Senshi Gundam 0083: Stardust Memory",
-  "justification": "AniDB special S2 (2016-01-29) = TVDB 0x03 (2016-01-29), was 0x02, by title. AniDB special S3 (no AniDB date) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80783 and TMDB show 72677. AniDB S2 \"宇宙の蜉蝣2\" (The Mayfly of Space 2) is TVDB S0E3 \"The Mayfly of Space 2\"; AniDB S3 \"今西隆志スペシャルインタビュー\" (Takashi Imanishi Special Interview) has no TVDB episode (its default TVDB S0E3 is \"The Mayfly of Space 2\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

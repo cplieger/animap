@@ -1,14 +1,15 @@
 {
-  "anidb_id": 18545,
-  "title": "Watashi no Shiawase na Kekkon: Watashi no Shiawase no Katachi",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18545",
+    "tmdb": "https://www.themoviedb.org/tv/196944/seasons",
+    "tvdb": "https://thetvdb.com/series/watashi-no-shiawase-na-kekkon/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2024-03-15) = TVDB 0x01 (2024-03-15), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/18545",
-    "tvdb": "https://thetvdb.com/series/watashi-no-shiawase-na-kekkon/seasons/official/0"
-  },
+  "title": "Watashi no Shiawase na Kekkon: Watashi no Shiawase no Katachi",
+  "justification": "Checked by episode title against TVDB series 418665 and TMDB show 196944. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"わたしの幸せな結婚 わたしの幸せのかたち\") is TVDB S0E1 \"The Shape of Happiness\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "8b2a90cb3fa0611eecd7b77efbad47b7d9bb5c9a1e8733a1d07418a59985f4a7",
@@ -50,5 +51,5 @@
   "anilist_ids": [
     167486
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 18545
 }

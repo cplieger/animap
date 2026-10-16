@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6257",
+    "tmdb": "https://www.themoviedb.org/tv/42253/season/0",
     "tvdb": "https://thetvdb.com/series/k-on/seasons/official/0"
   },
   "set": {
@@ -48,10 +49,25 @@
             11
           ],
           [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
             16
           ],
           [
             17
+          ],
+          [
+            18
           ],
           [
             19
@@ -67,11 +83,58 @@
             13
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 3,
+        "end": 9,
+        "offset": -1,
+        "episodes": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ]
+        ]
       }
     ]
   },
   "title": "K-On!",
-  "justification": "AniDB special S2 (2010-01-20) = TVDB 0x19 (2010-01-20), was 1x14 (no such TVDB episode), by title. AniDB special S10-S11 (2014-03-05 to (none)) have no TVDB episode, was 0x10-0x11. AniDB special S16-S17 (no AniDB date) have no TVDB episode, was 0x16-0x17. AniDB special S19 (no AniDB date) has no TVDB episode, was 0x19. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S2 \"Live House!\" is TVDB season 0 episode 19 of that title, and S3-S9 are the URA-ON! shorts, episodes 1-7 (\"Yui's Curiosity Series\" to \"Winter's... Chapter\"); S1 \"Winter Days!\" stays on season 1 episode 13. S12-S14 (interviews with the English cast), S15 (the English \"Fuwa Fuwa Time\" video) and S18 (the 2009 Yokohama Arena live) had no pair and fell on episodes 12-15, K-On!!'s URA-ON!! shorts (AniDB 7307), and 18 \"K-ON!: The Movie\" (AniDB 8280). They are unmapped with the other extras S10, S11, S16, S17 and S19. TMDB 42253 season 0: E1 Winter Days! = S1, E2-E8 URA-ON! Yui's Curiosity Series to Winter's... Chapter = S3-S9, E9 Live House! = S2; it lists none of S10-S19 (interviews, English music videos, the 2009 live). With no TMDB row S1-S19 took E1-E19.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -276,8 +339,8 @@
       ],
       "series": 87501
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "125fd83ac1a90800d8ad7298e7d6a57e19bbf7ea88fa338d404423db0deb3bab"
   },
   "anilist_ids": [

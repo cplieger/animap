@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17766",
-    "tvdb": "https://thetvdb.com/series/watashi-no-oshi-wa-akuyaku-reijou/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/im-in-love-with-the-villainess/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -10,6 +10,24 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
             7
           ]
         ]
@@ -17,7 +35,7 @@
     ]
   },
   "title": "Watashi no Oshi wa Akuyaku Reijou.",
-  "justification": "AniDB special S7 (2023-09-24) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S6 \"Q\u0026A with Rae and Claire #1-#6\" (August to September 2023) and S7, the pre-broadcast special, have no TVDB episode. TVDB season 0 episodes 1-12 are \"Claire's Diary #1-#12\" (クレアの目線で振り返るボイスダイアリー, October to December 2023), a different weekly programme, where S1-S6 fell by default. All seven are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -174,8 +192,8 @@
       ],
       "series": 428350
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "966afd85aaaeab127acc41999c96b367f03c4033092bffc5c6dadd74efbdd91f"
   },
   "anilist_ids": [

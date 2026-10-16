@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4675",
-    "tmdb": "https://www.themoviedb.org/tv/136062/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/136062/seasons",
     "tvdb": "https://thetvdb.com/series/future-boy-conan-ii-taiga-adventure/seasons/official/1"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdbseason": "1"
   },
   "title": "Mirai Shounen Conan II: Taiga Adventure",
-  "justification": "TVDB 80294 is Future Boy Conan (1978; S1 26, no S2); TVDB 452569 is this series. AniDB 1-24 (1999-10-16 to 2000-04-01) = TVDB 1x01-1x24 and TMDB 136062 S1E1-24, same dates. The old TMDB 19239 has no S2. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 452569 and TMDB show 136062. Its episodes are on TMDB show 136062. The node moves from TVDB 80294 to series 452569. AniDB episode 1-24 (\"遺跡\" (Ruins) to \"未来\" (Future)) are TVDB S1E1 \"Ruins\" to TVDB S1E24 \"Future\" and TMDB S1E1 \"遺跡\" (Ruins) to TMDB S1E24 \"未来\" (Future).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

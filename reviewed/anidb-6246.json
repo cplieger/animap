@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:6246",
+  "title": "Saki",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "26f7c0c632e7568910e315f83a2c19e42b9c185eeb4bdfc34967de44ea91908b",
+        "date-mismatch:S6": "cd232cb765363f2fea4990f55cceafbdfd9287b52603a60c7a0ed7bf777b7d3c"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Picture Drama 1\" (2009-07-15) = S0E1 \"Picture Drama 1\" (2009-09-02); S6 \"Picture Drama 6\" (2010-02-03) = S0E6 \"Picture Drama 6\" (2009-12-02).",
+      "evidence": [
+        "https://anidb.net/anime/6246",
+        "https://thetvdb.com/dereferrer/series/87841"
+      ]
+    }
+  }
+}

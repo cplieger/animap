@@ -1,0 +1,182 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6179",
+    "tvdb": "https://thetvdb.com/series/slayers/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Slayers Evolution-R",
+  "justification": "AniDB special S1 \"Episode 13 Ending\" (2009-04-06), a textless ending, had no row and fell on TVDB season 0 episode 1 \"Slayers: The Motion Picture\" (1995, AniDB 349). Season 0 holds only films, OVAs and Book of Spells, so S1 is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "418e054e29e2534ee4e1c590fab1f56cbd74fac15af80fcf686fdd0edfbaca3a",
+      "seasons": [
+        0,
+        5
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          7,
+          "1995-07-29"
+        ],
+        [
+          0,
+          2,
+          8,
+          "1996-08-03"
+        ],
+        [
+          0,
+          3,
+          4,
+          "1996-07-25"
+        ],
+        [
+          0,
+          4,
+          5,
+          "1997-01-25"
+        ],
+        [
+          0,
+          5,
+          6,
+          "1997-05-25"
+        ],
+        [
+          0,
+          6,
+          9,
+          "1997-08-02"
+        ],
+        [
+          0,
+          7,
+          1,
+          "1998-10-25"
+        ],
+        [
+          0,
+          8,
+          2,
+          "1998-12-18"
+        ],
+        [
+          0,
+          9,
+          3,
+          "1999-03-25"
+        ],
+        [
+          0,
+          10,
+          10,
+          "1998-01-01"
+        ],
+        [
+          0,
+          12,
+          89,
+          "2001-12-22"
+        ],
+        [
+          5,
+          1,
+          103,
+          "2009-01-12"
+        ],
+        [
+          5,
+          2,
+          104,
+          "2009-01-19"
+        ],
+        [
+          5,
+          3,
+          105,
+          "2009-01-26"
+        ],
+        [
+          5,
+          4,
+          106,
+          "2009-02-02"
+        ],
+        [
+          5,
+          5,
+          107,
+          "2009-02-09"
+        ],
+        [
+          5,
+          6,
+          108,
+          "2009-02-16"
+        ],
+        [
+          5,
+          7,
+          109,
+          "2009-02-23"
+        ],
+        [
+          5,
+          8,
+          110,
+          "2009-03-02"
+        ],
+        [
+          5,
+          9,
+          111,
+          "2009-03-09"
+        ],
+        [
+          5,
+          10,
+          112,
+          "2009-03-16"
+        ],
+        [
+          5,
+          11,
+          113,
+          "2009-03-23"
+        ],
+        [
+          5,
+          12,
+          114,
+          "2009-03-30"
+        ],
+        [
+          5,
+          13,
+          115,
+          "2009-04-06"
+        ]
+      ],
+      "series": 77681
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "4d7f988785b072df745e8dfa6ecc798bb6b9a145f5fa63bd24a6dc417b685c54"
+  },
+  "anidb_id": 6179
+}

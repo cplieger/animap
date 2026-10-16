@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:1195",
+  "title": "Kidou Keisatsu Patlabor (1990)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:3": "9c2f581a10329383191bf45d6409d89d99b8235339bfcc7dd9bb49c78e99ce54",
+        "date-mismatch:4": "b6db26ab7c36acf709ecb17f12502ca18006c4daa6dc7ac3691f2adefc03e7ca",
+        "date-mismatch:5": "ca6fa89caad4172a173ffa5c9511019d2d225b36a77aa194c8608bd5f60e6866",
+        "date-mismatch:6": "02350d3c9cc6520222f0c2a7d60252329ddb002c41916e1ea68788e7197a292a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The node's rows `2-5;3-2;4-6;5-3;6-7;7-4` already match by title: AniDB 2 'A Miserable Day / Saiyaku no Hi' = TVDB S2E5 'One of Those Days'; 3 'SCHAFT's Counterattack' = S2E2 'Schaft's Counterattack'; 4 'Viewer Rate 90%' = S2E6 '90% Viewer Rate'; 5 'The Greatest Showdown in History' = S2E3 (same title); 6 'Black Trinary' = S2E7 (same title); 7 'Game Over' = S2E4 'GAME OVER'. Eps 1 and 8-16 are default and match ('Griffon Resurrected', 'Seven Days of Fire', 'Vs', 'It's Called Amnesia', 'Goma who Came with the Rain', 'Our Karuizawa', 'The Dungeon Again', 'Snow Rondo', 'Woman Who Came from the Stars', 'All Quiet in the Second Unit'). The date 'suggested targets' in the evidence are the wrong way round; the rows are right, the dates differ because AniDB's order differs from TVDB's aired order and the row reorders it.",
+      "evidence": [
+        "https://anidb.net/anime/1195",
+        "https://thetvdb.com/dereferrer/series/80789"
+      ]
+    }
+  }
+}

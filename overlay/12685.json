@@ -1,0 +1,133 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12685",
+    "tvdb": "https://thetvdb.com/series/drifters-2016/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Drifters (2017)",
+  "justification": "AniDB special S1 \"Black King Rogue / Kuro-oosama Omidaregokoro\" had no row and fell on TVDB season 0 episode 1 \"Drifters: Special Edition\" (2016-06-06), AniDB 12038's episode. TVDB season 0 (the special edition, these three OVAs and the \"Inside the Episode\" clips) has no such special, so it is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "76acbc3aa638c929255c209fc4f48753c2f6b8e9f95ba8ee51a1a0d5bf720bde",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          16,
+          "2016-06-06"
+        ],
+        [
+          0,
+          2,
+          13,
+          "2017-12-23"
+        ],
+        [
+          0,
+          3,
+          14,
+          "2017-12-23"
+        ],
+        [
+          0,
+          4,
+          15,
+          "2018-12-30"
+        ],
+        [
+          0,
+          5,
+          17,
+          "2018-08-28"
+        ],
+        [
+          0,
+          6,
+          18,
+          "2018-08-28"
+        ],
+        [
+          0,
+          7,
+          19,
+          "2018-08-28"
+        ],
+        [
+          0,
+          8,
+          20,
+          "2018-08-28"
+        ],
+        [
+          0,
+          9,
+          21,
+          "2018-08-28"
+        ],
+        [
+          0,
+          10,
+          22,
+          "2018-08-28"
+        ],
+        [
+          0,
+          11,
+          23,
+          "2018-08-28"
+        ],
+        [
+          0,
+          12,
+          24,
+          "2018-08-28"
+        ],
+        [
+          0,
+          13,
+          25,
+          "2018-08-28"
+        ],
+        [
+          0,
+          14,
+          26,
+          "2018-08-28"
+        ],
+        [
+          0,
+          15,
+          27,
+          "2018-08-28"
+        ],
+        [
+          0,
+          16,
+          28,
+          "2018-08-28"
+        ]
+      ],
+      "series": 312559
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "54382a020b47b6e88fb6692482f574f9c23b11beba7a509a71210603d8f7d5b0"
+  },
+  "anidb_id": 12685
+}

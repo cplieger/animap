@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:7525",
+  "title": "Ore no Imouto ga Konna ni Kawaii Wake ga Nai",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S11": "8e8cb493a9eadba339059c88e7f92314bbe497b2c198d884ba9242729d4c1b01",
+        "date-mismatch:S12": "240d73781fa27ae318c208c907d1ffe8697a4402ac776cf33519af11d1b520d9"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1-S4 (True Route, Kouhai Rotten, Kouhai Cute, Last Episode) = S0E1-S0E4 by title (\"Life Advice\" vs \"Life Counseling\", \"Kouhai\" vs \"Junior\"), S5-S20 \"Animated Commentary 1-15 (incl. 12.5)\" = S0E5-S0E20 same numbers, S17 = \"Animated Commentary 12.5 (True Route)\". The node already unmaps S21 \"Stardust Witch Meruru OP\" and S22 \"Full Length OP\" (;21-0;22-0;), which TVDB lacks. Flagged S11/S12 (2011-04-16/15 vs 2011-03-23) are BD-release vs broadcast dates for the same-titled commentary. S0E21+ belong to 9134 (its rows 4-22 ... ), no collision with this node's S1-S20.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/194961",
+        "https://anidb.net/anime/7525"
+      ]
+    }
+  }
+}

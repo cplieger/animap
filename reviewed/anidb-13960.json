@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:13960",
+  "title": "Senjuushi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "66d2b1cac4ae34d0a80b0683cda22df6c58b43460a40ae472c433dff92a89693"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Senjuushi Tokuban: Mezase Zettai Kouki! Futari wa Noble!\" (2018-09-04, 25 min) is the only special on AniDB. TVDB season 0 has exactly one episode, S0E1 \"Special 1\", broadcast on Tokyo MX, 25 min, dated 2017-09-04. Same day and month, same runtime, same network, one special on each side. The series aired from 2018-07-03 on Tuesdays (ep 9 on 2018-08-28, ep 10 on 2018-09-11, so 2018-09-04 is the gap week); 2017-09-04 is a Monday ten months before the premiere, so the year is a TVDB typo. Regular episodes 1-12 match title for title.",
+      "evidence": [
+        "https://thetvdb.com/series/the-thousand-musketeers/seasons/official/0",
+        "https://anidb.net/anime/13960",
+        "https://thetvdb.com/dereferrer/series/349496"
+      ]
+    }
+  }
+}

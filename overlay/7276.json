@@ -1,0 +1,19 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7276",
+    "anilist": "https://anilist.co/anime/7770",
+    "tmdb": "https://www.themoviedb.org/tv/67171/season/1"
+  },
+  "set": {
+    "tvdbid": "web"
+  },
+  "title": "Yutori-chan",
+  "justification": "TVDB 256891 is gone and no TVDB entry carries this 25-episode ONA: TheTVDB search finds nothing for Yutori-chan or ゆとりちゃん, nor does SkyHook, and AniList 7770 lists no related anime. An ONA takes the marker web. TMDB 67171 season 1 lists the 25 AniDB episodes, so the TMDB values stay.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "10505a380175db6de0b473244ba08df95a577240d00898664a36a157271456d5"
+  },
+  "anidb_id": 7276
+}

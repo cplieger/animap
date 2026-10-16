@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:1167",
+  "title": "Elf Ban Kakyuusei: Anata dake o Mitsumete...",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "83d6e087325159f4c0b0395d4009adb03590c68f61b4bb712fec3889adad1047",
+        "date-mismatch:2": "c61e03bee64f76dd0023cdd7f8c0cfcf902395f15e4b620e38b571aaeef2c9b3"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 1 \"The First Heartbeat... / Tokimeki no Yokan...\" (1998-01-24) = S0E5 \"The First Heartbeat... OVA 2-1\" (1997-11-28); 2 \"I Wish I Could Be Honest... / Sunao ni Naretara...\" (1998-03-27) = S0E6 \"I Wish I Could Be Honest... OVA 2-2\" (1998-01-23).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/43780/season/1",
+        "https://anidb.net/anime/1167",
+        "https://thetvdb.com/dereferrer/series/474904"
+      ]
+    }
+  }
+}

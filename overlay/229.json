@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/229",
+    "tmdb": "https://www.themoviedb.org/tv/21730/seasons",
     "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-wing/seasons/official/0"
   },
   "set": {
@@ -18,11 +19,24 @@
             10
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            8
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Shin Kidou Senki Gundam Wing",
-  "justification": "AniDB special S2 (2025-07-24) = TVDB 0x10 (2025-07-25), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79327 and TMDB show 21730. AniDB S1 \"Picture Drama\" is TMDB S0E8 \"新機動戦記ガンダムW Frozen Teardrop ピクチャードラマ\" (Frozen Teardrop Picture Drama - A New Battle); AniDB S2 \"30周年記念映像 『新機動戦記ガンダムW -Operation 30th-』\" (Mobile Suit Gundam Wing 30th Anniversary Video -Operation 30th-) is TVDB S0E10 \"30th Anniversary Video -Operation 30th-\" and has no TMDB episode (its default TMDB S0E2 is \"Operation Meteor I: Even Numbers\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -395,8 +409,8 @@
       ],
       "series": 79327
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "cfd9fb5ebca3a2eb16f93996e4744d39a3e2c242e4b75da6746c811ddf152714"
   },
   "anilist_ids": [

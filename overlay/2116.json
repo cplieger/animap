@@ -1,0 +1,40 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2116",
+    "tvdb": "https://thetvdb.com/series/gall-force/seasons/official/4"
+  },
+  "set": {
+    "defaulttvdbseason": "4",
+    "mapping_list": []
+  },
+  "title": "Gall Force: Shin Seiki Hen",
+  "justification": "TVDB 138691 Gall Force now holds one season per OVA run; season 4 holds New Era: Chapter 1 and 2 (1991-12-01, 1992-02-26), AniDB volumes 1 and 2 with those dates. The old rows pointed at season 1 episodes 8 and 9, which no longer exist.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "5bada2d3a86c3ae45ed7d5d2c580c5d6529103c4c885faf084a9ecec629e6566",
+      "seasons": [
+        4
+      ],
+      "episodes": [
+        [
+          4,
+          1,
+          9,
+          "1991-12-01"
+        ],
+        [
+          4,
+          2,
+          10,
+          "1992-02-26"
+        ]
+      ],
+      "series": 138691
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f7797a67855448fe1bbb5556d7e313d70203ed48af82f81171b8d2d559a585e4"
+  },
+  "anidb_id": 2116
+}

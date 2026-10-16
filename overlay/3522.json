@@ -1,0 +1,141 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3522",
+    "tvdb": "https://thetvdb.com/series/tactical-roar/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tactical Roar",
+  "justification": "TVDB season 0 has one episode, \"Today's Special, The Mercurius Holiday\" (2006-04-08), which is AniDB special S7 \"The Mercurius' Holiday / Mercurius no Kyuujitsu\"; by default S1 \"Aegis Girl: Pascal Magi\" fell there. S1-S6 (the other DVD extras) have no TVDB episode and are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6f3708415a3064f81360599f08dde61500e97a64392fe25754bd721af2555ba1",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2006-04-08"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2006-01-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2006-01-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2006-01-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2006-01-28"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2006-02-04"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2006-02-11"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2006-02-18"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2006-02-25"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2006-03-04"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2006-03-11"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2006-03-18"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2006-03-25"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2006-04-01"
+        ]
+      ],
+      "series": 80823
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "2d6af7f90532bc05f44ba71907e6a9ed89a6d9b05defcb17e7a2997643842950"
+  },
+  "anidb_id": 3522
+}

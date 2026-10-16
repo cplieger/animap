@@ -1,0 +1,28 @@
+{
+  "anilist_id": 20524,
+  "title": "Kyoukai no Kanata: Idol Saiban! Mayoi Nagara mo Kimi wo Sabaku Tami",
+  "parts": [
+    {
+      "anidb_id": 9518,
+      "specials": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 20524 (ONA, 5 episodes from 2013-11-18 to 2014-07-02) is AniDB 9518's specials S2-S6, Idol Trial! Those Who Judge You Even While Lost 1-5, aired 2013-11-18, 2013-12-02, 2013-12-16, 2014-07-02 and 2014-07-02. AniList's PARENT 18153 is AniDB 9518. The parent's node places them on TVDB 0x1-0x5, same titles and dates, and on TMDB 61695 S0E1-S0E5.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9518",
+    "anilist": "https://anilist.co/anime/20524",
+    "tmdb": "https://www.themoviedb.org/tv/61695/season/0",
+    "tvdb": "https://thetvdb.com/series/beyond-the-boundary/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "9122ebfd698f2d2fa8dc2ef764d7d991ba324c4b0c9c1b042e9e04aa2250800e"
+  }
+}

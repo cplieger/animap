@@ -14,14 +14,68 @@
             2
           ],
           [
-            2
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ],
+          [
+            22
+          ],
+          [
+            26,
+            16
+          ],
+          [
+            27,
+            17
+          ],
+          [
+            28,
+            18
+          ],
+          [
+            29,
+            19
+          ],
+          [
+            30,
+            20
+          ],
+          [
+            31,
+            21
+          ],
+          [
+            32,
+            22
           ]
         ]
       }
     ]
   },
   "title": "Sin: Nanatsu no Taizai",
-  "justification": "AniDB special S1 (2017-05-13) = TVDB 0x02 (2017-05-13), was 0x01, by title. AniDB special S2 (2017-07-01) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "TheTVDB season 0 titles: 1 ～心理テストでキャストが丸裸！？～, 2 まさに悪魔の所業・・・, 3 門限破りの罪 (2017-07-01), then 懺悔録 #1-#19 as episodes 4-22. AniDB S3, the teaser special \"Shinri Test de Cast ga Maruhadaka!?\", is episode 1; S1 \"Masa ni Akuma no Shogyou...\" is 2; S2 \"Kinkyuu Tokuban! Mongen Yaburi no Tsumi\" (2017-07-01) is 3, which the old row had unmapped. S4-S15 \"Zange-roku #1-#12\" stay on episodes 4-15 by default, and S26-S32 \"Zange-roku #13-#19\" (負けず嫌い to 悪魔) are episodes 16-22. S16-S22, the \"Dennou Grimoir\" audio dramas, fell by default on 16-22 and have no TVDB episode, so they are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -238,8 +292,8 @@
       ],
       "series": 318951
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "28f14af7414cb65c5aed8ddf75aab7a0b0f4dd565be96f2da227b6cfae5146a0"
   },
   "anilist_ids": [

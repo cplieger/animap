@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:6361",
+  "title": "AniList 6361",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 5274 files the Prologue as promotion episode P1, not a special (TVDB 80904 0x1), and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/6361"
+        ],
+        "anilist_id": 6361
+      }
+    ]
+  }
+}

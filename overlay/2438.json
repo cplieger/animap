@@ -1,0 +1,86 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2438",
+    "tvdb": "https://thetvdb.com/series/future-gpx-cyber-formula/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Shin Seiki GPX Cyber Formula Sin",
+  "justification": "AniDB special S1, the episode 5 ending, has no TVDB episode; its default was TVDB 82595 season 0 episode 1, the Graffiti OVA (node 2464).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "eea0302afc00f8feac1f14c2e88190824fa6ae1e2388b5407a1e11e7c92744ad",
+      "seasons": [
+        0,
+        5
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          65,
+          "1992-08-05"
+        ],
+        [
+          0,
+          2,
+          66,
+          "1996-04-01"
+        ],
+        [
+          0,
+          3,
+          67,
+          "1994-06-01"
+        ],
+        [
+          5,
+          1,
+          60,
+          "1998-12-21"
+        ],
+        [
+          5,
+          2,
+          61,
+          "1999-02-21"
+        ],
+        [
+          5,
+          3,
+          62,
+          "1999-07-07"
+        ],
+        [
+          5,
+          4,
+          63,
+          "1999-09-16"
+        ],
+        [
+          5,
+          5,
+          64,
+          "2000-03-17"
+        ]
+      ],
+      "series": 82595
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "80b74570a88e50feec102e32947729db509755e86d922e1ba1d58bd2bfc8fbd4"
+  },
+  "anidb_id": 2438
+}

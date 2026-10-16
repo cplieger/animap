@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:2294",
+  "title": "AniList 2294",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5942cb63975239ee44a863acf823971cfa33e3de733c27c4bf9a5c1a06e567c4",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: the four compilation films are four AniDB anime of their own (4457, 4466, 4758, 4905) with no AniList link in anime-offline-database, and one record cannot cover four nodes",
+        "evidence": [
+          "https://anilist.co/anime/2294"
+        ],
+        "anilist_id": 2294
+      }
+    ]
+  }
+}

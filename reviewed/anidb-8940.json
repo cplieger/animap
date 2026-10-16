@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:8940",
+  "title": "One Piece Film: Z",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "36c448e74facb7f18ffac1855bb3008fbf74780f424b14f66b336f204e0969d2",
+        "date-mismatch:S2": "f168861a0dbcdf49d8997589e7c86779f2adb51ea0cbad8a976246c81dd86d09"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 and S2 \"Glorious Island Prologue (Part 1)\" and \"(Part 2)\" and S3 \"Glorious Island\" all go to TVDB 81797 S0E25 \"Glorious Island\" (25 minutes, the prologue to One Piece Film Z). TVDB lists the work once, and the two prologue parts are pieces of that same Glorious Island programme, so all three AniDB specials are the one TVDB episode. Only the dates differ (AniDB 2012-12-23 and 2012-12-30 for the parts, TVDB 2013-01-06).",
+      "evidence": [
+        "https://thetvdb.com/series/one-piece/seasons/official/0",
+        "https://anidb.net/anime/8940",
+        "https://thetvdb.com/dereferrer/series/81797"
+      ]
+    }
+  }
+}

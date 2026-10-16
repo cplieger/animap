@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:103588",
+  "title": "AniList 103588",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 13548 S1 is TVDB 270065 0x17 by title, but TVDB dates it 2018-06-23 against AniDB's 2018-09-26, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/103588"
+        ],
+        "anilist_id": 103588
+      }
+    ]
+  }
+}

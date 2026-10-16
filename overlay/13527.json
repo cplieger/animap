@@ -1,0 +1,95 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13527",
+    "tvdb": "https://thetvdb.com/series/mob-psycho-100/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mob Psycho 100 Reigen: Shirarezaru Kiseki no Reinouryokusha",
+  "justification": "The OVA stays on TVDB season 0 episode 7 \"Reigen: The Miracle Psychic That Nobody Knows\" (2018-03-18). AniDB special S1 \"Ending\" had no row and fell on episode 1 \"Mob Psycho Mini 8-bit Shorts 1\", AniDB 11803's S1. TVDB lists no ending, so it is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0ac0585f975bd3c5f06221d66b26aabfe6e13c25ea5ead74db32bdc205dac4db",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-09-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-10-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-11-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-12-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2017-01-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-02-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2018-03-18"
+        ],
+        [
+          0,
+          8,
+          26,
+          "2019-09-25"
+        ]
+      ],
+      "series": 307375
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "2317ea1511b71dea4263b4e232a4e358f28124152718f7d64c22cd1033bf9115"
+  },
+  "anidb_id": 13527
+}

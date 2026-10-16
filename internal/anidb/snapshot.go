@@ -160,15 +160,24 @@ type rawTitle struct {
 func titleDigest(episodes map[string][]rawEpisode) string {
 	var lines []string
 	for _, kind := range []string{"REGULAR", "SPECIAL"} {
-		for _, e := range episodes[kind] {
-			titles := make([]string, 0, len(e.Titles))
-			for _, t := range e.Titles {
-				titles = append(titles, strconv.Quote(t.Language)+"="+strconv.Quote(strings.TrimSpace(t.Title)))
-			}
-			slices.Sort(titles)
-			lines = append(lines, kind+" "+strconv.Itoa(e.Number)+" "+strings.Join(titles, " "))
+		for i := range episodes[kind] {
+			lines = append(lines, titleLine(kind, &episodes[kind][i]))
 		}
 	}
+	return digestLines(lines)
+}
+
+// titleLine is one episode's type, number and titles, its titles sorted.
+func titleLine(kind string, e *rawEpisode) string {
+	titles := make([]string, 0, len(e.Titles))
+	for _, t := range e.Titles {
+		titles = append(titles, strconv.Quote(t.Language)+"="+strconv.Quote(strings.TrimSpace(t.Title)))
+	}
+	slices.Sort(titles)
+	return kind + " " + strconv.Itoa(e.Number) + " " + strings.Join(titles, " ")
+}
+
+func digestLines(lines []string) string {
 	slices.Sort(lines)
 	sum := sha256.Sum256([]byte(strings.Join(lines, "\n")))
 	return hex.EncodeToString(sum[:])
@@ -192,13 +201,14 @@ func parse(aid int, body []byte) (a Anime, listed bool, err error) {
 	}
 	a.Finished = f.EndDate != nil && *f.EndDate != ""
 	a.Titles = titleDigest(f.Episodes)
-	regular := sortedEpisodes(f.Episodes["REGULAR"])
-	a.Specials = sortedEpisodes(f.Episodes["SPECIAL"])
+	regular := sortedEpisodes("REGULAR", f.Episodes["REGULAR"])
+	a.Specials = sortedEpisodes("SPECIAL", f.Episodes["SPECIAL"])
 	for i, e := range regular {
 		if e.Number != i+1 {
 			return Anime{}, false, fmt.Errorf("%w: AniDB %d: regular episodes are not 1 to %d", errInvalid, aid, len(regular))
 		}
 		a.Regular = append(a.Regular, e.AirDate)
+		a.RegularTitles = append(a.RegularTitles, e.Titles)
 	}
 	if err := checkSpecials(a.Specials); err != nil {
 		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
@@ -206,13 +216,50 @@ func parse(aid int, body []byte) (a Anime, listed bool, err error) {
 	if err := checkDates(a.Regular); err != nil {
 		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
 	}
+	a.Extras = extras(f.Episodes, a.Specials)
 	return a, true, nil
 }
 
-func sortedEpisodes(in []rawEpisode) []Episode {
+// extraKinds are the mirror's other episode kinds and the number before
+// each one's first in Anime-Lists' season 0: credit 1 is 101, promotion 1
+// 201, parody 1 301, other 1 401. The README states the promotion (201)
+// and other (401) blocks
+// (https://github.com/Anime-Lists/anime-lists#mapping-list); the list's
+// rows use all four.
+var extraKinds = []struct {
+	kind string
+	base int
+}{{"CREDITS", 100}, {"PROMOTION", 200}, {"PARODY", 300}, {"OTHER", 400}}
+
+// extras numbers each extra as Anime-Lists does and keeps its title digest
+// but not its air date, which nothing reads. One that number cannot tell
+// apart from another season 0 episode (a credit, promotion or parody past
+// its 100th, on a special's number, numbered twice or below 1) is dropped
+// rather than the file refused: nothing else in the file depends on it.
+// Other episodes are the last block, so they have no upper bound.
+func extras(episodes map[string][]rawEpisode, specials []Episode) []Episode {
+	out := []Episode{}
+	for i, k := range extraKinds {
+		bounded := i < len(extraKinds)-1
+		for _, e := range sortedEpisodes(k.kind, episodes[k.kind]) {
+			n := e.Number + k.base
+			switch {
+			case n <= k.base, bounded && n > extraKinds[i+1].base,
+				len(out) > 0 && out[len(out)-1].Number == n,
+				slices.ContainsFunc(specials, func(s Episode) bool { return s.Number == n }):
+				continue
+			}
+			out = append(out, Episode{Number: n, Titles: e.Titles})
+		}
+	}
+	return out
+}
+
+func sortedEpisodes(kind string, in []rawEpisode) []Episode {
 	out := make([]Episode, 0, len(in))
-	for _, e := range in {
-		ep := Episode{Number: e.Number}
+	for i := range in {
+		e := &in[i]
+		ep := Episode{Number: e.Number, Titles: digestLines([]string{titleLine(kind, e)})}
 		if e.AirDate != nil {
 			ep.AirDate = *e.AirDate
 		}
@@ -242,23 +289,45 @@ func checkDates(dates []string) error {
 	return nil
 }
 
-func checkListed(id int, a Anime) error {
+func checkListed(id int, a *Anime) error {
 	if id <= 0 {
 		return errors.New("not a positive id")
 	}
-	if !digestRE.MatchString(a.Titles) {
-		return errors.New("titles is not a 64-hex digest; re-extract the snapshot with this animap")
+	if !digestRE.MatchString(a.Titles) || len(a.RegularTitles) != len(a.Regular) ||
+		slices.ContainsFunc(a.RegularTitles, notDigest) || slices.ContainsFunc(a.Specials, func(e Episode) bool { return notDigest(e.Titles) }) {
+		return errors.New("titles is not a 64-hex digest for the anime and each episode; re-extract the snapshot with this animap")
+	}
+	if a.Extras == nil || slices.ContainsFunc(a.Extras, func(e Episode) bool { return notDigest(e.Titles) }) {
+		return errors.New("extras are missing or lack a 64-hex title digest; re-extract the snapshot with this animap")
 	}
 	for i := 1; i < len(a.Specials); i++ {
 		if a.Specials[i].Number <= a.Specials[i-1].Number {
 			return errors.New("specials are not sorted by number, each once")
 		}
 	}
+	if err := checkExtras(a); err != nil {
+		return err
+	}
 	if err := checkSpecials(a.Specials); err != nil {
 		return err
 	}
 	return checkDates(a.Regular)
 }
+
+// checkExtras holds a snapshot's extras to the numbering extras gives them.
+func checkExtras(a *Anime) error {
+	for i, e := range a.Extras {
+		if e.Number <= extraKinds[0].base || (i > 0 && e.Number <= a.Extras[i-1].Number) {
+			return errors.New("extras are not sorted by number, each once and from 101")
+		}
+		if _, extra, _ := a.SeasonZero(e.Number); !extra {
+			return fmt.Errorf("extra %d has a special's number", e.Number)
+		}
+	}
+	return nil
+}
+
+func notDigest(s string) bool { return !digestRE.MatchString(s) }
 
 // LoadSnapshot reads and validates a snapshot file that Extract's result
 // was written to.
@@ -292,7 +361,7 @@ func decodeSnapshot(body []byte) (*Snapshot, error) {
 		return nil, fmt.Errorf("%w: commit %q is not a 40-hex commit", errInvalid, s.Commit)
 	}
 	for id, a := range s.Anime {
-		if err := checkListed(id, a); err != nil {
+		if err := checkListed(id, &a); err != nil {
 			return nil, fmt.Errorf("%w: AniDB %d: %w", errInvalid, id, err)
 		}
 	}

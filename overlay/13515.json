@@ -1,14 +1,15 @@
 {
-  "anidb_id": 13515,
-  "title": "Boku no Kanojo ga Majime Sugiru Shobitch na Ken (2018)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13515",
+    "tmdb": "https://www.themoviedb.org/tv/74083/seasons",
+    "tvdb": "https://thetvdb.com/series/my-girlfriend-is-shobitch/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2018-03-26) = TVDB 0x01 (2018-03-26), by order: TVDB lists two specials and 0x02 is AniDB 13217's special S1 by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/13515",
-    "tvdb": "https://thetvdb.com/series/my-girlfriend-is-shobitch/seasons/official/0"
-  },
+  "title": "Boku no Kanojo ga Majime Sugiru Shobitch na Ken (2018)",
+  "justification": "Checked by episode title against TVDB series 334706 and TMDB show 74083. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"僕の彼女がマジメ過ぎるしょびっちな件 (2018)\") is TVDB S0E1 \"What If Akiho and Shinozaki Are Stuck in a Room Where They Can't Get Out Unless They Have S*x\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "f1110029e4c46622e3adfc4d8523367dba08e6e1952dfb28fbf695ef45d5320c",
@@ -38,5 +39,5 @@
   "anilist_ids": [
     100518
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 13515
 }

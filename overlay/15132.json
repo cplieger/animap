@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15132",
+    "tmdb": "https://www.themoviedb.org/tv/60833/seasons",
     "tvdb": "https://thetvdb.com/series/the-irregular-at-magic-high-school/seasons/official/0"
   },
   "set": {
@@ -25,11 +26,32 @@
             5
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Mahouka Koukou no Rettousei: Raihousha Hen",
-  "justification": "AniDB special S1-S5 (2020-12-16 to 2021-04-14) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278329 and TMDB show 60833. AniDB S1-S5 (\"魔法科高校の感想戦 1\" (Magic High School Post Mortem 1) to \"魔法科高校の感想戦 5\" (Magic High School Post Mortem 5)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -180,8 +202,8 @@
       ],
       "series": 278329
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ddf629be17a9a97e4a8d649c60f6843a0db7a74031e8dd7fb581dddcd1dd99fb"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8910",
+    "tmdb": "https://www.themoviedb.org/tv/37471/seasons",
     "tvdb": "https://thetvdb.com/series/nura-rise-of-the-yokai-clan/seasons/official/0"
   },
   "set": {
@@ -14,20 +15,11 @@
             2
           ]
         ]
-      },
-      {
-        "anidb_season": 0,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            1
-          ]
-        ]
       }
     ]
   },
   "title": "Nurarihyon no Mago: Gekitou Dai Futsal Taikai! Nuragumi W Cup!!",
-  "justification": "AniDB 1 (2010-10-23) = TVDB 0x02 (2010-10-23), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 171731 and TMDB show 37471. AniDB episode 1 \"Complete Movie\" (the anime \"ぬらりひょんの孫 ~激闘 大フットサル大会!奴良組Wカップ!!~\") is TVDB S0E2 \"Jump Super Anime Tour Special\". The entry drops a row that named a special the node does not have.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -81,8 +73,8 @@
       ],
       "series": 171731
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "14a6306a6401128195c14679f50e8b3fcba27fb67798d883f6ca5b64fe9e6f65"
   },
   "anilist_ids": [

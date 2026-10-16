@@ -1,0 +1,29 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9450",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1293125",
+    "tvdb": "https://thetvdb.com/series/astro-boy-2003/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "episodeoffset": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "1293125",
+    "mapping_list": []
+  },
+  "title": "Tetsuwan Atom Tokubetsu Hen: Kagayakeru Hoshi - Anata wa Aoku, Utsukushii...",
+  "justification": "Checked by title. The film is TMDB movie 1293125 (Astro Boy: The Glorious Earth (2004)). TMDB show 12050 does not carry it, so the node leaves that show. The node moves from TVDB 79252 to the movie marker. This 20-minute short of 2004-02-07, 鉄腕アトム 特別編 輝ける地球 ~あなたは青く、美しい…~, is not TVDB S0E1 Remaking of Astro Boy (a making-of), and TheTVDB has no series episode or movie for it under its Japanese or English titles. TMDB has it as movie 1293125 Astro Boy: The Glorious Earth (Japan 2004-02-07, 20 minutes). AniDB types it a film, so the node takes the movie marker.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "16a7fa96f053f1cbe061050b070bcfe67d64df86e8d5eecc7d9122e211ad2859"
+  },
+  "anilist_ids": [
+    17963
+  ],
+  "anidb_id": 9450
+}

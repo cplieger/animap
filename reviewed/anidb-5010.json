@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:5010",
+  "title": "Yume kara Samenai",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "f135ad51e20ef579b61d74468ba60902aac10124f46218321aa98fe476c2ec25",
+        "gaps": [
+          "no_tvdb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: no TVDB series or movie found for the 1987 OVA (AniDB 5010) under any of its titles",
+        "evidence": [
+          "https://anilist.co/anime/7482"
+        ],
+        "anilist_id": 7482
+      }
+    ]
+  }
+}

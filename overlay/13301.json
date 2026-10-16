@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13301",
+    "tmdb_movie": "https://www.themoviedb.org/movie/547912",
     "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0"
   },
   "set": {
@@ -10,14 +11,35 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            6
+            1,
+            30
+          ],
+          [
+            2,
+            31
+          ],
+          [
+            3,
+            32
+          ],
+          [
+            4,
+            33
+          ],
+          [
+            5,
+            34
+          ],
+          [
+            6,
+            35
           ]
         ]
       }
     ]
   },
   "title": "Magical Girl Lyrical Nanoha Detonation",
-  "justification": "AniDB special S6 (no AniDB date) has no TVDB episode, was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81115. AniDB S1-S6 (\"ウィークリームービー #1\" (Weekly Movie 1) to \"ウィークリームービー 特別編\" (Weekly Movie 6)) are TVDB S0E30 \"Magical Girl Lyrical Nanoha Detonation - Theatrical Bonus – Weekly Movie #1\" to TVDB S0E35 \"Magical Girl Lyrical Nanoha Detonation - Theatrical Bonus – Weekly Movie – Special Edition\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -245,8 +267,8 @@
       ],
       "series": 81115
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f067b74099b71254148798eaa80559e1edcfd27ac678f8dadd813bc5b93ff58f"
   },
   "anilist_ids": [

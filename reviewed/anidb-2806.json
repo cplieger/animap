@@ -1,0 +1,32 @@
+{
+  "key": "anime:anidb:2806",
+  "title": "Transformers: Galaxy Force",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:26": "9e18dcc372ab2f77f03a48778a91fae528ea937aa8b06aeb6e9bac0277ec6995",
+        "date-mismatch:27": "b161dde73f12a0407cf0e1f7b451259beaf7296151856883d6138dc741d45979",
+        "date-mismatch:28": "16a4fb21c7eada030e56d847dd7343f44b5bb6a579d6118a03df8c4e25880bf6",
+        "date-mismatch:29": "f2cbe366d1091560d14acc4250f35eca35d777bddfb6b63db218842dafa3b55f",
+        "date-mismatch:30": "fd61cbade07210e295d45bfbc6589bf03cde1e9f54dde7b3c15582396ccda07a",
+        "date-mismatch:31": "a8d199e8a0ab03c96f59add20f3d0984733652ce32641d4fc730f9ac402a902e",
+        "date-mismatch:32": "0b93f62e781105a970c9a3b96e9f82ba2ceb09fd3fd638fb104b0f1f0e18b4f1",
+        "date-mismatch:33": "ca53db84038b5d6be26fdd419f4ba0a05fce2312061594e0d59c5fc61952d8b0",
+        "date-mismatch:34": "d6bc56204d7f0ed0f179cbc20009628488c5e554a0adc96a16cb97b16ed3a8c7",
+        "date-mismatch:35": "5ed554c927f9b36847383e952b5b1df0a52b45f1f92a919b665b384ebff29ddc",
+        "date-mismatch:36": "bd6ed1f797ccc1a2ce9361b16681a41a685b6cd6f57fb33dcd6a95847eee6a40",
+        "date-mismatch:37": "4786ca399b15520803fe9d6b58d731d7b4fccc88e0cb3d03e8f2b9a93d093b0e",
+        "date-mismatch:40": "071d9b5aaddf29592e32e7815e51a64fd25c9545053c205577503f40170efd0b",
+        "date-mismatch:41": "8ee6b053545db839ded423827069c5521e2bc0354de95c6ecdb2b136988679c1",
+        "date-mismatch:42": "c83af5c9fad27258e6e71b1502d8bf593fda3285d1ce4a7292991c43db6e0be0"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 26 \"Retreat / Mitsume no Planet Force\" (2005-07-02) = S1E25 \"Retreat\" (2005-10-21); 27 \"Revelation / Uchuu Metsubou e no Countdown\" (2005-07-09) = S1E26 \"Revelation\" (2005-10-24); 28 \"Critical / Tensei! Vanguard Team\" (2005-07-16) = S1E27 \"Critical\" (2006-03-11); 29 \"Assault / Uchuu kara Kita Sugoi Yatsu\" (2005-07-23) = S1E28 \"Assault\" (2006-03-18); 30 \"Starscream / Yabou no Ou, Jashin Zenkai\" (2005-07-30) = S1E29 \"Starscream\" (2006-03-25); 31 \"United / Kousoku Kidou Gattai Sonic Convoy\" (2005-08-06) = S1E30 \"United\" (2006-04-01); 32 \"Cybertron / Chouzetsu Henkei! Kaihousareru Chikara\" (2005-08-13) = S1E31 \"Cybertron\" (2006-04-08); 33 \"Balance / Yomigaetta Kyodai Shin\" (2005-08-20) = S1E32 \"Balance\" (2006-04-15); 34 \"Darkness / Ankoku kara no Gyakushuu\" (2005-08-27) = S1E33 \"Darkness\" (2006-09-05); 35 \"Memory / Atlantis no Meiro\" (2005-09-03) = S1E34 \"Memory\" (2006-09-06); 36 \"Escape / Soreyuke Dasshutsu Daisakusen\" (2005-09-10) = S1E35 \"Escape\" (2006-09-07); 37 \"Family / Soshite, Tabidachi no Toki\" (2005-09-17) = S1E36 \"Family\" (2006-09-08); 40 \"Giant / Gigalonia no Megalo Convoy\" (2005-10-08) = S1E39 \"Giant\" (2006-09-13); 41 \"Fury / Master Galvatron Kourin\" (2005-10-15) = S1E40 \"Fury\" (2006-09-14); 42 \"City / Chika Sekai e Go!!\" (2005-10-22) = S1E41 \"City\" (2006-09-15).",
+      "evidence": [
+        "https://anidb.net/anime/2806",
+        "https://thetvdb.com/dereferrer/series/79081"
+      ]
+    }
+  }
+}

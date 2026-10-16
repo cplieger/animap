@@ -1,14 +1,15 @@
 {
-  "anidb_id": 2853,
-  "title": "Shin Kidou Senki Gundam Wing: Operation Meteor",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2853",
+    "tmdb": "https://www.themoviedb.org/tv/21730/seasons",
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-wing/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1-4 (1996-04-25 to 1996-10-25) = TVDB 0x01-0x04 (1996-04-25 to 1996-10-25), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/2853",
-    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-wing/seasons/official/0"
-  },
+  "title": "Shin Kidou Senki Gundam Wing: Operation Meteor",
+  "justification": "Checked by episode title against TVDB series 79327 and TMDB show 21730. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-4 (\"Odd Numbers\" to \"Even Numbers II\") are TVDB S0E1 \"Operation Meteor I: Odd Numbers\" to TVDB S0E4 \"Operation Meteor II: Even Numbers II\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "3af4a5d7350ed4f9f8eb6026256339063334bd8e6a79ecd34aca7e525e89b4b9",
@@ -92,5 +93,5 @@
   "anilist_ids": [
     3626
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 2853
 }

@@ -14,17 +14,46 @@
             3
           ],
           [
-            2
+            2,
+            4
           ],
           [
-            3
+            3,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10
           ]
         ]
       }
     ]
   },
   "title": "Arslan Senki (2015)",
-  "justification": "AniDB special S1 (2015-07-05) = TVDB 0x03 (2015-07-05), was 0x01, by title. AniDB special S2-S3 (2015-07-23 to 2015-08-26) have no TVDB episode, was 0x02-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Tsuioku no Shou: Dakkan no Yaiba\" (2015-07-05) is TVDB season 0 episode 3 \"Episode 13.5 - Chapter of Reminiscence\" (2015-07-05). S2-S9 \"Arsen Yonkoma Gekijou\" (2015-07-23 to 2016-02-24) are episodes 4-11 アル戦4コマ劇場 第1期 1-8 on the same dates; before, S2 and S3 were unmapped and S4-S9 sat two episodes early. S10 \"Episode 25 Ending\" has no TVDB episode and is unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -313,8 +342,8 @@
       ],
       "series": 291630
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e3d85ca1707b625065fbe6d6aae0733e8d35f3b05b1e5e9c5dd7cc6a19e9802a"
   },
   "anilist_ids": [

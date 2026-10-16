@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:3861",
+  "title": "AniList 3861",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "7e282c5c5c5b68a5b3bbddf2d021fe5c89c0be444d3393ab59ce3fe08e919a7b",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 92 S1-S5 is TVDB 79857 0x1-0x5 by title, but AniDB gives S1 and S4 no air date, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/3861"
+        ],
+        "anilist_id": 3861
+      }
+    ]
+  }
+}

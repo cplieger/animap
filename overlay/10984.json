@@ -1,13 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10984",
+    "tmdb": "https://www.themoviedb.org/tv/62255/seasons",
     "tvdb": "https://thetvdb.com/series/seraph-of-the-end/seasons/official/0"
   },
   "set": {
+    "tmdbseason": "2",
+    "tmdboffset": "",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -33,7 +37,7 @@
     ]
   },
   "title": "Owari no Seraph: Nagoya Kessen Hen",
-  "justification": "AniDB special S1 (2015-12-25) = TVDB 0x12 (2015-12-25), was 0x01, by title, order breaking a same-title tie. AniDB special S2 (2016-01-27) = TVDB 0x13 (2016-01-27), was 0x02, by title, runtime breaking a tie. AniDB special S3 (2016-03-09) = TVDB 0x14 (2016-03-09), was 0x03, by title, order breaking a same-title tie. AniDB special S4 (no AniDB date) = TVDB 0x15 (2016-03-30), was 0x04, by title, runtime breaking a tie. AniDB special S5 (2015-12-25) has no TVDB episode, was 0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 289906 and TMDB show 62255. AniDB episode 1-12 (\"人間のセカイ\" (Human World) to \"終わりのセラフ\" (Seraph of the End)) are TMDB S2E1 \"人間のセカイ\" (Le monde des hommes) to TMDB S2E12 \"終わりのセラフ\" (Seraph of the End); AniDB S1-S4 (\"終わらないセラフ名古屋編 1\" (Seraph of the Endless Nagoya arc 1) to \"終わらないセラフ名古屋編 4\" (Seraph of the Endless Nagoya arc 4)) are TVDB S0E12 \"Seraph of the Endless Nagoya Arc 1\" to TVDB S0E15 \"Seraph of the Endless Nagoya Arc 4\" and TMDB S0E12 \"終わりなき名古屋弧のセラフ1\" (Seraph of the Endless Nagoya Arc 1) to TMDB S0E15 \"無限の名古屋アークのセラフ4\" (Seraph of the Endless Nagoya Arc 4); AniDB S5 \"「せらふぇす」イベントダイジェスト\" (Event Digest) has no TVDB episode (its default TVDB S0E5 is \"Seraph of the Endless 5\", another item) and no TMDB episode (its default TMDB S0E5 is \"Seraph of the Endless 5\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -280,8 +284,8 @@
       ],
       "series": 289906
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "eb046da48f1c6bfe9072d74acfc367ec6401e47a19bee6485cd21a42af64f8c7"
   },
   "anilist_ids": [

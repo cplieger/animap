@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9734",
+    "tmdb": "https://www.themoviedb.org/tv/46004/seasons",
     "tvdb": "https://thetvdb.com/series/date-a-live/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Date a Live: Date to Date",
-  "justification": "AniDB 1 (2013-12-06) = TVDB 0x01 (2013-12-06), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 264663 and TMDB show 46004. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"デート・ア・ライブ DATE TO DATE\") is TVDB S0E1 \"Date to Date\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "7dfd2dea9385050923da5ecd6573490a38fa47163fd5ebd6fba7a05a31ff8fd5",

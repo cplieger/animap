@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10401",
+    "tmdb": "https://www.themoviedb.org/tv/61374/seasons",
     "tvdb": "https://thetvdb.com/series/tokyo-ghoul/seasons/official/0"
   },
   "set": {
@@ -23,11 +24,23 @@
             6
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Tokyo Ghoul",
-  "justification": "AniDB special S1-S3 (2014-12-26 to 2015-09-22) have no TVDB episode, was 0x01-0x03. AniDB special S4 (2015-09-22) = TVDB 0x06 (2014-09-01), was 0x04 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 281249 and TMDB show 61374. AniDB S1-S2 (\"Extra 01\" to \"Extra 02\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S3 \"Preview Collection\" has no TVDB episode (its default TVDB S0E3 is \"Tokyo Ghoul\", another item); AniDB S4 \"Kankei in Black and White\" is TVDB S0E6 \"Kaneki in Black and White\". AniDB's 'Kankei' is a misspelling of Kaneki (白黒の金木).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -142,8 +155,8 @@
       ],
       "series": 281249
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "93427a871855b1c7f0264a66ad2fc77a60c2e13591a425678c90a122d7b05bca"
   },
   "anilist_ids": [

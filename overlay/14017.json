@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14017",
+    "tmdb": "https://www.themoviedb.org/tv/66105/seasons",
     "tvdb": "https://thetvdb.com/series/high-school-fleet/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "High School Fleet Gekijouban",
-  "justification": "AniDB special S1 (2020-10-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 306743 and TMDB show 66105. AniDB S1 \"初日舞台挨拶\" (Opening Day Stage Greeting) has no TVDB episode (its default TVDB S0E1 is \"Kouko Nosa in a Pinch!\", another item) and no TMDB episode (its default TMDB S0E1 is \"Kouko Nosa in a Pinch!\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -47,8 +49,8 @@
       ],
       "series": 306743
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a960b7b4fad18767338137b306302ccf741b3f53d802b8af5875460b431126e4"
   },
   "anilist_ids": [

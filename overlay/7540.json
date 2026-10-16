@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7540",
+    "tvdb": "https://thetvdb.com/series/kaibutsu-kun/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            9
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kaibutsu-kun: Demon no Ken",
+  "justification": "The 1982 film Demon no Ken (1982-03-13) is TVDB 184211 season 0 episode 9 Kaibutsu-kun Demon Sword - Anime Film (1982-03-13); the row pointed at episode 26, which does not exist.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "87aedc510bb7bbae6cff21af1e7ace00d26601bd65d217dc75969befe3225ade",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1981-03-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1981-03-31"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1981-03-31"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1981-03-31"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1981-08-01"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1982-01-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1982-01-02"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1982-01-03"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1982-03-13"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1982-03-14"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1982-06-20"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1982-06-20"
+        ],
+        [
+          0,
+          13,
+          0,
+          "1982-06-20"
+        ],
+        [
+          0,
+          14,
+          0,
+          "1982-06-20"
+        ],
+        [
+          0,
+          15,
+          0,
+          "1982-09-28"
+        ]
+      ],
+      "series": 184211
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f377f0e39464be2c16115b3bcbb3bd3b5e0f575632cbbde5ba0a44c6a0caa77a"
+  },
+  "anidb_id": 7540
+}

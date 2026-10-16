@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:1524",
+  "title": "Cybersix",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:12": "a56b0101d817cc23b5ce0c13b2dc157c95fd35dd7c9a3938d7c19aabeadee8a7"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 12 \"Daylight Devil / Mienai Teki\" (1999-10-17) = S1E12 \"Daylight Devil\" (1999-11-22).",
+      "evidence": [
+        "https://anidb.net/anime/1524",
+        "https://thetvdb.com/dereferrer/series/77193"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:100784",
+  "title": "AniList 100784",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3dc1820245259be3c0719d4b73e70e89761c1f6a200cda9c2619dedcd6929baf",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 14-25 of AniDB 13263 (TVDB 79895 season 10); anime-offline-database keeps AniDB 13263 as a record with no AniList source, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/100784"
+        ],
+        "anilist_id": 100784
+      }
+    ]
+  }
+}

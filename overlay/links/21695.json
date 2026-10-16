@@ -1,0 +1,24 @@
+{
+  "anilist_id": 21695,
+  "title": "Durarara!!x2 Ketsu: Dufufufu!!",
+  "parts": [
+    {
+      "anidb_id": 10867,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 21695 (OVA, 1 episode from 2016-05-21) is AniDB 10867's special S1 Dufufufu!!, aired 2016-05-21. AniList's PARENT relation names AniList 20880, which anime-offline-database links to AniDB 10867, and the special's title matches AniList's romaji, English and native titles. The parent's row places S1 on TVDB 0x5 Dufufufu!! (2016-05-21) and, with the TMDB row, on TMDB 42410 S0E5 Dufufufu!! (2016-05-21).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10867",
+    "anilist": "https://anilist.co/anime/21695",
+    "tmdb": "https://www.themoviedb.org/tv/42410/season/0",
+    "tvdb": "https://thetvdb.com/series/durarara/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "dc856fdf56a36071883f79dc96a6b798bbdd9834135529113bdf0bd640dfdf44"
+  }
+}

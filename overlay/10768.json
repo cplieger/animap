@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10768",
+    "tmdb": "https://www.themoviedb.org/tv/64706/seasons",
     "tvdb": "https://thetvdb.com/series/prison-school/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Prison School",
-  "justification": "AniDB special S1 (2018-10-09) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 293267 and TMDB show 64706. AniDB S1 \"Video Commentary\" has no TVDB episode (its default TVDB S0E1 is \"Mad Wax\", another item) and no TMDB episode (its default TMDB S0E1 is \"Mad Wax\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +110,8 @@
       ],
       "series": 293267
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ee90e7a85143ea26aba71550684f205a4adb639e7594f105ee6e5cd1e42cc61a"
   },
   "anilist_ids": [

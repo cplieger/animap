@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12147",
-    "tvdb": "https://thetvdb.com/series/overlord/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/overlord/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/64196/seasons"
   },
   "set": {
     "mapping_list": [
@@ -22,7 +23,7 @@
     ]
   },
   "title": "Ple Ple Pleiades",
-  "justification": "AniDB 2-3 (2017-02-25 to 2017-09-13) = TVDB 0x12-0x13 (2017-02-25 to 2017-09-13), was 0x10-0x11, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 294002 and TMDB show 64196. AniDB episode 2-3 (\"ぷれぷれぷれあです - 「魔獣の恋」\" (Pure Pure Pleiades - A Magical Beast`s Love) to \"ぷれぷれぷれあです - 「自動人形と猫」\" (Pure Pure Pleiades - The Automaton and The Cat)) are TVDB S0E12 \"Pure Pure Pleiades - A Magical Beast's Love\" to TVDB S0E13 \"Pure Pure Pleiades - The Automaton and The Cat\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

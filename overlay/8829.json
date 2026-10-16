@@ -1,11 +1,15 @@
 {
-  "anidb_id": 8829,
-  "title": "Upotte!!",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8829",
+    "tmdb": "https://www.themoviedb.org/tv/45190/seasons",
+    "tvdb": "https://thetvdb.com/series/upotte/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -14,11 +18,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 8991. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8829",
-    "tvdb": "https://thetvdb.com/series/upotte/seasons/official/0"
-  },
+  "title": "Upotte!!",
+  "justification": "Checked by episode title against TVDB series 257887 and TMDB show 45190. AniDB S1 \"ドキドキ・グアム・ミリタリー体験記\" (some kind of staff comment on live video stuff about some gun event) has no TVDB episode (its default TVDB S0E1 is \"Behold! Laugh!\", another item) and no TMDB episode (its default TMDB S0E1 is \"Behold! Laugh!\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "19aa5f8108a465931cb412c6916095cad7f580a5423c29ea31a0aeae857ad4e9",
@@ -102,12 +104,12 @@
       ],
       "series": 257887
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b14b053ad029e49cd0f297129fbae2fcf2aec23d1e1656d394d6a866d6122545"
   },
   "anilist_ids": [
     12317
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8829
 }

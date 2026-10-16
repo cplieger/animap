@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11606",
+    "tmdb": "https://www.themoviedb.org/tv/65336/seasons",
     "tvdb": "https://thetvdb.com/series/march-comes-in-like-a-lion/seasons/official/0"
   },
   "set": {
@@ -17,11 +18,20 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Sangatsu no Lion",
-  "justification": "AniDB special S2 (2017-04-26) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 306269 and TMDB show 65336. AniDB S2 \"Ending 2 Full Version\" has no TVDB episode (its default TVDB S0E2 is \"Episode 11.5 (Recap)\", another item) and no TMDB episode (its default TMDB S0E2 is \"Meow Shogi Song\", another item). S2 is the full second ending, not TMDB S0E2 'Meow Shogi Song'.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -238,8 +248,8 @@
       ],
       "series": 306269
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7eeb27ff5f2719b96d3b37fd9057b1afa8fd17d03efee2889330e139ecc9e11d"
   },
   "anilist_ids": [

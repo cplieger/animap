@@ -1,0 +1,61 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6271",
+    "tvdb": "https://thetvdb.com/series/kowarekake-no-orgel/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "1",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kowarekake no Orgel",
+  "justification": "The OVA itself (2009-12-31) is TVDB season 1 episode 1 \"Kowarekake no Orgel\" (2009-12-31); with default season 0 it fell on season 0 episode 1 \"Sidestory\". AniDB special S1 \"Extra Episode\" is that season 0 episode 1, the extra episode added to the theatrical and disc releases; the row sent it to episode 2 \"Theater Etiquette\", a cinema manners clip. S2, the music video, has no TVDB episode and is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "4ad0eb952c194921e6465b10b85fe44593617c9820cf1cd88f59773b4af77f73",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-09-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-12-31"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2009-12-31"
+        ]
+      ],
+      "series": 153881
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "64a09cd8267f5c1ad15527b09eb3c2c318505e84bfa9a485d4691ceb8356c022"
+  },
+  "anidb_id": 6271
+}

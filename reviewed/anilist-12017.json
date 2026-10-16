@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:12017",
+  "title": "AniList 12017",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c01bfad44340c7a3885bad0197c61cca802259052847e86c5fee63ea7f3abfa7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 2 The Rising of AniDB 8805 (TVDB 246381 0x5); anime-offline-database links AniDB 8805 to AniList 12015 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/12017"
+        ],
+        "anilist_id": 12017
+      }
+    ]
+  }
+}

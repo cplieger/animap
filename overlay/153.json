@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/153",
+    "tmdb": "https://www.themoviedb.org/tv/9103/season/0",
     "tvdb": "https://thetvdb.com/series/kimagure-orange-road/seasons/official/0"
   },
   "set": {
@@ -8,16 +9,20 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Kimagure Orange Road",
-  "justification": "AniDB special S1 (1988-03-14) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (1988-03-14) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S2, a design works gallery, has no TVDB or TMDB episode either: TVDB 78923 season 0 and TMDB 9103 season 0 hold only the OVAs and films, and its TMDB default was season 0 episode 2, Hawaiian Suspense (node 7582). The row now names TMDB season 0 too.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -396,8 +401,8 @@
       ],
       "series": 78923
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "35f5341020fc4b80d31a12bdd1f4599afbf80b453a383ad853f1c79858d60a34"
   },
   "anilist_ids": [

@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:5204",
+  "title": "AniList 5204",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c01bfad44340c7a3885bad0197c61cca802259052847e86c5fee63ea7f3abfa7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 6 of AniDB 4932 (one anime holding the 7 films, which anime-offline-database links to no AniList entry), so this entry has no AniDB id; it is TVDB 82099 1x6. A bridge takes only specials, and a record cannot start at a node's episode 6",
+        "evidence": [
+          "https://anilist.co/anime/5204"
+        ],
+        "anilist_id": 5204
+      }
+    ]
+  }
+}

@@ -1,13 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7920",
+    "tmdb": "https://www.themoviedb.org/tv/32377/seasons",
     "tvdb": "https://thetvdb.com/series/armored-trooper-votoms/seasons/official/0"
   },
   "set": {
+    "tmdboffset": "32",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +23,7 @@
     ]
   },
   "title": "Soukou Kihei Votoms: Koei Futatabi",
-  "justification": "AniDB special S1-S2 (2011-04-22) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 90521 and TMDB show 32377. AniDB episode 1 \"OVA\" (the anime \"装甲騎兵ボトムズ 孤影再び\") is TMDB S0E33 \"孤影再び\" (Alone Again); AniDB S1-S2 (\"初日舞台挨拶\" (Opening Day Stage Greeting) to \"ボトムズを創り続けた男たち\" (Special Talk)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -116,8 +119,8 @@
       ],
       "series": 90521
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "434b7607ed7d2990456855add20fa4f2eb3b0141e57d5cd8aa9927b76db85cb2"
   },
   "anilist_ids": [

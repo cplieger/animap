@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12420",
+    "tmdb_movie": "https://www.themoviedb.org/movie/461083",
     "tvdb": "https://thetvdb.com/series/fate-kaleid-liner-prisma-illya/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "461083",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -21,7 +26,7 @@
     ]
   },
   "title": "Gekijouban Fate/Kaleid Liner Prisma Illya: Sekka no Chikai",
-  "justification": "AniDB special S2 (2018-01-31) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 269319. The film is TMDB movie 461083 (Fate/kaleid liner Prisma☆Illya: Vow in the Snow (2017)). TMDB show 63576 does not carry it, so the node leaves that show. AniDB S2 \"スペシャルアフタートーク\" (Special After Talk) has no TVDB episode (its default TVDB S0E2 is \"Quiz Magical Rubyonaire\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -195,8 +200,8 @@
       ],
       "series": 269319
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f7c177ab96b30cfc674e0635bf9af9fecc6434205f76d2ea2189b02921ae3826"
   },
   "anilist_ids": [

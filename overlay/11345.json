@@ -1,44 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11345",
+    "tmdb": "https://www.themoviedb.org/tv/65712/seasons",
     "tvdb": "https://thetvdb.com/series/dimension-w/seasons/official/0"
   },
   "set": {
-    "mapping_list": [
-      {
-        "anidb_season": 0,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            1,
-            1
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            4,
-            4
-          ],
-          [
-            5,
-            5
-          ],
-          [
-            6,
-            6
-          ]
-        ]
-      }
-    ]
+    "mapping_list": []
   },
   "title": "Dimension W",
-  "justification": "AniDB special S4-S5 (2016-06-24 to 2016-07-22) = TVDB 0x04-0x05 (2016-06-24 to 2016-07-22), was 0x05-0x06, by title. AniDB special S6 (2016-08-26) = TVDB 0x06 (2016-08-26), was 0x04, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 299963 and TMDB show 65712. AniDB S4-S6 (\"Wの扉 ONLINE ~ロゼのお悩み相談室~ 4\" (W Gate Online: Rose`s Counseling Room 4) to \"SHORT TRACK / ロボットは銭湯の夢を見るか\" (Short Track / Do Robots Dream of Bathhouses?)) are TVDB S0E4 \"Rose's Counseling Room 4\" to TVDB S0E6 \"[OVA] Do Robots Dream of Bathhouses?\". Every special already lands on its own default, so the node needs no mapping list.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -219,8 +189,8 @@
       ],
       "series": 299963
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "05b88da4696cfb7028e43f2700a95922ec062b381b777f102bf9f07ef639a01f"
   },
   "anilist_ids": [

@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:1180",
+  "title": "Boboboubo Boubobo",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:74": "e1f7d58292616372e4c8d467f7982488bc4d5ef35c828820e8f1b0a3f0d4ef2d",
+        "date-mismatch:75": "43eba817dd9b001a330f02ab32f43343275ab1208e7d27e6add62851d4a66de2",
+        "date-mismatch:76": "6e8640c54d60bc7d46b570b4671df092dc2f19d9f084c2b56bcbb5a216cb10ee"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "76 regular episodes on both sides, default placement k -\u003e S1Ek. The three flagged episodes carry matching titles: AniDB 74 'Battle Stage wa Kyodai ka Hekkun! Akachan Mode Hatsudou' / 'Henshin! Ikari no ... Patch' = TVDB S1E74 'The Bigger the Gasser - The Smellier the Gas! / This Isn't Really Part 2' (He-kun = the fart character, Don Patch transformation); AniDB 75 'Saishuu Kessen ni Totsunyuu ... Kuma-san Toujou' = TVDB S1E75 'Finally! The Final Fight of Finality! ... Inside the Giant Nose Hair, Bears Come Out!?'; AniDB 76 'Tsui ni Saishuu Kessen!! Hanage Makobushi Forever!!' = TVDB S1E76 '... The Final-Final Battle to End All Battles, FOREVER!'. Sampled episodes 1-12, 30-33, 50-59, 65-73 the same way (AniDB's second title line is the dub-style title TVDB carries: 'Pasta... The Perfect Food!' = Soumen, 'Queen Chicken Level' = Niwako, 'Samba de Bo-bobo!! Yaksha to Mountain Witch to Sambaman!?'). TVDB dates are the 2006-2007 US airing, AniDB's are the 2003-2005 Japanese airing; that is the whole mismatch. The S1 special 'Episode 32.5' maps to S0E1 'The Time Has Come! Reopened and Refurbished!! It's Finally Here! The Age of Patches!' (Omatase! Shinsou Kaiten!! Tsui ni Kita no ne, Patchbi no Jidai ga), same episode.",
+      "evidence": [
+        "https://anidb.net/anime/1180",
+        "https://thetvdb.com/dereferrer/series/79355"
+      ]
+    }
+  }
+}

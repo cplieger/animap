@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12198",
-    "tmdb": "https://www.themoviedb.org/tv/65928/season/2",
+    "tmdb": "https://www.themoviedb.org/tv/65928/seasons",
     "tvdb": "https://thetvdb.com/series/12-sai-chiccha-na-mune-no-tokimeki/seasons/official/2"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdboffset": ""
   },
   "title": "12-sai. Chicchana Mune no Tokimeki (2016)",
-  "justification": "AniDB 1-12 (2016-10-03 to 2016-12-19) = TVDB 2x01-2x12, same dates, and TMDB S2E1-12, same dates or one day earlier. Old 'S1 + 12' pointed at 1x13-1x24, which do not exist (TVDB S1 has 12). AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 289796 and TMDB show 65928. AniDB episode 1-12 (\"スキ・キス・キス!?\" (Love Kiss Kiss!?) to \"ダイスキ\" (I Love You)) are TVDB S2E1 \"Love, Kiss, Kiss!?\" to TVDB S2E12 \"I Love You\" and TMDB S2E1 \"スキ・キス・キス!?\" (Love Kiss Kiss!?) to TMDB S2E12 \"ダイスキ\" (I Love You).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

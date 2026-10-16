@@ -14,7 +14,7 @@ animap is built for tools beside Sonarr and Radarr that need the id and season t
 - The file is rebuilt every 3 hours and released only when its version, attribution or records change.
 - A build is not released when a count drops by over 10% or two entries newly claim the same episode.
 - Each correction to Anime-Lists is proven against AniDB, TVDB and TMDB, and links its Anime-Lists pull request once one is filed.
-- Every [SeaDex](https://releases.moe) title is checked daily for a complete mapping.
+- A daily review checks every mapping's air dates against TVDB and TMDB, every correction against upstream, and every [SeaDex](https://seadex.moe) title for a complete mapping, and keeps one issue per anime.
 
 Every value comes from anime-offline-database, Anime-Lists, AniDB's episode counts read through a mirror, or animap's corrections, never from another site.
 
@@ -53,7 +53,7 @@ Its regular episodes are on TVDB season 1 and TMDB season 1. Its specials follow
 jq '.records[] | select(.anilist_id == 1)' animap.json
 ```
 
-Records are sorted by `anilist_id`. Records with an AniDB id and no AniList id come last. An AniList id with no AniDB id still has a record with its type, episode count and MyAnimeList id. Read `version` first. It changes only when the format breaks.
+Records are sorted by `anilist_id`, and records keyed by AniDB id alone come last. An AniList id with no AniDB id still has a record with its type, episode count and MyAnimeList id. One that only an animap correction names counts the linked episodes and may lack a type or MyAnimeList id. Read `version` first. It changes only when the format breaks.
 
 Each release also carries `animap.json.sha256` and `animap.json.sigstore.json`, a keyless [cosign](https://docs.sigstore.dev/) signature made by this repository's publish workflow. To check a download:
 
@@ -111,14 +111,15 @@ It contains information from [anime-offline-database](https://github.com/cedya77
 
 The episode count of an anime whose end date AniDB records comes from AniDB, read through [AnimeAggregations](https://github.com/notseteve/AnimeAggregations), a mirror of AniDB's data. For an anime with no end date yet, it comes from anime-offline-database. animap keeps only numbers, dates and a SHA-256 digest of the episode titles from the mirror, never its titles or descriptions.
 
-To notice when TheTVDB changes an episode order, each correction on a TVDB series stores a fingerprint of that order, read through the public metadata service Sonarr uses. The file holds no AniDB titles or descriptions, only AniDB ids and episode numbers. [docs/sources.md](docs/sources.md) covers each source and its licence.
+To notice when TheTVDB changes an episode order, each correction on a TVDB series stores a fingerprint of that order, read through the public metadata service Sonarr uses. The daily review also reads TheTVDB's and TMDB's episode orders, and keeps only numbers, dates and title digests from them. This product uses the TMDB API but is not endorsed or certified by TMDB. [docs/sources.md](docs/sources.md) covers each source and its licence.
 
 ## Documentation
 
 - [The animap.json schema](docs/schema.md) lists every field, which records exist, and how to read the file in Go.
 - [The overlay](docs/overlay.md) is animap's set of corrections to Anime-Lists, with the bar each one meets and how to add one.
+- [The daily review](docs/review.md) keeps one issue per anime across every check, and explains how to accept a finding that is right.
 - [The watch set](docs/watch.md) defines what "fully mapped" means for each type, and how a gap becomes an issue.
-- [The date check](docs/date-check.md) flags mappings that AniDB and TVDB air dates contradict.
+- [The date check](docs/date-check.md) flags mappings that AniDB air dates contradict on TVDB and TMDB.
 - [Data sources and licences](docs/sources.md) covers each source and the licence that applies.
 
 ## Contributing

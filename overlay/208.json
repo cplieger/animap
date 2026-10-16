@@ -1,14 +1,17 @@
 {
-  "anidb_id": 208,
-  "title": "El-Hazard: The Magnificent World",
-  "set": {
-    "episodeoffset": "0"
-  },
-  "justification": "AniDB 1-7 (1995-05-26 to 1996-01-25) = TVDB 0x01-0x07 (1995-05-26 to 1996-01-26), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
   "evidence": {
     "anidb": "https://anidb.net/anime/208",
+    "tmdb": "https://www.themoviedb.org/tv/44775/seasons",
     "tvdb": "https://thetvdb.com/series/el-hazard-the-alternative-world/seasons/official/0"
   },
+  "set": {
+    "episodeoffset": "0",
+    "tmdbtv": "44775",
+    "tmdbseason": "1"
+  },
+  "title": "El-Hazard: The Magnificent World",
+  "justification": "Checked by episode title against TVDB series 152531 and TMDB show 44775. Its episodes are on TMDB show 44775. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-7 (\"混戦の世界エルハザード\" (Battlefield of Confusion) to \"永遠の世界エルハザード\" (The World of Endless Adventures)) are TVDB S0E1 \"First Night: Battlefield of Confusion\" to TVDB S0E7 \"Seventh Night: The World of Endless Adventures\" and TMDB S1E1 \"混戦の世界エルハザード\" (Battlefield of Confusion) to TMDB S1E7 \"永遠の世界エルハザード\" (The World of Endless Adventures). TMDB show 138118 no longer exists; TMDB 44775 season 1 holds the seven episodes.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "fff98f4e7c251ebd7b9932595836f361e98e2a471cfb9378a7756b4f228db692",
@@ -85,12 +88,12 @@
       ],
       "series": 152531
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c714aeb5f7e291306da33c9ca21de2bbfa577223a8ba909545c545c6aceefd5d"
   },
   "anilist_ids": [
     117
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 208
 }

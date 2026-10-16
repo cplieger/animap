@@ -1,0 +1,20 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/19846",
+    "anilist": "https://anilist.co/anime/206004",
+    "tmdb": "https://www.themoviedb.org/tv/310641/season/1"
+  },
+  "set": {
+    "tvdbid": "hentai",
+    "tmdbtv": "310641"
+  },
+  "title": "Love wa Gal kara Hajimaru Unmei",
+  "justification": "The node holds placeholder ids, TVDB 123456 and TMDB tv 987654, both gone. AniList 206004 marks this two-episode OVA adult, so the TVDB marker is hentai; TheTVDB search finds nothing for the title. TMDB 310641 Love wa Gal kara Hajimaru Unmei season 1 holds its two episodes (2026-04-10 and 2026-06-05, the AniDB dates).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a43ec357dc02a746b28653388313129febd7ddd6876c1962aec0f76f666c966f"
+  },
+  "anidb_id": 19846
+}

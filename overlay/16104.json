@@ -14,7 +14,8 @@
             3
           ],
           [
-            2
+            2,
+            1
           ],
           [
             3
@@ -24,7 +25,7 @@
     ]
   },
   "title": "Hataraku Maou-sama!!",
-  "justification": "AniDB special S2-S3 (2022-07-07 to 2022-09-30) have no TVDB episode, was 0x02-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 1st Season Recap Special: From Sasazuka to Ente Isla! (2023-07-06) is TVDB 267441 season 0 episode 3 Recap Special From Sasazuka to Ente Isla! (2023-07-06). S2 Pre-Broadcast Special 放送直前特別番組!! 地上波! ただいま, 魔王さま~! (2022-07-07) is episode 1, whose title on the TheTVDB season page is the same, 『はたらく魔王様！！』放送直前特別番組！！～地上波！ただいま、魔王さま～！～ (2022-07-14, 24 minutes); SkyHook mislabels it \"Episode 1 Prologue\". S3, the director's cut of that programme (2022-09-30), has no TVDB episode; its default was episode 3.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -343,8 +344,8 @@
       ],
       "series": 267441
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "289105238dd0da63e4993c863f8ac60675aab53ac6aebb8ba6ab611907a2551e"
   },
   "anilist_ids": [

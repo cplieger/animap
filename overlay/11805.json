@@ -1,14 +1,15 @@
 {
-  "anidb_id": 11805,
-  "title": "Prison School: Mad Wax",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11805",
+    "tmdb": "https://www.themoviedb.org/tv/64706/seasons",
+    "tvdb": "https://thetvdb.com/series/prison-school/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2016-03-04) = TVDB 0x01 (2016-03-04), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/11805",
-    "tvdb": "https://thetvdb.com/series/prison-school/seasons/official/0"
-  },
+  "title": "Prison School: Mad Wax",
+  "justification": "Checked by episode title against TVDB series 293267 and TMDB show 64706. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"監獄学園[プリズンスクール] マッドワックス\") is TVDB S0E1 \"Mad Wax\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "0ff0e93434878a9f94d38a158bfbb65a34cf0938c3351861842ffc380ab938b3",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     21565
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 11805
 }

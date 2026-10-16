@@ -1,0 +1,29 @@
+{
+  "anilist_id": 20582,
+  "title": "Chuunibyou demo Koi ga Shitai! Ren Lite",
+  "parts": [
+    {
+      "anidb_id": 9874,
+      "specials": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "justification": "AniList 20582 (ONA, 6 episode(s) from 2013-12-25) is AniDB 9874's special(s) S2-S7, aired 2013-12-26 to 2014-03-13. AniList's PARENT relation names AniList 18671, which anime-offline-database links to AniDB 9874, the titles 'Lite 1' to 'Lite 6' match the AniList title, and AniDB lists MAL 21797 on AniDB 9874. TVDB 261862 0x11-0x16 'Chunibyo Lite! 1' to '6' carry the same titles and dates within a day.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9874",
+    "anilist": "https://anilist.co/anime/20582",
+    "tmdb": "https://www.themoviedb.org/tv/45501/season/0",
+    "tvdb": "https://thetvdb.com/series/love-chunibyo-and-other-delusions/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "141c08f57aa91c5887e90045bc0157291607b3c46b957c600e0717a8e17c75c7"
+  }
+}

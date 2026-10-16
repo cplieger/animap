@@ -1,0 +1,59 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9243",
+    "tvdb": "https://thetvdb.com/series/diamond-daydreams/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kita e.: Pure Session",
+  "justification": "AniDB special S1 \"Kanmatsu Tokuten Eizou\" (end-of-volume bonus footage, 2000-05-31) had no row and fell on TVDB season 0 episode 1 \"~Finland \u0026 Asahikawa~ Suomi Kitano\", the 2004 Diamond Dust Drops special (AniDB 1321 S1). TVDB lists no bonus footage, so it is unmapped. The OVA itself stays on season 0 episode 2 (2000-05-31).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "098ca3f1f9779164676ad7e99034054ecb0d60dbf8b099368975ef750bbecac4",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          8,
+          "2004-08-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2000-05-31"
+        ]
+      ],
+      "series": 81961
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "1f0ac5993719f2e545c8ddc47b92f5dd17a1478d70ef442bdd67a48dacfe7f74"
+  },
+  "anidb_id": 9243
+}

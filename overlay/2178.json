@@ -1,0 +1,21 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2178",
+    "tmdb": "https://www.themoviedb.org/movie/27812",
+    "tvdb": "https://thetvdb.com/movies/kakurenbo-hide-and-seek"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbid": "27812"
+  },
+  "title": "Kakurenbo",
+  "justification": "TVDB 121681 is gone; TVDB lists the 25-minute short only as movie 41895 Kakurenbo: Hide and Seek (2005-03-03), with IMDb tt0489102, the node's own, and TMDB movie 27812. TheTVDB and SkyHook searches find no series; the AniDB extras (commentary, galleries, interviews) have no TVDB entry.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "404a0924670ba05634feef2712ca1fece34fdcdff3d2f05d17f6b505b7c9f736"
+  },
+  "anidb_id": 2178
+}

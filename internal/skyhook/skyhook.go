@@ -86,22 +86,6 @@ func parseShow(body []byte) (*Show, error) {
 	return s, nil
 }
 
-// TitleHashes is the hex SHA-256 of each season's episode numbers and
-// titles, by season.
-func (s *Show) TitleHashes() map[int]string {
-	lines := map[int][]string{}
-	for _, e := range s.Episodes {
-		lines[e.Season] = append(lines[e.Season], fmt.Sprintf("E%d %q", e.Number, strings.TrimSpace(s.Titles[[2]int{e.Season, e.Number}])))
-	}
-	out := make(map[int]string, len(lines))
-	for season, l := range lines {
-		slices.Sort(l)
-		sum := sha256.Sum256([]byte(strings.Join(l, "\n")))
-		out[season] = hex.EncodeToString(sum[:])
-	}
-	return out
-}
-
 // Getter is the fetch a Client needs; source.Client satisfies it.
 type Getter interface {
 	Get(ctx context.Context, url string, maxBytes int64) ([]byte, error)
@@ -134,12 +118,32 @@ func Layout(s *Show, seasons []int) []Episode {
 	return out
 }
 
+// AtAbsolute is the regular-season episode of eps that TVDB numbers n in
+// absolute order. ok is false when eps holds none or more than one.
+func AtAbsolute(eps []Episode, n int) (at [2]int, ok bool) {
+	for _, e := range eps {
+		if e.Absolute != n || e.Season < 1 || n < 1 {
+			continue
+		}
+		if ok {
+			return [2]int{}, false
+		}
+		at, ok = [2]int{e.Season, e.Number}, true
+	}
+	return at, ok
+}
+
 // Hash fingerprints a layout: its lines sorted and joined.
 func Hash(eps []Episode) string {
 	lines := make([]string, 0, len(eps))
 	for _, e := range eps {
 		lines = append(lines, e.Line())
 	}
+	return digest(lines)
+}
+
+// digest sorts lines in place and hashes them joined.
+func digest(lines []string) string {
 	slices.Sort(lines)
 	sum := sha256.Sum256([]byte(strings.Join(lines, "\n")))
 	return hex.EncodeToString(sum[:])

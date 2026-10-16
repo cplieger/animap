@@ -1,0 +1,19 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/637",
+    "anilist": "https://anilist.co/anime/2382",
+    "tmdb": "https://www.themoviedb.org/tv/26016/season/1"
+  },
+  "set": {
+    "tvdbid": "other"
+  },
+  "title": "Firestorm",
+  "justification": "TVDB 150781 is gone and no TVDB series or movie carries this 2003 26-episode TV series: TheTVDB search for Firestorm finds only unrelated live-action films and shows, and nothing for ファイアーストーム; SkyHook finds nothing either, and AniList 2382 lists no related anime. A TV series with no TVDB entry takes the marker other. TMDB 26016 season 1 lists the 26 AniDB episodes from Storm Force 9 (2003-04-06), so the TMDB values stay.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0e98a15359a3a45ebf1f68c23ec0b12070e748c2f6cc92fda50b073819da0ee1"
+  },
+  "anidb_id": 637
+}

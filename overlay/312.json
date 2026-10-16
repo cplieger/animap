@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/312",
+    "tmdb": "https://www.themoviedb.org/tv/30669/seasons",
     "tvdb": "https://thetvdb.com/series/yu-yu-hakusho/seasons/official/0"
   },
   "set": {
@@ -21,11 +22,11 @@
           ],
           [
             4,
-            3
+            4
           ],
           [
             5,
-            4
+            3
           ],
           [
             6,
@@ -79,7 +80,7 @@
     ]
   },
   "title": "Yuu Yuu Hakusho",
-  "justification": "AniDB special S1 (no AniDB date) = TVDB 0x15 (2009-10-27), was 0x04, by title. AniDB special S4-S5 (no AniDB date) = TVDB 0x03-0x04 (1994-10-05), was unmapped, by title. AniDB special S6 (no AniDB date) = TVDB 0x09 (1996-02-07), was unmapped, by title. AniDB special S7 (no AniDB date) = TVDB 0x08 (1996-02-07), was unmapped, by title. AniDB special S8 (no AniDB date) = TVDB 0x07 (1996-02-07), was unmapped, by title. AniDB special S9 (no AniDB date) = TVDB 0x06 (1996-02-07), was unmapped, by title. AniDB special S14-S15 (2019-09-03 to 2019-11-05) have no TVDB episode, was 0x14-0x15. AniDB special S16 (no AniDB date) = TVDB 0x05 (1994-10-05), was 0x16, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 76665 and TMDB show 30669. AniDB S1 \"ピクチャードラマ\" (Picture Drama) is TVDB S0E15 \"Picture Drama\"; AniDB S4 \"映像白書~暗黒武術会の章~下巻\" (Eizou Hakusho: Dark Tournament, Vol. 1) is TVDB S0E4 \"Eizou Hakusho: Dark Tournament, vol. 2\"; AniDB S5 \"映像白書~暗黒武術会の章~上巻\" (Eizou Hakusho: Dark Tournament, Vol. 2) is TVDB S0E3 \"Eizou Hakusho: Dark Tournament, vol. 1\"; AniDB S6 \"映像白書II~飛影の章~\" (Eizou Hakusho II: The Hiei Chapters) is TVDB S0E9 \"Eizou Hakusho: Hiei\"; AniDB S7 \"映像白書II~桑原の章~\" (Eizou Hakusho II: The Kuwabara Chapters) is TVDB S0E8 \"Eizou Hakusho: Kuwabara\"; AniDB S8 \"映像白書II~蔵馬の章~\" (Eizou Hakusho II: The Kurama Chapters) is TVDB S0E7 \"Eizou Hakusho: Kurama\"; AniDB S9 \"映像白書II~幽助の章~\" (Eizou Hakusho II: The Yusuke Chapters) is TVDB S0E6 \"Eizou Hakusho: Yusuke\"; AniDB S14-S15 (\"Looking Back at a Legacy\" to \"Behind the Design\") have no TVDB episode (their defaults are other items); AniDB S16 \"オープニングエンディング大百科\" (Opening \u0026 Ending Encyclopedia) is TVDB S0E5 \"Opening \u0026 Ending Encyclopedia\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -761,8 +762,8 @@
       ],
       "series": 76665
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d196b2c7912831cc5736dd44874e4557e5d5bb860cb9632b43c6a54a85c251fa"
   },
   "anilist_ids": [

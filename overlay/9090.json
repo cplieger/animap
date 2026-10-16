@@ -2,7 +2,8 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/9090",
     "tvdb_s0": "https://thetvdb.com/series/student-councils-discretion/seasons/official/0",
-    "tvdb_s2": "https://thetvdb.com/series/student-councils-discretion/seasons/official/2"
+    "tvdb_s2": "https://thetvdb.com/series/student-councils-discretion/seasons/official/2",
+    "tmdb": "https://www.themoviedb.org/tv/56783/seasons"
   },
   "set": {
     "mapping_list": [
@@ -26,7 +27,7 @@
     ]
   },
   "title": "Seitokai no Ichizon Lv.2",
-  "justification": "AniDB 1 (2012-10-13) = TVDB 0x01 (2012-10-13), was 2x01. AniDB 2-10 (2012-10-20 to 2012-12-15) = TVDB 2x01-2x09 (2012-10-20 to 2012-12-15), was 2x02-2x10. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 116001 and TMDB show 56783. AniDB episode 1 \"すぎさきメモリアル\" (The Memories of Sugisaki) is TVDB S0E1 \"Sugisaki's Memorial\"; AniDB episode 2-10 (\"テコ入れする生徒会\" (The Student Council`s New Direction) to \"終わらない生徒会\" (The Eternal Student Council)) are TVDB S2E1 \"The Student Council Brainstorms\" to TVDB S2E9 \"The Student Council Doesn't End\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

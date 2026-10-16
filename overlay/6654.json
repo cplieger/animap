@@ -1,14 +1,15 @@
 {
-  "anidb_id": 6654,
-  "title": "Minami-ke Betsubara",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6654",
+    "tmdb": "https://www.themoviedb.org/tv/56354/seasons",
+    "tvdb": "https://thetvdb.com/series/minami-ke/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2009-06-23) = TVDB 0x01 (2009-06-23), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/6654",
-    "tvdb": "https://thetvdb.com/series/minami-ke/seasons/official/0"
-  },
+  "title": "Minami-ke Betsubara",
+  "justification": "Checked by episode title against TVDB series 81463 and TMDB show 56354. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"いただこう・かもしれない・やる気・できること\" (I`ll take it, Could be, Motivation, Possible Things) is TVDB S0E1 \"Betsubara\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "5cb039183e6c272ff6c675c0aad20000c6912d541fbebaf7707542feb9962440",
@@ -44,5 +45,5 @@
   "anilist_ids": [
     5713
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 6654
 }

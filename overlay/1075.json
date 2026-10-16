@@ -1,0 +1,84 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1075",
+    "tmdb": "https://www.themoviedb.org/tv/34689/season/0",
+    "tvdb": "https://thetvdb.com/series/magical-project-s/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0",
+    "tmdbseason": "0"
+  },
+  "title": "Mahou Shoujo Pretty Sammy",
+  "justification": "The 1995-97 OVA is TVDB 71283 season 0 episodes 1 Pretty Sammy, The Magical Girl (1995-08-25), 2 Revenge of the Imperial Electronic Brain (1996-06-25) and 3 Super Kiss (1997-08-24), and TMDB 34689 season 0 episodes 1-3 of those titles and dates; season 1, where the node sent them, is the TV series (node 741). The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "08b78594d32e52dca349fea43857a8c042b8fc5617d09a01cd16bd7825413f87",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1995-08-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1996-06-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1997-08-24"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ],
+        [
+          0,
+          7,
+          0,
+          ""
+        ],
+        [
+          0,
+          8,
+          0,
+          ""
+        ],
+        [
+          0,
+          9,
+          0,
+          ""
+        ]
+      ],
+      "series": 71283
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "6a095f5a9c62b465cc83258936861be56b11a7c5377973abc01b80ccb804eaa5"
+  },
+  "anidb_id": 1075
+}

@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"os"
 	"reflect"
+	"slices"
 	"strings"
 	"testing"
 
@@ -58,7 +59,7 @@ func byKey(recs []schema.Record) (al, ad map[int]schema.Record) {
 
 func TestBuildRecordSet(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, st := Build(entries, nodes, databaseFacts(entries, nil))
+	recs, st, _ := Build(entries, nodes, databaseFacts(entries, nil), nil)
 	al, ad := byKey(recs)
 
 	want100 := schema.Record{
@@ -100,7 +101,7 @@ func TestBuildRecordSet(t *testing.T) {
 
 func TestBuildPrecedenceAndFieldRules(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, _ := Build(entries, nodes, databaseFacts(entries, nil))
+	recs, _, _ := Build(entries, nodes, databaseFacts(entries, nil), nil)
 	al, ad := byKey(recs)
 	if r := ad[12]; r.Type != "OVA" || r.TVDBSeason == nil || *r.TVDBSeason != 0 || r.TVDBEpisodeOffset == nil || *r.TVDBEpisodeOffset != 0 || r.MappingList != nil {
 		t.Errorf("AniDB 12 = %+v, want OVA, season 0, explicit offset 0, its unparseable row dropped", r)
@@ -121,7 +122,7 @@ func TestBuildPrecedenceAndFieldRules(t *testing.T) {
 
 func TestBuildOrder(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, _ := Build(entries, nodes, databaseFacts(entries, nil))
+	recs, _, _ := Build(entries, nodes, databaseFacts(entries, nil), nil)
 	seenAniDBOnly := false
 	for i := 1; i < len(recs); i++ {
 		a, b := recs[i-1], recs[i]
@@ -145,7 +146,7 @@ func TestBuildOrder(t *testing.T) {
 // the diff.
 func TestGolden(t *testing.T) {
 	entries, nodes := fixtures(t)
-	recs, _ := Build(entries, nodes, databaseFacts(entries, nil))
+	recs, _, _ := Build(entries, nodes, databaseFacts(entries, nil), nil)
 	doc := &schema.Document{Version: schema.Version, GeneratedAt: "2026-10-05T00:00:00Z", Attribution: schema.DefaultAttribution, Records: recs}
 	got, err := schema.Encode(doc)
 	if err != nil {
@@ -176,9 +177,9 @@ func TestBuildEpisodesComeFromTheAniDBFacts(t *testing.T) {
 		13: {Regular: make([]string, 99)},
 		14: {Regular: make([]string, 5), Finished: true},
 	}
-	plain, _ := Build(entries, nodes, databaseFacts(entries, nil))
+	plain, _, _ := Build(entries, nodes, databaseFacts(entries, nil), nil)
 	before, _ := byKey(plain)
-	recs, _ := Build(entries, nodes, databaseFacts(entries, listed))
+	recs, _, _ := Build(entries, nodes, databaseFacts(entries, listed), nil)
 	al, ad := byKey(recs)
 	if al[100].Episodes != 13 || ad[12].Episodes != 7 {
 		t.Errorf("finished AniDB 10 and 12: AniList 100 has %d episodes, AniDB 12 %d; want the mirror's 13 and 7", al[100].Episodes, ad[12].Episodes)
@@ -188,5 +189,54 @@ func TestBuildEpisodesComeFromTheAniDBFacts(t *testing.T) {
 	}
 	if al[104].Episodes != before[104].Episodes {
 		t.Errorf("AniList 104 has no AniDB id: %d episodes, want the database's %d", al[104].Episodes, before[104].Episodes)
+	}
+}
+
+// An identity link makes an AniList record carry the AniDB id: it is then
+// that id's record, so the AniDB-only record of the id goes.
+func TestBuildIdentities(t *testing.T) {
+	entries, nodes := fixtures(t)
+	plain, _, _ := Build(entries, nodes, databaseFacts(entries, nil), nil)
+	_, onlyBefore := byKey(plain)
+	ids := []Identity{{AniList: 999, AniDB: 12}, {AniList: 101, AniDB: 14}, {AniList: 100, AniDB: 15}}
+	recs, _, skipped := Build(entries, nodes, databaseFacts(entries, nil), ids)
+	al, ad := byKey(recs)
+	if len(recs) != len(plain)-1 {
+		t.Errorf("Build with identities has %d records, want %d: AniDB 12 becomes AniList 999, AniDB 14 joins AniList 101", len(recs), len(plain)-1)
+	}
+	want999 := onlyBefore[12]
+	want999.AniListID = 999
+	if !reflect.DeepEqual(al[999], want999) {
+		t.Errorf("created AniList 999 = %+v, want AniDB 12's record under AniList 999 %+v", al[999], want999)
+	}
+	if r := al[101]; r.AniDBID != 14 || r.Type != "SPECIAL" || r.MALID != 1001 || r.Episodes != onlyBefore[14].Episodes || r.TVDBID != onlyBefore[14].TVDBID {
+		t.Errorf("AniList 101 = %+v, want its own type and MAL with AniDB 14's count and node facts %+v", r, onlyBefore[14])
+	}
+	for _, id := range []int{12, 14} {
+		if _, ok := ad[id]; ok {
+			t.Errorf("AniDB-only record %d is still published", id)
+		}
+	}
+	if _, ok := ad[15]; !ok || al[100].AniDBID != 10 {
+		t.Errorf("AniList 100 = %+v and AniDB 15 published %t, want AniList 100 unchanged and AniDB 15 kept", al[100], ok)
+	}
+	if want := []Skipped{{AniList: 100, Reason: "anime-offline-database now links AniDB 10"}}; !reflect.DeepEqual(skipped, want) {
+		t.Errorf("skipped = %+v, want %+v", skipped, want)
+	}
+	for i := 1; i < len(recs); i++ {
+		if a, b := recs[i-1].AniListID, recs[i].AniListID; b != 0 && (a == 0 || a >= b) {
+			t.Fatalf("AniList %d after %d: records out of order", b, a)
+		}
+	}
+}
+
+func TestCarriers(t *testing.T) {
+	entries, _ := fixtures(t)
+	got := Carriers(entries)
+	if !slices.Equal(got[10], []int{100}) || !slices.Equal(got[13], []int{102, 103}) {
+		t.Errorf("Carriers = %v, want AniDB 10 carried by AniList 100 and 13 by both 102 and 103", got)
+	}
+	if _, ok := got[12]; ok {
+		t.Errorf("Carriers = %v, want no carrier for AniDB-only 12", got)
 	}
 }

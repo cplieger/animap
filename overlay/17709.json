@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17709",
+    "tmdb": "https://www.themoviedb.org/tv/82684/seasons",
     "tvdb": "https://thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/seasons/official/0"
   },
   "set": {
@@ -27,11 +28,34 @@
             5
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            14
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Tensei Shitara Slime Datta Ken (2024)",
-  "justification": "AniDB special S3-S5 (2024-04-04 to 2024-06-07) have no TVDB episode, was 0x03-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 352408 and TMDB show 82684. AniDB S1-S2 (\"閑話: ディアブロ日記\" (Digression: Diablo`s Journal) to \"閑話: ルミナスメモリーズ\" (Digression: Luminus Memories)) are TMDB S0E14 \"ディアブロ日記\" (Digression: Diablo's Journal) to TMDB S0E15 \"ルミナスメモリーズ\" (Digression: Luminus Memories); AniDB S3-S5 (\"1時間でわかる転スラ第1期まるっとまとめてみた件\" (Tensura Season 1 in 1 Hour) to \"Episode 10 Ending\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -272,8 +296,8 @@
       ],
       "series": 352408
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "43b2691e1f5209a06e43a03587de280fc85260e8e42dac220875d9c5420942cf"
   },
   "anilist_ids": [

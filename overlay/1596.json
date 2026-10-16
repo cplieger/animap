@@ -1,13 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1596",
-    "tvdb": "https://thetvdb.com/series/starzinger/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/starzinger/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/44777/seasons"
   },
   "set": {
     "episodeoffset": "3"
   },
   "title": "SF Saiyuuki Starzinger (1979)",
-  "justification": "AniDB 1 (1979-03-17) = TVDB 0x04 (1979-03-17), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81953 and TMDB show 44777. AniDB episode 1 \"Complete Movie\" (the anime \"SF西遊記 スタージンガー (1979)\") is TVDB S0E4 \"Science Fiction Saiyuki Starzinger: The Movie\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

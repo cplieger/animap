@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14061",
-    "tvdb": "https://thetvdb.com/series/shirobako/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/shirobako/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/532323"
   },
   "set": {
     "mapping_list": [
@@ -23,7 +24,7 @@
     ]
   },
   "title": "Gekijouban Shirobako",
-  "justification": "AniDB special S1-S3 (2021-01-08) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 284564. AniDB S1-S3 (\"ネタバレだらけのキャストトーク\" (Cast Talk) to \"特別映像 第2弾\" (Cast Commentary 2)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

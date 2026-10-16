@@ -1,0 +1,19 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6303",
+    "tmdb": "https://www.themoviedb.org/tv/43927/season/1",
+    "tvdb": "https://thetvdb.com/series/ai-no-kusabi/allseasons/official"
+  },
+  "set": {
+    "tvdbid": "OVA"
+  },
+  "title": "Ai no Kusabi (2012)",
+  "justification": "TVDB 261316 is gone and no TVDB entry carries the 2012 four-episode OVA: TheTVDB search for Ai no Kusabi and 間の楔 finds only 118821, which holds the two 1992 OVA episodes (node 793), and SkyHook finds nothing else. AniList 5784 marks it OVA and not adult, so the marker is OVA. TMDB 43927 season 1 lists the four AniDB titles, so the TMDB values stay.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "1ae05cebba099719c07024c31af62b92b470aff36ed9e71ee2efe79546f7a739"
+  },
+  "anidb_id": 6303
+}

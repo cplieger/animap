@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14916",
-    "tmdb": "https://www.themoviedb.org/tv/86835/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/86835/seasons",
     "tvdb": "https://thetvdb.com/series/fairy-gone/seasons/official/1"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdboffset": "12"
   },
   "title": "Fairy Gone (2019)",
-  "justification": "AniDB 1-12 (2019-10-07 to 2019-12-23) = TVDB 1x13-1x24 and TMDB S1E13-24, same dates and titles. TVDB and TMDB have no S2; 14627 keeps 1x01-1x12. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 359645 and TMDB show 86835. AniDB episode 1-12 (\"雨音の罪と白雪の罰\" (Rain Sound`s Crime and White Snow`s Punishment) to \"放たれた空 つないだ手\" (Freed Sky Joined Hands)) are TVDB S1E13 \"Rain Sound’s Crime and White Snow’s Punishment\" to TVDB S1E24 \"Freed Sky_Joined Hands\" and TMDB S1E13 \"雨音の罪と白雪の罰\" (Rain Sound's Crime and White Snow's Punishment) to TMDB S1E24 \"放たれた空 つないだ手\" (Freed Sky_Joined Hands).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

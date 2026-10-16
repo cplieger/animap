@@ -1,0 +1,24 @@
+{
+  "anilist_id": 12673,
+  "title": "Papa no Iukoto wo Kikinasai!: Pokkapoka",
+  "parts": [
+    {
+      "anidb_id": 8686,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 12673 (SPECIAL, 1 episode from 2012-07-11) is AniDB 8686's special S1 Pokkapoka (Warmth), aired 2012-07-11. AniList's PREQUEL relation names AniList 11179, which anime-offline-database links to AniDB 8686, and the special's title matches AniList's romaji title (Pokkapoka) and the English synonym Warm Fuzzies / Warmth. The parent has no row for S1, so it lands on TVDB 0x1 [Not Broadcast] Warmth (2012-07-11) and on TMDB 46183 S0E1 Warmth (2012-07-11).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8686",
+    "anilist": "https://anilist.co/anime/12673",
+    "tmdb": "https://www.themoviedb.org/tv/46183/season/0",
+    "tvdb": "https://thetvdb.com/series/listen-to-me-girls-i-am-your-father/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "cc6e28bca5aed27e7776d62291ba0b472144a9cd12f7ac54e25a0042bfe55c8c"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1649",
+    "tmdb": "https://www.themoviedb.org/tv/5622/season/0",
+    "tvdb": "https://thetvdb.com/series/hamtaro-little-hamsters-big-adventures/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "4",
+    "tmdboffset": "1"
+  },
+  "title": "Hamtarou no Otanjoubi: Mama o Tasunete Sanzen Techi Techi",
+  "justification": "The OVA \"Hamtarou no Otanjoubi: Mama o Tasunete Sanzen Techi Techi\" is TVDB season 0 episode 5 \"Happy Birthday Hamtaro - 3000 Hammy Steps In Search Of Mommy\" and TMDB 5622 season 0 episode 2 \"Hamtaro's Birthday! - 3000 Hammy Steps in Search of Mommy\" (2002-11-21, the AniDB date). By default it fell on episode 1 of both, the first film on TVDB and \"Tottoko Hamtarou: Anime Dechu!\" on TMDB.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "72942ebb5d003afd2ed45cc8939cf7068af4e8f5a1936a5e0e2c112c04fdf098",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2001-12-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2002-12-14"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2003-12-13"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2004-12-23"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2001-08-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2002-08-06"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2003-08-06"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2004-08-06"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1999-09-15"
+        ]
+      ],
+      "series": 70817
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "82309ae4aafedb9e4b3c375d55ca9045bc63d84438e81dff5b9b2587e78f6790"
+  },
+  "anidb_id": 1649
+}

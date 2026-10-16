@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11964",
+  "title": "Brave Witches",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "76d33d798d998443b027bf7d9158f868f4d99e1066bd0f1ad7fbfacd2c7f649d"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 'Petersburg Great Strategy / Petersburg Dai Senryaku' (2017-05-13) = TVDB S0E1 'Petersburg Great Strategy' (2017-08-25): identical title, the only special on TVDB. The date gap is a home-video release. AniDB S2/S3 'Barkayo Cast Talk' have no TVDB episode (gap, not an error). Regular 1-12 match S1 1-12 by title (TVDB absolute 8 is skipped for the recap, irrelevant).",
+      "evidence": [
+        "https://anidb.net/anime/11964",
+        "https://thetvdb.com/dereferrer/series/314267"
+      ]
+    }
+  }
+}

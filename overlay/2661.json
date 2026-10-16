@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/2661",
     "tvdb": "https://thetvdb.com/series/star-blazers/seasons/official/3",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/85230"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/85230",
+    "tmdb": "https://www.themoviedb.org/tv/13339/seasons"
   },
   "set": {
     "tvdbid": "77773"
   },
   "title": "Uchuu Senkan Yamato III",
-  "justification": "tvdbid 85230 to 77773 (TVDB 85230 is gone from TVDB's official order). AniDB 1-5 (1980-10-11 to 1980-11-08) = TVDB 3x01-3x05 (1980-10-10 to 1980-11-07), was TVDB 85230 3x01-3x05, by title. AniDB 6 (1980-11-15) = TVDB 3x06 (1980-11-14), was TVDB 85230 3x06, by title, air date breaking a tie. AniDB 7-18 (1980-11-22 to 1981-02-14) = TVDB 3x07-3x18 (1980-11-21 to 1981-02-14), was TVDB 85230 3x07-3x18, by title. AniDB 19-20 (1981-02-21 to 1981-02-28) = TVDB 3x19-3x20 (1981-02-21 to 1981-02-28), was TVDB 85230 3x19-3x20, by title, order breaking a same-title tie. AniDB 21 (1981-03-07) = TVDB 3x21 (1981-03-07), was TVDB 85230 3x21, by title. AniDB 22 (1981-03-14) = TVDB 3x22 (1981-03-14), was TVDB 85230 3x22, by title, order breaking a same-title tie. AniDB 23-25 (1981-03-21 to 1981-04-04) = TVDB 3x23-3x25 (1981-03-21 to 1981-04-04), was TVDB 85230 3x23-3x25, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 77773 and TMDB show 13339. The node moves from TVDB 85230 to series 77773. AniDB episode 1-25 (\"太陽系の破滅\" (Solar System Faces Destruction) to \"ヤマト あの太陽を撃て!\" (Star Force, Shoot That Sun!)) are TVDB S3E1 \"Solar System Faces Destruction\" to TVDB S3E25 \"Star Force, Shoot That Sun!\". TVDB series 85230 no longer exists; Star Blazers (77773) carries the three TV runs as seasons 1-3, and its season 3 has these 25 episodes in the same order (Solar System Faces Destruction ... Star Force, Shoot That Sun!).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

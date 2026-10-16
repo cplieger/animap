@@ -1,0 +1,165 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14439",
+    "tmdb": "https://www.themoviedb.org/tv/95213-heya-camp/season/0",
+    "tvdb": "https://thetvdb.com/series/laid-back-camp/seasons/official/0"
+  },
+  "set": {
+    "tmdbtv": "95213",
+    "tmdbseason": "1",
+    "tmdboffset": ""
+  },
+  "title": "Heya Camp",
+  "justification": "TMDB has Heya Camp as its own show, 95213 Room Camp: season 1 E1 to E12 (The Mystery of Canned Tuna 2020-01-06 to Room Camp 2020-03-23) are AniDB 14439's episodes 1 to 12 title for title and date for date, and season 0 E1 Saunas and Grub and Three-Wheeler Bikes (2020-04-29, 12 min) is its special S1 Sauna to Gohan to Sanrin Bike (2020-04-29). Anime-Lists points the node at the Yuru Camp show 76075 season 0 with offset 4, where E5 to E8 are other nodes' specials (Traveling Shimarin, The Outclub's Room, Rainy Camping, Rin and Nadeshiko Go Spring Camping) and E9 to E16 do not exist. The three TMDB values move to show 95213, season 1, no offset. The TVDB mapping (0x5 to 0x16 for the episodes, row ;1-17;2-0; for the specials) is unchanged.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "95e10baddc530e38b2766777825f274ea672e4be06b6d4c5b15625cdae879617",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-03-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-05-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2018-07-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-07-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2020-01-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-01-13"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2020-01-20"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2020-01-27"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2020-02-03"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2020-02-10"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2020-02-17"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-02-24"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2020-03-02"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2020-03-09"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2020-03-16"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2020-03-23"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2020-04-29"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2021-07-28"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2021-05-26"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2024-06-26"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2024-08-28"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2024-10-23"
+        ]
+      ],
+      "series": 330692
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f3d977de6ba548c49123f4c7381f9052ca6a058057c7c68c504dab100b57e594"
+  },
+  "anilist_ids": [
+    104461
+  ],
+  "anidb_id": 14439
+}

@@ -35,6 +35,10 @@
             8
           ],
           [
+            10,
+            6
+          ],
+          [
             11,
             8
           ]
@@ -43,7 +47,7 @@
     ]
   },
   "title": "Choujikuu Yousai Macross",
-  "justification": "AniDB special S1 (1984-07-12) = TVDB 0x07 (1984-07-12), was unmapped, by title. AniDB special S5-S8 (2012-05-25) have no TVDB episode, was 0x05-0x08. AniDB special S11 (no AniDB date) = TVDB 0x08 (2012-12-23), was 0x11 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (1984-07-12) = TVDB 0x07 (1984-07-12), was unmapped, by title. AniDB special S5-S8 (2012-05-25) have no TVDB episode, was 0x05-0x08. AniDB special S11 (no AniDB date) = TVDB 0x08 (2012-12-23), was 0x11 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S10 Premiere Special (1982-10-03) is TVDB 73038 season 0 episode 6 SDF Macross 01\u002602 Special Version (1982-10-03, 46 minutes), the premiere broadcast of episodes 1 and 2 and the only season 0 episode of that day; its default was the missing episode 10.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -320,8 +324,8 @@
       ],
       "series": 73038
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f7b36db6ac9f6f60a9dd5f1d24471655a7e8fe69c271c8410f0d4b0a9e052acd"
   },
   "anilist_ids": [

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:9676",
+  "title": "Genshiken Nidaime",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "6577a7dd143b5cb151a1b743b807275025eb94a8511a542cb64f586f4e273171"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-13 match S3E1-E13 by title. Specials S1-S4 \"Special 1-4 / Daiikkai: ...\" -\u003e E6-E9: \"Konna ni Kawaii Ko ga Onnanoko no Hazu ga Nai Ken\" = \"The Case that such a cute child cannot be a girl\", \"Sue-san ga Nanka Tsuyoi Ken\" = \"The First Case that Sue is Strong\", \"Hato-chan ga Tsurutsuru na Ken\" = \"... Hado-chan is slippery\", \"Sorosoro Madarame Sou Uke wa Akita Kaigi\" = \"... meeting is about to get tired of receiving ...\". The S2 date failure (AniDB 2013-10-09 vs TVDB 2013-09-10) is a date difference. Row start=1 end=4 offset=5 is correct; E5 (the 2013-12-20 OVA) is 9934's.",
+      "evidence": [
+        "https://anidb.net/anime/9676",
+        "https://thetvdb.com/dereferrer/series/78919"
+      ]
+    }
+  }
+}

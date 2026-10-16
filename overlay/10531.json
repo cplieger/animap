@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10531",
+    "tmdb": "https://www.themoviedb.org/tv/61414/seasons",
     "tvdb": "https://thetvdb.com/series/gundam-reconguista-in-g/seasons/official/0"
   },
   "set": {
@@ -9,6 +10,9 @@
         "anidb_season": 0,
         "tvdb_season": 0,
         "episodes": [
+          [
+            10
+          ],
           [
             11
           ],
@@ -40,11 +44,20 @@
             20
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            10
+          ]
+        ]
       }
     ]
   },
   "title": "Gundam G no Reconguista",
-  "justification": "AniDB special S11-S20 ((none) to 2014-08-23) have no TVDB episode, was 0x11-0x20. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 283929 and TMDB show 61414. AniDB S10 \"モビルスーツ&モビルアーマー図鑑\" (Mobile Suit & Mobile Armor Reference) has no TVDB episode (its default TVDB S0E10 is \"From the Past to the Future\", another item) and no TMDB episode (its default TMDB S0E10 is \"Gundam Reconguista in G: From the Past to the Future\", another item); AniDB S11-S20 (\"Gundam Gのレコンラジオ\" (Gundam Reconradio in G) to \"BEGINNING of GUNDAM RECONGUISTA in G ～富野由悠季から君へ～\" (BEGINNING of GUNDAM RECONGUISTA in G ~From Yoshiyuki Tomino To You~)) have no TVDB episode (their defaults are other items). S10 (the mobile suit and mobile armour reference) is not TVDB or TMDB S0E10 From the Past to the Future, which is the separate AniDB anime 11984.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -339,8 +352,8 @@
       ],
       "series": 283929
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e0226a63a7caf13217f94c5ca3955479d4b3905d1274aacebb2dbe9f8db7f9ab"
   },
   "anilist_ids": [

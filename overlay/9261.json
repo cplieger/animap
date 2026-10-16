@@ -1,0 +1,230 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9261",
+    "tvdb": "https://thetvdb.com/series/chihayafuru/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Chihayafuru 2",
+  "justification": "AniDB specials S1 (a voice-actor talk special), S2 (the production press conference digest) and S3 (the Mizusawa karuta club summer camp special) had no row and fell on TVDB season 0 episodes 1, the OVA (AniDB 9887), and 2 and 3, the live-action film parts. TVDB lists none of them, so they are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f937468da5729ac5dadc00bf9fbfb868d6701f3ef068a214e202284b9be5048a",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          51,
+          "2013-09-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-03-19"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-04-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-03-17"
+        ],
+        [
+          0,
+          5,
+          76,
+          "2020-01-28"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-03-24"
+        ],
+        [
+          2,
+          1,
+          26,
+          "2013-01-12"
+        ],
+        [
+          2,
+          2,
+          27,
+          "2013-01-19"
+        ],
+        [
+          2,
+          3,
+          28,
+          "2013-01-26"
+        ],
+        [
+          2,
+          4,
+          29,
+          "2013-02-02"
+        ],
+        [
+          2,
+          5,
+          30,
+          "2013-02-09"
+        ],
+        [
+          2,
+          6,
+          31,
+          "2013-02-16"
+        ],
+        [
+          2,
+          7,
+          32,
+          "2013-02-23"
+        ],
+        [
+          2,
+          8,
+          33,
+          "2013-03-02"
+        ],
+        [
+          2,
+          9,
+          34,
+          "2013-03-09"
+        ],
+        [
+          2,
+          10,
+          35,
+          "2013-03-16"
+        ],
+        [
+          2,
+          11,
+          36,
+          "2013-03-23"
+        ],
+        [
+          2,
+          12,
+          37,
+          "2013-03-30"
+        ],
+        [
+          2,
+          13,
+          38,
+          "2013-04-06"
+        ],
+        [
+          2,
+          14,
+          39,
+          "2013-04-13"
+        ],
+        [
+          2,
+          15,
+          40,
+          "2013-04-20"
+        ],
+        [
+          2,
+          16,
+          41,
+          "2013-04-27"
+        ],
+        [
+          2,
+          17,
+          42,
+          "2013-05-04"
+        ],
+        [
+          2,
+          18,
+          43,
+          "2013-05-11"
+        ],
+        [
+          2,
+          19,
+          44,
+          "2013-05-18"
+        ],
+        [
+          2,
+          20,
+          45,
+          "2013-05-25"
+        ],
+        [
+          2,
+          21,
+          46,
+          "2013-06-01"
+        ],
+        [
+          2,
+          22,
+          47,
+          "2013-06-08"
+        ],
+        [
+          2,
+          23,
+          48,
+          "2013-06-15"
+        ],
+        [
+          2,
+          24,
+          49,
+          "2013-06-22"
+        ],
+        [
+          2,
+          25,
+          50,
+          "2013-06-29"
+        ]
+      ],
+      "series": 251982
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "cd36f01e4c42c4b49d8eab6ebcfeb4a716930ed015024bfb42ddd87cabf2ea76"
+  },
+  "anidb_id": 9261
+}

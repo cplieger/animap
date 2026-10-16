@@ -1,13 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10613",
-    "tvdb": "https://thetvdb.com/series/step-up-love-story/seasons/official/2"
+    "tvdb": "https://thetvdb.com/series/step-up-love-story/seasons/official/2",
+    "tmdb": "https://www.themoviedb.org/tv/26563/seasons"
   },
   "set": {
     "defaulttvdbseason": "2"
   },
   "title": "Futari Ecchi (2014)",
-  "justification": "AniDB 1-3 (2014-10-10) = TVDB 2x01-2x03 (2014-10-10), was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 85068 and TMDB show 26563. AniDB episode 1-3 (\"ふたりのファーストクリスマス\" (Our First Christmas) to \"突然オフィスでサードラブ\" (A Sudden Third Love at the Office)) are TVDB S2E1 \"Our First Christmas\" to TVDB S2E3 \"A Sudden Third Love at the Office\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

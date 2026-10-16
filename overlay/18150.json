@@ -10,14 +10,19 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            2
+            1,
+            21
+          ],
+          [
+            2,
+            22
           ]
         ]
       }
     ]
   },
   "title": "Boku no Hero Academia the Movie: You're Next",
-  "justification": "AniDB special S2 (2024-04-12) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "The film is TVDB season 0 episode 20. AniDB special S1 \"A Piece of Cake\" (2025-02-19) is episode 21 \"You're Next - A Piece of Cake\" (2025-02-19), and S2 \"Manner Movie\" (2024-04-12) is episode 22 \"You're Next - Movie Etiquette Class\" (2024-04-12). The old row unmapped S2, and S1 fell by default on episode 1 \"Save! Rescue Training!\" (2016).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -173,8 +178,8 @@
       ],
       "series": 305074
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "24148321112272792d5a6eceb19cef90faa834f341268bf7af064250b7b3c221"
   },
   "anilist_ids": [

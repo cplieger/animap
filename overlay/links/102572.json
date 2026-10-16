@@ -1,0 +1,25 @@
+{
+  "anilist_id": 102572,
+  "title": "White Album 2 Picture Drama",
+  "parts": [
+    {
+      "anidb_id": 9823,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 102572 has 2 episodes, both 2014-05-28 (native ...ピクチャードラマ「祭りの、ほんのちょっと前」, synonym 'WA2 Picture Drama'). AniDB 9823 (White Album 2, PARENT per AniList 18245) S1 'Picture Drama (Kazusa Version)' and S2 'Picture Drama (Setsuna Version)' are both 2014-05-28; S3 'Picture Drama Selection Screen' is a menu screen, not an episode. TVDB 272369 season 0 holds exactly 0x01 'Picture Drama 1 - Kazusa Ver.' and 0x02 'Picture Drama 1 - Setsuna Ver.', both 2014-05-28. The current reason ('no title agrees') compared the series title with per-special titles; the content and the two-version pairing agree.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9823",
+    "anilist": "https://anilist.co/anime/102572",
+    "tmdb": "https://www.themoviedb.org/tv/70072/season/0",
+    "tvdb": "https://thetvdb.com/series/white-album-2/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "5887d1abdb494e90da58e480b4aefea2d09bcc20c972eda875000f48ab5fb129"
+  }
+}

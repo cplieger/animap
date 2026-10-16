@@ -1,0 +1,24 @@
+{
+  "anilist_id": 20779,
+  "title": "Kyoukai no Kanata #0 Shinonome",
+  "parts": [
+    {
+      "anidb_id": 9518,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 20779 (OVA, 1 episode(s) from 2014-07-02) is AniDB 9518's special(s) S1 'Shinonome' (Daybreak), aired 2014-07-02, and AniDB lists MAL 23385 on AniDB 9518. The parent's mapping row places S1 on TVDB 272697 0x6 'Daybreak', also 2014-07-02.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9518",
+    "anilist": "https://anilist.co/anime/20779",
+    "tmdb": "https://www.themoviedb.org/tv/61695/season/0",
+    "tvdb": "https://thetvdb.com/series/beyond-the-boundary/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "2b07e3c0fab394221532156eb062db1aebe69c476e17b625316589120c84801f"
+  }
+}

@@ -10,7 +10,7 @@
     "tmdbseason": ""
   },
   "title": "Cooking Papa",
-  "justification": "TVDB has no S1: it splits the run by year (S1992 38, S1993 46, S1994 48, S1995 19) with absolute numbers 1-151 complete. AniDB 1-151 (1992-04-09 to 1995-05-25) = TVDB absolute 1-151, every air date the same except episode 54, one day apart. TMDB 261945 season 1 lists one placeholder episode (1992-01-01) against AniDB's 151, so the entry clears the node's TMDB mapping and the record publishes no TMDB value.",
+  "justification": "Checked by episode title against TVDB series 369400. TMDB show 261945 does not carry it, so the node leaves that show. AniDB episode 1-38 (\"ガハッ! ボクの父ちゃん アゴデカ主任\" (Wow! My Dad Is a Big-chin Assistant Manager) to \"[クリスマススペシャル] 誕生日なんて大キライ!\" (Episode 38)) are TVDB S1992E1 \"Gaha! My Father, Chief Agodeca\" to TVDB S1992E38 \"Happy birthday, Kirai!\"; AniDB episode 39-84 (\"ピンチ! さなえの恋人宣言\" (Episode 39) to \"[クリスマススペシャル] 大きな夢! おじいちゃんのクリスマスツリー!!\" (Episode 84)) are TVDB S1993E1 \"Pinch! Sanae's Lover's Declaration\" to TVDB S1993E46 \"A big dream! Grandpa's Christmas Tree !!\"; AniDB episode 85-132 (\"おめでとうおバァちゃん\" (Episode 85) to \"[クリスマス・スペシャル] サンタの落としもの? / 父ちゃんの聖・ずる休み? / 母ちゃんのスイートメモリー / イブの素敵なプレゼント\" (Episode 132)) are TVDB S1994E1 \"Congratulations, Baa-chan.\" to TVDB S1994E48 \"Santa's lost item?\"; AniDB episode 133-151 (\"待ちくたびれた年賀状\" (Episode 133) to \"おめでとうがいっぱい\" (Episode 151)) are TVDB S1995E1 \"New Year's card\" to TVDB S1995E19 \"A lot of congratulations\". TVDB numbers the run by broadcast year, so the node follows TVDB's absolute order, in which every English title translates AniDB's Japanese title, in order.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

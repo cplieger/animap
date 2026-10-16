@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4585",
+    "tmdb": "https://www.themoviedb.org/tv/36582/seasons",
     "tvdb": "https://thetvdb.com/series/gift-eternal-rainbow/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -18,7 +20,7 @@
     ]
   },
   "title": "Gift: Eternal Rainbow",
-  "justification": "AniDB special S1 (2007-06-22) = TVDB 0x03 (2007-06-22), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 82720 and TMDB show 36582. AniDB S1 \"木之坂旅館 危機一髪!!\" (Crisis at the Konosaka Inn!!) is TVDB S0E3 \"(OVA) Crisis at the Konosaka Inn!!\" and TMDB S0E3 \"木之坂旅館 危機一髪！！\" (Crisis at the Konosaka Inn!!).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -121,8 +123,8 @@
       ],
       "series": 82720
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5325b2f7a3d42225d0bc7da57aae87013d051ab908da1c53df836b4aa53e59ba"
   },
   "anilist_ids": [

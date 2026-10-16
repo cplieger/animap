@@ -1,0 +1,218 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8886",
+    "tmdb": "https://www.themoviedb.org/tv/57528/seasons",
+    "tvdb": "https://thetvdb.com/series/horizon-in-the-middle-of-nowhere/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14,
+            9
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kyoukaisen-jou no Horizon II",
+  "justification": "Checked by episode title against TVDB series 252345 and TMDB show 57528. AniDB S1-S2 (\"極東なるほど講座其の2\" (Sensei`s Lesson 2) to \"極東なるほど講座其の3\" (Sensei`s Lesson 3)) are TMDB S0E6 \"『境界線上のホライゾン 極東なるほど講座』 其の②\" (Sensei's Lesson 2) to TMDB S0E7 \"『境界線上のホライゾン 極東なるほど講座』 其の③\" (Sensei's Lesson 3); AniDB S3-S8 (\"第02話 予告\" (Special 1) to \"オールナイト上映会2 さぁ, みなさんご一緒に!\" (Special 8)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S9 \"極東なるほど講座其の4\" (Sensei`s Lesson 4) is TMDB S0E8 \"『境界線上のホライゾン 極東なるほど講座』 其の④\" (Sensei's Lesson 4); AniDB S10-S13 (\"生勉強会VI\" (Special 10) to \"オールナイト上映会3\" (Special 13)) have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them); AniDB S14 \"境界線上のホライゾンXXI-PV\" (Kyoukai Senjou no Horizon XXI-PV) is TVDB S0E9 \"Horizon In the Middle of Nowhere Special\" and TMDB S0E9 \"Horizon In the Middle of Nowhere Special\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9606b9f2d039c306fc530d5c7fbed12bb0027e643676f222c086dc8959bbcf28",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2011-08-07"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-09-05"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2011-09-29"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2011-09-30"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2018-12-21"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2012-07-08"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2012-07-15"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2012-07-22"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2012-07-29"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2012-08-05"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2012-08-12"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2012-08-19"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2012-08-26"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2012-09-02"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2012-09-09"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2012-09-16"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2012-09-23"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2012-09-30"
+        ]
+      ],
+      "series": 252345
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "766ecb4f6458dcd5436394ae0d225c35f5a96d96aa474378bf583c68a96326c6"
+  },
+  "anilist_ids": [
+    12487
+  ],
+  "anidb_id": 8886
+}

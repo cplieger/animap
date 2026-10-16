@@ -8,50 +8,22 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "start": 3,
+        "end": 20,
+        "offset": -2,
         "episodes": [
           [
             1
           ],
           [
             2
-          ],
-          [
-            5
-          ],
-          [
-            7,
-            5
-          ],
-          [
-            9,
-            7
-          ],
-          [
-            11,
-            9
-          ],
-          [
-            13,
-            11
-          ],
-          [
-            15,
-            13
-          ],
-          [
-            17,
-            15
-          ],
-          [
-            19,
-            17
           ]
         ]
       }
     ]
   },
   "title": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu Omega",
-  "justification": "AniDB special S1-S2 (2021-04-02 to 2021-04-06) have no TVDB episode, was 0x01-0x02. AniDB special S5 (2021-03-21) has no TVDB episode, was 0x05. AniDB special S7 (2021-03-28) = TVDB 0x05 (2021-03-28), was 0x07, by position inside a run of title matches. AniDB special S9 (2021-04-04) = TVDB 0x07 (2021-04-04), was 0x09, by position inside a run of title matches. AniDB special S11 (2021-04-14) = TVDB 0x09 (2021-04-14), was 0x11, by title, air date breaking a tie. AniDB special S13 (2021-04-28) = TVDB 0x11 (2021-04-28), was 0x13, by title, order breaking a same-title tie. AniDB special S15 (2021-05-12) = TVDB 0x13 (2021-05-12), was 0x15, by title, order breaking a same-title tie. AniDB special S17 (2021-05-26) = TVDB 0x15 (2021-05-26), was 0x17, by title, order breaking a same-title tie. AniDB special S19 (2021-06-09) = TVDB 0x17 (2021-06-09), was 0x19 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S2 (2021-04-02 to 2021-04-06) have no TVDB episode, was 0x01-0x02. AniDB special S5 (2021-03-21) has no TVDB episode, was 0x05. AniDB special S7 (2021-03-28) = TVDB 0x05 (2021-03-28), was 0x07, by position inside a run of title matches. AniDB special S9 (2021-04-04) = TVDB 0x07 (2021-04-04), was 0x09, by position inside a run of title matches. AniDB special S11 (2021-04-14) = TVDB 0x09 (2021-04-14), was 0x11, by title, air date breaking a tie. AniDB special S13 (2021-04-28) = TVDB 0x11 (2021-04-28), was 0x13, by title, order breaking a same-title tie. AniDB special S15 (2021-05-12) = TVDB 0x13 (2021-05-12), was 0x15, by title, order breaking a same-title tie. AniDB special S17 (2021-05-26) = TVDB 0x15 (2021-05-26), was 0x17, by title, order breaking a same-title tie. AniDB special S19 (2021-06-09) = TVDB 0x17 (2021-06-09), was 0x19 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TVDB 347425 season 0 holds How Not to Summon a Demon Lord Ω Mini Anime #1-#18 with the dates of AniDB S3-S20, Mini Anime 1-18 (2021-03-14 to 06-16). S1, a pre-broadcast special, and S2, 5-Fun de Wakaru!, have no TVDB episode; the defaults shifted every mini by two.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -232,8 +204,8 @@
       ],
       "series": 347425
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "12be9a6a6d501524860ff8fd7cd57b129f9e76367b40d5f2f531648042116c86"
   },
   "anilist_ids": [

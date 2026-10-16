@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13480",
+    "tmdb": "https://www.themoviedb.org/tv/69298/season/0",
     "tvdb_s0": "https://thetvdb.com/series/one-room/seasons/official/0",
     "tvdb_s2": "https://thetvdb.com/series/one-room/seasons/official/2"
   },
@@ -32,11 +33,20 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "One Room: Second Season",
-  "justification": "AniDB 1 (2018-07-03) = TVDB 0x02 (2018-07-03), was 2x01. AniDB 2-13 (2018-07-09 to 2018-09-24) = TVDB 2x01-2x12 (2018-07-10 to 2018-09-25), was 2x02-2x13. AniDB special S1 (2018-11-30) = TVDB 0x03 (2018-11-30), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (2018-07-03) = TVDB 0x02 (2018-07-03), was 2x01. AniDB 2-13 (2018-07-09 to 2018-09-24) = TVDB 2x01-2x12 (2018-07-10 to 2018-09-25), was 2x02-2x13. AniDB special S1 (2018-11-30) = TVDB 0x03 (2018-11-30), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 69298 season 0 has no 12-minute Hanasaka Yui extra: its E1 is Another One Room (2017-05-26), where S1 defaulted, and its 2018-11-30 entries are six 4-minute shorts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -139,8 +149,8 @@
       ],
       "series": 319995
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "642fc901f95fe45903bcda65d282e78960bc3bfaadd94631165c151eff19c0a1"
   },
   "anilist_ids": [

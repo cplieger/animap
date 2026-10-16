@@ -1,0 +1,29 @@
+{
+  "anilist_id": 16636,
+  "title": "Kotoura-san: Haruka no Heya",
+  "parts": [
+    {
+      "anidb_id": 9394,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 16636 is the ONA 'Haruka no Heya', 6 episodes, 2012-12-07 to 2013-01-11. AniDB 9394 S1-S6 are 'Haruka's Room 1..6' on 2012-12-07, 12-14, 12-21, 12-28, 2013-01-04, 01-11; TVDB 264049 0x01-0x06 and TMDB tv/53594 S0E1-6 are 'Haruka's Room 01..06' on the same dates. S7 'Special Loop' (undated) is another item.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9394",
+    "anilist": "https://anilist.co/anime/16636",
+    "tmdb": "https://www.themoviedb.org/tv/53594/season/0",
+    "tvdb": "https://thetvdb.com/series/the-troubled-life-of-miss-kotoura/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "cbe9a2d79a11aa1ea9d080377cf17ce2453e580b6dd4cd74c7a4f1267c5415a4"
+  }
+}

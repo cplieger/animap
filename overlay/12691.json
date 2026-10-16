@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12691",
+    "tmdb": "https://www.themoviedb.org/tv/67676/seasons",
     "tvdb": "https://thetvdb.com/series/the-disastrous-life-of-saiki-k/seasons/official/0"
   },
   "set": {
@@ -16,12 +17,24 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
   "title": "Saiki Kusuo no Sainan (2018)",
-  "justification": "AniDB special S2 (2018-01-10) has no TVDB episode, was 0x02, which is the 2018-12-28 finale of AniDB 14189: TVDB lists no special between 2013-08-04 and 2018-12-28. S1 stays without a TVDB episode, as Anime-Lists has it. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 313435 and TMDB show 67676. AniDB S1 \"「斉木楠雄のΨ難」第2期放送直前 アニメΨ始動! おかえりなΨスぺシャル!\" (Episode S1) has no TMDB episode (its default TMDB S0E1 is \"Everyone's Different Future Plans\", another item); AniDB S2 \"Episode S2\" has no TVDB episode (its default TVDB S0E2 is \"Final Arc\", another item) and no TMDB episode (its default TMDB S0E2 is \"Planning Out Specifics for the Trip\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "6dd783a268dd7dfc4d2f52c91b885d989349fe9dc9e9599f68834f60eb0337f2",
@@ -225,8 +238,8 @@
       ],
       "series": 313435
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "57a8d73d34a473bb339e14f4aab8a550ce46a2a5488c41598e3791ab7f35e046"
   },
   "anilist_ids": [

@@ -1,0 +1,25 @@
+{
+  "anilist_id": 108939,
+  "title": "Shagahai ReLIFE Kenkyuujo Support-ka",
+  "parts": [
+    {
+      "anidb_id": 13123,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 108939 (ONA, 2 episode(s) from 2018-03-21 to 2018-03-21) is AniDB 13123's specials S1 and S2, both aired 2018-03-21. AniList's PARENT relation names AniList 98635, which anime-offline-database links to AniDB 13123. The specials are titled Confidential Relife Institute Support Department \"Surveillance Camera\" and \"Date\" (Japanese 社外秘 リライフ研究所 サポート課「監視カメラ」 and 「デート」), and AniList's native title 社外秘 リライフ研究所 サポート課 and its synonym \"Confidential Relife Institute Support Department\" name the same series. The parent's node, as overlay/13123.json patches it, places S1 on TVDB 0x05 \"Confidential ReLIFE Research Institute Support Division #01: Surveillance Camera\" and S2 on 0x06 \"#02: Date\", both 2018-03-21. TMDB 66941, where the parent's node places the specials, agrees: S0E5 and S0E6, 2018-03-21.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13123",
+    "anilist": "https://anilist.co/anime/108939",
+    "tmdb": "https://www.themoviedb.org/tv/66941/season/0",
+    "tvdb": "https://thetvdb.com/series/relife/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "4a565a4bfa555a611a9128bba39094bd75b72d6fd4600091947f73cb514b87ad"
+  }
+}

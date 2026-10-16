@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13390",
-    "tvdb": "https://thetvdb.com/series/garo-vanishing-line/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/garo-vanishing-line/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/74089/seasons"
   },
   "set": {
     "mapping_list": [
@@ -21,7 +22,7 @@
     ]
   },
   "title": "Garo: Vanishing Line",
-  "justification": "AniDB special S1 (2017-09-30) has no TVDB episode, was 0x01. AniDB special S2 (2018-01-06) = TVDB 0x01 (2018-01-06), was 0x02 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 333881 and TMDB show 74089. AniDB S1 \"牙狼&lt;GARO&gt;-VANISHING LINE- 放送直前SP\" (Before Broadcasting Special) has no TVDB episode (its default TVDB S0E1 is \"Special Program “PAUSE”\", another item); AniDB S2 \"PAUSE\" (Pause) is TVDB S0E1 \"Special Program “PAUSE”\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

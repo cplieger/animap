@@ -1,0 +1,157 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1357",
+    "tmdb": "https://www.themoviedb.org/tv/21735/season/0",
+    "tvdb": "https://thetvdb.com/series/macross-7/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "13",
+    "tmdbseason": "0",
+    "tmdboffset": "13"
+  },
+  "title": "Macross 7 Encore",
+  "justification": "TVDB 72347 has no season 2. The Encore OVA is season 0 episodes 14-16, Macross 7 Encore 1 - Fleet of the Strongest Women, 2 - On Stage, 3 - Which Do You Love, AniDB 1-3 in order, right after the film (node 443, offset 12). TMDB 21735 season 0 holds the same three at 14-16.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0dd9bb9822d11259ca8e46c875cc05304f80c90cb765c1ea6ccd62340d57b5c9",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1995-01-21"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1995-03-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1995-04-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1995-05-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1995-06-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1995-07-25"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1995-08-25"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1995-09-25"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1995-10-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1995-11-25"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1995-12-18"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1996-01-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "1995-10-07"
+        ],
+        [
+          0,
+          14,
+          0,
+          "1996-02-25"
+        ],
+        [
+          0,
+          15,
+          0,
+          "1995-12-18"
+        ],
+        [
+          0,
+          16,
+          0,
+          "1995-12-18"
+        ],
+        [
+          0,
+          17,
+          0,
+          "1997-12-18"
+        ],
+        [
+          0,
+          18,
+          0,
+          "1998-02-25"
+        ],
+        [
+          0,
+          19,
+          0,
+          "1998-05-25"
+        ],
+        [
+          0,
+          20,
+          0,
+          "1998-08-25"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2012-10-20"
+        ]
+      ],
+      "series": 72347
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "381bb596196e51ec7c621e5a3fefeec45b26790bcaa907545cf0c1797ba5b3ec"
+  },
+  "anidb_id": 1357
+}

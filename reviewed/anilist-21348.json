@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:21348",
+  "title": "AniList 21348",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5f10e6247091dd32a8972f159e1110c1729d1b0f8423df6cf2bca6cc5629a7d7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 2 Vs. Akaten of AniDB 10954 (TVDB 278157 0x3); anime-offline-database keeps AniDB 10954 as a record with no AniList source, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/21348"
+        ],
+        "anilist_id": 21348
+      }
+    ]
+  }
+}

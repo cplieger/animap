@@ -14,10 +14,37 @@
             54
           ],
           [
+            39
+          ],
+          [
+            40
+          ],
+          [
+            41
+          ],
+          [
             42
           ],
           [
+            43
+          ],
+          [
+            44
+          ],
+          [
+            45
+          ],
+          [
             46
+          ],
+          [
+            47
+          ],
+          [
+            48
+          ],
+          [
+            49
           ],
           [
             50
@@ -27,7 +54,7 @@
     ]
   },
   "title": "Kyokou Suiri",
-  "justification": "AniDB special S38 (2020-03-21) = TVDB 0x54 (2020-03-21), was 0x38, by title, air date breaking a tie. AniDB special S42 (2020-02-07) has no TVDB episode, was 0x42. AniDB special S46 (2020-03-06) has no TVDB episode, was 0x46. AniDB special S50 (2020-04-03) has no TVDB episode, was 0x50. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S37 \"Mini Anime 01-37\" are TVDB season 0 episodes 1-37 of the same titles, and S38 \"Mini Anime Extra: BD/DVD Release Commemoration\" (2020-03-21) is episode 54 (2020-03-21). S39-S50 \"Invented Divination / Kyokou Uranai 1-12\" (2020-01-17 to 2020-04-03) have no TVDB episode. By default they fell on episodes 39-50, the second season's 2022 mini anime (AniDB 15876); all twelve are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -442,8 +469,8 @@
       ],
       "series": 368565
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "63c3919e81b41870fd0ddf76c58a06bf8d389af89c97b0009e35a480b34561b9"
   },
   "anilist_ids": [

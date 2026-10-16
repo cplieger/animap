@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15351",
-    "tvdb": "https://thetvdb.com/series/to-your-eternity/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/97525/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/375271"
   },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -21,7 +23,7 @@
     ]
   },
   "title": "Fumetsu no Anata e",
-  "justification": "AniDB special S1 (2021-03-20) has no TVDB episode, was 0x01. AniDB special S2 (2021-07-05) = TVDB 0x01 (2021-07-05), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 375271 and TMDB show 97525. AniDB S1 \"私のアニメ語り「不滅のあなたへ」直前スペシャル\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"Recap: Fushi's Journey\", another item) and no TMDB episode (its default TMDB S0E1 is \"Fushi's Journey\", another item); AniDB S2 \"フシの旅路\" (Fushi`s Journey) is TVDB S0E1 \"Recap: Fushi's Journey\" and TMDB S0E1 \"特別総集編 「フシの旅路」\" (Fushi's Journey).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -166,8 +168,8 @@
       ],
       "series": 375271
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3fa691d1ad51131add3470d869054bc063acd4ad3d7e9db4412cdaaf796e93d9"
   },
   "anilist_ids": [

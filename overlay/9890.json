@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9890",
+    "tmdb": "https://www.themoviedb.org/tv/65676/seasons",
     "tvdb": "https://thetvdb.com/series/my-teen-romantic-comedy-snafu/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Yahari Ore no Seishun Lovecome wa Machigatte Iru. Kochira to Shite mo Karera Kanojora no Yukusue ni Sachi Ookaran Koto o Negawazaru o Enai.",
-  "justification": "AniDB 1 (2013-09-19) = TVDB 0x01 (2013-09-19), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 267435 and TMDB show 65676. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"やはり俺の青春ラブコメはまちがっている. こちらとしても彼ら彼女らの行く末に幸多からんことを願わざるを得ない.\") is TVDB S0E1 \"There's No Choice but to Wish Them Happiness Right Here as They Arrive at Their Destiny\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "2307d4696e9ee30f71b3739a2bc80fdbe24658ecc0779601ddf58443438e4197",

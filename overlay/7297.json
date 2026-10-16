@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7297",
+    "tmdb": "https://www.themoviedb.org/tv/25113/seasons",
     "tvdb": "https://thetvdb.com/series/gunparade-orchestra/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "1"
+    "episodeoffset": "1",
+    "tmdboffset": "1"
   },
   "title": "Gunparade Orchestra: Midori no Shou - Ookami to Kano Shounen",
-  "justification": "AniDB 1 (2006-03-30) = TVDB 0x02 (2006-03-30), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79047 and TMDB show 25113. AniDB episode 1 \"ロング・グッドバイ\" (Long Goodbye) is TVDB S0E2 \"Wrong Goodbye\" and TMDB S0E2 \"ガンパレード・オーケストラ 緑の章 狼と彼の少年\" (Gunparade Orchestra: Midori no Shou - Ookami to Kare no Shounen).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -37,8 +39,8 @@
       ],
       "series": 79047
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2537afcf1316b306d1187824086aa6a86822a0a6bece1e05e31b4e510aa8aca1"
   },
   "anidb_id": 7297

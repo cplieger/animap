@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:17157",
+  "title": "AniList 17157",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5ad38304b535c2987dbd24657c1a11b884984ff600d9f389deb0d4e634fee792",
+        "gaps": [
+          "no_record"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: anime-offline-database links MAL 17157 to no AniList or AniDB id (AniList hides adult titles), so no record exists for AniList 17157; the AniDB node it is, 9457, is mapped to TVDB 280797 1x1 by an overlay entry",
+        "evidence": [
+          "https://anilist.co/anime/17157"
+        ],
+        "anilist_id": 17157
+      }
+    ]
+  }
+}

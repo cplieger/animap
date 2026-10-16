@@ -1,9 +1,12 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18165",
+    "tmdb": "https://www.themoviedb.org/tv/227810/seasons",
     "tvdb": "https://thetvdb.com/series/cryptoninja/seasons/official/2"
   },
   "set": {
+    "tmdbtv": "227810",
+    "tmdbseason": "1",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -15,7 +18,7 @@
     ]
   },
   "title": "Shinobanai! Crypto Ninja Sakuya",
-  "justification": "AniDB 14-25 (2024-01-10 to 2024-03-27) = TVDB 2x01-2x12 (2024-01-09 to 2024-03-26), was 1x14-1x25. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 435644 and TMDB show 227810. Its episodes are on TMDB show 227810. AniDB episode 1-13 (\"咲耶です. 忍びません\" (Episode 1) to \"大丈夫\" (Episode 13)) are TMDB S1E1 \"咲耶です。忍びません\" to TMDB S1E13 \"大丈夫\"; AniDB episode 14-25 (\"新たなる戦い\" (Episode 14) to \"大団円\" (Episode 25)) are TVDB S2E1 to TVDB S2E12 and TMDB S1E14 \"新たなる戦い\" to TMDB S1E25 \"大団円\". TheTVDB's season pages carry the Japanese titles, which equal AniDB's for all 25 episodes; TMDB show 227810 is the series, with the same titles in one season.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -178,8 +181,8 @@
       ],
       "series": 435644
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "592a42c520e9839c1414969c2cf869ab268e40aedd40fabc3982d84f96dbdd9c"
   },
   "anilist_ids": [

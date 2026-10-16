@@ -1,0 +1,74 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6063",
+    "tvdb": "https://thetvdb.com/series/afro-samurai/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Afro Samurai Resurrection",
+  "justification": "The TV special \"Afro Samurai Resurrection\" (2009-01-25) is TVDB season 0 episode 2 \"Afro Samurai: Resurrection\" (2009-01-25). By default it fell on episode 1 \"The Movie (Director's Cut)\" (2007).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e1b35ba43b0f9ebe382c1bcc74d0b81a3f943cc272f6e89ae34abc937826d10f",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-10-27"
+        ],
+        [
+          0,
+          2,
+          6,
+          "2009-01-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2007-01-04"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2007-01-04"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2007-01-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2007-10-27"
+        ]
+      ],
+      "series": 79755
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "109a262c512b7c43b762bbe5b7c1c8e56256b7d5596ffdf6a47d1c4f9ba1792c"
+  },
+  "anidb_id": 6063
+}

@@ -1,6 +1,9 @@
 {
-  "anidb_id": 4309,
-  "title": "Minami-ke",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4309",
+    "tmdb": "https://www.themoviedb.org/tv/56354/seasons",
+    "tvdb": "https://thetvdb.com/series/minami-ke/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
@@ -14,14 +17,24 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02, which are AniDB 6654 and AniDB 9267. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/4309",
-    "tvdb": "https://thetvdb.com/series/minami-ke/seasons/official/0"
-  },
+  "title": "Minami-ke",
+  "justification": "Checked by episode title against TVDB series 81463 and TMDB show 56354. AniDB S1-S2 (\"Ham-man Reference\" to \"Event Video: STARCHILD presents `Starchild Collection 2007` Autumn-Winter\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "961c829e16f23ebaaf91b22ab42cfafe047ee4718fe6aeaba2d37a85c7ba6aa9",
@@ -129,12 +142,12 @@
       ],
       "series": 81463
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b9c8c683f3df37aec889e02f3c761bbd4a7020c1cf82ef379f42a56a7b32a3bc"
   },
   "anilist_ids": [
     2963
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 4309
 }

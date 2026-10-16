@@ -1,0 +1,112 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10055",
+    "tmdb": "https://www.themoviedb.org/tv/23674/season/0",
+    "tvdb": "https://thetvdb.com/series/the-phoenix/seasons/official/0"
+  },
+  "set": {
+    "tmdboffset": "5",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            11
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Hi no Tori: Kizuna Hen",
+  "justification": "The film \"Hi no Tori: Kizuna Hen\" (2012-06-02) is TVDB season 0 episode 11 \"Hi no Tori: Kizuna-hen\" (2012-06-02) and TMDB 23674 season 0 episode 6 \"Hi no Tori: Kizuna Hen\". The row sent it to TVDB episode 5, the 2019 \"Dougo Onsen Hen\" prologue, and TMDB placed it on episode 1.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "73fa594b0eead3f9f90c8510f6113c204ca81e10dd3f4baa21579b7c6b800175",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1980-03-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1986-12-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1987-08-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1987-12-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-05-24"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2020-02-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2020-11-20"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1987-12-21"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2004-07-17"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-06-02"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-11-20"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2023-11-03"
+        ]
+      ],
+      "series": 98161
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "53eddb84d91a11ae65f89ba6d2980318a94abae5c58767d6142136738bef5668"
+  },
+  "anidb_id": 10055
+}

@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/1953",
     "tvdb": "https://thetvdb.com/series/xia-se-nosha-shi-ji/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/199541"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/199541",
+    "tmdb": "https://www.themoviedb.org/tv/54390/seasons"
   },
   "set": {
     "tvdbid": "479870"
   },
   "title": "Natsu-iro no Sunadokei",
-  "justification": "tvdbid 199541 to 479870 (TVDB 199541 is gone from TVDB's official order). AniDB 1-2 (2004-05-21 to 2004-07-23) = TVDB 1x01-1x02 (2004-05-21 to 2004-07-23), was TVDB 199541 1x01-1x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 479870 and TMDB show 54390. The node moves from TVDB 199541 to series 479870. AniDB episode 1-2 (\"砂に埋もれた真実\" (The Truth Buried in Sand) to \"その永遠の1秒に\" (In a Single Second of Eternity)) are TVDB S1E1 \"The Truth Buried in Sand\" to TVDB S1E2 \"In a Single Second of Eternity\". TVDB series 199541 no longer exists. Series 479870 carries both episodes by title and links the node's TMDB show 54390.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

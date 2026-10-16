@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:1552",
+  "title": "Keroro Gunsou",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "b2524434e9980179ddb090a118a42664bc10a729c80711e5469e56fe506e4c97"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Chibi Kero: Secret of the Kero Ball!? / Chibi Kero: Keroboru no Himitsu!?\" (2008-03-17) = S0E6 \"Chibi Kero: Secret of the Kero Ball!?\" (2007-03-17).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/75414",
+        "https://anidb.net/anime/1552"
+      ]
+    }
+  }
+}

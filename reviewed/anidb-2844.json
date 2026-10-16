@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:2844",
+  "title": "Shuffle!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "89e0bdc9294d5fa72217566beba3513c9df4d40440a9d4d416d00bbed69dec78"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Prologue\" (2005-05-29) = TVDB S0E1 \"Prologue\" (2005-05-27, 8 min, \"introduces the audience to the entire cast\"): identical title, two days apart (a re-broadcast or the DVD date). S2/S3 default to non-existent S0E2/E3.",
+      "evidence": [
+        "https://anidb.net/anime/2844",
+        "https://thetvdb.com/dereferrer/series/82213"
+      ]
+    }
+  }
+}

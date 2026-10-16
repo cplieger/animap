@@ -11,6 +11,7 @@ import (
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/offlinedb"
+	"github.com/cplieger/animap/internal/overlay"
 )
 
 func runBaseline(ctx context.Context, args []string, stdout io.Writer) error {
@@ -83,7 +84,7 @@ func upstreamReport(overlayDir, listPath, aodPath, countsPath, mirrorPath string
 	if err != nil {
 		return guard.CollisionReport{}, err
 	}
-	entries, bridges, err := loadOverlay(overlayDir)
+	entries, links, err := loadOverlay(overlayDir)
 	if err != nil {
 		return guard.CollisionReport{}, err
 	}
@@ -95,7 +96,11 @@ func upstreamReport(overlayDir, listPath, aodPath, countsPath, mirrorPath string
 	if err != nil {
 		return guard.CollisionReport{}, err
 	}
-	return guard.Collisions(list.Nodes, entries, bridges, facts), nil
+	proven, err := proveLinks(links, overlay.Apply(list.Nodes, entries), entries, facts, aod)
+	if err != nil {
+		return guard.CollisionReport{}, err
+	}
+	return guard.Collisions(list.Nodes, entries, proven.compiled, facts), nil
 }
 
 func writeBaseline(ctx context.Context, mode, path, commit string, rep *guard.CollisionReport, stdout io.Writer) error {

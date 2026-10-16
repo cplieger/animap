@@ -5,10 +5,11 @@
     "tvdb_old": "https://thetvdb.com/dereferrer/series/71682"
   },
   "set": {
-    "tvdbid": "279516"
+    "tvdbid": "279516",
+    "episodeoffset": "0"
   },
   "title": "Irregular Hunter X",
-  "justification": "tvdbid 71682 to 279516 (TVDB 71682 is gone from TVDB's official order). AniDB 1 (2005-12-15) = TVDB 0x01 (2005-12-15), was TVDB 71682 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "tvdbid 71682 to 279516 (TVDB 71682 is gone from TVDB's official order). AniDB 1 (2005-12-15) = TVDB 0x01 (2005-12-15), was TVDB 71682 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -26,8 +27,8 @@
       ],
       "series": 279516
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "85ffda7c19a549fe947daec9be140f467fe9b33a0ceb8512fd476407e559f0d7"
   },
   "anilist_ids": [

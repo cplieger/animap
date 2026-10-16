@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10447",
+    "tmdb": "https://www.themoviedb.org/tv/69500/seasons",
     "tvdb": "https://thetvdb.com/series/natsumes-book-of-friends/seasons/official/0"
   },
   "set": {
@@ -16,8 +17,19 @@
         ]
       },
       {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            7
+          ]
+        ]
+      },
+      {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -27,7 +39,7 @@
     ]
   },
   "title": "Natsume Yuujinchou: Itsuka Yuki no Hi ni",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 82788 and TMDB show 69500. AniDB episode 1 \"OVA\" (the anime \"夏目友人帳 いつかゆきのひに\") is TMDB S0E7 \"いつかゆきのひに\" (On a Certain Snowy Day); AniDB S1 \"Sound Theatre\" has no TVDB episode (its default TVDB S0E1 is \"Nyanko-sensei and First Errand\", another item) and no TMDB episode (its default TMDB S0E1 is \"3D Nyanko-sensei Theater 1\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -129,8 +141,8 @@
       ],
       "series": 82788
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "06b948fc68ed8a3f0516c1df7e41499646ce10b4068135a9157db6b4c04299b4"
   },
   "anilist_ids": [

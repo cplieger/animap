@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11803",
+    "tmdb": "https://www.themoviedb.org/tv/67075/seasons",
     "tvdb": "https://thetvdb.com/series/mob-psycho-100/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             7
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Mob Psycho 100",
-  "justification": "AniDB special S7 (2016-09-27) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 307375 and TMDB show 67075. AniDB S7 \"Ending of Episode 12\" has no TVDB episode (its default TVDB S0E7 is \"Reigen: The Miracle Psychic That Nobody Knows\", another item) and no TMDB episode (its default TMDB S0E7 is \"REIGEN The Miraculous Unknown Psychic\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -150,8 +152,8 @@
       ],
       "series": 307375
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "cb499b5bc1466a013da44f5ac020131351886dc9d28d8b558b3b4c770337945b"
   },
   "anilist_ids": [

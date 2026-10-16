@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4897",
+    "tmdb": "https://www.themoviedb.org/tv/34121/seasons",
     "tvdb": "https://thetvdb.com/series/baccano/seasons/official/0"
   },
   "set": {
@@ -10,23 +11,38 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            1,
-            1
+            4
           ],
           [
-            2,
-            2
+            5
           ],
           [
-            3,
-            3
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
           ]
         ]
       }
     ]
   },
   "title": "Baccano!",
-  "justification": "AniDB special S1-S3 (2008-02-27 to 2008-05-28) = TVDB 0x01-0x03 (2008-02-27 to 2008-05-28), was 1x14-1x16. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80421 and TMDB show 34121. AniDB S1-S3 (\"グラハム・スペクターの愛と平和\" (Graham Specter`s Love and Peace) to \"物語に終わりがあってはならないことを キャロルは悟った\" (Carol Realises That the Story Cannot Have an Ending)) are TVDB S0E1 \"Graham Specter's Love and Peace\" to TVDB S0E3 \"Carol Realizes That the Story Cannot Have an Ending\"; AniDB S4-S12 (\"DVD Extra 1\" to \"DVD Extra 9\") have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -135,8 +151,8 @@
       ],
       "series": 80421
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6ff81e522c62f5a1813b1c92e5db86d7b51c5b000b4066ce22920ffa65df5c1b"
   },
   "anilist_ids": [

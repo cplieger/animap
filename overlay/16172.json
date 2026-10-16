@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16172",
-    "tvdb": "https://thetvdb.com/series/eighty-six/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/100565/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/378609"
   },
   "set": {
     "mapping_list": [
@@ -14,17 +15,40 @@
       },
       {
         "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 3,
+        "offset": 2
+      },
+      {
+        "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
           ]
         ]
       }
     ]
   },
   "title": "86 (2021)",
-  "justification": "AniDB special S4 (2021-11-21) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 378609 and TMDB show 100565. AniDB S1-S3 (\"ビジュアルコメンタリー特番\" (Visual Commentary Special Episode) to \"Special Edition「せめて人間たらんと」\" (Special Edition: At Least Try To Be Human)) are TMDB S0E3 \"ビジュアルコメンタリー特番\" (Visual Commentary Special Episode) to TMDB S0E5 \"せめて人間たらんと\" (At Least as a Human); AniDB S4 \"Episode 7 Ending\" has no TVDB episode (its default TVDB S0E4 is \"At Least as a Human\", another item) and no TMDB episode (its default TMDB S0E4 is \"If There's Something Worth Dying For\", another item); AniDB S5 \"Episode 9 Ending\" has no TVDB episode (TVDB has no S0E5) and no TMDB episode (its default TMDB S0E5 is \"At Least as a Human\", another item); AniDB S6-S9 (\"Episode 11 Ending\" to \"Episode 12 Ending 3\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -199,8 +223,8 @@
       ],
       "series": 378609
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "89d02c1cfb6efceb5601f34a9ecbbd47ac199ca29a511ca12c88dd1abbbe9e4a"
   },
   "anilist_ids": [

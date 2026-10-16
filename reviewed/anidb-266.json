@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:266",
+  "title": "Meitantei Conan",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:607": "0a8416fdf9e5fb094cb263b1133564db5b8de3b4b6da45912a7030f2cb038bc9"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 607 \"Courtroom Confrontation IV: Juror Kobayashi Sumiko (Part 2) / Houtei no Taiketsu IV Saiban`in Kobayashi Sumiko (Kouhen)\" (2011-02-26) = S20E2 \"Courtroom Confrontation IV: Juror Sumiko Kobayashi (Part 2)\" (2011-03-05).",
+      "evidence": [
+        "https://thetvdb.com/series/detective-conan/seasons/official/0",
+        "https://thetvdb.com/series/detective-conan/seasons/official/20",
+        "https://anidb.net/anime/266",
+        "https://thetvdb.com/dereferrer/series/72454"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 21339,
+  "title": "Charlotte: Tsuyoimono-tachi",
+  "parts": [
+    {
+      "anidb_id": 10997,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 21339 (OVA, 1 episode(s) from 2016-03-30) is AniDB 10997's special(s) S1, aired 2016-03-23. AniList's PARENT relation names AniList 20997, which anime-offline-database links to AniDB 10997, the special's title 'Tsuyoi Mono-tachi' matches the AniList title, and AniDB lists MAL 31553 on AniDB 10997. The parent's row places it on TVDB 289679 0x2 'The Strong Ones', aired 2016-03-23.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10997",
+    "anilist": "https://anilist.co/anime/21339",
+    "tmdb": "https://www.themoviedb.org/tv/63145/season/0",
+    "tvdb": "https://thetvdb.com/series/charlotte/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "28cc6a16f7f8bc26586c45ea403be566dcbd9f2393a0fa452959c34c9f9cbfeb"
+  }
+}

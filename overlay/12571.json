@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12571",
+    "tmdb": "https://www.themoviedb.org/tv/62327/seasons",
     "tvdb": "https://thetvdb.com/series/blood-blockade-battlefront/seasons/official/0"
   },
   "set": {
@@ -16,11 +17,23 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
       }
     ]
   },
-  "title": "Kekkai Sensen \u0026 Beyond",
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "title": "Kekkai Sensen & Beyond",
+  "justification": "Checked by episode title against TVDB series 289886 and TMDB show 62327. AniDB S1-S2 (\"Episode 10 Video Commentary\" to \"第1話先行上映会 夜の部 トークパートダイジェスト映像\" (Episode 1 Advance Screening Talk Part Digest Video Night Ver.)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -129,8 +142,8 @@
       ],
       "series": 289886
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e43da62143605f9a8faff1561660d6f8a9f167e13611910c697d79c50312a796"
   },
   "anilist_ids": [

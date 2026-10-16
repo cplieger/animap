@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:5112",
+  "title": "Dragonaut: The Resonance",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "f394433739ef731bdd7642f84639684afebdcd148ef8b2b3c1f19aadf84cddce"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The only special, S1 \"Lonely Island: Shut off from the Din / Kotou: Tozasareta Kyousou\", goes to S0E1 \"LONELY ISLAND -Shut Off From the Din-\": identical title; the dates differ (2008-09-24 DVD versus 2009-12-29). All 25 regular episodes match by title and number.",
+      "evidence": [
+        "https://anidb.net/anime/5112",
+        "https://thetvdb.com/dereferrer/series/81072"
+      ]
+    }
+  }
+}

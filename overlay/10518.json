@@ -1,0 +1,135 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10518",
+    "tvdb": "https://thetvdb.com/series/record-of-lodoss-war/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1"
+  },
+  "title": "Meshimase Lodoss-tou Senki: Sorette Oishii no?",
+  "justification": "The 13 shorts (2014-04-06 to 2014-06-29) are TVDB season 0 episodes 2-14 \"Meshimase Lodoss-tou Senki: Sorette Oishii no? - 01\" to \"- 13\" on the same dates. Offset 2 sent episode 1 to \"- 02\" and episode 13 to episode 15, a Crystania OVA.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2941c35c61b5d0b6c35ab960523789acbe60cb4ed20124813abad1167c51539e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1995-07-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-04-06"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-04-13"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-04-20"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-04-27"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2014-05-04"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2014-05-11"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2014-05-18"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2014-05-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2014-06-01"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2014-06-08"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2014-06-15"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2014-06-22"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2014-06-29"
+        ],
+        [
+          0,
+          15,
+          42,
+          "1996-11-21"
+        ],
+        [
+          0,
+          16,
+          43,
+          "1997-01-22"
+        ],
+        [
+          0,
+          17,
+          44,
+          "1997-04-23"
+        ],
+        [
+          0,
+          18,
+          41,
+          "1995-07-29"
+        ]
+      ],
+      "series": 78777
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "6a0104fabc8848fd45154dbe59c868ebee83125a31cf2df9fc69ad5b80e72156"
+  },
+  "anidb_id": 10518
+}

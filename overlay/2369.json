@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/2369",
+    "tmdb": "https://www.themoviedb.org/tv/30984/seasons",
     "tvdb": "https://thetvdb.com/series/bleach/seasons/official/0"
   },
   "set": {
@@ -25,6 +26,15 @@
           ],
           [
             6
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            4
           ]
         ]
       },
@@ -142,7 +152,7 @@
     ]
   },
   "title": "Bleach",
-  "justification": "AniDB special S5-S6 (no AniDB date) have no TVDB episode, was 0x05-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 74796 and TMDB show 30984. AniDB S4 \"カラブリ! 護廷十三屋台大作戦!\" (Jump Festa Anime Tour 2008) has no TMDB episode (its default TMDB S0E4 is \"The Blood Warfare, Separation (Interlude)\", another item); AniDB S5-S6 (\"Bleach Set 1 - Behind the Scenes\" to \"Bleach Set 2 - Behind the Scenes\") have no TVDB episode (their defaults are other items). S4, the Jump Festa 2008 short, has no TMDB episode: its default TMDB S0E4 is a 2023 recap of the later series.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -2648,8 +2658,8 @@
       ],
       "series": 74796
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "af6d1d03a041ec30bd833676ef38a8b5833eb78d29c7830c019925eb2f7ad1a0"
   },
   "anilist_ids": [

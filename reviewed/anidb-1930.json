@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:1930",
+  "title": "Kinnikuman",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "470f8918a251906815089c44689e540102c21030e0123932fa79865342ffb6b3"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Episode S1 / Kinnikuman no Koutsuu Anzen\" (1970-01-01) = S0E11 \"Kinnikuman's Traffic Safety\" (1986-12-31).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/250848",
+        "https://anidb.net/anime/1930"
+      ]
+    }
+  }
+}

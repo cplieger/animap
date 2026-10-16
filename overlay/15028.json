@@ -10,14 +10,20 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
             2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Zombie Land Saga Revenge",
-  "justification": "AniDB special S2 (2021-04-08) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1, the episode 10 pre-broadcast special (2021-06-10), and S3 \"Episode 7 Opening\" had no pair and fell on TVDB season 0 episodes 1 \"Zombie and Denpa Save the Earth?!\" (2020) and 3 \"Saga Incident MV\" (2019), first-season items. TVDB lists neither, so both are unmapped with S2 \"Episode 1 Opening\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -120,8 +126,8 @@
       ],
       "series": 351953
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6ddf626eea651648ba999df7ff956dd5f32d85a3d4ad27f02f6f68d34d74cd1e"
   },
   "anilist_ids": [

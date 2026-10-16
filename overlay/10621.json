@@ -1,0 +1,74 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10621",
+    "tvdb": "https://thetvdb.com/series/gdgd-fairies/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Gudaguda Fairiestte Iu Eiga wa Dou kana...?",
+  "justification": "The film is TVDB season 0 episode 4 (2014-09-27). AniDB specials S3 \"3 Fairies Hold a Press Conference\" and S4 \"3 Fairies go to the Movies\" had no row and fell on episodes 3 \"Episode 0\" (the second season's special, AniDB 9473 S1) and 4, the film itself. TVDB lists neither, so both are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f338609d77548c011302515651dbc392d721a639f6595eb1d300770ba5572d16",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-01-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-01-27"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-12-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-09-27"
+        ]
+      ],
+      "series": 252808
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "bd58aaa45fd3da07c71a9ed26e1ca92a5772a21de00ec4475d9262cf37ce642a"
+  },
+  "anidb_id": 10621
+}

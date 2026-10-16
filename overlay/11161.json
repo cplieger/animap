@@ -1,9 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11161",
+    "tmdb": "https://www.themoviedb.org/tv/203192/seasons",
     "tvdb": "https://thetvdb.com/series/kantai-collection-kan-colle/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "203192",
+    "tmdbseason": "1",
+    "tmdboffset": "",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -11,13 +15,16 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "KanColle: Itsuka Ano Umi de",
-  "justification": "AniDB special S1 (2023-02-12) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 279533 and TMDB show 203192. Its episodes are on TMDB show 203192. AniDB episode 1-8 (\"出撃の日\" (Sortie Day) to \"いつかあの海で\" (See You Again on Another Quiet Blue Sea)) are TMDB S1E1 \"出撃の日\" (Sortie Day) to TMDB S1E8 \"いつかあの海で\" (See You Again on Another Quiet Blue Sea); AniDB S1 \"Episode 7 Ending\" is TMDB S0E1 and has no TVDB episode (its default TVDB S0E1 is \"KanColle Movie\", another item); AniDB S2 \"Episode 8 Ending\" is TMDB S0E2 and has no TVDB episode (TVDB has no S0E2).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -84,8 +91,8 @@
       ],
       "series": 279533
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a4e02c58b555e7ddbb35691e8cb5476fe7fe316156c47f687700106461bcda43"
   },
   "anilist_ids": [

@@ -1,0 +1,23 @@
+{
+  "key": "anime:anidb:9406",
+  "title": "Maken-ki! Two",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "c9ece65afed4a0a1ea0de4a32cdc0334411a36d0246e083d7fb023861c7a2cc3",
+        "date-mismatch:S2": "a66f0fc32937ae805927003b0698a783f65a8089f14d749f81b72350d857fc94",
+        "date-mismatch:S3": "021778607b066ea07133aeb1034dbaf17c83065f0211a9c208f4da2a46d8239e",
+        "date-mismatch:S4": "2a0a891c88d6ffdd1914a7dca3994d8494f8bc313fc03320b05f37b16a548833",
+        "date-mismatch:S5": "266acf3ee54dfc3b7135cff77856d50557bb0b0e5676bc847ce523bc190b1b1a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-10 match S2E1-E10 title for title. Specials S1-S5 (P~Watakushigoto Haruko/Inaho/Aki/Kodama/Kimi Hen) -\u003e E9-E13: SkyHook shows only \"Specials 1-5\" but the TheTVDB season 0 page lists the Japanese titles P〜私事♡ 春恋編 (Haruko), イナホ編 (Inaho), 秋編 (Aki), コダマ編 (Kodama), 季美編 (Kimi) in exactly that order. The five date failures are TVDB dates ~1 month later than the AniDB volume dates; the date matcher's suggestion (S2 -\u003e E9 because 04-25 ~ 04-24) would be wrong. Row start=1 end=5 offset=8 is correct.",
+      "evidence": [
+        "https://thetvdb.com/series/maken-ki-battling-venus/seasons/official/0",
+        "https://anidb.net/anime/9406",
+        "https://thetvdb.com/dereferrer/series/252474"
+      ]
+    }
+  }
+}

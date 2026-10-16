@@ -1,0 +1,62 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2711",
+    "tmdb": "https://www.themoviedb.org/tv/132563/season/1",
+    "tvdb": "https://thetvdb.com/series/angelique-white-wing-memoirs/seasons/official/1"
+  },
+  "set": {
+    "tvdbid": "295278",
+    "defaulttvdbseason": "1",
+    "tmdbtv": "132563",
+    "tmdbseason": "1",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Angelique: Shiroi Tsubasa no Memoire",
+  "justification": "TVDB 120041 Angelique is the 2004 TV series and has no season 0. The 2000 OVA Shiroi Tsubasa no Memoire is its own TVDB series, 295278 Angelique: White Wing Memoirs: season 1 episodes 1 Memoir of White Wings (Part One) (2000-03-25) and 2 (Part Two), AniDB volumes 1 and 2. TMDB 132563 of that name holds Memoir of White Wings (1) and (2) (2000-03-25, 2000-06-27, the AniDB dates). The three specials (cast messages, a making-of) have no TVDB or TMDB episode.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3c601b45a30e4864a9c5a9a974081840541cc728f045a158be2620aeca2b0612",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2000-03-25"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2000-03-27"
+        ]
+      ],
+      "series": 295278
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "bee463b5245e63566c64aeb0be55fa1e80c163e927c1a697eb075350684b04e9"
+  },
+  "anidb_id": 2711
+}

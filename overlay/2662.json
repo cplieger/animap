@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/2662",
     "tvdb": "https://thetvdb.com/series/star-blazers/seasons/official/2",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/85230"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/85230",
+    "tmdb": "https://www.themoviedb.org/tv/13339/seasons"
   },
   "set": {
     "tvdbid": "77773"
   },
   "title": "Uchuu Senkan Yamato 2",
-  "justification": "tvdbid 85230 to 77773 (TVDB 85230 is gone from TVDB's official order). AniDB 1-26 (1978-10-14 to 1979-04-07) = TVDB 2x01-2x26 (1978-10-14 to 1979-04-07), was TVDB 85230 2x01-2x26, by whole-season structure. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 77773 and TMDB show 13339. The node moves from TVDB 85230 to series 77773. AniDB episode 1-26 (\"2201年ヤマト帰還せよ!\" (2201: The Yamato returns!) to \"ヤマトよ永遠に\" (Be forever, Yamato!)) are TVDB S2E1 \"Ambush at Jupiter\" to TVDB S2E26 \"Argo, Make Us Proud!\". TVDB series 85230 no longer exists; Star Blazers (77773) season 2 has these 26 episodes. Its titles are the English dub's, which do not translate the Japanese ones, so each episode was paired by the event its title and the dub's episode guide name in the same slot (Blackout, Battle Satellite, ... Argo, Make Us Proud!), with all 26 air dates equal.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17256",
-    "tvdb": "https://thetvdb.com/series/spy-kyoushitsu/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/spy-classroom/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -11,13 +11,16 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Spy Kyoushitsu",
-  "justification": "AniDB special S1 (2022-12-14) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2022-12-14) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S2, the episode 1 online advance screening with cast talk (2022-12-24), has no TVDB episode. By default it fell on TVDB season 0 episode 2 極上スパイミッション PART2 (2023-02-23), the cast video series. It is unmapped; S3, the New Year talk, stays on episode 3 雨宮天と伊藤美来の極上新春対談！.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -126,8 +129,8 @@
       ],
       "series": 415821
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bb1c1d7a156f911f3b7e7baeede8d5333f83db7d98994b6696eb965273578edf"
   },
   "anilist_ids": [

@@ -2,14 +2,15 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/10114",
     "tvdb": "https://thetvdb.com/movies/bayonetta-bloody-fate",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/357271"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/357271",
+    "tmdb_movie": "https://www.themoviedb.org/movie/242546"
   },
   "set": {
     "tvdbid": "movie",
     "defaulttvdbseason": ""
   },
   "title": "Bayonetta: Bloody Fate",
-  "justification": "tvdbid 357271 to movie (TVDB 357271 is gone from TVDB's official order). TVDB lists it as a movie; TMDB movie 242546, IMDb tt3306776. AniDB 1 (2013-11-23) has no TVDB episode, was TVDB 357271 1x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by title. The node moves from TVDB 357271 to the movie marker. TVDB series 357271 no longer exists. TheTVDB carries the film only as movie 21653 (ベヨネッタ ブラッディフェイト, 2013-11-23, 90 minutes), whose TMDB and IMDb ids are the node's own, so the node takes the movie marker and keeps its TMDB film.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "at": "2026-10-06",

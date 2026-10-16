@@ -1,0 +1,24 @@
+{
+  "anilist_id": 6351,
+  "title": "CLANNAD: After Story - Mou Hitotsu no Sekai, Kyou-hen",
+  "parts": [
+    {
+      "anidb_id": 5841,
+      "specials": [
+        3
+      ]
+    }
+  ],
+  "justification": "AniList 6351 (OVA, 1 episode(s) from 2009-07-01) is AniDB 5841's special(s) S3 'Another World: Kyou Arc' (Mou Hitotsu no Sekai, Kyou Hen), aired 2009-07-01, and AniDB lists MAL 6351 on AniDB 5841. The parent's mapping row places S3 on TVDB 80644 0x3 'Another World: Kyou Chapter', also 2009-07-01.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5841",
+    "anilist": "https://anilist.co/anime/6351",
+    "tmdb": "https://www.themoviedb.org/tv/24835/season/0",
+    "tvdb": "https://thetvdb.com/series/clannad/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "b1ad8f8a5e61a95933f72ea7a6581a44cc8a26e5d265753579349b3798e3fbd0"
+  }
+}

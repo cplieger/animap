@@ -1,0 +1,24 @@
+{
+  "anilist_id": 20423,
+  "title": "Kamisama no Inai Nichiyoubi: Kioku",
+  "parts": [
+    {
+      "anidb_id": 9482,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 20423 (OVA, 1 episode(s) from 2014-02-26) is AniDB 9482's special(s) S1, aired 2014-02-05. AniList's PREQUEL relation names AniList 16009, which anime-offline-database links to AniDB 9482, the special's title 'Kioku' matches the AniList title, and AniDB lists MAL 20423 on AniDB 9482. TVDB 270068 0x1 'Memories' aired 2014-02-05.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9482",
+    "anilist": "https://anilist.co/anime/20423",
+    "tmdb": "https://www.themoviedb.org/tv/49473/season/0",
+    "tvdb": "https://thetvdb.com/series/sunday-without-god/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "ee7d219aca8a43f2c62dd56661c181f9f31f151e3e076ddcb4f408b1f509ba5f"
+  }
+}

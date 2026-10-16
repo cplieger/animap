@@ -1,0 +1,168 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13829",
+    "tmdb": "https://www.themoviedb.org/tv/62745/season/0",
+    "tvdb": "https://thetvdb.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 1,
+        "end": 2,
+        "offset": 2
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darouka: Familia Myth II",
+  "justification": "TMDB 62745 season 0 holds E2 Past \u0026 Future (2019-07-06) and E3 Is It Wrong to Go Searching for Herbs on a Deserted Island? (2020-01-29), which are AniDB 13829's specials S1 Past \u0026 Future (2019-07-06) and S2 Mujintou ni Yakusou o Motomeru no wa Machigatte Iru Darouka (2020-01-29). Anime-Lists names only tvdbseason in the row, so TMDB took the default S0E1 and S0E2 (Is It Wrong to Expect a Hot Spring in a Dungeon? and Past \u0026 Future). The TVDB row is unchanged (S1 to 0x3, S2 to 0x4). AniDB dates from the AniDB mirror at 7dd9b8e; TMDB from its season 0 page.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d42a1d2ce9e4c702525e0f58a3ff213a2fdd57189486843778f2bea4069f9dfc",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          60,
+          "2016-12-07"
+        ],
+        [
+          0,
+          2,
+          61,
+          "2019-02-15"
+        ],
+        [
+          0,
+          3,
+          65,
+          "2019-07-06"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2020-01-29"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-04-28"
+        ],
+        [
+          0,
+          6,
+          68,
+          "2022-07-09"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2023-03-04"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2019-07-13"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2019-07-20"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2019-07-27"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2019-08-03"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2019-08-10"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2019-08-17"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2019-08-24"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2019-08-31"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2019-09-07"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2019-09-14"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2019-09-21"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2019-09-28"
+        ]
+      ],
+      "series": 289882
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "32a31f38a7067ee1bb3c2383cbc6646e4e282c57471f119e2ef85565edf9c16f"
+  },
+  "anilist_ids": [
+    101167
+  ],
+  "anidb_id": 13829
+}

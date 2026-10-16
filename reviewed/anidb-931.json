@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:931",
+  "title": "Taiho Shichau zo Special",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "dd563ffbf3cec8320fa523730e1d8130c25f53b2ca6d627119680ac9ee61e7ac"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"File 3.4 / Tatakau Shoulder Bag\" (1999-09-25) = S0E12 \"Mini Special - The Fighting Bag\" (1999-04-17).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/80054",
+        "https://anidb.net/anime/931"
+      ]
+    }
+  }
+}

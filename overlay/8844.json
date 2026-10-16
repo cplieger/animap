@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8844",
+    "tmdb": "https://www.themoviedb.org/tv/52891/seasons",
     "tvdb": "https://thetvdb.com/series/yuruyuri-happy-go-lily/seasons/official/0"
   },
   "set": {
@@ -11,11 +12,18 @@
         "start": 1,
         "end": 6,
         "offset": 9
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 6,
+        "offset": 8
       }
     ]
   },
   "title": "Yuru Yuri 2",
-  "justification": "AniDB special S1 (2012-09-19) = TVDB 0x10 (2012-09-19), was 0x01, by title, order breaking a same-title tie. AniDB special S2 (2012-10-17) = TVDB 0x11 (2012-10-17), was 0x02, by title. AniDB special S3 (2012-11-21) = TVDB 0x12 (2012-11-21), was 0x03, by title, order breaking a same-title tie. AniDB special S4-S6 (2012-12-19 to 2013-02-20) = TVDB 0x13-0x15 (2012-12-19 to 2013-02-20), was 0x04-0x06, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 250022 and TMDB show 52891. AniDB S1-S6 (\"設定映像集『あかりだらけ』\" (Setting Image Collection: \"Akari Darake\") to \"設定映像集『櫻子\u0026向日葵だらけ』\" (Setting Image Collection: \"Sakurako \u0026 Himawari Darake\")) are TVDB S0E10 \"Setting Image Collection: 'Akari Darake'\" to TVDB S0E15 \"Setting Image Collection: 'Sakurako \u0026 Himawari Darake'\" and TMDB S0E9 \"設定映像集『あかりだらけ』\" (Setting Image Collection: \"Akari Darake\") to TMDB S0E14 \"設定映像集『櫻子\u0026向日葵だらけ』\" (Setting Image Collection: \"Sakurako \u0026 Himawari Darake\").",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -202,8 +210,8 @@
       ],
       "series": 250022
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "03b43d33c68048dbede7dcea22eeb6b8841851bbfc221a92dacf375458fee06f"
   },
   "anilist_ids": [

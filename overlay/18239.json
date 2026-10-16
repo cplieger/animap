@@ -1,0 +1,19 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1544"
+  },
+  "set": {
+    "tvdbid": "OVA",
+    "tmdbtv": "",
+    "tmdbseason": ""
+  },
+  "title": "Elfen Lied: Tooriame nite Arui wa, Shoujo wa Ikani Shite Sono Shinjou ni Itatta ka? - Regenschauer",
+  "justification": "AniDB has no anime 18239 (the AniDB HTTP API answers \"Anime not found\" and the mirror has no file), yet the Anime-Lists node of that name, the title of AniDB 1544's special S1 (the OVA AniList 376), sits on TVDB 75941 season 0 and TMDB 42671 season 0. Those two episodes are already placed by AniDB 1544's mapping row and by the special-of-parent bridge for AniList 376, so the node claims nothing of its own and no episode count can place it. The entry marks it as the OVA it is named for, takes it off the TVDB and TMDB series, and lets the bridge build. It goes when Anime-Lists drops or empties the node.",
+  "upstream": "TODO-PR",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "55c1c5d30de8cb63d40d3aca563f42816e35d0b6dd8344a2042b8a2bf1f766c2"
+  },
+  "anidb_id": 18239
+}

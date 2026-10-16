@@ -1,0 +1,41 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2103",
+    "tvdb": "https://thetvdb.com/series/transformers-victory/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "71551",
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0"
+  },
+  "title": "Transformers Zone",
+  "justification": "TVDB 101511 is gone. The 1990-07-21 OVA Shin Soushireikan Dai Atlas Toujou! is TVDB season 0 episode 1 Transformers: Zone (25 minutes) of 71551 Transformers: Victory, the series its parent node 2065 maps to; TVDB also lists it as movie 51747 トランスフォーマーZ (IMDb tt0127916, TMDB 436056). The franchise's series is kept, so AniDB 1 goes to season 0 episode 1. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "bd3a9841f05c9ff01723b59880b0fcb285d057788860f28781d72f051cba7b91",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          ""
+        ],
+        [
+          0,
+          2,
+          0,
+          "1989-09-17"
+        ]
+      ],
+      "series": 71551
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "4830d0d10524926bd3ca30211e1302b531821ee053c8b729a448d5dc675e7f1b"
+  },
+  "anidb_id": 2103
+}

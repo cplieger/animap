@@ -1,0 +1,40 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1027",
+    "tmdb": "https://www.themoviedb.org/movie/25078",
+    "tmdb_movie": "https://www.themoviedb.org/movie/25078",
+    "tvdb": "https://thetvdb.com/series/cat-soup-theater/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "129611",
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0"
+  },
+  "title": "Nekojiru-sou",
+  "justification": "Checked by episode title against TVDB series 129611. The node moves from TVDB movie to series 129611. AniDB episode 1 \"OVA\" (the anime \"ねこぢる草\") is TVDB S0E1 \"Cat Soup\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "abce2220dd9e49e9f1655c8df045c3aad60637998bf8bd0cd908fa6f9bc75290",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2001-02-21"
+        ]
+      ],
+      "series": 129611
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "663295d3920e1927bd53eb576d634a7770f6779874a2b6d389bc4d0c49c1319f"
+  },
+  "anilist_ids": [
+    601
+  ],
+  "anidb_id": 1027
+}

@@ -1,0 +1,61 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13006",
+    "tvdb": "https://thetvdb.com/series/kirakiraprecure-a-la-mode/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Kirakira Precure A La Mode: Paris to! Omoide no Mille-Feuille!",
+  "justification": "AniDB special S1, a stage greeting digest of 2018-03-07, has no TVDB episode; its default was TVDB 321820 season 0 episode 1, the Dream Stars film (node 12509).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "eac3998ed186e1879baf93c49a48f6c818b28cbae9f9d05bfc45bc4734fb68af",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2017-03-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-10-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ]
+      ],
+      "series": 321820
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "4db7560bde0b8b1e2264a7aad596c88305511aee6e5363b0f05be150294da340"
+  },
+  "anidb_id": 13006
+}

@@ -1,13 +1,26 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9356",
+    "tmdb": "https://www.themoviedb.org/tv/39434/seasons",
+    "tmdb_movie": "https://www.themoviedb.org/movie/255413",
     "tvdb": "https://thetvdb.com/series/anohana-the-flower-we-saw-that-day/seasons/official/0"
   },
   "set": {
+    "tmdbid": "255413",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +30,7 @@
     ]
   },
   "title": "Gekijouban Ano Hi Mita Hana no Namae o Bokutachi wa Mada Shiranai.",
-  "justification": "AniDB special S1 (2014-03-05) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 247958 and TMDB show 39434. The film is TMDB movie 255413 (anohana: The Flower We Saw That Day - The Movie (2013)). AniDB episode 1 \"Complete Movie\" has no TMDB episode (TMDB has no S0E2); AniDB S1 \"ノンクレジットオープニング(スペシャルO.A ver.)\" (Non-credit Opening (Special O.A Ver.)) has no TVDB episode (its default TVDB S0E1 is \"Letter to Menma\", another item) and no TMDB episode (its default TMDB S0E1 is \"Letter to Menma\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -95,8 +108,8 @@
       ],
       "series": 247958
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "dc8eda2c702203b2062bc186a7ae47e161d01da16c0ae9d4a7fc514e53b0d219"
   },
   "anilist_ids": [

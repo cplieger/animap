@@ -1,245 +1,136 @@
 package datecheck
 
 import (
-	"slices"
+	"regexp"
 	"testing"
 
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/skyhook"
 )
 
-func fingerprintInputs() (*animelists.Node, anidb.Anime, *Layout) {
-	n := node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "1"}, row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";8-9;"))
-	n.Name = "Kamichu!"
-	a := anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-11-23"}}, Finished: true, Titles: "anidb titles"}
-	lay := &Layout{
-		Episodes: []skyhook.Episode{ep(0, 1, 0, "2005-11-23"), ep(1, 1, 1, "2005-08-10"), ep(1, 2, 2, "2005-08-17"), ep(2, 1, 3, "2006-01-01")},
-		Titles:   map[int]string{0: "season 0 titles", 1: "season 1 titles", 2: "season 2 titles"},
-	}
-	return n, a, lay
+var hexRE = regexp.MustCompile(`^[0-9a-f]{64}$`)
+
+// digestInputs is a node whose ep2 lands one episode off on a weekly show,
+// so its one finding is date-mismatch:2.
+func digestInputs() (*animelists.Node, anidb.Anime, *Layout) {
+	n := season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;"))
+	a := anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, RegularTitles: []string{"t1", "t2"}, Finished: true}
+	return n, a, laid(ep(1, 1, 1, "2005-08-10"), ep(1, 2, 2, "2005-08-17"), ep(1, 3, 3, "2005-08-24"), ep(2, 1, 4, "2006-01-04"))
 }
 
-func TestFingerprintsFollowEachInput(t *testing.T) {
-	n, a, lay := fingerprintInputs()
-	base := FingerprintsOf(n, a, lay)
-	for _, h := range []string{base.Node, base.TVDB, base.AniDB} {
-		if !hex64(h) {
-			t.Fatalf("fingerprints %+v, want three 64-hex digests", base)
-		}
+func inputsOfLead(t *testing.T, n *animelists.Node, a *anidb.Anime, lay *Layout) string {
+	t.Helper()
+	l := Check(n, animelists.TVDB, a, lay, now, nil)
+	if l == nil {
+		t.Fatal("Check = nil, want the date-mismatch lead")
+	}
+	return l.Digests()["date-mismatch:2"]
+}
+
+func TestFindingInputsFollowWhatTheProofReads(t *testing.T) {
+	n, a, lay := digestInputs()
+	base := inputsOfLead(t, n, &a, lay)
+	if !hexRE.MatchString(base) {
+		t.Fatalf("digest %q, want 64 hex", base)
 	}
 	for _, tc := range []struct {
-		name   string
 		mutate func(*animelists.Node, *anidb.Anime, *Layout)
-		want   Fingerprints
-	}{
-		{
-			"node attribute", func(n *animelists.Node, _ *anidb.Anime, _ *Layout) { n.Attrs["episodeoffset"] = "1" },
-			Fingerprints{Node: "changed", TVDB: base.TVDB, AniDB: base.AniDB},
-		},
-		{
-			"node row", func(n *animelists.Node, _ *anidb.Anime, _ *Layout) { n.Rows[0].Text = ";8-8;" },
-			Fingerprints{Node: "changed", TVDB: base.TVDB, AniDB: base.AniDB},
-		},
-		{"node title", func(n *animelists.Node, _ *anidb.Anime, _ *Layout) { n.Name = "Kamichu" }, base},
-		{
-			"TVDB date in a touched season", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[2].AirDate = "2005-08-18" },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"TVDB special when AniDB lists specials", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[0].Number = 2 },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"TVDB date in a season the node does not map onto", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[3].AirDate = "2006-01-02" },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"TVDB number in a season the node does not map onto", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[3].Number = 2 },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"TVDB titles in a touched season", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Titles[1] = "season 1 titles retitled" },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"TVDB titles of the specials", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Titles[0] = "season 0 titles retitled" },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"TVDB titles in a season the node does not map onto", func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Titles[2] = "season 2 titles retitled" },
-			Fingerprints{Node: base.Node, TVDB: "changed", AniDB: base.AniDB},
-		},
-		{
-			"AniDB episode titles", func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Titles = "anidb titles retitled" },
-			Fingerprints{Node: base.Node, TVDB: base.TVDB, AniDB: "changed"},
-		},
-		{
-			"AniDB regular date", func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Regular[1] = "2005-08-18" },
-			Fingerprints{Node: base.Node, TVDB: base.TVDB, AniDB: "changed"},
-		},
-		{
-			"AniDB special number", func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Specials[0].Number = 2 },
-			Fingerprints{Node: base.Node, TVDB: base.TVDB, AniDB: "changed"},
-		},
-		{
-			"AniDB end date", func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Finished = false },
-			Fingerprints{Node: base.Node, TVDB: base.TVDB, AniDB: "changed"},
-		},
-		{
-			"AniDB episode count", func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Regular = append(a.Regular, "") },
-			Fingerprints{Node: base.Node, TVDB: base.TVDB, AniDB: "changed"},
-		},
-	} {
-		t.Run(tc.name, func(t *testing.T) {
-			n, a, lay := fingerprintInputs()
-			tc.mutate(n, &a, lay)
-			got := FingerprintsOf(n, a, lay)
-			for _, part := range []struct{ name, got, base, want string }{
-				{"node", got.Node, base.Node, tc.want.Node},
-				{"TVDB", got.TVDB, base.TVDB, tc.want.TVDB},
-				{"AniDB", got.AniDB, base.AniDB, tc.want.AniDB},
-			} {
-				if changed := part.got != part.base; changed != (part.want == "changed") {
-					t.Errorf("%s fingerprint changed=%t, want changed=%t", part.name, changed, part.want == "changed")
-				}
-			}
-		})
-	}
-}
-
-func TestFingerprintsReuseTheOverlayCaptureNodeHash(t *testing.T) {
-	n, a, lay := fingerprintInputs()
-	if got, want := FingerprintsOf(n, a, lay).Node, animelists.HashOf(n); got != want {
-		t.Errorf("node fingerprint %s, want the overlay capture's node hash %s", got, want)
-	}
-}
-
-// Check reads an absent series as dead before it reads any episode, so a
-// series SkyHook stops serving moves the TVDB fingerprint even when its
-// official order was empty.
-func TestFingerprintsTellAnAbsentSeriesFromAnEmptyOrder(t *testing.T) {
-	n, a, _ := fingerprintInputs()
-	served, gone := FingerprintsOf(n, a, &Layout{}), FingerprintsOf(n, a, &Layout{Absent: true})
-	if served.TVDB == gone.TVDB || served.Node != gone.Node || served.AniDB != gone.AniDB {
-		t.Errorf("an empty order %+v and an absent series %+v, want only the TVDB fingerprint to differ", served, gone)
-	}
-}
-
-// Check places an absolute node's specials on TVDB season 0, so a change
-// there moves the fingerprint as it does for a season-numbered node.
-func TestFingerprintsCoverSeasonZeroOfAnAbsoluteNode(t *testing.T) {
-	n := node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "a"})
-	a := anidb.Anime{Regular: []string{"2005-08-10"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-11-23"}}, Finished: true}
-	layout := func() *Layout {
-		return &Layout{
-			Episodes: []skyhook.Episode{ep(0, 1, 0, "2005-12-30"), ep(0, 2, 0, "2005-11-23"), ep(1, 1, 1, "2005-08-10")},
-			Titles:   map[int]string{0: "season 0 titles", 1: "season 1 titles"},
-		}
-	}
-	base := FingerprintsOf(n, a, layout()).TVDB
-	for _, tc := range []struct {
 		name   string
-		mutate func(*Layout)
-	}{
-		{"a season-0 air date", func(l *Layout) { l.Episodes[0].AirDate = "2006-03-01" }},
-		{"season-0 titles", func(l *Layout) { l.Titles[0] = "season 0 titles retitled" }},
-		{"a season-1 air date", func(l *Layout) { l.Episodes[2].AirDate = "2005-08-11" }},
-	} {
-		t.Run(tc.name, func(t *testing.T) {
-			lay := layout()
-			tc.mutate(lay)
-			if FingerprintsOf(n, a, lay).TVDB == base {
-				t.Errorf("TVDB fingerprint unchanged after %s changed on an absolute node", tc.name)
-			}
-		})
-	}
-}
-
-// Check looks for a regular episode's date on every season, so a season the
-// node does not map onto can flip its verdict and must move the TVDB
-// fingerprint.
-func TestVerdictChangeOffTheMappedSeasonsMovesTheTVDBFingerprint(t *testing.T) {
-	n := season1()
-	a := anidb.Anime{Regular: []string{"2005-08-10"}, Finished: true}
-	layout := func(season2 string) *Layout {
-		return &Layout{
-			Episodes: []skyhook.Episode{ep(1, 1, 1, "2005-10-05"), ep(2, 1, 2, season2)},
-			Titles:   map[int]string{1: "season 1 titles", 2: "season 2 titles"},
-		}
-	}
-	carried, moved := layout("2005-08-10"), layout("2005-12-07")
-	if l, p := Check(n, a, carried, now), Check(n, a, moved, now); l == nil || p != nil {
-		t.Fatalf("Check = %+v, then %+v; want a lead while season 2 airs on the AniDB date and a pass once it moves", l, p)
-	}
-	if FingerprintsOf(n, a, carried).TVDB == FingerprintsOf(n, a, moved).TVDB {
-		t.Error("TVDB fingerprint unchanged though only season 2 moved and Check went from a lead to a pass")
-	}
-}
-
-// With no regular episode Check reads only the seasons the node maps onto
-// and season 0.
-func TestFingerprintsOfASpecialsOnlyAnimeLeaveOutSeasonsCheckCannotRead(t *testing.T) {
-	n := season1()
-	a := anidb.Anime{Specials: []anidb.Episode{{Number: 1, AirDate: "2005-11-23"}}, Finished: true}
-	layout := func() *Layout {
-		return &Layout{
-			Episodes: []skyhook.Episode{ep(0, 1, 0, "2005-11-23"), ep(1, 1, 1, "2005-08-10"), ep(2, 1, 2, "2006-01-04")},
-			Titles:   map[int]string{0: "season 0 titles", 1: "season 1 titles", 2: "season 2 titles"},
-		}
-	}
-	base := FingerprintsOf(n, a, layout()).TVDB
-	for _, tc := range []struct {
-		name   string
-		mutate func(*Layout)
 		moves  bool
 	}{
-		{"a season-0 air date", func(l *Layout) { l.Episodes[0].AirDate = "2005-11-24" }, true},
-		{"a season-1 air date", func(l *Layout) { l.Episodes[1].AirDate = "2005-08-11" }, true},
-		{"a season-2 air date", func(l *Layout) { l.Episodes[2].AirDate = "2006-01-05" }, false},
-		{"season-2 titles", func(l *Layout) { l.Titles[2] = "season 2 titles retitled" }, false},
+		{name: "the AniDB episode's titles", moves: true, mutate: func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.RegularTitles[1] = "other" }},
+		{name: "the target's title", moves: true, mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[2].Title = "other" }},
+		{name: "the carrier's title", moves: true, mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[1].Title = "other" }},
+		{name: "the target's absolute number", moves: true, mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[2].Absolute = 9 }},
+		{name: "an episode the proof does not read", mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[3].Title = "other" }},
+		{name: "another AniDB episode's titles", mutate: func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.RegularTitles[0] = "other" }},
+		{name: "the node's name", mutate: func(n *animelists.Node, _ *anidb.Anime, _ *Layout) { n.Name = "renamed" }},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			lay := layout()
-			tc.mutate(lay)
-			if moved := FingerprintsOf(n, a, lay).TVDB != base; moved != tc.moves {
-				t.Errorf("TVDB fingerprint moved=%t after %s changed, want moved=%t", moved, tc.name, tc.moves)
+			n, a, lay := digestInputs()
+			tc.mutate(n, &a, lay)
+			if got := inputsOfLead(t, n, &a, lay); (got != base) != tc.moves {
+				t.Errorf("digest moved = %t, want %t", got != base, tc.moves)
+			}
+		})
+	}
+	t.Run("the node placing the episode elsewhere", func(t *testing.T) {
+		n, a, lay := digestInputs()
+		n.Rows[0].Text = ";2-1;"
+		l := Check(n, animelists.TVDB, &a, lay, now, nil)
+		if l == nil || l.Digests()["date-mismatch:2"] == base {
+			t.Errorf("Check after the move = %+v, want a finding with other inputs", l)
+		}
+	})
+}
+
+// The same coordinates on another show are another proof, on either side,
+// so a ruling on one show never silences a node moved to another.
+func TestFindingInputsNameTheShow(t *testing.T) {
+	for _, tc := range []struct {
+		onSide func(*animelists.Node) *animelists.Node
+		name   string
+		attr   string
+		side   animelists.Side
+	}{
+		{name: "TVDB", attr: "tvdbid", side: animelists.TVDB, onSide: func(n *animelists.Node) *animelists.Node { return n }},
+		{name: "TMDB", attr: "tmdbtv", side: animelists.TMDB, onSide: onTMDB},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			digests := func(id string, lay *Layout) map[string]string {
+				n, a, _ := digestInputs()
+				n = tc.onSide(n)
+				n.Attrs[tc.attr] = id
+				l := Check(n, tc.side, &a, tmdbLayout(lay), now, nil)
+				if l == nil {
+					t.Fatalf("Check on show %s = nil, want a lead", id)
+				}
+				return l.Digests()
+			}
+			_, _, lay := digestInputs()
+			if a, b := digests("100", lay), digests("200", lay); a["date-mismatch:2"] == "" || a["date-mismatch:2"] == b["date-mismatch:2"] {
+				t.Errorf("date-mismatch:2 on show 100 %q and on show 200 %q, want two digests", a["date-mismatch:2"], b["date-mismatch:2"])
+			}
+			gone := &Layout{Absent: true}
+			if a, b := digests("100", gone), digests("200", gone); a["dead-series"] == b["dead-series"] {
+				t.Errorf("dead-series digest %q on both shows, want two", a["dead-series"])
 			}
 		})
 	}
 }
 
-func TestFindingKeys(t *testing.T) {
-	fs := []Finding{
-		{Kind: OutOfOrder, Episode: Episode{Number: 12}},
-		{Kind: DateMismatch, Episode: Episode{Number: 3}},
-		{Kind: DateMismatch, Episode: Episode{Number: 3}},
-		{Kind: MissingTarget, Episode: Episode{Number: 1, Special: true}},
+func TestDigestsKeys(t *testing.T) {
+	dead := &Lead{Dead: true, Findings: []Finding{{Kind: DeadMovie, Movie: 4, Inputs: "m"}}}
+	got := dead.Digests()
+	if len(got) != 2 || !hexRE.MatchString(got["dead-series"]) || got["dead-movie:4"] != "m" {
+		t.Errorf("Digests(dead) = %v, want dead-series and dead-movie:4", got)
 	}
-	got := FindingKeys(fs)
-	if want := []string{"date-mismatch:3", "missing-target:S1", "out-of-order:12"}; !slices.Equal(got, want) {
-		t.Errorf("FindingKeys = %v, want %v: kind and AniDB episode, sorted, each once", got, want)
+	two := &Lead{Findings: []Finding{
+		{Kind: DateMismatch, Episode: Episode{Number: 1}, Inputs: "a"},
+		{Kind: DateMismatch, Episode: Episode{Number: 1}, Inputs: "a"},
+		{Kind: MissingTarget, Episode: Episode{Number: 3, Special: true}, Inputs: "b"},
+	}}
+	if got := two.Digests(); len(got) != 2 || got["date-mismatch:1"] != "a" || got["missing-target:S3"] != "b" {
+		t.Errorf("Digests = %v, want one key per kind and episode", got)
 	}
-	for _, k := range got {
-		if !ValidFindingKey(k) {
-			t.Errorf("ValidFindingKey(%q) = false for a key FindingKeys wrote", k)
-		}
-	}
-	for _, k := range []string{"", "date-mismatch", "date-mismatch:0", "dead-series:1", "date-mismatch:S", "date-mismatch:3 ", "Date-mismatch:3", "date-mismatch:03"} {
-		if ValidFindingKey(k) {
-			t.Errorf("ValidFindingKey(%q) = true, want false", k)
+}
+
+func TestValidFindingKey(t *testing.T) {
+	for k, want := range map[string]bool{
+		"missing-target:1": true, "date-mismatch:S12": true, "out-of-order:40": true, "dead-series": true, "dead-movie:12": true,
+		"missing-target:0": false, "dead-movie": false, "dead-series:1": false, "lead:1": false, "date-mismatch:S": false,
+	} {
+		if got := ValidFindingKey(k); got != want {
+			t.Errorf("ValidFindingKey(%q) = %t, want %t", k, got, want)
 		}
 	}
 }
 
-func hex64(s string) bool {
-	if len(s) != 64 {
-		return false
+func TestTitleDigest(t *testing.T) {
+	if got := TitleDigest(" Ep 1 "); got != TitleDigest("Ep 1") || len(got) != 16 {
+		t.Errorf("TitleDigest = %q, want 16 hex, the same trimmed", got)
 	}
-	for _, c := range s {
-		if (c < '0' || c > '9') && (c < 'a' || c > 'f') {
-			return false
-		}
+	if TitleDigest("Ep 1") == TitleDigest("Ep 2") {
+		t.Error("two titles share a digest")
 	}
-	return true
 }

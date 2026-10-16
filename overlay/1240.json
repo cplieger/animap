@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1240",
+    "tmdb": "https://www.themoviedb.org/tv/23587/seasons",
     "tvdb_s2": "https://thetvdb.com/series/young-kindaichis-casebook/seasons/official/2",
     "tvdb_s3": "https://thetvdb.com/series/young-kindaichis-casebook/seasons/official/3",
     "tvdb_s4": "https://thetvdb.com/series/young-kindaichis-casebook/seasons/official/4"
@@ -43,11 +44,23 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Kindaichi Shounen no Jikenbo (1997)",
-  "justification": "AniDB 33-73 (1998-01-12 to 1998-12-14) = TVDB 2x01-2x41 (1998-01-12 to 1998-12-14), was 1x33-1x73. AniDB 74-116 (1999-01-11 to 1999-12-20) = TVDB 3x01-3x43 (1999-01-11 to 1999-12-20), was 1x74-1x116. AniDB 117-148 (2000-01-10 to 2000-09-11) = TVDB 4x01-4x32 (2000-01-10 to 2000-09-11), was 1x117-1x148. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79460 and TMDB show 23587. AniDB episode 33-73 (\"「魔術列車殺人事件」ファイル1\" (Magical Express Murder Case: File 1) to \"「異人館ホテル殺人事件」ファイル4\" (Ijinkan Hotel Murder Case: File 4)) are TVDB S2E1 \"Magician's Train Murder - File 1\" to TVDB S2E41 \"Wax Museum Hotel Murder - File 4\"; AniDB episode 74-116 (\"「電脳山荘殺人事件」ファイル1\" (Computer Lodge Murder Case: File 1) to \"「迷い込んできた悪魔[デモン]」\" (The Demon Loses His Way)) are TVDB S3E1 \"Computer Villa Murder - File 1\" to TVDB S3E43 \"The Demon Loses His Way\"; AniDB episode 117-148 (\"「嘆きの鬼伝説殺人事件」ファイル1\" (Sorrowed Ghost Legend Murder Case: File 1) to \"「怪奇サーカスの殺人」ファイル4\" (Mystery Circus`s Murder: File 4)) are TVDB S4E1 \"Sorrowed Ghost Legend Murder Case - File 1\" to TVDB S4E32 \"Mystery Circus' Murder - File 4\"; AniDB S2-S3 (\"夏こそミステリー! 2人の名探偵 金田一&コナン\" (Summer Mystery! The Two Detectives: Kindaichi & Conan) to \"コナン・金田一・犬夜叉! 最強! アニメトライアングル!!\" (Conan - Kindaichi - Inu Yasha! Strongest! Anime Triangle!!)) have no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -1005,8 +1018,8 @@
       ],
       "series": 79460
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0b0272dd8caa16debe43cf23f4de7cbd571f95e83659a75bc72ad1ef583a4e66"
   },
   "anilist_ids": [

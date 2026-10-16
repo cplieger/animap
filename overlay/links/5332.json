@@ -1,0 +1,24 @@
+{
+  "anilist_id": 5332,
+  "title": "Toshokan Sensou: Koi no Shougai",
+  "parts": [
+    {
+      "anidb_id": 5558,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 5332 (SPECIAL, 1 episode from 2008-10-01) is AniDB 5558's special S1 Koi no Shougai (Situation Love Handicap), aired 2008-10-01. AniList's PARENT relation names AniList 3613, which anime-offline-database links to AniDB 5558, and the special's title matches AniList's romaji title and synonym Situation Love Handicap. The parent has no row for S1, so it lands on TVDB 0x1 Situation Love Handicap (2008-10-01) and on TMDB 89742 S0E1 Love Handicap (2008-10-01).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5558",
+    "anilist": "https://anilist.co/anime/5332",
+    "tmdb": "https://www.themoviedb.org/tv/89742/season/0",
+    "tvdb": "https://thetvdb.com/series/library-war/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "a3c7fada28c24c498465365765b0a8730122a2bad4255e873dcf669b3e635b6b"
+  }
+}

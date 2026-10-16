@@ -1,0 +1,27 @@
+{
+  "anilist_id": 21508,
+  "title": "Senki Zesshou Symphogear GX: Senki Zesshou Shinai Symphogear",
+  "parts": [
+    {
+      "anidb_id": 10321,
+      "specials": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "justification": "AniList: 4 omake of 8 min, 2015-11-25 to 2016-02-24, title 戦姫絶唱しないシンフォギア. AniDB 10321 S1-S4 are four compilation specials of mini scenes on 2015-11-25, 12-23, 2016-01-27, 02-24. TVDB 254667 season 0 0x3-0x6 \"Not-So-Superb Song of the Valkyries: Symphogear GX 1-4\" (\"Shinai\" = \"not-so\", the AniList title) on the same four dates; the parent's row start=1 end=4 offset=2 already places S1-S4 on them, and 0x1-0x2 are the first season's. Order and four dates agree. No other node claims 0x3-0x6 (11955 takes 0x7-0x11, 11959 0x13-0x16).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10321",
+    "anilist": "https://anilist.co/anime/21508",
+    "tmdb": "https://www.themoviedb.org/tv/63322/season/0",
+    "tvdb": "https://thetvdb.com/series/superb-song-of-the-valkyries-symphogear/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "1fc73916c13f3273b34e98ea67cd5c4f981bfe490f3f98f2fdc02119eaea44ef"
+  }
+}

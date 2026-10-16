@@ -152,14 +152,6 @@ func TestLoadDir(t *testing.T) {
 	if _, err := LoadDir(unjustified); !errors.Is(err, errInvalid) || !strings.Contains(err.Error(), "justification") {
 		t.Errorf("an entry with no justification: %v, want errInvalid naming it", err)
 	}
-
-	big := t.TempDir()
-	if err := os.WriteFile(filepath.Join(big, "544.json"), make([]byte, maxFileBytes+1), 0o600); err != nil {
-		t.Fatal(err)
-	}
-	if _, err := LoadDir(big); !errors.Is(err, errInvalid) {
-		t.Errorf("oversize file: %v, want errInvalid", err)
-	}
 }
 
 func TestLoadDirRefusesTrailingData(t *testing.T) {

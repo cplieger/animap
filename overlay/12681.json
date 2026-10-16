@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12681",
+    "tmdb": "https://www.themoviedb.org/tv/72636/seasons",
     "tvdb": "https://thetvdb.com/series/made-in-abyss/seasons/official/0"
   },
   "set": {
@@ -29,11 +30,32 @@
             13
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Made in Abyss",
-  "justification": "AniDB special S1-S3 (2017-10-25 to 2017-11-24) = TVDB 0x08-0x10 (2017-10-25), was 0x01-0x03, by title. AniDB special S4 (2017-10-25) has no TVDB episode, was 0x04. AniDB special S5 (2017-12-22) = TVDB 0x13 (2017-10-25), was 0x05, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 326109 and TMDB show 72636. AniDB S1-S3 (\"The Making of MADE IN ABYSS 01\" (The Making of Made in Abyss 01) to \"MUSIC IN ABYSS\" (Music in Abyss)) are TVDB S0E8 \"The Making of MADE IN ABYSS 01\" to TVDB S0E10 \"Music in Abyss\" and have no TMDB episode (their defaults are other items); AniDB S4 \"第一先行上映イベント\" (First Episode Advance Screening Event) has no TVDB episode (its default TVDB S0E4 is \"OVA: Maruruk's Everyday 1 - Please!\", another item) and no TMDB episode (its default TMDB S0E4 is \"Maruruk's Everday 4 - Memories\", another item); AniDB S5 \"Kevin Penkin Long Interview\" is TVDB S0E13 \"Kevin Penkin Long Interview\" and has no TMDB episode (its default TMDB S0E5 is \"Made in Abyss: The Golden City of the Scorching Sun - Together with Papa\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -208,8 +230,8 @@
       ],
       "series": 326109
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "96e7839a43da81c9240acde9f368d3accc781acf5cbf0132f77c831ae28c3bf6"
   },
   "anilist_ids": [

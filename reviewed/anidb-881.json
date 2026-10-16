@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:881",
+  "title": "Shin Getter Robo Tai Neo Getter Robo",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "be90c767db876e270fd50934974767dd49202efeb631f1cbca8e721e82480548",
+        "date-mismatch:S3": "175f9d433ecb180d550f38f58614dafac4eefbcdceee9a6099fa042040cd2ad8"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB specials S1-S3 \"Dynamic Super Robot Soushingeki!! 1/2/3\" (2 to 3 min each) map by the default to TVDB S0E1-3 \"Dynamic Super Robots Grand Battle - Part 1/2/3\": same titles, same order, same count. Only the dates of S2 and S3 differ (2001-02-25 and 2001-04-25 vs 2001-03-01 and 2001-06-25); S1 matches on 2000-12-21. Regular 1-4 map to S1E1-4 by title (TVDB lists them as Change 1-3 and Final Change in aired order; abs order differs but season order is aired).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/109001",
+        "https://anidb.net/anime/881"
+      ]
+    }
+  }
+}

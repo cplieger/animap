@@ -1,0 +1,150 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13717",
+    "tvdb": "https://thetvdb.com/series/saga-of-tanya-the-evil/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            16
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            15
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Youjo Senki (2019)",
+  "justification": "AniDB special S1 Manners Movie (Manner Eizou) is TVDB 315500 season 0 episode 16 Saga of Tanya the Evil: The Movie - Theater Manners (2019-02-08, the film's date); its default was episode 1, the TV series' Mini - Episode 00 (node 11905).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "94e5dd8920c648396b18ae7d3b1a91d500000eb04ae8e3b28e449ef60d059f7c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2017-01-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2017-01-10"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2017-01-16"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2017-01-23"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2017-01-30"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-02-06"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2017-02-13"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2017-02-17"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2017-02-27"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2017-03-06"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2017-03-13"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2017-03-20"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2017-03-27"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2017-04-03"
+        ],
+        [
+          0,
+          15,
+          14,
+          "2019-02-08"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2019-02-08"
+        ],
+        [
+          0,
+          17,
+          13,
+          "2021-06-19"
+        ]
+      ],
+      "series": 315500
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "362d792069fe533790b9b4d1b92f505cc1c7bfa07170cfa1ef8f99fe259ec684"
+  },
+  "anidb_id": 13717
+}

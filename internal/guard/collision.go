@@ -76,21 +76,23 @@ type CollisionReport struct {
 
 // Collisions applies entries to upstream, the list as Anime-Lists has it,
 // and runs the series-wide check over every series two or more nodes share
-// and every series an entry or a bridge's parent lands on. Every regular
+// and every series an entry or a compiled link lands on. Every regular
 // count and special comes from facts.
-func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, bridges []overlay.Bridge, facts *anidb.Facts) CollisionReport {
+func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, links []overlay.Compiled, facts *anidb.Facts) CollisionReport {
 	var rep CollisionReport
 	nodes := overlay.Apply(upstream, entries)
 	onSeries, byTMDB := indexNodes(nodes)
-	bySeries, byBridge := touched(nodes, entries), bridged(nodes, bridges)
-	base := seriesCheck{nodes: nodes, upstream: upstream, facts: facts, changed: map[int]bool{}, bridged: map[int][]int{}}
+	bySeries, byLink := touched(nodes, entries), map[int]bool{}
+	base := seriesCheck{nodes: nodes, upstream: upstream, facts: facts, changed: map[int]bool{}, linked: map[int][]overlay.Claim{}}
 	for i := range entries {
 		base.changed[entries[i].AniDBID] = true
 	}
-	for i := range bridges {
-		b := &bridges[i]
-		base.changed[b.ParentAniDBID] = true
-		base.bridged[b.ParentAniDBID] = append(base.bridged[b.ParentAniDBID], b.Specials...)
+	for i := range links {
+		byLink[links[i].Series] = true
+		for _, c := range links[i].Claims {
+			base.changed[c.Parent] = true
+			base.linked[c.Parent] = append(base.linked[c.Parent], c)
+		}
 	}
 	seen, seenUp := map[string]bool{}, map[string]bool{}
 	colKey := func(c Collision) string { return c.Target + "|" + strings.Join(c.Claims, ",") }
@@ -103,7 +105,7 @@ func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, brid
 	}
 	for _, series := range slices.Sorted(maps.Keys(onSeries)) {
 		sibs := onSeries[series]
-		hit := bySeries[series] != nil || byBridge[series]
+		hit := bySeries[series] != nil || byLink[series]
 		if len(sibs) < 2 && !hit {
 			continue
 		}
@@ -121,6 +123,38 @@ func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, brid
 	}
 	report(base.offTVDB(byTMDB))
 	return rep
+}
+
+// Claims lists every claim on the TVDB series or TMDB show id on side, by
+// [season, episode], as a touched check reads them: every node there with
+// entries applied, AniDB specials included, links' claims on TVDB. Each
+// label is "<aid> ep<k>" or "<aid> S<k>", with " (default)" when no row
+// named the special.
+func Claims(upstream map[int]*animelists.Node, entries []overlay.Entry, links []overlay.Compiled, facts *anidb.Facts, side animelists.Side, id int) map[[2]int][]string {
+	nodes := overlay.Apply(upstream, entries)
+	onSeries, byTMDB := indexNodes(nodes)
+	base := seriesCheck{nodes: nodes, upstream: upstream, facts: facts, changed: map[int]bool{}, linked: map[int][]overlay.Claim{}}
+	for i := range links {
+		for _, c := range links[i].Claims {
+			base.linked[c.Parent] = append(base.linked[c.Parent], c)
+		}
+	}
+	ids := byTMDB[id]
+	series := 0
+	if side == animelists.TVDB {
+		ids, series = onSeries[id], id
+	}
+	c := base.on(series, true, touched(nodes, entries)[series])
+	out := map[[2]int][]string{}
+	for _, id := range ids {
+		for t, labels := range c.claims(id, nodes[id], side) {
+			out[[2]int{t.Season, t.Episode}] = append(out[[2]int{t.Season, t.Episode}], labels...)
+		}
+		if side == animelists.TVDB {
+			c.linkClaims(id, out)
+		}
+	}
+	return out
 }
 
 // withBaselineOnly adds to ours each collision the baseline's own measure
@@ -172,18 +206,6 @@ func touched(nodes map[int]*animelists.Node, entries []overlay.Entry) map[int][]
 	return out
 }
 
-func bridged(nodes map[int]*animelists.Node, bridges []overlay.Bridge) map[int]bool {
-	out := map[int]bool{}
-	for i := range bridges {
-		if p := nodes[bridges[i].ParentAniDBID]; p != nil {
-			if s := positiveAttr(p, "tvdbid"); s > 0 {
-				out[s] = true
-			}
-		}
-	}
-	return out
-}
-
 type claim struct {
 	label      string
 	node       int
@@ -229,7 +251,7 @@ type seriesCheck struct {
 	upstream map[int]*animelists.Node
 	facts    *anidb.Facts
 	changed  map[int]bool
-	bridged  map[int][]int
+	linked   map[int][]overlay.Claim
 	absolute map[int]skyhook.Episode
 	series   int
 	touched  bool
@@ -308,6 +330,9 @@ func (c *seriesCheck) sideClaims(ids []int, sd animelists.Side) map[target][]cla
 	for _, id := range ids {
 		now := c.claims(id, c.nodes[id], sd)
 		put := c.introduced(id, now, sd)
+		if sd == animelists.TVDB {
+			put = c.addLinked(id, now, put)
+		}
 		for t, ls := range now {
 			out[t] = append(out[t], claim{label: ls[0], node: id, introduced: put[t]})
 		}
@@ -317,8 +342,7 @@ func (c *seriesCheck) sideClaims(ids []int, sd animelists.Side) map[target][]cla
 
 // introduced marks the targets where the overlay put a changed node's
 // claim: every target of a created node or one moved to another TVDB
-// series, else each where upstream placed a different episode or none, and
-// on TVDB each target of a bridged special.
+// series, else each where upstream placed a different episode or none.
 func (c *seriesCheck) introduced(id int, now map[target][]string, sd animelists.Side) map[target]bool {
 	if !c.changed[id] {
 		return nil
@@ -335,14 +359,41 @@ func (c *seriesCheck) introduced(id int, now map[target][]string, sd animelists.
 			}
 		}
 	}
-	if sd == animelists.TVDB {
-		for _, k := range c.bridged[id] {
-			for _, t := range c.nodes[id].Place(animelists.TVDB, 0, k).Targets {
-				out[target{Season: t[0], Episode: t[1]}] = true
-			}
+	return out
+}
+
+// addLinked claims each compiled link claim of node id at the target
+// Compile published, introduced. It must not reuse this check's own
+// placement: c.absolute flattens every capture on the series, so an
+// absolute episode can land elsewhere than its parent's capture put it. put is
+// never nil: Collisions marks every claim's parent changed, so introduced
+// returns a map for it.
+func (c *seriesCheck) addLinked(id int, now map[target][]string, put map[target]bool) map[target]bool {
+	for _, l := range c.linked[id] {
+		t, label := target{Season: l.Target[0], Episode: l.Target[1]}, linkLabel(id, l)
+		if !slices.ContainsFunc(now[t], func(w string) bool { return sameEpisode(w, label) }) {
+			now[t] = append(now[t], label)
+		}
+		put[t] = true
+	}
+	return put
+}
+
+// linkClaims adds node id's compiled link claims to out, each once.
+func (c *seriesCheck) linkClaims(id int, out map[[2]int][]string) {
+	for _, l := range c.linked[id] {
+		t, label := [2]int{l.Target[0], l.Target[1]}, linkLabel(id, l)
+		if !slices.Contains(out[t], label) {
+			out[t] = append(out[t], label)
 		}
 	}
-	return out
+}
+
+func linkLabel(id int, l overlay.Claim) string {
+	if l.AniDBSeason != 0 {
+		return fmt.Sprintf("%d ep%d", id, l.Number)
+	}
+	return fmt.Sprintf("%d S%d", id, l.Number)
 }
 
 func (c *seriesCheck) tmdbIDs(sibs []int) []int {

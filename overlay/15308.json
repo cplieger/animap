@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15308",
+    "tmdb_movie": "https://www.themoviedb.org/movie/655431",
     "tvdb": "https://thetvdb.com/series/psycho-pass/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "655431",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -24,7 +29,7 @@
     ]
   },
   "title": "Psycho-Pass 3: First Inspector",
-  "justification": "AniDB special S1 (2020-07-15) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 262090. The film is TMDB movie 655431 (Psycho-Pass 3: First Inspector (2020)). TMDB show 43865 does not carry it, so the node leaves that show. AniDB S1 \"スペシャル座談会\" (Special Talk) has no TVDB episode (its default TVDB S0E1 is \"Criminal Coefficient / Those Capable (Extended)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -156,8 +161,8 @@
       ],
       "series": 262090
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3cb92dbe07e8c122b6058e34c53bfaeafeaf4f4bf405e4eaac5ae978e45ce1a1"
   },
   "anilist_ids": [

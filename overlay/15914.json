@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15914",
+    "tmdb": "https://www.themoviedb.org/tv/114410/seasons",
     "tvdb": "https://thetvdb.com/series/chainsaw-man/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,40 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
           ]
         ]
       }
     ]
   },
   "title": "Chainsaw Man",
-  "justification": "AniDB special S1 (2022-10-05) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 397934 and TMDB show 114410. AniDB S1-S8 (\"いよいよ放送直前! TVアニメ『チェンソーマン』徹底解剖SP!!\" (Episode S1) to \"Our Music Tooboe x Syudou Unannounced Talk\") have no TVDB episode (their defaults are other items); AniDB S9-S10 (\"EP.12 Visual Commentary \u0026 Conference\" to \"Our Music Avu-chan x Eve Full Ver.\") have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -150,8 +178,8 @@
       ],
       "series": 397934
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "004651773a9eeb7090062dfb3a25095bc2422ed95ed2299261136962df26fc4f"
   },
   "anilist_ids": [

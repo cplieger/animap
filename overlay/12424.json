@@ -1,14 +1,18 @@
 {
-  "anidb_id": 12424,
-  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Kibou Hen - Kibou no Gakuen to Zetsubou no Koukousei",
-  "set": {
-    "episodeoffset": "0"
-  },
-  "justification": "AniDB 1 (2016-09-29) = TVDB 0x01 (2016-09-29), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
   "evidence": {
     "anidb": "https://anidb.net/anime/12424",
+    "tmdb": "https://www.themoviedb.org/tv/49471/seasons",
     "tvdb": "https://thetvdb.com/series/danganronpa-3-the-end-of-hopes-peak-academy-side-despair/seasons/official/0"
   },
+  "set": {
+    "episodeoffset": "0",
+    "tmdbtv": "49471",
+    "tmdbseason": "0",
+    "tmdboffset": "1"
+  },
+  "title": "Danganronpa 3: The End of Kibougamine Gakuen - Kibou Hen - Kibou no Gakuen to Zetsubou no Koukousei",
+  "justification": "Checked by episode title against TVDB series 314361 and TMDB show 49471. Its episodes are on TMDB show 49471. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"TV Special\" (the anime \"ダンガンロンパ3 -The End of 希望ヶ峰学園- 希望編 希望の学園と絶望の高校生\") is TVDB S0E1 \"The End of Hopes Peak Academy - Side Hope\" and TMDB S0E2 \"希望の学園と絶望の高校生\" (The School of Hope and the Students of Despair). TMDB show 67674 has no season 0; TMDB 49471 S0E2 The School of Hope and the Students of Despair (2016-09-29) carries the node's own title.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "c82fabd14e8bd80fb5102b6b13dc688c371f016d89bb2d4aab54720bba5cd390",
@@ -31,12 +35,12 @@
       ],
       "series": 314361
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c99d4f05c0d48d879aec57f097bc882c03d00f43613175e1f0f211c538b0a0ee"
   },
   "anilist_ids": [
     97672
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 12424
 }
