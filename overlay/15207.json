@@ -1,0 +1,223 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15207",
+    "tmdb": "https://www.themoviedb.org/tv/83121/seasons",
+    "tvdb": "https://thetvdb.com/series/kaguya-sama-love-is-war/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            12
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kaguya-sama wa Kokurasetai? Tensai-tachi no Ren'ai Zunousen",
+  "justification": "Checked by episode title against TVDB series 354198 and TMDB show 83121. AniDB S1 \"放送直前スペシャル 鈴木, 蟹を食べる.\" (Pre-Broadcast Special) is TVDB S0E12 \"Kaguya-sama: Love Is War? Advance Special Program\" and has no TMDB episode (its default TMDB S0E1 is \"Season 1 Episode 3 Ending - Editing Movie\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "12d06c1b9604ac7d2f150be5da63d188d9a53470367690816d77b318998058b0",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          42,
+          "2021-05-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2021-10-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-04-03"
+        ],
+        [
+          0,
+          5,
+          44,
+          "2023-04-05"
+        ],
+        [
+          0,
+          6,
+          45,
+          "2023-04-05"
+        ],
+        [
+          0,
+          7,
+          46,
+          "2023-04-05"
+        ],
+        [
+          0,
+          8,
+          47,
+          "2023-04-05"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2022-12-17"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2020-04-04"
+        ],
+        [
+          0,
+          15,
+          48,
+          "2025-12-31"
+        ],
+        [
+          0,
+          16,
+          49,
+          "2025-12-31"
+        ],
+        [
+          0,
+          17,
+          0,
+          ""
+        ],
+        [
+          0,
+          18,
+          0,
+          ""
+        ],
+        [
+          0,
+          19,
+          0,
+          ""
+        ],
+        [
+          0,
+          20,
+          0,
+          ""
+        ],
+        [
+          0,
+          21,
+          0,
+          ""
+        ],
+        [
+          0,
+          22,
+          0,
+          ""
+        ],
+        [
+          2,
+          1,
+          13,
+          "2020-04-11"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2020-04-18"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2020-04-25"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2020-05-02"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2020-05-09"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2020-05-16"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2020-05-23"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2020-05-30"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2020-06-06"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2020-06-13"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2020-06-20"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2020-06-27"
+        ]
+      ],
+      "series": 354198
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "24b4b4a01b801343d77aa4470077f208dff2cb24daf831caec2efd223db88f47"
+  },
+  "anidb_id": 15207
+}

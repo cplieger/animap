@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18578",
-    "tvdb": "https://thetvdb.com/series/shangri-la-frontier/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/205050/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/421855"
   },
   "set": {
     "mapping_list": [
@@ -45,11 +46,44 @@
             9
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ]
+        ]
       }
     ]
   },
   "title": "Shangri-La Frontier: Kusogee Hunter, Kamige ni Idoman to Su (2024)",
-  "justification": "AniDB special S1-S8 (2024-10-13 to 2025-03-16) = TVDB 0x41-0x48 (2024-10-13 to 2025-03-16), was 0x01-0x08, by title. AniDB special S9 (2024-09-12) has no TVDB episode, was 0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 421855 and TMDB show 205050. AniDB S1-S8 (\"シャンフロ ミニ #31 占いの館Rock Roll\" (SLF Mini #31: Fortune Teller Rock Roll) to \"シャンフロ ミニ #38 プロフェッショナル・廃人狩り[ジャイアントキリング]の流儀\" (SLF Mini #38: Professional - The Style of a Professional Giant Killer)) are TVDB S0E41 \"SLF Theater Mini #31 Fortune Teller Rock Roll\" to TVDB S0E48 \"SLF Theater Mini #38 Professional - The Style of a Professional Giant Killer\" and have no TMDB episode (their defaults are other items); AniDB S9 \"2nd season生配信特番\" (2nd Season Live Stream Special) has no TVDB episode (its default TVDB S0E9 is \"Mini Anime 8\", another item) and no TMDB episode (its default TMDB S0E9 is \"Episode 9 - Trash Games Are My Life\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -506,8 +540,8 @@
       ],
       "series": 421855
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "880954362912a54d1ed4fa23b0cad748b37990f7cc987127ba4b0e8c018dfd3b"
   },
   "anilist_ids": [

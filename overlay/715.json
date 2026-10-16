@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/715",
-    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/21731/seasons"
   },
   "set": {
     "mapping_list": [
@@ -23,7 +24,7 @@
     ]
   },
   "title": "Kidou Senshi Gundam",
-  "justification": "AniDB special S1-S3 (2019-03-30 to 2010-07-23) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 76547 and TMDB show 21731. AniDB S1-S3 (\"ガンダム誕生秘話\" (Making Gundam: The Inside Story) to \"BIG4スペシャルインタビュー\" (Big 4 Special Interview)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

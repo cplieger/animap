@@ -27,6 +27,10 @@
             11
           ],
           [
+            3,
+            17
+          ],
+          [
             4
           ]
         ]
@@ -256,7 +260,7 @@
     ]
   },
   "title": "Naruto Shippuuden",
-  "justification": "AniDB special S1 (2008-02-06) = TVDB 0x05 (2008-02-06), was unmapped, by title. AniDB special S2 (2014-09-11) = TVDB 0x11 (2013-10-06), was 0x02, by title. AniDB special S4 (2007-02-15) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2008-02-06) = TVDB 0x05 (2008-02-06), was unmapped, by title. AniDB special S2 (2014-09-11) = TVDB 0x11 (2013-10-06), was 0x02, by title. AniDB special S4 (2007-02-15) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S3 \"Uchiha Madara vs Senju Hashirama\" (2012-02-23) is TVDB season 0 episode 17 \"Hashirama Senju vs. Madara Uchiha\" (2012-02-23); with no pair it fell on episode 3, the film \"The Will of Fire\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -3266,8 +3270,8 @@
       ],
       "series": 79824
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e215e0e158c39142f976ad7581d2c872737700d2af91b41bb7d47539750167f0"
   },
   "anilist_ids": [

@@ -1,14 +1,15 @@
 {
-  "anidb_id": 10397,
-  "title": "Witch Craft Works: Takamiya-kun to Imouto no Warudakumi",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10397",
+    "tmdb": "https://www.themoviedb.org/tv/65614/seasons",
+    "tvdb": "https://thetvdb.com/series/witch-craft-works/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2015-01-07) = TVDB 0x01 (2015-01-07), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/10397",
-    "tvdb": "https://thetvdb.com/series/witch-craft-works/seasons/official/0"
-  },
+  "title": "Witch Craft Works: Takamiya-kun to Imouto no Warudakumi",
+  "justification": "Checked by episode title against TVDB series 275611 and TMDB show 65614. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"ウィッチクラフトワークス 多華宮君と妹の悪巧み\") is TVDB S0E1 \"Takamiya-kun and His Sister's Conspiracy\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "b6430d8a847411d763b7aa86b16d2cd3bd3e043e70f69bafb5fddd3464286135",
@@ -68,5 +69,5 @@
   "anilist_ids": [
     20601
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 10397
 }

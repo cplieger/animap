@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:1841",
+  "title": "Chibi Maruko-chan",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "acfdf90275bddaee711e24cd410760bee3f09d7dab19c61fdc73a7704dcb9810"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Chibi Maruko-chan Special / \"Chibi Maruko-chan Special\" no Maki\" (1991-01-03) = S0E5 \"Chibi Maruko-chan Special\" (1991-03-01).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/167131",
+        "https://anidb.net/anime/1841"
+      ]
+    }
+  }
+}

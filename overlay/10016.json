@@ -1,14 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10016",
+    "tmdb": "https://www.themoviedb.org/tv/55016/seasons",
     "tvdb": "https://thetvdb.com/series/gj-club/seasons/official/0"
   },
   "set": {
     "defaulttvdbseason": "0",
-    "episodeoffset": "1"
+    "episodeoffset": "1",
+    "tmdbseason": "0"
   },
   "title": "GJ-bu@",
-  "justification": "AniDB 1 (2014-05-06) = TVDB 0x02 (2014-05-06), was 2x01 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 264055 and TMDB show 55016. AniDB episode 1 \"TV Special\" (the anime \"GJ部@\") is TVDB S0E2 \"GJ Club@\" and TMDB S0E1 \"GJ部NYへ行く/絆の名はGJ部\" (GJ Club@).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -32,8 +34,8 @@
       ],
       "series": 264055
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6d6ac4bb7f75fd13e20fdba35552020cad81e96a98fa72368f42a0ec3f70edc1"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8150",
+    "tmdb": "https://www.themoviedb.org/tv/36041/season/0",
     "tvdb": "https://thetvdb.com/series/bakuman/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,33 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Bakuman. (2011)",
-  "justification": "AniDB special S2 (2012-09-26) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S2 (2012-09-26) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 36041 season 0: E6 Bakuman. 2nd Season Special (2012-09-26) = S1, E7 Rakko 11-gou Ending = S2 Otter 11 ED, E4 Detective Trap Opening = S3 Detective TRAP OP, E5 CROW Opening = S4 Crow OP. With no TMDB row S1-S4 took E1-E4, the first season's openings.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -192,8 +215,8 @@
       ],
       "series": 193811
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "34d9424c124a799a62518fd5af1e779a295532edb870537c5f037084259e9aa9"
   },
   "anilist_ids": [

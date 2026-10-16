@@ -1,0 +1,112 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6227",
+    "tvdb": "https://thetvdb.com/series/corpse-princess/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": []
+  },
+  "title": "Shikabane Hime: Kuro",
+  "justification": "AniDB specials S1 Sore demo, Hito toshite and S2 Omake are TVDB 83363 season 0 episodes 1 それでも、人として and 2 Omake, where the default lands; the row sent them past season 1's end, onto Funeral Program for a Contracted Monk and a missing episode.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a52207b9f2e67a4f17576bf8d125ee5a96a3078a37915c0896aeac767ccc83a8",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2010-09-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-08-05"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2009-01-01"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2009-01-08"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2009-01-15"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2009-01-22"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2009-01-29"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2009-02-05"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2009-02-12"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2009-02-26"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2009-03-05"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2009-03-12"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2009-03-19"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2009-03-26"
+        ]
+      ],
+      "series": 83363
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8e0c69dc76126d3416145d272c79097c8ecfdd24bec2dbaec272755292de8699"
+  },
+  "anidb_id": 6227
+}

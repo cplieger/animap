@@ -1,0 +1,24 @@
+{
+  "anilist_id": 127368,
+  "title": "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka III OVA",
+  "parts": [
+    {
+      "anidb_id": 15111,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 127368 (OVA, 1 episode from 2021-04-28) is AniDB 15111's special S1 Ofuro no Kamisama Forever (Is It Wrong to Try to Find a Hot Spring in Orario? Bath God Forever), aired 2021-04-28. AniList's PARENT relation names AniList 112124, which anime-offline-database links to AniDB 15111, and the special's title matches AniList's English title. The parent's row places S1 on TVDB 0x5 (2021-04-28) and, with the TMDB row below, on TMDB 62745 S0E4 (2021-04-28).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15111",
+    "anilist": "https://anilist.co/anime/127368",
+    "tmdb": "https://www.themoviedb.org/tv/62745/season/0",
+    "tvdb": "https://thetvdb.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "2417dffc5010ef5822ec7b5649af2d80b68931960bcdca7729710726577e5744"
+  }
+}

@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13643",
+    "tmdb_movie": "https://www.themoviedb.org/movie/900497",
     "tvdb": "https://thetvdb.com/series/fategrand-order/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "900497",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -17,7 +22,7 @@
     ]
   },
   "title": "Fate/Grand Order: Moonlight/Lostroom",
-  "justification": "AniDB special S1 (2018-12-26) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 353666. The film is TMDB movie 900497 (Fate/Grand Order: Moonlight/Lostroom (2017)). TMDB show 90677 does not carry it, so the node leaves that show. AniDB S1 \"Fate/Grand Order: Cosmos in the Lostbelt Opening\" has no TVDB episode (its default TVDB S0E1 is \"Fate/Grand Order -First Order-\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -89,8 +94,8 @@
       ],
       "series": 353666
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "62d5ede02108b6364dd57634ca30c613cb3ffdb2f00d0290289aa2bdfd55c046"
   },
   "anilist_ids": [

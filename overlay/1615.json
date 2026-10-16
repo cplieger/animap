@@ -1,0 +1,24 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1615",
+    "tmdb": "https://www.themoviedb.org/movie/66032",
+    "tmdb_movie": "https://www.themoviedb.org/movie/66032",
+    "tvdb": "https://thetvdb.com/movies/cybernetics-guardian"
+  },
+  "set": {
+    "tvdbid": "OVA",
+    "tmdbid": "66032"
+  },
+  "title": "Seijuuki Cyguard",
+  "justification": "Checked by title. The film is TMDB movie 66032 (Cybernetics Guardian (1989)). The node moves from TVDB 276268 to the OVA marker. TVDB series 276268 no longer exists. TheTVDB lists the 43-minute 1989 one-shot only as movie 55046 Seijuuki Cyguard (aliases Cybernetics Guardian, Cyguard), whose IMDb id tt0097137 is the node's and whose TMDB id is 66032 (Cybernetics Guardian, 1989-10-31). AniDB types it an OVA, so the marker is OVA.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "7508888ca05e22458879b1b626c2f097cd3510617159954ce38b97c1437d6587"
+  },
+  "anilist_ids": [
+    3882
+  ],
+  "anidb_id": 1615
+}

@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:16863",
+  "title": "Ginga Eiyuu Densetsu: Die Neue These - Sakubou",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "94d0db47255599faaf556923a27d6e1257159be93fcaf8924de7b1c4f0ac8903",
+        "date-mismatch:2": "48fd1ecb211b8981af277dc88da9ac861223c5956fe39e81527875a14554c30e",
+        "date-mismatch:3": "9a43ab58ba47560760850f3c5240626bc5644463fd683573686f8b98460a4dc8"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB lists Die Neue These Sakubou as three films; TVDB 343237 season 4 lists them as twelve TV episodes, four per film, the first of each group airing the day before its film (S4E1 2022-09-29, E5 2022-10-27, E9 2022-11-24). Film 1 = S4E1-E4 (\"Fortress vs. Fortress Akt IV\" to \"Maze\"), film 2 = S4E5-E8 (\"The Die Is Cast\" to \"Departure\"), film 3 = S4E9-E12 (\"Emperor Overthrown\" to \"The Occupation of Fezzan\"). Only the dates of the later episodes in each group differ.",
+      "evidence": [
+        "https://anidb.net/anime/16863",
+        "https://thetvdb.com/dereferrer/series/343237"
+      ]
+    }
+  }
+}

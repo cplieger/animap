@@ -1,13 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/2221",
-    "tvdb": "https://thetvdb.com/series/getter-robo/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/getter-robo/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/74621"
   },
   "set": {
     "episodeoffset": "1"
   },
   "title": "Great Mazinger Tai Getter Robo",
-  "justification": "AniDB 1 (1975-03-21) = TVDB 0x02 (1975-03-21), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 112641. AniDB episode 1 \"Complete Movie\" is TVDB S0E2 \"Great Mazinger Vs. Getter Robo\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

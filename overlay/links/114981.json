@@ -1,0 +1,24 @@
+{
+  "anilist_id": 114981,
+  "title": "Heya Camp△: Sauna to Gohan to Sanrin Bike",
+  "parts": [
+    {
+      "anidb_id": 14439,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 114981 (OVA, 1 episode from 2020-04-29, 11 min) is AniDB 14439's special S1 Sauna to Gohan to Sanrin Bike (Saunas and Grub and Three-Wheeler Bikes), aired 2020-04-29. AniList lists two PARENT relations; the one that carries the special is AniList 104461 (Heya Camp), which anime-offline-database links to AniDB 14439, not AniList 98444 (Yuru Camp, AniDB 12743, whose 11 specials hold no such title). The special's title matches AniList's romaji and English titles. The parent's row places S1 on TVDB 0x17 Room Camp: Saunas and Grub and Three-Wheeler Bikes (2020-04-29) and, with the TMDB values above, on TMDB 95213 S0E1 Saunas and Grub and Three-Wheeler Bikes (2020-04-29).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14439",
+    "anilist": "https://anilist.co/anime/114981",
+    "tmdb": "https://www.themoviedb.org/tv/95213/season/0",
+    "tvdb": "https://thetvdb.com/series/laid-back-camp/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "eadc1c355b95943dd42aa47fe7fce148e9c253d720c9c2e2833d028a1bf318e7"
+  }
+}

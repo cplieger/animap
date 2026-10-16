@@ -1,0 +1,81 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10482",
+    "tvdb": "https://thetvdb.com/series/aikatsu/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Aikatsu! Idol Katsudou!",
+  "justification": "AniDB special S1 \"Dai Starmiya Ichigo Matsuri Zenyasai!!\" (2014-11-24) is TVDB season 0 episode 2 of that title (2014-11-24). Without a row it fell on episode 1, the film itself. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "33502da80b46269a32b6a79b930706395ef6a72f0280c6d2d3daa010e5ed04ef",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-13"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-11-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-08-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2017-08-13"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2022-07-15"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2022-07-15"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2022-07-15"
+        ]
+      ],
+      "series": 263310
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "1160001bc6e8b78da82587808aa1e8b3a2dd4e5b511119a3460e32ed7d806069"
+  },
+  "anidb_id": 10482
+}

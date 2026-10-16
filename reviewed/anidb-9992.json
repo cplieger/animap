@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:9992",
+  "title": "Kyousougiga (2013)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "0f8393a9bb8f288520172c3bb2422596b644b7b8e4cf3b726da41b4b528e5f48"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Overlay (PR 629 row) maps S1 \"Preview / Yoshuuhen\" -\u003e S0E7 \"#00 予習篇\" (Introductory Chapter), S2 \"The Kyoto Live Action Chapter / Kyoto Jitsuroku Hen\" -\u003e S0E8 \"#05.5 京都実録篇\", S3 \"Review / Fukushuuhen\" -\u003e S0E9 \"#10.5 復習篇\" (Review). Japanese titles on the TVDB page are the same words as AniDB's romaji (yoshuu = preview, fukushuu = review). The only failure is S3's date (2013-12-26 vs 2013-12-19). Regular eps 1-10 = TVDB S1 1-10 title for title; the old `;1-4;` hit the 2012 ONA at S0E4, so the overlay is right.",
+      "evidence": [
+        "https://thetvdb.com/series/kyousougiga/seasons/official/0",
+        "https://anidb.net/anime/9992",
+        "https://thetvdb.com/dereferrer/series/254658"
+      ]
+    }
+  }
+}

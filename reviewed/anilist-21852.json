@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:21852",
+  "title": "AniList 21852",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "db762fe863a17d16aa41c4545185102693c49cb5ebb3e00e60735c7dec18609c",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 13-14 of AniDB 10992 (TVDB 81831 4x13 and 4x14); anime-offline-database links AniDB 10992 to AniList 20995 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/21852"
+        ],
+        "anilist_id": 21852
+      }
+    ]
+  }
+}

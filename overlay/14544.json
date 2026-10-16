@@ -1,0 +1,39 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14544",
+    "tvdb": "https://thetvdb.com/series/startwinkle-precure/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1"
+  },
+  "title": "Eiga Star Twinkle Precure: Hoshi no Uta ni Omoi o Komete",
+  "justification": "The film \"Eiga Star Twinkle Precure: Hoshi no Uta ni Omoi o Komete\" (2019-10-19) is TVDB season 0 episode 2 \"Star Twinkle Pretty Cure: These Feelings Within The Song Of Stars\" (2019-10-19); with no offset it fell on episode 1, the Miracle Universe film (AniDB 14487).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "bcb58df5e015e8e90a6a5f8b82e7f968edcc771408fd03c1625ec0ed88c47c66",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-03-16"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2019-10-19"
+        ]
+      ],
+      "series": 357448
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "bbfc734977cec47321a7b34e5da5af752b4e8e78a35b586b406235f74a3b1d8f"
+  },
+  "anidb_id": 14544
+}

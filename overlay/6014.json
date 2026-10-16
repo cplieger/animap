@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6014",
-    "tvdb": "https://thetvdb.com/series/ef/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/ef--a-tale-of-/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -9,6 +9,10 @@
         "anidb_season": 0,
         "tvdb_season": 0,
         "episodes": [
+          [
+            1,
+            2
+          ],
           [
             2,
             4
@@ -18,7 +22,7 @@
     ]
   },
   "title": "Ef - a Tale of Melodies.",
-  "justification": "AniDB special S2 (2009-05-29) = TVDB 0x04 (2008-09-27), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Ef - a Tale of Melodies: Prelude, Pre-airing Special\" is TVDB season 0 episode 2 \"Prelude\", the prologue of the second series; without a pair it fell on episode 1 \"Prologue\", the first series' prologue (AniDB 5274). S2 \"Reunion (Colour Version)\" stays on episode 4 of that title.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -133,8 +137,8 @@
       ],
       "series": 80904
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8e5f90b0310d8c2417f170b0227b0a3f3e0920b0a3cfac101df67f66baf6f68b"
   },
   "anilist_ids": [

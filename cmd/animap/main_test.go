@@ -10,18 +10,15 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"slices"
 	"strings"
 	"testing"
 	"time"
 
 	"github.com/cplieger/animap/internal/anidb"
-	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/issues"
 	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
-	"github.com/cplieger/animap/internal/watch"
 )
 
 const (
@@ -210,20 +207,6 @@ func TestFailingWant(t *testing.T) {
 	}
 }
 
-func TestDriftWantBodies(t *testing.T) {
-	landed := driftWant(&drift.Finding{Key: "drift:landed:544", Cause: drift.Landed, AniDB: 544, Title: "@x", Path: "overlay/544.json"})
-	if !strings.Contains(landed.Body, "git rm overlay/544.json") || !strings.Contains(landed.Title, "delete the entry") {
-		t.Errorf("landed want = %+v", landed)
-	}
-	if strings.Contains(landed.Body, " @x") {
-		t.Error("an entry title reached the body outside a code span")
-	}
-	gone := driftWant(&drift.Finding{Key: "drift:tvdb:1", Cause: drift.TVDBLayout, AniDB: 1, Before: []skyhook.Episode{{Season: 1, Number: 1}}})
-	if !strings.Contains(gone.Body, "no longer serves") || !strings.Contains(gone.Body, "S1E1 A0 D") {
-		t.Errorf("series-gone want = %q", gone.Body)
-	}
-}
-
 func TestUsage(t *testing.T) {
 	for _, args := range [][]string{nil, {"nope"}, {"overlay"}, {"overlay", "x"}, {"build", "extra-arg"}, {"issues", "-existing", "missing.json", "extra-arg"}} {
 		if err := run(t.Context(), args, &bytes.Buffer{}); !errors.Is(err, errUsage) {
@@ -252,40 +235,6 @@ func planned(t *testing.T, path string) []issues.Action {
 		t.Fatal(err)
 	}
 	return actions
-}
-
-func TestIssuesPublishAndDriftAreNotQueuedBehindTheWatchSet(t *testing.T) {
-	dir := t.TempDir()
-	var gaps []watch.Entry
-	for i := range 30 {
-		gaps = append(gaps, watch.Entry{AniListID: i + 1, Type: "SPECIAL", Gaps: []watch.Gap{watch.NoAniDB}})
-	}
-	wr := watchResult{
-		Set: "seadex", EntryURL: "https://releases.moe/{id}", Complete: true, Watched: 30, Gaps: gaps,
-		Classification: watch.Classification{New: gaps},
-	}
-	failed := time.Now().Add(-30 * time.Hour)
-	args := []string{
-		"issues", "-limit", "10", "-out", filepath.Join(dir, "actions.json"),
-		"-existing", writeFixture(t, dir, "existing.json", []issues.Issue{}),
-		"-watch", writeFixture(t, dir, "watch.json", wr),
-		"-drift", writeFixture(t, dir, "drift.json", driftResult{Findings: []drift.Finding{{Key: "drift:node:544", Cause: drift.NodeChanged, AniDB: 544}}}),
-		"-runs", writeFixture(t, dir, "runs.json", []workflowRun{{Status: "completed", Conclusion: "failure", CreatedAt: failed, URL: "u"}}),
-	}
-	if err := run(t.Context(), args, &bytes.Buffer{}); err != nil {
-		t.Fatal(err)
-	}
-	created := map[string]bool{}
-	n := 0
-	for _, a := range planned(t, filepath.Join(dir, "actions.json")) {
-		if a.Kind == issues.Create && a.Key != dashboardKey {
-			created[a.Key] = true
-			n++
-		}
-	}
-	if !created[failingKey] || !created["drift:node:544"] || n != 10 {
-		t.Errorf("created %d issues %v, want publish:failing and drift:node:544 among the 10 the limit allows", n, created)
-	}
 }
 
 // collidingList is the fixture list with AniDB 20 moved onto AniDB 10's
@@ -509,165 +458,5 @@ func TestBaselineRebase(t *testing.T) {
 	}
 	if _, err := mode("rebase"); err == nil || !strings.Contains(err.Error(), "only shrinks") {
 		t.Errorf("a second rebase under an unchanged basis = %v, want a refusal", err)
-	}
-}
-
-func TestUnmappableWant(t *testing.T) {
-	c := &watch.Classification{
-		Unmappable: []watch.Entry{{AniListID: 1, Type: "OVA", Reason: "unmappable", Detail: "no TVDB series @x"}},
-		Cleared:    []watch.Entry{{AniListID: 2, Type: "SPECIAL"}},
-	}
-	w, ok := unmappableWant(c)
-	if !ok || !w.Pin || w.Key != unmappableKey || w.Title != "Unmappable SeaDex entries" {
-		t.Fatalf("unmappableWant = %+v, %t; want the pinned issue", w, ok)
-	}
-	if !strings.Contains(w.Body, "- [ ] AniList 1 (OVA): unmappable.") || !strings.Contains(w.Body, "- [x] AniList 2 (SPECIAL)") {
-		t.Errorf("body = %q, want an open item for 1 and a ticked one for 2", w.Body)
-	}
-	if !strings.Contains(w.Body, "`no TVDB series @x`") {
-		t.Errorf("body = %q, want the detail inside a code span", w.Body)
-	}
-	if _, ok := unmappableWant(&watch.Classification{Cleared: c.Cleared}); !ok {
-		t.Error("a list with only cleared entries does not want the issue")
-	}
-	if _, ok := unmappableWant(&watch.Classification{}); ok {
-		t.Error("an empty list still wants the issue")
-	}
-}
-
-func TestIssuesCloseADeletedEntrysDriftIssues(t *testing.T) {
-	dir := t.TempDir()
-	open := func(n int, key string) issues.Issue {
-		return issues.Issue{Number: n, State: "OPEN", Title: key, Body: "x\n\n" + issues.Marker(key) + "\n"}
-	}
-	existing := writeFixture(t, dir, "existing.json", []issues.Issue{
-		open(1, "drift:landed:544"),
-		open(2, "drift:special:376:tvdb"),
-		open(3, "drift:tvdb:353"),
-		open(4, "watch:9"),
-	})
-	plan := func(d driftResult) map[string]issues.Kind {
-		out := filepath.Join(dir, "actions.json")
-		args := []string{"issues", "-out", out, "-existing", existing, "-drift", writeFixture(t, dir, "drift.json", d)}
-		if err := run(t.Context(), args, &bytes.Buffer{}); err != nil {
-			t.Fatal(err)
-		}
-		kinds := map[string]issues.Kind{}
-		for _, a := range planned(t, out) {
-			kinds[a.Key] = a.Kind
-		}
-		return kinds
-	}
-	// 544 and bridge 376 were deleted; 353 is still in the overlay but its
-	// TVDB layout was not read this run.
-	complete := driftResult{Complete: true, Evaluated: []string{"drift:node:353", "drift:landed:353"}, Owned: drift.KeysOf(353).All()}
-	got := plan(complete)
-	if got["drift:landed:544"] != issues.Close || got["drift:special:376:tvdb"] != issues.Close {
-		t.Errorf("complete run over an overlay without 544 and 376 planned %v, want both their issues closed", got)
-	}
-	if _, ok := got["drift:tvdb:353"]; ok {
-		t.Errorf("planned %v for 353's unevaluated TVDB issue, want it left alone", got["drift:tvdb:353"])
-	}
-	if _, ok := got["watch:9"]; ok {
-		t.Error("a drift run planned an action on a watch issue")
-	}
-	complete.Complete = false
-	if got := plan(complete); len(got) != 0 {
-		t.Errorf("an incomplete drift result planned %v, want nothing closed", got)
-	}
-}
-
-// End to end: a drift run over an overlay that no longer holds AniDB 544
-// closes 544's issue, and 18's TVDB-layout issue closes too because 18 was
-// re-captured onto a TMDB-only route and holds no TVDB fingerprint.
-func TestDriftThenIssuesCloseADeletedEntry(t *testing.T) {
-	dir, ov := t.TempDir(), t.TempDir()
-	writeFixture(t, ov, "18.json", map[string]any{
-		"anidb_id": 18, "title": "Film with TVDB movie marker", "justification": "test",
-		"set":      map[string]any{"tmdbid": "556"},
-		"evidence": map[string]string{"tmdb": "https://www.themoviedb.org/movie/556"},
-		"upstream": "TODO-PR",
-		"captured": map[string]any{"at": "2026-10-05", "anime_lists_commit": strings.Repeat("a", 40), "node_sha256": strings.Repeat("b", 64)},
-	})
-	driftOut := filepath.Join(dir, "drift.json")
-	if err := run(t.Context(), []string{"drift", "-list", listFixture, "-overlay", ov, "-out", driftOut}, &bytes.Buffer{}); err != nil {
-		t.Fatalf("drift: %v", err)
-	}
-	var d driftResult
-	if err := readJSON(driftOut, &d); err != nil {
-		t.Fatal(err)
-	}
-	if !d.Complete || !slices.Contains(d.Owned, "drift:landed:18") {
-		t.Fatalf("drift result complete=%t owned=%v, want complete and owning 18's keys", d.Complete, d.Owned)
-	}
-	existing := writeFixture(t, dir, "existing.json", []issues.Issue{
-		{Number: 1, State: "OPEN", Body: issues.Marker("drift:landed:544")},
-		{Number: 2, State: "OPEN", Body: issues.Marker("drift:tvdb:18")},
-	})
-	out := filepath.Join(dir, "actions.json")
-	if err := run(t.Context(), []string{"issues", "-out", out, "-existing", existing, "-drift", driftOut}, &bytes.Buffer{}); err != nil {
-		t.Fatal(err)
-	}
-	var closed []int
-	for _, a := range planned(t, out) {
-		if a.Kind == issues.Close {
-			closed = append(closed, a.Number)
-		}
-	}
-	if !slices.Equal(closed, []int{1, 2}) {
-		t.Errorf("closed issues %v, want #1 (deleted entry) and #2 (TVDB key of an entry with no TVDB fingerprint)", closed)
-	}
-}
-
-func TestIssueTextOnlyCarriesPublishedTypes(t *testing.T) {
-	bad := "TV`\n@everyone"
-	w := watchWant(&watch.Entry{AniListID: 9, Type: bad, Gaps: []watch.Gap{watch.NoAniDB}}, "https://releases.moe/{id}")
-	if strings.Contains(w.Title+w.Body, "@everyone") || !strings.Contains(w.Title, "(unrecognised type)") {
-		t.Errorf("watch want = %q / %q, want the type rendered as unrecognised", w.Title, w.Body)
-	}
-	u, _ := unmappableWant(&watch.Classification{Unmappable: []watch.Entry{{AniListID: 1, Type: bad, Reason: "unmappable"}}})
-	if strings.Contains(u.Body, "@everyone") {
-		t.Errorf("unmappable body = %q, carries the raw type", u.Body)
-	}
-	d := dashboardWant(&watchResult{Set: "seadex", Gaps: []watch.Entry{{AniListID: 1, Type: bad, Gaps: []watch.Gap{watch.NoAniDB}}}}, nil)
-	if strings.Contains(d.Body, "@everyone") || !strings.Contains(d.Body, "| unrecognised type / ") {
-		t.Errorf("dashboard body = %q, want the type rendered as unrecognised", d.Body)
-	}
-	if got := typeLabel("MOVIE"); got != "MOVIE" {
-		t.Errorf("typeLabel(MOVIE) = %q", got)
-	}
-}
-
-func TestWatchWantLinksTheWatchSetEntry(t *testing.T) {
-	w := watchWant(&watch.Entry{AniListID: 9, Type: "TV", Gaps: []watch.Gap{watch.NoAniDB}}, "https://releases.moe/{id}")
-	if !strings.Contains(w.Body, "- SeaDex: https://releases.moe/9\n") {
-		t.Errorf("watchWant(AniList 9) body = %q, want the entry_url template filled with the AniList id", w.Body)
-	}
-}
-
-func TestUnmappableWantStaysUnderTheBodyCap(t *testing.T) {
-	c := &watch.Classification{}
-	for i := range 1000 {
-		c.Unmappable = append(c.Unmappable, watch.Entry{AniListID: i + 10, Type: "OVA", Reason: "unmappable", Detail: strings.Repeat("d", 150)})
-	}
-	c.Cleared = []watch.Entry{{AniListID: 1, Type: "SPECIAL"}}
-	w, _ := unmappableWant(c)
-	body := issues.Render(&w)
-	if strings.Contains(body, "(truncated)") || !strings.Contains(body, "more, see `checks/unmappable.json`") {
-		t.Errorf("a 1,001-item list rendered %d runes, truncated=%t; want it to stop at the cap with a 'more' line", len([]rune(body)), strings.Contains(body, "(truncated)"))
-	}
-	if !strings.Contains(body, "- [x] AniList 1 (SPECIAL)") {
-		t.Error("the cleared item was cut from a long list")
-	}
-}
-
-func TestDriftWantBridgeLanded(t *testing.T) {
-	w := driftWant(&drift.Finding{
-		Key: "drift:special:376:landed", Cause: drift.Landed, AniDB: 1983, AniList: 376, Linked: 4000,
-		Path: "overlay/special-of-parent/376.json",
-	})
-	if !strings.Contains(w.Body, "links AniList 376 to AniDB 4000") || !strings.Contains(w.Body, "git rm overlay/special-of-parent/376.json") ||
-		!strings.Contains(w.Title, "AniList 376 (specials of AniDB 1983)") {
-		t.Errorf("bridge landed want = %+v", w)
 	}
 }

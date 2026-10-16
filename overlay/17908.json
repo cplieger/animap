@@ -1,0 +1,170 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17908",
+    "tvdb": "https://thetvdb.com/series/witchy-precure/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mahou Tsukai Precure!! Mirai Days",
+  "justification": "AniDB special S1, a 2025 New Year broadcast special, has no TVDB episode; its default was TVDB 304476 season 0 episode 1, the 2016 All Stars film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b1284b28d61285e4fa491cf89b8a88a7b122abdf525828486a01adaa7089cc63",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-03-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-10-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-10-29"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ],
+        [
+          0,
+          7,
+          0,
+          ""
+        ],
+        [
+          0,
+          8,
+          0,
+          ""
+        ],
+        [
+          0,
+          9,
+          0,
+          ""
+        ],
+        [
+          0,
+          10,
+          0,
+          ""
+        ],
+        [
+          2,
+          1,
+          51,
+          "2025-01-12"
+        ],
+        [
+          2,
+          2,
+          52,
+          "2025-01-19"
+        ],
+        [
+          2,
+          3,
+          53,
+          "2025-01-26"
+        ],
+        [
+          2,
+          4,
+          54,
+          "2025-02-02"
+        ],
+        [
+          2,
+          5,
+          55,
+          "2025-02-09"
+        ],
+        [
+          2,
+          6,
+          56,
+          "2025-02-16"
+        ],
+        [
+          2,
+          7,
+          57,
+          "2025-02-23"
+        ],
+        [
+          2,
+          8,
+          58,
+          "2025-03-02"
+        ],
+        [
+          2,
+          9,
+          59,
+          "2025-03-09"
+        ],
+        [
+          2,
+          10,
+          60,
+          "2025-03-16"
+        ],
+        [
+          2,
+          11,
+          61,
+          "2025-03-23"
+        ],
+        [
+          2,
+          12,
+          62,
+          "2025-03-30"
+        ]
+      ],
+      "series": 304476
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "90b7c16b428df307813216e147b799a5ba9f4bcb7f00a0faf3670d287e6b636d"
+  },
+  "anidb_id": 17908
+}

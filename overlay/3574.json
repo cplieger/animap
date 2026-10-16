@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/3574",
+    "tmdb": "https://www.themoviedb.org/tv/25760/seasons",
     "tvdb": "https://thetvdb.com/series/when-they-cry-higurashi/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             2
@@ -32,7 +34,7 @@
     ]
   },
   "title": "Higurashi no Naku Koro ni",
-  "justification": "AniDB special S7 (no AniDB date) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79682 and TMDB show 25760. AniDB S2-S6 (\"HMG\" to \"HMG5\") have no TMDB episode (their defaults are other items); AniDB S7 \"Kokoro-musubi -Beginning- PV\" has no TVDB episode (its default TVDB S0E7 is \"ura higu - 1 : Insurance Agent\", another item) and no TMDB episode (its default TMDB S0E7 is \"Kira - Part 1 'Love Penalty Arc: Joy'\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -525,8 +527,8 @@
       ],
       "series": 79682
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "45efeac8e2a399f99f208679d765afeaf6ccdd082bc1e051323050ca8c0b33d6"
   },
   "anilist_ids": [

@@ -1,0 +1,183 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11469",
+    "tvdb": "https://thetvdb.com/series/flying-witch/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            9,
+            11
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Flying Witch",
+  "justification": "AniDB specials S1-S8 \"Flying Witch Petit 1-8\" are TVDB season 0 episodes 1-8 \"Flying Witch Petit - Short 01-08\" on the same dates, where the default places them; the rows sending S6-S8 one episode late and S10 onto Short 06 are removed. S9 \"Petit - Special Edition\" (2016-06-22) is episode 11 \"Flying Witch Petit - Special\" (2016-06-22). S10, the BD launch special, and S11 \"Episode 12 Ending\" have no TVDB episode and are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "55705cc99a4cd4c8daddbfa7467330156537208b3b8c32cdf85b34f7441ba2ca",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-03-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-04-01"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-04-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-04-29"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-05-13"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2016-05-27"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2016-06-10"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2016-06-24"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2016-07-08"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2016-07-22"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2016-06-22"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-04-10"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-04-17"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-04-24"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-05-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-05-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-05-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-05-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-05-29"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-06-05"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-06-12"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-06-19"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-06-26"
+        ]
+      ],
+      "series": 300816
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0a73d6b8bf34d3f759a8ca17afaf9acd372d19c97d7b3fa09694fd3ca82ab1eb"
+  },
+  "anidb_id": 11469
+}

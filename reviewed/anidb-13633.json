@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:13633",
+  "title": "Boku no Hero Academia the Movie: Futari no Hero",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "17036b4d1f3ad008226d87739498e0ca6876bdb4ad0e321ce6c0673b2df56578"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 1 \"Complete Movie of Boku no Hero Academia the Movie: Futari no Hero\" (2018-08-03) = S0E4 \"My Hero Academia: The Two Heroes\" (2018-08-30).",
+      "evidence": [
+        "https://anidb.net/anime/13633",
+        "https://thetvdb.com/dereferrer/series/305074"
+      ]
+    }
+  }
+}

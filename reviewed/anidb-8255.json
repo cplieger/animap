@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:8255",
+  "title": "Kizuna Ichigeki",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "17d195e76473ea493db4602b2f77abf3a927759e67afbe96879ce55c60f7f9d3"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "\"Kizuna Ichigeki\" = \"One-Hit Bond\" (kizuna = bond, ichigeki = one blow); MAL synopsis: a martial arts tournament winner pays off her grandfather's debt. TVDB S1E3 \"One-Hit Bond\". The row \";1-3;\" is right; the only mismatch is the TVDB TV broadcast date 2011-03-20 against AniDB's 2011-03-05 screening date.",
+      "evidence": [
+        "https://anidb.net/anime/8255",
+        "https://thetvdb.com/dereferrer/series/259863"
+      ]
+    }
+  }
+}

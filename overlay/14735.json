@@ -10,6 +10,9 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
             2
           ],
           [
@@ -23,7 +26,7 @@
     ]
   },
   "title": "Psycho-Pass 3",
-  "justification": "AniDB special S2-S4 (2020-02-19) have no TVDB episode, was 0x02-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Dive to Psycho-Pass: Daisan Ki #0\" (2019-10-18), the pre-broadcast special, had no pair and fell on TVDB season 0 episode 1, the 2014 extended edit of season 1 episodes 1-2. TVDB lists no third-season pre-broadcast special, so S1 is unmapped like S2-S4, the uncut interviews.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -204,8 +207,8 @@
       ],
       "series": 262090
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4d8031885237386bea5e5c5d51ecb63ec77a40e290972491cbabe70cc2f67118"
   },
   "anilist_ids": [

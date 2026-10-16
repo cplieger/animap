@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11746",
+    "tmdb": "https://www.themoviedb.org/tv/62564/season/0",
     "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0"
   },
   "set": {
@@ -44,11 +45,26 @@
             9
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 7,
+        "offset": 8,
+        "episodes": [
+          [
+            8
+          ],
+          [
+            9
+          ]
+        ]
       }
     ]
   },
   "title": "Hibike! Euphonium 2",
-  "justification": "AniDB special S8-S9 (2017-05-17 to 2017-06-21) have no TVDB episode, was 0x08-0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S8-S9 (2017-05-17 to 2017-06-21) have no TVDB episode, was 0x08-0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 62564 season 0 E9-E15 are Welcome to the Fireworks Festival Kiss! to Welcome to Sleep! (2016-12-21 to 2017-06-21) = S1-S7; TMDB lists neither event video S8 or S9. With no TMDB row the specials defaulted to E1-E9, the first season's band shorts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -313,8 +329,8 @@
       ],
       "series": 289884
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4cebf61177c17267966fa80f071e93bbc338401c1df58c8f15219db7ae64d136"
   },
   "anilist_ids": [

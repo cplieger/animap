@@ -1,0 +1,30 @@
+{
+  "anilist_id": 21255,
+  "title": "Hibike! Euphonium: Suisougaku-bu no Nichijou",
+  "parts": [
+    {
+      "anidb_id": 10889,
+      "specials": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "justification": "AniList: 7 shorts of 2 min, 2015-06-17 to 2015-12-16 \"Suisougaku-bu no Nichijou\". The detail named S2 only as a date match; the titles are the match: AniDB 10889 S2-S8 are \"The Everyday Life of Band Part 1-7\" (J 吹奏楽部の日常 その1-7) on 2015-06-17 ... 2015-12-16, and AniList's title is exactly 吹奏楽部の日常. S1 \"Ready, Set, Monaka\" (2015-12-16, a 24-min special) is another entry and is excluded, so the specials are S2-S8, consecutive. The parent's rows send S1 to 0x8 and S2-S8 to 0x1-0x7; TVDB 289884 0x1-0x7 \"The Everyday Life of Band Part 1-7\" (2015-06-16 ... 2015-12-16, one day early on part 1) and 0x8 \"Ready, Set, Monaka\" confirm it. Nothing else claims 0x1-0x7 (11747 0x9, 11746 0x10-0x16, 12962 0x17, 13491 0x18, 13207 0x19, 17441 0x20).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10889",
+    "anilist": "https://anilist.co/anime/21255",
+    "tmdb": "https://www.themoviedb.org/tv/62564/season/0",
+    "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "054dcc2fd8251b60ceff3c85dd0b0fe91ded56d695b880444684617ff1d44093"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7520",
+    "tmdb": "https://www.themoviedb.org/movie/417179",
+    "tmdb_movie": "https://www.themoviedb.org/movie/417179",
+    "tvdb": "https://thetvdb.com/movies/141272-vs"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbid": "417179",
+    "imdbid": "tt6419640"
+  },
+  "title": "Gekijouban Metal Fight Beyblade vs Taiyou: Shakunetsu no Shinryakusha Sol Blaze",
+  "justification": "Checked by title. The film is TMDB movie 417179 (Metal Fight Beyblade vs the Sun: Sol Blaze, the Scorching Hot Invader (2010)). The node moves from TVDB 248691 to the movie marker. TVDB series 248691 no longer exists. TheTVDB lists the film as movie 141272 劇場版メタルファイト ベイブレードVS太陽 灼熱の侵略者ソルブレイズ (2010-08-21, 76 minutes), with IMDb tt6419640 and TMDB 417179. The Beyblade series 387655 holds no such film. AniDB types it a film, so the node takes the movie marker with both ids.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "28e1fbefc4363bd5eba679c9dfb540cf7b4ea7aa7faf9fbb540c230e4432dff4"
+  },
+  "anilist_ids": [
+    8245
+  ],
+  "anidb_id": 7520
+}

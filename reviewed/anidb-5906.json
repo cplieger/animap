@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:5906",
+  "title": "Kaibutsu-kun (1980)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:43": "aab250ddf9a8b85916e6d746cc2d73cdbe4dfc4a923a0ca198e4e05e3a93a04d",
+        "date-mismatch:44": "cfff1a26b62f2f5e03b43376719b731275d6ee600df641749c34671f72d533db",
+        "date-mismatch:45": "a7c94676c11e95d83dd0b7613bbc4f7ba3880b4e4c5ef36d3e33b75a4f8a2ab3"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Each AniDB broadcast is two TVDB 184211 episodes titled by number: AniDB episode k is S1E(2k-1)+S1E(2k), so 43 = \"Episode 85\" + \"Episode 86\", 44 = \"Episode 87\" + \"Episode 88\", 45 = \"Episode 89\" + \"Episode 90\". The numbering lines up for the whole run; only these dates differ.",
+      "evidence": [
+        "https://anidb.net/anime/5906",
+        "https://thetvdb.com/dereferrer/series/184211"
+      ]
+    }
+  }
+}

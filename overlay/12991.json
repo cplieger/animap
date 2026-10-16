@@ -1,0 +1,21 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12991",
+    "tmdb_movie": "https://www.themoviedb.org/movie/511008"
+  },
+  "set": {
+    "imdbid": "tt7197430"
+  },
+  "title": "Kimi no Hikari: Asagao to Kase-san.",
+  "justification": "Checked by title. TheTVDB lists this 7-minute 2017 web music video only as movie 78499 Your Light: Kase-san and Morning Glories (alias Kimi no Hikari: Asagao to Kase-san.), whose TMDB id 511008 is the node's own and whose IMDb id tt7197430 is the one AniDB links, so the node gains that imdbid.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "42efb49a885543ddc9302bdd9e0852f549b2bf4a21f2a0ad4ab364971842642c"
+  },
+  "anilist_ids": [
+    98511
+  ],
+  "anidb_id": 12991
+}

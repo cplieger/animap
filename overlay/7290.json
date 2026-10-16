@@ -1,0 +1,53 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7290",
+    "tvdb": "https://thetvdb.com/series/heartcatch-precure/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Precure All Stars DX2: Kibou no Hikari - Rainbow Jewel o Mamore!",
+  "justification": "The film is TVDB season 0 episode 1 \"Pretty Cure All Stars DX2: Light of Hope ☆ Protect the Rainbow Jewel!\". AniDB specials S1, the film release commemoration programme, and S2, the stage greeting, have no TVDB episode; by default they fell on episode 1, the film itself, and episode 2, the HeartCatch film (AniDB 7620). Both are unmapped. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9e5e1febd5dc44cb74463c9ed5e58d0b7f2a8fff59de9d9942b1066f60ee9c80",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2010-03-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2010-10-30"
+        ]
+      ],
+      "series": 140711
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "cf3e56c30800a4b12645b3565847ed6dc77030dd9ac4c79d377c4f0db8a4df5c"
+  },
+  "anidb_id": 7290
+}

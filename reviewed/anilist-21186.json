@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:21186",
+  "title": "AniList 21186",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "70b905779bf97354ed0448e2d7942033cdef2b8e5b335ab6b55dbfff5374de60",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 2-5 of AniDB 9873 (TVDB 262106 0x3-0x6); anime-offline-database keeps AniDB 9873 as a record with no AniList source, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/21186"
+        ],
+        "anilist_id": 21186
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/19635",
+    "tmdb": "https://www.themoviedb.org/tv/302051",
+    "tvdb": "https://thetvdb.com/series/i-became-a-legend-after-my-10-year-long-last-stand/seasons/official/1"
+  },
+  "set": {
+    "tvdbid": "483427"
+  },
+  "title": "Koko wa Ore ni Makasete Saki ni Ike to Itte kara Juunen ga Tattara Densetsu ni Natte Ita.",
+  "justification": "The placeholder TVDB 468809 is gone; the series is TVDB 483427 I Became a Legend After My 10 Year-Long Last Stand (TMDB 302051, the node's own), season 1 with AniDB's 12 titles in order: 1 When I Returned Home, I'd Become a Hero, 2 There Was a Formidable Foe Deep Inside the Den, 12 Leave the Next Ten Years and Beyond to Me Too.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "de176276ddaed0021e30f0e3d862cf6d9784e7d78b793534cea943e7791bf49e",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2026-07-06"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2026-07-13"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2026-07-20"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2026-07-27"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2026-08-03"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2026-08-10"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2026-08-17"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2026-08-24"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2026-08-31"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2026-09-07"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2026-09-14"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2026-09-21"
+        ]
+      ],
+      "series": 483427
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9c63122ea4d698ded3ed49acbe322220586f1c4f07694f25f71990e9f2df1d54"
+  },
+  "anidb_id": 19635
+}

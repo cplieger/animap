@@ -1,14 +1,15 @@
 {
-  "anidb_id": 9471,
-  "title": "Sket Dance: Imouto no Nayami ni Nayamu Ani ni Nayamu Imouto to Sono Nakama-tachi",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9471",
+    "tmdb": "https://www.themoviedb.org/tv/42419/seasons",
+    "tvdb": "https://thetvdb.com/series/sket-dance/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2013-02-05) = TVDB 0x01 (2013-02-05), by the anime's title, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/9471",
-    "tvdb": "https://thetvdb.com/series/sket-dance/seasons/official/0"
-  },
+  "title": "Sket Dance: Imouto no Nayami ni Nayamu Ani ni Nayamu Imouto to Sono Nakama-tachi",
+  "justification": "Checked by episode title against TVDB series 247805 and TMDB show 42419. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OVA\" (the anime \"SKET DANCE 妹の悩みに悩む兄に悩む妹とその仲間達\") is TVDB S0E1 \"The Sister is Troubled Because of the Brother who is Troubled Because of the Sister's Troubles... and Friends\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "56142eb23e3a6a579b6e06a916de4aaba68802915fbc44549e581c55aa7584bc",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     16395
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 9471
 }

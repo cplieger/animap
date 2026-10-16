@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10663",
+    "tmdb": "https://www.themoviedb.org/tv/62327/seasons",
     "tvdb": "https://thetvdb.com/series/blood-blockade-battlefront/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,28 @@
         "episodes": [
           [
             3
+          ],
+          [
+            4
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            3
+          ],
+          [
+            4
           ]
         ]
       }
     ]
   },
   "title": "Kekkai Sensen",
-  "justification": "AniDB special S1 (2015-06-14) = TVDB 0x01 (2015-06-14), was 0x02, by title. AniDB special S2 (2015-07-05) = TVDB 0x02 (2015-07-05), was unmapped, by title. AniDB special S3 (no AniDB date) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 289886 and TMDB show 62327. AniDB S1-S2 (\"それさえも最低で最高な日々\" (Even These Are the Worst and the Best Days Ever) to \"特別編\" (Special Program)) are TVDB S0E1 \"Even These Are the Worst and the Best Days Ever\" to TVDB S0E2 \"Special Program\"; AniDB S3-S4 (\"Funimation Short: with Aaron Dismuke and Ian Sinclair\" to \"Episode S4Funimation Short: with Micah Solusod and Mike McFarland\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -126,8 +142,8 @@
       ],
       "series": 289886
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "10a84b6c80d3097a38052b5afc5253ea4fc33b214d1718bb7acda2e09898dca6"
   },
   "anilist_ids": [

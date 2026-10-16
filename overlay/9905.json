@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9905",
+    "tmdb": "https://www.themoviedb.org/tv/57406/seasons",
     "tvdb": "https://thetvdb.com/series/arpeggio-of-blue-steel/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             12
@@ -20,7 +22,7 @@
     ]
   },
   "title": "Aoki Hagane no Arpeggio: Ars Nova",
-  "justification": "AniDB special S12-S13 (2013-12-03 to 2013-12-10) have no TVDB episode, was 0x12-0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 272317 and TMDB show 57406. AniDB S12-S13 (\"Episode 9 Opening\" to \"Episode 10 Opening\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -261,8 +263,8 @@
       ],
       "series": 272317
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7973d11a26bf55a5c00f4af0752362b78bb7df12fac3e516f2d4383653c81ef9"
   },
   "anilist_ids": [

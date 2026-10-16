@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9659",
+    "tmdb": "https://www.themoviedb.org/tv/71441/seasons",
     "tvdb": "https://thetvdb.com/series/yu-shibu/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "start": 1,
         "end": 5,
         "offset": 1
@@ -15,6 +17,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             6
@@ -24,8 +27,8 @@
     ]
   },
   "title": "Yuusha ni Narenakatta Ore wa Shibushibu Shuushoku o Ketsui Shimashita.",
-  "justification": "AniDB special S6 (2014-05-30) has no TVDB episode, was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "justification": "Checked by episode title against TVDB series 273002 and TMDB show 71441. AniDB S1-S5 (\"Insert TV-CM Full Ver. 1\" to \"Insert TV-CM Full Ver. 5\") are TMDB S0E2 \"Yu-Shibu Short 1\" to TMDB S0E6 \"Yu-Shibu Short 5\"; AniDB S6 \"Sponsor Eyecatch Collection\" has no TVDB episode (its default TVDB S0E6 is \"Yu-Shibu Short 5\", another item) and no TMDB episode (its default TMDB S0E6 is \"Yu-Shibu Short 5\", another item). AniDB's five TV-CM full versions are the five Yu-Shibu shorts in the same order and on the same dates, on TVDB and TMDB alike.",
+  "upstream": "TODO-PR",
   "captured": {
     "tvdb": {
       "sha256": "b9e6c37ce2c73478883ad0c171ada27c56bb5772ceef1897cee6a58d8fbe32b7",
@@ -145,8 +148,8 @@
       ],
       "series": 273002
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "fb20c9073d8557668e764f5edd3d12d92af10365e9dad8b45f044bc431dd6491"
   },
   "anilist_ids": [

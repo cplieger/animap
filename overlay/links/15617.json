@@ -1,0 +1,29 @@
+{
+  "anilist_id": 15617,
+  "title": "Jinrui wa Suitai Shimashita Specials",
+  "parts": [
+    {
+      "anidb_id": 8276,
+      "specials": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "justification": "AniList 15617 has 6 episodes (2012-09-19 to 2013-02-20); the offline database synonym is 'Humanity Has Declined: The Humans' Law of the Jungle'. AniDB 8276 S2-S7 are 'The Humans' Law of the Jungle #1..#6' on 2012-09-19, 10-17, 11-21, 12-19, 2013-01-16, 02-20. TVDB 259653 0x02-0x07 hold the same titles on the same dates (0x01 'The Humans' Fairy Note', 2012-10-28, is AniDB S1). Anime-Lists' own pairs shifted every special by one; overlay/8276.json in the worktree already repairs that, so with the overlay the bridge lands S2-S7 on 0x02-0x07 within a day each. S8 'Audio Commentary' and S9 'Studio Visit' are other items.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8276",
+    "anilist": "https://anilist.co/anime/15617",
+    "tmdb": "https://www.themoviedb.org/tv/53356/season/0",
+    "tvdb": "https://thetvdb.com/series/humanity-has-declined/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "0b094178e87fa5160b15c92f114243a1a2c9217110b0395bdc46ac9c4735925d"
+  }
+}

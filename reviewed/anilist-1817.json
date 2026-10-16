@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:1817",
+  "title": "AniList 1817",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 1726 S1 is TVDB 79236 0x2 by title, but AniDB dates it 2005-01-28 against TVDB's 2005-03-16, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/1817"
+        ],
+        "anilist_id": 1817
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14514",
+    "tmdb": "https://www.themoviedb.org/tv/87461/seasons",
     "tvdb": "https://thetvdb.com/series/the-helpful-fox-senko-san/seasons/official/0"
   },
   "set": {
@@ -13,6 +14,79 @@
             1
           ],
           [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
             12,
             1
           ]
@@ -21,7 +95,7 @@
     ]
   },
   "title": "Sewayaki Kitsune no Senko-san",
-  "justification": "AniDB special S1 (2019-04-10) has no TVDB episode, was 0x01. AniDB special S12 (2019-09-25) = TVDB 0x01 (2019-09-25), was 0x12 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 360579 and TMDB show 87461. AniDB S1 \"スーパー仙狐さんタイム 1\" (Super Senko-san Time 1) has no TVDB episode (its default TVDB S0E1 is \"Super Senko-san Time Mini Special - Episode 01\", another item) and no TMDB episode (its default TMDB S0E1 is \"Super Senko-san Time - Episode 12\", another item); AniDB S2-S11 (\"スーパー仙狐さんタイム 2\" (Super Senko-san Time 2) to \"スーパー仙狐さんタイム 11: スーパー夜空タイム\" (Super Senko-san Time 11: Super Sora Time)) have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them); AniDB S12 \"スーパー仙狐さんタイム 12\" (Super Senko-san Time 12) is TVDB S0E1 \"Super Senko-san Time Mini Special - Episode 01\" and TMDB S0E1 \"Super Senko-san Time - Episode 12\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -112,8 +186,8 @@
       ],
       "series": 360579
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "cf93bb196c09407166d90c0d0d5bb4a20fae7780937f71aa129903db5e5acba0"
   },
   "anilist_ids": [

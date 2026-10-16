@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:50",
+  "title": "Argento Soma",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "a43a6a170c8b85fd215e055588cf3443e52050839085fd18341babc5709315d9"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the one special is flagged. AniDB S1 \"Alone and By Myself / Hitori to Hitori\" lands by default on TVDB S0E1 \"Phase:EX Alone and By Myself\" (the only TVDB special). Same title, same sole special; the 11-day date gap (2002-02-21 vs 2002-03-01) is a release-vs-broadcast difference. The 25 regular episodes match S1E1-25 title for title (\"Escape and Memories\" vs \"Escape and Memory\", \"Crimes and Punishments\" vs \"Crimes and Punishment\" are spelling variants).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/78910",
+        "https://anidb.net/anime/50"
+      ]
+    }
+  }
+}

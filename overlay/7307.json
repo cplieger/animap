@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7307",
+    "tmdb": "https://www.themoviedb.org/tv/42253/season/0",
     "tvdb": "https://thetvdb.com/series/k-on/seasons/official/0"
   },
   "set": {
@@ -70,11 +71,71 @@
             26
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3,
+            21
+          ],
+          [
+            4,
+            10
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            7,
+            15
+          ],
+          [
+            8,
+            16
+          ],
+          [
+            9,
+            17
+          ],
+          [
+            10,
+            18
+          ],
+          [
+            11,
+            19
+          ],
+          [
+            12,
+            20
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ]
+        ]
       }
     ]
   },
   "title": "K-On!!",
-  "justification": "AniDB special S13-S14 (no AniDB date) have no TVDB episode, was 0x13-0x14. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S13-S14 (no AniDB date) have no TVDB episode, was 0x13-0x14. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 42253 season 0: E13 Planning Discussion! = S1, E14 Visit! = S2, E21 Plan! = S3, and the URA-ON!! shorts Fortune Telling for Everyone to Help Us! Yui-chan Man (E10-E12, E15-E20) = S4-S12 by title; it lists neither 2011 live S13 or S14. With no TMDB row S1-S14 took E1-E14, the first season's specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -357,8 +418,8 @@
       ],
       "series": 87501
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "477547fa633a6771c2275381d5aedb25241cc30c0d5cdcfb1d20b53f18220ceb"
   },
   "anilist_ids": [

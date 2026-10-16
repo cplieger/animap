@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13752",
+    "tmdb": "https://www.themoviedb.org/tv/78482/seasons",
     "tvdb_s2": "https://thetvdb.com/series/345381-show/seasons/official/2",
     "tvdb_s3": "https://thetvdb.com/series/345381-show/seasons/official/3"
   },
@@ -19,11 +20,20 @@
         "start": 103,
         "end": 153,
         "offset": -102
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Kiratto Pri Chan",
-  "justification": "AniDB 52-102 (2019-04-07 to 2020-03-29) = TVDB 2x01-2x51 (2019-04-07 to 2020-03-29), was 1x52-1x102. AniDB 103-153 (2020-04-05 to 2021-05-30) = TVDB 3x01-3x51 (2020-04-05 to 2021-05-30), was 1x103-1x153. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 345381 and TMDB show 78482. AniDB episode 52-102 (\"ドキドキ! わくわく! ジュエルオーディション開幕だもん!\" (Episode 52) to \"キラッとつながる! それがプリ☆チャン! だもん!\" (Episode 102)) are TVDB S2E1 \"Heart-throbbing! Exciting! The Jewel Auditions Are Starting!\" to TVDB S2E51 \"Sparkling Connections! That is Pri☆Chan!\"; AniDB episode 103-153 (\"キラッとオープン! プリ☆チャンランドがやってきたッチュ!\" (Episode 103) to \"キラッとプリ☆チャンやってみよう!\" (Episode 153)) are TVDB S3E1 \"A Sparkling Opening! Pri☆Chan Land Has Arrived!\" to TVDB S3E51 \"Let's Try Kiratto Pri☆Chan!\"; AniDB S1 \"キラッとプリ☆チャン えもい新シーズン徹底紹介SP\" (Episode S1) has no TVDB episode (TVDB has no S0E1).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -956,8 +966,8 @@
       ],
       "series": 345381
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f6d0250213e657731fa18b6ef8a7828ab826d0b8227f4fadd6d16b2e2d032228"
   },
   "anilist_ids": [

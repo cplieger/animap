@@ -1,0 +1,26 @@
+{
+  "anilist_id": 8985,
+  "title": "Yojouhan Shinwa Taikei Specials",
+  "parts": [
+    {
+      "anidb_id": 7243,
+      "specials": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "justification": "AniList 8985 has 3 episodes (2010-08-20 to 2010-11-26); the offline database synonyms call it 'TV Mihouei Episode' / 'Unaired Episodes'. AniDB 7243 S1-S3 are 'Land Submarine, to the South Pole' (2010-08-20), 'Land Submarine, to the Women's Bath' (2010-10-22), 'Land Submarine of Love and Fishing' (2010-11-26): the three unaired episodes, three dates matching AniList start/end. TVDB 140751 0x01-0x03 carry exactly those titles on those dates. S4 'Kyoto Guide' shares S1's date 2010-08-20 but is a separate promotional piece and is not consecutive after S3, so it is excluded.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7243",
+    "anilist": "https://anilist.co/anime/8985",
+    "tmdb": "https://www.themoviedb.org/tv/36243/season/0",
+    "tvdb": "https://thetvdb.com/series/the-tatami-galaxy/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "2b6fffa0ebfbc9525543d5c61ca2ce01a6c8716141a78e0a239e0935f9b6a05f"
+  }
+}

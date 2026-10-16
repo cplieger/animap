@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/3440",
+    "tmdb": "https://www.themoviedb.org/tv/19836/seasons",
     "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0"
   },
   "set": {
@@ -41,11 +42,47 @@
             36
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ]
+        ]
       }
     ]
   },
   "title": "Mahou Shoujo Lyrical Nanoha A's",
-  "justification": "AniDB special S1-S9 (2006-01-25 to 2005-12-25) have no TVDB episode, was 0x01-0x09. AniDB special S10 (2014-11-05) = TVDB 0x36 (2014-11-05), was 0x10, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81115 and TMDB show 19836. AniDB S1-S9 (\"Special talk 田村ゆかり・水樹奈々\" (Special Talk: Tamura Yukari and Mizuki Nana) to \"Ending of Episode 13\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S10 \"ピクチャードラマ 医療少女メディカルシャマル セカンドコース\" (Picture Drama: Nurse Girl Medical Shamal: Second Cour) is TVDB S0E36 \"Magical Girl Lyrical Nanoha A's Mini Picture Drama ~Nurse Girl Medical Shamal~ Season 2\" and has no TMDB episode (its default TMDB S0E10 is \"Magical Girl Lyrical Nanoha The Movie 1st\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -352,8 +389,8 @@
       ],
       "series": 81115
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "809d179728aef35f8b2d7dd258bf5fe266a5d70074df06aaf44308783b8d8ef6"
   },
   "anilist_ids": [

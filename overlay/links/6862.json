@@ -1,0 +1,24 @@
+{
+  "anilist_id": 6862,
+  "title": "K-ON!: Live House!",
+  "parts": [
+    {
+      "anidb_id": 6257,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 6862 (OVA, 1 episode(s) from 2010-01-19) is AniDB 6257's special(s) S2, aired 2010-01-20. AniList's PARENT relation names AniList 5680, which anime-offline-database links to AniDB 6257, and the special's title (Live House!) matches an AniList title. The parent's node, as overlay/6257.json patches it, places S2 on TVDB 0x19 Live House!, 2010-01-20. TMDB 42253 season 0 lists the same episode as S0E9 Live House!, 2010-01-20, but Anime-Lists' TMDB side still sends every K-On! special to S0E\u003cn\u003e (S0E2 is Yui's Curiosity Series), a franchise-wide TMDB numbering fault shared with AniDB 7307 and 8280 that this entry does not touch.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6257",
+    "anilist": "https://anilist.co/anime/6862",
+    "tmdb": "https://www.themoviedb.org/tv/42253/season/0",
+    "tvdb": "https://thetvdb.com/series/k-on/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "fe7a6eab24d1b5331e8f54291b2abd62fe1904566fd20f88bfc776f95f64669e"
+  }
+}

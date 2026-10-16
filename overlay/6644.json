@@ -1,0 +1,164 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6644",
+    "tmdb": "https://www.themoviedb.org/tv/31718/season/0",
+    "tvdb": "https://thetvdb.com/series/darker-than-black/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 4,
+        "offset": 1
+      }
+    ]
+  },
+  "title": "Darker than Black: Kuro no Keiyakusha Gaiden",
+  "justification": "TMDB 31718 season 0 E2-E5 are Darker than BLACK Gaiden: OVA 1-4 (2010-01-27 to 07-21) = S1-S4, after the first series' special at E1; with no TMDB row S1-S4 took E1-E4. The TVDB row stays as it is.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "281211b69dc5093d2d39bb9c775ce9a2156cd6d01892d234fd66de65320baba2",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2008-03-26"
+        ],
+        [
+          0,
+          2,
+          27,
+          "2010-01-27"
+        ],
+        [
+          0,
+          3,
+          28,
+          "2010-03-24"
+        ],
+        [
+          0,
+          4,
+          29,
+          "2010-05-26"
+        ],
+        [
+          0,
+          5,
+          30,
+          "2010-07-21"
+        ],
+        [
+          2,
+          1,
+          31,
+          "2009-10-09"
+        ],
+        [
+          2,
+          2,
+          32,
+          "2009-10-16"
+        ],
+        [
+          2,
+          3,
+          33,
+          "2009-10-23"
+        ],
+        [
+          2,
+          4,
+          34,
+          "2009-10-29"
+        ],
+        [
+          2,
+          5,
+          35,
+          "2009-11-05"
+        ],
+        [
+          2,
+          6,
+          36,
+          "2009-11-12"
+        ],
+        [
+          2,
+          7,
+          37,
+          "2009-11-19"
+        ],
+        [
+          2,
+          8,
+          38,
+          "2009-11-26"
+        ],
+        [
+          2,
+          9,
+          39,
+          "2009-12-03"
+        ],
+        [
+          2,
+          10,
+          40,
+          "2009-12-10"
+        ],
+        [
+          2,
+          11,
+          41,
+          "2009-12-17"
+        ],
+        [
+          2,
+          12,
+          42,
+          "2009-12-24"
+        ]
+      ],
+      "series": 80042
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "404a6fdab365d7b4a2cbd01d59a58b013b2f66e7101717efbe0cdb6fe96602b4"
+  },
+  "anilist_ids": [
+    7338
+  ],
+  "anidb_id": 6644
+}

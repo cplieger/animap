@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15987",
-    "tvdb": "https://thetvdb.com/series/the-two-girls-met-in-the-ruins-of-damaged-dream/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/the-two-girls-met-in-the-ruins-of-damaged-dream/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/116724/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Shiroi Suna no Aquatope",
-  "justification": "AniDB special S1 (2021-06-13) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 395198 and TMDB show 116724. AniDB S1 \"放送直前特番\" (Pre-Broadcast Special) has no TVDB episode (its default TVDB S0E1 is \"Mini 01\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

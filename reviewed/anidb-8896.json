@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:8896",
+  "title": "Kore ga Umi e no Ai ja Naika!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "1fe452cfc63374c47613b3fd2495fe044a16ecbc5d47a788640e140cf865cf50"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 8896 is the music video \"Kore ga Umi e no Ai ja Naika!\" (its one regular episode, \"Music Video\"). TVDB 195721 S0E9 is titled \"Kore ga Umi e no Ai ja Naika!\" (これが海への愛じゃなイカ！ on the TheTVDB season page), the same song. Only the date differs, TVDB writing the day and month the other way round.",
+      "evidence": [
+        "https://anidb.net/anime/8896",
+        "https://thetvdb.com/dereferrer/series/195721"
+      ]
+    }
+  }
+}

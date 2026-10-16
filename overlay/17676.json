@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17676",
+    "tmdb": "https://www.themoviedb.org/tv/76075/seasons",
     "tvdb": "https://thetvdb.com/series/laid-back-camp/seasons/official/0"
   },
   "set": {
@@ -23,11 +24,35 @@
             5
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Yuru Camp Season 3",
-  "justification": "AniDB special S4-S5 (2024-03-28 to 2024-10-23) have no TVDB episode, was 0x04-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 330692 and TMDB show 76075. AniDB S1-S3 (\"野クルのへや\" (The Outclub`s Room) to \"リンとなでしこの伊奈ヶ湖春キャンプ\" (Rin and Nadeshiko Go Spring Camping at Lake Inaga)) are TMDB S0E6 \"野クルのへや\" (The Outclub's Room) to TMDB S0E8 \"リンとなでしこの伊奈ヶ湖春キャンプ\" (Rin and Nadeshiko Go Spring Camping at Lake Inaga); AniDB S4-S5 (\"直前特番 ~「ゆるキャン△」へようこそ~ 新メンバー歓迎スペシャル\" (Pre-Broadcast Special) to \"放送直前 ~「ゆるキャン△」へようこそ~ 新メンバー歓迎スペシャル &lt;ディレクターズカット版&gt;\" (Pre-Broadcast Special (Director`s Cut Ver.))) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -244,8 +269,8 @@
       ],
       "series": 330692
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d41355210d9d070c822aec48dafdc8a6b01f96c53209e1af24bc54d97c31c1ed"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9398",
+    "tmdb": "https://www.themoviedb.org/tv/46440/season/0",
     "tvdb": "https://thetvdb.com/series/samurai-girls/seasons/official/0"
   },
   "set": {
@@ -35,11 +36,38 @@
             12
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 6,
+        "offset": 13,
+        "episodes": [
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ]
+        ]
       }
     ]
   },
   "title": "Hyakka Ryouran: Samurai Bride",
-  "justification": "AniDB special S7-S12 (2013-06-26 to 2013-11-27) have no TVDB episode, was 0x07-0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S7-S12 (2013-06-26 to 2013-11-27) have no TVDB episode, was 0x07-0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 46440 season 0 E14-E19 are Samurai Bride Special 01-06 (2013-06-26 to 11-27) = S1-S6, the same offset as TVDB; it lists no Girls' Talk (S7-S12). With no TMDB row the specials defaulted to E1-E12, the first season's Picture Scroll and Voiced Manga shorts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -262,8 +290,8 @@
       ],
       "series": 186911
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0f4b49ff4c381598bb8bc8fd8daf62e13522a3086cdb0f4a6e8014f9b44f5611"
   },
   "anilist_ids": [

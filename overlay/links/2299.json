@@ -1,0 +1,24 @@
+{
+  "anilist_id": 2299,
+  "title": "Uchuu no Kishi Tekkaman Blade OVA: Burning Clock",
+  "parts": [
+    {
+      "anidb_id": 1033,
+      "specials": [
+        3
+      ]
+    }
+  ],
+  "justification": "AniList 2299 (OVA, 1 episode, 9 min) is AniDB 1033's special S3 \"Burning Clock\" (Moeta Tokei), which the Anime-Lists node plus overlay/1033.json place on TVDB 81723 0x02 \"Burning Clock\" (1998-06-05, the same day AniDB dates S3). The AniList start date 1999-11-30 is wrong: the offline database dates the OVA to spring 1998. TMDB 9155 season 0 lists Burning Clock as its episode 1, Twin Blood as 2, Missing Link as 3; the bridge takes no TMDB value.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1033",
+    "anilist": "https://anilist.co/anime/2299",
+    "tmdb": "https://www.themoviedb.org/tv/9155/season/0",
+    "tvdb": "https://thetvdb.com/series/tekkaman-blade/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "183f918f3206ca7b9853fa7cc27e7b65d9b94e10af0d424a3614ae74a3baa5c8"
+  }
+}

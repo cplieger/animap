@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7490",
-    "tvdb": "https://thetvdb.com/series/sengoku-basara-samurai-kings/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/sengoku-basara/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -10,17 +10,43 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            3
+            1,
+            2
           ],
           [
-            8
+            2,
+            11
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            13
+          ],
+          [
+            5,
+            14
+          ],
+          [
+            6,
+            15
+          ],
+          [
+            7,
+            16
+          ],
+          [
+            8,
+            17
           ]
         ]
       }
     ]
   },
   "title": "Sengoku Basara Ni",
-  "justification": "AniDB special S3 (no AniDB date) has no TVDB episode, was 0x03. AniDB special S8 (no AniDB date) has no TVDB episode, was 0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Dragon and Tiger: Oath of Victory! Souls Racing Towards a Blazing Future!!\" (2011-04-06) is TVDB season 0 episode 2 of the same title (2011-04-06). S2-S8 \"Tsukiyo no Katakura-kun 1-7\" are the seven DVD shorts of Mini Sengoku Basara Two, season 0 episodes 11-17 \"Mini Sengoku Basara Two 1-7\" (2010-10-06 to 2011-04-06, one per DVD volume). Without these rows S1 fell on episode 1 (the first season's special) and S2 and S4-S7 on episodes 2 and 4-7.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -237,8 +263,8 @@
       ],
       "series": 87881
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e2163d744a463372bb0fdacdc469cf1c8943b64dabcbdb448439fb692b623a20"
   },
   "anilist_ids": [

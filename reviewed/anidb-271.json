@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:271",
+  "title": "Haibane Renmei",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:S1": "420c84b5e2794afce98679975f0714aaf0112361cf82da9ca837179272421d24",
+        "missing-target:S2": "9885fca684e6594ccb7167f15ddfeebaf76ecd64b80c9bd52eb097303486c66f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "TVDB carries the series (anidbIds [271]) but has no season 0 at all, so the specials Image Gallery (S1) and Creators' Interview (S2) mapped to S0E2 and S0E3 have no TVDB episode to land on. The 13 regular episodes match by title and order. Record the TVDB gap so it re-raises only when TVDB adds a season 0.",
+      "evidence": [
+        "https://anidb.net/anime/271",
+        "https://thetvdb.com/dereferrer/series/79105"
+      ]
+    }
+  }
+}

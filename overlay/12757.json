@@ -1,0 +1,72 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12757",
+    "anilist": "https://anilist.co/anime/98516",
+    "tmdb": "https://www.themoviedb.org/movie/452970",
+    "tmdb_movie": "https://www.themoviedb.org/movie/452970",
+    "tvdb": "https://thetvdb.com/movies/mazinger-z-infinity"
+  },
+  "set": {
+    "tvdbid": "83609",
+    "defaulttvdbseason": "0",
+    "episodeoffset": "3",
+    "tmdbid": "452970",
+    "imdbid": "tt6470762",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Mazinger Z: Infinity",
+  "justification": "Checked by episode title against TVDB series 83609. The film is TMDB movie 452970 (Mazinger Z: Infinity (2017)). Anime-Lists has no TVDB id for this node; it takes series 83609. AniDB episode 1 \"Complete Movie\" (the anime \"劇場版マジンガーZ / INFINITY\") is TVDB S0E4 \"Mazinger Z: Infinity\"; AniDB S1 \"Interviews to Mazinga Z Infinity creators\" has no TVDB episode (its default TVDB S0E1 is \"Mazinger Z vs. Devilman\", another item). TVDB series 83609 Mazinger Z lists the film in season 0 as S0E4 Mazinger Z: Infinity (2018-01-13), beside the franchise's other films, so the node maps there rather than to the movie marker, and keeps TMDB movie 452970 and IMDb tt6470762.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e742892c2a88d3e1872d2385f9db8ef61378fde32dd9aec333eda1281e9a247a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1973-07-18"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1974-07-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1974-03-16"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-01-13"
+        ]
+      ],
+      "series": 83609
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    98516
+  ],
+  "anidb_id": 12757
+}

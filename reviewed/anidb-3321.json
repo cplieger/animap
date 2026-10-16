@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:3321",
+  "title": "Black Cat",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "037ac32da78b4e3c1505c587c64517364cf6f599c59d6a1e19aa34709f4ba1bc"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"The Distant Cat / Toozakaru Neko\" (2006-07-26) = S0E1 \"The Distant Cat\" (2006-06-26).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/34065",
+        "https://anidb.net/anime/3321",
+        "https://thetvdb.com/dereferrer/series/78987"
+      ]
+    }
+  }
+}

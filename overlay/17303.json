@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17303",
+    "tmdb": "https://www.themoviedb.org/tv/1429/seasons",
     "tvdb": "https://thetvdb.com/series/attack-on-titan/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,34 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            36
+          ],
+          [
+            2,
+            37
+          ]
+        ]
       }
     ]
   },
   "title": "Shingeki no Kyojin: The Final Season (2023)",
-  "justification": "AniDB special S1 (2023-02-25) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 267440 and TMDB show 1429. AniDB episode 1-2 (\"地鳴らし / 罪人たち\" (The Rumbling / Sinners) to \"天と地の戦い / 長い夢 / あの丘の木に向かって\" (The Battle of Heaven and Earth / A Long Dream / Toward the Tree on That Hill)) are TMDB S0E36 \"完結編（前編）\" (The Final Chapters Special (1)) to TMDB S0E37 \"完結編（後編）\" (The Final Chapters Special (2)); AniDB S1 \"特別番組\" (Pre-Broadcast Special) has no TVDB episode (its default TVDB S0E1 is \"Since That Day (Recap)\", another item) and no TMDB episode (its default TMDB S0E1 is \"Since That Day\", another item). TMDB's two 完結編 episodes (The Final Chapters Special (1) and (2)) carry the same names as TVDB S4E29-E30, which the node's two episodes map to, and are the only such items.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -462,8 +486,8 @@
       ],
       "series": 267440
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8be6a190f9824be8ddfce9fc0f5f0ed61979b0dbe3cf534952ef22d7f6887e56"
   },
   "anilist_ids": [

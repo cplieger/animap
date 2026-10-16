@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8865",
+    "tmdb": "https://www.themoviedb.org/tv/45209/seasons",
     "tvdb": "https://thetvdb.com/series/space-brothers/seasons/official/0"
   },
   "set": {
@@ -21,6 +22,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -30,7 +32,7 @@
     ]
   },
   "title": "Uchuu Kyoudai",
-  "justification": "AniDB special S1 (2013-08-31) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 256705 and TMDB show 45209. AniDB S1 \"Episode 71 Ending\" has no TVDB episode (its default TVDB S0E1 is \"Apo's Dream\", another item) and no TMDB episode (its default TMDB S0E1 is \"Apo's Dream\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -634,8 +636,8 @@
       ],
       "series": 256705
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "172b1409de71da19ea645122a2b50d00a3f7ca8a6d5c59a737ba0e4ffbe2f297"
   },
   "anilist_ids": [

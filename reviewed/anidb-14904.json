@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:14904",
+  "title": "Adachi to Shimamura",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:S32": "f42f7aa3910be8cb21c9cb8cef6248ab907bb7ec98a9986f175e29f94e4cbea2"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-12 match S1E1-12 by title and S1..S30 (Mini Anime 1-30) match TVDB S0 Mini 01-30 one to one. AniDB S31 and S32 (Mini Anime: BD/DVD Special 1 and 2, 2021-02/03) are not on TVDB: SkyHook and the TheTVDB all-seasons page stop at 0x30 Mini 30. The series is on TVDB (lists anidb 14904), only these two bonus items are missing, so this is a TVDB gap (not a remap); the suggested Mini 30 is a date coincidence.",
+      "evidence": [
+        "https://thetvdb.com/series/adachi-and-shimamura/allseasons/official",
+        "https://anidb.net/anime/14904",
+        "https://thetvdb.com/dereferrer/series/371108"
+      ]
+    }
+  }
+}

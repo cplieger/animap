@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7483",
+    "tmdb_movie": "https://www.themoviedb.org/movie/50723",
     "tvdb": "https://thetvdb.com/series/naruto-shippuden/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "50723",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -27,7 +32,7 @@
     ]
   },
   "title": "Gekijouban Naruto Shippuuden: The Lost Tower",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79824. The film is TMDB movie 50723 (Naruto Shippuden the Movie: The Lost Tower (2010)). TMDB show 31910 does not carry it, so the node leaves that show. AniDB S1 \"Introduction\" has no TVDB episode (its default TVDB S0E1 is \"Naruto Shippūden the Movie\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -147,8 +152,8 @@
       ],
       "series": 79824
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9f2a7f08ffb4899d3e038f657375eedcdd28e83f314537a603cb3e32ad553111"
   },
   "anilist_ids": [

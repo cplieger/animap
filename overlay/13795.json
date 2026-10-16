@@ -1,0 +1,211 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13795",
+    "tvdb": "https://thetvdb.com/series/kemurikusa/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kemurikusa (2019)",
+  "justification": "TVDB season 0 now holds the 2011-2012 webisodes as episodes 1-3, then \"Episode 0\" (4, 2018-08-31), \"Episode 0.5-0.9\" (5-9, 2018-09-30 to 2019-01-02), \"Episode 12.1\" (10, 2019-04-03) and \"Donbei x Kemurikusa - Tsukimi Soba\" (11, 2019-02-27). AniDB specials by title and date: S2 \"Episode 0\" = 4, S3-S7 \"Episode 0.5-0.9\" = 5-9, S1 \"Episode 12.1\" = 10 (the old row unmapped it), S8 \"Donbei x Kemurikusa\" = 11. S9 and S10, talk and cast videos (2019-03-29), have no TVDB episode. The old row followed an earlier season 0 order.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "160bc937bbbf7ffb1aa0332fb87a4601959be057c7cfd73148e1772abe26973f",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-05-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-03-11"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-03-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2018-08-31"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2018-09-30"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2018-10-31"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2018-11-30"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2018-12-31"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2019-01-02"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2019-04-03"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2019-02-27"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2019-01-09"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2019-01-16"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2019-01-23"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2019-01-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2019-02-06"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2019-02-13"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2019-02-20"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2019-02-27"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2019-03-06"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2019-03-13"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2019-03-20"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2019-03-27"
+        ]
+      ],
+      "series": 354199
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a69a8b6e90a1aec0a65708496a45e2f068c7c13f8c560d24b06f0bb98d83597c"
+  },
+  "anidb_id": 13795
+}

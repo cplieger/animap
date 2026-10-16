@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4422",
+    "tmdb": "https://www.themoviedb.org/tv/35415/seasons",
     "tvdb": "https://thetvdb.com/series/honey-and-clover/seasons/official/0"
   },
   "set": {
@@ -8,19 +9,26 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
           ],
           [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4
           ]
         ]
       }
     ]
   },
   "title": "Hachimitsu to Clover II",
-  "justification": "AniDB special S1-S2 (2006-10-27 to 2006-11-24) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79044 and TMDB show 35415. AniDB S1-S2 (\"なりきり! アフレコ・スタジオ Vol.1 『竹本・はぐみ編』\" (Narikiri! Studio Postrecording Vol.1 - Takemoto \u0026 Hagumi) to \"なりきり! アフレコ・スタジオ Vol.2 『森田・竹本編』\" (Narikiri! Studio Postrecording Vol.2 - Morita \u0026 Takemoto)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S3-S4 (\"なりきり! アフレコ・スタジオ Vol.3 『真山・山田編』\" (Narikiri! Studio Postrecording Vol.3 - Mayama \u0026 Yamada) to \"なりきり! アフレコ・スタジオ Vol.4 『いろいろチャレンジ編』\" (Narikiri! Studio Postrecording Vol.4 - Various challenges)) have no TVDB episode (TVDB has none of them) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -117,8 +125,8 @@
       ],
       "series": 79044
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4e673ab48f7fca3c66cfd83a8cb164c8e88f8efe97a3de9848923c570063c60d"
   },
   "anilist_ids": [

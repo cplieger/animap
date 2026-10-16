@@ -1,14 +1,15 @@
 {
-  "anidb_id": 10113,
-  "title": "Yuusha ni Narenakatta Ore wa Shibushibu Shuushoku o Ketsui Shimashita.: Yuusha ni Narenakatta Ore no Imouto ga Joukyou Shite Kimashita.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10113",
+    "tmdb": "https://www.themoviedb.org/tv/71441/seasons",
+    "tvdb": "https://thetvdb.com/series/yu-shibu/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2014-03-10) = TVDB 0x01 (2014-03-07), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/10113",
-    "tvdb": "https://thetvdb.com/series/yu-shibu/seasons/official/0"
-  },
+  "title": "Yuusha ni Narenakatta Ore wa Shibushibu Shuushoku o Ketsui Shimashita.: Yuusha ni Narenakatta Ore no Imouto ga Joukyou Shite Kimashita.",
+  "justification": "Checked by episode title against TVDB series 273002 and TMDB show 71441. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"勇者になれなかった俺はしぶしぶ就職を決意しました. 勇者になれなかった俺の妹が上京してきました.\") is TVDB S0E1 \"My Sister Came to the Capital To See Me, Her Brother Who Couldn't Become a Hero\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "e25a3453ab8e240761027a591cf94203c9402af729c312d21ef1a1031f2d040b",
@@ -62,5 +63,5 @@
   "anilist_ids": [
     20551
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 10113
 }

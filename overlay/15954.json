@@ -1,0 +1,261 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15954",
+    "tmdb": "https://www.themoviedb.org/tv/94664/season/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 2,
+        "end": 17,
+        "offset": -17,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mushoku Tensei: Isekai Ittara Honki Dasu (2021)",
+  "justification": "TMDB 94664 season 0 lists three specials: E1 Eris the Goblin Slayer = S1, E2 Guardian Fitz (2023) and E3 the Ten'i Meikyuu pre-broadcast special (2024), which belong to later seasons. S2-S17 (the second cour's pre-broadcast special and creditless openings and endings) are not on TMDB; with no TMDB row they took E2-E17. The TVDB row stays as it is.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "ba687dd356e8bda07f4ad8be01da42b4110ad0bd2968f28abed3aaeb6d634ecc",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          17,
+          "2022-03-16"
+        ],
+        [
+          0,
+          2,
+          25,
+          "2023-07-03"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2024-05-19"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2024-05-20"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2021-01-11"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2021-01-18"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2021-01-25"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2021-02-01"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2021-02-08"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2021-02-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2021-02-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2021-03-01"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2021-03-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2021-03-15"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2021-03-22"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2021-10-04"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2021-10-11"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2021-10-18"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2021-10-25"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2021-11-01"
+        ],
+        [
+          1,
+          17,
+          18,
+          "2021-11-08"
+        ],
+        [
+          1,
+          18,
+          19,
+          "2021-11-15"
+        ],
+        [
+          1,
+          19,
+          20,
+          "2021-11-22"
+        ],
+        [
+          1,
+          20,
+          21,
+          "2021-11-29"
+        ],
+        [
+          1,
+          21,
+          22,
+          "2021-12-06"
+        ],
+        [
+          1,
+          22,
+          23,
+          "2021-12-13"
+        ],
+        [
+          1,
+          23,
+          24,
+          "2021-12-20"
+        ]
+      ],
+      "series": 371310
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "003e9d4088cf6733f3f833e8c776a65904f66ec106aa8b9b508e9c7a468e7018"
+  },
+  "anilist_ids": [
+    127720
+  ],
+  "anidb_id": 15954
+}

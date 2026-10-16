@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:19671",
+  "title": "AniList 19671",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "21dbbb6a96d8c662e50461e122fb25ec96b9f6e2e4ac5b307187826e67431142",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 9858 S1-S3 each hold two or three of TVDB 270065's seven FrFr! shorts (0x1-0x2, 0x3-0x4, 0x5-0x7, by title and date), so no special lands on a single TVDB episode as a special-of-parent bridge needs",
+        "evidence": [
+          "https://anilist.co/anime/19671"
+        ],
+        "anilist_id": 19671
+      }
+    ]
+  }
+}

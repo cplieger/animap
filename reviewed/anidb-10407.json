@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10407",
+  "title": "Akame ga Kill!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S25": "1db5525b98f5de5fa869bfd466880cd329ea8e6f1cf35cc6fcef783b127906a6"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1-S24 \"AkaKILL! Theater: Nth Elimination - X\" = S0E1-E24 \"AkaKill! Theater #NN - X\" (Tatsumi and Leone, 1-Minute Meals = Ippunkan Cooking, Hot Springs, TV Shopping Part 1-3 = Tsuuhan Sono 1-3, Glasses, ... Wrap Party = Uchiage Party), same order and same dates. S25 \"Episode 1-8 summary / Digest Eizou\" = S0E25 \"Digest Recap - Episode 8.5\": a digest of episodes 1-8. Only that date differs (2014-09-02 vs 2014-08-31).",
+      "evidence": [
+        "https://anidb.net/anime/10407",
+        "https://thetvdb.com/dereferrer/series/280329"
+      ]
+    }
+  }
+}

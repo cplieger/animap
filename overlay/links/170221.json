@@ -1,0 +1,24 @@
+{
+  "anilist_id": 170221,
+  "title": "Boku no Kokoro no Yabai Yatsu: Twi-Yaba",
+  "parts": [
+    {
+      "anidb_id": 18066,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 170221 (ONA, 1 episode(s) from 2023-12-10) is AniDB 18066's special S1, aired 2023-12-11. AniDB files it under the season 2 entry because it aired the month before season 2; AniList's PARENT relation names AniList 153152 (season 1, AniDB 17547), but AniDB 18066 lists MAL 56948, this entry's MAL id, and the special's title \"Bonus Dangers\" (Japanese \"Twi-Yaba\") matches AniList's synonym \"The Dangers in My Heart: Bonus Dangers\" and its romaji \"Twi-Yaba\". The parent's node places S1 on TVDB 0x01 \"Bonus Dangers\", 2023-12-10, 21 min, and TMDB 207250, where the parent's node places the special, agrees: S0E1 \"Bonus Dangers\", 2023-12-10, 21m.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18066",
+    "anilist": "https://anilist.co/anime/170221",
+    "tmdb": "https://www.themoviedb.org/tv/207250/season/0",
+    "tvdb": "https://thetvdb.com/series/the-dangers-in-my-heart/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "8f2d247964eef547257bfd8c97e9a38b734fd7408beafa1272d886f05679838b"
+  }
+}

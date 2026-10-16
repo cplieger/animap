@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11492",
+    "tmdb": "https://www.themoviedb.org/tv/69296/seasons",
     "tvdb": "https://thetvdb.com/series/minami-kamakura-high-school-girls-cycling-club/seasons/official/0"
   },
   "set": {
@@ -14,11 +15,21 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            13,
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Minami Kamakura Koukou Joshi Jitensha Bu",
-  "justification": "AniDB 13 (2017-04-30) = TVDB 0x01 (2017-04-30), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 319985 and TMDB show 69296. AniDB episode 13 \"来たよ, 台湾!!\" (We`re in Taiwan!!) is TVDB S0E1 \"We're in Taiwan!!\" and TMDB S0E1 \"来たよ、台湾!!\" (We're in Taiwan!!).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -109,8 +120,8 @@
       ],
       "series": 319985
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5881b4747a47ce59454aa0dbad9eda01ae6ceb2fa733e481492f0593caac5a9f"
   },
   "anilist_ids": [

@@ -13,26 +13,39 @@
             1
           ],
           [
-            2
+            2,
+            24
           ],
           [
-            3
+            3,
+            25
           ],
           [
-            4
+            4,
+            26
           ],
           [
-            5
+            5,
+            27
+          ],
+          [
+            6
           ],
           [
             7
+          ],
+          [
+            8
+          ],
+          [
+            9
           ]
         ]
       }
     ]
   },
   "title": "Shingeki no Kyojin Season 3",
-  "justification": "AniDB special S7 (no AniDB date) has no TVDB episode, was 0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S2-S5 \"Chimi Chara Theater 1-4: Tondeke! Shinsei Levi Han\" (2018-10-17 to 2019-02-27) are TVDB season 0 episodes 24-27 \"4-Koma: Chibi Theater - Levi Squad #38, #41, #44, #47\" in the same order (episode 24 dated 2018-10-17); the old row had unmapped them. S1 (the cast gathering special), S6 and S9 (commentaries), S7 and S8 (interviews) have no TVDB episode; S6, S8 and S9 had fallen on the 2013 Chibi Theatre shorts. They are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -429,8 +442,8 @@
       ],
       "series": 267440
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f2996bdff3c20b4ed6eae72b46a35334543e99d7ac429829f84f1ba0a910f331"
   },
   "anilist_ids": [

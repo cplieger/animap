@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:8573",
+  "title": "Amagami SS Plus",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S8": "7340048b1cef6270b6041478e0fa4a60b89e817e4c3b4b816e696d3d1d827352"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S8 \"Heroine-tachi ga Valentine Choco o Kuretara\" (7 minutes, 2012-02-14) goes to TVDB 172921 S0E15 \"Valentine's Day Short Voice Drama\" (7 minutes), the only Valentine voice drama TVDB lists beside S7 \"Picture Drama Valentine for You\" = S0E14. S1-S6 are S0E8-E13 by heroine name. Only the date differs: TVDB dates S0E14 and S0E15 with the same 2012-10-03 placeholder.",
+      "evidence": [
+        "https://thetvdb.com/series/amagami-ss/seasons/official/0",
+        "https://anidb.net/anime/8573",
+        "https://thetvdb.com/dereferrer/series/172921"
+      ]
+    }
+  }
+}

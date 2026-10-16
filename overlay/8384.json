@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8384",
+    "tmdb_movie": "https://www.themoviedb.org/movie/189349",
     "tvdb": "https://thetvdb.com/series/naruto-shippuden/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "189349",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -18,7 +23,7 @@
     ]
   },
   "title": "Honoo no Chuunin Shiken! Naruto vs Konohamaru!!",
-  "justification": "AniDB 1 (2011-07-30) = TVDB 0x09 (2011-07-30), was unmapped, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79824. The film is TMDB movie 189349 (Naruto OVA 9: Chunin Exam on Fire! and Naruto vs. Konohamaru! (2011)). TMDB show 31910 does not carry it, so the node leaves that show. AniDB episode 1 \"Complete Movie\" (the anime \"炎の中忍試験! ナルトvs木ノ葉丸!!\") is TVDB S0E9 \"Chūnin Exam on Fire! Naruto vs. Konohamaru!\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -138,8 +143,8 @@
       ],
       "series": 79824
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ffdd3b3299fdba67769caa13af7106743ccfa6317c747a8e363d9fddb3ee0c5e"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10944",
+    "tmdb": "https://www.themoviedb.org/tv/1429/seasons",
     "tvdb": "https://thetvdb.com/series/attack-on-titan/seasons/official/0"
   },
   "set": {
@@ -22,7 +23,67 @@
             4
           ],
           [
+            5
+          ],
+          [
+            6
+          ],
+          [
             7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
           ],
           [
             12
@@ -32,7 +93,7 @@
     ]
   },
   "title": "Shingeki no Kyojin Season 2",
-  "justification": "AniDB special S7 (no AniDB date) has no TVDB episode, was 0x07. AniDB special S12 (no AniDB date) has no TVDB episode, was 0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 267440 and TMDB show 1429. AniDB S1-S4 (\"「進撃の巨人Season2」調査団~その先へ~\" (Episode S1) to \"進撃の巨人エレン&ミカサ編\" (Episode S4)) have no TMDB episode (their defaults are other items); AniDB S5-S12 (\"Anime Expo 2017: Interview with Trina Nishimura\" to \"105th Cadet Corps Trivia Challenge\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -369,8 +430,8 @@
       ],
       "series": 267440
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5df6a1eadaa855c64407f69a8a708f0921e42e2009688b7a2b8d6a9c59f2bc5f"
   },
   "anilist_ids": [

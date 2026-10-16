@@ -1,0 +1,92 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7669",
+    "tmdb": "https://www.themoviedb.org/tv/31670/season/0",
+    "tvdb": "https://thetvdb.com/series/air-gear/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Air Gear: Kuro no Hane to Nemuri no Mori - Break on the Sky",
+  "justification": "AniDB 7669 episodes 1 to 3 (Kuro no Hane to Nemuri no Mori - Break on the Sky, 2010-11-17, 2011-03-17, 2011-06-17) are TMDB 31670 season 0 E2 to E4 Black Wings and Sleeping Forest - Break on the Sky (1) to (3) (2010-11-17, 2011-03-17, 2011-06-17), the same episodes as TVDB 0x2 to 0x4 (row ;1-2;2-3;3-4;). Anime-Lists names only tvdbseason, so TMDB took the default S0E1 to S0E3, and S0E1 is Episode 21.5: Special Trick, AniDB 4196's special S1. The TVDB row is unchanged.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b0743e37c049d791a7d9b8603b32358d7cf101475ef04acbaf97b89073dabfd5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          22,
+          "2007-03-21"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2010-11-17"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2011-03-17"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-06-17"
+        ]
+      ],
+      "series": 79796
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "b2edffa539581cec987726047d4c7f341250a104398f727ff97431a2b503fa15"
+  },
+  "anilist_ids": [
+    9201
+  ],
+  "anidb_id": 7669
+}

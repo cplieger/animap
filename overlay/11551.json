@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11551",
+    "tmdb": "https://www.themoviedb.org/tv/62640/seasons",
     "tvdb": "https://thetvdb.com/series/nisekoi/seasons/official/0"
   },
   "set": {
@@ -14,11 +15,21 @@
             7
           ]
         ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2,
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Nisekoi: (2016)",
-  "justification": "AniDB 2 (2016-01-04) = TVDB 0x07 (2016-01-04), was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 275670 and TMDB show 62640. AniDB episode 2 \"マジカルパティシエ小咲ちゃん!!\" (Magical Patissier Kosaki-chan!!) is TVDB S0E7 \"Magical Patissier Kosaki-chan!!\" and TMDB S0E5 \"シンコン / マジカルパティシエ小咲ちゃん!!\" (Newlyweds / Magical Patissier Kosaki-chan!!). TMDB S0E5 is one combined episode for both OVAs.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -72,8 +83,8 @@
       ],
       "series": 275670
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4ea7661791ad63e47d0c3a24ac2ec25d09c1a9a1eb2614f73cecff355d541ba5"
   },
   "anilist_ids": [

@@ -1,0 +1,29 @@
+{
+  "anilist_id": 15729,
+  "title": "Hagure Yuusha no Estetica: Hajirai Ippai",
+  "parts": [
+    {
+      "anidb_id": 9015,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 15729 has 6 episodes (2012-09-26 to 2013-02-27); the AniList title is 'Hajirai Ippai'. AniDB 9015 S1-S6 are the 'Hajirai Ippai Original Video Vol.1-6' (A New Battle Suit?, What Does It Take to Be a Grown Woman?, Bound by the Holy Water..., Mixed Bath on the Shore, Ranking Battle Side Story..., The Beautiful Demon Warrior, Miu) on 2012-09-26, 10-24, 11-28, 12-26, 2013-01-30, 02-27. The parent's offset-1 row puts them on TVDB 259649 0x02-0x07, 'Embarrassing Original Video Vol. 1..6' with the same subtitles and dates; 0x01 is the Queen's Blade crossover. TMDB tv/62171 S0E2-7 agree.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9015",
+    "anilist": "https://anilist.co/anime/15729",
+    "tmdb": "https://www.themoviedb.org/tv/62171/season/0",
+    "tvdb": "https://thetvdb.com/series/aesthetica-of-a-rogue-hero/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "fd626a3a00433865b473c74bfcd850e3773cc8eea06bf59f6dc65fc469b387e2"
+  }
+}

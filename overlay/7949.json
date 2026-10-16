@@ -1,13 +1,25 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7949",
+    "tmdb": "https://www.themoviedb.org/tv/43926/seasons",
     "tvdb": "https://thetvdb.com/series/wandering-son/seasons/official/1"
   },
   "set": {
-    "mapping_list": []
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            3
+          ]
+        ]
+      }
+    ]
   },
   "title": "Hourou Musuko",
-  "justification": "AniDB 10 (2011-03-25) = TVDB 1x10 (2011-03-24), was 0x01. AniDB 11 (2011-04-01) = TVDB 1x11 (2011-03-31), was 1x12 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 221281 and TMDB show 43926. AniDB episode 10-11 (\"10+11 ~Better half~\" (10+11: Better Half) to \"放浪息子はどこまでも ~Wandering son`s progress~\" (Forever a Wandering Son: Wandering Son`s Progress)) are TVDB S1E10 \"10+11 ~Better half~\" to TVDB S1E11 \"Forever A Wandering Son ~Wandering Son's Progress~\"; AniDB S3 \"「放浪息子」の裏側 ~ぼくたちの, めいきんぐ.~\" (Making of) has no TVDB episode (TVDB has no S0E3) and no TMDB episode (TMDB has no S0E3).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -98,8 +110,8 @@
       ],
       "series": 221281
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a1ba0836ee59ea73b5985b05e5d51c9bd5697359147d1298d6b6270ef99afb85"
   },
   "anilist_ids": [

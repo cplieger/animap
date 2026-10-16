@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:2269",
+  "title": "AniList 2269",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5c492938d3608e5e7d5615ca06886c91820a0589567ae535e59ea06009cbadd0",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: the three compilation films are three AniDB anime of their own (4169, 4168, 4165 on TVDB 254931 0x2-0x4) with no AniList link in anime-offline-database, and one record cannot cover three nodes",
+        "evidence": [
+          "https://anilist.co/anime/2269"
+        ],
+        "anilist_id": 2269
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7440",
+    "tmdb": "https://www.themoviedb.org/tv/46440/season/0",
     "tvdb": "https://thetvdb.com/series/samurai-girls/seasons/official/0"
   },
   "set": {
@@ -65,11 +66,34 @@
             13
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 3,
+        "end": 8,
+        "offset": -2,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 9,
+        "end": 14,
+        "offset": -1
       }
     ]
   },
   "title": "Hyakka Ryouran: Samurai Girls",
-  "justification": "AniDB special S1 (2010-08-13) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2010-08-13) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 46440 season 0: E1-E6 Picture Scroll Edition 1-6 = S3-S8, E7 The Goodbye Kiss = S2, E8-E13 Voiced Manga 01-06 = S9-S14; it lists no cast interview S1. With no TMDB row the specials defaulted to E1-E14, S14 onto E14 Samurai Bride Special 01 (AniDB 9398 S1).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -292,8 +316,8 @@
       ],
       "series": 186911
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c5ef865e2cd5518301339857cf4773bb89fc161c1bfe3976e27b05f94424d326"
   },
   "anilist_ids": [

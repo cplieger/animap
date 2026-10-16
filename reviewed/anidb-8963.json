@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:8963",
+  "title": "Saint Seiya Omega",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:72": "6707dcee89c4d3e3836d6b276a942bfd0f5853b715dc6d561a50edeb505c387e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 72 \"The Cloth Is Passed On! Equuleus Subaru Is Born! / Cloth, Keishou! Equuleus no Subaru, Tanjou!\" (2013-09-15) = S10E21 \"Omega: The Cloth is Passed On! Equuleus Subaru is Born!\" (2013-09-19).",
+      "evidence": [
+        "https://anidb.net/anime/8963",
+        "https://thetvdb.com/dereferrer/series/72775"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:11293",
+  "title": "Kamisama Minarai: Himitsu no Cocotama",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "359d9f113e942cf384d7e3b4d105d31eac624ae319bdf221b1c8b7feb7aecc3f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Trainee Cocotama Road 1 / Minarai Cocotama-dou: Ribbon Hajimemashite!\" (2018-07-05) = S0E1 \"Cocotama: Secret Apprentice Gods the Movie: Make a Miracle♪ Tepple and the Exciting Cocotama\" (2017-04-28).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/97243/season/1",
+        "https://anidb.net/anime/11293",
+        "https://thetvdb.com/dereferrer/series/299536"
+      ]
+    }
+  }
+}

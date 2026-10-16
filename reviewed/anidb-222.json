@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:222",
+  "title": ".hack//Liminality",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:2": "817e15078e979f4637b1ba6f8ad661e152c410230801a643d965edaae2905372"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-4 default to S0E2-5 (offset 1): \"In the Case of Mai Minase\", \"In the Case of Yuki Aihara\", \"In the Case of Kyoko Tohno\", \"Trismegistus\" = the same four titles on TVDB S0E2-5. The only failure is AniDB 2 dated 2002-09-19 against 2002-09-09 on TVDB (a typo; the suggested targets, S1E24 and S1E25 of the TV series, have unrelated titles).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/79099",
+        "https://anidb.net/anime/222"
+      ]
+    }
+  }
+}

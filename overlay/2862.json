@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/2862",
     "tvdb": "https://thetvdb.com/series/eien-no-aseria-spirit-of-eternity-sword/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/201561"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/201561",
+    "tmdb": "https://www.themoviedb.org/tv/53153/seasons"
   },
   "set": {
     "tvdbid": "475279"
   },
   "title": "Eien no Aseria",
-  "justification": "tvdbid 201561 to 475279 (TVDB 201561 is gone from TVDB's official order). AniDB 1-2 (2005-06-24 to 2006-03-24) = TVDB 1x01-1x02 (2005-06-24 to 2006-03-24), was TVDB 201561 1x01-1x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 475279 and TMDB show 53153. The node moves from TVDB 201561 to series 475279. AniDB episode 1-2 (\"『求め』の声\" (Voice of Motome) to \"動く出した宿命\" (Decision)) are TVDB S1E1 \"Voice of Motome\" to TVDB S1E2 \"Decision\". TVDB series 201561 no longer exists. Series 475279 holds exactly the two OVA volumes, in order and by English title, and links the node's TMDB show 53153.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

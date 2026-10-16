@@ -1,28 +1,23 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/19078",
-    "tvdb": "https://thetvdb.com/series/shiguang-daili-ren/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/123542/season/0",
+    "tvdb": "https://thetvdb.com/series/link-click/seasons/official/0"
   },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
-        "episodes": [
-          [
-            1,
-            21
-          ],
-          [
-            2,
-            22
-          ]
-        ]
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 8,
+        "offset": 20
       }
     ]
   },
   "title": "Shiguang Dailiren: Yingdu Pian",
-  "justification": "AniDB special S1-S2 (2026-04-04 to 2026-04-11) = TVDB 0x21-0x22 (2026-04-04 to 2026-04-11), was 0x01-0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S8 \"Mini Link Click 1-8\" (weekly, 2026-04-04 to 2026-05-23) are TVDB season 0 episodes 21-28, the eight shorts of this season in the same order and on the same dates: S1 \"Rehabilitation Training\" = 21, S2 \"In Dreams and In Reality\" = 22, then \"A Leisurely Day\", \"Party A and Party B\", \"The Occult Girl\", \"Surprise Live Stream\", \"Distinguished Guest\" and \"The Hour Hand Flees\". The old row placed only S1 and S2; S3-S8 fell on season 0 episodes 3-8, the 2021-2022 shorts. TMDB 123542 season 0 has the TVDB numbers: E21-E28 Mini Link Click Episode 1-8 (2026-04-04 to 05-23) = S1-S8. The row named only TVDB, so on TMDB S1-S8 took E1-E8, the first season's specials and Lighttime shorts. The row now names TMDB season 0 too.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -239,8 +234,8 @@
       ],
       "series": 402033
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "117705e3b1d6500d43799fd0f942f47b2a3274c512ce0b616b3615721dbf3819"
   },
   "anilist_ids": [

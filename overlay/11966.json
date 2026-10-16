@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11966",
-    "tvdb": "https://thetvdb.com/series/kurokos-basketball/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/kurokos-basketball/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/428707"
   },
   "set": {
     "mapping_list": [
@@ -22,7 +23,7 @@
     ]
   },
   "title": "Gekijouban Kuroko no Baske: Last Game",
-  "justification": "AniDB special S1 (2017-04-01) = TVDB 0x41 (2017-04-01), was 0x01, by hand review. AniDB special S2 (no AniDB date) = TVDB 0x38 (2017-09-27), was 0x02, by hand review. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 257765. AniDB S1 \"劇場版 ひよこのバスケ LAST GAME 0401\" (Hiyoko no Basket Movie: Last Game 0401) is TVDB S0E41 \"Kuroko's Basketball April Fools' Day\"; AniDB S2 \"NG集\" (NG shuu) is TVDB S0E38 \"NG-Shuu Last Game\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

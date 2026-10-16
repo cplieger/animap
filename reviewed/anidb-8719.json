@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:8719",
+  "title": "Haiyore! Nyaruko-san",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "4eb59bdfa64e303187aea328ddba242b910b42efb1695c3e925610ec065da49e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"How to Defeat a Kind Enemy / Yasashii Teki no Shitomekata\" (AniDB date 2013-04-09) lands by default on TVDB S0E1 \"Haiyore! Nyaruko-san OVA: Easy Way to Kill Enemies\" (2012-11-23). This is the same OVA: MAL 18713 \"Yasashii Teki no Shitome-kata\" is titled \"Easy Way to Kill Enemies\" in English and aired 2012-11-23; the Nyaruko fandom wiki glosses \"Yasashii Teki no Shitomekata\" as \"How to Defeat a Kind Enemy\". The AniDB mirror date (2013-04-09) is the one that is off. The 12 regular episodes match S1E1-12 by title and order (\"Mother's Attack!\" vs \"Mothers Attack\", \"The Ruler of Super Space-Time\" vs \"Super Space-Time Champion\" are translation variants).",
+      "evidence": [
+        "https://anidb.net/anime/8719",
+        "https://thetvdb.com/dereferrer/series/257521"
+      ]
+    }
+  }
+}

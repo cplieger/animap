@@ -1,0 +1,136 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17157",
+    "tvdb": "https://thetvdb.com/series/mushikaburi-hime/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Mushikaburi Hime",
+  "justification": "TVDB season 0 episodes 1 and 2 are 「本」ネ「飲み」前編 and 後編 (2022-12-29), AniDB specials S2 and S3 \"Hon Ne Nomi: Zenpen\" and \"Kouhen\". S1, the pre-broadcast tea party (2022-10-01), and S4-S5, the horse-riding experience parts 1-2, have no TVDB episode. By default S1-S3 fell one slot early.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "66752c03810217208fcfa325aa9e982642e9e90980714038b451e29a949d2d77",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2022-12-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2022-12-29"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2022-10-06"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2022-10-13"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2022-10-20"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2022-10-27"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2022-11-03"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2022-11-10"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2022-11-17"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2022-11-24"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2022-12-01"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2022-12-08"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2022-12-15"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2022-12-22"
+        ]
+      ],
+      "series": 415310
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "91e131f63f8ee675dc47c113491a9c2ed90f54c8feaab320d291ec1b6ba79ba7"
+  },
+  "anidb_id": 17157
+}

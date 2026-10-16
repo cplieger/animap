@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11352",
+  "title": "Imouto sae Ireba Ii.",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:S9": "682fec2f4d6961ef06364400b30a40f08b8c6cc546d7016bf4a63b4bdb78a36f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regulars 1-12 = TVDB 332994 S1E1-12 by title (I Only Need a Little Brother Who Can Cook ..., If Only a Miracle Would Happen, As Long As It's For Research ... A Sister's All You Need?) and specials S1-S8 \"Original Twitter Anime 1-8: Chihiro/Nayuta/Miyako/Haruto/ Kaiko/Ashley/Toki/Setsuna\" = S0E1-8 \"X's All You Need\". The lead is S9 \"Episode 1 Ending\" (and S10 \"Episode 12 Ending\"), creditless endings that TVDB does not list. The suggested S0E1 \"Chihiro's All You Need\" shares only the date 2017-10-08 and is a different thing by title. TVDB gap on specials.",
+      "evidence": [
+        "https://anidb.net/anime/11352",
+        "https://thetvdb.com/dereferrer/series/332994"
+      ]
+    }
+  }
+}

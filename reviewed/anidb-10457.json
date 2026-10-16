@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10457",
+  "title": "Tenkai Knight",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:40": "259d23617f8ba9af50b83e9f85ad56062ed59a0f8e926cb7e3885f204a2eff8d"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "All 52 regular episodes match TVDB S1E1-52 by title and order (e.g. 1 Two Worlds, 17 Robofusion!, 33 'Fight Knight' = 'Flight Knight' (a typo), 38 Looking Forward, Looking Back, 39 Dragon^2 = Dragon2, 49 A New Element = New Element, A, 52 Lone Wolf). Counts 52 = 52. The flagged ep 40 and the date columns differ only because TVDB dates eps 39-52 by a later US run (2014-09 onward) and AniDB by the Japanese run, and AniDB's own eps 38-40 sit on 05-25/05-29/05-30. The datecheck's suggested target S1E38 is a different episode by title.",
+      "evidence": [
+        "https://anidb.net/anime/10457",
+        "https://thetvdb.com/dereferrer/series/272556"
+      ]
+    }
+  }
+}

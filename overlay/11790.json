@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11790",
+    "tmdb": "https://www.themoviedb.org/tv/63453/season/0",
     "tvdb": "https://thetvdb.com/series/garo-the-animation/seasons/official/0"
   },
   "set": {
@@ -19,11 +20,26 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Garo: Divine Flame",
-  "justification": "AniDB special S1-S3 (no AniDB date) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S3 (no AniDB date) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S1-S3 (no AniDB date) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB 11790's specials S1 to S3 (no air date) are on neither TVDB season 0 (the PR 629 rows already send them to no episode) nor TMDB 63453 season 0 (E1 Home, E2 Daybreak only). Without a TMDB row they defaulted onto S0E1 to S0E3, AniDB 10278's specials. The rows send them to no TMDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -53,8 +69,8 @@
       ],
       "series": 279980
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b0d3fc56e00010ddf052f5417ab2ac335b440b52b667b0c99bbc123cce590c26"
   },
   "anilist_ids": [

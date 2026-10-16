@@ -1,0 +1,116 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12192",
+    "tvdb": "https://thetvdb.com/series/gakuen-handsome/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gakuen Handsome",
+  "justification": "The untitled AniDB special S1 (2016-12-20) had no row and fell on TVDB season 0 episode 1 \"Gakuen Handsome the Animation\" (2015-08-28), the OVA AniDB 11174. Season 0 holds only that OVA, so S1 is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fcc79b9b92331631868c381722c98e3ec5a727bf89f145c99d8cf96540a7e28b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-08-28"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2016-10-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-10-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-10-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-10-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-11-01"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-11-08"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-11-15"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-11-22"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-11-29"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-12-06"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-12-13"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-12-20"
+        ]
+      ],
+      "series": 317830
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "f51123286c7efbfeb33442eee300e52ac31fd776d5cee924d97a7c4d22c03704"
+  },
+  "anidb_id": 12192
+}

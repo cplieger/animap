@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18227",
+    "tmdb": "https://www.themoviedb.org/tv/236385/seasons",
     "tvdb": "https://thetvdb.com/series/time-patrol-bon/seasons/official/2"
   },
   "set": {
@@ -11,11 +12,18 @@
         "start": 13,
         "end": 24,
         "offset": -12
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 2,
+        "start": 13,
+        "end": 24,
+        "offset": -12
       }
     ]
   },
   "title": "Time Patrol Bon",
-  "justification": "AniDB 13-24 (2024-07-17) = TVDB 2x01-2x12 (2024-07-17), was 1x13-1x24. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 440451 and TMDB show 236385. AniDB episode 13-24 (\"通り魔殺人事件\" (The Random Murders) to \"タイムパトロールぼん\" (Time Patrol Bon)) are TVDB S2E1 \"The Random Murders\" to TVDB S2E12 \"Time Patrol Bon\" and TMDB S2E1 \"通り魔殺人事件\" (The Random Murders) to TMDB S2E12 \"タイムパトロールぼん（２）\" (Time Patrol Bon (2)).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -172,8 +180,8 @@
       ],
       "series": 440451
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c61e53853419a9d6dfc4d052e50c4b3dc1d0e1964850215152e92d5ff5540c0a"
   },
   "anilist_ids": [

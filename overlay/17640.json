@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17640",
-    "tvdb": "https://thetvdb.com/series/rascal-does-not-dream-of-bunny-girl-senpai/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/rascal-does-not-dream-of-bunny-girl-senpai/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1056803"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Seishun Buta Yarou wa Odekake Sister no Yume o Minai",
-  "justification": "AniDB special S1 (2023-11-29) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 345596. AniDB S1 \"初日舞台挨拶特典映像\" (Opening Day Stage Greeting) has no TVDB episode (its default TVDB S0E1 is \"Picture Drama: Within My Heart\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

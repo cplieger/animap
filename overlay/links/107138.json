@@ -1,0 +1,24 @@
+{
+  "anilist_id": 107138,
+  "title": "Watashi ni Tenshi ga Maiorita! OVA",
+  "parts": [
+    {
+      "anidb_id": 14156,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 107138 (OVA, 1 episode from 2019-05-24) is AniDB 14156's special S1 Kitai o Uragiranai ne / Tsune ni Yorisoi / Kore ni Kigaemashou! / Watashi ga Onee-chan da yo (You Never Let Us Down / Always Growing Closer / Let's Change You into This! / I'm Your Big Sister), aired 2019-05-24. AniList's PARENT relation names AniList 102680, which anime-offline-database links to AniDB 14156, and the special's title matches AniList's English title and the synonym Watashi ni Tenshi ga Maiorita! Kitai o Uragiranai ne / Tsune ni Yorisoi / Kore ni Kigaemashou! / Watashi ga Oneechan da yo. The parent has no row for S1, so it lands on TVDB 0x1 (2019-05-24) and on TMDB 84666 S0E1 (2019-05-24, 23 min).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14156",
+    "anilist": "https://anilist.co/anime/107138",
+    "tmdb": "https://www.themoviedb.org/tv/84666/season/0",
+    "tvdb": "https://thetvdb.com/series/wataten-an-angel-flew-down-to-me/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "3c9dfa5959f3c91379b100b750d01794f914ff715b94526f2021a68576251679"
+  }
+}

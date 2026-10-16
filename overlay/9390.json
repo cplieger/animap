@@ -10,7 +10,7 @@
     "tmdbseason": ""
   },
   "title": "Kyousougiga (2012)",
-  "justification": "AniDB 1-5 (2012-08-31, 10-27, 11-10, 12-08, 12-22) = TVDB 0x02-0x06, same dates, the same titles in another translation. Old season 1 is the 2013 TV series (1x1 2013-10-10, AniDB 9992). TMDB 85065 has no ONA episodes, so TMDB is cleared. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 254658. TMDB show 85065 does not carry it, so the node leaves that show. AniDB episode 1-5 (\"コト, 主人公かく語りき\" (Koto, Our Heroine, Spake Thusly) to \"古都, 黒兎回想録\" (Koto, The Black Rabbit, Reflects)) are TVDB S0E2 \"Thus Spoke Koto, the Heroine\" to TVDB S0E6 \"Koto's Black Rabbit Memoirs\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:1321",
+  "title": "Kita e.: Diamond Dust Drops",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "4e40eaff0858ad3410319e1f00f4ee2b357aff21ced85b492b30ec1ad812ca8c"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Finland \u0026 Asahikawa: Suomi Kitano / Finland-Asahikawa: Kitano Suomi\" lands by default on TVDB S0E1 \"~Finland \u0026 Asahikawa~ Suomi Kitano\" (website original title \"-芬蘭～旭川- 北野スオミ篇\"). Same episode; AniDB 2004-10-27 is the DVD date, TVDB 2004-08-18 the AT-X broadcast. Regular 1-12 match S1E1-12 by title, in order (Part 1/Part 2 pairs, Diamond Dust Drops last), TVDB S1 has 12 episodes. The only flagged item is the date.",
+      "evidence": [
+        "https://thetvdb.com/series/diamond-daydreams/seasons/official/0",
+        "https://anidb.net/anime/1321",
+        "https://thetvdb.com/dereferrer/series/81961"
+      ]
+    }
+  }
+}

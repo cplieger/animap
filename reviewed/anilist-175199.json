@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:175199",
+  "title": "AniList 175199",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c01bfad44340c7a3885bad0197c61cca802259052847e86c5fee63ea7f3abfa7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 2 of AniDB 17929 (one anime holding the 2 films, which anime-offline-database links to AniList 162987 only), so this entry has no AniDB id; it is TVDB 361218 0x3. A bridge takes only specials, and a record cannot start at a node's episode 2",
+        "evidence": [
+          "https://anilist.co/anime/175199"
+        ],
+        "anilist_id": 175199
+      }
+    ]
+  }
+}

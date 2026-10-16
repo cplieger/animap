@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:20752",
+  "title": "AniList 20752",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 11 Path of Thorns of AniDB 10384 (TVDB 79214 0x2); anime-offline-database links AniDB 10384 to AniList 20595 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/20752"
+        ],
+        "anilist_id": 20752
+      }
+    ]
+  }
+}

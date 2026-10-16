@@ -1,9 +1,11 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10329",
+    "tmdb": "https://www.themoviedb.org/tv/46025/seasons",
     "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
   },
   "set": {
+    "tmdboffset": "3",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -18,7 +20,7 @@
     ]
   },
   "title": "IS: Infinite Stratos 2 - World Purge Hen",
-  "justification": "AniDB 1 (2014-11-26) = TVDB 0x04 (2014-11-26), was 0x03, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 219131 and TMDB show 46025. AniDB episode 1 \"OVA\" (the anime \"IS&lt;インフィニット・ストラトス&gt; 2 ワールド・パージ編\") is TVDB S0E4 \"World Purge-hen\" and TMDB S0E4 \"分離解体の世界たち\" (World Purge-hen).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -60,8 +62,8 @@
       ],
       "series": 219131
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "81cb6a249d9ba29d721c31d86cd93b7c51cdcf56a6888c1992d4d13b7559628d"
   },
   "anilist_ids": [

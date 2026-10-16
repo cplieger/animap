@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4771",
-    "tvdb": "https://thetvdb.com/series/339733-show/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/339733-show/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/36197"
   },
   "set": {
     "mapping_list": [
@@ -18,7 +19,7 @@
     ]
   },
   "title": "Digimon Savers The Movie: Kyuukyoku Power! Burst Mode Hatsudou!!",
-  "justification": "AniDB 1 (2006-12-09) = TVDB 0x02 (2006-12-09), was 0x09 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 339733. AniDB episode 1 \"Complete Movie\" is TVDB S0E2 \"Digimon Savers: Ultimate Power! Activate Burst Mode!!\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

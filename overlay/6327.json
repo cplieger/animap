@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6327",
+    "tmdb": "https://www.themoviedb.org/tv/46195/seasons",
     "tvdb": "https://thetvdb.com/series/monogatari/seasons/official/0"
   },
   "set": {
@@ -38,11 +39,39 @@
             15
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
       }
     ]
   },
   "title": "Bakemonogatari",
-  "justification": "AniDB special S5-S6 (2009-07-31 to 2009-08-28) have no TVDB episode, was 0x05-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 102261 and TMDB show 46195. AniDB S1-S3 (\"つばさキャット 其ノ參\" (Tsubasa Cat, Part 3) to \"つばさキャット 其ノ伍\" (Tsubasa Cat, Part 5)) are TMDB S0E2 \"つばさキャット 其ノ參\" (Tsubasa Cat (3)) to TMDB S0E4 \"つばさキャット 其ノ伍\" (Tsubasa Cat (5)); AniDB S4 \"化物語SP\" (Episode 05.5 - Special Recap) is TMDB S0E1 \"化物語SP\" (Ghostory (Monstory)); AniDB S5-S6 (\"Episode 5 Ending\" to \"Episode 8 Ending\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -379,8 +408,8 @@
       ],
       "series": 102261
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "70111b3d203c7888904e13f023744b2612100b80b625fc947ccd15c15ee4f389"
   },
   "anilist_ids": [

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9919",
-    "tvdb": "https://thetvdb.com/series/love-chunibyo-and-other-delusions/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/love-chunibyo-and-other-delusions/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/214553"
   },
   "set": {
     "mapping_list": [
@@ -31,7 +32,7 @@
     ]
   },
   "title": "Takanashi Rikka Kai: Gekijouban Chuunibyou demo Koi ga Shitai!",
-  "justification": "AniDB special S2 (2014-02-19) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 261862. AniDB S2 \"劇場舞台挨拶集\" (Stage Greetings Collection) has no TVDB episode (its default TVDB S0E2 is \"The Rikka Wars (Apocalypse of the Wicked Lord Shingan Reborn)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

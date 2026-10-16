@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17244",
-    "tvdb": "https://thetvdb.com/series/futoku-no-guild/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/futoku-no-guild/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/194831/seasons"
   },
   "set": {
     "mapping_list": [
@@ -21,7 +22,7 @@
     ]
   },
   "title": "Futoku no Guild",
-  "justification": "AniDB special S1 (2022-09-17) has no TVDB episode, was 0x01. AniDB special S2 (2022-12-18) = TVDB 0x01 (2022-12-18), was 0x02 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 417674 and TMDB show 194831. AniDB S1 \"京まふスペシャルステージ\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"Final Episode Pre-Broadcast Special\", another item); AniDB S2 \"最終回直前! 不徳の大集会スペシャル!\" (Final Episode Pre-Broadcast Special) is TVDB S0E1 \"Final Episode Pre-Broadcast Special\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

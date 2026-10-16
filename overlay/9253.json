@@ -1,14 +1,18 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9253",
+    "tmdb_movie": "https://www.themoviedb.org/movie/186919",
     "tvdb": "https://thetvdb.com/series/death-parade/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "0"
+    "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "186919"
   },
   "title": "Death Billiards",
-  "justification": "AniDB 1 (2013-03-02) = TVDB 0x01 (2013-03-02), by title, TVDB's only special. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 289177. The film is TMDB movie 186919 (Death Billiards (2013)). TMDB show 61901 does not carry it, so the node leaves that show. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"デスビリヤード\") is TVDB S0E1 \"Death Billiards\". TMDB movie 186919 is the film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "f7505df0149ba0c68b3dcc20e496b890eb4797995a04039efccdc9ab8de11147",
@@ -25,8 +29,8 @@
       ],
       "series": 289177
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5781f94d759bf5a493a3fdf26c528be3b8590330aee79ab53c2e18e7dcb461f8"
   },
   "anilist_ids": [

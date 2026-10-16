@@ -1,0 +1,68 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7564",
+    "tvdb": "https://thetvdb.com/series/ninja-hattori-kun/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ninja Hattori-kun: Nin Nin Ninpou Enikki no Maki",
+  "justification": "The 1982 film \"Nin Nin Ninpou Enikki no Maki\" (1982-03-13) is TVDB season 0 episode 4, ニンニン忍法絵日記の巻 (1982-03-13). By default it fell on episode 1, シンゾウ黙るでござる！の巻 (1984-10-08), a TV special.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "81ee7728b374e16885eee4a64e4d34caa0c4d94a5f5b7837a40e729ce04139db",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1984-10-08"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1984-12-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1985-01-02"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1982-03-13"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1983-03-12"
+        ]
+      ],
+      "series": 164741
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8a8751ccba88ac62adc70be9cb0cf7dee86e449c3d5b943a2a397962f34c32aa"
+  },
+  "anidb_id": 7564
+}

@@ -1,0 +1,59 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13914",
+    "tmdb": "https://www.themoviedb.org/tv/46392/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/325374"
+  },
+  "set": {
+    "tmdbtv": "46392",
+    "tmdbseason": "14",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Duel Masters!",
+  "justification": "Checked by episode title against TVDB series 325374 and TMDB show 46392. Its episodes are on TMDB show 46392. AniDB episode 1-51 (\"ジョーのジョーカーズ, 自然文明に参ジョー\" (Episode 1) to \"虹色の願い! ももちゃんのニコニコ誕ジョー会!\" (Episode 51)) are TMDB S14E1 \"Episode 1\" to TMDB S14E51 \"Episode 51\"; AniDB S1 \"未来はジョージョー!? ジョーカーズVS自然文明VS闇文明スペシャル!\" (Episode S1) has no TVDB episode (TVDB has no S0E1) and no TMDB episode (its default TMDB S0E1 is \"Looking Back Special! Joe VS Deckie, a Serious Duema!!\", another item). TMDB 46392 season 14 is named Duel Masters!, the node's title, with 51 episodes from 2018-04-01 to 2019-03-31 like AniDB's.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "ff1c03058fb3073c4b1604f3da349aa2fc741a9ebdeed7bf36c5b4c8928d27f3",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          52,
+          "2018-04-01"
+        ]
+      ],
+      "series": 325374
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "b5f694b737dd390a2d8c864b1b28a58a92e4f75113d5236288990640199de6ea"
+  },
+  "anilist_ids": [
+    101425
+  ],
+  "anidb_id": 13914
+}

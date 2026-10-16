@@ -1,8 +1,14 @@
 {
-  "anidb_id": 7221,
-  "title": "Suzumiya Haruhi no Shoushitsu",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7221",
+    "tmdb_movie": "https://www.themoviedb.org/movie/36865",
+    "tvdb": "https://thetvdb.com/series/the-melancholy-of-haruhi-suzumiya/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "36865",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -15,11 +21,9 @@
       }
     ]
   },
-  "justification": "AniDB 1 (2010-02-06) = TVDB 0x01 (2010-02-06), by title, the only special TVDB lists. The empty offset placed no episode. AniDB special S1 (2010-12-18) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/7221",
-    "tvdb": "https://thetvdb.com/series/the-melancholy-of-haruhi-suzumiya/seasons/official/0"
-  },
+  "title": "Suzumiya Haruhi no Shoushitsu",
+  "justification": "Checked by episode title against TVDB series 79414. The film is TMDB movie 36865 (The Disappearance of Haruhi Suzumiya (2010)). TMDB show 42511 does not carry it, so the node leaves that show. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"涼宮ハルヒの消失\") is TVDB S0E1 \"The Disappearance of Haruhi Suzumiya\"; AniDB S1 \"ロケハン映像「甲南病院」編\" (Location Hunting Video: \"Kounan Hospital\" Chapter) has no TVDB episode (its default TVDB S0E1 is \"The Disappearance of Haruhi Suzumiya\", another item). TheTVDB's movie 13290 涼宮ハルヒの消失 carries the node's IMDb id tt1572781 and TMDB 36865; TMDB show 42511 has no season 0.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "819018ac3637384ebae298b5b7f746c957e030dcc0cc79d4014c55df78398e38",
@@ -36,12 +40,12 @@
       ],
       "series": 79414
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bc24fb61869fda9c5130247d07ff194e6630d2079944c2e0af3a4a95d76cc3c9"
   },
   "anilist_ids": [
     7311
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 7221
 }

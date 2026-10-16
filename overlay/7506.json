@@ -15,27 +15,27 @@
           ],
           [
             2,
-            1
-          ],
-          [
-            3,
-            2
-          ],
-          [
-            4,
+            1,
+            2,
             3
           ],
           [
+            3,
+            4,
             5,
+            6
+          ],
+          [
             4
           ],
           [
-            6,
             5
           ],
           [
-            7,
             6
+          ],
+          [
+            7
           ],
           [
             8
@@ -47,6 +47,15 @@
             10
           ],
           [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
             14
           ]
         ]
@@ -54,7 +63,7 @@
     ]
   },
   "title": "Amagami SS",
-  "justification": "AniDB special S1 (2011-04-29) = TVDB 0x18 (2011-04-29), was 0x07 (no such TVDB episode), by title. AniDB special S8-S10 (2011-06-11 to 2011-08-05) have no TVDB episode, was 0x08-0x10. AniDB special S14 (2011-04-29) has no TVDB episode, was 0x14. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Tachibana Miya Hen: Imouto\" (2011-04-29) is TVDB season 0 episode 18 イモウト (2011-04-29). S2 \"Morishima Haruka / Tanamachi Kaoru / Nakata Sae Chapter\" (2011-06-11) is episodes 1-3 森島はるか編, 棚町薫編 and 中多紗江編 (2011-06-11), and S3 \"Nanasaki Ai / Sakurai Rihoko / Ayatsuji Tsukasa Chapter\" (2011-08-05) is episodes 4-6 七咲逢編, 桜井梨穂子編 and 絢辻詞編 (2011-08-05); the old row gave S2 episode 1 alone and sent S3-S7 one short each onto episodes 2-6. S4-S13, the cast comment clips, and S14, the cast discussion, have no TVDB episode; S4-S7 sat on the shorts and S11-S13 fell by default on episodes 11-13, the SS+ extra episodes (AniDB 8573), so all are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -319,8 +328,8 @@
       ],
       "series": 172921
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b916062349dfa2722d53c6fdde0302e9d48b7c515d2f4d637686ba3686f3b3de"
   },
   "anilist_ids": [

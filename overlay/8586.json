@@ -1,13 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8586",
+    "tmdb": "https://www.themoviedb.org/tv/46025/seasons",
     "tvdb": "https://thetvdb.com/series/infinite-stratos/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,12 +20,11 @@
           ]
         ]
       }
-    ],
-    "episodeoffset": "0"
+    ]
   },
   "title": "IS: Infinite Stratos Encore - Koi ni Kogareru Rokujuusou",
-  "justification": "AniDB 1 (2011-12-07) = TVDB 0x01 (2011-12-07), by the anime's title. The empty offset placed no episode. AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 219131 and TMDB show 46025. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OVA\" (the anime \"IS\u0026lt;インフィニット・ストラトス\u0026gt; アンコール「恋に焦がれる六重奏」\") is TVDB S0E1 \"The Sextet Yearns to Be in Love\"; AniDB S1-S2 (\"Episode Preview\" to \"Music Clips Compilation\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "f6bec99b3d0c344c03e170b5898c07a1b5ae7958028325ad81f3f55bca86865d",
@@ -63,8 +65,8 @@
       ],
       "series": 219131
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1ae568b1157f210e864924f388d336db1e0720ee54b4fb1676f61c96006b7e81"
   },
   "anilist_ids": [

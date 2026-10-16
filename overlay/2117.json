@@ -1,0 +1,52 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2117",
+    "tvdb": "https://thetvdb.com/series/gall-force/seasons/official/5"
+  },
+  "set": {
+    "defaulttvdbseason": "5",
+    "mapping_list": []
+  },
+  "title": "Gall Force: The Revolution",
+  "justification": "TVDB 138691 Gall Force now holds one season per OVA run; season 5 holds The Revolution: Chapter 1 - War Storm, 2 - Galaxy Run, 3 - Soldier Plant and 4 - Homeway, AniDB's four episodes by title and date. The old rows pointed at season 1 episodes 10-13, which no longer exist.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c564801960a46334149ea5e76b81ce822049d9597d41b7c31f8bf1e8a2948ea8",
+      "seasons": [
+        5
+      ],
+      "episodes": [
+        [
+          5,
+          1,
+          11,
+          "1996-12-21"
+        ],
+        [
+          5,
+          2,
+          12,
+          "1997-01-22"
+        ],
+        [
+          5,
+          3,
+          13,
+          "1997-02-21"
+        ],
+        [
+          5,
+          4,
+          14,
+          "1997-03-21"
+        ]
+      ],
+      "series": 138691
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "68f9bf6597f7b02a6235a2e605fc892fca6036a910d3094354b5679331816395"
+  },
+  "anidb_id": 2117
+}

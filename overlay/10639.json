@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10639",
+    "tmdb": "https://www.themoviedb.org/tv/60825/seasons",
     "tvdb": "https://thetvdb.com/series/chaika-the-coffin-princess/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "Hitsugi no Chaika: Avenging Battle",
-  "justification": "AniDB special S1 (2015-01-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278127 and TMDB show 60825. AniDB S1 \"チャイカへ50の質問!\" (50 Questions for Chaika!) has no TVDB episode (its default TVDB S0E1 is \"The Targeted Coffin / Ruins Resurrected\", another item) and no TMDB episode (its default TMDB S0E1 is \"The Coffin Hunt\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -96,8 +98,8 @@
       ],
       "series": 278127
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0d2420400539d3dc89d9f41cd5ece7741d3a9a931c008f8122548ff0dc5a54cb"
   },
   "anilist_ids": [

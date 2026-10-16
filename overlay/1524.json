@@ -1,0 +1,133 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1524",
+    "tvdb": "https://thetvdb.com/series/cybersix/seasons/official/1"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 1,
+        "episodes": [
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            9
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Cybersix",
+  "justification": "Episodes 9 \"Full Moon Fascination / Ookami Onna\" and 10 \"The Eye / Saimin Medama\" are TVDB season 1 episodes 10 \"Full Moon Fascination\" and 9 \"The Eye\"; by default the two were crossed. Every other episode matches in order by title.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "59206351303fd109c51f647a85ab3658eada2cb54c2f02405db607864c37f29b",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          ""
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ],
+        [
+          1,
+          1,
+          0,
+          "1999-09-06"
+        ],
+        [
+          1,
+          2,
+          0,
+          "1999-09-13"
+        ],
+        [
+          1,
+          3,
+          0,
+          "1999-09-20"
+        ],
+        [
+          1,
+          4,
+          0,
+          "1999-09-27"
+        ],
+        [
+          1,
+          5,
+          0,
+          "1999-10-04"
+        ],
+        [
+          1,
+          6,
+          0,
+          "1999-10-11"
+        ],
+        [
+          1,
+          7,
+          0,
+          "1999-10-18"
+        ],
+        [
+          1,
+          8,
+          0,
+          "1999-10-25"
+        ],
+        [
+          1,
+          9,
+          0,
+          "1999-10-10"
+        ],
+        [
+          1,
+          10,
+          0,
+          "1999-10-09"
+        ],
+        [
+          1,
+          11,
+          0,
+          "1999-11-15"
+        ],
+        [
+          1,
+          12,
+          0,
+          "1999-11-22"
+        ],
+        [
+          1,
+          13,
+          0,
+          "1999-11-29"
+        ]
+      ],
+      "series": 77193
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "e825a51108c025e92282bbe76d727e6bda5dbc85b02bd3b44e6108e0661b4396"
+  },
+  "anidb_id": 1524
+}

@@ -1,0 +1,236 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11959",
+    "tmdb": "https://www.themoviedb.org/tv/63322/season/0",
+    "tvdb": "https://thetvdb.com/series/superb-song-of-the-valkyries-symphogear/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            14
+          ],
+          [
+            3,
+            15
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Senki Zesshou Symphogear XV",
+  "justification": "AniDB specials S1-S4 (2019-12-04 to 2020-03-04) stay on TVDB season 0 episodes 13-16 \"Not-So-Superb Song of the Valkyries: Symphogear XV 1-4\" on the same dates, now as pairs. S5 \"Episode 1 Premiere Screening\" (2019-10-02) had no row and fell on episode 5, the GX short of AniDB 10321; TVDB lists no premiere screening, so it is unmapped. TMDB 63322 season 0 has the TVDB numbers, E13-E16 Symphogear XV 1-4 = S1-S4, so the row names TMDB season 0 too; on TMDB S1-S5 took E1-E5.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "fa94d2b5028e2f3bb733ff6ed6b1fcc7f76417b14e0c598baf2ca07c21f1acee",
+      "seasons": [
+        0,
+        5
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-02-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-03-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-11-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-12-23"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-01-27"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2016-02-24"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2017-09-03"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2017-11-29"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2017-12-27"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2018-01-31"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2018-02-28"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2018-03-03"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2019-12-04"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2020-01-08"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2020-02-05"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2020-03-04"
+        ],
+        [
+          0,
+          17,
+          0,
+          ""
+        ],
+        [
+          5,
+          1,
+          53,
+          "2019-07-07"
+        ],
+        [
+          5,
+          2,
+          54,
+          "2019-07-14"
+        ],
+        [
+          5,
+          3,
+          55,
+          "2019-07-21"
+        ],
+        [
+          5,
+          4,
+          56,
+          "2019-07-28"
+        ],
+        [
+          5,
+          5,
+          57,
+          "2019-08-04"
+        ],
+        [
+          5,
+          6,
+          58,
+          "2019-08-11"
+        ],
+        [
+          5,
+          7,
+          59,
+          "2019-08-18"
+        ],
+        [
+          5,
+          8,
+          60,
+          "2019-08-25"
+        ],
+        [
+          5,
+          9,
+          61,
+          "2019-09-01"
+        ],
+        [
+          5,
+          10,
+          62,
+          "2019-09-08"
+        ],
+        [
+          5,
+          11,
+          63,
+          "2019-09-15"
+        ],
+        [
+          5,
+          12,
+          64,
+          "2019-09-22"
+        ],
+        [
+          5,
+          13,
+          65,
+          "2019-09-29"
+        ]
+      ],
+      "series": 254667
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a15859713f5df920a5cbfad4a1214b181c84a3c137e12786a582b1c99a8534e3"
+  },
+  "anidb_id": 11959
+}

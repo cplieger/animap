@@ -1,13 +1,24 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7919",
+    "tmdb": "https://www.themoviedb.org/tv/32377/seasons",
     "tvdb": "https://thetvdb.com/series/armored-trooper-votoms/seasons/official/0"
   },
   "set": {
     "mapping_list": [
       {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +31,7 @@
     ]
   },
   "title": "Votoms Finder",
-  "justification": "AniDB special S1-S2 (2011-04-07) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 90521 and TMDB show 32377. AniDB episode 1 \"OVA\" (the anime \"ボトムズファインダー\") has no TMDB episode (its default TMDB S0E6 is \"Big Battle\", another item); AniDB S1-S2 (\"初日舞台挨拶\" (Opening Day Stage Greeting) to \"CG MAKING of VOTOMS FINDER\" (CG Making of Votoms Finder)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items). TMDB has no episode titled Votoms Finder, so the OVA is unmapped there.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -116,8 +127,8 @@
       ],
       "series": 90521
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ef70ae4819a4f4cadf958c07bab764f4d825e0c569e7baa7668e3f62f59d56f4"
   },
   "anilist_ids": [

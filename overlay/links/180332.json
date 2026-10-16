@@ -1,0 +1,24 @@
+{
+  "anilist_id": 180332,
+  "title": "Monogatari Series: Off \u0026 Monster Season - Zankoku Douwa: Utsukushi-hime",
+  "parts": [
+    {
+      "anidb_id": 18424,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 180332 (SPECIAL, 1 episode(s) from 2024-08-17) is AniDB 18424's special(s) S1, aired 2024-08-17. AniList's PARENT relation names AniList 173533, which anime-offline-database links to AniDB 18424, and the special's title (A Cruel Fairy Tale: The Beautiful Princess / Zankoku Douwa: Utsukushi-hime) matches an AniList title. The parent's node, as overlay/18424.json patches it, places S1 on TVDB 0x41 A Cruel Fairy Tale: The Beautiful Princess, 2024-08-17. TMDB 46195, where the parent's node places the special(s) through the overlay's TMDB rows, agrees: S0E48 A Cruel Fairy Tale: The Beautiful Princess 2024-08-17.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18424",
+    "anilist": "https://anilist.co/anime/180332",
+    "tmdb": "https://www.themoviedb.org/tv/46195/season/0",
+    "tvdb": "https://thetvdb.com/series/monogatari/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "12358ecfa98a53c6dd659ef312bff38bd1fb5dfc8611957de4c87b1c2d4d3afd"
+  }
+}

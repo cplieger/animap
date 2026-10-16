@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10961",
+    "tmdb_movie": "https://www.themoviedb.org/movie/347201",
     "tvdb": "https://thetvdb.com/series/naruto-shippuden/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "347201",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -34,7 +39,7 @@
     ]
   },
   "title": "Boruto: Naruto the Movie",
-  "justification": "AniDB special S3 (no AniDB date) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79824. The film is TMDB movie 347201 (Boruto: Naruto the Movie (2015)). TMDB show 31910 does not carry it, so the node leaves that show. AniDB S3 \"Naruto Shippuuden: OP 17 Movie Ver.\" has no TVDB episode (its default TVDB S0E3 is \"Naruto Shippūden the Movie: The Will of Fire\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -154,8 +159,8 @@
       ],
       "series": 79824
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "60ac6b3d3e68f3f6c5425f241e86ed5f12de85e328c7665b1da9314423cc2690"
   },
   "anilist_ids": [

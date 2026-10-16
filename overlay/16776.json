@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16776",
-    "tvdb": "https://thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/876792"
   },
   "set": {
     "mapping_list": [
@@ -32,7 +33,7 @@
     ]
   },
   "title": "Gekijouban Tensei Shitara Slime Datta Ken: Guren no Kizuna Hen",
-  "justification": "AniDB special S1-S6 (2023-07-28 to (none)) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 352408. AniDB S1-S6 (\"幕間: クロベエの鍛冶工房\" (Unreleased Scene 1) to \"「劇場版転スラ」の魅力 完全公開スペシャル\" (Memorial Special Program 2)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

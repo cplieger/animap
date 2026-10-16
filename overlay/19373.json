@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/19373",
-    "tvdb": "https://thetvdb.com/series/kirei-ni-shite-moraemasu-ka/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/kirei-ni-shite-moraemasu-ka/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/293144/seasons"
   },
   "set": {
     "mapping_list": [
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Kirei ni Shite Moraemasu ka.",
-  "justification": "AniDB special S1-S2 (2025-12-18 to 2026-03-23) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 464460 and TMDB show 293144. AniDB S1-S2 (\"TVアニメ「綺麗にしてもらえますか.」放送直前! 【きにして】生配信 ~今夜はみんなでメリークリーニング!~\" (Pre-Broadcast Special) to \"最終話のほんと直前! 『きにして』 キンメクリーニング, 最後の夜ふかしSP\" (Final Episode Pre-Broadcast Special)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

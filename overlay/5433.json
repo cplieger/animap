@@ -1,0 +1,182 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5433",
+    "tmdb": "https://www.themoviedb.org/tv/20306/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/407202"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": ""
+  },
+  "title": "Shima Shima Tora no Shimajirou",
+  "justification": "Checked by episode title against TVDB series 407202. TMDB show 201740 does not carry it, so the node leaves that show. That show is the 2012 series Shimajiro: A Wonderful Adventure, the TMDB show of AniDB 9131. TMDB 20306 Shima Shima Tora no Shimajirō starts on 1993-12-13 like AniDB, but its 31 untitled episodes cannot be paired with AniDB's 726, so no TMDB value replaces it.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3fd7f0289406f121c09486bcbe1fbd1af215c20a6fe70cb631744c1cedb7db17",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          0,
+          "2002-01-01"
+        ],
+        [
+          1,
+          2,
+          0,
+          ""
+        ],
+        [
+          1,
+          3,
+          0,
+          ""
+        ],
+        [
+          1,
+          4,
+          0,
+          ""
+        ],
+        [
+          1,
+          5,
+          0,
+          ""
+        ],
+        [
+          1,
+          6,
+          0,
+          ""
+        ],
+        [
+          1,
+          7,
+          0,
+          ""
+        ],
+        [
+          1,
+          8,
+          0,
+          ""
+        ],
+        [
+          1,
+          9,
+          0,
+          ""
+        ],
+        [
+          1,
+          10,
+          0,
+          ""
+        ],
+        [
+          1,
+          11,
+          0,
+          ""
+        ],
+        [
+          1,
+          12,
+          0,
+          ""
+        ],
+        [
+          1,
+          13,
+          0,
+          ""
+        ],
+        [
+          1,
+          14,
+          0,
+          ""
+        ],
+        [
+          1,
+          15,
+          0,
+          ""
+        ],
+        [
+          1,
+          16,
+          0,
+          ""
+        ],
+        [
+          1,
+          17,
+          0,
+          ""
+        ],
+        [
+          1,
+          18,
+          0,
+          ""
+        ],
+        [
+          1,
+          19,
+          0,
+          ""
+        ],
+        [
+          1,
+          20,
+          0,
+          ""
+        ],
+        [
+          1,
+          21,
+          0,
+          ""
+        ],
+        [
+          1,
+          22,
+          0,
+          ""
+        ],
+        [
+          1,
+          23,
+          0,
+          ""
+        ],
+        [
+          1,
+          24,
+          0,
+          ""
+        ],
+        [
+          1,
+          25,
+          0,
+          ""
+        ]
+      ],
+      "series": 407202
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "29e0700cb2b860400277cbc40d0391821637b6bbb8133e419f07d75da5cb3326"
+  },
+  "anilist_ids": [
+    9768
+  ],
+  "anidb_id": 5433
+}

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/106",
-    "tvdb": "https://thetvdb.com/series/azumanga-daioh/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/azumanga-daioh/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/12143/seasons"
   },
   "set": {
     "mapping_list": [
@@ -24,7 +25,7 @@
     ]
   },
   "title": "Azumanga Daiou The Animation (2002)",
-  "justification": "AniDB special S8 (2009-06-24) has no TVDB episode, was 0x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79077 and TMDB show 12143. AniDB S8 \"アイキャッチ集\" (Eyecatch Collection) has no TVDB episode (its default TVDB S0E8 is \"Character Sketches 6\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

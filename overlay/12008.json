@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12008",
-    "tvdb": "https://thetvdb.com/series/hand-shakers/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/hand-shakers/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/69286/seasons"
   },
   "set": {
     "mapping_list": [
@@ -26,7 +27,7 @@
     ]
   },
   "title": "Hand Shakers",
-  "justification": "AniDB special S1 (2017-07-26) = TVDB 0x03 (2017-07-26), was 0x01, by title. AniDB special S2-S3 (2017-04-24 to 2017-05-24) = TVDB 0x01-0x02 (2017-03-24 to 2017-05-24), was 0x02-0x03, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 319275 and TMDB show 69286. AniDB S1 \"Go ago Go\" (Go Ago Go) is TVDB S0E3 \"[TV Special] Go ago Go\"; AniDB S2-S3 (\"ピクチャードラマ 上巻：#0.5「Listen Lesson」\" (Picture Drama Volume 1: #0.5 \"Listen Lesson\") to \"ピクチャードラマ 下巻： #0.0「Begin the Beguine」\" (Picture Drama Volume 2: #0.0 \"Begin the Beguine\")) are TVDB S0E1 \"Listen Lesson\" to TVDB S0E2 \"Begin the Beguine\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

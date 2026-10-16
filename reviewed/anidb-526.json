@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:526",
+  "title": "Bannou Bunka Nekomusume (1998)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:11": "b11776f3addbddfd51d7351ed76855fbe7417c7ba16b4ed714c01bb8e707575f",
+        "date-mismatch:12": "5e3d8bc4e85b73f8e1fb3757a85493bcf70d5d4a89981e6e6ec83f645ac490da"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 11 \"Nuku Nuku Blue Spring of Youth Diaries - All Purpose Cultural Musical / Nuku Nuku Seishun Nikki! Bannou Bunka Musical!\" (1998-03-18) = S2E11 \"Nuku Nuku Blue Spring of Youth Diaries! All Purpose Cultural Musical!\" (1998-04-01); 12 \"Nuku Nuku lives on - We won`t forget your smile / Nuku Nuku yo Eien ni! Kimi no Egao o Wasurenai!\" (1998-03-25) = S2E12 \"Nuku Nuku Lives On! We Won't Forget Your Smile\" (1998-04-08).",
+      "evidence": [
+        "https://anidb.net/anime/526",
+        "https://thetvdb.com/dereferrer/series/79587"
+      ]
+    }
+  }
+}

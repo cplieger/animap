@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9077",
+    "tmdb": "https://www.themoviedb.org/tv/45211/seasons",
     "tvdb": "https://thetvdb.com/series/tari-tari/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -16,15 +18,57 @@
             2
           ],
           [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
             16,
             1
+          ],
+          [
+            17
           ]
         ]
       }
     ]
   },
   "title": "Tari Tari",
-  "justification": "AniDB special S1-S2 (2013-01-09 to 2013-02-06) have no TVDB episode, was 0x01-0x02. AniDB special S16 (2014-12-17) = TVDB 0x01 (2014-12-17), was 0x16 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 259634 and TMDB show 45211. AniDB S1 \"「白浜坂高校感謝祭」その1・合唱コーナー編\" (Special 1) has no TVDB episode (its default TVDB S0E1 is \"Being Cloudy, Shining, Singing Again Someday\", another item) and no TMDB episode (its default TMDB S0E1 is \"Being Cloudy, Shining, Singing Again Someday\", another item); AniDB S2 \"「白浜坂高校感謝祭」その2・トーク\u0026ソングコーナー編\" (Special 2) has no TVDB episode (its default TVDB S0E2 is \"Utopia\", another item) and no TMDB episode (TMDB has no S0E2); AniDB S3-S15 (\"提供画面 第1話\" (Special 3) to \"提供画面 第13話\" (Special 15)) have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them); AniDB S16 \"曇ったり 輝いたり またいつか歌ったり\" (Being Cloudy, Shining, Singing Again Someday) is TVDB S0E1 \"Being Cloudy, Shining, Singing Again Someday\" and TMDB S0E1 \"曇ったり 輝いたりまたい つか歌ったり\" (Being Cloudy, Shining, Singing Again Someday); AniDB S17 \"OVA Ending\" has no TVDB episode (TVDB has no S0E17) and no TMDB episode (TMDB has no S0E17).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -127,8 +171,8 @@
       ],
       "series": 259634
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e6f39306973a3276cf3606ab524749230a3ba9b3e3b2601a0f7d4fba0a46c1fa"
   },
   "anilist_ids": [

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:17203",
+  "title": "Sazanami Souji ni Junketsu o Sasagu",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:8": "dfe08090e79c621b86ee07b3a458158cfb7a28eca8cd41e2c02a7ae34e7d9257"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-8 map to S1E1-E8 with identical titles (\"Will You Become My Wife?\" .. \"Please Forgive Me for Loving You\"). The ep 8 date differs (AniDB 2023-05-22, TVDB 2023-06-05): from episode 5 on AniDB's dates are one or two weeks earlier than TVDB's; titles and order are identical. TVDB S0 holds two untitled specials (2023-05-01, 2023-05-22) that AniDB does not list; the suggested S0E2 for ep 8 is the one sharing its date, not episode 8.",
+      "evidence": [
+        "https://anidb.net/anime/17203",
+        "https://thetvdb.com/dereferrer/series/424563"
+      ]
+    }
+  }
+}

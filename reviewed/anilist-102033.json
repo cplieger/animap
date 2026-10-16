@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:102033",
+  "title": "AniList 102033",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "7e282c5c5c5b68a5b3bbddf2d021fe5c89c0be444d3393ab59ce3fe08e919a7b",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: undecided: five 1-minute shorts that are either AniDB 9659 S1-S5 (TVDB 273002 0x2-0x6, the same count) or S2-S6 (the AniList dates); no source names the five episodes",
+        "evidence": [
+          "https://anilist.co/anime/102033"
+        ],
+        "anilist_id": 102033
+      }
+    ]
+  }
+}

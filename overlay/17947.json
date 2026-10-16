@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17947",
+    "tmdb": "https://www.themoviedb.org/tv/65942/season/0",
     "tvdb": "https://thetvdb.com/series/re-zero-starting-life-in-another-world/seasons/official/0"
   },
   "set": {
@@ -80,11 +81,26 @@
             18
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 16,
+        "offset": 50,
+        "episodes": [
+          [
+            17
+          ],
+          [
+            18
+          ]
+        ]
       }
     ]
   },
   "title": "Re:Zero kara Hajimeru Isekai Seikatsu (2024)",
-  "justification": "AniDB special S1 (2024-10-03) = TVDB 0x55 (2024-10-02), was 0x01, by title, runtime breaking a tie. AniDB special S2 (2024-10-10) = TVDB 0x56 (2024-10-09), was 0x02, by title, order breaking a same-title tie. AniDB special S3 (2024-10-17) = TVDB 0x57 (2024-10-16), was 0x03, by title. AniDB special S4-S9 (2024-10-24 to 2025-02-06) = TVDB 0x58-0x63 (2024-10-23 to 2025-02-05), was 0x04-0x09, by title, order breaking a same-title tie. AniDB special S10-S11 (2025-02-13 to 2025-02-20) = TVDB 0x64-0x65 (2025-02-12 to 2025-02-19), was 0x10-0x11, by title. AniDB special S12-S16 (2025-02-27 to 2025-03-27) = TVDB 0x66-0x70 (2025-02-26 to 2025-03-26), was 0x12-0x16, by title, order breaking a same-title tie. AniDB special S17-S18 (2024-08-30 to 2024-09-22) have no TVDB episode, was 0x17-0x18. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2024-10-03) = TVDB 0x55 (2024-10-02), was 0x01, by title, runtime breaking a tie. AniDB special S2 (2024-10-10) = TVDB 0x56 (2024-10-09), was 0x02, by title, order breaking a same-title tie. AniDB special S3 (2024-10-17) = TVDB 0x57 (2024-10-16), was 0x03, by title. AniDB special S4-S9 (2024-10-24 to 2025-02-06) = TVDB 0x58-0x63 (2024-10-23 to 2025-02-05), was 0x04-0x09, by title, order breaking a same-title tie. AniDB special S10-S11 (2025-02-13 to 2025-02-20) = TVDB 0x64-0x65 (2025-02-12 to 2025-02-19), was 0x10-0x11, by title. AniDB special S12-S16 (2025-02-27 to 2025-03-27) = TVDB 0x66-0x70 (2025-02-26 to 2025-03-26), was 0x12-0x16, by title, order breaking a same-title tie. AniDB special S17-S18 (2024-08-30 to 2024-09-22) have no TVDB episode, was 0x17-0x18. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 65942 season 0 E51-E66 are the third Break Time series, Night Tales of the Sleeping Oni to Emilia Party Struggles - 7 (2024-10-03 to 2025-03-26) = S1-S16, the TVDB titles of 0x55-0x70; TMDB lists neither the theater manners movie S17 nor the pre-broadcast stage S18. With no TMDB row S1-S18 took E1-E18, the first Break Time series.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -613,8 +629,8 @@
       ],
       "series": 305089
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "db3d5e6a5420d39745e7b331f54fb5526bd4ecfb5dbff825fbb6af2cc8495807"
   },
   "anilist_ids": [

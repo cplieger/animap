@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17706",
+    "tmdb": "https://www.themoviedb.org/tv/77694/seasons",
     "tvdb": "https://thetvdb.com/series/344220-show/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +22,7 @@
     ]
   },
   "title": "Uma Musume: Pretty Derby Season 3",
-  "justification": "AniDB special S1-S2 (2023-10-26 to 2023-11-09) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 344220 and TMDB show 77694. AniDB S1-S2 (\"Episode 4 Ending\" to \"Episode 6 Ending\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -177,8 +179,8 @@
       ],
       "series": 344220
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0ea49a796f3320f39458989f3662cf1d67c01cdb665ed7a83c996629e4175422"
   },
   "anilist_ids": [

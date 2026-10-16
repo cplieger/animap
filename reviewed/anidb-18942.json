@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:18942",
+  "title": "Watashi o Tabetai, Hitodenashi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "694d4b653732b57423c7f7219363a668e59917f79a656073199713ab1bf5b3df"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-13 match S1E1-13 by title. AniDB S1 \"Anime-ka Kinen Tokuban from Ehime\" (AT-X 2025-09-25) goes to TVDB S0E1, untitled on SkyHook but titled on the site as \"「私を喰べたい、ひとでなし」アニメ化記念特番 fromえひめ\" (28 min, 2025-10-01): identical programme, the date is an AT-X rerun (the series' official news lists AT-X airings 09-25 and 10-01). AniDB S2 \"Aki no Yonaga to Watatabe Oshaberi Haishin Kai\" (a YouTube chat stream) has no TVDB episode (S0E2 does not exist): TVDB gap, no wrong claim.",
+      "evidence": [
+        "https://thetvdb.com/series/watashi-o-tabetai-hito-de-nashi/seasons/official/0",
+        "https://anidb.net/anime/18942",
+        "https://thetvdb.com/dereferrer/series/455749"
+      ]
+    }
+  }
+}

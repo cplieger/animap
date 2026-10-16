@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17615",
+    "tmdb": "https://www.themoviedb.org/tv/86034/season/0",
     "tvdb": "https://thetvdb.com/series/arifureta-from-commonplace-to-worlds-strongest/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -23,7 +25,7 @@
     ]
   },
   "title": "Arifureta Shokugyou de Sekai Saikyou Season 3",
-  "justification": "AniDB special S1-S3 (2024-10-07 to 2025-02-24) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S3 (2024-10-07 to 2025-02-24) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 86034 season 0 lists none of S1-S3 either (the third season's pre-broadcast and recap specials): by default they took E1-E3, the first season's omnibus and picture dramas. The row now names TMDB season 0 too.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -426,8 +428,8 @@
       ],
       "series": 357019
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1f72afff8a6fdcfc440a7f60105d7c49ac053fc471da4e914a5c3d694e3d9598"
   },
   "anilist_ids": [

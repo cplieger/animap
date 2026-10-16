@@ -1,0 +1,23 @@
+{
+  "key": "anime:anidb:184",
+  "title": "Tenkuu no Escaflowne",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "f350df42ce5f4bbfdb52e5c5e92f7914b2bb9e5228a0fee083129dd23399a05d",
+        "date-mismatch:S3": "6ce5866e1207a9f8a39b96364fda11fab7906eb142c287892b20e773c4e8f1b9",
+        "date-mismatch:S4": "84bc2d8065549d0bdee3deb0dc560b537a94ee67d98cee82bb0d438cf360f7e2",
+        "date-mismatch:S5": "c7dac47797259363af2da2795e1a79bc904924d8a7d899b1d86b06ad2019ad00",
+        "date-mismatch:S6": "8de78197cb23e65f02ee40b05d2dfe900edb9258676c80b35010acac21e6cefd"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S2 \"Club Escaflowne - First Part / Club Escaflowne Zenpen\" (1997-02-25) = S0E4 \"Club Escaflowne - Allen, Mirana \u0026 Dilandau Voices\" (1996-09-24); S3 \"Club Escaflowne - Second Part / Club Escaflowne Kouhen\" (1997-03-25) = S0E5 \"Club Escaflowne - Osaka, Yamane \u0026 Sano, Designers \u0026 Animators - Part 1\" (1996-09-24); S4 \"Club Escaflowne 1 / Club Escaflowne 1\" (1997-04-25) = S0E6 \"Club Escaflowne - Osaka, Yamane \u0026 Sano, Designers \u0026 Animators - Part 2\" (1996-09-24); S5 \"Club Escaflowne 2 / Club Escaflowne 2\" (1997-05-25) = S0E7 \"Club Escaflowne - Akane (Director) \u0026 Kawamori (Original Story) - Part 1\" (1996-09-24); S6 \"Club Escaflowne 3 / Club Escaflowne 3\" (1997-06-25) = S0E8 \"Club Escaflowne - Akane (Director) \u0026 Kawamori (Original Story) - Part 2\" (1996-09-24).",
+      "evidence": [
+        "https://thetvdb.com/series/vision-of-escaflowne/seasons/official/0",
+        "https://anidb.net/anime/184",
+        "https://thetvdb.com/dereferrer/series/77248"
+      ]
+    }
+  }
+}

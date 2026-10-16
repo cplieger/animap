@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14111",
+    "tmdb": "https://www.themoviedb.org/tv/83121/seasons",
     "tvdb": "https://thetvdb.com/series/kaguya-sama-love-is-war/seasons/official/0"
   },
   "set": {
@@ -16,11 +17,24 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Ren'ai Zunousen",
-  "justification": "AniDB special S1-S2 (2019-01-05 to 2019-02-01) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 354198 and TMDB show 83121. AniDB S1 \"放送直前特番\" (Pre-Broadcast Special) has no TVDB episode (its default TVDB S0E1 is \"Kaguya Darkness Volume 1 / Kaguya Darkness Volume 2 / Kaguya Wants Him to Eat\", another item) and no TMDB episode (its default TMDB S0E1 is \"Season 1 Episode 3 Ending - Editing Movie\", another item); AniDB S2 \"第3話ED 線撮映像\" (Episode 3 Ending - Editing Movie) is TMDB S0E1 \"Season 1 Episode 3 Ending - Editing Movie\" and has no TVDB episode (its default TVDB S0E2 is \"Yu Ishigami Wants to Chat\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -207,8 +221,8 @@
       ],
       "series": 354198
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e55bdf5bee660db942d8e9296cae02f83bfcb3cea184d662ef69ff12aa7bd655"
   },
   "anilist_ids": [

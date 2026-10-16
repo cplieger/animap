@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17877",
+    "tmdb": "https://www.themoviedb.org/tv/119495/seasons",
     "tvdb": "https://thetvdb.com/series/kage-no-jitsuryokusha-ni-naritakute/seasons/official/0"
   },
   "set": {
@@ -27,11 +28,34 @@
             13
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 4,
+        "offset": 17
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 5,
+        "end": 12,
+        "offset": 18
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            13
+          ]
+        ]
       }
     ]
   },
   "title": "Kage no Jitsuryokusha ni Naritakute! 2nd Season",
-  "justification": "AniDB special S13 (2023-09-29) has no TVDB episode, was 0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 407520 and TMDB show 119495. AniDB S1-S4 (\"「かげじつ! せかんど」オペレーション.1「七陰はブランド力を強化したい!」\" (Kage Jitsu! Second - Operation 1: The Seven Shadows Want to Improve Their Branding!) to \"「かげじつ! せかんど」オペレーション.4「七陰はすごい紙幣を作りたい!」\" (Kage Jitsu! Second - Operation 4: Shadow Garden Wants to Make Awesome Banknotes!)) are TMDB S0E18 \"かげじつ！せかんど オペレーション.1 七陰はブランド力を強化したい！\" (Em-Shade! 2nd Operation 1: The Seven Shadows Want to Improve Their Branding!) to TMDB S0E21 \"かげじつ！せかんど オペレーション.4 七陰はすごい紙幣を作りたい！\" (Em-Shade! 2nd Operation 4: The Seven Shadows Want to Make Awesome Paper Money!); AniDB S5-S12 (\"「かげじつ! せかんど」オペレーション.5「七陰は活躍したら褒められたい!」\" (Kage Jitsu! Second - Operation 5: The Seven Shade Wants to Be Praised for Her Success!) to \"「かげじつ! せかんど」オペレーション.12「七陰は何があっても揺るがない!」\" (Kage Jitsu! Second - Operation 12: Shadow Garden Will Not Be Shaken No Matter What!)) are TMDB S0E23 \"かげじつ！せかんど オペレーション.5 七陰は活躍したら褒められたい！\" (Em-Shade! 2nd Operation 5: The Seven Shadows Want to Be Praised for Their Success!) to TMDB S0E30 \"かげじつ！せかんど オペレーション.12 七陰は何があっても揺るがない！\" (Em-Shade! 2nd Operation 12: The Seven Shadows Will Not Be Shaken No Matter What!); AniDB S13 \"放送直前十五夜特番 \u0026lt;月が赤いーー残された時間はわずかだ......\u0026gt;\" (Episode S13) has no TVDB episode (its default TVDB S0E13 is \"Em-Shade! Operation 13: The Seven Shadows Want To See Each Other Getting Along!\", another item) and no TMDB episode (its default TMDB S0E13 is \"Em-Shade! Operation 13: The Seven Shadows Want to See Each Other Getting Along!\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -302,8 +326,8 @@
       ],
       "series": 407520
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1154b0c70628efd6b2ae2794398aaff9230d34bcc1913a9d2d2a3de0665d7382"
   },
   "anilist_ids": [

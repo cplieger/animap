@@ -1,0 +1,24 @@
+{
+  "anilist_id": 98580,
+  "title": "Kobayashi-san Chi no Maidragon: Valentine, Soshite Onsen! (Amari Kitai Shinaide Kudasai)",
+  "parts": [
+    {
+      "anidb_id": 12091,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 98580 (OVA, 1 episode from 2017-09-20) is AniDB 12091's special S1 Valentine, Soshite Onsen! (Amari Kitai Shinaide Kudasai) (Valentines and Hot Springs! (Please Don't Get Your Hopes Up)), aired 2017-09-20. AniList's PREQUEL relation names AniList 21776, which anime-offline-database links to AniDB 12091, and the special's title matches AniList's romaji, English and native titles. The parent's row places S1 on TVDB 0x1 (2017-09-20) and, with the TMDB row, on TMDB 69291 S0E8 (2017-09-20).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12091",
+    "anilist": "https://anilist.co/anime/98580",
+    "tmdb": "https://www.themoviedb.org/tv/69291/season/0",
+    "tvdb": "https://thetvdb.com/series/miss-kobayashis-dragon-maid/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "a9f8a2d3bd327e227f878af743f9aa4c7d296cd925bb798217915f1925625947"
+  }
+}

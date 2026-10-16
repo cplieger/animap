@@ -1,14 +1,15 @@
 {
-  "anidb_id": 8827,
-  "title": "Hanasaku Iroha: Home Sweet Home",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8827",
+    "tmdb": "https://www.themoviedb.org/tv/42417/seasons",
+    "tvdb": "https://thetvdb.com/series/hanasaku-iroha-blossoms-for-tomorrow/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2013-03-09) = TVDB 0x01 (2013-03-09), by title and runtime, the only special TVDB lists. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8827",
-    "tvdb": "https://thetvdb.com/series/hanasaku-iroha-blossoms-for-tomorrow/seasons/official/0"
-  },
+  "title": "Hanasaku Iroha: Home Sweet Home",
+  "justification": "Checked by episode title against TVDB series 246521 and TMDB show 42417. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"花咲くいろは HOME SWEET HOME\") is TVDB S0E1 \"Home Sweet Home\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "7c60e47be75e21e71bd819797f57eae5bc94ee8ca701908f4f1fa3922a42fefb",
@@ -32,5 +33,5 @@
   "anilist_ids": [
     14175
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8827
 }

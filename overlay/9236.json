@@ -1,0 +1,180 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9236",
+    "tvdb": "https://thetvdb.com/series/say-i-love-you/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "start": 1,
+        "end": 10,
+        "offset": 1
+      }
+    ]
+  },
+  "title": "Sukitte Ii na yo.",
+  "justification": "AniDB specials S1-S10 are the ten \"Mei to Marshmallow-nya\" shorts (2012-12-26 to 2013-05-22); TVDB lists them as season 0 episodes 2-11 \"Mei and Meowrsmallow\" to \"Mei and Meowrsmallow 10\" on the same dates. By default each sat one episode early, S1 on episode 1 \"Someone\", the OVA of AniDB 9600.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "cfc7ddb48c61aa73fd3da8eb43fb60486a5ac46716ed7d3377e0ec6a9c3fb4f1",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2013-07-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-12-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-01-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-01-23"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-01-23"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-02-27"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-02-27"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2013-03-27"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2013-03-27"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2013-04-24"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2013-05-22"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2012-10-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2012-10-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2012-10-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2012-10-28"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2012-11-04"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2012-11-11"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2012-11-18"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2012-11-25"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2012-12-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2012-12-09"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2012-12-16"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2012-12-23"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2012-12-30"
+        ]
+      ],
+      "series": 262112
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0f82389e63de862607f165abbe32a95ac555dae2fa5ba24478fc4bb86d593b0a"
+  },
+  "anidb_id": 9236
+}

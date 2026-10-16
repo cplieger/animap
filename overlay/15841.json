@@ -1,0 +1,177 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15841",
+    "tvdb": "https://thetvdb.com/series/incredible-zorori/seasons/official/4"
+  },
+  "set": {
+    "defaulttvdbseason": "4"
+  },
+  "title": "Motto! Majime ni Fumajime Kaiketsu Zorori (2021)",
+  "justification": "The 25 episodes of the 2021 series, from \"Mecha Mecha Daisakusen\" (2021-04-02) to \"Saraba, Zorori!\" (2021-10-22), are TVDB season 4 episodes 1-25, from \"The Great Mecha Mecha Plan\" to \"Farewell, Zorori!\", on the same dates. Season 5 is the 2022 series (AniDB 16925).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d5291f56da3d8fcaa9ee24ccfaf4e37de6ec02c52176731fbed69cb82513404e",
+      "seasons": [
+        4
+      ],
+      "episodes": [
+        [
+          4,
+          1,
+          0,
+          "2021-04-02"
+        ],
+        [
+          4,
+          2,
+          0,
+          "2021-04-09"
+        ],
+        [
+          4,
+          3,
+          0,
+          "2021-04-16"
+        ],
+        [
+          4,
+          4,
+          0,
+          "2021-04-23"
+        ],
+        [
+          4,
+          5,
+          0,
+          "2021-04-30"
+        ],
+        [
+          4,
+          6,
+          0,
+          "2021-05-07"
+        ],
+        [
+          4,
+          7,
+          0,
+          "2021-05-14"
+        ],
+        [
+          4,
+          8,
+          0,
+          "2021-05-21"
+        ],
+        [
+          4,
+          9,
+          0,
+          "2021-05-28"
+        ],
+        [
+          4,
+          10,
+          0,
+          "2021-06-04"
+        ],
+        [
+          4,
+          11,
+          0,
+          "2021-06-11"
+        ],
+        [
+          4,
+          12,
+          0,
+          "2021-06-18"
+        ],
+        [
+          4,
+          13,
+          0,
+          "2021-06-25"
+        ],
+        [
+          4,
+          14,
+          0,
+          "2021-07-02"
+        ],
+        [
+          4,
+          15,
+          0,
+          "2021-07-09"
+        ],
+        [
+          4,
+          16,
+          0,
+          "2021-07-16"
+        ],
+        [
+          4,
+          17,
+          0,
+          "2021-07-23"
+        ],
+        [
+          4,
+          18,
+          0,
+          "2021-08-13"
+        ],
+        [
+          4,
+          19,
+          0,
+          "2021-09-10"
+        ],
+        [
+          4,
+          20,
+          0,
+          "2021-09-17"
+        ],
+        [
+          4,
+          21,
+          0,
+          "2021-09-24"
+        ],
+        [
+          4,
+          22,
+          0,
+          "2021-10-01"
+        ],
+        [
+          4,
+          23,
+          0,
+          "2021-10-08"
+        ],
+        [
+          4,
+          24,
+          0,
+          "2021-10-15"
+        ],
+        [
+          4,
+          25,
+          0,
+          "2021-10-22"
+        ]
+      ],
+      "series": 128411
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "707fe7958682ace8b0f92692ae81912fba8cce6f576cce060e4718716a826b0b"
+  },
+  "anidb_id": 15841
+}

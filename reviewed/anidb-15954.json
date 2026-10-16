@@ -1,0 +1,33 @@
+{
+  "key": "anime:anidb:15954",
+  "title": "Mushoku Tensei: Isekai Ittara Honki Dasu (2021)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:S10": "42ebb514961286a52516bde87062662178d7efd114cc0f318c28ad86ebeabad7",
+        "missing-target:S11": "8f29e61ff64a1eb88b2f22d27c7005c58b26b9c1b9bd66f0d1b42e379f4a9398",
+        "missing-target:S12": "3b754239c85b6c1849662a9e01c50c6b65c14528eb97a40913177738ef61c311",
+        "missing-target:S13": "891e7a3a87b6d74cca96be01f54af31dc8a8ea14d3d8650b48a079ab2d64c7bf",
+        "missing-target:S14": "b48f305d877b044185fa18a74dbced36b2b1f3c39da3ec107d3bcea400d7d1b4",
+        "missing-target:S15": "804468d8e99c9bd5727593856755343f343cd761e025ca4a7bb0dfde83b7db7c",
+        "missing-target:S16": "9204e7db0e33ce3e49ce70e99a21e1e333a7726c34cad7470ec51d1889e358d2",
+        "missing-target:S17": "98780282c23f2f488a5e89ad8e5be55f4091e15f5bc77e9f0e803f3a4556a527",
+        "missing-target:S2": "e179bdaccb2fa9ed5ec9f6b23a457f373bd9f0f37bf0c85e52c70c6b9caf1a5f",
+        "missing-target:S3": "693fa6b746a93a52f136c0962781bff2e2b61f74aa4cd65a7cec923cc0087c39",
+        "missing-target:S4": "fc8d9bb7340f238d1b3f184c7bd7b55ba241cbc439639bafdbf29b35c9e51690",
+        "missing-target:S5": "5b5d0f9ca1c8deffbbb8e113318439de5dd0ed662318bc62e98b9c80103a8e31",
+        "missing-target:S6": "5117e8df9e592994125076cab4ee94c2b995b6c91dc2e6212e0d2cb6b4bc5034",
+        "missing-target:S7": "0eeb8768e94ad603a5f1dca0abca12d9ab05156f412489d804e847ae6103e892",
+        "missing-target:S8": "646fd83bc35329897cb7fc68411f75dd9d8c555dd6f9155151727be6bcea381b",
+        "missing-target:S9": "f8e8a6d7f91d7a5d773f1d575224b70a010f0d27575d3f7062452094b2c53b4e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "TVDB S1 has 23 episodes; AniDB 1-12 map to S1E12-23 by title and date (offset 11: The Woman with the Demon Eyes, ... Wake Up and Take a Step). S1 Eris the Goblin Slayer = S0E1. The 16 flagged items are AniDB S2-S17 (the pre-broadcast special and the opening and ending clips), which TVDB does not list. The node's row `start=2 end=17 offset=-17` sends them to episode numbers 0 or below on purpose (the Anime-Lists idiom for no target); animap reports them as S0E-15 to S0E0. False positive of the check.",
+      "evidence": [
+        "https://anidb.net/anime/15954",
+        "https://thetvdb.com/dereferrer/series/371310"
+      ]
+    }
+  }
+}

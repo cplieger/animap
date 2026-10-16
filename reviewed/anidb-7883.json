@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:7883",
+  "title": ".hack//Quantum",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "9a673ac4e0765605c24d57ed4a1a1f2c47d651bbfdd37b687b6dac191473046c"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular eps 1-3 \"Walking Party / Wired Prisoner / The Worldend Pallbearer\" = S0E9-S0E11 (offset 8) same titles. The row start 1 end 6 offset 16 sends S1-S6 to S0E17-S0E22: \"Go, Our Chim Chims!! Part 1-3\" = \".hack//Quantum: Go, Our Chim Chims!! Part 1-3\", \"YuiYui Cooking / YuiYui Club / YuiYui Quantum Cult Q\" = \".hack//Quantum: Ogura Yui's YuiYui Cooking / Club / Quantum Cult Quiz\". Titles and order agree. The flagged S3 (2011-04-07 vs 2011-03-24) is a date difference only. No other node on 79099 claims S0E9-E11 or S0E17-E22.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/79099",
+        "https://anidb.net/anime/7883"
+      ]
+    }
+  }
+}

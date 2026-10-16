@@ -1,14 +1,15 @@
 {
-  "anidb_id": 7950,
-  "title": "Sora no Otoshimono: Project Pink",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7950",
+    "tmdb": "https://www.themoviedb.org/tv/37437/seasons",
+    "tvdb": "https://thetvdb.com/series/heavens-lost-property/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1 (2010-09-09) = TVDB 0x01 (2010-09-09), by the anime's title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/7950",
-    "tvdb": "https://thetvdb.com/series/heavens-lost-property/seasons/official/0"
-  },
+  "title": "Sora no Otoshimono: Project Pink",
+  "justification": "Checked by episode title against TVDB series 118101 and TMDB show 37437. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OVA\" (the anime \"そらのおとしもの プロジェクト桃源郷[ピンク]\") is TVDB S0E1 \"Project Pink\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "84adbb51c76d850b128ac1b8fb1206cc3a3180f15293aee8d64f6924df120625",
@@ -50,5 +51,5 @@
   "anilist_ids": [
     7858
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 7950
 }

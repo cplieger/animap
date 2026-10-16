@@ -1,13 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6127",
+    "tmdb": "https://www.themoviedb.org/tv/12971/season/0",
     "tvdb": "https://thetvdb.com/series/dragon-ball-z/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "22"
+    "episodeoffset": "22",
+    "tmdboffset": "7"
   },
   "title": "Dragon Ball: Ossu! Kaette Kita Son Gokuu to Nakama-tachi!!",
-  "justification": "AniDB 1 (2008-11-24) = TVDB 0x23 (2008-09-21), was 0x16, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (2008-11-24) = TVDB 0x23 (2008-09-21), was 0x16, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. On TMDB the special is 12971 season 0 episode 8 \"Yo! Son Goku and His Friends Return!!\" (2008-09-21); tmdboffset 15 sent it to episode 16, which does not exist.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -235,8 +237,8 @@
       ],
       "series": 81472
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b3507cb95781f83226c994a26bd1e783654e83ea73d9e0be1a07f080cd143cfe"
   },
   "anilist_ids": [

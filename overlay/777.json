@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/777",
+    "tmdb_movie": "https://www.themoviedb.org/movie/14571",
     "tvdb": "https://thetvdb.com/series/patlabor/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "14571",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -38,8 +43,8 @@
     ]
   },
   "title": "Kidou Keisatsu Patlabor",
-  "justification": "AniDB special S1-S2 (2006-04-25 to (none)) have no TVDB episode, was 0x01-0x02, which are AniDB 1518. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 80789. The film is TMDB movie 14571 (Patlabor: The Movie (1989)). TMDB show 21738 does not carry it, so the node leaves that show. AniDB S1-S2 (\"After the Movie Remix\" to \"Special Information\") have no TVDB episode (their defaults are other items). TMDB 21738 is the 1988 OVA series with no season 0; TMDB movie 14571 is the film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "80f69c7f4f490874875aecd9811fd952a2e97dccf800fac20b8018b282e47229",
@@ -146,8 +151,8 @@
       ],
       "series": 80789
     },
-    "at": "2026-10-08",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5419857b6e68141af1fcbc3a8d3b9d659a6e3915e6a6dd8960c325cfe593ec7a"
   },
   "anilist_ids": [

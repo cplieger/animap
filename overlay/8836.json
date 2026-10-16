@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8836",
+    "tmdb": "https://www.themoviedb.org/tv/36041/season/0",
     "tvdb": "https://thetvdb.com/series/bakuman/seasons/official/0"
   },
   "set": {
@@ -17,11 +18,30 @@
             2
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
       }
     ]
   },
   "title": "Bakuman. (2012)",
-  "justification": "AniDB special S1 (2013-06-26) = TVDB 0x02 (2013-06-26), was 0x01, by hand review. AniDB special S2 (2013-08-28) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2013-06-26) = TVDB 0x02 (2013-06-26), was 0x01, by hand review. AniDB special S2 (2013-08-28) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. On TMDB 36041 season 0 the special S1 (2013-06-26, TVDB 0x2 Otter Goes Back to the Sea!) is E10 Rakko Umi e Kaeru! (2013-06-26). TMDB's other entries cannot be paired by title with the untitled S2-S4, which defaulted to E2-E4, the first season's openings and endings; they take no TMDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -196,8 +216,8 @@
       ],
       "series": 193811
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "3ee6b7608db7327d83a4302c696cb303c871aaf7536c94c1635318e3490fc2a9"
   },
   "anilist_ids": [

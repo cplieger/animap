@@ -1,0 +1,187 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5119",
+    "tvdb": "https://thetvdb.com/series/mr-stain-on-junk-alley/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 1,
+        "episodes": [
+          [
+            1,
+            14
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            5
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Garakuta-doori no Stain",
+  "justification": "AniDB special S1 \"Vol.14 HARMONICA\" is TVDB season 1 episode 14 \"Harmonica\" (TVDB season 1 has 14 episodes to AniDB's 13), and S2 \"CREATOR\" is season 0 episode 5 \"Creator\". By default they fell on season 0 episodes 1 \"Pilot\" and 2 \"Drawing\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b6d2c2750b2c3595df0f747710e75c7ff7a848aaa5933fa476d23ce3adcc965f",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2002-12-31"
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ],
+        [
+          0,
+          6,
+          0,
+          ""
+        ],
+        [
+          0,
+          7,
+          0,
+          ""
+        ],
+        [
+          0,
+          8,
+          0,
+          ""
+        ],
+        [
+          0,
+          9,
+          0,
+          ""
+        ],
+        [
+          1,
+          1,
+          1,
+          "2003-01-06"
+        ],
+        [
+          1,
+          2,
+          2,
+          ""
+        ],
+        [
+          1,
+          3,
+          3,
+          ""
+        ],
+        [
+          1,
+          4,
+          4,
+          ""
+        ],
+        [
+          1,
+          5,
+          5,
+          ""
+        ],
+        [
+          1,
+          6,
+          6,
+          ""
+        ],
+        [
+          1,
+          7,
+          7,
+          ""
+        ],
+        [
+          1,
+          8,
+          8,
+          ""
+        ],
+        [
+          1,
+          9,
+          9,
+          ""
+        ],
+        [
+          1,
+          10,
+          10,
+          ""
+        ],
+        [
+          1,
+          11,
+          11,
+          ""
+        ],
+        [
+          1,
+          12,
+          12,
+          ""
+        ],
+        [
+          1,
+          13,
+          13,
+          ""
+        ],
+        [
+          1,
+          14,
+          14,
+          ""
+        ]
+      ],
+      "series": 85227
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "e6d32d53b09bd30c548b4b5bd86ca3183a44bd33b1f22da4026cd758efd5d2b9"
+  },
+  "anidb_id": 5119
+}

@@ -1,0 +1,44 @@
+{
+  "key": "anime:anidb:11153",
+  "title": "Gon (2015)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:1": "19abf68854679a08cd38218cb433337d984391fed06ccf2606bb4fec5d3963a9",
+        "missing-target:10": "eaec3583949d5a408cd8d2fff555c9bd3524f0129382844262db0ac65221ea79",
+        "missing-target:11": "92ab36d43d90b4bc7109e4c447cd6e5cdb0789c963e05d45b6bb981c9bbba822",
+        "missing-target:12": "50c0d042730463fd62eb62f044f61e89eef667f60b4e1119084339cd5c844999",
+        "missing-target:13": "e121d6545f0b33102fb3a63757f5786a838e45dc11741b56c169a0a9f4180690",
+        "missing-target:14": "c2d6e4072d7c9b6c7a859784ff20ee59dc47a8354e4aaf31d564b08b5dae9492",
+        "missing-target:15": "b160fd52402ed9378ba069e90bbfd595c4cbe61624c5e1dfebd46461147ac2ab",
+        "missing-target:16": "d71d1047210e912ad4048710c2d361c87069a1bfe1dab911c6f625d1d8cbf653",
+        "missing-target:17": "a08159a3810933e388f0506917ae62d169e829073e53c21040cd938e3dd0929a",
+        "missing-target:18": "2902764e5099fb7831b15c8962933cc1340338aa62aea98f968982cc5741843c",
+        "missing-target:19": "5ac0132c3bcb688a92e1e3249789d95272e1de748dbf6fde057904e7a42542a1",
+        "missing-target:2": "91291c8b194135726f570ed2a6d26a3ea33196f515c2248271d970ce73ad71e4",
+        "missing-target:20": "06c313c5ce4985baaef73510efe6eecd6e6d7afb7dae6630541de8f6cbcf6510",
+        "missing-target:21": "4d11925acaf7aade119f11bb259231916265a6174aad9bae1ee9d47e5405becd",
+        "missing-target:22": "4d471e4cb12cf6859855950aeedc0a4dcf1100daa691028280b58dacc8bd1002",
+        "missing-target:23": "159bb5c050e1be4b95d1dea1ef83267fe7a00fcc748a27561692b45dd77a9880",
+        "missing-target:24": "71aeb10a7efb27e09a533abb85bba6c0293ff1756cc6c56af39f92f83825dd82",
+        "missing-target:25": "2e7279c62ed897b349e0320846638f6ddd64b92cab908746e989ac1631cbf446",
+        "missing-target:26": "34ace39838101b97d2ca62b04cc815228b0c90a892441530222988c06ff47c58",
+        "missing-target:3": "41eb9dc7c577f495c1e77f51c44295c4574bf16a47df3768876a1230b2fc5089",
+        "missing-target:4": "f6c3924269b5fe7539c9458bc080c39f2f8a26ba843997a199f8972666557987",
+        "missing-target:5": "67cafb09a5d2fc69724f05e7cb23ced09ace1a55e5267a808f4e8adcdccdb534",
+        "missing-target:6": "9a371640b1be64ae31275347dad0a8bdd533098ae0b82f9e9c816489dd4e5c3d",
+        "missing-target:7": "16572e60f6515f267769a26b04ef4642910fab83da60133c72292d829918c638",
+        "missing-target:8": "51cac574bf37cf02fa2d7d26bc3b5bd1c64dd15648114e9e23a3c47c95dd5f02",
+        "missing-target:9": "27b2ae8fddf27716bf449b10105ba734773d937ad78b626dda98301304e9a60a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "TVDB 263038 (Gon) lists both AniDB ids 8997 and 11153 but its only season is S1 with 50 episodes (2012-04 to 2013-03 = all 50 episodes of aid 8997, Here Comes Gon ... Gon Becomes a Bodyguard). The 26 episodes of the 2015 series (2015-04-04 to 2015-09-26) are not on TVDB at all (no S2, thetvdb allseasons page shows only season 1). TMDB 109581 does have \"GON: Season 2 (2015)\", which confirms the node's season 2 is the intended target. A TVDB gap, not a mapping error. No other TVDB series carries the 2015 episodes (SkyHook searches Gon, GON 2nd Season).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/109581/season/2",
+        "https://anidb.net/anime/11153",
+        "https://thetvdb.com/dereferrer/series/263038"
+      ]
+    }
+  }
+}

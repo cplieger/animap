@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:5276",
+  "title": "KimiKiss Pure Rouge",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "898eebd9f6945390ad9b42eee6156762c0982c3549e67ddef69280780069113e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1 \"Love Fighter\" -\u003e S0E1 \"Love Fighter\": same title (2008-08-22 versus 2008-03-29 is the DVD versus TV date). S2 \"Production Special\" -\u003e S0E2 does not exist in TVDB (season 0 has one episode): a TVDB gap, not an error. 24 regular episodes match by title.",
+      "evidence": [
+        "https://anidb.net/anime/5276",
+        "https://thetvdb.com/dereferrer/series/81624"
+      ]
+    }
+  }
+}

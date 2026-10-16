@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:9745",
+  "title": "Ketsuekigata-kun!",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "885284a0a53854bc3fea8e46b5f80fbffb84cba8454107b2a03d43de837d4086"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-12 -\u003e S1E1-E12 (TVDB titles are \"Episode N\"; count, order and dates agree, three dates one day later). S1 \"Ketsuekigata-kun! Featuring Yuri \u0026 Nasuno\" (2 min, 2013-06-30) -\u003e S0E1, which SkyHook names \"Episode 13\" but TheTVDB's season 0 page shows the original title 血液型くん!フューチャリング ユリ\u0026なすの (identical to AniDB's Japanese title), 2 min, and the overview says it aired in the regular slot a week after episode 12 (2013-06-30). The TVDB date 2013-08-30 is the DVD date.",
+      "evidence": [
+        "https://thetvdb.com/series/ketsuekigata-kun/seasons/official/0",
+        "https://anidb.net/anime/9745",
+        "https://thetvdb.com/dereferrer/series/268588"
+      ]
+    }
+  }
+}

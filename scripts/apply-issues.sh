@@ -7,7 +7,7 @@ set -euo pipefail
 PLAN="${1:?usage: apply-issues.sh actions.json}"
 REPO="${GITHUB_REPOSITORY:?set GITHUB_REPOSITORY}"
 
-for label in animap drift watch publish lead:date-mismatch; do
+for label in animap anime publish; do
   gh label create "$label" --repo "$REPO" --force --color ededed >/dev/null
 done
 

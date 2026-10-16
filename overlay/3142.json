@@ -24,7 +24,7 @@
     ]
   },
   "title": "Boukensha-tachi: Gamba to Nanbiki no Nakama",
-  "justification": "tvdbid 5411 to 329173 (TVDB 5411 is gone from TVDB's official order). AniDB 1 (1984-03-04) = TVDB 0x04 (1984-03-04), was TVDB 5411 0x04. AniDB 2 (1984-03-04) = TVDB 0x04 (1984-03-04), was TVDB 5411 0x05. AniDB 3 (1984-03-04) = TVDB 0x04 (1984-03-04), was TVDB 5411 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 329173. The node moves from TVDB 5411 to series 329173. AniDB episode 1 \"Complete Movie\" is TVDB S0E4 \"The Adventurers Gamba and His Seven Friends\"; AniDB episode 2 \"Part 1 of 2\" is TVDB S0E4 \"The Adventurers Gamba and His Seven Friends\"; AniDB episode 3 \"Part 2 of 2\" is TVDB S0E4 \"The Adventurers Gamba and His Seven Friends\". TVDB series 5411 no longer exists. Series 329173 carries the 1984 film as S0E4 (95 minutes, 1984-03-04); AniDB episodes 2 and 3 are its two parts.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

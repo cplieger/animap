@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:12",
+  "title": "Chobits",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "3e9f0d6fd54d14d9a6aa351968fdce2f1217fa6348bab6e91aa6b1938c1f2b57",
+        "date-mismatch:S2": "e0ae8f01512a575b24e9333afeef0b124b52d4b7571e4c9e035b4ad7cadb413a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The two flagged specials are placed by an explicit row (;1-3;2-4;) on the right TVDB specials by title and order: AniDB S1 \"Hibiya and Kotoko Chat / Hibiya, Kotoko: Kataru\" -\u003e S0E3 \"Hibiya and Kotoko Chat\" (same title); AniDB S2 \"Chibits: Sumomo and Kotoko Deliver / Chibits - Sumomo, Kotoko: Todokeru\" -\u003e S0E4 \"Chibits: Sumomo and Kotoko Deliver\". The only difference is the date (AniDB 2003-02-21 and 2003-01-24, TVDB both 2003-09-13, i.e. TVDB dates a batch). The rest of the node is also right by title: AniDB 9 \"Shinbo and Sumomo Chat\" -\u003e S0E1 and 18 \"Minoru and Yuzuki Chat\" -\u003e S0E2, AniDB 10-17 -\u003e S1E9-16 (Chi Buys .. Chi Provides), 19-26 -\u003e S1E17-24 (Chi Helps .. The Person Only for Chi). 26 + 2 episodes, no gap.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/72070",
+        "https://anidb.net/anime/12"
+      ]
+    }
+  }
+}

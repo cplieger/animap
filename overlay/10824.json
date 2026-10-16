@@ -1,13 +1,35 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10824",
+    "tmdb_movie": "https://www.themoviedb.org/movie/334376",
     "tvdb": "https://thetvdb.com/series/ghost-in-the-shell-arise-alternative-architecture/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "11"
+    "episodeoffset": "11",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "334376",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
   },
   "title": "Koukaku Kidoutai: Shin Gekijouban",
-  "justification": "AniDB 1 (2015-06-20) = TVDB 0x12 (2015-06-20), was 0x01 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 293491. The film is TMDB movie 334376 (Ghost in the Shell: The New Movie (2015)). TMDB show 62070 does not carry it, so the node leaves that show. AniDB episode 1 \"Complete Movie\" (the anime \"攻殻機動隊 新劇場版\") is TVDB S0E12 \"Ghost in the Shell: The New Movie\"; AniDB S1 \"Technology in Ghost in the Shell\" has no TVDB episode (TVDB has no S0E1); AniDB S2-S3 (\"ARISE: Alternative Architecture\" to \"25 years Reviewed in 25 minutes (Extended director`s cut) + movie guide\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -91,8 +113,8 @@
       ],
       "series": 293491
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4a50dcf7640b9c72fa92dd3b259c810ef9ecded6220a82665b761a4e059d362f"
   },
   "anilist_ids": [

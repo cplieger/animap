@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:10219",
+  "title": "AniList 10219",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 7978 S1 (2011-07-13) is TVDB 216611 0x1 From Little Sister With Love by title, but TVDB dates it 2011-07-06, a week apart, so no special-of-parent bridge can pass its one-day date rule",
+        "evidence": [
+          "https://anilist.co/anime/10219"
+        ],
+        "anilist_id": 10219
+      }
+    ]
+  }
+}

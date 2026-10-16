@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/4755",
     "tvdb": "https://thetvdb.com/series/dance/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/452956"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/452956",
+    "tmdb": "https://www.themoviedb.org/tv/138068/seasons"
   },
   "set": {
     "tvdbid": "481922"
   },
   "title": "Asatte Dance",
-  "justification": "tvdbid 452956 to 481922 (TVDB 452956 is gone from TVDB's official order). AniDB 1-2 (1991-07-25 to 1991-10-21) = TVDB 1x01-1x02 (1991-07-25 to 1991-10-20), was TVDB 452956 1x01-1x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 481922 and TMDB show 138068. The node moves from TVDB 452956 to series 481922. AniDB episode 1-2 (\"Episode 1\" to \"Episode 2\") are TVDB S1E1 to TVDB S1E2. TVDB series 452956 no longer exists. Series 481922 holds exactly the two OVAs (Asatte Dance and Asatte Dance 2, 45 minutes each, 1991) and lists AniDB's IMDb id and the node's TMDB show 138068.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

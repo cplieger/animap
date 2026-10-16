@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15026",
-    "tmdb": "https://www.themoviedb.org/tv/103377/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/103377/seasons",
     "tvdb": "https://thetvdb.com/series/zoids-wild-zero/seasons/official/1"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdbseason": "1"
   },
   "title": "Zoids Wild Zero",
-  "justification": "TVDB 347578 is Zoids Wild (S1 50, no S2); TVDB 370842 is this series. AniDB 1-50 (2019-10-04 to 2020-10-16) = TVDB 1x01-1x50 and TMDB 103377 S1E1-50, same dates. The old TMDB 80720 has no S2. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 370842 and TMDB show 103377. Its episodes are on TMDB show 103377. The node moves from TVDB 347578 to series 370842. AniDB episode 1-50 (\"誕生! ビーストライガー!\" (Episode 1) to \"無限大の地球へ\" (Episode 50)) are TVDB S1E1 \"Birth! Beast Liger!\" to TVDB S1E50 \"To The Infinite Earth\" and TMDB S1E1 \"Birth! Beast Liger!\" to TMDB S1E50 \"Episode 50\". The published TVDB series 347578 is Zoids Wild (2018) and has no second season. Series 370842 is Zoids Wild Zero and carries all 50 episodes by Japanese title, as TMDB show 103377 does.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

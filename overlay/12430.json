@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12430",
+    "tmdb": "https://www.themoviedb.org/tv/63926/seasons",
     "tvdb": "https://thetvdb.com/series/one-punch-man/seasons/official/0"
   },
   "set": {
@@ -44,11 +45,26 @@
             9
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 7,
+        "offset": 7,
+        "episodes": [
+          [
+            8
+          ],
+          [
+            9
+          ]
+        ]
       }
     ]
   },
   "title": "One Punch Man (2019)",
-  "justification": "AniDB special S8-S9 (2019-04-10 to 2019-06-12) have no TVDB episode, was 0x08-0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 293088 and TMDB show 63926. AniDB S1-S7 (\"一撃でわかる! ONE PUNCH MAN ワンパンマン マジ振り返り!\" (One Punch, and You`ll Know Everything! One Punch Man: A Super Serious Look Back!) to \"ゾンビマン殺人事件2 ~吹雪の山荘と寒がり達~\" (The Murder Case That Is Just Too Impossible 2: Snowed in Heroes and the Mountain Retreat)) are TMDB S0E8 \"一撃でわかる！TVアニメ「ワンパンマン」マジ振り返り！\" (A Super Serious Look Back!) to TMDB S0E14 \"OVA 2 #06「ゾンビマン殺人事件２～吹雪の山荘と寒がり達～」\" (The Zombieman Murder Case 2: A Chalet Amid the Blizzard, and the Ones Bothered by the Cold); AniDB S8-S9 (\"Episode 1 Opening\" to \"Episode 9 Ending\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -235,8 +251,8 @@
       ],
       "series": 293088
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2960bad3b6841b3dae98abe59206fcf159c365a1efe5e9e233bfeab90cf2081a"
   },
   "anilist_ids": [

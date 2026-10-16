@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14013",
-    "tvdb": "https://thetvdb.com/series/violet-evergarden/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/violet-evergarden/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/533514"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Gekijouban Violet Evergarden",
-  "justification": "AniDB special S1 (2021-10-13) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 330139. AniDB S1 \"公開記念舞台挨拶\" (Premiere Commemoration Stage Greeting) has no TVDB episode (its default TVDB S0E1 is \"OVA: Surely, Someday You Will Understand 'Love'\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

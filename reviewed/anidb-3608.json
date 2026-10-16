@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:3608",
+  "title": "Eiga Atashinchi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "ef6e8ff2bae412a1f5a2d798c38801616442084bffac2a6659e254e6be1f4848"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1 'Complete Movie' (2003-12-06) -\u003e S0E6 'Atashinchi Movie'. TVDB dates it 2003-06-12, the same day written day-month instead of month-day (6 December), so the date flag is a TVDB date-format slip. S0E5 'Atashin'chi: The 3D Movie' (2010) is the other film, mapped by AniDB 7906 (offset 4), so the two films do not collide. TVDB S0E1-E4 have no title (TV specials).",
+      "evidence": [
+        "https://anidb.net/anime/3608",
+        "https://thetvdb.com/dereferrer/series/90331"
+      ]
+    }
+  }
+}

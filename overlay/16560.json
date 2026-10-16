@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16560",
+    "tmdb_movie": "https://www.themoviedb.org/movie/938567",
     "tvdb": "https://thetvdb.com/series/karakai-jouzu-no-takagi-san/seasons/official/0"
   },
   "set": {
@@ -14,13 +15,19 @@
           ],
           [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4
           ]
         ]
       }
     ]
   },
   "title": "Gekijouban Karakai Jouzu no Takagi-san",
-  "justification": "AniDB special S1-S2 (2022-11-16) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 337936. AniDB S1-S2 (\"'ぶらり旅'上手の高橋さんin小豆島\" (Takahashi-san in Shoudoshima) to \"完成披露上映会\" (Completion Announcement Screening)) have no TVDB episode (their defaults are other items); AniDB S3-S4 (\"公開記念 舞台挨拶\" (Premiere Commemoration Stage Greeting) to \"大ヒット御礼! 舞台挨拶\" (Thank You for Success! Stage Greeting)) have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -44,8 +51,8 @@
       ],
       "series": 337936
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "777d976bf91b821a8355e6c8ddddedfa944f8aabb9d63ff4eee3a7c334f54ba8"
   },
   "anilist_ids": [

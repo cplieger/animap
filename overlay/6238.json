@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6238",
-    "tvdb": "https://thetvdb.com/series/eden-of-the-east/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/eden-of-the-east/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/21750/seasons"
   },
   "set": {
     "mapping_list": [
@@ -23,7 +24,7 @@
     ]
   },
   "title": "Higashi no Eden",
-  "justification": "AniDB special S1-S3 (2009-05-27 to (none)) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 88721 and TMDB show 21750. AniDB S1-S3 (\"Music Video - Oasis 'Falling Down'\" to \"Interview with Takeda Yuusuke\") have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

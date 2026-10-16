@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/138",
     "tvdb": "https://thetvdb.com/series/sakura-mail/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/94611"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/94611",
+    "tmdb": "https://www.themoviedb.org/tv/44621/seasons"
   },
   "set": {
     "tvdbid": "84141"
   },
   "title": "Sakura Tsuushin",
-  "justification": "tvdbid 94611 to 84141 (TVDB 94611 is gone from TVDB's official order). AniDB 1-12 (1997-05-21 to 1997-10-22) = TVDB 1x01-1x12 (1997-05-21 to 1997-10-22), was TVDB 94611 1x01-1x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 84141 and TMDB show 44621. The node moves from TVDB 94611 to series 84141. AniDB episode 1-12 (\"東京サクセス\" (Tokyo Success) to \"受験生の決断\" (A Testing Student`s Decision)) are TVDB S1E1 \"Tokyo Success\" to TVDB S1E12 \"A Testing Student's Decision\". TVDB series 94611 no longer exists. Series 84141 carries all twelve episodes by title and is the series TMDB show 44621 links.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

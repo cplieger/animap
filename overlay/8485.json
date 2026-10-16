@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8485",
-    "tvdb": "https://thetvdb.com/series/un-go/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/un-go/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/42142/seasons"
   },
   "set": {
     "mapping_list": [
@@ -15,7 +16,7 @@
     ]
   },
   "title": "Un-Go",
-  "justification": "AniDB special S1-S10 (2011-11-08 to 2012-04-24) = TVDB 0x02-0x11 (2011-11-08 to 2012-04-24), was 0x01-0x10. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 252472 and TMDB show 42142. AniDB S1-S10 (\"因果日記\" (Inga`s Diary - 01) to \"因果日記\" (Inga`s Diary - 10)) are TVDB S0E2 \"Inga's Diary - 01\" to TVDB S0E11 \"Inga's Diary - 10\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

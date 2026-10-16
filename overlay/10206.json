@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10206",
+    "tmdb": "https://www.themoviedb.org/tv/45790/seasons",
     "tvdb": "https://thetvdb.com/series/jojos-bizarre-adventure-2012/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -32,7 +34,7 @@
     ]
   },
   "title": "JoJo no Kimyou na Bouken: Stardust Crusaders",
-  "justification": "AniDB special S1-S6 (no AniDB date) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 262954 and TMDB show 45790. AniDB S1-S6 (\"An interview with Kyle Hebert\" to \"JoJo`s Bizarre Fandom\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -471,8 +473,8 @@
       ],
       "series": 262954
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "499b9fdd0afd474ef3df179391ca4715b6dc84c82e992c3750e6fd9b14efa2bc"
   },
   "anilist_ids": [

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:962",
+  "title": "UFO Robo Grendizer",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:25": "32a49ba1fa2c655f5c3c830f73cf1aa6faa6762066dada345ab9ebcf7910b4df"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "74 AniDB regular episodes map 1:1 to TVDB S1E1-E74 (74 episodes) in the same order and on the same Sunday broadcast dates. TVDB titles are the French-dub (Goldorak) titles, so most differ in wording from AniDB's, but the ones that can be matched by meaning agree in position: 25 \"A Flower of Love Bloomed in the Sky\" = \"Fleed's Lovers\" (the single flagged episode), 46 \"Sharks Falling from the Sky!!\" = \"The Ballet of Sharks\", 47 \"The Pond Brings Forth Hellfire!\" = \"The Ignited Lake\", 57 \"Howl! My Monster\" = \"The Monster And The Child\", 62 \"The Day the Swans Came!\" = \"Swans\", 64 \"Five Minutes Before Destroying Tokyo!\" = \"5 Minutes To Die\", 66 \"Death at 400 Meters Below Sea Level!\" = \"Death Comes From The Sea\", 67 \"Destroy the Marine Base\" = \"Diving Operation\", 73 \"For This Beautiful Earth\" = \"For The Love Of Earth\", 74 \"Shine Forever, You Two Stars!\" = \"This Is Not Goodbye\". The only failing episode is 25: TVDB dates it 1976-03-19 (a Friday; TVDB also dates 22-26 two to six days before AniDB's Sundays, all inside the same slots) while AniDB has the Sunday 1976-03-21. The suggested target S0E3 is the theatrical film \"UFO Robot Grendizer vs. Great Mazinger\", not an episode. A TVDB date error, not a mapping error.",
+      "evidence": [
+        "https://thetvdb.com/series/ufo-robot-grendizer/seasons/official/1",
+        "https://anidb.net/anime/962",
+        "https://thetvdb.com/dereferrer/series/79760"
+      ]
+    }
+  }
+}

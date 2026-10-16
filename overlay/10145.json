@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10145",
-    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/haikyu/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -11,13 +11,16 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Haikyuu!!",
-  "justification": "AniDB special S1 (2015-02-18) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2015-02-18) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S2, the night part of the stage event, has no TVDB episode either; its default was TVDB 278157 season 0 episode 2, the first film (node 11040).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -264,8 +267,8 @@
       ],
       "series": 278157
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0f4c16ec6db65dd98c24639cc2b63b600718236f7c9d94f34653bc89b9aad44c"
   },
   "anilist_ids": [

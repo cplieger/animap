@@ -4,24 +4,31 @@
     "tvdb": "https://thetvdb.com/series/code-geass-lelouch-of-the-rebellion/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
-      {
-        "anidb_season": 1,
-        "tvdb_season": 0
-      },
       {
         "anidb_season": 0,
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
+            2
+          ],
+          [
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0
       }
     ]
   },
   "title": "Gekijou Soushuuhen Code Geass: Hangyaku no Lelouch",
-  "justification": "AniDB special S3 (2018-06-01) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S3 (2018-06-01) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB specials S1, the Aka dake ga Tarinai music video, and S2, a picture drama, have no TVDB episode; their defaults were TVDB 79525 season 0 episodes 1 and 2, the first two films. Episode 51 Kiseki Anniversary Picture Drama belongs to a 2016 event release, not proven to be this bonus. The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -351,8 +358,8 @@
       ],
       "series": 79525
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b27bdc79698fc18c7ccad2a92e6f1a3fbfad29c701aa6d4105fcf8746c4b5259"
   },
   "anidb_id": 12567

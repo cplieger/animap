@@ -1,0 +1,197 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11009",
+    "tmdb": "https://www.themoviedb.org/tv/61422/season/0",
+    "tvdb": "https://thetvdb.com/series/the-fruit-of-grisaia/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 5,
+        "offset": 8
+      }
+    ]
+  },
+  "title": "Grisaia no Rakuen",
+  "justification": "TMDB 61422 season 0 has the TVDB numbers: E9-E13 Yumiko's Heart-Pounding Intimate Locker to Amane and Kazuki's Massage (2015-08-26 to 12-25) = S1-S5. The row named only TVDB, so on TMDB they took E1-E5, the first season's specials.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3eb063e8e75c47b786c4a4b8c3992f5cdff44262f80d3fba8ef428ced3b78676",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-12-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-01-28"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-02-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-03-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2015-04-22"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-05-27"
+        ],
+        [
+          0,
+          7,
+          14,
+          "2015-04-12"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-07-23"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-08-25"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2015-09-18"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2015-10-23"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2015-11-26"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2015-12-25"
+        ],
+        [
+          0,
+          14,
+          25,
+          "2019-03-15"
+        ],
+        [
+          0,
+          15,
+          26,
+          "2019-03-15"
+        ],
+        [
+          0,
+          16,
+          27,
+          "2020-11-27"
+        ],
+        [
+          2,
+          1,
+          15,
+          "2015-04-19"
+        ],
+        [
+          2,
+          2,
+          16,
+          "2015-04-26"
+        ],
+        [
+          2,
+          3,
+          17,
+          "2015-05-03"
+        ],
+        [
+          2,
+          4,
+          18,
+          "2015-05-10"
+        ],
+        [
+          2,
+          5,
+          19,
+          "2015-05-17"
+        ],
+        [
+          2,
+          6,
+          20,
+          "2015-05-24"
+        ],
+        [
+          2,
+          7,
+          21,
+          "2015-05-31"
+        ],
+        [
+          2,
+          8,
+          22,
+          "2015-06-07"
+        ],
+        [
+          2,
+          9,
+          23,
+          "2015-06-14"
+        ],
+        [
+          2,
+          10,
+          24,
+          "2015-06-21"
+        ]
+      ],
+      "series": 281949
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "b89cfa5b2e1e752b335777f59e46397c4ba196d6807d0b1610e71ab875b6c1be"
+  },
+  "anilist_ids": [
+    21006
+  ],
+  "anidb_id": 11009
+}

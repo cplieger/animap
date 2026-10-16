@@ -1,0 +1,217 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11073",
+    "tmdb": "https://www.themoviedb.org/tv/67034/season/1",
+    "tvdb": "https://thetvdb.com/series/momokuri/seasons/official/1"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 1,
+        "episodes": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            10,
+            5
+          ],
+          [
+            11,
+            6
+          ],
+          [
+            12,
+            6
+          ],
+          [
+            13,
+            7
+          ],
+          [
+            14,
+            7
+          ],
+          [
+            15,
+            8
+          ],
+          [
+            16,
+            8
+          ],
+          [
+            17,
+            9
+          ],
+          [
+            18,
+            9
+          ],
+          [
+            19,
+            10
+          ],
+          [
+            20,
+            10
+          ],
+          [
+            21,
+            11
+          ],
+          [
+            22,
+            11
+          ],
+          [
+            23,
+            12
+          ],
+          [
+            24,
+            12
+          ],
+          [
+            25,
+            13
+          ],
+          [
+            26,
+            13
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Momokuri",
+  "justification": "TVDB 299746 lists the 26 AniDB episodes as 13 double episodes: Eps.1 Confession! Momo-kun and Kurihara-san / Eps.2 Changing Clothes for the Season = AniDB 1 and 2, Eps.3 First Date?! / Eps.4 Study Session = 3 and 4, through Eps.25 Onsen Trip / Eps.26 Their Feelings = 25 and 26. The default sent AniDB k to episode k. TMDB 67034 keeps 26 single episodes, where the TMDB default already lands.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "10bb1476cdfc8fa9be09e1d88425930f9fd25026d2af9486b259d9bfd75287de",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2015-12-24"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2016-01-07"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2016-02-04"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2016-02-04"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2016-02-04"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2016-02-04"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2016-02-04"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2016-02-04"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2016-02-04"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2016-02-04"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2016-02-04"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2016-02-04"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2016-02-04"
+        ]
+      ],
+      "series": 299746
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "758c56a7c83da9f144a05c24d12477045f2b6f5959d8a871b7ec21ed090e2944"
+  },
+  "anidb_id": 11073
+}

@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:10325",
+  "title": "Mitsuwano",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "e7d58c6637db0c409d600a24c0c9257eb0aa892b7174a016a6cef9dfa868e22d",
+        "gaps": [
+          "no_tvdb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: TVDB lists it only as movie 136296 (TMDB movie 294122) and has no series for it; the watch rule asks this type for a TVDB series",
+        "evidence": [
+          "https://anilist.co/anime/20576"
+        ],
+        "anilist_id": 20576
+      }
+    ]
+  }
+}

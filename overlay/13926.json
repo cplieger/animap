@@ -1,0 +1,58 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13926",
+    "tvdb": "https://thetvdb.com/series/hugtto-precure/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Hugtto! Precure x Futari wa Precure: All Stars Memories",
+  "justification": "The film is TVDB season 0 episode 2 \"Hugtto! Precure Futari wa Precure Movie: All Stars Memories\" (2018-10-27). AniDB specials S1 \"Premiere Event\" and S2 \"Opening Night Event\" fell by default on season 0 episodes 1 (the Super Stars film, AniDB 13688) and 2 (this film). TVDB lists no event recordings, so both are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6a800ef1be366f6447d7e93071e9594ad676061cde71a9d00c39882aae919427",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-03-17"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2018-10-27"
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ]
+      ],
+      "series": 340261
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "e8429c38fd3a26a14bc4e258ea6e774c22cbca02d0bad58081f5d3dd2f9f4f26"
+  },
+  "anidb_id": 13926
+}

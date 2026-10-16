@@ -6,10 +6,11 @@
   },
   "set": {
     "defaulttvdbseason": "0",
+    "episodeoffset": "0",
     "tmdbtv": "44243"
   },
   "title": "Time Bokan Oudou Fukko",
-  "justification": "AniDB 1-2 (1993-11-26, 1994-01-01) = TVDB 0x1-0x2 and TMDB 44243 S1E1-2, same dates and titles (TMDB also lists placeholder E3-E14). AniDB lists no specials. Old season 1 is the 1975 TV series (1x1 1975-10-04), and old TMDB 17706 is that 1975 series (S1 61 only).",
+  "justification": "AniDB 1-2 (1993-11-26, 1994-01-01) = TVDB 0x1-0x2 and TMDB 44243 S1E1-2, same dates and titles (TMDB also lists placeholder E3-E14). AniDB lists no specials. Old season 1 is the 1975 TV series (1x1 1975-10-04), and old TMDB 17706 is that 1975 series (S1 61 only). The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -39,8 +40,8 @@
       ],
       "series": 210061
     },
-    "at": "2026-10-04",
-    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f898c2482c6388f54647b92811ea8f220f9daec9f090d6b89f4db88104fae794"
   },
   "anilist_ids": [

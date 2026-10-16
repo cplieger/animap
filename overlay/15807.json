@@ -1,14 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15807",
+    "tmdb": "https://www.themoviedb.org/tv/83121/seasons",
     "tvdb": "https://thetvdb.com/series/kaguya-sama-love-is-war/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "0"
+    "episodeoffset": "0",
+    "tmdboffset": "1"
   },
   "title": "Kaguya-sama wa Kokurasetai? Tensai-tachi no Ren'ai Zunousen (2021)",
-  "justification": "AniDB 1 (2021-05-19) = TVDB 0x01 (2021-05-19), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 354198 and TMDB show 83121. AniDB episode 1 \"かぐや様ダークネス volume 1 / かぐや様ダークネス volume 2 / かぐや様は食べさせたい\" (OVA) is TMDB S0E2 \"かぐや様は告らせたい～天才たちの恋愛頭脳戦～ OVA\" (Kaguya Darkness Volume 1 / Kaguya Darkness Volume 2 / Kaguya Wants Him to Eat).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "d84d121321b6bf8413c7e98f0ab6e6764817ec9076e5da9bb6ac886d8943bfd3",
@@ -121,8 +123,8 @@
       ],
       "series": 354198
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "78c00c26226f5de23c5a0291ad53d634a437fd50030e1824b91e257ecd7537fc"
   },
   "anilist_ids": [

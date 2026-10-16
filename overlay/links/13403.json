@@ -1,0 +1,24 @@
+{
+  "anilist_id": 13403,
+  "title": "Inu x Boku SS Special",
+  "parts": [
+    {
+      "anidb_id": 8564,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 13403 is one special, 2012-09-26, offline-database title 'Inu x Boku SS: Miketsukami-kun Henka/Switch/Omamagoto'. AniDB 8564 S1 is 'Miketsukami-kun Henka / Switch / Omamagoto' (2012-09-26); TVDB 255133 0x01 is \"Miketsukami-kun's Transformations / Switch / Playing House\" on 2012-09-26, the only special. The AniList English title says 'Special' only; the content is the same single OVA.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8564",
+    "anilist": "https://anilist.co/anime/13403",
+    "tmdb": "https://www.themoviedb.org/tv/45282/season/0",
+    "tvdb": "https://thetvdb.com/series/inu--boku-secret-service/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "bc6c748163c7b150d6a486a48f6f4448ec3907cc4a2f92fbd3fdd7e8e8aade96"
+  }
+}

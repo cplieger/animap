@@ -1,0 +1,70 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3386",
+    "tvdb": "https://thetvdb.com/series/burst-angel/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Bakuretsu Tenshi: Infinity",
+  "justification": "AniDB special S1 2005 AX Special - The Light and Darkness of Jo is TVDB 74908 season 0 episode 4 The Lightness and Darkness of Jo (2005-07-01); the row sent it to episode 2, which does not exist. S2 Battle Record of All 24 Episodes stays on episode 3 of that title, and S3 has no TVDB episode. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6d21fe77afa6e3d506c839d5c6b5f20910f5d7b7dfd9891dbe745c62d92de544",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          25,
+          "2007-03-23"
+        ],
+        [
+          0,
+          3,
+          0,
+          ""
+        ],
+        [
+          0,
+          4,
+          0,
+          "2005-07-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ]
+      ],
+      "series": 74908
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "7ef5855e9f581bc112e426fa2bfc3defd548ec1de6bd38b34612d94b29021940"
+  },
+  "anidb_id": 3386
+}

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 1143,
+  "title": ".hack//INTERMEZZO",
+  "parts": [
+    {
+      "anidb_id": 24,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 1143 (SPECIAL, 1 episode, 2003) is AniDB 24's special S1 \"Intermezzo\", aired 2003-03-28. AniList's PREQUEL relation names AniList 48, which anime-offline-database links to AniDB 24, and the special's title matches the AniList title. AniList gives the year only, so the start-date check cannot apply; the title and the 1-episode count agree. TVDB 79099 places the special at S0E1 \"Intermezzo\", 2003-03-28, the same date; the node's mapping list leaves S1 unlisted, so it lands on S0E1 by default.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/24",
+    "anilist": "https://anilist.co/anime/1143",
+    "tmdb": "https://www.themoviedb.org/tv/8864/season/0",
+    "tvdb": "https://thetvdb.com/series/dothack/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "e3b141a1cdf785c853f26380cd2ddb898297258053467b20ddb7cb659b343d3a"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4742",
+    "tvdb": "https://thetvdb.com/series/perman-1983/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "361696",
+    "episodeoffset": "4",
+    "tmdbtv": "",
+    "tmdbseason": ""
+  },
+  "title": "Ninja Hattori-kun Plus Perman: Chounouryoku Wars",
+  "justification": "The crossover film \"Ninja Hattori-kun Plus Perman: Chounouryoku Wars\" (1984-03-17) is not on Ninja Hattori-kun's TVDB season 0, where it fell on episode 1, a TV special. TVDB lists it on Perman (1983), TVDB 361696, as season 0 episode 5, 忍者ハットリくん＋パーマン 超能力ウォーズ (1984-03-17), found by the TheTVDB search for パーマン. TMDB 80885 has no season 0, and Perman's TMDB 132791 season 0 lists only three untitled specials, so the TMDB values are cleared.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "01e1a2cddd6b37519590b98cb8822f779dc73181eb78b5fd6306a44536a322cb",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1983-07-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1984-01-03"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1984-10-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1983-03-12"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1984-03-17"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1985-03-01"
+        ]
+      ],
+      "series": 361696
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8a8751ccba88ac62adc70be9cb0cf7dee86e449c3d5b943a2a397962f34c32aa"
+  },
+  "anidb_id": 4742
+}

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:260",
+  "title": "Galaxy Angel 3",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:8": "b6a8222a41279e082a678b9fa24d7597c187fda703c4eca8e984c0e88614811f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The node pairs each AniDB episode with two TVDB half-episodes (1-1+2 ... 26-51+52) in season 3 (52 episodes for 26 AniDB episodes) and every pair carries the right two titles, e.g. AniDB 1 \"Old Man Detective Novel Rice Porridge / Original Angel Parfait with the Works\" = S3E1 + S3E2, AniDB 15 \"Dried Pig`s Feet / Fried Bean Curd Top Gun\" = S3E29 \"Sun-dried Pork Feet\" + S3E30 \"Top Imitation Goose\", AniDB 26 \"Rebecca\" = S3E51 + S3E52 \"Final Dish REBECCA (Part 1)/(Part 2)\". The only failure is AniDB 8 pair member S3E15 \"Good-bye to our Steaming Teapot\", dated 2002-10-24 on TVDB against 2002-11-24 on AniDB, a one-month TVDB typo (the next row, S3E16, is dated 2002-11-24). Specials S1-S3 = S0E2-S0E5 by title.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/79289",
+        "https://anidb.net/anime/260"
+      ]
+    }
+  }
+}

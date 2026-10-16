@@ -1,14 +1,15 @@
 {
-  "anidb_id": 12428,
-  "title": "High School Fleet (2017)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12428",
+    "tmdb": "https://www.themoviedb.org/tv/66105/seasons",
+    "tvdb": "https://thetvdb.com/series/high-school-fleet/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1-2 (2017-03-31 to 2017-05-24) = TVDB 0x01-0x02 (2017-03-31 to 2017-05-24), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/12428",
-    "tvdb": "https://thetvdb.com/series/high-school-fleet/seasons/official/0"
-  },
+  "title": "High School Fleet (2017)",
+  "justification": "Checked by episode title against TVDB series 306743 and TMDB show 66105. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-2 (\"納沙幸子がピンチ!\" (Nosa Kouko in a Pinch!) to \"納沙幸子もピンチ!?\" (Nosa Kouko Also in a Pinch!?)) are TVDB S0E1 \"Kouko Nosa in a Pinch!\" to TVDB S0E2 \"Kouko Nosa isn't in a Pinch!?\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "7b4bcc2db3b257ae445d33d557b2e394fbadf81e698bb53e18958570a5bcaac3",
@@ -44,5 +45,5 @@
   "anilist_ids": [
     97667
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 12428
 }

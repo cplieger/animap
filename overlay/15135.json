@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15135",
+    "tmdb": "https://www.themoviedb.org/tv/86034/season/0",
     "tvdb": "https://thetvdb.com/series/arifureta-from-commonplace-to-worlds-strongest/seasons/official/0"
   },
   "set": {
@@ -58,6 +59,10 @@
             16
           ],
           [
+            9,
+            17
+          ],
+          [
             10,
             18
           ],
@@ -77,11 +82,49 @@
             18
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 2,
+        "end": 11,
+        "offset": 16,
+        "episodes": [
+          [
+            1,
+            28
+          ],
+          [
+            12,
+            29
+          ],
+          [
+            13,
+            30
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16,
+            31
+          ],
+          [
+            17,
+            32
+          ],
+          [
+            18
+          ]
+        ]
       }
     ]
   },
   "title": "Arifureta Shokugyou de Sekai Saikyou 2nd Season",
-  "justification": "AniDB special S2-S8 (2022-01-13 to 2022-02-24) = TVDB 0x10-0x16 (2022-01-13 to 2022-02-24), was 0x02-0x08, by title. AniDB special S10-S13 (2022-03-10 to 2022-03-31) = TVDB 0x18-0x21 (2022-03-10 to 2022-03-31), was 0x10-0x13, by title. AniDB special S18 (no AniDB date) has no TVDB episode, was 0x18. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S2-S13 \"Picture Drama 1-12\" (2022-01-13 to 2022-03-31, weekly) are TVDB season 0 episodes 10-21 \"Series 2 Picture Drama Episode 1-12\" on the same dates; S9 \"Picture Drama 8: Yuka-chan's Prince?\" (2022-03-03) was left out and fell on episode 9, so it now goes to episode 17 of the same title and date. S14 and S15, the pre-broadcast special and its special version, are episode 6 \"Pre-air TV Special\"; S1 is episode 7; S16 and S17 \"The Miraculous Meeting... Part 1/2\" are episodes 8 and 9; S18, the full cut, has no TVDB episode. TMDB 86034 season 0 lists the second season's specials after the first's: E18-E27 Picture Drama 2 1-10 = S2-S11, E28 From a Detour to the World's Strongest = S1, E29-E30 Picture Drama 2 11-12 = S12-S13, E31-E32 The Miraculous Meeting and the Phantasmagorical Adventure Part 1-2 = S16-S17, with the same titles; it lists neither pre-broadcast special S14 or S15 nor S18. With no TMDB row S1-S18 took E1-E18, the first season's specials.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -460,8 +503,8 @@
       ],
       "series": 357019
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6621efe15a8eae87a0251ce0b97c9b147a7cc1bcb42411f51641b287420f8d3b"
   },
   "anilist_ids": [

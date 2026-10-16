@@ -1,0 +1,24 @@
+{
+  "anilist_id": 12565,
+  "title": "Fate/Prototype",
+  "parts": [
+    {
+      "anidb_id": 8102,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 12565 (OVA, 1 episode(s) from 2011-12-31) is AniDB 8102's special(s) S2 'Fate/Prototype', aired 2011-12-31, and AniDB lists MAL 12565 on AniDB 8102. The parent's mapping row places S2 on TVDB 251047 0x3 'Fate/Prototype', also 2011-12-31.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8102",
+    "anilist": "https://anilist.co/anime/12565",
+    "tmdb": "https://www.themoviedb.org/tv/43295/season/0",
+    "tvdb": "https://thetvdb.com/series/carnival-phantasm/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "eaf146fb6c750f2c96c2427f960f29c3dd561e662def07e849e9b29ca68c55ba"
+  }
+}

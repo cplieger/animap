@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9808",
-    "tvdb": "https://thetvdb.com/series/senyuu/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/senyu/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -10,6 +10,14 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
             3
           ]
         ]
@@ -17,7 +25,7 @@
     ]
   },
   "title": "Sen'yuu. (2013)",
-  "justification": "AniDB special S3 (2013-10-25) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Shitsujichou no Tabi Sono 2\" (2013-10-25) is TVDB season 0 episode 3 \"The Journey of the Head Butler (Part 2)\" (2013-10-25) and S2 \"Gakuen Senyuu.: Seishun Monogatari\" (2013-11-22) is episode 4 \"Academy Hero. ~Adolescence Story~\" (2013-11-22). By default they fell on episodes 1 and 2, the first season's specials (AniDB 9393). S3, the 15-minute summary, has no TVDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -132,8 +140,8 @@
       ],
       "series": 264050
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b2b8c1b32032e6e284dd8b3839df40a3bcfd3242e5d76cf7a50df2391b4d1198"
   },
   "anilist_ids": [

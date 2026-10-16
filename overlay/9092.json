@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9092",
+    "tmdb": "https://www.themoviedb.org/tv/43125/seasons",
     "tvdb": "https://thetvdb.com/series/guilty-crown/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 1,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -18,6 +20,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -27,7 +30,7 @@
     ]
   },
   "title": "Guilty Crown: Lost Christmas - An Episode of Port Town",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 252471 and TMDB show 43125. AniDB episode 1 \"OVA\" is TMDB S0E2 \"ギルティクラウン ロストクリスマス\" (Lost Christmas); AniDB S1 \"Game Opening\" has no TVDB episode (its default TVDB S0E1 is \"Reassortment\", another item) and no TMDB episode (its default TMDB S0E1 is \"Reassortment\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -123,8 +126,8 @@
       ],
       "series": 252471
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "51fe33a263f941c498475b43a6682970dc31d8cdc47ca76960094969e02d124e"
   },
   "anilist_ids": [

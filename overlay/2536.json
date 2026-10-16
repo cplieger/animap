@@ -1,0 +1,117 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2536",
+    "tvdb": "https://thetvdb.com/series/sukisho/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Suki na Mono wa Suki Dakara Shou ga Nai!!",
+  "justification": "AniDB special S1 Let's Go to a Hot Spring! (Onsen ni Ikou!) is TVDB 93261 season 0 episode 1 OVA - Let's Go to the Hot Springs! (2005-03-27); the row sent it to season 1 episode 13, which does not exist (season 1 has AniDB's 12).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f0e1c22e0ed9bcc9be5342a37837b40060f0e0b178a7aa9f254005eed670acaf",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2005-03-27"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2005-01-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2005-01-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2005-01-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2005-01-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2005-02-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2005-02-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2005-02-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2005-02-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2005-03-05"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2005-03-12"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2005-03-19"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2005-03-26"
+        ]
+      ],
+      "series": 93261
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "383d53da164b51bb47ea1f7fae4a6a78c1424db26206d99231d7301d776912c4"
+  },
+  "anidb_id": 2536
+}

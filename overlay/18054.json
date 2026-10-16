@@ -1,0 +1,170 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18054",
+    "tvdb": "https://thetvdb.com/series/the-prince-of-tennis-ii/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Shin Tennis no Ouji-sama: U-17 World Cup Semifinal",
+  "justification": "AniDB special S1, the pre-broadcast special (2024-09-30), has no TVDB episode. TVDB season 0 holds the 2012-2013 OVAs and the 2021 film parts; by default S1 fell on episode 1 \"The Night Before the Invitation\" (2012). It is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c1fd0b54d147e1a18c1582bb060129fa6572af097c399d486f58da579f567fd5",
+      "seasons": [
+        0,
+        4
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2012-04-20"
+        ],
+        [
+          0,
+          2,
+          15,
+          "2012-06-22"
+        ],
+        [
+          0,
+          3,
+          16,
+          "2012-08-24"
+        ],
+        [
+          0,
+          4,
+          17,
+          "2012-10-26"
+        ],
+        [
+          0,
+          5,
+          18,
+          "2012-12-21"
+        ],
+        [
+          0,
+          6,
+          19,
+          "2013-02-22"
+        ],
+        [
+          0,
+          7,
+          20,
+          "2013-04-24"
+        ],
+        [
+          0,
+          8,
+          31,
+          "2021-02-13"
+        ],
+        [
+          0,
+          9,
+          32,
+          "2021-04-17"
+        ],
+        [
+          4,
+          1,
+          46,
+          "2024-10-03"
+        ],
+        [
+          4,
+          2,
+          47,
+          "2024-10-10"
+        ],
+        [
+          4,
+          3,
+          48,
+          "2024-10-17"
+        ],
+        [
+          4,
+          4,
+          49,
+          "2024-10-24"
+        ],
+        [
+          4,
+          5,
+          50,
+          "2024-10-31"
+        ],
+        [
+          4,
+          6,
+          51,
+          "2024-11-07"
+        ],
+        [
+          4,
+          7,
+          52,
+          "2024-11-14"
+        ],
+        [
+          4,
+          8,
+          53,
+          "2024-11-21"
+        ],
+        [
+          4,
+          9,
+          54,
+          "2024-11-28"
+        ],
+        [
+          4,
+          10,
+          55,
+          "2024-12-05"
+        ],
+        [
+          4,
+          11,
+          56,
+          "2024-12-12"
+        ],
+        [
+          4,
+          12,
+          57,
+          "2024-12-19"
+        ],
+        [
+          4,
+          13,
+          58,
+          "2024-12-26"
+        ]
+      ],
+      "series": 254899
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "86d5a7e0f87c55394433efc11d9301db4a26c9456562d8b2ae8b985230a75844"
+  },
+  "anidb_id": 18054
+}

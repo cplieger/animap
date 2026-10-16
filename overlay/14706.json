@@ -1,0 +1,53 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14706",
+    "tmdb": "https://www.themoviedb.org/tv/85935/season/0",
+    "tvdb": "https://thetvdb.com/series/midnight-occult-civil-servants/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "0",
+    "tmdboffset": "2"
+  },
+  "title": "Mayonaka no Occult Koumuin: Fukurokouji to Anoko to Ore to",
+  "justification": "The OAD (2019-11-22), bundled with the twelfth manga volume, is TVDB season 0 episode 1 \"The Dead End, The Girl and Me\" (2019-11-22, 25 minutes, the bundled episode by its overview) and TMDB 85935 season 0 episode 3 \"The Blind Alley, the Boy, and I\" (2019-11-22). Offset 1 sent it to TVDB episode 2 \"Lonely Vampire\", AniDB 14172's special, and TMDB episode 2. TVDB also lists an undated placeholder \"The Blind Alley, the Boy, and I\" at episode 4. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b66fc40d12cb6fcac6961410dd8dd97076c0d5e48f5b3526938c1be60a356c5e",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2019-11-22"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2019-09-26"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2019-09-26"
+        ],
+        [
+          0,
+          4,
+          0,
+          ""
+        ]
+      ],
+      "series": 358331
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "fe1b760d5c1a3bfc3c9098126cbeacf20094b24616ab4820ceacfb139d526f86"
+  },
+  "anidb_id": 14706
+}

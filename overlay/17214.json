@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17214",
+    "tmdb": "https://www.themoviedb.org/tv/158373/seasons",
     "tvdb": "https://thetvdb.com/series/nierautomata/seasons/official/0"
   },
   "set": {
@@ -13,14 +14,30 @@
             1
           ],
           [
+            2
+          ],
+          [
             3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ],
+          [
+            3,
+            14
           ]
         ]
       }
     ]
   },
   "title": "NieR:Automata Ver1.1a",
-  "justification": "AniDB special S1 (2022-12-28) has no TVDB episode, was 0x01. AniDB special S3 (2024-02-08) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 416998 and TMDB show 158373. AniDB S1 \"最新情報発表特番\" (Newest Information Announcement Special Program) has no TVDB episode (its default TVDB S0E1 is \"「NieR:Automata Ver1.1a」 Chapter.13-18 Survey Report\", another item); AniDB S2 \"Blu-ray \u0026 DVD発売記念特番\" (Blu-ray \u0026 DVD Release Commemoration Special) has no TVDB episode (TVDB has no S0E2) and no TMDB episode (its default TMDB S0E2 is \"Puppet Play #01 - 2B and 9S\", another item); AniDB S3 \"Chapter.1-12 振り返り映像\" (Chapter.1-12 Digest Movie) is TMDB S0E14 \"Chapter.1-12 振り返り映像\" (Chapter.1-12 Digest Movie) and has no TVDB episode (its default TVDB S0E3 is \"amazarashi 'Antinomy' YOKO TARO Edition\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -195,8 +212,8 @@
       ],
       "series": 416998
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "57cfbe6bf9ee127d75da3e3157a942fbea2273beded1db5b872bba9e7e997fd0"
   },
   "anilist_ids": [

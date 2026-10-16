@@ -1,0 +1,24 @@
+{
+  "anilist_id": 16694,
+  "title": "Sankarea: Wagahai mo... Zombie de Aru...",
+  "parts": [
+    {
+      "anidb_id": 8642,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 16694 (SPECIAL, 1 episode from 2012-11-30) is AniDB 8642's special S1 Wagahai mo... Zombie de Aru... (I, Too, Am... a Zombie...), aired 2012-11-30. AniList's PREQUEL relation names AniList 11499, which anime-offline-database links to AniDB 8642, and the special's title matches AniList's romaji, English and native titles. The parent's row places S1 on TVDB 0x2 I, Too, Am... A Zombie... (2012-11-30) and, with the TMDB row, on TMDB 62742 S0E3 I am... a Zombie, too... (2012-11-30).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8642",
+    "anilist": "https://anilist.co/anime/16694",
+    "tmdb": "https://www.themoviedb.org/tv/62742/season/0",
+    "tvdb": "https://thetvdb.com/series/sankarea-undying-love/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "365efe45377f1c1b5eed2b23485738714d988df0f05fa131f7b585807cb15d2f"
+  }
+}

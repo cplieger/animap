@@ -1,0 +1,83 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3329",
+    "tmdb": "https://www.themoviedb.org/tv/5622/season/0",
+    "tvdb": "https://thetvdb.com/series/hamtaro-little-hamsters-big-adventures/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "6",
+    "tmdboffset": "4"
+  },
+  "title": "Ham-chans to Niji no Kuni no Ouji-sama: Sekai de Ichiban no Takaramono",
+  "justification": "The OVA \"Ham-chans to Niji no Kuni no Ouji-sama: Sekai de Ichiban no Takaramono\" (2004-03-24) is TVDB season 0 episode 7 \"Ham-Hams and the Prince of Rainbow Land\" and TMDB 5622 season 0 episode 5 \"Hamuchanzu to Niji no Kuni no Oujisama - Sekai de Ichiban no Takaramono\" (2004-03-24). By default it fell on episode 1 of both.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "72942ebb5d003afd2ed45cc8939cf7068af4e8f5a1936a5e0e2c112c04fdf098",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2001-12-15"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2002-12-14"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2003-12-13"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2004-12-23"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2001-08-06"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2002-08-06"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2003-08-06"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2004-08-06"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1999-09-15"
+        ]
+      ],
+      "series": 70817
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "82309ae4aafedb9e4b3c375d55ca9045bc63d84438e81dff5b9b2587e78f6790"
+  },
+  "anidb_id": 3329
+}

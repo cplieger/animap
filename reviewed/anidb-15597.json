@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:15597",
+  "title": "Edens Zero",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "ada66162675b6e21e623b47cb60c0206406dd30982ca51276a785ff82ab4f6b7"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Season 1 Recap Movie / 70 Pun de Furikaeru! Anime Edens Zero Dai 1 Ki Soushuuhen\" (2023-03-28) is TVDB S0E1 \"EDENS ZERO Recap Movie\" (2023-04-02): a recap movie of season 1 on both sides, the only special on each side. Dates five days apart. Default is right. Regular 1-25 match S1E1-25 by title.",
+      "evidence": [
+        "https://anidb.net/anime/15597",
+        "https://thetvdb.com/dereferrer/series/388645"
+      ]
+    }
+  }
+}

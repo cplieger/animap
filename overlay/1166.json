@@ -1,0 +1,86 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1166",
+    "tmdb": "https://www.themoviedb.org/tv/115598/season/0",
+    "tvdb": "https://thetvdb.com/series/kakyuusei/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "474904",
+    "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": ""
+  },
+  "title": "Kakyuusei",
+  "justification": "TVDB 199571 is gone; successor 474904 Kakyuusei. AniDB volumes 1-4 (1995-06-16 to 1995-11-22) are TVDB season 0 episodes 1-4 First Loves OVA 1-1 to 1-4 with the same dates, where the default lands. TMDB 115598 season 0 holds only the Tina special, so the node's TMDB values placed First Loves on the wrong episode and are cleared. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "35e35d0a1df11c54f806536b720d08a49c425a91bb64fde85c8b1b9091ebfd2a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1995-06-16"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1995-07-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1995-09-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1995-11-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1997-11-28"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1998-01-23"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1998-03-27"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1998-06-26"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2000-03-24"
+        ]
+      ],
+      "series": 474904
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "932039b518b41c8c78779b660b8b74ee7eea83a59df58248a317dfa25a9aaef5"
+  },
+  "anidb_id": 1166
+}

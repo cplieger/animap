@@ -1,0 +1,23 @@
+{
+  "key": "anime:anidb:16826",
+  "title": "Akuyaku Reijou nano de Last Boss o Katte Mimashita",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "05e5f54eb88d4f97de918ad738d4cc2b8166a48ebfeb4caf6e69cff0f7d7aa27",
+        "date-mismatch:S2": "85d2a6a2b1914f485b2a8b23535bb02e4047ed2f6f34fd9b6487badb91604832",
+        "date-mismatch:S3": "c1b8db3662b8d8dde1099b8d1fcf73eabc4b4bdb3e1729bc0a6c0dfeb17a09e2",
+        "date-mismatch:S4": "ce30192b7b5783d7579140f2264abac784c321a777611241f6d755bf44cf382e",
+        "date-mismatch:S7": "f6f778141e6ccd666cb65fcf6798fab41411d1d8fb258c53f69fe001eb0c7a9d",
+        "date-mismatch:S8": "5bdabc4f9f505beff1a1f3e1999906d17cbe79d730f42b7c692c074bbc3f765e"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1-S12 \"Mini Anime N / Mini #N\" are TVDB S0E1-S0E12 \"I'm the Villainess, So I'm Taming the Final Boss Mini #1-#12\", one to one by number and title. TVDB dated all twelve 2022-09-22 (a batch listing), AniDB dated them day by day; that date gap is the whole finding. The 12 regulars match by title (TVDB's S1E1 date 10-01 vs AniDB 09-24 is a listing difference with the same title).",
+      "evidence": [
+        "https://anidb.net/anime/16826",
+        "https://thetvdb.com/dereferrer/series/411821"
+      ]
+    }
+  }
+}

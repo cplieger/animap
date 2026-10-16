@@ -1,0 +1,27 @@
+{
+  "anilist_id": 6421,
+  "title": "Hagane no Renkinjutsushi: FULLMETAL ALCHEMIST Mihousou Episode",
+  "parts": [
+    {
+      "anidb_id": 6107,
+      "specials": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "justification": "AniList 6421 (OVA, 4 episodes, 2009-08-26 to 2010-08-25) is AniDB 6107's specials S2 to S5: S2 Moumoku no Renkinjutsushi / The Blind Alchemist (2009-08-26), S3 Simple na Hitobito / Simple People (2009-12-23), S4 Sensei Monogatari / The Tale of Teacher (2010-04-21), S5 Sore mo mata Kare no Senjou / Yet Another Man's Battlefield (2010-08-25). AniList's PARENT relation names AniList 5114, which anime-offline-database links to AniDB 6107, and AniList's synonyms carry the first two titles (Moumoku no Renkinjutsushi, The Blind Alchemist, Shinpuru na Hitobito, Simple People). The parent's row places them on TVDB 0x1 to 0x4 (same titles and dates) and, with the TMDB row, on TMDB 31911 S0E1 to S0E4 (same dates).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6107",
+    "anilist": "https://anilist.co/anime/6421",
+    "tmdb": "https://www.themoviedb.org/tv/31911/season/0",
+    "tvdb": "https://thetvdb.com/series/fullmetal-alchemist-brotherhood/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-16",
+    "anidb_mirror_commit": "c598c5d379bbbb8ccb77130407afd0090eb76250",
+    "anidb_sha256": "49c5f7e5b2c052c337b3d06704b6705d74c4a6964eaff7d536081daacd5fea90"
+  }
+}

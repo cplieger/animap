@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17441",
-    "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1108306"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Tokubetsu Hen Hibike! Euphonium: Ensemble Contest Hen",
-  "justification": "AniDB special S1 (2023-08-04) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 289884. AniDB S1 \"Post-Credits Scene\" has no TVDB episode (its default TVDB S0E1 is \"The Everyday Life of Band Part 1: Cleaning Instruments!\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

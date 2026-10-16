@@ -1,0 +1,110 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/4559",
+    "tmdb": "https://www.themoviedb.org/tv/35730/season/0",
+    "tvdb": "https://thetvdb.com/series/strawberry-marshmallow/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ichigo Marshmallow (2007)",
+  "justification": "AniDB 4559 episodes 1 to 3 (Ichigo Marshmallow OVA, 2007-02-23 to 2007-04-25) are TMDB 35730 season 0 E2 Scenery (2007-02-23), E3 Always (2007-03-28) and E4 Everyday (2007-04-25), the same episodes as TVDB 0x2 to 0x4 (row ;1-2;2-3;3-4;). Anime-Lists names only tvdbseason, so TMDB took the default S0E1 to S0E3, and S0E1 is Prologue, AniDB 2787's special S1. The TVDB row is unchanged.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e2e6d871379180d864915e66b4c6d9ba6a07be99fdefdc9126904ad81cd512ee",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          1,
+          "2005-06-08"
+        ],
+        [
+          0,
+          2,
+          14,
+          "2007-02-23"
+        ],
+        [
+          0,
+          3,
+          15,
+          "2007-03-28"
+        ],
+        [
+          0,
+          4,
+          16,
+          "2007-04-25"
+        ],
+        [
+          0,
+          5,
+          17,
+          "2009-01-23"
+        ],
+        [
+          0,
+          6,
+          18,
+          "2009-03-25"
+        ],
+        [
+          0,
+          12,
+          0,
+          ""
+        ]
+      ],
+      "series": 81007
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9fa029347ee8d5518e7197f762a9aef8c6d4b4d316b60c12ddc3802f6a5dca84"
+  },
+  "anilist_ids": [
+    1888
+  ],
+  "anidb_id": 4559
+}

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:4703",
+  "title": "Eiga Crayon Shin-chan: Henderland no Daibouken",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "29099363453693e1a7a14a0c6d34342f83c961720373b91be75dd33fccca1e1a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 1 \"Complete Movie of Eiga Crayon Shin-chan: Henderland no Daibouken\" (1996-04-13) = S0E86 \"Crayon Shin-chan Movie 4: Great Adventure In Henderland\" (1996-04-19).",
+      "evidence": [
+        "https://thetvdb.com/series/crayon-shin-chan/seasons/official/0",
+        "https://anidb.net/anime/4703",
+        "https://thetvdb.com/dereferrer/series/79654"
+      ]
+    }
+  }
+}

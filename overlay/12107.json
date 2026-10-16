@@ -1,0 +1,107 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12107",
+    "tvdb": "https://thetvdb.com/series/k-project/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            11
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "K: Seven Stories",
+  "justification": "AniDB special S1 \"The Idol K\" (2018-07-07) is TVDB season 0 episode 11 \"The Idol K\" (2018-07-07); by default it fell on episode 1 \"Missing Kings\" (AniDB 9605). S2 \"K for Beginners\" fell on episode 2 \"English Cast Interview\" and has no TVDB episode. The six films stay on episodes 5-10.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "d2619e9c489d4ffd894f864f8bb07f15fa25eb6fe1cd2e71d32849bb8f3105aa",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2014-07-12"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-02-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2014-07-12"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-12-26"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2018-07-07"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2018-08-04"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2018-09-01"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2018-10-06"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2018-11-03"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2018-12-01"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2018-07-07"
+        ]
+      ],
+      "series": 261249
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "aae5bcdec7120457fbd193362499918219b71531c9954f32a209e6e14f077ce9"
+  },
+  "anidb_id": 12107
+}

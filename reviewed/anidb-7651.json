@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:7651",
+  "title": "Kaibutsu Oujo (2010)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "c26502a21155b54e8e8a28b5310b0c5db9076e150ece9d9ee34f6c16adb596f7"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S3 \"Special 3\" (2011-10-07) = S0E6 \"Special 3\" (2011-07-10).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/81877",
+        "https://anidb.net/anime/7651"
+      ]
+    }
+  }
+}

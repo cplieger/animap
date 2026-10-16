@@ -1,9 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/415",
+    "tmdb_movie": "https://www.themoviedb.org/movie/27867",
     "tvdb": "https://thetvdb.com/series/sakura-wars/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "27867",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -26,7 +30,7 @@
     ]
   },
   "title": "Sakura Taisen: Katsudou Shashin",
-  "justification": "AniDB 1 (2001-12-22) = TVDB 0x11 (2001-12-22), was 0x01. AniDB 2 (2001-12-22) = TVDB 0x11 (2001-12-22), was 0x01. AniDB 3 (2001-12-22) = TVDB 0x11 (2001-12-22), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 82029. The film is TMDB movie 27867 (Sakura Wars: The Movie (2001)). TMDB show 27885 does not carry it, so the node leaves that show. AniDB episode 1 \"Complete Movie\" is TVDB S0E11 \"Sakura Wars the Movie\"; AniDB episode 2 \"Part 1 of 2\" is TVDB S0E11 \"Sakura Wars the Movie\"; AniDB episode 3 \"Part 2 of 2\" is TVDB S0E11 \"Sakura Wars the Movie\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -182,8 +186,8 @@
       ],
       "series": 82029
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "41640bc7766d029e523395e54287377304ea4a83c50ef2b43d09bb2e9106c74e"
   },
   "anilist_ids": [

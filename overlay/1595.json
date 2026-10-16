@@ -1,14 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1595",
-    "tvdb": "https://thetvdb.com/series/starzinger/seasons/official/1"
+    "tmdb": "https://www.themoviedb.org/tv/44777/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/81953"
   },
   "set": {
     "defaulttvdbseason": "1",
-    "episodeoffset": "64"
+    "episodeoffset": "64",
+    "tmdbseason": "1",
+    "tmdboffset": "64"
   },
   "title": "SF Saiyuuki Starzinger II",
-  "justification": "AniDB 1-9 (1979-07-01 to 1979-08-26) = TVDB 1x65-1x73 (1979-07-01 to 1979-08-26), was 2x01-2x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81953 and TMDB show 44777. AniDB episode 1-9 (\"大変身! ジャン・クーゴ\" (Cogo`s new circuits) to \"さらば姫!わが友よ\" (Farewell, princess)) are TVDB S1E65 \"Jesse's Makeover!\" to TVDB S1E73 \"Farewell, Princess!\" and TMDB S1E65 \"大変身！ ジャン・クーゴ\" (Cogo's new circuits) to TMDB S1E73 \"さらば姫！ わが友よ\" (Farewell, princess).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -458,8 +461,8 @@
       ],
       "series": 81953
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "21973c0a01802483fbbc3a7e65135289000c3c3f65c5f7925bd01405e7487a63"
   },
   "anidb_id": 1595

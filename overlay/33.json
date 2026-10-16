@@ -1,0 +1,178 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/33",
+    "tmdb": "https://www.themoviedb.org/tv/12427/season/0",
+    "tvdb": "https://thetvdb.com/series/happy-lesson/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            16
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Happy Lesson (2002)",
+  "justification": "TVDB 74544 renumbered season 0, which now starts at episode 8. AniDB special S1 Episode 11.5 - Nice and Warm! All Alone with Kanna is season 0 episode 16 of the same title; the old row pointed at episode 6, which no longer exists. TMDB 12427 season 0 episode 1 is Nice and Warm - Alone With Kanna, where the TMDB default already lands.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "55c5452d058c08e3a5bc83ed61f1400417d0d002e55be652e29e25aa6d8c62f2",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          8,
+          1,
+          "2001-07-19"
+        ],
+        [
+          0,
+          9,
+          2,
+          "2001-12-21"
+        ],
+        [
+          0,
+          10,
+          7,
+          "2002-04-26"
+        ],
+        [
+          0,
+          11,
+          17,
+          "2003-03-28"
+        ],
+        [
+          0,
+          12,
+          18,
+          "2003-05-23"
+        ],
+        [
+          0,
+          13,
+          32,
+          "2004-06-08"
+        ],
+        [
+          0,
+          14,
+          33,
+          "2004-08-27"
+        ],
+        [
+          0,
+          15,
+          34,
+          "2004-10-22"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2002-09-27"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2004-02-27"
+        ],
+        [
+          1,
+          1,
+          3,
+          "2002-04-01"
+        ],
+        [
+          1,
+          2,
+          4,
+          "2002-04-08"
+        ],
+        [
+          1,
+          3,
+          5,
+          "2002-04-15"
+        ],
+        [
+          1,
+          4,
+          6,
+          "2002-04-22"
+        ],
+        [
+          1,
+          5,
+          8,
+          "2002-04-29"
+        ],
+        [
+          1,
+          6,
+          9,
+          "2002-05-06"
+        ],
+        [
+          1,
+          7,
+          10,
+          "2002-05-13"
+        ],
+        [
+          1,
+          8,
+          11,
+          "2002-05-20"
+        ],
+        [
+          1,
+          9,
+          12,
+          "2002-05-27"
+        ],
+        [
+          1,
+          10,
+          13,
+          "2002-06-03"
+        ],
+        [
+          1,
+          11,
+          14,
+          "2002-06-10"
+        ],
+        [
+          1,
+          12,
+          15,
+          "2002-06-17"
+        ],
+        [
+          1,
+          13,
+          16,
+          "2002-06-24"
+        ]
+      ],
+      "series": 74544
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "84233bdb9e61eb7374b6af05cee55feb8f811614622e77fe905f624e0083c80b"
+  },
+  "anidb_id": 33
+}

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15255",
-    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/645440"
   },
   "set": {
     "mapping_list": [
@@ -23,7 +24,7 @@
     ]
   },
   "title": "Gekijouban Shoujo Kageki Revue Starlight",
-  "justification": "AniDB special S1-S3 (no date to 2021-12-22) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 346988. AniDB S1-S3 (\"メインキャスト9人座談会映像 vol.1\" (Main Cast Round Table 1) to \"Blu-ray限定 撮り下ろし映像\" (Blu-ray Special Video)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

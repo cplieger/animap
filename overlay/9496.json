@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9496",
+    "tmdb": "https://www.themoviedb.org/tv/65614/seasons",
     "tvdb": "https://thetvdb.com/series/witch-craft-works/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "start": 1,
         "end": 6,
         "offset": 1
@@ -15,6 +17,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             7
@@ -24,8 +27,8 @@
     ]
   },
   "title": "Witch Craft Works",
-  "justification": "AniDB special S1-S6 (2014-03-26 to 2014-08-27) = TVDB 0x02-0x07 (2014-03-26 to 2014-08-27), was 0x01-0x06, by title and runtime. AniDB special S7 (2022-03-29) has no TVDB episode, was 0x07, the TVDB episode of S6. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 275611 and TMDB show 65614. AniDB S1-S6 (\"なぜなに!? うぃっちくらふとわ~くす 1\" (Special 1) to \"なぜなに!? うぃっちくらふとわ~くす 6\" (Special 6)) are TVDB S0E2 \"Special 01\" to TVDB S0E7 \"Special 06\" and TMDB S0E2 \"Special 01\" to TMDB S0E7 \"Special 06\"; AniDB S7 \"第1-4話ダイジェスト\" (Episodes 1-4 Digest) has no TVDB episode (its default TVDB S0E7 is \"Special 06\", another item) and no TMDB episode (its default TMDB S0E7 is \"Special 06\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "cb12db6c8b577609a7030f395765d158c10fc245563da8a46c4009bd52179af5",
@@ -151,8 +154,8 @@
       ],
       "series": 275611
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8ce972e87fc087f200e4c5482e08f5c9079c1e4916f11075ae1a21c702dbde73"
   },
   "anilist_ids": [

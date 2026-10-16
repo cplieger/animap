@@ -1,0 +1,25 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11020",
+    "anilist": "https://anilist.co/anime/20721",
+    "tmdb": "https://www.themoviedb.org/movie/332172",
+    "tvdb": "https://thetvdb.com/movies/jellyfish-restaurant"
+  },
+  "set": {
+    "tvdbid": "OVA",
+    "tmdbid": "332172",
+    "imdbid": "tt11452686"
+  },
+  "title": "Kurage no Shokudou",
+  "justification": "The node had no value at all. AniDB 11020 is a one-episode 29-minute OVA (2016-03-09) that TVDB lists only as the movie Jellyfish Restaurant (thetvdb.com/movies/jellyfish-restaurant, 2016-03-09), which links TMDB movie 332172 (Jellyfish Restaurant, 29 min, 2016-03-09) and IMDb tt11452686. With no TVDB series the node takes the OVA marker and the TMDB and IMDb ids.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    20721
+  ],
+  "anidb_id": 11020
+}

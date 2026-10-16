@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12942",
+    "tmdb": "https://www.themoviedb.org/tv/73833/seasons",
     "tvdb": "https://thetvdb.com/series/the-ancient-magus-bride/seasons/official/0"
   },
   "set": {
@@ -33,13 +34,44 @@
             34
           ],
           [
-            32
+            32,
+            35
           ],
           [
             33
           ],
           [
             34
+          ],
+          [
+            35
+          ],
+          [
+            36
+          ],
+          [
+            37
+          ],
+          [
+            38
+          ],
+          [
+            39
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            33
+          ],
+          [
+            34
+          ],
+          [
+            35
           ],
           [
             36
@@ -58,7 +90,7 @@
     ]
   },
   "title": "Mahou Tsukai no Yome",
-  "justification": "AniDB special S28-S30 (2018-03-25) = TVDB 0x31-0x33 (2018-03-25), was 0x28-0x30, by title. AniDB special S31 (2018-03-25) = TVDB 0x34 (2018-03-25), was 0x31, by title, air date breaking a tie. AniDB special S32-S34 (2017-12-29 to 2018-05-30) have no TVDB episode, was 0x32-0x34. AniDB special S36-S39 (2018-07-25 to no date) have no TVDB episode, was 0x36-0x39. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 316842 and TMDB show 73833. AniDB S28-S32 (\"まほよめ ガーデニング\" (Mahoyome: Gardening) to \"魔法使いの嫁 スペシャルダイジェスト\" (The Ancient Magus` Bride: Special Digest)) are TVDB S0E31 \"MahoYome 27 - Gardening\" to TVDB S0E35 \"Episode 12.5 - Recap\"; AniDB S33-S35 (\"まほよめロケハン紀行 前篇\" (Location Hunting Journal (Part 1)) to \"魔法使いの嫁 凱旋上映会 イベントダイジェスト映像 2017年9月9日(土)丸の内ピカデリー\" (Screening Event Digest)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S36-S39 (\"『魔法使いの嫁』スペシャルイベント ~紡がれる, 魔法の世界~ イベントダイジェスト映像 2018年4月8日(日) ルネこだいら\" (Special Event) to \"The Ancient Magus` Bride at Anime Expo 2018: Interview with George Wada \u0026 Norihiro Naganuma\") have no TVDB episode (their defaults are other items) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -449,8 +481,8 @@
       ],
       "series": 316842
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b859637641871353e0136791b46ce4d116e584669a6098a186d2d76045313638"
   },
   "anilist_ids": [

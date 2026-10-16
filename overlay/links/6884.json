@@ -1,0 +1,25 @@
+{
+  "anilist_id": 6884,
+  "title": "Ookami to Koushinryou II Specials",
+  "parts": [
+    {
+      "anidb_id": 6169,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 6884 (SPECIAL, 2 episode(s) from 2009-10-07) is AniDB 6169's special(s) S1-S2, aired 2009-10-07 to 2009-11-04. AniList's PARENT relation names the parent entry, which anime-offline-database links to AniDB 6169. The parent's row ;1-2;2-3; puts S1-S2 on TVDB 0x2-0x3 (kept by overlay/6169.json).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6169",
+    "anilist": "https://anilist.co/anime/6884",
+    "tmdb": "https://www.themoviedb.org/tv/26707/season/0",
+    "tvdb": "https://thetvdb.com/series/spice-and-wolf/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "5300f1716f0b83d6353ab9658a84a0d2e9ba7e0734de77aa6e3f60e30faaa92c"
+  }
+}

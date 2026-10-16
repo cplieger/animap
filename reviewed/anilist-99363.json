@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:99363",
+  "title": "AniList 99363",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "db762fe863a17d16aa41c4545185102693c49cb5ebb3e00e60735c7dec18609c",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 12009 S2-S3 is TVDB 82788 0x3-0x4 by title, but AniDB dates S2 2017-03-30 against TVDB's 2017-03-22, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/99363"
+        ],
+        "anilist_id": 99363
+      }
+    ]
+  }
+}

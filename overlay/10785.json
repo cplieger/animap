@@ -1,0 +1,110 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10785",
+    "tvdb": "https://thetvdb.com/series/wake-up-girl-zoo/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Wake Up, Girl Zoo!",
+  "justification": "AniDB special S1 \"Blu-ray Special Feature\" (2015-07-31) had no row and fell on TVDB season 0 episode 1 \"Miyagi PR\" (2016-02-11), a 3-minute YouTube promotion clip. Season 0 holds only the Miyagi and Taiwan PR clips, so S1 is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9a06da7b1fecaac17db8d8b0af386acb823c4a58ea8687942d396a3c56593c62",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2016-02-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          ""
+        ],
+        [
+          1,
+          1,
+          1,
+          "2014-09-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2014-10-22"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2014-10-29"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2014-11-05"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2014-11-12"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2014-12-17"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2015-01-14"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2015-01-28"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2015-02-11"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2015-02-25"
+        ]
+      ],
+      "series": 284601
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "d588df0e140dcaeb88da5dc70fc4deeb2615cb0ec55319266ca5255bc6d96241"
+  },
+  "anidb_id": 10785
+}

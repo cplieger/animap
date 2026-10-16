@@ -1,0 +1,29 @@
+{
+  "anilist_id": 20869,
+  "title": "Gekkan Shoujo Nozaki-kun Mini OVAs",
+  "parts": [
+    {
+      "anidb_id": 10542,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList: 6 shorts of 3 min, 2014-09-24 to 2015-02-25. AniDB 10542 S1-S6 are six shorts on exactly those dates (S7 \"Advance Screening and Talk Show\", 2014-10-29, is a different kind and is not in the run). TVDB 279804 season 0 holds the same six, 0x1-0x6 \"Nozaki-kun Shorts 1-6\": 1 \"Is That Handsome Boy Just a Friend or Her Boyfriend? (Part 1)\" = S1; 2 \"(Part 2)\" = S2 \"...Continued\"; 3 \"The Correlation Chart That Connects Everything\" = S3 \"A Comprehensive Relationship Chart\"; 4 \"It's Summer! It's the Ocean! It's Training Camp!\" = S4; 5 \"Me or the Sun... Which Do You Think Shines More?\" = S5; 6 \"This Happening is Being Turned Into a Shojo Manga\" = S6. Same order, dates equal on all six (2014-09-24 ... 2015-02-25). The parent has no mapping list so S\u003cn\u003e defaults to 0x\u003cn\u003e; no other node on 279804 claims season 0. The AniList title (\"Mini OVAs\") names the series only, the episode titles are AniDB's.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10542",
+    "anilist": "https://anilist.co/anime/20869",
+    "tmdb": "https://www.themoviedb.org/tv/61379/season/0",
+    "tvdb": "https://thetvdb.com/series/monthly-girls-nozaki-kun/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "27a22eb9d93c2291b8e2bcf5e0a5ac171d026370774a63606b0840cdb46b6e2d"
+  }
+}

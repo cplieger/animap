@@ -1,0 +1,65 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8253",
+    "tmdb": "https://www.themoviedb.org/tv/45306/season/0",
+    "tvdb": "https://thetvdb.com/series/yurumates3dei/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "475276",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Yurumates wa?",
+  "justification": "TVDB 255848 is gone; successor 475276 Yurumates3Dei. AniDB episode 1 (2011-06-24) is TVDB season 0 episode 2 Yurumates wa? OVA and TMDB 45306 season 0 episode 2 Yurumates wa OVA; the row now names the TMDB season too, where episode 1 fell on the 2009 OVA before.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "6191dbb8aadeab6f25a95a5bb2ca2836c9b34ef51ceb48a44cf1e136a82cdf99",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-04-24"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-06-24"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-08-30"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2012-08-30"
+        ]
+      ],
+      "series": 475276
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "cf5b99bb42eba5cc4c35c234d30b1735de06d00c870d72c0406a6c96d8e84686"
+  },
+  "anidb_id": 8253
+}

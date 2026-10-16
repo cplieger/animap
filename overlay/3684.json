@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/3684",
     "tvdb": "https://thetvdb.com/series/rakugo-tennyo-oyui/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/261271"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/261271",
+    "tmdb": "https://www.themoviedb.org/tv/34710/seasons"
   },
   "set": {
     "tvdbid": "311739"
   },
   "title": "Rakugo Tennyo Oyui",
-  "justification": "tvdbid 261271 to 311739 (TVDB 261271 is gone from TVDB's official order). AniDB 1-12 (2006-01-06 to 2006-03-24) = TVDB 1x01-1x12 (2006-01-05 to 2006-03-23), was TVDB 261271 1x01-1x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 311739 and TMDB show 34710. The node moves from TVDB 261271 to series 311739. AniDB episode 1-12 (\"華のお江戸に天女舞う\" (Celestal Dance at the Edo of Flowers) to \"信じる言葉 ふれあう心\" (Believing Words, Touching Hearts)) are TVDB S1E1 \"Celestal Dance at the Edo of Flowers\" to TVDB S1E12 \"Believing Words, Touching Hearts\". TVDB series 261271 no longer exists. Series 311739 carries all twelve episodes by title and links the node's TMDB show 34710.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:17785",
+  "title": "Gekijouban Spy x Family Code: White",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "d3e87040db7828304d5b37f3996b61aec0e48d06a3fbb0c316df3df5d3316520"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Film Etiquette Lesson / Eiga Manner Kouza\" (2024-01-23) = S0E4 \"SPY×FAMILY CODE: White - Movie Etiquette Course\" (2023-07-28).",
+      "evidence": [
+        "https://anidb.net/anime/17785",
+        "https://thetvdb.com/dereferrer/series/405920"
+      ]
+    }
+  }
+}

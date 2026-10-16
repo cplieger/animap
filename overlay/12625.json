@@ -1,0 +1,180 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12625",
+    "tvdb": "https://thetvdb.com/series/wake-up-girls/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Wake Up, Girls! Shin Shou",
+  "justification": "AniDB special S1 \"Special Edition: WUG BAN! New Chapter\" (2017-11-21) is TVDB season 0 episode 6 of the same title and date. S2-S12 (the unpublished special, the Cutest on Earth Contest and Hospital Ward parts, the Flame Match, the talk special, the 2016 and 2017 Festa lives, the in-show drama and the final live) are extras and concert recordings TVDB does not list. By default S1-S6 fell on season 0 episodes 1-6, the films and specials of 10245, 10977 and 11852, so S2-S12 are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0e1b15b47824a018ac879b66be4c3925b0c519d7937850025af933f8979fe7f7",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2014-01-11"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-12-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-09-25"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-12-11"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2016-02-11"
+        ],
+        [
+          0,
+          6,
+          19,
+          "2017-11-21"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2017-10-10"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2017-10-17"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2017-10-24"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2017-10-31"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2017-11-07"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2017-11-14"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2017-11-28"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2017-12-05"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2017-12-12"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2017-12-19"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2017-12-26"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2018-01-09"
+        ]
+      ],
+      "series": 275609
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3b00bbcdd4b76c641161fe50d7200beb3a84807f4ba65e3c1ba90cbca8ec1270"
+  },
+  "anidb_id": 12625
+}

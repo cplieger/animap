@@ -10,39 +10,52 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/cplieger/animap/internal/review"
 	"github.com/cplieger/animap/internal/schema"
 )
 
+// TestGaps pins each route and scope arm against seadex-scout at 3c723d0:
+// mapping.RoutedIDs and match.FindByID route a MOVIE by TMDB or IMDb id,
+// then TVDB, and any other type by TVDB id, else TMDB movie ids (never
+// IMDb); align.scope lets Radarr decide a movie's scope and scopes a
+// Sonarr match by RecordSeason, falling back to the whole season bucket
+// when the placement lands nowhere.
 func TestGaps(t *testing.T) {
 	s0, s1 := new(0), new(1)
 	placed := []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(3)}, {Start: 2, End: 2}}
 	onSeason1 := []schema.Segment{{Start: 1, End: 1, Season: new(1), Episode: new(1)}}
+	nowhere := []schema.Segment{{Start: 1, End: 2}}
 	for _, tc := range []struct {
 		rec  *schema.Record
 		name string
 		want []Gap
 	}{
 		{nil, "no record", []Gap{noRecord}},
-		{&schema.Record{AniListID: 1, Type: "SPECIAL"}, "type-only", []Gap{NoAniDB}},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: s1}, "series season", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBAbsolute: true}, "absolute run", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5}, "series without a season", []Gap{noTVDBSeason}},
-		{&schema.Record{AniDBID: 1, Type: "OVA"}, "no tvdb", []Gap{noTVDB}},
-		{&schema.Record{AniDBID: 1, Type: "UNKNOWN"}, "unknown type", []Gap{unknownType}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "season 0 placed", nil},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0, TVDBEpisodeOffset: new(4)}, "season 0 not placed", []Gap{season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "a placement on another season does not resolve", []Gap{season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "SPECIAL", TVDBID: 5, TVDBSeason: s0}, "season 0 count unknown", []Gap{episodeCountUnknown}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TMDBMovieIDs: []int{9}}, "movie Radarr route", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", IMDbIDs: []string{"tt0000001"}}, "movie IMDb route", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s1}, "movie Sonarr season route", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE"}, "movie no route", []Gap{movieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "movie special resolved", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1, TMDBMovieIDs: []int{9}}, "movie special placed on another season, Radarr route", []Gap{movieSpecialUnresolved}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "movie special placed on another season, no route", []Gap{movieSpecialUnresolved, movieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special unresolved despite Radarr", []Gap{movieSpecialUnresolved}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0}, "movie special unresolved, no route", []Gap{movieSpecialUnresolved, movieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "movie special count unknown", []Gap{episodeCountUnknown}},
+		{&schema.Record{AniListID: 1, Type: "SPECIAL"}, "no route and no AniDB id", []Gap{noAniDB}},
+		{&schema.Record{AniDBID: 1, Type: "OVA"}, "no route", []Gap{noTVDB}},
+		{&schema.Record{AniDBID: 1, Type: "UNKNOWN"}, "no route and no type", []Gap{unknownType}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE"}, "a movie with no route", []Gap{movieNoRoute}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", TMDBTVID: 9}, "a TMDB show routes nowhere", []Gap{noTVDB}},
+		{&schema.Record{AniDBID: 1, Type: "SPECIAL", IMDbIDs: []string{"tt0000001"}}, "IMDb never routes a non-MOVIE", []Gap{noTVDB}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", TMDBMovieIDs: []int{9}}, "a non-MOVIE with no TVDB id goes to Radarr", nil},
+		{&schema.Record{AniDBID: 1, Type: "UNKNOWN", TMDBMovieIDs: []int{9}}, "an untyped record goes to Radarr", nil},
+		{&schema.Record{AniDBID: 1, Type: "ONA", TVDBID: 5, TMDBMovieIDs: []int{9}}, "a non-MOVIE with a TVDB id goes to Sonarr only", []Gap{noTVDBSeason}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", TMDBMovieIDs: []int{9}}, "a movie's TMDB id goes to Radarr", nil},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", IMDbIDs: []string{"tt0000001"}}, "a movie's IMDb id goes to Radarr", nil},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "Radarr decides a movie's scope whatever its season 0", nil},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s1}, "a movie with no Radarr id goes to Sonarr", nil},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0}, "a movie special Sonarr cannot scope", []Gap{movieSpecialUnresolved}},
+		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "a movie special placed", nil},
+		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: s1}, "a season", nil},
+		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBAbsolute: true}, "absolute numbering", nil},
+		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5}, "no season and not absolute", []Gap{noTVDBSeason}},
+		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: s1, TVDBPlacement: placed}, "a season placed partly nowhere", nil},
+		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: new(5), TVDBPlacement: nowhere}, "a season placed wholly nowhere", []Gap{landsNowhere}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "season 0 placed on specials", nil},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: nowhere}, "season 0 placed wholly nowhere", []Gap{landsNowhere}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "season 0 placed on a regular season", []Gap{season0Unresolved}},
+		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0}, "season 0 not placed", []Gap{season0Unresolved}},
+		{&schema.Record{AniDBID: 1, Type: "SPECIAL", TVDBID: 5, TVDBSeason: s0}, "season 0 with no count", []Gap{episodeCountUnknown}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if got := gaps(tc.rec); !slices.Equal(got, tc.want) {
@@ -60,35 +73,10 @@ func TestEvaluate(t *testing.T) {
 	}}
 	got := Evaluate([]int{3, 2, 1}, doc)
 	if len(got) != 2 || got[0].AniListID != 2 || got[1].AniListID != 3 || !slices.Equal(got[1].Gaps, []Gap{noRecord}) {
-		t.Errorf("Evaluate = %+v, want 2 (no_anidb) then 3 (no_record; AniDB-keyed records are not AniList ids)", got)
+		t.Fatalf("Evaluate = %+v, want 2 (no_anidb) then 3 (no_record; AniDB-keyed records are not AniList ids)", got)
 	}
-}
-
-func TestClassify(t *testing.T) {
-	backlog := &Backlog{Entries: []Entry{
-		{AniListID: 1, Gaps: []Gap{season0Unresolved}},
-		{AniListID: 2, Gaps: []Gap{movieSpecialUnresolved, movieNoRoute}},
-		{AniListID: 3, Gaps: []Gap{noTVDB}},
-	}}
-	c := Classify([]Entry{
-		{AniListID: 1, Gaps: []Gap{season0Unresolved}},
-		{AniListID: 2, Gaps: []Gap{movieNoRoute}},
-		{AniListID: 4, Gaps: []Gap{noTVDB}},
-		{AniListID: 1 + 4, Gaps: nil},
-	}, backlog, nil)
-	ids := func(es []Entry) []int {
-		var out []int
-		for _, e := range es {
-			out = append(out, e.AniListID)
-		}
-		return out
-	}
-	if !slices.Equal(ids(c.Known), []int{1, 2}) || !slices.Equal(ids(c.New), []int{4, 5}) || !slices.Equal(ids(c.Resolved), []int{3}) {
-		t.Errorf("Classify = known %v new %v resolved %v", ids(c.Known), ids(c.New), ids(c.Resolved))
-	}
-	grown := Classify([]Entry{{AniListID: 1, Gaps: []Gap{season0Unresolved, noTVDBSeason}}}, backlog, nil)
-	if !slices.Equal(ids(grown.New), []int{1}) {
-		t.Errorf("a backlog entry with a new gap kind is not new: %+v", grown)
+	if got[0].RecordSHA256 != review.RecordDigest(&doc.Records[1]) || got[1].RecordSHA256 != review.RecordDigest(nil) {
+		t.Errorf("Evaluate digests = %q, %q; want each record's digest, absent for no record", got[0].RecordSHA256, got[1].RecordSHA256)
 	}
 }
 
@@ -104,7 +92,7 @@ func (p pages) Get(_ context.Context, url string, _ int64) ([]byte, error) {
 }
 
 func TestFetchIDs(t *testing.T) {
-	cfg := &Config{ListURL: "https://releases.moe/api/collections/entries/records", IDField: "alID", PerPage: 2, MaxPages: 3}
+	cfg := &Config{ListURL: "https://seadex.moe/api/collections/entries/records", IDField: "alID", PerPage: 2, MaxPages: 3}
 	page := func(total, pages int, ids ...int) string {
 		items := make([]string, 0, len(ids))
 		for _, id := range ids {
@@ -140,95 +128,51 @@ func TestLoadSeadexConfig(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got := EntryLink(c.EntryURL, 154587); got != "https://releases.moe/154587" {
+	if got := EntryLink(c.EntryURL, 154587); got != "https://seadex.moe/154587" {
 		t.Errorf("EntryLink = %s", got)
 	}
-	b, err := LoadBacklog("../../watch/backlog.json")
-	if err != nil || b.WatchSet != c.Name {
-		t.Errorf("LoadBacklog = %+v, %v", b, err)
-	}
 }
 
-// A gap is tracked by one list: an id in both lists is reported resolved
-// and cleared at once, so closing it asks for two edits.
-func TestTrackedListsTrackEachGapOnce(t *testing.T) {
-	seen := map[int]string{}
-	for _, path := range []string{"../../watch/backlog.json", "../../checks/unmappable.json"} {
-		b, err := LoadBacklog(path)
-		if err != nil {
-			t.Fatalf("LoadBacklog(%s): %v", path, err)
-		}
-		for i, e := range b.Entries {
-			if i > 0 && e.AniListID <= b.Entries[i-1].AniListID {
-				t.Errorf("%s: AniList %d follows %d, want ascending ids", path, e.AniListID, b.Entries[i-1].AniListID)
+func TestGapsLinkedRecord(t *testing.T) {
+	row := func(season int, pairs ...[]int) []schema.Row {
+		return []schema.Row{{AniDBSeason: 1, TVDBSeason: new(season), Episodes: pairs}}
+	}
+	for _, tc := range []struct {
+		rec  *schema.Record
+		name string
+		want []Gap
+	}{
+		{&schema.Record{
+			AniListID: 9, Type: "SPECIAL", Episodes: 1, TVDBID: 5, TVDBSeason: new(0),
+			AniDBParent: &schema.ParentSpecials{AniDBID: 100, Specials: []int{1}}, MappingList: row(0, []int{1, 8}),
+			TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(8)}},
+		}, "a linked special", nil},
+		{&schema.Record{
+			AniListID: 1563, Type: "TV", Episodes: 29, TVDBID: 71634, TVDBSeason: new(2), MappingList: row(2, []int{1, 1}),
+			TVDBPlacement: []schema.Segment{{Start: 1, End: 29, Season: new(2), Episode: new(1)}},
+		}, "a linked regular run", nil},
+		{&schema.Record{
+			AniListID: 2593, Type: "MOVIE", Episodes: 1, TVDBID: 82099, TVDBSeason: new(1), MappingList: row(1, []int{1, 1}),
+			TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(1), Episode: new(1)}},
+		}, "a linked film", nil},
+		{&schema.Record{
+			AniListID: 2269, Type: "SPECIAL", Episodes: 3, TVDBID: 254931, TVDBSeason: new(0), MappingList: row(0, []int{1, 2}, []int{2, 3}, []int{3, 4}),
+			TVDBPlacement: []schema.Segment{{Start: 1, End: 3, Season: new(0), Episode: new(2)}},
+		}, "a linked compilation", nil},
+		{&schema.Record{AniListID: 9, Type: "OVA", Episodes: 1, TMDBMovieIDs: []int{9}}, "no AniDB id and no link, a Radarr route", nil},
+		{&schema.Record{AniListID: 9, Type: "OVA", Episodes: 1}, "no AniDB id and no link", []Gap{noAniDB}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			if g := gaps(tc.rec); !slices.Equal(g, tc.want) {
+				t.Errorf("gaps = %v, want %v", g, tc.want)
 			}
-			if prev, dup := seen[e.AniListID]; dup {
-				t.Errorf("AniList %d is in %s and %s, want one list", e.AniListID, prev, path)
-			}
-			seen[e.AniListID] = path
-			if len(e.Gaps) == 0 || e.Detail == "" {
-				t.Errorf("%s: AniList %d has gaps %v and detail %q, want both", path, e.AniListID, e.Gaps, e.Detail)
-			}
-			if wantReason := strings.HasSuffix(path, "unmappable.json"); wantReason != (e.Reason == "unmappable" || e.Reason == "upstream") {
-				t.Errorf("%s: AniList %d has reason %q", path, e.AniListID, e.Reason)
-			}
-		}
-	}
-}
-
-func TestClassifyUnmappable(t *testing.T) {
-	unmappable := &Backlog{Entries: []Entry{
-		{AniListID: 1, Gaps: []Gap{noTVDB}, Reason: "unmappable"},
-		{AniListID: 2, Gaps: []Gap{NoAniDB}, Reason: "upstream"},
-		{AniListID: 3, Gaps: []Gap{season0Unresolved}, Reason: "unmappable"},
-	}}
-	c := Classify([]Entry{
-		{AniListID: 1, Gaps: []Gap{noTVDB}},
-		{AniListID: 3, Gaps: []Gap{season0Unresolved, episodeCountUnknown}},
-		{AniListID: 4, Gaps: []Gap{noTVDB}},
-	}, &Backlog{}, unmappable)
-	ids := func(es []Entry) (out []int) {
-		for _, e := range es {
-			out = append(out, e.AniListID)
-		}
-		return out
-	}
-	if !slices.Equal(ids(c.Unmappable), []int{1}) || !slices.Equal(ids(c.New), []int{3, 4}) || !slices.Equal(ids(c.Cleared), []int{2}) {
-		t.Errorf("Classify = unmappable %v new %v cleared %v; want 1 listed, 3 (a new gap kind) and 4 new, 2 cleared", ids(c.Unmappable), ids(c.New), ids(c.Cleared))
-	}
-	if c.Unmappable[0].Reason != "unmappable" {
-		t.Errorf("a listed entry lost its reason: %+v", c.Unmappable[0])
-	}
-}
-
-func TestGapsBridgedRecord(t *testing.T) {
-	bridged := &schema.Record{
-		AniListID: 9, Type: "SPECIAL", Episodes: 1, TVDBID: 5, TVDBSeason: new(0),
-		AniDBParent:   &schema.ParentSpecials{AniDBID: 100, Specials: []int{1}},
-		MappingList:   []schema.Row{{AniDBSeason: 1, TVDBSeason: new(0), Episodes: [][]int{{1, 8}}}},
-		TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(8)}},
-	}
-	if g := gaps(bridged); g != nil {
-		t.Errorf("gaps(a bridged special) = %v, want fully mapped", g)
-	}
-}
-
-func TestLoadBacklogRefusesTrailingData(t *testing.T) {
-	path := filepath.Join(t.TempDir(), "backlog.json")
-	doc := `{"version":1,"watch_set":"seadex","captured_at":"2026-10-06","entries":[]}`
-	for name, trailer := range map[string]string{"a stray ]": "]", "a stray }": "}", "a second document": doc} {
-		if err := os.WriteFile(path, []byte(doc+"\n"+trailer), 0o600); err != nil {
-			t.Fatal(err)
-		}
-		if b, err := LoadBacklog(path); err == nil {
-			t.Errorf("LoadBacklog(a backlog followed by %s) = %+v, want an error", name, b)
-		}
+		})
 	}
 }
 
 func TestLoadConfigRefusesTrailingData(t *testing.T) {
 	path := filepath.Join(t.TempDir(), "seadex.json")
-	doc := `{"name":"seadex","list_url":"https://releases.moe/api/collections/entries/records","id_field":"alID","per_page":500,"max_pages":40,"entry_url":"https://releases.moe/{id}"}`
+	doc := `{"name":"seadex","list_url":"https://seadex.moe/api/collections/entries/records","id_field":"alID","per_page":500,"max_pages":40,"entry_url":"https://seadex.moe/{id}"}`
 	for name, trailer := range map[string]string{"a stray ]": "]", "a stray }": "}", "a second document": doc} {
 		if err := os.WriteFile(path, []byte(doc+"\n"+trailer), 0o600); err != nil {
 			t.Fatal(err)

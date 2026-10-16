@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13871",
+    "tmdb": "https://www.themoviedb.org/tv/82684/seasons",
     "tvdb": "https://thetvdb.com/series/that-time-i-got-reincarnated-as-a-slime/seasons/official/0"
   },
   "set": {
@@ -25,11 +26,34 @@
             6
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            6,
+            10
+          ]
+        ]
       }
     ]
   },
   "title": "Tensei Shitara Slime Datta Ken",
-  "justification": "AniDB special S2-S6 (2018-09-17 to 2022-07-21) have no TVDB episode, was 0x02-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 352408 and TMDB show 82684. AniDB S2-S4 (\"第1話・第2話 先行上映会舞台挨拶\" (Advance Screening Stage Greeting) to \"Episode 14 Funimation Video Commentary\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S5-S6 (\"救われるラミリス E01\" (Sukuwareru Ramiris E01) to \"救われるラミリス E02\" (Sukuwareru Ramiris E02)) are TMDB S0E9 \"救われるラミリス 前編\" (Helping Ramiris - Part 1) to TMDB S0E10 \"救われるラミリス 後編\" (Helping Ramiris - Last Part) and have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -270,8 +294,8 @@
       ],
       "series": 352408
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4c9ef4fb9a358cd98be4e015a81b5c9848a4119944cac404c7b14f5802ffc274"
   },
   "anilist_ids": [

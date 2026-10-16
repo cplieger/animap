@@ -10,6 +10,15 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
             4
           ],
           [
@@ -38,7 +47,7 @@
     ]
   },
   "title": "Kimetsu no Yaiba: Katanakaji no Sato Hen",
-  "justification": "AniDB special S4-S11 (2023-04-30 to 2023-06-18) have no TVDB episode, was 0x04-0x11. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S11 \"Zen'itsu's Sugoroku 1-11\" (2023-04-09 to 2023-06-18) have no TVDB episode: season 0 holds the films, the Kimetsu Academy shorts, the 2021 recap nights, the Utage shorts and the Hashira Geiko and Infinity Castle films. S1-S3 fell on season 0 episodes 1 \"Movie: Sibling's Bond\", 2 \"Demon Slayer Movie: Mugen Train\" and 3, a Kimetsu Academy Valentine short; all eleven are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -213,8 +222,8 @@
       ],
       "series": 348545
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d907eb60ac57056cf537eeb99402c4ab17e1b9021ea519f6dfb38f0c55f1c45b"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8494",
+    "tmdb": "https://www.themoviedb.org/tv/45835/seasons",
     "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-age/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +22,7 @@
     ]
   },
   "title": "Kidou Senshi Gundam AGE",
-  "justification": "AniDB special S1-S2 ((none) to 2012-08-30) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 252621 and TMDB show 45835. AniDB S1-S2 (\"DVD/BD Volume 1 Special\" to \"PSP 「機動戦士ガンダムAGEユニバースアクセル/コズミックドライブ」 OPENING\" (PSP Mobile Suit Gundam AGE Universe Accel / Cosmic Drive Opening (1:34))) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -339,8 +341,8 @@
       ],
       "series": 252621
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "db088ee742762b9f7d5f61bf753464526134bf98ad2caaf5b2cace041044a88a"
   },
   "anilist_ids": [

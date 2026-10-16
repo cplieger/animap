@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13548",
-    "tvdb": "https://thetvdb.com/series/free-iwatobi-swim-club/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/free/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -15,13 +15,22 @@
           ],
           [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
           ]
         ]
       }
     ]
   },
   "title": "Free! Dive to the Future",
-  "justification": "AniDB special S1 (2018-09-26) = TVDB 0x17 (2018-06-23), was 0x01, by title. AniDB special S2 (2018-07-05) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Episode 0 / Soushun no Build-up!\" is TVDB season 0 episode 17 \"Build-Up of Early Spring!\". S2 (the pre-broadcast special) has no TVDB episode. S3-S5 \"Advance Screening Narration\" (2018-09-26, 10-17, 11-21) are event narrations TVDB does not list; by default they fell on season 0 episodes 3-5, the 2013 FrFr! shorts of AniDB 9858, so they are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -220,8 +229,8 @@
       ],
       "series": 270065
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "dd27f8871e05815b51e813437a910ad0c558562f9296d2e1af0cedab32cd07e4"
   },
   "anilist_ids": [

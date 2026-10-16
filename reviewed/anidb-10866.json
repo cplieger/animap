@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10866",
+  "title": "Durarara!!x2 Ten",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "c96ffbceed0c17138f8f41e8b271f529b1c3330edf244d38a555d04a1f32b345"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The only flagged special, S1 \"Romanticist`s Chaka-Poko / Onoroke Chakapoko\", is named by a row to TVDB S0E4 \"Romanticist's Chaka-Poko\": identical title. The date gap (2015-11-14 vs 2016-01-27) is the TV broadcast vs the BD. The 12 regular episodes map to S2E13-24 (offset 12) and match by title (\"Mouth of Honey, a Needle in the Heart\" vs \"A Mouth of Nectar, a Heart of Needles\" is a translation variant).",
+      "evidence": [
+        "https://anidb.net/anime/10866",
+        "https://thetvdb.com/dereferrer/series/133341"
+      ]
+    }
+  }
+}

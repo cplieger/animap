@@ -10,14 +10,26 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
             3
+          ],
+          [
+            4,
+            7
           ]
         ]
       }
     ]
   },
   "title": "Hentatsu (2020)",
-  "justification": "AniDB special S3 (2020-05-27) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "TheTVDB season 0 lists 第12.5話（おまけ） (episode 5, 2020-03-28), 大晦日 特別版 (6, 2021-12-31) and 大晦日特技編 (7, 2022-12-31), each 2 minutes on Tokyo MX. They are AniDB specials S1 \"Episode 12.5\" (2020-03-28), S2 \"Oomisoka Tokubetsu Ban\" (2021-12-31) and S4 \"Oomisoka Tokugihen\" (2022-12-31). By default S1, S2 and S4 fell on episodes 1, 2 and 4, the 2018 and 2019 web series cuts. S3 \"Omake\" has no TVDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -144,8 +156,8 @@
       ],
       "series": 358890
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "21edf341ef245f698ea08c3dce85755c8fb993eb47e781423f50268b031de83f"
   },
   "anilist_ids": [

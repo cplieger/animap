@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9555",
+    "tmdb": "https://www.themoviedb.org/tv/49471/seasons",
     "tvdb": "https://thetvdb.com/series/danganronpa-the-animation/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Danganronpa: Kibou no Gakuen to Zetsubou no Koukousei The Animation",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 270058 and TMDB show 49471. AniDB S1 \"テレビ放映版「おしおき」映像\" (Punishment Scene TV Version) has no TVDB episode (its default TVDB S0E1 is \"Recap of Danganronpa 2\", another item) and no TMDB episode (its default TMDB S0E1 is \"Recap of Danganronpa 2\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -126,8 +136,8 @@
       ],
       "series": 270058
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ea5425eedda66b159bdfa527ba627ad1a017f861811fe93cbee1208dcc0833a3"
   },
   "anilist_ids": [

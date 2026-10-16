@@ -1,0 +1,39 @@
+{
+  "key": "anime:anidb:5079",
+  "title": "UFO Senshi Dai Apolon II",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:1": "63c7b091ef274150558ed25c1d85cb7d5bf5b5127a33df23756398c357dc5865",
+        "missing-target:10": "3b2071af1919f42e908c7d53165b0bf175884b3c121a7d911de70acf1d212194",
+        "missing-target:11": "d56be129eae49a2d71c015bcc53ad4c2b0e2d2c63d2d834d32fe74ad502aaa59",
+        "missing-target:12": "d71929ec17734053922bb660612c61bb728608cf0fd34365c0fdcb8f5d582e47",
+        "missing-target:13": "4a379c84502f82c9bf4d894adcc7909fe165580f6cdc0c621ada7d1089f85455",
+        "missing-target:14": "fe0cd961a1547a0c71ba664329baac81829ffc02c1a2d034e93f4e2ae0e6e7a4",
+        "missing-target:15": "dd46a71b275df54235d00465f1cd44845c59b2c84b0f613fc467243194b6e537",
+        "missing-target:16": "280706c6154fca495bdc08329042e6200e8b6e66c4a36aca21dc747be1e9c926",
+        "missing-target:17": "6108c665c30db56dbabd5b9aae4e9b33f4fdcfe5141e9c0b64b0e2333ed62091",
+        "missing-target:18": "52bc90b21a42d6d11f515b6102f594373c5a1e851ec47da2733aaba3f9a58188",
+        "missing-target:19": "f8d6151acf83f8764bed2521f7a8ba283a69af6650484bca5b5639a63c2616cc",
+        "missing-target:2": "0a03cddc879bb88d98a49c06bf9013f41b0742c1bfe02d2cd06b3f3181d71508",
+        "missing-target:20": "91b21cc7f99bf9b7523c27e2c593579fc8c9b1c312d239578d696bad115c7df2",
+        "missing-target:21": "f8099ed8f788bd5771a0c6516bdf23cfec812885924f3093a0885c0b1b737fc7",
+        "missing-target:3": "f384b04d70982308ebf2ae2dc21323c8047496ba05962dde838117a4728c595b",
+        "missing-target:4": "1eb5f1a29ba1cc69d889cc7ef22ad353565e35a1dc6475bc31a4dcc970acb1c0",
+        "missing-target:5": "08ea3d1cd2903b69bd4d7521a9cd6b2cedb08384cfdccf4e0cb9ea0afac10ae4",
+        "missing-target:6": "dd05f0ea4c5b0c6114705b42d3979b9fc94bae6016c4a760332a8672ef154061",
+        "missing-target:7": "2d2ae90c6983cd988dd343824146ef6dc875d0c62c95bf55cd41a0f29d35a253",
+        "missing-target:8": "f95c2e533c4ace3abb764045ae4405650629bed2edf219c7cc5aa6a634456244",
+        "missing-target:9": "f9ac6a8c6e4129a1ca7eb7cc3820e8682c4e85d1a5ed445c4b663085e676e0c3"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 5079 is the second run (21 episodes, 1976-10-07 to 1977-02-24) of the series whose first run (AniDB 2703, 26 episodes, 1976-04-06 to 1976-09-21) is TVDB 127151 season 1. TVDB lists AniDB 5079 on the same series (anidbIds [2703, 5079]) but has no season 2: a TVDB gap. The mapping to season 2 is right. AniDB titles are only 'Episode N'.",
+      "evidence": [
+        "https://thetvdb.com/series/ufo-senshi-diapolon/seasons/official/1",
+        "https://anidb.net/anime/5079",
+        "https://thetvdb.com/dereferrer/series/127151"
+      ]
+    }
+  }
+}

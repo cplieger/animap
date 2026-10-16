@@ -1,0 +1,24 @@
+{
+  "anilist_id": 21405,
+  "title": "Ushinawareta Mirai wo Motomete: Ushinawareta Natsuyasumi wo Motomete",
+  "parts": [
+    {
+      "anidb_id": 10372,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 21405 (SPECIAL, 1 episode, summer 2015) is AniDB 10372's special S1 \"In Search of the Lost Summer Vacation\", aired 2015-08-29. AniList's PREQUEL relation names AniList 20591, which anime-offline-database links to AniDB 10372, and the special's title matches the AniList titles (romaji and native). AniList gives the year and season only, so the start-date check cannot apply; the title and the 1-episode count agree. TVDB 284211 places the special at S0E1 \"In Search of the Lost Summer Vacation\", 2015-08-29, the same date; the node has no mapping list, so S1 lands on S0E1 by default.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10372",
+    "anilist": "https://anilist.co/anime/21405",
+    "tmdb": "https://www.themoviedb.org/tv/77294/season/0",
+    "tvdb": "https://thetvdb.com/series/in-search-of-the-lost-future/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "2f00ddcb0794876eb87a3183c38e576fb005764105ab10825baaf74ce31a44fe"
+  }
+}

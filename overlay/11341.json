@@ -1,0 +1,65 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11341",
+    "tvdb": "https://thetvdb.com/series/go-princess-precure/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Eiga Go! Princess Precure Go! Go!! Gouka 3-bondate!!!",
+  "justification": "The node is one theatrical triple feature whose three AniDB episodes are its segments (Cure Flora and the Mischievous Mirror, The Pumpkin Kingdom's Treasure, Precure and Refi's Wonder Night). TVDB 291565 lists the film once, season 0 episode 2 Go! Princess PreCure the Movie: Go! Go!! Splendid Triple Feature!!! (2015-10-31); offset 1 sent segment 2 to episode 3 Cure Miracle Baton Pass, a 2016 short, and segment 3 to a missing episode.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c03ef06041607bb66ce4bc2ea9b2e7eb4cde598fffd93086d0fff9ba52bb7ab5",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-03-14"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-10-31"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-01-16"
+        ]
+      ],
+      "series": 291565
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8c67c75c1f9cb6e010f3831844b0f2d58bd002bea8745f2a73cdfe8f06cb7ad8"
+  },
+  "anidb_id": 11341
+}

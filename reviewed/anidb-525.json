@@ -1,0 +1,32 @@
+{
+  "key": "anime:anidb:525",
+  "title": "Chou Robot Seimeitai Transformers Micron Densetsu",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "c1b8dbc8e5c454fa20fc5343fd76485fef503e2091ccbdf080e6e4a28ddbbfa6",
+        "date-mismatch:10": "783eddc2df66147fadfaacc49abb00f25bd7cc0d25ee3d025c4a65cec3790172",
+        "date-mismatch:11": "5a257536fc31eb7e03b96ad299eceae462c84e924c5bffc6f4fe2a3ce77c60f9",
+        "date-mismatch:12": "568bccd0a9fa2811773f1485e88dd7da15dbd3dcf9d4b3f911c9e20c3b708e87",
+        "date-mismatch:13": "9ebb62bd8361739e5fa3ec71554bf559b0c1e665e86a8d5d7c9088abbc55d27e",
+        "date-mismatch:14": "49df888d2ca36723a6b7e7a645bf6611995a1a5900bbb51f211a143e903e947b",
+        "date-mismatch:15": "5403063aa27db1788366c51879e04dda9e5b94b6945953b5c54462ab52f0b5d3",
+        "date-mismatch:16": "330882bab0222c17aa40222254f9fd7daed94b776d4369567a947185f7114ac9",
+        "date-mismatch:17": "4329972706218bb12ed5a2892ea1e8d5a9fb2f56cb0aaf9da62dc8dd7cd9c9b4",
+        "date-mismatch:18": "ecc1f9071156ab3c0125b8912df77b39f8402dfaf8beb02221b3a82e3e4f8ba0",
+        "date-mismatch:2": "4a3abb177ad8a650d08734c579e55b1e89311211c339f97b24e0d5599d73c346",
+        "date-mismatch:3": "51317f541aff319186dd3f83930c30ad1f605c582080b6342cc51a4c65072fe3",
+        "date-mismatch:4": "acfb6172e0bf7fa73f902fc76c8d2e4e2e44ee0290a7319de571e2666377aeda",
+        "date-mismatch:8": "47948cd7ff17a3c0bc0be4654ceb14571c3f4916b5163d8c0421d03fc28498cd",
+        "date-mismatch:9": "75d3f58b913451ade2b2e6fc2f5398a4ebaad6d89c734db45c990ec4a6c69698"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-52 = S1E1-52 with the same English title in the same order (\"First Encounter\" = \"First Encounter (1)\", \"Metamorphasis\" = \"Metamorphosis (2)\", ..., 26 \"Link Up\" = \"Linkup\", 31-32 \"Past (Part 1/2)\" = \"Past (1)/(2)\", 52 \"Mortal Combat\"). The date failures are systematic because TVDB dates the episodes 2002-08-23 to 2003-12-12 (it looks like the US broadcast, with the first three on one day) and AniDB 2003-01-10 to 2003-12-26 (the Japanese run); the suggested targets are different-titled episodes.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/78628",
+        "https://anidb.net/anime/525"
+      ]
+    }
+  }
+}

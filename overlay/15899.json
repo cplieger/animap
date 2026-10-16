@@ -1,0 +1,57 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15899",
+    "tmdb": "https://www.themoviedb.org/tv/132848/season/1",
+    "tvdb": "https://thetvdb.com/series/fategrand-carnival/seasons/official/1"
+  },
+  "set": {
+    "tvdbid": "394346",
+    "defaulttvdbseason": "1",
+    "episodeoffset": "",
+    "tmdbtv": "132848",
+    "tmdbseason": "1",
+    "tmdboffset": ""
+  },
+  "title": "Fate/Grand Carnival",
+  "justification": "Carnival Phantasm 251047 season 0 holds five 2011-12 entries, so offset 5 sent the four episodes nowhere. TVDB 394346 Fate/Grand Carnival season 1 holds them in AniDB's order: 1 第一特異宴 英霊限界大祭オリンピア, 2 第二特異宴 夜の特異点カブキチョウ, 3 第三特異宴 ザ・ドキュメンタリー, 4 第四特異宴 絆MAXチャンネル (2021-06-02 twice, 2021-10-13 twice). TMDB 43295 is Carnival Phantasm; TMDB 132848, AniDB's own link, season 1 starts with Olympia and Kabukicho (2021-06-02).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "01953f55b92ebe565c36923def4d0b551d127e768da0f1131b6325eee521eb1f",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2021-06-02"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2021-06-02"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2021-10-13"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2021-10-13"
+        ]
+      ],
+      "series": 394346
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "eaa59c623c65aa479bad3d117c643332d3c38fa68945e54fa86779fd42e20c38"
+  },
+  "anidb_id": 15899
+}

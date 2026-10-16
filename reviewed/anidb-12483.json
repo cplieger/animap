@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:12483",
+  "title": "Idolmaster Cinderella Girls Gekijou",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S14": "5b61e571c649f8c3dad3422cd7c468b2e393c5a163d689657bc62993c800f458"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1-S13 = S0E1-S0E13 by exact title and date (Live Performance at Morn ... Will You Indulge Me?). Rows 14-41, 15-42, 16-43 send S14 \"5th Anniversary Short\", S15 \"Be Careful / Cinderella Girl Adhesion Interview! / I Beg You Shizuku-san\", S16 \"Drawing Time\" to S0E41-E43 with the identical titles. The lead (S14 AniDB 2016-11-28 vs TVDB 2017-05-24) is a different release of the same short.",
+      "evidence": [
+        "https://anidb.net/anime/12483",
+        "https://thetvdb.com/dereferrer/series/326337"
+      ]
+    }
+  }
+}

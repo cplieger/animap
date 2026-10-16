@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7934",
+    "tmdb": "https://www.themoviedb.org/tv/38603/seasons",
     "tvdb": "https://thetvdb.com/series/beelzebub/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "start": 1,
         "end": 16,
         "offset": 1
@@ -15,7 +17,7 @@
     ]
   },
   "title": "Beelzebub",
-  "justification": "AniDB special S1-S16 (2011-06-29 to 2012-09-26) = TVDB 0x02-0x17 (2011-06-29 to 2012-09-26), was 0x01-0x16. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 219771 and TMDB show 38603. AniDB S1-S16 (\"走れ!ベル坊刑事[デカ]!! 殺しはコロッケの匂い\" (Go Ahead! Dick Baby Beel!!: The Murder Smells Like Croquette) to \"解決!! ベル坊探偵名推理\" (Solved!! Reasoning Detective Beelzebub 3)) are TVDB S0E2 \"Run! Detective Baby Beel!!: The Murder Smells Like Croquette\" to TVDB S0E17 \"Solved!! Reasoning Detective Beelzebub 3\" and TMDB S0E2 \"Go Ahead! Dick Baby Beel!!: The Murder Smells Like Croquette\" to TMDB S0E17 \"Solved!! Reasoning Detective Beelzebub 3\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -490,8 +492,8 @@
       ],
       "series": 219771
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b6ab2a210e7e39f3ae0ba8562a9272bb1b9f88228c1f84de147761b986b01ae3"
   },
   "anilist_ids": [

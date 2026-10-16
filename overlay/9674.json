@@ -1,15 +1,88 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9674",
+    "tmdb": "https://www.themoviedb.org/tv/130728/seasons",
     "tvdb": "https://thetvdb.com/series/dd-fist-of-the-north-star/seasons/official/1"
   },
   "set": {
     "defaulttvdbseason": "1",
-    "tmdbtv": "",
-    "tmdbseason": ""
+    "tmdbseason": "1",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tmdb_season": 1,
+        "episodes": [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            5,
+            6
+          ],
+          [
+            4,
+            7,
+            8
+          ],
+          [
+            5,
+            9,
+            10
+          ],
+          [
+            6,
+            11,
+            12
+          ],
+          [
+            7,
+            13,
+            14
+          ],
+          [
+            8,
+            15,
+            16
+          ],
+          [
+            9,
+            17,
+            18
+          ],
+          [
+            10,
+            19,
+            20
+          ],
+          [
+            11,
+            21,
+            22
+          ],
+          [
+            12,
+            23,
+            24
+          ],
+          [
+            13,
+            25,
+            26
+          ]
+        ]
+      }
+    ]
   },
   "title": "DD Hokuto no Ken (2013)",
-  "justification": "AniDB 1-13 (2013-04-03 to 2013-06-26) = TVDB 1x01-1x13, same dates and titles. Old season 2 is 11289's 2015 series (2x1 2015-10-07), on TVDB and on TMDB 130728 S2. TMDB 130728 S1 lists each episode as two halves (26 entries), which this file's TMDB fields cannot map, so TMDB is cleared.",
+  "justification": "Checked by episode title against TVDB series 253182 and TMDB show 130728. Each AniDB episode is two segments that TMDB lists as two episodes, in order and by title: AniDB 1 is TMDB S1E1 and S1E2, 2 is S1E3 and S1E4, and so on to 13 = S1E25 and S1E26. TVDB S1E1-E13 keep the defaults, titled with both segments.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -99,8 +172,8 @@
       ],
       "series": 253182
     },
-    "at": "2026-10-04",
-    "anime_lists_commit": "1f764ef652e44a8ab7875de7e9e9fbc2940bb535",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "6c9732e9e53b941126b83b4f20e5b6d20784b85c21dbf68459a06e53a7a3946d"
   },
   "anilist_ids": [

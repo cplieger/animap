@@ -1,9 +1,13 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1069",
-    "tvdb": "https://thetvdb.com/series/dragon-ball-z/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/movie/39105"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "39105",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -26,7 +30,7 @@
     ]
   },
   "title": "Dragon Ball Z: Ginga Girigiri!! Bucchigiri no Sugoi Yatsu",
-  "justification": "AniDB 1 (1993-07-10) = TVDB 0x09 (1993-07-10), was 0x15, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (1993-07-10) = TVDB 0x09 (1993-07-10), was 0x15, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB season 0 of 12971 lists only TV specials, and tmdboffset 14 sent the film to episode 15, which does not exist; TMDB lists it as movie 39105 \"Dragon Ball Z: Bojack Unbound\" (1993).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -254,8 +258,8 @@
       ],
       "series": 81472
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a3dc54aa410244cbc520bc4f5fe310adc51fe50aad2b45976279cc957bf64ebf"
   },
   "anilist_ids": [

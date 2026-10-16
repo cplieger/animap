@@ -1,0 +1,24 @@
+{
+  "anilist_id": 131773,
+  "title": "Wonder Egg Priority: Tokubetsu-hen",
+  "parts": [
+    {
+      "anidb_id": 15772,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 131773 (SPECIAL, 1 episode(s) from 2021-06-30) is AniDB 15772's special(s) S1, aired 2021-06-29. AniList's PREQUEL relation names AniList 124845, which anime-offline-database links to AniDB 15772, and the special's title (My Priority / Watashi no Priority) matches an AniList title. The parent's node, as overlay/15772.json patches it, places S1 on TVDB 0x1 My Priority, 2021-06-30. TMDB 111255, where the parent's node places the special(s), agrees: S0E1 My Priority 2021-06-30.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15772",
+    "anilist": "https://anilist.co/anime/131773",
+    "tmdb": "https://www.themoviedb.org/tv/111255/season/0",
+    "tvdb": "https://thetvdb.com/series/wonder-egg-priority/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "4e784660a2994acdc3809043d2e4223ed25072b800d3a565685852a89924eef2"
+  }
+}

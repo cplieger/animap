@@ -1,0 +1,28 @@
+{
+  "key": "anime:anidb:19196",
+  "title": "Sawaranaide Kotesashi-kun",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "ea3c57906bb431839eb9cecfb6ec4069a454584568c693a53006e3d280889608",
+        "date-mismatch:S10": "5fa5f9a46779c2f08f021959418582f267d374cd4fbc3beb37d2a4ecb8cea63e",
+        "date-mismatch:S11": "1809f58edb4321b4af49301c5b35b2b51059171e971fe383933e4eb3edc5871a",
+        "date-mismatch:S12": "c78ae9a2e00907b94f98b8b34541c5ced88ebd240a18de78841d928a90747b5a",
+        "date-mismatch:S2": "9b6d4c7b893874ee8ea9e97c6d7d589a98bcc68492787db95fc113b18cb0f1b0",
+        "date-mismatch:S3": "e1b59444577e4f93e1ce7165688858d29c9bb30218437e6b3bbbdb1199a3e391",
+        "date-mismatch:S4": "ecd46c5d0e1993f5ae3d5ae110d62e8760781fb72e5b968033c9c2489abced7c",
+        "date-mismatch:S5": "3c18ee2c27f3836f847fbb841125cd45634083220f47115e6f464f2e24e0c0e4",
+        "date-mismatch:S6": "a9e91516ff3dfbbfad7a522606dfeb821fcb22c7a7de91d026f78a0247a561be",
+        "date-mismatch:S7": "3d5fce0114783eaac95a9cf24d2cf11b34c0ab482cd63d6e47c2a2d389dfe5b2",
+        "date-mismatch:S8": "97f8c0f58236ed650737012189d4af504b3a73ec681cfb0b6672237550fe5e00"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-12 match S1E1-12 by title and date. The twelve AniDB specials S1-S12 (one per week, 2025-10-06 to 12-22, each a pair of sketches) map to TVDB S0E1-12 \"Mini-Anime Theater Part 1-12\" (12 minutes each, weekly Thursdays 2025-10-09 to 12-25): same count, same order, same weekly cadence, constant +3 days. AniList lists the same 12 shorts as a separate TV_SHORT \"Sawaranaide Kotesashi-kun Mini Anime Gekijou\" (id 199812, MAL 62682, PARENT = the series, 12 x 12 min, 2025-10-06 to 12-22), which is the AniDB node's second MAL id. AniDB's titles are the sketch titles, TVDB's are numbered, so no title can differ; no alternative offset fits.",
+      "evidence": [
+        "https://anidb.net/anime/19196",
+        "https://thetvdb.com/dereferrer/series/460974"
+      ]
+    }
+  }
+}

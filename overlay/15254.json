@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15254",
-    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/revue-starlight/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/645439"
   },
   "set": {
     "mapping_list": [
@@ -23,7 +24,7 @@
     ]
   },
   "title": "Shoujo Kageki Revue Starlight: Rondo Rondo Rondo",
-  "justification": "AniDB special S1-S3 (2020-08-01 to 2020-08-03) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 346988. AniDB S1-S3 (\"劇場公開直前カウントダウン特番 Vol.1\" (Countdown to Theatrical Release 1) to \"劇場公開直前カウントダウン特番 Vol.3\" (Countdown to Theatrical Release 3)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

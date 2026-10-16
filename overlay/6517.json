@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6517",
-    "tvdb": "https://thetvdb.com/series/uc/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-unicorn/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -24,13 +24,21 @@
           [
             14,
             2
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            69,
+            4
           ]
         ]
       }
     ]
   },
   "title": "Kidou Senshi Gundam Unicorn",
-  "justification": "AniDB special S1-S4 (2010-10-30) have no TVDB episode, was 0x01-0x04. AniDB special S14 (2014-05-17) = TVDB 0x02 (2014-05-17), was 0x14 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S4 (2010-10-30) have no TVDB episode, was 0x01-0x04. AniDB special S14 (2014-05-17) = TVDB 0x02 (2014-05-17), was 0x14 (no such TVDB episode), by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S15 One of Seventy Two (2013-08-03) is TVDB 403849 season 0 episode 1 Mobile Suit Gundam Unicorn: One of Seventy Two (2013-08-03), and S69 FILM \u0026 LIVE the FINAL \"A mon seul desir\" (the full 98-minute event) is episode 4 Film And Live The Final - A Mon Seul Desir; both defaulted to missing episodes. S14 Episode EX stays on episode 2.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -109,8 +117,8 @@
       ],
       "series": 403849
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d000995ea4ca348bebfce0091b39aeaacf60df787b61b8138b3e703abc042cf7"
   },
   "anilist_ids": [

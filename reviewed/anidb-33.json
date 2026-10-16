@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:33",
+  "title": "Happy Lesson (2002)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "77a831fec80f92ee156c463dd945acc4d52e5d4b584904ea9bb776e03faf1616"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Episode 11.5 - Nice and Warm! All Alone with Kanna / Hoka Hoka * Kanna to Futari Kiri\" (2002-12-13) = S0E16 \"Episode 11.5 - Nice and Warm! All Alone with Kanna\" (2002-09-27).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/74544",
+        "https://www.themoviedb.org/tv/12427-happy-lesson/season/0/episode/6",
+        "https://anidb.net/anime/33"
+      ]
+    }
+  }
+}

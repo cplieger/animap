@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:98874",
+  "title": "AniList 98874",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c01bfad44340c7a3885bad0197c61cca802259052847e86c5fee63ea7f3abfa7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 2 The Dark Hero of AniDB 12439 (TVDB 294002 0x11); anime-offline-database links AniDB 12439 to AniList 98873 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/98874"
+        ],
+        "anilist_id": 98874
+      }
+    ]
+  }
+}

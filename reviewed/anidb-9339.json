@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:9339",
+  "title": "Hetalia: The Beautiful World",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "3add275f504adbe17e750bb995f89e495ea0b7024938b30c1eb9413debcef9bb",
+        "date-mismatch:S2": "50f192bff6e801087fc2177f4f10d9ce8d27cc6a593b3b75a91355d2b2e5e5fd"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Buon San Valentino, First Part / Valentino Zenpen\" (2013-04-24) = S3E21 \"Buon San Valentino (Part One)\" (2013-06-14); S2 \"Buon San Valentino, Second Part / Valentino Kouhen\" (2013-06-26) = S3E22 \"Buon San Valentino (Part Two)\" (2013-06-21).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/35138/seasons",
+        "https://anidb.net/anime/9339",
+        "https://thetvdb.com/dereferrer/series/88161"
+      ]
+    }
+  }
+}

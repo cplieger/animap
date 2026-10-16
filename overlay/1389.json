@@ -1,0 +1,103 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1389",
+    "tmdb": "https://www.themoviedb.org/tv/121914/season/1",
+    "tvdb": "https://thetvdb.com/series/new-aim-for-the-ace/seasons/official/3"
+  },
+  "set": {
+    "tvdbid": "338806",
+    "defaulttvdbseason": "3",
+    "tmdbtv": "121914",
+    "tmdbseason": "1"
+  },
+  "title": "Ace o Nerae! Final Stage",
+  "justification": "TVDB 85301 has no season 4. Final Stage is season 3 of TVDB 338806 New Aim for the Ace!, 12 episodes in AniDB's order: 1 I Like You! (Boku wa Suki Da, Kimi ga!), 2 The Summer of 19 Years Old, 3 Never Say Goodbye, 9 Queen's Cup '90 Kicks Off!, 12 Final Stage. TMDB 46419 has no season 4; TMDB 121914 Aim For The Ace! Final Stage season 1 holds the same 12 from I Like You! (1989-10-23).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9ab6ae17e32e77a278c8dbf0055daac1960de47d2d06712d7790559e46abd43e",
+      "seasons": [
+        3
+      ],
+      "episodes": [
+        [
+          3,
+          1,
+          39,
+          "1989-10-23"
+        ],
+        [
+          3,
+          2,
+          40,
+          "1989-10-23"
+        ],
+        [
+          3,
+          3,
+          41,
+          "1989-11-25"
+        ],
+        [
+          3,
+          4,
+          42,
+          "1989-11-25"
+        ],
+        [
+          3,
+          5,
+          43,
+          "1989-12-25"
+        ],
+        [
+          3,
+          6,
+          44,
+          "1989-12-25"
+        ],
+        [
+          3,
+          7,
+          45,
+          "1990-01-25"
+        ],
+        [
+          3,
+          8,
+          46,
+          "1990-01-25"
+        ],
+        [
+          3,
+          9,
+          47,
+          "1990-02-25"
+        ],
+        [
+          3,
+          10,
+          48,
+          "1990-02-25"
+        ],
+        [
+          3,
+          11,
+          49,
+          "1990-04-25"
+        ],
+        [
+          3,
+          12,
+          50,
+          "1990-04-25"
+        ]
+      ],
+      "series": 338806
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "df8cdb5ded97a1573b23ccf578d6942da24fac11f346be496c026f82a5588eeb"
+  },
+  "anidb_id": 1389
+}

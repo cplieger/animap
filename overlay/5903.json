@@ -10,6 +10,10 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1,
+            7
+          ],
+          [
             2
           ],
           [
@@ -26,13 +30,22 @@
           ],
           [
             7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
           ]
         ]
       }
     ]
   },
   "title": "Kidou Senshi Gundam Double O (2008)",
-  "justification": "AniDB special S2-S7 (no AniDB date) have no TVDB episode, was 0x02-0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S2-S7 (no AniDB date) have no TVDB episode, was 0x02-0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S1 Recap Special Tenshi-tachi no Kiseki (2008-10-02) is TVDB 80675 season 0 episode 7 天使たちの軌跡 (2008-10-02); its default was episode 1 Special Edition I: Celestial Being, the 2009 compilation. S8 and S9, the Go! Go! Fes'08 parts, and S10, an event report, have no TVDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -237,8 +250,8 @@
       ],
       "series": 80675
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "645b54aba52b79b5702135f9b5e23d899f2b88d02e0a0a6168ef65b4c06a691e"
   },
   "anilist_ids": [

@@ -1,0 +1,26 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17928",
+    "tmdb": "https://www.themoviedb.org/movie/1223906",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1223906",
+    "tvdb": "https://thetvdb.com/movies/349897-movie"
+  },
+  "set": {
+    "tvdbid": "OVA",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "1223906"
+  },
+  "title": "Mask Danshi wa Koishitakunai no ni",
+  "justification": "Checked by title. The film is TMDB movie 1223906 (Mask Danshi wa Koishitakunai noni (2023)). TMDB show 224015 does not carry it, so the node leaves that show. The node moves from TVDB 437919 to the OVA marker.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "9f9af058a141877c3381eec73b00b24424d252100cc0144379b1a78a8a63a684"
+  },
+  "anilist_ids": [
+    162989
+  ],
+  "anidb_id": 17928
+}

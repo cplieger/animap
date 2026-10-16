@@ -1,6 +1,9 @@
 {
-  "anidb_id": 8090,
-  "title": "Hagane no Renkinjutsushi: Milos no Seinaru Hoshi",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8090",
+    "tmdb_movie": "https://www.themoviedb.org/movie/80518",
+    "tvdb": "https://thetvdb.com/series/fullmetal-alchemist-brotherhood/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
@@ -32,11 +35,9 @@
       }
     ]
   },
-  "justification": "AniDB 2-3 (2011-07-02) are the film in two parts, which AniDB 1 is whole on its row to 0x21, and land on 0x21 too. They were unplaced. AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 6107's special S2. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8090",
-    "tvdb": "https://thetvdb.com/series/fullmetal-alchemist-brotherhood/seasons/official/0"
-  },
+  "title": "Hagane no Renkinjutsushi: Milos no Seinaru Hoshi",
+  "justification": "Checked by episode title against TVDB series 85249. AniDB episode 2 \"Part 1 of 2\" (the anime \"鋼の錬金術師 嘆きの丘[ミロス]の聖なる星\") is TVDB S0E21 \"The Sacred Star of Milos\"; AniDB episode 3 \"Part 2 of 2\" (the anime \"鋼の錬金術師 嘆きの丘[ミロス]の聖なる星\") is TVDB S0E21 \"The Sacred Star of Milos\"; AniDB S1 \"鋼の錬金術師 Making of 鋼の錬金術師 嘆きの聖なる星\" (Making of Sacred Star of Milos) has no TVDB episode (its default TVDB S0E1 is \"The Blind Alchemist\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "b22ea4e6442712f09d655d9863ef426829917ebee4ae2fae4b351b6ea648e677",
@@ -186,5 +187,5 @@
   "anilist_ids": [
     9135
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8090
 }

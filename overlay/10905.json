@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10905",
+    "tmdb": "https://www.themoviedb.org/tv/61901/seasons",
     "tvdb": "https://thetvdb.com/series/death-parade/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,19 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Death Parade",
-  "justification": "AniDB special S1 (2015-03-07) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 289177 and TMDB show 61901. AniDB S1 \"Episode 9 Ending\" has no TVDB episode (its default TVDB S0E1 is \"Death Billiards\", another item); AniDB S2-S3 (\"Event\" to \"デス・パレード Death Parade 最終話直前ファンイベント\" (Death Parade Final Episode Fan Event)) have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +115,8 @@
       ],
       "series": 289177
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "df80600f4c2d99a6a7bcdfe06387ab21dfc66ea11ac4e4d1873d88c65b4e970d"
   },
   "anilist_ids": [

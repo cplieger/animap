@@ -1,0 +1,109 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1390",
+    "tmdb": "https://www.themoviedb.org/tv/298064/season/1",
+    "tvdb": "https://thetvdb.com/series/new-aim-for-the-ace/seasons/official/2"
+  },
+  "set": {
+    "tvdbid": "338806",
+    "defaulttvdbseason": "2",
+    "tmdbtv": "298064",
+    "tmdbseason": "1"
+  },
+  "title": "Ace o Nerae! 2",
+  "justification": "TVDB 85301 has no season 3. The 1988 OVA is season 2 of TVDB 338806 New Aim for the Ace!, 13 episodes in AniDB's order and dates: 1 Promise of Best Friend (Muni no Shinyuu no Yakusoku), 2 Oka, Aim for the Ace, 4 Sorrow of New York, 8 Racket of Jin Munakata, 13 Surely...I Have Seen. TMDB 46419 has no season 3; TMDB 298064 Aim for the Ace! Another Match season 1 holds the same 13 from A Promise Made to My Best Friend (1988-07-25).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f13d6626f9a18a29d5116945df385bad222f1970cecb7f045e7953d466c0178d",
+      "seasons": [
+        2
+      ],
+      "episodes": [
+        [
+          2,
+          1,
+          26,
+          "1988-07-25"
+        ],
+        [
+          2,
+          2,
+          27,
+          "1988-07-25"
+        ],
+        [
+          2,
+          3,
+          28,
+          "1988-07-25"
+        ],
+        [
+          2,
+          4,
+          29,
+          "1988-07-25"
+        ],
+        [
+          2,
+          5,
+          30,
+          "1988-07-25"
+        ],
+        [
+          2,
+          6,
+          31,
+          "1988-09-25"
+        ],
+        [
+          2,
+          7,
+          32,
+          "1988-09-25"
+        ],
+        [
+          2,
+          8,
+          33,
+          "1988-09-25"
+        ],
+        [
+          2,
+          9,
+          34,
+          "1988-09-25"
+        ],
+        [
+          2,
+          10,
+          35,
+          "1988-10-25"
+        ],
+        [
+          2,
+          11,
+          36,
+          "1988-10-25"
+        ],
+        [
+          2,
+          12,
+          37,
+          "1988-10-25"
+        ],
+        [
+          2,
+          13,
+          38,
+          "1988-10-25"
+        ]
+      ],
+      "series": 338806
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "675ca337c2972296e2aeebb24cc9ff15ba58c7bc52ba38a51b63faece0634111"
+  },
+  "anidb_id": 1390
+}

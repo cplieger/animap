@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15146",
+    "tmdb": "https://www.themoviedb.org/tv/45782/seasons",
     "tvdb": "https://thetvdb.com/series/sword-art-online/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Sword Art Online: Alicization - War of Underworld (2020)",
-  "justification": "AniDB special S1 (2020-04-12) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 259640 and TMDB show 45782. AniDB S1 \"刊行10周年記念特番 作曲家 梶浦由記とSAOの音楽\" (10th Anniversary Special Program: The Music of Kajiura Yuki and SAO) has no TVDB episode (its default TVDB S0E1 is \"Sword Art Offline 1\", another item) and no TMDB episode (its default TMDB S0E1 is \"Sword Art Offline 1\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -336,8 +346,8 @@
       ],
       "series": 259640
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7817ed1f2ca6b3e2fbb51bc5f9efe48c0930875408223a95655a10bfff297dd6"
   },
   "anilist_ids": [

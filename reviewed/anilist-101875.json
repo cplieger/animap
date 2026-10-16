@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:101875",
+  "title": "AniList 101875",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "5f10e6247091dd32a8972f159e1110c1729d1b0f8423df6cf2bca6cc5629a7d7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 11516 S1 is TVDB 330308 0x1 by title, but TVDB dates it 2018-05-27 against AniDB's 2018-05-18, so no special-of-parent bridge can pass its date rule",
+        "evidence": [
+          "https://anilist.co/anime/101875"
+        ],
+        "anilist_id": 101875
+      }
+    ]
+  }
+}

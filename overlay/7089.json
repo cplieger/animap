@@ -1,0 +1,67 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7089",
+    "tvdb": "https://thetvdb.com/series/area-88/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Area 88 Gekijouban",
+  "justification": "AniDB special S1 \"Introduction of the Fighters\" (2006-07-25), a bonus clip, had no row and fell on TVDB season 0 episode 1 \"Act I: Blue Skies of Betrayal\" (1985), the first OVA episode (AniDB 569). TVDB lists no such clip, so it is unmapped; the film stays on episode 5.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0bf8208fc6527d15d8d2d670d0957538b3d6d413975368526d500a8c3eaf5326",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1985-02-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1985-08-05"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1986-06-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2006-07-06"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1985-07-20"
+        ]
+      ],
+      "series": 81867
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "4490c4517fe6c6c097d3780d28d0f0cfb3877225dc324958a30096a549ef8df4"
+  },
+  "anidb_id": 7089
+}

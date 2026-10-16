@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:12986",
+  "title": "Devilman: Crybaby",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "d397fd68ac7e8a8daf9210ff4b27895153e80ea023990300a254af5f853b165b"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-10 = S1E1-10 by title ('I Need You' ... 'Crybaby'). AniDB S1 'Devilman: Crybaby Recap / Digest Eizou' = TVDB S0E1 'Devilman Crybaby Recap'; AniDB S2 'Devilman Night: Kensuke Ushio Live @ Womb' = TVDB S0E2 'Devilman night'. Same titles in the same order; the dates differ by 2 months (S1 2018-05-24 vs 2018-03-24) and 5 days (S2), a plain date disagreement. The 'suggested target' S0E2 for S1 would be wrong.",
+      "evidence": [
+        "https://anidb.net/anime/12986",
+        "https://thetvdb.com/dereferrer/series/338192"
+      ]
+    }
+  }
+}

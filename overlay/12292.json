@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12292",
+    "tmdb": "https://www.themoviedb.org/tv/78484/seasons",
     "tvdb": "https://thetvdb.com/series/inazuma-eleven-ares/seasons/official/0"
   },
   "set": {
@@ -12,13 +13,28 @@
           [
             1,
             8
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Inazuma Eleven: Ares no Tenbin",
-  "justification": "AniDB special S1 (2018-08-10) = TVDB 0x08 (2018-08-10), was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 345384 and TMDB show 78484. AniDB S1 \"稲森 明日人のサッカー教室\" (Inamori Asuto`s Soccer Class) is TVDB S0E8 \"Inamori Asuto's Soccer Class\" and has no TMDB episode (its default TMDB S0E1 is \"Inazuma Eleven: Reloaded\", another item); AniDB S2 \"Pengin o Tsugumono\" (Heir of the Penguins) has no TVDB episode (its default TVDB S0E2 is \"Inazuma Eleven Outer Code: Sun Garden's Light and Shadow\", another item) and no TMDB episode (its default TMDB S0E2 is \"Shirou and Atsuya\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -253,8 +269,8 @@
       ],
       "series": 345384
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8a3c610d7fe9fd4e083c30dd186b3b14afee7a1ed3b557f09fe130f7cd12b87a"
   },
   "anilist_ids": [

@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4458",
-    "tmdb": "https://www.themoviedb.org/tv/5653/season/5",
+    "tmdb": "https://www.themoviedb.org/tv/5653/seasons",
     "tvdb": "https://thetvdb.com/series/373443-rockman-exe-beast/seasons/official/1"
   },
   "set": {
@@ -10,7 +10,7 @@
     "tmdbseason": "5"
   },
   "title": "Rockman.EXE Beast+",
-  "justification": "TVDB 248903 is the previous series (S1 25, no S2); TVDB 373443 is this series, one TVDB entry per series like siblings 1143 (73820), 2664 (75097) and 3621 (248903). AniDB 1-26 (2006-04-08 to 2006-09-30) = TVDB 1x01-1x26 (same titles) and TMDB 5653 S5E1-26, same dates (the old TMDB S2 is Axess). TVDB links TMDB 28433, which has 21 of the 26 episodes (2006-04-08 to 2006-08-26); 5653 S5 has all 26. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 373443 and TMDB show 5653. The node moves from TVDB 248903 to series 373443. AniDB episode 1-26 (\"その名はゼロ\" (The Name is Zero) to \"熱斗+ロックマン\" (Netto+Rockman)) are TVDB S1E1 \"The Name Is Zero\" to TVDB S1E26 \"Netto+Rockman\" and TMDB S5E1 \"その名はゼロ\" (The Name is Zero) to TMDB S5E26 \"熱斗+ロックマン\" (Netto + Rockman). TVDB series 248903 holds only Rockman.EXE Beast (node 3621) and has no second season. Series 373443 is Beast+ and carries all 26 episodes by title, as TMDB show 5653's fifth season does.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

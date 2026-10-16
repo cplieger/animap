@@ -1,0 +1,27 @@
+{
+  "key": "anime:anidb:1762",
+  "title": "Love Love?",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:3": "3024fb08f4b3aae5a0b69bb12420bc576c1d57d838feef473a0789411ea6585e",
+        "date-mismatch:4": "fe8a171e9a748c13860597d9fb69e4cc2bee2e763113eb9e78ffc2367f18c106",
+        "date-mismatch:6": "af4859e464684eb313afb813002fc6e7bdfd14ac60a9d450e1c610827dcc3719",
+        "date-mismatch:7": "a763a84fcb6f4107c34e4d7a528aa9f439c1b877e8b18d54cc29a972755f8a38",
+        "date-mismatch:8": "61c0737b2f008dd72f2df4fa7680e68d97e998c5962f64e8ab84d9faf371943f",
+        "date-mismatch:9": "a2d5609db2a049cc64454ad4b4d70e76a36a24b521752fc113251234e1f417df",
+        "date-mismatch:S1": "69452fc784da5e3c74f6840166c18656e70d28c6c539f351e8697844d6867d31",
+        "date-mismatch:S2": "73c826487f74bf52bdf23f00695725bebfa0aa331cba34231db4685d79ea23b1",
+        "date-mismatch:S3": "52796110d6f11c2ef52e11e3b5f7362f6c86d7b9217654426c7772ffd824b1e6",
+        "date-mismatch:S4": "1c1fbdee5a5653d5e030e40dc491587c7d4b1aca3a37022ef1b0a9a8ba702f01"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The published rows already reorder AniDB's air order into TVDB's order by title: AniDB specials S1 'Rhapsody of July' = S1E3 'July Rhapsody'; 3 'Deserted Schoolyard of August' = E4 'Inside the Campus of August'; S2 'If It Becomes September' = E5 'If It Becomes September'; 4 'Sky of September' = E6 'Sky of September...'; 5 'Men Are Unable to Endure That' = E7; S3 'The Actresses Who Were Cast into Hell' = E8 'The Actress Who Fell to Hell'; 6 'A Man Who Is Understood Too Well' = E9; 7 'The Days of Love \u0026 Reminiscense' = E10; 8 'With No Regrets in My Youth' = E11 'Youth Without Repentance'; 9 'Shine Amidst the Tempest' = E12; S4 'History Is Made Through Women' = E13. Eps 1 and 2 default to E1 'Wetting the Sands of March', E2 'June - Country of Dreams'. All 13 pairs agree; the date differences are TVDB's 2005-01-26 placeholder on E10-E13 and the specials' later DVD dates.",
+      "evidence": [
+        "https://anidb.net/anime/1762",
+        "https://thetvdb.com/dereferrer/series/85065"
+      ]
+    }
+  }
+}

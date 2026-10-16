@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9582",
+    "tmdb": "https://www.themoviedb.org/tv/61755/seasons",
     "tvdb": "https://thetvdb.com/series/watamote/seasons/official/0"
   },
   "set": {
@@ -8,16 +9,20 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Watashi ga Motenai no wa Dou Kangaete mo Omaera ga Warui!",
-  "justification": "AniDB special S1 (2013-11-06) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 270062 and TMDB show 61755. AniDB S1 \"アニメ化決定プロモーション映像\" (Special 1) has no TVDB episode (its default TVDB S0E1 is \"Since I'm Not Popular, I'll Become an Enigma\", another item) and no TMDB episode (its default TMDB S0E1 is \"Since I'm Not Popular, I'll Become an Enigma\", another item); AniDB S2 \"Episode 12 Insert - Creditless: Watashi ga Motenai no wa Dou Kangaete mo Omaera ga Warui\" has no TVDB episode (TVDB has no S0E2) and no TMDB episode (TMDB has no S0E2).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +113,8 @@
       ],
       "series": 270062
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7021f09b1d17650e1146e5d584b901123a3e2e40ed543159b007bd2a454262c7"
   },
   "anilist_ids": [

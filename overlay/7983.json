@@ -1,0 +1,61 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7983",
+    "tvdb": "https://thetvdb.com/series/nintama-rantarou/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gekijouban Anime Nintama Rantarou Ninjutsu Gakuen Zenin Shutsudou! no Dan",
+  "justification": "AniDB special S1 \"BD Extra: Story Board\" had no row and fell on TVDB season 0 episode 1 \"DOKUTAKE onsen\" (2007), the TV series' special (AniDB 3626 S1). TVDB lists no storyboard extra, so it is unmapped; the film stays on episode 4.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "361853647373debd61566c4efec037cc3b857fdf56532c3e810d5c80daf200d8",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-05-04"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2013-03-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1996-07-29"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2011-03-12"
+        ]
+      ],
+      "series": 286895
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "4364b029d953cc94a91a9651820551805029158664dd8719d8f5da9bd8815a23"
+  },
+  "anidb_id": 7983
+}

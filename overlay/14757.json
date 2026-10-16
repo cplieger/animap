@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14757",
-    "tvdb": "https://thetvdb.com/series/toilet-bound-hanako-kun/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/toilet-bound-hanako-kun/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/95269/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Jibaku Shounen Hanako-kun",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 368364 and TMDB show 95269. AniDB S1 \"Best Quality Dubs from home, Behind the scenes of episode 10. Interview with Megumi Ogata voice of Hanako\" has no TVDB episode (its default TVDB S0E1 is \"After School Hanako-kun: Hanako-kun After School/Mokke be Ambitious\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

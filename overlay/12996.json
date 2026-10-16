@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12996",
+    "tmdb_movie": "https://www.themoviedb.org/movie/460398",
     "tvdb": "https://thetvdb.com/series/free-iwatobi-swim-club/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "460398",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -55,8 +60,8 @@
     ]
   },
   "title": "Tokubetsuban Free! Take Your Marks",
-  "justification": "AniDB 1 (2017-10-28) is the whole film and spans TVDB 0x12-0x15 (2017-10-28), its four parts by title; AniDB 2-5 (2017-10-28) = TVDB 0x12-0x15 (2017-10-28), part by part in order. The offset put AniDB 1-5 on 0x12-0x16, and 0x16 is a later film. AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 270065. The film is TMDB movie 460398 (Free!: Take Your Marks (2017)). TMDB show 61456 does not carry it, so the node leaves that show. AniDB episode 1 \"運命のチョイス! / 秘湯のクーリングダウン! / 結束のバタフライ! / 旅立ちのエターナルブルー!\" (Complete Movie) is TVDB S0E12 \"Free! Take Your Marks 1: Destined Choice!\" + TVDB S0E13 \"Free! Take Your Marks 2: Secret Hot Spring Cooling Down!\" + TVDB S0E14 \"Free! Take Your Marks 3: United Butterfly!\" + TVDB S0E15 \"Free! Take Your Marks 4: Departing Eternal Blue!\"; AniDB episode 2-5 (\"Part 1 of 4\" (the anime \"特別版 Free!-Take Your Marks-\") to \"Part 4 of 4\" (the anime \"特別版 Free!-Take Your Marks-\")) are TVDB S0E12 \"Free! Take Your Marks 1: Destined Choice!\" to TVDB S0E15 \"Free! Take Your Marks 4: Departing Eternal Blue!\"; AniDB S1-S4 (\"キャラクター舞台挨拶1\" (Character Theater Manner Greeting 1) to \"キャラクター舞台挨拶4\" (Character Theater Manner Greeting 4)) have no TVDB episode (their defaults are other items). TMDB movie 460398 is the film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "6249903032cd4c9c282e02fed42295c1b4b5e7b7f0a95eeda472ecacde9c1569",
@@ -181,8 +186,8 @@
       ],
       "series": 270065
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d3d20755bc9ac7d76b78b6feb8871269328fbe5ca5c8f7ff52b979879eaa0d90"
   },
   "anilist_ids": [

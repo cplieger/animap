@@ -1,0 +1,98 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14802",
+    "tmdb": "https://www.themoviedb.org/movie/613199",
+    "tvdb": "https://thetvdb.com/series/bang-dream/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "613199"
+  },
+  "title": "Bang Dream! Film Live",
+  "justification": "The film \"BanG Dream! FILM LIVE\" (2019-09-13) is TVDB season 0 episode 2 \"BanG Dream! FILM LIVE\" (2019-09-13); offset 11 sent it to episode 12, the 2021 \"Film Live 2nd Stage\" encore. TMDB 69236 season 0 holds only \"We Had Some Fun!\", where offset 11 placed it nowhere; TMDB lists the film as movie 613199 \"BanG Dream! FILM LIVE\" (2019-09-13), so it takes that tmdbid.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "731a1834f38e7c8166cb9f08f006018e20dd680af09839ab264172ea07b135ef",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          14,
+          "2017-08-19"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2019-09-13"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2021-04-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2021-06-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2021-08-20"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2022-01-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2022-03-10"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2022-03-17"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2021-08-20"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2021-08-20"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2021-08-20"
+        ]
+      ],
+      "series": 320002
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "50653ce65aa18f71e364500607e84b9d4a5e6f2518f6f07e17a973d2cd0e6e79"
+  },
+  "anidb_id": 14802
+}

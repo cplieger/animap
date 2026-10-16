@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/144",
+    "tmdb": "https://www.themoviedb.org/tv/35610/seasons",
     "tvdb": "https://thetvdb.com/series/inuyasha/seasons/official/6"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -58,7 +60,7 @@
     ]
   },
   "title": "Inuyasha",
-  "justification": "AniDB 160-167 (2004-07-26 to 2004-09-13) = TVDB 6x22-6x29 (2004-07-26 to 2004-09-13), was 7x01-7x08. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 71361 and TMDB show 35610. AniDB episode 160-167 (\"幸せを呼ぶフタマタ暴力男\" (The Lucky but Two-Timing Scoundrel!) to \"二人の絆 四魂のかけらを使え! (後編)\" (The Bond Between Them, Use the Sacred Jewel Shard! Part 2)) are TVDB S6E22 \"The Lucky but Two-Timing Scoundrel!\" to TVDB S6E29 \"The Bond Between Them, Use the Sacred Jewel Shard! (2)\"; AniDB S1 \"犬夜叉 名探偵コナン 秘密講義\" (InuYasha and Detective Conan Secret Conversation) has no TMDB episode (its default TMDB S0E1 is \"Black Tessaiga\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -1226,8 +1228,8 @@
       ],
       "series": 71361
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ac6baa333d062bd8edc57839a88eda5cc1fa3fa443c005c7694c4a6c2f56f3da"
   },
   "anilist_ids": [

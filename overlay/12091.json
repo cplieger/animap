@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12091",
+    "tmdb": "https://www.themoviedb.org/tv/69291/season/0",
     "tvdb": "https://thetvdb.com/series/miss-kobayashis-dragon-maid/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,27 @@
             9
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 2,
+        "end": 8,
+        "offset": -1,
+        "episodes": [
+          [
+            1,
+            8
+          ],
+          [
+            9
+          ]
+        ]
       }
     ]
   },
   "title": "Kobayashi-san Chi no Maidragon",
-  "justification": "AniDB special S9 (2017-06-21) has no TVDB episode, was 0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S9 (2017-06-21) has no TVDB episode, was 0x09. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 69291 season 0: E1-E7 Miss Kobayashi's Dragon Something to Dragon Something - Wedding = S2-S8, E8 Valentines and Hot Springs! = S1; TMDB lists no advance screening event (S9). With no TMDB row S1-S9 took E1-E9, S9 the second season's Typical Morning.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -294,8 +311,8 @@
       ],
       "series": 318893
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1b96acaef2726a4282e4fc8fae1fefc33f5fc3859c7b2391cc40288265c36015"
   },
   "anilist_ids": [

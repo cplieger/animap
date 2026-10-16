@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:1730",
+  "title": "Ninkuu (1995)",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "e0a19603e689893f451c0c3880b5f51a4646d447eb9aaf07405beef177becc56"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1 'Complete Movie' (MOVIE, 1995-07-15) -\u003e TVDB S0E1 'Ninku the Movie'. Same film. TVDB's 1996-01-01 is a year placeholder; the film aired 1995-07-15 (the 'suggested target' S1E27 'The Valley and Fuusui' is just a TV episode of the same date). The other two S0 entries (E2 'Ninku: Knife no Bohyou', E3 its 'Super Secret Video') belong to AniDB 3209. Side finding: 3209 'Ninkuu: Knife no Bohyou' is published with defaulttvdbseason 0 and no offset, so it also lands on S0E1 and collides with this film; it needs episodeoffset 1 (E2). It is not a lead in the date check.",
+      "evidence": [
+        "https://anidb.net/anime/1730",
+        "https://thetvdb.com/dereferrer/series/180121"
+      ]
+    }
+  }
+}

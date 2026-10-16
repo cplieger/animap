@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11123",
+    "tmdb": "https://www.themoviedb.org/tv/63926/season/0",
     "tvdb": "https://thetvdb.com/series/one-punch-man/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -58,14 +60,23 @@
             14
           ],
           [
+            15
+          ],
+          [
+            16
+          ],
+          [
             17
+          ],
+          [
+            18
           ]
         ]
       }
     ]
   },
   "title": "One Punch Man",
-  "justification": "AniDB special S7-S14 (no AniDB date) have no TVDB episode, was 0x07-0x14. AniDB special S17 (no AniDB date) has no TVDB episode, was 0x17. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S7-S14 (no AniDB date) have no TVDB episode, was 0x07-0x14. AniDB special S17 (no AniDB date) has no TVDB episode, was 0x17. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The Mini Theatre specials S15, S16 and S18 have no TVDB episode either: by default they took 0x16 An Evening with the Cast and Staff and 0x18 Go! Saitama (2021). TMDB 63926 season 0 has the TVDB order for the six OVAs (E2-E7 = S1-S6) and no Mini Theatre; with no TMDB row the specials took E1-E18. The row now names TMDB season 0 too.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -252,8 +263,8 @@
       ],
       "series": 293088
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "735248ddb0a0fd05209d0f81f62858a1b8e34bc513b2ffda1a95d7e9b64ad3dc"
   },
   "anilist_ids": [

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:15876",
+  "title": "Kyokou Suiri Season 2",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S10": "c6c52f2f7deae6e90ec3f8c5a3497badee4a458a8fee3d4b45c5d4871eb441a5"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S10 \"Mini Anime Season 2 - Bride Training Series - Part 2 / Mini Anime Season 2 - Hanayome Shugyou Series 2\" (2022-05-27) = S0E45 \"Mini Anime Season 2 - Bride Training Series - Part 2\" (2022-05-20).",
+      "evidence": [
+        "https://thetvdb.com/series/inspectre/seasons/official/0",
+        "https://anidb.net/anime/15876",
+        "https://thetvdb.com/dereferrer/series/368565"
+      ]
+    }
+  }
+}

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10994",
-    "tvdb": "https://thetvdb.com/series/rainy-cocoa/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/rainy-cocoa/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/68482/seasons"
   },
   "set": {
     "mapping_list": [
@@ -18,7 +19,7 @@
     ]
   },
   "title": "Ame-iro Cocoa",
-  "justification": "AniDB 13 (2015-06-28) = TVDB 0x01 (2015-06-28), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 293647 and TMDB show 68482. AniDB episode 13 \"雨色ココア情報局\" (Rainy Cocoa Information Bureau) is TVDB S0E1 \"Rainy Cocoa Information Bureau\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

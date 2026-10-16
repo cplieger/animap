@@ -1,12 +1,14 @@
-// Package datecheck compares, for every AniDB episode an Anime-Lists node
-// maps to TVDB, AniDB's air date with the air date of the TVDB episode it
-// lands on in TVDB's official order. A node the dates contradict is a lead
-// for a human to prove, never a verdict.
+// Package datecheck compares, for every AniDB regular episode and special an
+// Anime-Lists node maps to TVDB or TMDB, and every extra a row or link
+// names, AniDB's air date with the air date of the episode it lands on in
+// that provider's order. A node the dates contradict is a lead for a human
+// to prove, never a verdict.
 package datecheck
 
 import (
 	"slices"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/cplieger/animap/internal/anidb"
@@ -18,9 +20,11 @@ import (
 type Kind string
 
 const (
-	// DeadSeries is a TVDB series id SkyHook answers 404 for.
+	// DeadSeries is a show id its provider answers 404 for.
 	DeadSeries Kind = "dead-series"
-	// MissingTarget is a TVDB season and episode the series does not have.
+	// DeadMovie is a TMDB movie id TMDB answers 404 for.
+	DeadMovie Kind = "dead-movie"
+	// MissingTarget is a season and episode the show does not have.
 	MissingTarget Kind = "missing-target"
 	// DateMismatch is a target that airs over a day away from the AniDB
 	// episode, which mismatch judges a wrong target.
@@ -42,17 +46,20 @@ const (
 	driftDays = 31
 )
 
-// Episode is one AniDB episode. AirDate is "" when AniDB has none.
+// Episode is one AniDB episode. AirDate is "" when AniDB has none. Special
+// is set for every season 0 episode, Extra too for an extra (Anime-Lists
+// numbers from 101).
 type Episode struct {
 	AirDate string `json:"air_date,omitempty"`
 	Number  int    `json:"number"`
 	Special bool   `json:"special,omitempty"`
+	Extra   bool   `json:"extra,omitempty"`
 }
 
-// Target is the TVDB episode a node maps an AniDB episode to. Absolute is
-// set when the node numbers the series absolutely; Season and Number are
+// Target is the provider episode a node maps an AniDB episode to. Absolute
+// is set when the node numbers the series absolutely; Season and Number are
 // then the episode that absolute number resolved to, 0 when none did.
-// AirDate is "" when the episode is missing or TVDB has no date.
+// AirDate is "" when the episode is missing or the provider has no date.
 type Target struct {
 	AirDate  string `json:"air_date,omitempty"`
 	Season   int    `json:"season"`
@@ -60,79 +67,133 @@ type Target struct {
 	Absolute int    `json:"absolute,omitempty"`
 }
 
-// Finding is one mapped episode that fails. Carriers are the likeliest
-// right targets, as carriers picks them. Default says no row names the
-// episode, so the node's default placed it.
+// Finding is one mapped episode that fails, or a dead movie. Carriers are
+// the likeliest right targets, as carriers picks them. Default says no row
+// names the episode, so the node's default placed it. Link is the AniList
+// id of the overlay link that names the episode, 0 for none. Inputs is the
+// digest of what the finding's proof rests on, as inputsOf writes it.
+// Movie is the TMDB movie id of a DeadMovie.
 type Finding struct {
 	Kind     Kind              `json:"kind"`
+	Inputs   string            `json:"inputs"`
 	Carriers []skyhook.Episode `json:"carriers,omitempty"`
 	Episode  Episode           `json:"episode"`
 	Target   Target            `json:"target"`
+	Link     int               `json:"link,omitempty"`
+	Movie    int               `json:"movie,omitempty"`
 	Default  bool              `json:"default,omitempty"`
 }
 
-// Lead is a node that fails the check: its series is dead, or Findings
-// lists every mapped episode that fails, regular episodes first.
+// Lead is a node that fails the check on Side: its show Series is dead,
+// or Findings lists every mapped episode that fails, regular episodes
+// first, and every dead movie.
 type Lead struct {
-	Findings []Finding `json:"findings,omitempty"`
-	AniDB    int       `json:"anidb"`
-	Series   int       `json:"series"`
-	Dead     bool      `json:"dead,omitempty"`
+	Findings []Finding       `json:"findings,omitempty"`
+	Series   int             `json:"series"`
+	Side     animelists.Side `json:"side"`
+	Dead     bool            `json:"dead,omitempty"`
 }
 
-// Series is the TVDB series id n maps to, and false when it has none.
-func Series(n *animelists.Node) (int, bool) {
-	id, err := strconv.Atoi(n.Attr("tvdbid"))
+// Series is the show id n maps to on side, and false when it has none:
+// tvdbid on TVDB, tmdbtv on TMDB.
+func Series(n *animelists.Node, side animelists.Side) (int, bool) {
+	attr := "tvdbid"
+	if side == animelists.TMDB {
+		attr = "tmdbtv"
+	}
+	id, err := strconv.Atoi(n.Attr(attr))
 	return id, err == nil && id > 0
 }
 
-// Prefix starts every date-check issue key, and no other key.
-const Prefix = "lead:date:"
+// Movies are the TMDB movie ids n names, ascending, each once.
+func Movies(n *animelists.Node) []int {
+	var out []int
+	for p := range strings.SplitSeq(n.Attr("tmdbid"), ",") {
+		if id, err := strconv.Atoi(strings.TrimSpace(p)); err == nil && id > 0 {
+			out = append(out, id)
+		}
+	}
+	slices.Sort(out)
+	return slices.Compact(out)
+}
 
-// Key is the issue identity of the lead for AniDB id aid; it never changes.
-func Key(aid int) string { return Prefix + strconv.Itoa(aid) }
-
-// Check returns the lead for node n, with AniDB episode list a and the
-// layout of n's series, nil when the node passes. Episodes that have not
-// settled by now are skipped, and a date is compared only where both sides
-// have one.
-func Check(n *animelists.Node, a anidb.Anime, lay *Layout, now time.Time) *Lead {
-	series, ok := Series(n)
+// Check returns the lead for node n on side, with AniDB episode list a and
+// the layout of n's show there, nil when the node passes. Episodes that
+// have not settled by now are skipped, and a date is compared only where
+// both sides have one. An extra is judged only where a row or a link names
+// it. linked maps an [AniDB season, number] an overlay link names to its
+// AniList id.
+func Check(n *animelists.Node, side animelists.Side, a *anidb.Anime, lay *Layout, now time.Time, linked map[[2]int]int) *Lead {
+	series, ok := Series(n, side)
 	if !ok {
 		return nil
 	}
 	if lay.Absent {
-		return &Lead{AniDB: n.AniDBID, Series: series, Dead: true}
+		return &Lead{Series: series, Side: side, Dead: true}
 	}
 	s := newShow(lay.Episodes, sharedDates(a))
+	s.side, s.series, s.linked = side, series, linked
 	s.oneCalendar = s.keepsAniDBCalendar(a.Regular)
 	var out, calendar []Finding
 	for i, d := range a.Regular {
-		bad, cal := s.check(n, Episode{Number: i + 1, AirDate: d}, a.Finished, now)
+		bad, cal := s.check(n, Episode{Number: i + 1, AirDate: d}, regularTitles(a, i), a.Finished, now)
 		out = append(out, bad...)
 		calendar = append(calendar, cal...)
 	}
 	out = append(out, outOfOrder(calendar)...)
 	for _, sp := range a.Specials {
-		bad, _ := s.check(n, Episode{Number: sp.Number, AirDate: sp.AirDate, Special: true}, a.Finished, now)
+		bad, _ := s.check(n, Episode{Number: sp.Number, AirDate: sp.AirDate, Special: true}, sp.Titles, a.Finished, now)
+		out = append(out, bad...)
+	}
+	for _, x := range a.Extras {
+		if n.Place(side, 0, x.Number).Default && linked[[2]int{0, x.Number}] == 0 {
+			continue
+		}
+		bad, _ := s.check(n, Episode{Number: x.Number, AirDate: x.AirDate, Special: true, Extra: true}, x.Titles, a.Finished, now)
 		out = append(out, bad...)
 	}
 	if len(out) == 0 {
 		return nil
 	}
-	return &Lead{AniDB: n.AniDBID, Series: series, Findings: out}
+	return &Lead{Series: series, Side: side, Findings: out}
+}
+
+func regularTitles(a *anidb.Anime, i int) string {
+	if i < len(a.RegularTitles) {
+		return a.RegularTitles[i]
+	}
+	return ""
+}
+
+// CheckMovies returns a DeadMovie finding for each of n's TMDB movies that
+// movies records as absent. ok is false when a movie has no layout, so
+// the node cannot be judged.
+func CheckMovies(n *animelists.Node, movies Layouts) (fs []Finding, ok bool) {
+	for _, id := range Movies(n) {
+		lay, laid := movies[id]
+		if !laid {
+			return nil, false
+		}
+		if lay.Absent {
+			fs = append(fs, Finding{Kind: DeadMovie, Movie: id, Inputs: digest([]string{"movie " + strconv.Itoa(id), "absent=true"})})
+		}
+	}
+	return fs, true
 }
 
 type show struct {
-	byEpisode   map[[2]int]skyhook.Episode
-	byAbsolute  map[int]skyhook.Episode
+	linked      map[[2]int]int
+	byEpisode   map[[2]int]Aired
+	byAbsolute  map[int]Aired
 	shared      map[sharedKey]bool
-	episodes    []skyhook.Episode
+	episodes    []Aired
+	side        animelists.Side
+	series      int
 	oneCalendar bool
 }
 
-func newShow(layout []skyhook.Episode, shared map[sharedKey]bool) *show {
-	s := &show{byEpisode: map[[2]int]skyhook.Episode{}, byAbsolute: map[int]skyhook.Episode{}, shared: shared, episodes: layout}
+func newShow(layout []Aired, shared map[sharedKey]bool) *show {
+	s := &show{byEpisode: map[[2]int]Aired{}, byAbsolute: map[int]Aired{}, shared: shared, episodes: layout}
 	for _, e := range layout {
 		s.byEpisode[[2]int{e.Season, e.Number}] = e
 		if e.Absolute > 0 && e.Season > 0 {
@@ -153,8 +214,8 @@ const (
 )
 
 // keepsAniDBCalendar: some regular AniDB date, precise to the day and
-// shared by no other episode, has a TVDB episode within a day, so the
-// series keeps AniDB's calendar.
+// shared by no other episode, has a provider episode within a day, so the
+// show keeps AniDB's calendar.
 func (s *show) keepsAniDBCalendar(regular []string) bool {
 	return slices.ContainsFunc(regular, func(d string) bool {
 		return dayPrecise(d) && len(s.carriers(Episode{AirDate: d})) > 0
@@ -162,8 +223,8 @@ func (s *show) keepsAniDBCalendar(regular []string) bool {
 }
 
 // check returns ep's failing findings, and its findings on another
-// calendar for outOfOrder.
-func (s *show) check(n *animelists.Node, ep Episode, finished bool, now time.Time) (bad, calendar []Finding) {
+// calendar for outOfOrder, titles being the digest of ep's AniDB titles.
+func (s *show) check(n *animelists.Node, ep Episode, titles string, finished bool, now time.Time) (bad, calendar []Finding) {
 	if !settled(ep.AirDate, finished, now) {
 		return nil, nil
 	}
@@ -171,14 +232,23 @@ func (s *show) check(n *animelists.Node, ep Episode, finished bool, now time.Tim
 	if ep.Special {
 		anidbSeason = 0
 	}
-	p := n.Place(animelists.TVDB, anidbSeason, ep.Number)
+	p := n.Place(s.side, anidbSeason, ep.Number)
 	ts := s.targets(p)
 	sib := siblings(ep, ts)
+	link := s.linked[[2]int{anidbSeason, ep.Number}]
+	inputs := ""
 	for _, t := range ts {
-		switch f, v := s.judge(ep, t, p.Default, sib); v {
-		case fails:
+		f, v := s.judge(ep, t, p.Default, sib, link)
+		if v == passes {
+			continue
+		}
+		if inputs == "" {
+			inputs = s.inputsOf(ep, titles, ts, p.Default, link)
+		}
+		f.Inputs = inputs
+		if v == fails {
 			bad = append(bad, f)
-		case otherCalendar:
+		} else {
 			calendar = append(calendar, f)
 		}
 	}
@@ -215,7 +285,7 @@ func (s *show) targets(p animelists.Placement) []Target {
 	return out
 }
 
-func (s *show) judge(ep Episode, t Target, byDefault bool, sib []skyhook.Episode) (Finding, verdict) {
+func (s *show) judge(ep Episode, t Target, byDefault bool, sib []skyhook.Episode, link int) (Finding, verdict) {
 	_, exists := s.byEpisode[[2]int{t.Season, t.Number}]
 	if t.Absolute > 0 {
 		exists = t.Number > 0
@@ -224,12 +294,13 @@ func (s *show) judge(ep Episode, t Target, byDefault bool, sib []skyhook.Episode
 	if len(c) == 0 {
 		c = sib
 	}
-	f := Finding{Kind: MissingTarget, Episode: ep, Target: t, Carriers: c, Default: byDefault}
+	f := Finding{Kind: MissingTarget, Episode: ep, Target: t, Carriers: c, Default: byDefault, Link: link}
 	switch {
-	case !exists && ep.Special && byDefault && len(c) == 0:
-		// A special no row names defaults to season 0 episode k; TVDB not
-		// having that special is no mapping error unless it files the
-		// special elsewhere.
+	case !exists && ep.Special && byDefault && len(c) == 0 && link == 0:
+		// A special no row names defaults to season 0 episode k; the
+		// provider not having that special is no mapping error unless it
+		// files the special elsewhere, or a link publishes a record
+		// pointing there.
 		return Finding{}, passes
 	case !exists:
 		return f, fails
@@ -249,17 +320,17 @@ func (s *show) mismatch(ep Episode, t Target, c []skyhook.Episode, byDefault boo
 	case len(c) > 0 || s.shared[sharedKey{date: ep.AirDate, special: ep.Special}]:
 		return passes
 	case ep.Special && s.oneCalendar:
-		// On a series that keeps AniDB's calendar, a regular episode no
-		// episode meets is TVDB dating that one episode otherwise (a
-		// pre-air, a stream, a typo); a special there is a wrong target.
+		// On a show that keeps AniDB's calendar, a regular episode no
+		// episode meets is the provider dating that one episode otherwise
+		// (a pre-air, a stream, a typo); a special there is a wrong target.
 		return fails
 	}
 	return otherCalendar
 }
 
 // outOfOrder are the findings of fs, all otherCalendar and in AniDB order,
-// that take part in a revisit: two episodes land on one TVDB
-// episode, and an episode numbered between them lands after it. TVDB
+// that take part in a revisit: two episodes land on one provider episode,
+// and an episode numbered between them lands after it. The provider
 // merging a run of episodes into one is no revisit, and neither is a
 // node that only reorders episodes, as a series aired out of order needs.
 func outOfOrder(fs []Finding) []Finding {
@@ -283,8 +354,9 @@ func outOfOrder(fs []Finding) []Finding {
 		}
 	}
 	var out []Finding
-	for i, f := range fs {
+	for i := range fs {
 		if flagged[i] {
+			f := fs[i]
 			f.Kind = OutOfOrder
 			out = append(out, f)
 		}
@@ -307,7 +379,7 @@ func dayPrecise(date string) bool {
 	return err == nil && d.Day() != 1
 }
 
-// scheduleDrift is a default-placed episode in a regular TVDB season, at
+// scheduleDrift is a default-placed episode in a regular provider season, at
 // most driftDays from its target, whose AniDB date another episode of that
 // season carries. Two sources that number the season alike and keep
 // different broadcast schedules (a pre-emption, a later station, a
@@ -325,8 +397,8 @@ func scheduleDrift(ep Episode, t Target, carriers []skyhook.Episode, byDefault b
 // carriers are the episodes that air within a day of ep's AniDB date, the
 // candidates for its right target. A date of month or year precision, or
 // one another episode of the same kind shares (a batch release), names no
-// episode, and a special's candidates are TVDB specials only, since a
-// regular episode airing the day of a special is no evidence.
+// episode, and a special's candidates are the provider's specials only,
+// since a regular episode airing the day of a special is no evidence.
 func (s *show) carriers(ep Episode) []skyhook.Episode {
 	if s.shared[sharedKey{date: ep.AirDate, special: ep.Special}] {
 		return nil
@@ -337,7 +409,7 @@ func (s *show) carriers(ep Episode) []skyhook.Episode {
 			continue
 		}
 		if gap, ok := daysApart(ep.AirDate, e.AirDate); ok && gap <= 1 {
-			out = append(out, e)
+			out = append(out, e.Episode)
 		}
 	}
 	slices.SortFunc(out, func(x, y skyhook.Episode) int {
@@ -351,7 +423,7 @@ func (s *show) carriers(ep Episode) []skyhook.Episode {
 
 // sharedDates are the dates two or more regular episodes, or two or more
 // specials, of the anime carry, keyed by kind and date.
-func sharedDates(a anidb.Anime) map[sharedKey]bool {
+func sharedDates(a *anidb.Anime) map[sharedKey]bool {
 	seen := map[sharedKey]int{}
 	for _, d := range a.Regular {
 		seen[sharedKey{date: d}]++
@@ -383,7 +455,7 @@ func settled(date string, finished bool, now time.Time) bool {
 	return err == nil && !d.After(now.Add(-settle))
 }
 
-// sameAiring reports whether AniDB date a and TVDB date b can be one
+// sameAiring reports whether AniDB date a and provider date b can be one
 // airing: at most a day apart, for the time-zone shift; in the same month
 // when either is the 1st, a month-precision date; in the same year when
 // either is 1 January, a year-precision date. A date that does not parse

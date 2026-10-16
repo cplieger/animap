@@ -1,14 +1,27 @@
 {
-  "anidb_id": 6463,
-  "title": "To Love-Ru (2009)",
-  "set": {
-    "episodeoffset": "0"
-  },
-  "justification": "AniDB 1-6 (2009-04-03 to 2010-04-02) = TVDB 0x01-0x06 (2009-04-03 to 2010-04-02), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
   "evidence": {
     "anidb": "https://anidb.net/anime/6463",
+    "tmdb": "https://www.themoviedb.org/tv/34742/seasons",
     "tvdb": "https://thetvdb.com/series/to-love-ru/seasons/official/0"
   },
+  "set": {
+    "episodeoffset": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "To Love-Ru (2009)",
+  "justification": "Checked by episode title against TVDB series 81831 and TMDB show 34742. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-6 (\"リト, 女になる\" (Rito, Becomes a Woman) to \"すきま風♪ / メタモルフォーゼ / ハンド\u0026テール\" (Draft / Metamorphose / Hand \u0026 Tail)) are TVDB S0E1 \"Rito, You Became a Girl!\" to TVDB S0E6 \"Draft / Metamorphose / Hand \u0026 Tail\"; AniDB S1 \"Special Ending 2\" has no TMDB episode (its default TMDB S0E1 is \"Rito, You Became a Girl!\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "4f299bf2a5cc8056d541d590a17ea6f33fbfa414e61533d996502670cad187ac",
@@ -121,12 +134,12 @@
       ],
       "series": 81831
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "efd6db1f462e3ff90629e6cd45f97411ab01b007fd4e56c78d3aac9fc83226fe"
   },
   "anilist_ids": [
     5667
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 6463
 }

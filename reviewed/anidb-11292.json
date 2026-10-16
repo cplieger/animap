@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11292",
+  "title": "Boku dake ga Inai Machi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "39b49cf5ecdcb8903d0e42eb82d6280fe0130411f4a977ca5ed1307db111fd33"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1 'Erased 1-6 Digest' = TVDB S0E1 'Erased 1-6 Digest' (same title; AniDB 2016-02-16 vs TVDB 2016-02-25, different airing). AniDB S2 'Erased 7-11 Digest' and S3 'Episode 12 Ending' have no TVDB episode (TVDB season 0 has one episode); a special TVDB does not list is a gap, not an error. Regular 1-12 match S1 1-12 by title.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/303071",
+        "https://anidb.net/anime/11292"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 13587,
+  "title": "Persona 4 the Animation: No One is Alone",
+  "parts": [
+    {
+      "anidb_id": 8378,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 13587 (SPECIAL, 1 episode(s) from 2012-08-22) is AniDB 8378's special(s) S1, aired 2012-08-22. AniList's PREQUEL relation names AniList 10588, which anime-offline-database links to AniDB 8378, and the special's title (No One Is Alone) matches an AniList title. The parent's node, as overlay/8378.json patches it, places S1 on TVDB 0x1 No One Is Alone, 2012-08-22. TMDB 46388, where the parent's node places the special(s), agrees: S0E1 No One Is Alone 2012-08-22.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8378",
+    "anilist": "https://anilist.co/anime/13587",
+    "tmdb": "https://www.themoviedb.org/tv/46388/season/0",
+    "tvdb": "https://thetvdb.com/series/persona4-the-animation/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "0a15a95649b42f564cc418bb3a83e500ad6f1143f2a60ef3827d9de799b2bea8"
+  }
+}

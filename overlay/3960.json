@@ -1,0 +1,178 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/3960",
+    "tmdb": "https://www.themoviedb.org/tv/51482",
+    "tvdb": "https://thetvdb.com/series/love-get-chu/seasons/official/1"
+  },
+  "set": {
+    "tvdbid": "84524"
+  },
+  "title": "Love Get Chu: Miracle Seiyuu Hakusho",
+  "justification": "TVDB 199561 is gone; the series is TVDB 84524 Love Get Chu (TMDB 51482, the node's own), 25 episodes in AniDB's order: 1 Momoko, Will Be A Voice Actress!, 2 Momoko, New Life Starts!, 6 Tsubasa, Will Be a Girl!, 13 We, Will Be Idols!!, 25 Momoko, It is the Strange Story.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "9f9686751cf68496a2c4422ac1c682d3bd3bfba0354ef0a6712a1b8a03cb418d",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2006-04-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2006-04-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2006-04-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2006-04-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2006-05-02"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2006-05-09"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2006-05-16"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2006-05-23"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2006-05-30"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2006-06-06"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2006-06-13"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2006-06-27"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2006-07-04"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2006-07-11"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2006-07-18"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2006-07-25"
+        ],
+        [
+          1,
+          17,
+          17,
+          "2006-08-01"
+        ],
+        [
+          1,
+          18,
+          18,
+          "2006-08-15"
+        ],
+        [
+          1,
+          19,
+          19,
+          "2006-08-22"
+        ],
+        [
+          1,
+          20,
+          20,
+          "2006-08-29"
+        ],
+        [
+          1,
+          21,
+          21,
+          "2006-09-05"
+        ],
+        [
+          1,
+          22,
+          22,
+          "2006-09-12"
+        ],
+        [
+          1,
+          23,
+          23,
+          "2006-09-19"
+        ],
+        [
+          1,
+          24,
+          24,
+          "2006-09-19"
+        ],
+        [
+          1,
+          25,
+          25,
+          "2006-09-26"
+        ]
+      ],
+      "series": 84524
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "b8707ee8ee6112f75422db80c258fb3c26023fcf9d26c2a65f946d56ebf063ee"
+  },
+  "anidb_id": 3960
+}

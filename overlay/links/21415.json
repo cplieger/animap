@@ -1,0 +1,28 @@
+{
+  "anilist_id": 21415,
+  "title": "Grisaia no Rakuen: Grisaia no Tokuten",
+  "parts": [
+    {
+      "anidb_id": 11009,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "justification": "AniList 21415 (SPECIAL, 5 episode(s) from 2015-08-26) is AniDB 11009's special(s) S1-S5, aired 2015-08-26 to 2015-12-25. AniList's PARENT relation names AniList 21006, which anime-offline-database links to AniDB 11009, and AniDB lists MAL 31368 on AniDB 11009. The parent's row (start 1, end 5, offset 8) places them on TVDB 281949 0x9-0x13, whose titles and dates agree within a day.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11009",
+    "anilist": "https://anilist.co/anime/21415",
+    "tmdb": "https://www.themoviedb.org/tv/61422/season/0",
+    "tvdb": "https://thetvdb.com/series/the-fruit-of-grisaia/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "71a8beadc7424616f1ebbe3c2d9f8fae8e950ec3375cb9caaebc4bd223c15d9d"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:176299",
+  "title": "AniList 176299",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "c01bfad44340c7a3885bad0197c61cca802259052847e86c5fee63ea7f3abfa7",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: the theatrical re-edit of AniDB 17351 (the node's TVDB placement); anime-offline-database links AniDB 17351 to AniList 148370 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/176299"
+        ],
+        "anilist_id": 176299
+      }
+    ]
+  }
+}

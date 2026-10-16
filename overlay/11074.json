@@ -1,11 +1,15 @@
 {
-  "anidb_id": 11074,
-  "title": "Relife",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11074",
+    "tmdb": "https://www.themoviedb.org/tv/66941/seasons",
+    "tvdb": "https://thetvdb.com/series/relife/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -14,11 +18,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1 (2017-02-22) has no TVDB episode, was 0x01, which is AniDB 13123. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/11074",
-    "tvdb": "https://thetvdb.com/series/relife/seasons/official/0"
-  },
+  "title": "Relife",
+  "justification": "Checked by episode title against TVDB series 299508 and TMDB show 66941. AniDB S1 \"Creditless Ending of Episode 13\" has no TVDB episode (its default TVDB S0E1 is \"Seed\", another item) and no TMDB episode (its default TMDB S0E1 is \"Seed\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "d6248158ef13ed1a2394d2d4176aa4d218fea66aff71ec574458cdbf3b6095ce",
@@ -144,12 +146,12 @@
       ],
       "series": 299508
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d6b8910e9506b18b23033019d3158aa2a3ae9ea6cdc1bc77d0d54a0e6703b25d"
   },
   "anilist_ids": [
     21049
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 11074
 }

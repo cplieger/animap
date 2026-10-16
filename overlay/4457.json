@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4457",
+    "tmdb": "https://www.themoviedb.org/tv/20111/seasons",
     "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-seed/seasons/official/0"
   },
   "set": {
@@ -14,11 +15,20 @@
             7
           ]
         ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Kidou Senshi Gundam SEED Destiny: Kudakareta Sekai",
-  "justification": "AniDB 1 (2006-05-02) = TVDB 0x07 (2006-05-02), was 0x08, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 254931 and TMDB show 20111. AniDB episode 1 \"TV Special\" (the anime \"機動戦士ガンダムSEED DESTINY 砕かれた世界\") is TVDB S0E7 \"Special Edition I: The Shattered World\" and has no TMDB episode (its default TMDB S0E1 is \"AFTER-PHASE - Between the Stars\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -222,8 +232,8 @@
       ],
       "series": 254931
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "fb9f7b8b0a2195688757eb7d5e6f4b793dfaa69403283c0a6c80ce2a5696f1e0"
   },
   "anidb_id": 4457

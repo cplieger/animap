@@ -1,0 +1,22 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7496",
+    "anilist": "https://anilist.co/anime/12185"
+  },
+  "set": {
+    "tvdbid": "other",
+    "episodeoffset": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "mapping_list": []
+  },
+  "title": "Mameushi-kun",
+  "justification": "Mameushi-kun (2007-2008) is a 52-episode NHK children's short (AniList 12185, TV_SHORT, not adult). The node sent it onto Detective Conan's TVDB series 72454, its episodes 1-6 by rows onto the Kaito Kid specials and the rest by default onto Conan's season 0, and onto Conan's TMDB show. TVDB carries no Mameushi-kun: the TheTVDB search for まめうしくん and Mameushi and SkyHook's search find nothing, so it takes the marker `other`.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "75ec8bc8406f63eec478ce4d63a3a6669d2841ed8b0a62f12f5e3c42a1e14868"
+  },
+  "anidb_id": 7496
+}

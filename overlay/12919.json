@@ -1,0 +1,171 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12919",
+    "tvdb": "https://thetvdb.com/series/eureka-seven/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "79360"
+  },
+  "title": "Eureka Seven AO Final Episode: One More Time - Lord Don't Slow Me Down",
+  "justification": "TVDB 26796 is gone; it duplicated Eureka Seven 79360, which lists the AO nodes 8854, 9147 and 9512. Its season 0 episodes 15-19 are Final Episode: One More Time - Lord Don't Slow Me Down Part-A to Part-E, the five AniDB parts in order, where offset 14 already lands, right after node 9512's episodes 5-14.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e2f7328006db90a7e8492c9d19692b3b46f56de5d5435b79bd3d45797282b382",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-04-25"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2005-10-16"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-04-05"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2012-09-20"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-10-05"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2012-10-12"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-10-19"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2012-10-26"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-11-02"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-11-09"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-11-16"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2012-11-23"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2012-11-30"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2012-12-07"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2017-01-23"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2017-01-26"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2017-01-30"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2017-02-12"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2017-03-02"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2012-04-10"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2017-09-16"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2017-01-23"
+        ],
+        [
+          0,
+          23,
+          0,
+          "2018-11-10"
+        ],
+        [
+          0,
+          24,
+          0,
+          ""
+        ]
+      ],
+      "series": 79360
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "b777d1f6e0815ac3285b9a069ba16d0d9cac43cfd14b3e9204952d8e86a8ec42"
+  },
+  "anidb_id": 12919
+}

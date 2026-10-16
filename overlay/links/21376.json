@@ -1,0 +1,24 @@
+{
+  "anilist_id": 21376,
+  "title": "Hibike! Euphonium: Kakedasu Monaka",
+  "parts": [
+    {
+      "anidb_id": 10889,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 21376 (OVA, 1 episode from 2015-12-16) is AniDB 10889's special S1, aired 2015-12-16, titled Kakedasu Monaka / Ready, Set, Monaka. AniList's PARENT 20912 is AniDB 10889. The parent's node places it on TVDB 0x8 Ready, Set, Monaka, 2015-12-16, and TMDB 62564 S0E8, 2015-12-16.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10889",
+    "anilist": "https://anilist.co/anime/21376",
+    "tmdb": "https://www.themoviedb.org/tv/62564/season/0",
+    "tvdb": "https://thetvdb.com/series/sound-euphonium/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "03eab40538db03e4962ccdaeaea2d007b8f3625b3d02f13c455d82c643335d93"
+  }
+}

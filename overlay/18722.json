@@ -14,13 +14,25 @@
           ],
           [
             2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Kaijuu 8 Gou (2025)",
-  "justification": "AniDB special S1-S2 (2025-07-26 to 2025-08-02) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB specials S1-S9 \"Hoshi Night Japan 1-9\" (2025-07-26 to 2025-09-20) are radio-style specials TVDB does not list. S4-S7 fell by default on TVDB season 0 episodes 4-7 \"Narumi's Week at Work - Day 1-4\" (2026-09), different shorts, so S1, S2 and S4-S7 are unmapped; the others fall on season 0 episodes TVDB does not have.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -135,8 +147,8 @@
       ],
       "series": 423075
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "71a533396120b64ce5baf733876e91bfd1401fd247652c6858ea9498b207324d"
   },
   "anilist_ids": [

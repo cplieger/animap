@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:2826",
+  "title": "Koukyoushihen: Eureka Seven",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "3c2dfd5d42124a8f681ff53e4421284900637c52eb585498b7f70970c8043525"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Row S1 -\u003e S0E2: AniDB S1 \"Navigation ray=out / Kinkyuu Tokuban Navigation \"ray=out\"\" (2005-10-22) = TVDB S0E2 \"Navigation ray=out\" (2005-10-16): identical title, 6 days apart. S2 \"New Order\" = S0E3 \"New Order\" (same title) and the interviews are unmapped, as they should be.",
+      "evidence": [
+        "https://anidb.net/anime/2826",
+        "https://thetvdb.com/dereferrer/series/79360"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:12919",
+  "title": "Eureka Seven AO Final Episode: One More Time - Lord Don't Slow Me Down",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:2": "59f1407a877f49d08a35d0379fdec068b5b6b3ae5ea3a324346833185693fe01"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 2 \"Episode 2 of Eureka Seven AO Final Episode: One More Time - Lord Don't Slow Me Down\" (2017-01-23) = S0E16 \"Final Episode: One More Time - Lord Don't Slow Me Down Part-B\" (2017-01-26).",
+      "evidence": [
+        "https://www.themoviedb.org/tv/889-eureka-seven/season/0",
+        "https://anidb.net/anime/12919",
+        "https://thetvdb.com/dereferrer/series/79360"
+      ]
+    }
+  }
+}

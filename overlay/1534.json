@@ -1,13 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1534",
+    "tmdb": "https://www.themoviedb.org/tv/45266/seasons",
     "tvdb": "https://thetvdb.com/series/space-symphony-maetel/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "0"
+    "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": ""
   },
   "title": "Maetel Legend",
-  "justification": "AniDB 1-2 (2000-12-13 to 2001-03-07) = TVDB 0x01-0x02 (2000-12-13 to 2001-03-07), was 0x03-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 83403. TMDB show 45266 does not carry it, so the node leaves that show. AniDB episode 1-2 (\"交響詩 宿命 ~第一楽章~\" (The First Movement of the Symphonic Poem \"Destiny\") to \"交響詩 宿命 ~第二楽章~\" (The Second Movement of the Symphonic Poem \"Destiny\")) are TVDB S0E1 \"The First Movement of the Symphonic Poem\" to TVDB S0E2 \"The Second Movement of the Symphonic Poem\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -43,8 +47,8 @@
       ],
       "series": 83403
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4c07b187a6264e6e1deeeb2a274a407e75ad0a9050a4b5d26221b69787904cb2"
   },
   "anilist_ids": [

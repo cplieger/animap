@@ -1,0 +1,21 @@
+{
+  "key": "anime:anidb:1327",
+  "title": "Midori no Hibi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "c6a1df238fcb1ec4c748f19f96b0505e9455eddd6e299bb3164b80b6251312a2",
+        "date-mismatch:S2": "8dc81d34ff0e5183b3dc75eebf159fd16e40babbc2219469f1e1a34222f1f412",
+        "date-mismatch:S3": "ef89d2c36a3704ab9d7fdb6ce80aaf9e649dba621816eebfaaa041048cc438ae"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1-S3 \"Original Sound Drama: Day 1-3\" (6, 8 and 7 min, 2004-07-23, 2004-08-27, 2004-09-24) default to TVDB S0E1-3 \"Picture Drama 1-3\" (6, 7 and 7 min, Animax 2005-04-28, 2005-05-30, 2005-07-19). Same count (3), same order, same numbering, lengths within a minute each, same kind of content (a short drama bonus told with still pictures); the dates are a year apart (Japanese DVD volume bonuses vs Animax broadcast). Titles differ in one word. AniDB S4/S5 \"Outtakes 1/2\" (2 and 3 min) default to S0E4/S0E5, which do not exist, so they are a TVDB gap. Medium because no page names the sound drama and picture drama as one thing.",
+      "evidence": [
+        "https://thetvdb.com/series/midori-days/seasons/official/0",
+        "https://anidb.net/anime/1327",
+        "https://thetvdb.com/dereferrer/series/79058"
+      ]
+    }
+  }
+}

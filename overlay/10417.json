@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10417",
+    "tmdb": "https://www.themoviedb.org/tv/60816/seasons",
     "tvdb": "https://thetvdb.com/series/selector-infected-wixoss/seasons/official/0"
   },
   "set": {
@@ -11,13 +12,19 @@
         "episodes": [
           [
             4
+          ],
+          [
+            5
+          ],
+          [
+            6
           ]
         ]
       }
     ]
   },
   "title": "Selector Infected Wixoss",
-  "justification": "AniDB special S4 (2014-08-27) has no TVDB episode, was 0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278327 and TMDB show 60816. AniDB S4 \"夢限少女になりたいの! 二人でWIXOSSやってみた! 1\" (We Tried Playing WIXOSS! 1) has no TVDB episode (its default TVDB S0E4 is \"Selector Destructed Wixoss\", another item); AniDB S5-S6 (\"夢限少女になりたいの! 二人でWIXOSSやってみた! 2\" (We Tried Playing WIXOSS! 2) to \"夢限少女になりたいの! 二人でWIXOSSやってみた! 3\" (We Tried Playing WIXOSS! 3)) have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -126,8 +133,8 @@
       ],
       "series": 278327
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ec18855560b8e593f8c7ad80724306235cfa5721b098cf9ba2bae4909e7b7c4f"
   },
   "anilist_ids": [

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:3328",
+  "title": "Ham-chans no Takara Sagashi Daisakusen: Ham wa! Suteki na Umi no Natsuyasumi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "a0dc5ba0177e16b487bb85f31b1bcac337e87da900a90494a2e3836f0505846b"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The OVA is \"Hamtaro: Ham-Hams Ahoy!\" (AniDB 3328, Ham-chans no Takara Sagashi Daisakusen), TVDB 70817 S0E6 \"Ham-Hams Ahoy!\" (2002-08-06, the broadcast); AniDB dates the 2003-03-01 DVD. Same title and story.",
+      "evidence": [
+        "https://anidb.net/anime/3328",
+        "https://thetvdb.com/dereferrer/series/70817"
+      ]
+    }
+  }
+}

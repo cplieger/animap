@@ -1,0 +1,34 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18978",
+    "tvdb": "https://thetvdb.com/series/gakkou-no-yuurei/seasons/official/0"
+  },
+  "set": {
+    "defaulttvdbseason": "0",
+    "episodeoffset": "0"
+  },
+  "title": "Shin Gakkou no Yuurei",
+  "justification": "TVDB 456511 season 1 holds the six Gakkou no Yuurei OVAs (node 6102), so offset 6 pointed past its end. The 1999 OVA is season 0 episode 1 Shin Gakkou no Yuurei (41 minutes), the series' only special; TVDB lists AniDB 18978 beside 6102. The offset is stated as 0 so the season 0 placement is published.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "51f30fade001c324c1cfcc9845ed3884da360483b36d6726e00461f255cde283",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1999-05-11"
+        ]
+      ],
+      "series": 456511
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "88f7788864d9d844ea0ad52933b45c2a4c70831f076f57d7f4086bb5f16bd62f"
+  },
+  "anidb_id": 18978
+}

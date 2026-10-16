@@ -1,9 +1,17 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13273",
+    "tmdb_movie_1437756": "https://www.themoviedb.org/movie/1437756",
+    "tmdb_movie_601980": "https://www.themoviedb.org/movie/601980",
+    "tmdb_movie_779019": "https://www.themoviedb.org/movie/779019",
     "tvdb": "https://thetvdb.com/series/grisaia-phantom-trigger-the-animation-2024/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "1437756,601980,779019",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -17,12 +25,11 @@
           ]
         ]
       }
-    ],
-    "episodeoffset": "0"
+    ]
   },
   "title": "Grisaia: Phantom Trigger the Animation",
-  "justification": "AniDB 1-3 (2019-03-15 to 2020-11-27) = TVDB 0x01-0x03 (2019-03-15 to 2020-11-27), by title and order. The empty offset placed no episode. AniDB special S1-S2 (2020-11-21 to 2019-07-26) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 447951. The films are TMDB movies 1437756 (Grisaia: Phantom Trigger the Animation - SORD (2019)), 601980 (Grisaia: Phantom Trigger the Animation - Soul Speed (2019)), 779019 (Grisaia: Phantom Trigger the Animation - Stargazer (2020)). TMDB show 280906 does not carry it, so the node leaves that show. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-3 (\"SORD\" to \"スターゲイザー\" (Stargazer)) are TVDB S0E1 \"SORD\" to TVDB S0E3 \"Stargazer\"; AniDB S1-S2 (\"90秒で分かるグリザイア: ファントムトリガー\" (Grisaia: Phantom Trigger in 90 Seconds) to \"特別先行上映会 \u0026 トークショウ\" (Special Advance Screening and Talk Show)) have no TVDB episode (their defaults are other items). TMDB movies 1437756, 601980 and 779019 are the three films.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "49b0d68267d97740342ff52d2ec188c7ba243cfa2e2636647bf853414717d047",
@@ -51,8 +58,8 @@
       ],
       "series": 447951
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ecf32a0e0cb7648e7cb34b9e6ba6561ce91a894694bd48e183fff7ab1c5eb9db"
   },
   "anilist_ids": [

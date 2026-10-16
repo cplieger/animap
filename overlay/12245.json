@@ -1,13 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12245",
-    "tvdb": "https://thetvdb.com/series/assassination-classroom/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/assassination-classroom/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/431808"
   },
   "set": {
     "episodeoffset": "14"
   },
   "title": "Gekijouban Ansatsu Kyoushitsu: 365-nichi no Jikan",
-  "justification": "AniDB 1 (2016-11-19) = TVDB 0x15 (2016-11-19), was 0x14 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 283947. AniDB episode 1 \"Complete Movie\" is TVDB S0E15 \"Assassination Classroom the Movie: 365 Days' Time\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

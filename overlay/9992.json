@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9992",
-    "tmdb": "https://www.themoviedb.org/tv/85065/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/85065/seasons",
     "tvdb": "https://thetvdb.com/series/kyousougiga/seasons/official/1"
   },
   "set": {
@@ -18,7 +18,7 @@
     ]
   },
   "title": "Kyousougiga (2013)",
-  "justification": "AniDB 1-10 (2013-10-10 to 2013-12-19) = TVDB 1x01-1x10 and TMDB S1E1-10, same dates and titles. TVDB and TMDB have no S2. Specials S1-S3 = TVDB 0x7-0x9: S1 2013-10-03 = 0x7 2013-10-02, S2 2013-11-14 = 0x8, the same title and date, S3 2013-12-26 = 0x9, the same title, which TVDB dates 2013-12-19. The old ';1-4;' hit 0x4, a 2012 ONA (9390).",
+  "justification": "Checked by episode title against TVDB series 254658 and TMDB show 85065. AniDB episode 1-10 (\"ある一家の事情とその背景\" (A Family`s Circumstances and Its Background) to \"今日を騒がしく戯れ生きる人々の漫画映画\" (A Manga Movie About People Who Have a Fun, Busy Life)) are TVDB S1E1 \"A Family's Circumstances and Its Background\" to TVDB S1E10 \"A Manga Movie About People Who Have a Fun, Busy Life\" and TMDB S1E1 \"ある一家の事情とその背景\" (A Family's Circumstances and Its Background) to TMDB S1E10 \"今日を騒がしく戯れ生きる人々の漫画映画\" (A Manga Movie About People Who Have a Fun, Busy Life); AniDB S1-S3 (\"予習篇\" (Preview) to \"復習篇\" (Review)) are TVDB S0E7 \"Introductory Chapter\" to TVDB S0E9 \"Review\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

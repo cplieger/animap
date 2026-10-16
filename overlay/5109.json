@@ -1,0 +1,58 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5109",
+    "tmdb": "https://www.themoviedb.org/tv/35529/season/0",
+    "tvdb": "https://thetvdb.com/series/magical-angel-creamy-mami/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "474463"
+  },
+  "title": "Mahou no Tenshi Creamy Mami: Lovely Serenade",
+  "justification": "TVDB 195161 is gone; successor 474463 Magical Angel Creamy Mami. AniDB episode 1 Lovely Serenade is TVDB season 0 episode 2 Lovely Serenade, where offset 1 already lands; TMDB 35529 season 0 episode 2 is Lovely Serenade too.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "3bb150558dbefbc0bd46977df21ad92ada2622db5de5525b37ccdfa8866a5d24",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1984-10-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1985-06-15"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1985-06-15"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1986-06-15"
+        ],
+        [
+          0,
+          5,
+          0,
+          ""
+        ]
+      ],
+      "series": 474463
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "ef7699578bdf147e4fdea38743900f1ae5dd3d501019e29762953a5809ce5f2f"
+  },
+  "anidb_id": 5109
+}

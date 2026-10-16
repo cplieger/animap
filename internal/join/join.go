@@ -40,19 +40,11 @@ type identity struct {
 // for every AniDB id no AniList record carries, by anidb_id. An AniList id
 // whose entries name two or more AniDB ids gets no anidb_id: two candidates
 // is not an answer, and each candidate keeps its own AniDB-keyed record.
-func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node, facts *anidb.Facts) ([]schema.Record, Stats) {
+// ids are the overlay's identity links, added as addIdentities says.
+func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node, facts *anidb.Facts, ids []Identity) ([]schema.Record, Stats, []Skipped) {
 	var st Stats
-	byAniList := map[int]*identity{}
-	byAniDB := map[int]*identity{}
-	for i := range entries {
-		e := &entries[i]
-		for _, al := range e.AniList {
-			absorb(byAniList, al, e, e.AniDB)
-		}
-		for _, ad := range e.AniDB {
-			absorb(byAniDB, ad, e, nil)
-		}
-	}
+	byAniList, byAniDB := index(entries)
+	skipped := addIdentities(byAniList, byAniDB, ids)
 	out, carried := aniListRecords(byAniList, facts, &st)
 	st.AniListRecords = len(out)
 	only := aniDBOnly(byAniDB, carried, nodes, &st)
@@ -67,7 +59,35 @@ func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node, facts *ani
 			out[i].TVDBPlacement = placement(&out[i], n)
 		}
 	}
-	return out, st
+	return out, st, skipped
+}
+
+func index(entries []offlinedb.Entry) (byAniList, byAniDB map[int]*identity) {
+	byAniList, byAniDB = map[int]*identity{}, map[int]*identity{}
+	for i := range entries {
+		e := &entries[i]
+		for _, al := range e.AniList {
+			absorb(byAniList, al, e, e.AniDB)
+		}
+		for _, ad := range e.AniDB {
+			absorb(byAniDB, ad, e, nil)
+		}
+	}
+	return byAniList, byAniDB
+}
+
+// Carriers maps each AniDB id an AniList record carries to every such
+// AniList id, ascending, as Build decides it: the AniList id's entries name
+// that AniDB id alone.
+func Carriers(entries []offlinedb.Entry) map[int][]int {
+	byAniList, _ := index(entries)
+	out := map[int][]int{}
+	for _, al := range slices.Sorted(maps.Keys(byAniList)) {
+		if ad := single(byAniList[al].anidb); ad > 0 {
+			out[ad] = append(out[ad], al)
+		}
+	}
+	return out
 }
 
 func aniListRecords(byAniList map[int]*identity, facts *anidb.Facts, st *Stats) (out []schema.Record, carried map[int]bool) {

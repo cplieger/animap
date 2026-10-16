@@ -1,0 +1,228 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8606",
+    "tmdb": "https://www.themoviedb.org/movie/128253",
+    "tmdb_movie_128253": "https://www.themoviedb.org/movie/128253",
+    "tmdb_movie_222766": "https://www.themoviedb.org/movie/222766",
+    "tvdb": "https://thetvdb.com/series/dothack/seasons/official/0"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "128253,222766"
+  },
+  "title": ".hack//Sekai no Mukou ni",
+  "justification": "Checked by episode title against TVDB series 79099. The films are TMDB movies 128253 (.hack//The Movie (2012)), 222766 (.hack//Versus: The Thanatos Report (2012)). TMDB show 8864 does not carry it, so the node leaves that show. TMDB movie 222766 .hack//Versus: The Thanatos Report is the special.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "56b482ec036515ac3d08e710634e584c45f8130e01b84c20f13fb8d3c969e89c",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          27,
+          "2003-03-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2002-06-20"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2002-09-09"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2002-12-12"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2003-04-10"
+        ],
+        [
+          0,
+          6,
+          28,
+          "2003-10-24"
+        ],
+        [
+          0,
+          8,
+          29,
+          "2003-11-16"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2011-01-28"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2011-02-25"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2011-04-07"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2008-03-25"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2008-03-25"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2007-01-18"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2012-01-21"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2012-06-28"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2011-01-27"
+        ],
+        [
+          0,
+          18,
+          0,
+          "2011-02-24"
+        ],
+        [
+          0,
+          19,
+          0,
+          "2011-03-24"
+        ],
+        [
+          0,
+          20,
+          0,
+          "2011-01-27"
+        ],
+        [
+          0,
+          21,
+          0,
+          "2011-02-24"
+        ],
+        [
+          0,
+          22,
+          0,
+          "2011-03-24"
+        ],
+        [
+          0,
+          23,
+          0,
+          "2003-10-24"
+        ],
+        [
+          0,
+          24,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          25,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          26,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          27,
+          0,
+          "2017-10-20"
+        ],
+        [
+          0,
+          32,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          33,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          34,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          35,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          36,
+          0,
+          "2006-05-18"
+        ],
+        [
+          0,
+          37,
+          0,
+          "2006-05-18"
+        ]
+      ],
+      "series": 79099
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "00c09615e11fbc62bbf231883db43220f01e22e1c2d38f29ba39eab97abff1f2"
+  },
+  "anilist_ids": [
+    11375
+  ],
+  "anidb_id": 8606
+}

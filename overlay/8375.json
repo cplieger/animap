@@ -1,10 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8375",
+    "tmdb_movie": "https://www.themoviedb.org/movie/171823",
     "tvdb": "https://thetvdb.com/series/blood-c/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "171823",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -16,8 +21,8 @@
     ]
   },
   "title": "Gekijouban Blood-C: The Last Dark",
-  "justification": "AniDB 1 (2012-06-02) = TVDB 0x01 (2012-06-02), by title and runtime. The empty offset placed no episode. AniDB special S1-S4 (2012-04-08 to 2012-05-16) = TVDB 0x05-0x08 (2012-04-08 to 2012-05-16), was 0x01-0x04, by title, air date breaking a tie. AniDB special S5 (2012-05-25) = TVDB 0x09 (2012-05-23), was 0x05, by position inside a run of title matches. AniDB special S6 (2012-05-27) = TVDB 0x10 (2012-05-27), was 0x06, by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 249864. The film is TMDB movie 171823 (Blood-C: The Last Dark (2012)). TMDB show 43270 does not carry it, so the node leaves that show. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"劇場版 BLOOD-C The Last Dark\") is TVDB S0E1 \"BLOOD-C The Last Dark\"; AniDB S1-S6 (\"のねのね劇場第1回 お題「更衣小夜」\" (None-None Gekijou 1st Theme: Saya Kisaragi) to \"のねのね劇場第6回 (最終回) お題「犬」\" (None-None Gekijou 6th Theme: Dog)) are TVDB S0E5 \"None-None Theatre #1\" to TVDB S0E10 \"None-None Theatre #6\". TheTVDB's movie 38111 carries the node's IMDb id tt1941466 and TMDB 171823.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "1912bfef103d916051d52eb060f46f519bd3d591c800bfb87f5cbde85aa8ae10",
@@ -88,8 +93,8 @@
       ],
       "series": 249864
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "540329588dde696f37bd7a01a153b47ee5ba774ca94cf1d5a4f053250edb3abb"
   },
   "anilist_ids": [

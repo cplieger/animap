@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10569",
+  "title": "Macross Delta",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S11": "e0e791e82e77d0dbe1794af273653156daa0c3de63034fba333caf19ff4bd493"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S11 \"Mini-Drama 09\" (2017-03-24) = S0E11 \"Macross Delta Mini Theater 9\" (2017-03-04).",
+      "evidence": [
+        "https://anidb.net/anime/10569",
+        "https://thetvdb.com/dereferrer/series/304475"
+      ]
+    }
+  }
+}

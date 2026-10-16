@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6075",
-    "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/50716"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Magical Girl Lyrical Nanoha The Movie 1st",
-  "justification": "AniDB special S1 (2010-07-03) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81115. AniDB S1 \"Japan Expo 2010\" has no TVDB episode (its default TVDB S0E1 is \"Triangle Heart: Sazanami Joshiryō ~ Spring Sazanami\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

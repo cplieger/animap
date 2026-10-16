@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:2656",
+  "title": "Afro Samurai",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "6ea0a2fd88f7da0bf1bba8b83fc8207f570020cbf605a52094d77900ca5fbf75",
+        "date-mismatch:S2": "5faded5e809127b57ea023c481cea367193d32324e6a4988f4a902d19fd05d0f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Director`s Cut Full Version / Director`s Cut Kanzenban\" (2008-02-20) = S0E1 \"The Movie (Director's Cut)\" (2007-10-27); S2 \"Pilot Episode\" (2003-01-01) = S0E6 \"Pilot\" (2007-10-27).",
+      "evidence": [
+        "https://anidb.net/anime/2656",
+        "https://thetvdb.com/dereferrer/series/79755"
+      ]
+    }
+  }
+}

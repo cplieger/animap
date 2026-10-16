@@ -11,13 +11,30 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Terra e... (2007)",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The other specials defaulted onto the wrong episodes: TVDB 80241 season 0 episode 2 Terra e...: Type Blue - the Origin (2007-12-19) is AniDB S4 TYPE BLUE -the ORIGIN- (2007-12-19), not S2 Episode 6.5, a picture-drama recap; episode 3 Epilogue: Toward the last moment of soldier blue is AniDB S6 Epilogue. S5, a music video, and S7 Goodbye to You have no TVDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -192,8 +209,8 @@
       ],
       "series": 80241
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "26bc88d3e765aa682286d0a518e4d9e8306f220677af89417fc220d1e7f7b508"
   },
   "anilist_ids": [

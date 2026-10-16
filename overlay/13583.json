@@ -1,0 +1,171 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13583",
+    "tmdb": "https://www.themoviedb.org/tv/67346/season/0",
+    "tvdb": "https://thetvdb.com/series/amanchu/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Amanchu! Advance",
+  "justification": "AniDB 13583's special S1 (Amanchu Advance Special, no air date, no length) is on neither TVDB season 0 (0x1 to 0x8, all AniDB 11683's specials and the Amazon World short) nor TMDB 67346 season 0 (E1 to E8). Left unmapped it defaults onto 0x1 and S0E1, The Story of the Promised Summer and New Memories, which AniDB 11683 S1 owns. The rows send it to no episode on both sides.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "e24421dfd06b2c43cfd6097894eac7ccba579967fdaf24523318d020be5d86cb",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2017-03-29"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-10-26"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2016-11-30"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2016-12-21"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2017-01-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2017-02-22"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2017-03-29"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2016-09-28"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2018-04-07"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2018-04-14"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2018-04-21"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2018-04-28"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2018-05-05"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2018-05-12"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2018-05-19"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2018-05-26"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2018-06-02"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2018-06-09"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2018-06-16"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2018-06-23"
+        ]
+      ],
+      "series": 304900
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "826567c0b277dea09bfa4ff64c8d54f31a50cf976d5085de1876e63b39ea89fe"
+  },
+  "anilist_ids": [
+    100532
+  ],
+  "anidb_id": 13583
+}

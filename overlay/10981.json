@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10981",
-    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/haikyu/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -11,13 +11,19 @@
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
           ]
         ]
       }
     ]
   },
   "title": "Haikyuu!! Second Season",
-  "justification": "AniDB special S1 (2016-01-20) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (2016-01-20) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB specials S2, the festival's night part, and S3, an AnimeJapan 2016 stage, have no TVDB episode either; their defaults were TVDB 278157 season 0 episodes 2, the first film (node 11040), and 3, the OVA Vs. Failing Grades (node 10954).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -264,8 +270,8 @@
       ],
       "series": 278157
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8d93140f273ba5d35bb509705fb4fd57809d6101d8a929db8add81dab6f7c716"
   },
   "anilist_ids": [

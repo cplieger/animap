@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:4325",
+  "title": "True Tears",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S13": "8eeb474da3792f0ed3186d0813cc4fd6ba3aba03521f6af7c80bff1634d5e273"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S13 \"Epilogue\" (2011-03-26) = S0E8 \"Epilogue\" (2010-03-26).",
+      "evidence": [
+        "https://anidb.net/anime/4325",
+        "https://thetvdb.com/dereferrer/series/81144"
+      ]
+    }
+  }
+}

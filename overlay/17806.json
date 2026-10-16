@@ -1,0 +1,127 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17806",
+    "tvdb": "https://thetvdb.com/series/zom-100-bucket-list-of-the-dead/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Zom 100: Zombie ni Naru made ni Shitai 100 no Koto",
+  "justification": "AniDB special S1 \"Zom 100 Soushuuhen: Gunma ni Tsuku made ni Fukushuu Shitai 100 no Koto\" (2023-09-10), the recap, is TVDB season 0 episode 2 \"Bucket List of the Dead Recap\" (2023-09-10); S2 \"Zombie kara Nigekiru Tame ni Junbi Shitai 100 no Koto\" (2023-08-06) is episode 1 \"Special Program: 100 Things You Need to Prepare to Run Away from Zombies\" (2023-08-06). By default the two were swapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b2a780a03c102187ce80a8b1501ccca9d8fa01151c5ac57ddace41f7eb1d5da7",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-08-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2023-09-10"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2023-07-09"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-07-16"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-07-23"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-07-30"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-08-13"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-08-27"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-09-03"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-09-18"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-09-24"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-12-25"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-12-26"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2023-12-26"
+        ]
+      ],
+      "series": 429310
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "63bd20670e8340c635d5d829c780a7d2a0e98b6d44a6a10ce6b5f00d25e44b40"
+  },
+  "anidb_id": 17806
+}

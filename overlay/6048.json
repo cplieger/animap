@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6048",
+    "tmdb": "https://www.themoviedb.org/tv/50712/seasons",
     "tvdb": "https://thetvdb.com/series/black-butler/seasons/official/0"
   },
   "set": {
@@ -21,11 +22,20 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Kuroshitsuji",
-  "justification": "AniDB special S3 (2010-01-31) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 83996 and TMDB show 50712. AniDB S3 \"Kuroshitsuji Picture Drama\" has no TVDB episode (its default TVDB S0E3 is \"Ciel in Wonderland Part I\", another item) and no TMDB episode (its default TMDB S0E3 is \"Ciel in Wonderland Part I\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -248,8 +258,8 @@
       ],
       "series": 83996
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "0a766993c356fb7e4228589a7abba56bde4edc29ed199067d50e49b5863f4056"
   },
   "anilist_ids": [

@@ -1,0 +1,137 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14957",
+    "tvdb": "https://thetvdb.com/series/yatogame-chan-kansatsu-nikki/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Yatogame-chan Kansatsu Nikki Nisatsume",
+  "justification": "AniDB specials S1 \"Chokuzen Special\" (2019-12-26) and S2 \"Oshougatsu Daga ne ... Housou Chokuzen Special\" (2020-01-01), the second season's pre-broadcast programmes, had no row and fell on TVDB season 0 episodes 1 (the Dera Dera song video) and 2 (the fourth season's 2022 pre-broadcast programme). TVDB lists no second-season programme, so both are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "28ff4b2a7242aec0ff29b5ba64ea10fcf653ec6c2447dbd67be91cb692676ad3",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-06-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2022-04-07"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-06-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-06-30"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2020-01-05"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2020-01-13"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2020-01-19"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2020-01-26"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2020-02-02"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2020-02-09"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2020-02-16"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2020-02-23"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2020-03-02"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2020-03-09"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2020-03-16"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2020-03-23"
+        ]
+      ],
+      "series": 360553
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "d06bb0123549fbe1cdaedffc2b92615b28289de10f999586c47b1f5e44d30a44"
+  },
+  "anidb_id": 14957
+}

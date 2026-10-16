@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16296",
+    "tmdb": "https://www.themoviedb.org/tv/64196/season/0",
     "tvdb": "https://thetvdb.com/series/overlord/seasons/official/0"
   },
   "set": {
@@ -21,11 +22,18 @@
             57
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 13,
+        "offset": 42
       }
     ]
   },
   "title": "Overlord IV",
-  "justification": "AniDB special S13 (2022-09-27) = TVDB 0x57 (2022-09-27), was 0x13, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S13 (2022-09-27) = TVDB 0x57 (2022-09-27), was 0x13, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 64196 season 0 E43-E55 are Play Play Pleiades 4 Play 1-13 (2022-07-05 to 09-27), the same titles and dates as AniDB S1-S13, so on TMDB the specials take offset 42; with no TMDB row they defaulted to E1-E13, the first Pleiades series.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -488,8 +496,8 @@
       ],
       "series": 294002
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a2f345cc40abf9efebae2632a4ddfd5f250958ac40fabf98670b9a9d973d7df0"
   },
   "anilist_ids": [

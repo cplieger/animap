@@ -1,27 +1,38 @@
 {
-  "anidb_id": 5418,
-  "title": "Gunslinger Girl: Il Teatrino",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5418",
+    "tmdb": "https://www.themoviedb.org/tv/31731/seasons",
+    "tvdb": "https://thetvdb.com/series/gunslinger-girl/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
           ],
           [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
           ]
         ]
       }
     ]
   },
-  "justification": "AniDB special S1-S2 (no AniDB date) have no TVDB episode, was 0x01-0x02, which are AniDB 6128. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/5418",
-    "tvdb": "https://thetvdb.com/series/gunslinger-girl/seasons/official/0"
-  },
+  "title": "Gunslinger Girl: Il Teatrino",
+  "justification": "Checked by episode title against TVDB series 78812 and TMDB show 31731. AniDB S1-S2 (\"Video Clip: Doll (Angelica Version)\" to \"Video Clip: Doll (Claes Version)\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S3-S5 (\"Video Clip: Doll (Triela Version)\" to \"Video Clip: Doll (Rico Version)\") have no TVDB episode (their defaults are other items) and no TMDB episode (TMDB has none of them).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "789b920f0799c722ebdc10f8219107c78b6094069848aa0d2b210cf38e254e24",
@@ -153,12 +164,12 @@
       ],
       "series": 78812
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a96297354016f5e3bc1e7a14098a386b77af55df1b0ff744a95be2a6ab8e824d"
   },
   "anilist_ids": [
     3231
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 5418
 }

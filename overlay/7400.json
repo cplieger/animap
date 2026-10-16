@@ -1,6 +1,9 @@
 {
-  "anidb_id": 7400,
-  "title": "Asobi ni Iku yo!",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7400",
+    "tmdb": "https://www.themoviedb.org/tv/37806/seasons",
+    "tvdb": "https://thetvdb.com/series/cat-planet-cuties/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
@@ -11,14 +14,27 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 8505. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/7400",
-    "tvdb": "https://thetvdb.com/series/cat-planet-cuties/seasons/official/0"
-  },
+  "title": "Asobi ni Iku yo!",
+  "justification": "Checked by episode title against TVDB series 173301 and TMDB show 37806. AniDB S1 \"Preview Special 1\" has no TVDB episode (its default TVDB S0E1 is \"Come Drop By\", another item) and no TMDB episode (its default TMDB S0E1 is \"Come Drop By\", another item); AniDB S2-S3 (\"Preview Special 2\" to \"Preview Special 3\") have no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "20d1993f1d49b89fdbfb5bfe5c8c6cd8ce4e31ba1214fa1fe0af861900276049",
@@ -126,12 +142,12 @@
       ],
       "series": 173301
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "28a08995be0e4ac28b610d0026cb44f2012b3dea981bbe464526330611e3bc0a"
   },
   "anilist_ids": [
     6166
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 7400
 }

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15724",
+    "tmdb": "https://www.themoviedb.org/tv/82958/seasons",
     "tvdb": "https://thetvdb.com/series/otonabougu/seasons/official/0"
   },
   "set": {
@@ -19,12 +20,27 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Otona no Bouguya-san II",
-  "justification": "AniDB special S1-S3 (2021-01-02 to 2021-01-16) have no TVDB episode, was 0x01-0x03, which are AniDB 14694. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 353608 and TMDB show 82958. AniDB S1-S3 (\"Episode 1 Cast Commentary\" to \"Episode 3 Cast Commentary\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "e378d694e5292a3b8e5958b351d7bf35cb0d4f3ef8678472eaaa92b441b52be9",
@@ -126,8 +142,8 @@
       ],
       "series": 353608
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "15e28ada96c5d2bc4c697fc0bb342f4077110d6bb01f45f5282a255336a31842"
   },
   "anilist_ids": [

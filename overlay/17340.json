@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17340",
+    "tmdb": "https://www.themoviedb.org/tv/200750/seasons",
     "tvdb": "https://thetvdb.com/series/yuusha-ga-shinda/seasons/official/0"
   },
   "set": {
@@ -13,6 +14,9 @@
             1
           ],
           [
+            2
+          ],
+          [
             3,
             1
           ]
@@ -21,7 +25,7 @@
     ]
   },
   "title": "Yuusha ga Shinda!",
-  "justification": "AniDB special S1 (2023-05-26) has no TVDB episode, was 0x01. AniDB special S3 (2023-06-30) = TVDB 0x01 (2023-06-30), was 0x03 (no such TVDB episode), by title, air date breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 419500 and TMDB show 200750. AniDB S1 \"ビジュアルコメンタリー『ミリィ・ユニスができるまで』with 小野賢章 Part 1\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"Special Episode: How Milly Eunice was created\", another item); AniDB S2 \"ビジュアルコメンタリー『ミリィ・ユニスができるまで』with 小野賢章 Part 2\" (Episode S2) has no TVDB episode (TVDB has no S0E2); AniDB S3 \"特別編 勇者が死んだ! ミリィ・ユニスができるまで\" (Episode S3) is TVDB S0E1 \"Special Episode: How Milly Eunice was created\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -112,8 +116,8 @@
       ],
       "series": 419500
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "e0a5856ad5e4a052e16541f54ea7bce5784778d10ea2995fac9328d48805e409"
   },
   "anilist_ids": [

@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18324",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1218925",
     "tvdb": "https://thetvdb.com/series/chainsaw-man/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Gekijouban Chainsaw Man: Reze Hen",
-  "justification": "AniDB 1 (2025-09-19) = TVDB 0x01 (2025-09-19), by title and runtime. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 397934. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"劇場版チェンソーマン レゼ篇\") is TVDB S0E1 \"Chainsaw Man – The Movie: Reze Arc\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "59e7349aa96512db10f9a2c05e404a39982b2bd910978f48fde38d7e4a8600ce",

@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:7435",
+  "title": "Seikimatsu Occult Gakuin",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "e0e6d7c22d2b12fd685903ecb0814ffecab3fb630b883432904321fe555b396f",
+        "date-mismatch:S4": "6bd7a2643faa16257adb2624533442b5c3c7143f7979ae3bdcf7495fdad64272"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "S1-S5 \"Love Machine / Getting Along With Tsucchi / Our Good Friend Tsucchi / You Can Do It Tsucchi / Farewell Tsucchi\" = S0E1-S0E5 \"Special 1: Love Machine / Special 2: Getting Along with Tsucchi / Special 3 ... / Special 4: You Can Do It Tsucchi / Special 5: Farewell Tsucchi\", same titles, same order and numbers. Flagged S1 (2010-09-22 vs 2010-10-27) and S4 (12-22 vs 12-29) are release-date differences between sources (TVDB dates S1 and S2 on the same day, which is the tell). TVDB S0E6 \"LOVE Machine (Music Clip)\" is undated and has no separate AniDB special.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/171701",
+        "https://anidb.net/anime/7435"
+      ]
+    }
+  }
+}

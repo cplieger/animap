@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8068",
-    "tvdb": "https://thetvdb.com/series/isshoni-training/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/isshoni-training/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/837351"
   },
   "set": {
     "mapping_list": [
@@ -27,8 +28,8 @@
       }
     ]
   },
-  "title": "Issho ni Training Ofuro: Bathtime with Hinako \u0026 Hiyoko",
-  "justification": "AniDB special S1 (2010-12-24) = TVDB 0x01 (2010-12-24), was 1x04 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "title": "Issho ni Training Ofuro: Bathtime with Hinako & Hiyoko",
+  "justification": "Checked by episode title against TVDB series 91431. AniDB S1 \"ふたり DE ストレッチ タイム\" (Stretch Time with You) is TVDB S0E1 \"Stretch Time\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

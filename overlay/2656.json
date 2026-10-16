@@ -1,0 +1,105 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2656",
+    "tvdb": "https://thetvdb.com/series/afro-samurai/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Afro Samurai",
+  "justification": "AniDB special S2 \"Pilot Episode\" (2003) is TVDB season 0 episode 6 \"Pilot\", the original 2003 pilot by Takeshi Koike; by default it fell on episode 2 \"Afro Samurai: Resurrection\", the 2009 film (AniDB 6063). S1 \"Director's Cut Full Version\" and S3 \"A Character Commentary\" stay on episodes 1 \"The Movie (Director's Cut)\" and 3 \"Character Profiles with Commentary\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "836fd489fb32271e79a457619ed3f8b623c2b0563a5eb3e773da8c81d500099e",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2007-10-27"
+        ],
+        [
+          0,
+          2,
+          6,
+          "2009-01-25"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2007-01-04"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2007-01-04"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2007-01-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2007-10-27"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2007-01-04"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2007-01-11"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2007-01-18"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2007-01-25"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2007-02-01"
+        ]
+      ],
+      "series": 79755
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "1607b395217a9d32020ac5f9dbf71a3440dd2d585484994a7c3337c271cdbbcc"
+  },
+  "anidb_id": 2656
+}

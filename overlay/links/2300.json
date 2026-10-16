@@ -1,0 +1,24 @@
+{
+  "anilist_id": 2300,
+  "title": "Uchuu no Kishi Tekkaman Blade: TWIN BLOOD",
+  "parts": [
+    {
+      "anidb_id": 1033,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 2300 (OVA, 1 episode(s)) is AniDB 1033's special(s) S2 'Twin Blood', aired 1998-06-05, and AniDB lists MAL 2300 on AniDB 1033. The parent's patched mapping list places S2 on TVDB 81723 0x1 'Twin Blood', also 1998-06-05. AniList's own start date (1994) is not a TVDB or AniDB date.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1033",
+    "anilist": "https://anilist.co/anime/2300",
+    "tmdb": "https://www.themoviedb.org/tv/9155/season/0",
+    "tvdb": "https://thetvdb.com/series/tekkaman-blade/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "35b804b2059518bbf6a8a61fb6c9cf176318257ee243be7270669fc3891fc622"
+  }
+}

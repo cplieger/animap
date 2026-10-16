@@ -1,0 +1,24 @@
+{
+  "anilist_id": 102098,
+  "title": "GARO: Honoo no Kokuin - HOME",
+  "parts": [
+    {
+      "anidb_id": 10278,
+      "specials": [
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 102098 (SPECIAL, 1 episode from 2015-09-16) is AniDB 10278's special S2 Itoguruma: Home (Home), aired 2015-09-16. AniList's PREQUEL relation names AniList 20753, which anime-offline-database links to AniDB 10278, and the special's title matches AniList's English title (GARO: THE ANIMATION - HOME) and native 糸車 HOME. The parent has no row for S2, so it lands on TVDB 0x2 Home (2015-09-15) and, with the TMDB row, on TMDB 63453 S0E1 Home (TMDB dates it 2015-01-02, a TMDB date error; title and order match).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10278",
+    "anilist": "https://anilist.co/anime/102098",
+    "tmdb": "https://www.themoviedb.org/tv/63453/season/0",
+    "tvdb": "https://thetvdb.com/series/garo-the-animation/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "5008f03f74504aefe18e66fc651494cc27f7e99e8812bd65302be883dae6d3ad"
+  }
+}

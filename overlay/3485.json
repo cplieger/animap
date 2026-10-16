@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/3485",
     "tvdb": "https://thetvdb.com/series/teppei/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/262315"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/262315",
+    "tmdb": "https://www.themoviedb.org/tv/23696/seasons"
   },
   "set": {
     "tvdbid": "255612"
   },
   "title": "Ore wa Teppei",
-  "justification": "tvdbid 262315 to 255612 (TVDB 262315 is gone from TVDB's official order). AniDB 1-28 (1977-09-12 to 1978-03-27) = TVDB 1x01-1x28 (1977-09-12 to 1978-03-27), was TVDB 262315 1x01-1x28. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 255612 and TMDB show 23696. The node moves from TVDB 262315 to series 255612. AniDB episode 1-28 (\"なぞのガキ大将\" (Episode 1) to \"やったぜ鉄兵トンボ剣法!\" (Episode 28)) are TVDB S1E1 \"The Mysterious Kid Leader\" to TVDB S1E28 \"yattazeTetsu Hei Tonbo Tsurugi Hō!\". TVDB series 262315 no longer exists. Series 255612 carries all 28 episodes by title and links the node's TMDB show 23696.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

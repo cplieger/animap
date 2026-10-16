@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:162314",
+  "title": "AniList 162314",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episode 2 of AniDB 17303 (TVDB 267440 4x30); anime-offline-database links AniDB 17303 to AniList 146984 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/162314"
+        ],
+        "anilist_id": 162314
+      }
+    ]
+  }
+}

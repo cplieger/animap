@@ -1,0 +1,155 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7291",
+    "tmdb": "https://www.themoviedb.org/tv/45532/season/0",
+    "tvdb": "https://thetvdb.com/series/big-windup/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Ookiku Furikabutte: Natsu no Taikai Hen",
+  "justification": "TMDB 45532 season 0 E2 Goals (2010-12-23) is AniDB 7291's special S1 Mokuhyou / Goals (2010-12-22), the same episode as TVDB 0x2 (row ;1-2;); E1 Basics of the Basics! (2008-02-27) is AniDB 4923's special S1. Anime-Lists names only tvdbseason in the row, so TMDB took the default S0E1 for S1, where AniDB 4923 S1 also sits. S2 and S3 (Special Vomic, Special Vomic 2, no air date) are on neither TVDB season 0 (0x1 and 0x2 only) nor TMDB season 0, so the rows send them to no episode instead of the defaults 0x2/S0E2 and 0x3/S0E3 (the TVDB default of S2 is the Goals episode that S1 owns). The TVDB pair for S1 is unchanged.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "b7b2bf5b2bf75a68b437e160357c3f29188295675876bfe33ff8237ef0bfc9c2",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2008-02-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2010-12-22"
+        ],
+        [
+          2,
+          1,
+          27,
+          "2010-04-02"
+        ],
+        [
+          2,
+          2,
+          28,
+          "2010-04-09"
+        ],
+        [
+          2,
+          3,
+          29,
+          "2010-04-16"
+        ],
+        [
+          2,
+          4,
+          30,
+          "2010-04-22"
+        ],
+        [
+          2,
+          5,
+          31,
+          "2010-04-29"
+        ],
+        [
+          2,
+          6,
+          32,
+          "2010-05-06"
+        ],
+        [
+          2,
+          7,
+          33,
+          "2010-05-13"
+        ],
+        [
+          2,
+          8,
+          34,
+          "2010-05-20"
+        ],
+        [
+          2,
+          9,
+          35,
+          "2010-05-27"
+        ],
+        [
+          2,
+          10,
+          36,
+          "2010-06-03"
+        ],
+        [
+          2,
+          11,
+          37,
+          "2010-06-11"
+        ],
+        [
+          2,
+          12,
+          38,
+          "2010-06-18"
+        ],
+        [
+          2,
+          13,
+          39,
+          "2010-06-25"
+        ]
+      ],
+      "series": 81108
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "dc2939c204b60150cf5c0170083de219eb5f901c2ec65ab6794aa649996a8b1a"
+  },
+  "anilist_ids": [
+    7720
+  ],
+  "anidb_id": 7291
+}

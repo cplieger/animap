@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11253",
+    "tmdb": "https://www.themoviedb.org/tv/65926/season/0",
     "tvdb": "https://thetvdb.com/series/bakuon/seasons/official/0"
   },
   "set": {
@@ -11,11 +12,18 @@
         "start": 1,
         "end": 4,
         "offset": 1
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 1,
+        "end": 4,
+        "offset": 2
       }
     ]
   },
   "title": "Bakuon!!",
-  "justification": "AniDB special S1-S4 (2016-08-24 to 2016-11-18) = TVDB 0x02-0x05 (2016-08-24 to 2016-11-18), was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S4 (2016-08-24 to 2016-11-18) = TVDB 0x02-0x05 (2016-08-24 to 2016-11-18), was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 65926 season 0 E3-E6 are Bakuon's Closet! Vol.1-4 (2016-08-24 to 11-18) = S1-S4, after the two OVAs Coffee!! and Maid!! (AniDB 11720) at E1 and E2; with no TMDB row S1-S4 took E1-E4.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -136,8 +144,8 @@
       ],
       "series": 304987
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ad77a3af2d1aebf30315cbdab936cd466620ec03e030260bad6a10f9e24aa357"
   },
   "anilist_ids": [

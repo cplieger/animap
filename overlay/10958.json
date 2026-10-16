@@ -1,27 +1,22 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10958",
+    "tmdb": "https://www.themoviedb.org/tv/86762/season/1",
     "tvdb": "https://thetvdb.com/series/wish-upon-the-pleiades/seasons/official/1"
   },
   "set": {
-    "mapping_list": [
-      {
-        "anidb_season": 1,
-        "tvdb_season": 1,
-        "start": 5,
-        "end": 12
-      }
-    ]
+    "defaulttvdbseason": "1",
+    "tmdbseason": "1",
+    "mapping_list": []
   },
   "title": "Houkago no Pleiades (2015)",
-  "justification": "AniDB 5-12 (2015-05-07 to 2015-06-25) = TVDB 1x05-1x12 (2015-05-06 to 2015-06-24), was 2x05-2x12, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "TVDB 227891 and TMDB 86762 have no season 2; season 1 on both holds the 2015 series' 12 episodes in AniDB's order: 1 Meteor Shower Forecast: Rain with Occasional Shooting Stars, 3 Five Cinderellas, 8 Nanako 13, 12 At the Water's Edge. The old row moved only 5-12, leaving 1-4 on missing episodes.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "519d2dc64fcebfa577b1e1a4a72b55bc22db675e5c1b288e555d11402efb9955",
       "seasons": [
-        1,
-        2
+        1
       ],
       "episodes": [
         [
@@ -99,8 +94,8 @@
       ],
       "series": 227891
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9d357b81cc7e1d228743e6739577540d7c83d841c9ceedb6d7d344b9708bd5a4"
   },
   "anilist_ids": [

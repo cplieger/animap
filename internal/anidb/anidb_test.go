@@ -60,3 +60,22 @@ func TestAnime(t *testing.T) {
 		t.Errorf("Commit() = %q, want %q", f.Commit(), commit)
 	}
 }
+
+func TestSeasonZero(t *testing.T) {
+	a := Anime{Specials: []Episode{{Number: 1, Titles: "s1"}, {Number: 201, Titles: "s201"}}, Extras: []Episode{{Number: 201, Titles: "t1"}, {Number: 401, Titles: "o1"}}}
+	for _, tc := range []struct {
+		titles string
+		k      int
+		extra  bool
+		ok     bool
+	}{
+		{"s1", 1, false, true},
+		{"s201", 201, false, true},
+		{"o1", 401, true, true},
+		{"", 402, false, false},
+	} {
+		if e, extra, ok := a.SeasonZero(tc.k); e.Titles != tc.titles || extra != tc.extra || ok != tc.ok {
+			t.Errorf("SeasonZero(%d) = %+v, %t, %t; want titles %q, %t, %t", tc.k, e, extra, ok, tc.titles, tc.extra, tc.ok)
+		}
+	}
+}

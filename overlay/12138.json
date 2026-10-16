@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12138",
+    "tmdb": "https://www.themoviedb.org/tv/75214/seasons",
     "tvdb": "https://thetvdb.com/series/violet-evergarden/seasons/official/0"
   },
   "set": {
@@ -20,7 +21,7 @@
     ]
   },
   "title": "Violet Evergarden",
-  "justification": "AniDB special S2-S3 (2018-07-04) have no TVDB episode, was 0x02-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 330139 and TMDB show 75214. AniDB S2-S3 (\"5分で分かるアニメ『ヴァイオレット・エヴァーガーデン』第1回\" (Violet Evergarden in 5 Minutes 1) to \"5分で分かるアニメ『ヴァイオレット・エヴァーガーデン』第2回\" (Violet Evergarden in 5 Minutes 2)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

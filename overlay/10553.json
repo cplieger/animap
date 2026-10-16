@@ -1,9 +1,12 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10553",
+    "tmdb": "https://www.themoviedb.org/tv/60874/seasons",
     "tvdb": "https://thetvdb.com/series/space-dandy/seasons/official/0"
   },
   "set": {
+    "tmdbseason": "2",
+    "tmdboffset": "",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -26,7 +29,7 @@
     ]
   },
   "title": "Space Dandy 2",
-  "justification": "AniDB special S1-S2 (2014-07-21 to (none)) = TVDB 0x04-0x05 (2014-07-21 to 2014-12-25), was 0x01-0x02, by hand review. AniDB special S3 (2015-01-28) = TVDB 0x06 (2015-01-28), was 0x03, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 272849 and TMDB show 60874. AniDB episode 1-13 (\"オンリーワンになれないじゃんよ\" (I Can`t Be the Only One, Baby) to \"ネバーエンディングダンディじゃんよ\" (Never-ending Dandy, Baby)) are TMDB S2E1 \"オンリーワンになれないじゃんよ\" (I Can't Be the Only One, Baby) to TMDB S2E13 \"ネバーエンディングダンディじゃんよ\" (The Neverending Dandy, Baby); AniDB S1-S3 (\"Space Dandy 2nd Season Picture Drama 1\" to \"Space Dandy 2nd Season Picture Drama 3\") are TVDB S0E4 \"Space Dandy 2nd Season Picture Drama 1\" to TVDB S0E6 \"Space Dandy 2nd Season Picture Drama 3\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -231,8 +234,8 @@
       ],
       "series": 272849
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "016a7d208cdb154a4c55be5fa177ed57d186127a799883b8f47fc79239a97051"
   },
   "anilist_ids": [

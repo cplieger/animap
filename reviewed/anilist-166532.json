@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:166532",
+  "title": "AniList 166532",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3efad8ed4825fe5ae1c44b1d6ee35e0efe1e70f9ba56268bbe78c68f72ea29e1",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "unmappable: AniDB 17301 S2 is one special that TVDB 424278 splits into 0x2 and 0x3 (both 2023-10-25), so it lands on no single TVDB episode as a bridge needs",
+        "evidence": [
+          "https://anilist.co/anime/166532"
+        ],
+        "anilist_id": 166532
+      }
+    ]
+  }
+}

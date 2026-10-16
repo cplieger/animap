@@ -127,73 +127,6 @@
       "series": 70668
     },
     {
-      "target": "TMDB 5622 S0E1",
-      "nodes": [
-        1649,
-        2395,
-        2396,
-        2397,
-        2398,
-        3328,
-        3329,
-        3330
-      ],
-      "series": 70817
-    },
-    {
-      "target": "TMDB 5622 S0E2",
-      "nodes": [
-        2395,
-        2396,
-        2397,
-        2398
-      ],
-      "series": 70817
-    },
-    {
-      "target": "TMDB 5622 S0E3",
-      "nodes": [
-        2395,
-        2396,
-        2397,
-        2398
-      ],
-      "series": 70817
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        1649,
-        2395,
-        2396,
-        2397,
-        2398,
-        3328,
-        3329
-      ],
-      "series": 70817
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        2395,
-        2396,
-        2397,
-        2398
-      ],
-      "series": 70817
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        2395,
-        2396,
-        2397,
-        2398
-      ],
-      "series": 70817
-    },
-    {
       "target": "TMDB 28136 S0E1",
       "nodes": [
         195,
@@ -217,14 +150,6 @@
         422
       ],
       "series": 70863
-    },
-    {
-      "target": "TVDB 1x9",
-      "nodes": [
-        135,
-        16380
-      ],
-      "series": 70900
     },
     {
       "target": "TMDB 35544 S0E1",
@@ -513,35 +438,11 @@
       "series": 72281
     },
     {
-      "target": "TVDB 0x2",
-      "nodes": [
-        686,
-        7387
-      ],
-      "series": 72281
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        686,
-        3119
-      ],
-      "series": 72281
-    },
-    {
       "target": "TMDB 42673 S0E1",
       "nodes": [
         348,
         2543,
         2977
-      ],
-      "series": 72412
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        348,
-        2543
       ],
       "series": 72412
     },
@@ -627,7 +528,6 @@
         7232,
         7250,
         7288,
-        7496,
         7537,
         8121,
         8399,
@@ -662,7 +562,6 @@
         5934,
         6245,
         7250,
-        7496,
         8121,
         8534,
         9505,
@@ -691,7 +590,6 @@
         5934,
         6245,
         7250,
-        7496,
         8121,
         9505,
         9841,
@@ -705,7 +603,6 @@
     {
       "target": "TMDB 30983 S0E4",
       "nodes": [
-        7496,
         9505,
         9841,
         10290,
@@ -716,7 +613,6 @@
     {
       "target": "TMDB 30983 S0E5",
       "nodes": [
-        7496,
         9505,
         9841,
         10290,
@@ -727,82 +623,9 @@
     {
       "target": "TMDB 30983 S0E6",
       "nodes": [
-        7496,
         9505,
         10290,
         10953
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x10",
-      "nodes": [
-        2052,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x11",
-      "nodes": [
-        3597,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x12",
-      "nodes": [
-        2328,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x13",
-      "nodes": [
-        3598,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x14",
-      "nodes": [
-        2763,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x15",
-      "nodes": [
-        4504,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x16",
-      "nodes": [
-        4187,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x17",
-      "nodes": [
-        5444,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x19",
-      "nodes": [
-        4937,
-        7496
       ],
       "series": 72454
     },
@@ -821,78 +644,6 @@
       "series": 72454
     },
     {
-      "target": "TVDB 0x20",
-      "nodes": [
-        6240,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x21",
-      "nodes": [
-        7252,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x22",
-      "nodes": [
-        5934,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x23",
-      "nodes": [
-        6432,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x24",
-      "nodes": [
-        7232,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x25",
-      "nodes": [
-        6245,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x26",
-      "nodes": [
-        6650,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x27",
-      "nodes": [
-        7496,
-        7537
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x28",
-      "nodes": [
-        7250,
-        7496
-      ],
-      "series": 72454
-    },
-    {
       "target": "TVDB 0x3",
       "nodes": [
         2646,
@@ -907,43 +658,10 @@
       "series": 72454
     },
     {
-      "target": "TVDB 0x30",
-      "nodes": [
-        7494,
-        7496
-      ],
-      "series": 72454
-    },
-    {
       "target": "TVDB 0x33",
       "nodes": [
         7288,
-        7496,
         8399
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x34",
-      "nodes": [
-        7496,
-        8534
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x35",
-      "nodes": [
-        7496,
-        8501
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x36",
-      "nodes": [
-        7496,
-        8534
       ],
       "series": 72454
     },
@@ -960,14 +678,6 @@
       "series": 72454
     },
     {
-      "target": "TVDB 0x40",
-      "nodes": [
-        7496,
-        8121
-      ],
-      "series": 72454
-    },
-    {
       "target": "TVDB 0x5",
       "nodes": [
         2647,
@@ -980,52 +690,12 @@
       "series": 72454
     },
     {
-      "target": "TVDB 0x51",
-      "nodes": [
-        7496,
-        8806
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x52",
-      "nodes": [
-        7496,
-        9181
-      ],
-      "series": 72454
-    },
-    {
       "target": "TVDB 0x6",
       "nodes": [
         1065,
         9505,
         10290,
         10953
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x7",
-      "nodes": [
-        3591,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x8",
-      "nodes": [
-        867,
-        7496
-      ],
-      "series": 72454
-    },
-    {
-      "target": "TVDB 0x9",
-      "nodes": [
-        3596,
-        7496
       ],
       "series": 72454
     },
@@ -1044,14 +714,6 @@
         2494
       ],
       "series": 72629
-    },
-    {
-      "target": "TMDB 27736 S1E1",
-      "nodes": [
-        253,
-        263
-      ],
-      "series": 72719
     },
     {
       "target": "TMDB 13375 S0E2",
@@ -1086,102 +748,6 @@
         1887
       ],
       "series": 72775
-    },
-    {
-      "target": "TMDB 94196 S1E1",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TMDB 94196 S1E2",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TMDB 94196 S1E3",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TMDB 94196 S1E4",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TMDB 94196 S1E5",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TMDB 94196 S1E6",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TVDB 1x1",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TVDB 1x2",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TVDB 1x3",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TVDB 1x4",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TVDB 1x5",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
-    },
-    {
-      "target": "TVDB 1x6",
-      "nodes": [
-        504,
-        848
-      ],
-      "series": 72796
     },
     {
       "target": "TMDB 36046 S0E1",
@@ -1282,78 +848,6 @@
       "series": 73749
     },
     {
-      "target": "TMDB 13549 S1E1",
-      "nodes": [
-        858,
-        3513
-      ],
-      "series": 73887
-    },
-    {
-      "target": "TMDB 13549 S1E2",
-      "nodes": [
-        858,
-        3513
-      ],
-      "series": 73887
-    },
-    {
-      "target": "TMDB 13549 S1E3",
-      "nodes": [
-        858,
-        3513
-      ],
-      "series": 73887
-    },
-    {
-      "target": "TVDB 1x1",
-      "nodes": [
-        858,
-        3513
-      ],
-      "series": 73887
-    },
-    {
-      "target": "TVDB 1x2",
-      "nodes": [
-        858,
-        3513
-      ],
-      "series": 73887
-    },
-    {
-      "target": "TVDB 1x3",
-      "nodes": [
-        858,
-        3513
-      ],
-      "series": 73887
-    },
-    {
-      "target": "TVDB 0x10",
-      "nodes": [
-        598,
-        2118
-      ],
-      "series": 74544
-    },
-    {
-      "target": "TVDB 0x8",
-      "nodes": [
-        598,
-        2118
-      ],
-      "series": 74544
-    },
-    {
-      "target": "TVDB 0x9",
-      "nodes": [
-        598,
-        2118
-      ],
-      "series": 74544
-    },
-    {
       "target": "TMDB 12501 S0E1",
       "nodes": [
         2418,
@@ -1365,7 +859,6 @@
     {
       "target": "TMDB 37567 S0E1",
       "nodes": [
-        2269,
         2273,
         2275,
         2282,
@@ -1425,32 +918,6 @@
         7246
       ],
       "series": 75414
-    },
-    {
-      "target": "TMDB 31713 S0E1",
-      "nodes": [
-        210,
-        313,
-        3658,
-        9862
-      ],
-      "series": 75534
-    },
-    {
-      "target": "TMDB 31713 S0E2",
-      "nodes": [
-        210,
-        313
-      ],
-      "series": 75534
-    },
-    {
-      "target": "TVDB 0x5",
-      "nodes": [
-        6283,
-        7321
-      ],
-      "series": 75534
     },
     {
       "target": "TMDB 29602 S0E1",
@@ -1827,14 +1294,6 @@
       "series": 76703
     },
     {
-      "target": "TMDB 902 S0E1",
-      "nodes": [
-        2761,
-        7036
-      ],
-      "series": 76894
-    },
-    {
       "target": "TMDB 57706 S0E1",
       "nodes": [
         367,
@@ -1941,14 +1400,6 @@
       "series": 78500
     },
     {
-      "target": "TVDB 0x4",
-      "nodes": [
-        2151,
-        2540
-      ],
-      "series": 78500
-    },
-    {
       "target": "TMDB 46260 S0E1",
       "nodes": [
         1456,
@@ -2035,32 +1486,7 @@
       "target": "TMDB 9103 S0E1",
       "nodes": [
         283,
-        284,
-        7582,
-        7583,
-        7584,
-        7585,
-        7586,
-        7587,
-        7588,
-        7589,
-        7590
-      ],
-      "series": 78923
-    },
-    {
-      "target": "TMDB 9103 S0E2",
-      "nodes": [
-        284,
-        7583
-      ],
-      "series": 78923
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        283,
-        7583
+        7589
       ],
       "series": 78923
     },
@@ -2071,22 +1497,6 @@
         6757
       ],
       "series": 78962
-    },
-    {
-      "target": "TMDB 34182 S0E1",
-      "nodes": [
-        1858,
-        4419
-      ],
-      "series": 79022
-    },
-    {
-      "target": "TMDB 34182 S0E2",
-      "nodes": [
-        1858,
-        4419
-      ],
-      "series": 79022
     },
     {
       "target": "TMDB 25113 S0E1",
@@ -2252,15 +1662,6 @@
         9450,
         9451,
         9572
-      ],
-      "series": 79252
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        9449,
-        9450,
-        9451
       ],
       "series": 79252
     },
@@ -2545,25 +1946,8 @@
     {
       "target": "TMDB 30623 S0E1",
       "nodes": [
-        3106,
-        3107,
-        3316,
-        4622,
-        4624,
-        4625,
-        4626,
-        4627,
-        4703,
-        4704,
-        4705,
-        4706,
-        4707,
         4910,
-        5858,
-        6550,
-        7254,
-        8115,
-        8780
+        5858
       ],
       "series": 79654
     },
@@ -2582,14 +1966,6 @@
         10961
       ],
       "series": 79824
-    },
-    {
-      "target": "TVDB 0x11",
-      "nodes": [
-        6285,
-        13570
-      ],
-      "series": 79880
     },
     {
       "target": "TMDB 27244 S0E1",
@@ -2620,18 +1996,8 @@
       "series": 79882
     },
     {
-      "target": "TMDB 8872 S0E1",
-      "nodes": [
-        4600,
-        5390,
-        11151
-      ],
-      "series": 79886
-    },
-    {
       "target": "TMDB 57041 S0E1",
       "nodes": [
-        7177,
         9384,
         10405,
         10917
@@ -2745,78 +2111,6 @@
       "series": 80054
     },
     {
-      "target": "TVDB 1x13",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x14",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x15",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x16",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x17",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x18",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x19",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x20",
-      "nodes": [
-        438,
-        931
-      ],
-      "series": 80054
-    },
-    {
-      "target": "TVDB 1x13",
-      "nodes": [
-        3168,
-        4145
-      ],
-      "series": 80075
-    },
-    {
       "target": "TMDB 21729 S0E1",
       "nodes": [
         5783,
@@ -2875,830 +2169,6 @@
         7485
       ],
       "series": 80096
-    },
-    {
-      "target": "TMDB 36210 S1E1",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E10",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E11",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E12",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E13",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E14",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E15",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E16",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E17",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E18",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E19",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E2",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E20",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E21",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E22",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E23",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E24",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E25",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E26",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E27",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E28",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E29",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E3",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E30",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E31",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E32",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E33",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E34",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E35",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E36",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E37",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E38",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E39",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E4",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E40",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E41",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E42",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E43",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E44",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E45",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E46",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E47",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E48",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E49",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E5",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E50",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E51",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E6",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E7",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E8",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 36210 S1E9",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x1",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x10",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x11",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x12",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x13",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x14",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x15",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x16",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x17",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x18",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x19",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x2",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x20",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x21",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x22",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x23",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x24",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x25",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x3",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x4",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x5",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x6",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x7",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x8",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 1x9",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x1",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x10",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x11",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x12",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x13",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x14",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x15",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x16",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x17",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x18",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x19",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x2",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x20",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x21",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x22",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x23",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x24",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x25",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x26",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x3",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x4",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x5",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x6",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x7",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x8",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TVDB 2x9",
-      "nodes": [
-        5044,
-        5869
-      ],
-      "series": 80147
-    },
-    {
-      "target": "TMDB 94936 S0E1",
-      "nodes": [
-        5447,
-        11782
-      ],
-      "series": 80304
     },
     {
       "target": "TMDB 42887 S0E1",
@@ -3782,70 +2252,6 @@
       "series": 80587
     },
     {
-      "target": "TMDB 25099 S2E1",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TMDB 25099 S2E2",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TMDB 25099 S2E3",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TMDB 25099 S2E4",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TVDB 2x1",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TVDB 2x2",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TVDB 2x3",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
-      "target": "TVDB 2x4",
-      "nodes": [
-        1225,
-        3068
-      ],
-      "series": 80787
-    },
-    {
       "target": "TMDB 21738 S0E1",
       "nodes": [
         395,
@@ -3874,46 +2280,6 @@
         1518
       ],
       "series": 80789
-    },
-    {
-      "target": "TMDB 34751 S0E1",
-      "nodes": [
-        38,
-        1182
-      ],
-      "series": 80790
-    },
-    {
-      "target": "TMDB 34751 S0E2",
-      "nodes": [
-        38,
-        1182
-      ],
-      "series": 80790
-    },
-    {
-      "target": "TMDB 34751 S0E3",
-      "nodes": [
-        38,
-        1182
-      ],
-      "series": 80790
-    },
-    {
-      "target": "TMDB 35730 S0E1",
-      "nodes": [
-        4559,
-        6212
-      ],
-      "series": 81007
-    },
-    {
-      "target": "TMDB 35730 S0E2",
-      "nodes": [
-        4559,
-        6212
-      ],
-      "series": 81007
     },
     {
       "target": "TMDB 66931 S0E1",
@@ -4053,102 +2419,6 @@
       "series": 81110
     },
     {
-      "target": "TVDB 3x1",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x10",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x11",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x12",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x2",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x3",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x4",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x5",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x6",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x7",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x8",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
-      "target": "TVDB 3x9",
-      "nodes": [
-        11176,
-        12701
-      ],
-      "series": 81110
-    },
-    {
       "target": "TMDB 25117 S0E1",
       "nodes": [
         1631,
@@ -4190,14 +2460,6 @@
       "series": 81341
     },
     {
-      "target": "TVDB 0x0",
-      "nodes": [
-        1497,
-        1500
-      ],
-      "series": 81341
-    },
-    {
       "target": "TMDB 56354 S0E1",
       "nodes": [
         6654,
@@ -4205,90 +2467,6 @@
         10015
       ],
       "series": 81463
-    },
-    {
-      "target": "TMDB 12971 S0E16",
-      "nodes": [
-        1069,
-        6127
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TMDB 12971 S0E17",
-      "nodes": [
-        1069,
-        1070,
-        2643
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TMDB 12971 S0E18",
-      "nodes": [
-        906,
-        1070,
-        2643
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TMDB 12971 S0E19",
-      "nodes": [
-        906,
-        1070,
-        1071
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TMDB 12971 S0E20",
-      "nodes": [
-        397,
-        906,
-        6540
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TMDB 12971 S0E3",
-      "nodes": [
-        762,
-        1044
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TMDB 12971 S0E4",
-      "nodes": [
-        1044,
-        2336
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TVDB 0x11",
-      "nodes": [
-        906,
-        1474
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TVDB 0x18",
-      "nodes": [
-        906,
-        2643
-      ],
-      "series": 81472
-    },
-    {
-      "target": "TVDB 0x8",
-      "nodes": [
-        905,
-        1046
-      ],
-      "series": 81472
     },
     {
       "target": "TMDB 34742 S0E1",
@@ -4412,30 +2590,6 @@
       "series": 82099
     },
     {
-      "target": "TMDB 45893 S0E1",
-      "nodes": [
-        8577,
-        9752
-      ],
-      "series": 82154
-    },
-    {
-      "target": "TMDB 45893 S0E2",
-      "nodes": [
-        8577,
-        9752
-      ],
-      "series": 82154
-    },
-    {
-      "target": "TVDB 0x10",
-      "nodes": [
-        8577,
-        9752
-      ],
-      "series": 82154
-    },
-    {
       "target": "TMDB 67256 S0E1",
       "nodes": [
         4241,
@@ -4494,14 +2648,6 @@
       "series": 82595
     },
     {
-      "target": "TVDB 0x1",
-      "nodes": [
-        2461,
-        2464
-      ],
-      "series": 82595
-    },
-    {
       "target": "TMDB 69500 S0E1",
       "nodes": [
         9904,
@@ -4517,23 +2663,6 @@
         7660
       ],
       "series": 82927
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        7658,
-        7659,
-        7660
-      ],
-      "series": 82927
-    },
-    {
-      "target": "TVDB 1x13",
-      "nodes": [
-        6036,
-        6227
-      ],
-      "series": 83363
     },
     {
       "target": "TMDB 119304 S1E1",
@@ -5252,110 +3381,6 @@
       "series": 85064
     },
     {
-      "target": "TMDB 13339 S0E1",
-      "nodes": [
-        1956,
-        2229,
-        2239,
-        2811,
-        2814,
-        6680
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TMDB 13339 S0E10",
-      "nodes": [
-        1771,
-        2919
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TMDB 13339 S0E2",
-      "nodes": [
-        1956,
-        2229,
-        2239,
-        2814
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TMDB 13339 S0E3",
-      "nodes": [
-        1956,
-        2229,
-        2239,
-        2814
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TMDB 13339 S0E8",
-      "nodes": [
-        1771,
-        2919
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TMDB 13339 S0E9",
-      "nodes": [
-        1771,
-        2919
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TVDB 0x10",
-      "nodes": [
-        1771,
-        2919
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        2229,
-        2239
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        2239,
-        2811
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TVDB 0x7",
-      "nodes": [
-        1771,
-        6680
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TVDB 0x8",
-      "nodes": [
-        1771,
-        2919
-      ],
-      "series": 85230
-    },
-    {
-      "target": "TVDB 0x9",
-      "nodes": [
-        1771,
-        2919
-      ],
-      "series": 85230
-    },
-    {
       "target": "TMDB 45502 S0E1",
       "nodes": [
         8528,
@@ -5412,17 +3437,6 @@
         1659
       ],
       "series": 94701
-    },
-    {
-      "target": "TMDB 23674 S0E1",
-      "nodes": [
-        2629,
-        2878,
-        3200,
-        9397,
-        10055
-      ],
-      "series": 98161
     },
     {
       "target": "TMDB 31709 S0E1",
@@ -5602,38 +3616,6 @@
       "series": 118101
     },
     {
-      "target": "TMDB 35153 S0E1",
-      "nodes": [
-        2711,
-        3174
-      ],
-      "series": 120041
-    },
-    {
-      "target": "TMDB 35153 S0E2",
-      "nodes": [
-        2711,
-        3174
-      ],
-      "series": 120041
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        2711,
-        3174
-      ],
-      "series": 120041
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        2711,
-        3174
-      ],
-      "series": 120041
-    },
-    {
       "target": "TMDB 45535 S0E1",
       "nodes": [
         4319,
@@ -5642,23 +3624,6 @@
         8724,
         9194,
         9970
-      ],
-      "series": 128411
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        5978,
-        5997
-      ],
-      "series": 128411
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        4319,
-        5978,
-        9194
       ],
       "series": 128411
     },
@@ -5890,630 +3855,6 @@
         9000
       ],
       "series": 151281
-    },
-    {
-      "target": "TMDB 78071 S1E1",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E10",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E11",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E12",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E13",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E14",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E15",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E16",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E17",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E18",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E19",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E2",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E20",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E21",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E22",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E23",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E24",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E25",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E26",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E27",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E28",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E29",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E3",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E30",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E31",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E32",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E33",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E34",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E35",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E36",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E37",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E38",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E39",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E4",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E5",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E6",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E7",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E8",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TMDB 78071 S1E9",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x1",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x10",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x11",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x12",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x13",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x14",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x15",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x16",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x17",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x18",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x19",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x2",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x20",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x21",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x22",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x23",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x24",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x25",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x26",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x27",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x28",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x29",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x3",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x30",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x31",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x32",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x33",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x34",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x35",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x36",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x37",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x38",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x39",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x4",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x5",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x6",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x7",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x8",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
-    },
-    {
-      "target": "TVDB 1x9",
-      "nodes": [
-        1517,
-        1578
-      ],
-      "series": 153151
     },
     {
       "target": "TMDB 38324 S0E1",
@@ -7247,19 +4588,7 @@
       "target": "TMDB 80885 S0E1",
       "nodes": [
         2608,
-        4742,
-        7564,
-        9025
-      ],
-      "series": 164741
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        2608,
-        4742,
-        7564,
-        9025
+        7564
       ],
       "series": 164741
     },
@@ -7272,19 +4601,9 @@
       "series": 167131
     },
     {
-      "target": "TVDB 0x1",
-      "nodes": [
-        1323,
-        5509
-      ],
-      "series": 167131
-    },
-    {
       "target": "TMDB 56389 S0E1",
       "nodes": [
-        2841,
         5812,
-        6078,
         6079,
         7396,
         7397,
@@ -7328,237 +4647,7 @@
         8329,
         8330,
         9014,
-        9498,
-        9694,
         10581
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E10",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E11",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E12",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E2",
-      "nodes": [
-        2841,
-        7745,
-        9498
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E3",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E4",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E5",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E6",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E7",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E8",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TMDB 56389 S0E9",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x1",
-      "nodes": [
-        2841,
-        5812,
-        6078,
-        6079,
-        7392,
-        7547,
-        7548,
-        7549,
-        7550,
-        7551,
-        7552,
-        7553,
-        7554,
-        7555,
-        7556,
-        7557,
-        7558,
-        7559,
-        7560,
-        7561,
-        7562,
-        7737,
-        7741,
-        7742,
-        7743,
-        7744,
-        7745,
-        7746,
-        7747,
-        7750,
-        7751,
-        7757,
-        7758,
-        7760
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x10",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x11",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x12",
-      "nodes": [
-        2841,
-        7745,
-        7754
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        2841,
-        7745,
-        9498
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x3",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x4",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x5",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x52",
-      "nodes": [
-        9498,
-        9694
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x6",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x7",
-      "nodes": [
-        2841,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x8",
-      "nodes": [
-        2841,
-        7396,
-        7745
-      ],
-      "series": 167921
-    },
-    {
-      "target": "TVDB 0x9",
-      "nodes": [
-        2841,
-        7745
       ],
       "series": 167921
     },
@@ -7656,28 +4745,12 @@
       "series": 180121
     },
     {
-      "target": "TVDB 0x1",
-      "nodes": [
-        1730,
-        3209
-      ],
-      "series": 180121
-    },
-    {
       "target": "TMDB 66251 S0E1",
       "nodes": [
         7539,
         7540
       ],
       "series": 184211
-    },
-    {
-      "target": "TMDB 35529 S0E1",
-      "nodes": [
-        1863,
-        4602
-      ],
-      "series": 195161
     },
     {
       "target": "TMDB 56351 S0E1",
@@ -7902,110 +4975,6 @@
       "series": 245821
     },
     {
-      "target": "TVDB 16x1",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x10",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x11",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x12",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x13",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x2",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x3",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x4",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x5",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x6",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x7",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x8",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
-      "target": "TVDB 16x9",
-      "nodes": [
-        18248,
-        19050
-      ],
-      "series": 245821
-    },
-    {
       "target": "TMDB 38251 S0E1",
       "nodes": [
         7227,
@@ -8022,214 +4991,6 @@
         9950
       ],
       "series": 247788
-    },
-    {
-      "target": "TMDB 55013 S1E1",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E10",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E11",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E12",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E2",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E3",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E4",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E5",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E6",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E7",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E8",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 55013 S1E9",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x1",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x10",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x11",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x12",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x2",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x3",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x4",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x5",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x6",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x7",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x8",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TVDB 1x9",
-      "nodes": [
-        1685,
-        7940
-      ],
-      "series": 247921
-    },
-    {
-      "target": "TMDB 38464 S0E1",
-      "nodes": [
-        8689,
-        12574
-      ],
-      "series": 248035
-    },
-    {
-      "target": "TMDB 63463 S0E1",
-      "nodes": [
-        5751,
-        9701
-      ],
-      "series": 249865
     },
     {
       "target": "TMDB 45305 S0E1",
@@ -8326,15 +5087,6 @@
       "series": 252696
     },
     {
-      "target": "TVDB 0x1",
-      "nodes": [
-        2691,
-        3314,
-        4765
-      ],
-      "series": 252696
-    },
-    {
       "target": "TMDB 45950 S0E11",
       "nodes": [
         9409,
@@ -8349,8 +5101,6 @@
         4165,
         4168,
         4169,
-        4170,
-        4366,
         4457,
         4466,
         4758,
@@ -8364,8 +5114,7 @@
         2445,
         4165,
         4168,
-        4169,
-        4366
+        4169
       ],
       "series": 254931
     },
@@ -8374,27 +5123,9 @@
       "nodes": [
         4165,
         4168,
-        4169,
-        4366
+        4169
       ],
       "series": 254931
-    },
-    {
-      "target": "TMDB 45306 S0E1",
-      "nodes": [
-        6355,
-        8253,
-        9144
-      ],
-      "series": 255848
-    },
-    {
-      "target": "TVDB 0x2",
-      "nodes": [
-        8253,
-        9144
-      ],
-      "series": 255848
     },
     {
       "target": "TMDB 45209 S0E1",
@@ -8407,14 +5138,6 @@
     },
     {
       "target": "TMDB 44605 S0E1",
-      "nodes": [
-        4979,
-        7201
-      ],
-      "series": 256944
-    },
-    {
-      "target": "TVDB 0x1",
       "nodes": [
         4979,
         7201
@@ -8439,22 +5162,6 @@
       "series": 262098
     },
     {
-      "target": "TVDB 0x5",
-      "nodes": [
-        9227,
-        12361
-      ],
-      "series": 262098
-    },
-    {
-      "target": "TVDB 0x6",
-      "nodes": [
-        9227,
-        12361
-      ],
-      "series": 262098
-    },
-    {
       "target": "TMDB 53721 S0E1",
       "nodes": [
         7956,
@@ -8469,22 +5176,6 @@
         10688
       ],
       "series": 264663
-    },
-    {
-      "target": "TMDB 65675 S1E1",
-      "nodes": [
-        9186,
-        9334
-      ],
-      "series": 267438
-    },
-    {
-      "target": "TVDB 1x1",
-      "nodes": [
-        9186,
-        9334
-      ],
-      "series": 267438
     },
     {
       "target": "TMDB 1429 S0E1",
@@ -8606,14 +5297,6 @@
         11890
       ],
       "series": 284719
-    },
-    {
-      "target": "TMDB 62564 S0E1",
-      "nodes": [
-        12962,
-        13491
-      ],
-      "series": 289884
     },
     {
       "target": "TMDB 62273 S3E13",
@@ -8898,14 +5581,6 @@
       "series": 330899
     },
     {
-      "target": "TVDB 0x2",
-      "nodes": [
-        14172,
-        14706
-      ],
-      "series": 358331
-    },
-    {
       "target": "TMDB 105009 S1E37",
       "nodes": [
         17064,
@@ -8914,11 +5589,6 @@
       "series": 393478
     }
   ],
-  "uncounted": [
-    {
-      "series": 75941,
-      "anidb": 18239
-    }
-  ],
+  "uncounted": null,
   "version": 1
 }

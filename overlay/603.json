@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/603",
+    "tmdb_movie": "https://www.themoviedb.org/movie/121139",
     "tvdb": "https://thetvdb.com/series/nadia-the-secret-of-blue-water/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "121139",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -22,7 +27,7 @@
     ]
   },
   "title": "Fushigi no Umi no Nadia Gekijou You Original Ban",
-  "justification": "AniDB 2 (1991-06-29) = TVDB 0x11 (1991-06-29), was 0x12. AniDB 3 (1991-06-29) = TVDB 0x11 (1991-06-29), was 0x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81789. The film is TMDB movie 121139 (Nadia: The Secret of Blue Water - The Motion Picture (1991)). TMDB show 24710 does not carry it, so the node leaves that show. AniDB episode 2 \"Part 1 of 2\" is TVDB S0E11 \"Nadia: The Motion Picture\"; AniDB episode 3 \"Part 2 of 2\" is TVDB S0E11 \"Nadia: The Motion Picture\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -118,8 +123,8 @@
       ],
       "series": 81789
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7be6e36dfa93703c57763eedce9a1b9a98e1a32c9069f9121d57175c80ef1ad2"
   },
   "anilist_ids": [

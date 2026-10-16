@@ -1,6 +1,6 @@
 // Package watch checks a list of AniList ids, a watch set, for mapping
-// completeness against a published document, and decides which gaps are
-// new against a tracked backlog.
+// completeness against a published document: whether seadex-scout can
+// route each record to Sonarr or Radarr and scope its episodes there.
 package watch
 
 import (
@@ -14,6 +14,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/cplieger/animap/internal/review"
 	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/strictjson"
 )
@@ -21,11 +22,11 @@ import (
 // Gap is one way a watched record falls short of fully mapped.
 type Gap string
 
-// The values are stored in the tracked checks/unmappable.json and
-// watch/backlog.json, so a rename changes their file format.
+// The values are stored in acceptance records' watch parts, so a rename
+// changes their file format.
 const (
 	noRecord               Gap = "no_record"
-	NoAniDB                Gap = "no_anidb"
+	noAniDB                Gap = "no_anidb"
 	unknownType            Gap = "unknown_type"
 	noTVDB                 Gap = "no_tvdb"
 	noTVDBSeason           Gap = "no_tvdb_season"
@@ -33,75 +34,96 @@ const (
 	episodeCountUnknown    Gap = "episode_count_unknown"
 	movieNoRoute           Gap = "movie_no_route"
 	movieSpecialUnresolved Gap = "movie_special_unresolved"
+	landsNowhere           Gap = "lands_nowhere"
 )
 
-// gaps returns what rec lacks, nil when it is fully mapped. A nil rec is a
-// watched id with no record at all.
+// gaps returns what rec lacks, nil when it is fully mapped, as
+// seadex-scout reads a record (internal/mapping RoutedIDs, internal/match
+// FindByID, internal/align RecordSeason and scope): route to an arr, then
+// scope the episodes there. A nil rec is a watched id with no record.
 func gaps(rec *schema.Record) []Gap {
-	switch {
-	case rec == nil:
+	if rec == nil {
 		return []Gap{noRecord}
-	case rec.AniDBID == 0 && rec.AniDBParent == nil:
-		return []Gap{NoAniDB}
-	case rec.Type == "MOVIE":
-		return movieGaps(rec)
-	case rec.TVDBID == 0 && (rec.Type == "" || rec.Type == "UNKNOWN"):
-		return []Gap{unknownType}
-	case rec.TVDBID == 0:
-		return []Gap{noTVDB}
-	case rec.TVDBSeason != nil && *rec.TVDBSeason == 0:
-		return season0Gaps(rec, season0Unresolved)
-	case rec.TVDBAbsolute || (rec.TVDBSeason != nil && *rec.TVDBSeason >= 1):
+	}
+	movie := rec.Type == "MOVIE"
+	// FindByID tries a MOVIE's TMDB and IMDb ids before its TVDB id, and
+	// any other type's TMDB movie ids only when it has no TVDB id.
+	if movie && (len(rec.TMDBMovieIDs) > 0 || len(rec.IMDbIDs) > 0) {
 		return nil
-	default:
-		return []Gap{noTVDBSeason}
 	}
-}
-
-func movieGaps(rec *schema.Record) []Gap {
-	radarr := len(rec.TMDBMovieIDs) > 0 || len(rec.IMDbIDs) > 0
-	var out []Gap
-	sonarr := false
 	if rec.TVDBID > 0 {
-		switch {
-		case rec.TVDBAbsolute || (rec.TVDBSeason != nil && *rec.TVDBSeason >= 1):
-			sonarr = true
-		case rec.TVDBSeason != nil && *rec.TVDBSeason == 0:
-			out = season0Gaps(rec, movieSpecialUnresolved)
-			sonarr = len(out) == 0
-		}
+		return sonarrScope(rec, movie)
 	}
-	if !radarr && !sonarr {
-		out = append(out, movieNoRoute)
+	switch {
+	case !movie && len(rec.TMDBMovieIDs) > 0:
+		return nil
+	// A record with no AniDB id carries a TVDB id only from an overlay link.
+	case rec.AniDBID == 0 && rec.AniDBParent == nil:
+		return []Gap{noAniDB}
+	case movie:
+		return []Gap{movieNoRoute}
+	case rec.Type == "" || rec.Type == "UNKNOWN":
+		return []Gap{unknownType}
 	}
-	return out
+	return []Gap{noTVDB}
 }
 
-// season0Gaps checks a record filed under season 0: it is fully mapped when
-// the build published where every regular episode lands and every landing is
-// a TVDB special or none. A run on a regular season means the record's
-// season 0 is wrong, so seadex-scout cannot compare it either.
-func season0Gaps(rec *schema.Record, unresolved Gap) []Gap {
+// sonarrScope judges a record Sonarr matches by TVDB id: a positive season
+// or absolute numbering scopes it, unless the published placement lands
+// every episode nowhere, when scope falls back to the whole season; a
+// season 0 record needs a placement that lands somewhere and only on
+// specials.
+func sonarrScope(rec *schema.Record, movie bool) []Gap {
 	switch {
-	case len(rec.TVDBPlacement) > 0 && !slices.ContainsFunc(rec.TVDBPlacement, onRealSeason):
+	case rec.TVDBSeason != nil && *rec.TVDBSeason == 0:
+		return season0Gaps(rec, movie)
+	case rec.TVDBAbsolute || rec.TVDBSeason != nil:
+		if len(rec.TVDBPlacement) > 0 && !slices.ContainsFunc(rec.TVDBPlacement, lands) {
+			return []Gap{landsNowhere}
+		}
+		return nil
+	}
+	return []Gap{noTVDBSeason}
+}
+
+func season0Gaps(rec *schema.Record, movie bool) []Gap {
+	switch {
+	case len(rec.TVDBPlacement) > 0 && slices.ContainsFunc(rec.TVDBPlacement, onRealSeason):
+	case len(rec.TVDBPlacement) > 0 && !slices.ContainsFunc(rec.TVDBPlacement, lands):
+		return []Gap{landsNowhere}
+	case len(rec.TVDBPlacement) > 0:
 		return nil
 	case rec.Episodes == 0:
 		return []Gap{episodeCountUnknown}
 	}
-	return []Gap{unresolved}
+	if movie {
+		return []Gap{movieSpecialUnresolved}
+	}
+	return []Gap{season0Unresolved}
 }
+
+func lands(s schema.Segment) bool { return s.Season != nil }
 
 func onRealSeason(s schema.Segment) bool { return s.Season != nil && *s.Season != 0 }
 
-// Entry is one watched id with its gaps.
+// Entry is one watched id with its gaps. RecordSHA256 is the published
+// record's review.RecordDigest, the fingerprint a watch ruling keeps.
 type Entry struct {
-	Type      string `json:"type,omitempty"`
-	Reason    string `json:"reason,omitempty"`
-	Detail    string `json:"detail,omitempty"`
-	Gaps      []Gap  `json:"gaps"`
-	AniListID int    `json:"anilist_id"`
-	AniDBID   int    `json:"anidb_id,omitempty"`
-	TVDBID    int    `json:"tvdb_id,omitempty"`
+	Type         string `json:"type,omitempty"`
+	RecordSHA256 string `json:"record_sha256"`
+	Gaps         []Gap  `json:"gaps"`
+	AniListID    int    `json:"anilist_id"`
+	AniDBID      int    `json:"anidb_id,omitempty"`
+	TVDBID       int    `json:"tvdb_id,omitempty"`
+}
+
+// GapNames are e's gaps as strings, as an acceptance part lists them.
+func (e *Entry) GapNames() []string {
+	out := make([]string, 0, len(e.Gaps))
+	for _, g := range e.Gaps {
+		out = append(out, string(g))
+	}
+	return out
 }
 
 // Evaluate returns every watched id that is not fully mapped, by id.
@@ -114,7 +136,7 @@ func Evaluate(ids []int, doc *schema.Document) []Entry {
 	for _, id := range slices.Sorted(slices.Values(ids)) {
 		rec := byAniList[id]
 		if g := gaps(rec); len(g) > 0 {
-			e := Entry{AniListID: id, Gaps: g}
+			e := Entry{AniListID: id, Gaps: g, RecordSHA256: review.RecordDigest(rec)}
 			if rec != nil {
 				e.Type, e.AniDBID, e.TVDBID = rec.Type, rec.AniDBID, rec.TVDBID
 			}
@@ -122,104 +144,6 @@ func Evaluate(ids []int, doc *schema.Document) []Entry {
 		}
 	}
 	return out
-}
-
-// Backlog is a tracked list of gaps that get no per-entry issue: the
-// backlog proper, or the unmappable list, whose entries carry a Reason.
-type Backlog struct {
-	WatchSet   string  `json:"watch_set"`
-	CapturedAt string  `json:"captured_at"`
-	Entries    []Entry `json:"entries"`
-	Version    int     `json:"version"`
-}
-
-// Classification splits a run's gaps against the backlog and the
-// unmappable list. Unmappable holds the listed entries still not fully
-// mapped; Cleared holds the listed ones that now are.
-type Classification struct {
-	New        []Entry `json:"new"`
-	Known      []Entry `json:"known"`
-	Resolved   []Entry `json:"resolved"`
-	Unmappable []Entry `json:"unmappable"`
-	Cleared    []Entry `json:"cleared"`
-}
-
-// Classify splits gaps against the backlog and the unmappable list. An
-// entry is new when neither lists its id or it now has a gap kind its list
-// did not record. A listed entry with no gap this run is resolved
-// (backlog) or cleared (unmappable).
-func Classify(gaps []Entry, backlog, unmappable *Backlog) Classification {
-	inBacklog, inUnmappable := byID(backlog), byID(unmappable)
-	var c Classification
-	now := map[int]bool{}
-	for i := range gaps {
-		e := &gaps[i]
-		now[e.AniListID] = true
-		switch {
-		case covers(inUnmappable, e):
-			c.Unmappable = append(c.Unmappable, *inUnmappable[e.AniListID])
-		case covers(inBacklog, e):
-			c.Known = append(c.Known, *e)
-		default:
-			c.New = append(c.New, *e)
-		}
-	}
-	c.Resolved = gone(backlog, now)
-	c.Cleared = gone(unmappable, now)
-	return c
-}
-
-func byID(b *Backlog) map[int]*Entry {
-	m := map[int]*Entry{}
-	if b != nil {
-		for i := range b.Entries {
-			m[b.Entries[i].AniListID] = &b.Entries[i]
-		}
-	}
-	return m
-}
-
-func gone(b *Backlog, now map[int]bool) []Entry {
-	if b == nil {
-		return nil
-	}
-	var out []Entry
-	for i := range b.Entries {
-		if !now[b.Entries[i].AniListID] {
-			out = append(out, b.Entries[i])
-		}
-	}
-	return out
-}
-
-func covers(list map[int]*Entry, e *Entry) bool {
-	known, ok := list[e.AniListID]
-	return ok && subset(e.Gaps, known.Gaps)
-}
-
-func subset(a, b []Gap) bool {
-	for _, g := range a {
-		if !slices.Contains(b, g) {
-			return false
-		}
-	}
-	return true
-}
-
-// LoadBacklog reads a backlog file strictly.
-func LoadBacklog(path string) (*Backlog, error) {
-	body, err := os.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-	var b Backlog
-	if err := strictjson.Decode(body, &b); err != nil {
-		return nil, fmt.Errorf("watch: backlog %s: %w", path, err)
-	}
-	if b.Version != 1 {
-		return nil, fmt.Errorf("watch: backlog %s: version %d, want 1", path, b.Version)
-	}
-	return &b, nil
 }
 
 // Config is one watch set's source.

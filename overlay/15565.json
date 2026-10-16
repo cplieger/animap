@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15565",
+    "tmdb_movie": "https://www.themoviedb.org/movie/843243",
     "tvdb": "https://thetvdb.com/series/fate-kaleid-liner-prisma-illya/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "843243",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -23,7 +28,7 @@
     ]
   },
   "title": "Gekijouban Fate/Kaleid Liner Prisma Illya Licht: Namae no Nai Shoujo",
-  "justification": "AniDB special S1-S3 (2021-08-20) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 269319. The film is TMDB movie 843243 (Fate/kaleid liner Prisma☆Illya: Licht Nameless Girl (2021)). TMDB show 63576 does not carry it, so the node leaves that show. AniDB S1-S3 (\"スペシャルミニアニメ: 第1戦目 スイカ割り対決\" (Web mini-anime: Round 1 - Watermelon splitting showdown) to \"スペシャルミニアニメ: 第3戦目 ドッキリ玉手箱対決\" (Web mini-anime: Round 3 - Stunning chest showdown)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -197,8 +202,8 @@
       ],
       "series": 269319
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2838fd168fa239a403c60a850b35422877560015228bea26ea89820e8c35cfe9"
   },
   "anilist_ids": [

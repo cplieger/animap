@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9874",
+    "tmdb": "https://www.themoviedb.org/tv/45501/season/0",
     "tvdb": "https://thetvdb.com/series/love-chunibyo-and-other-delusions/seasons/official/0"
   },
   "set": {
@@ -54,11 +55,61 @@
         "start": 8,
         "end": 14,
         "offset": 20
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 2,
+        "end": 7,
+        "offset": 13,
+        "episodes": [
+          [
+            1,
+            29
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ],
+          [
+            22
+          ],
+          [
+            23
+          ],
+          [
+            24
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 8,
+        "end": 14,
+        "offset": 14
       }
     ]
   },
   "title": "Chuunibyou demo Koi ga Shitai! Ren",
-  "justification": "AniDB special S15-S24 ((none) to 2016-08-17) have no TVDB episode, was 0x15-0x24. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S15-S24 ((none) to 2016-08-17) have no TVDB episode, was 0x15-0x24. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 45501 season 0: E15-E20 Lite 1 to Lite 6 (2013-12-26 to 2014-03-13) = S2-S7, E22-E28 Heated Table Series: Shiritori to Supplementary Lesson in the Clubroom (2014-03-19 to 09-17) = S8-S14, E29 Apocalypse of the Wicked Lord Shingan Reborn (2014-09-17) = S1. TMDB lists none of S15-S24 (stage events, screening events, music videos).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -347,8 +398,8 @@
       ],
       "series": 261862
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d38d8fdf98f434f6ff9df106cf9ea037c575b8d1b76bfda78b07e1a88e28d9a3"
   },
   "anilist_ids": [

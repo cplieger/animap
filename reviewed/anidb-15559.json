@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:15559",
+  "title": "Kamisama ni Natta Hi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "92f384dd07fbac727aa4720a6fbf7e6268f28ab91f6525beddf89e156e97d6f2"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "SkyHook lists both TVDB specials untitled; the website shows them: S0E1 \"プロローグ特番 ～Keyと麻枝准による感動の キセキ～\" (2020-05-24, 24 min) = AniDB S1 \"Shinsaku Anime Prologue Tokuban: Key to Maeda Jun ni Yoru Kandou no Kiseki\" (2020-05-31; 麻枝准 = Maeda Jun); S0E2 \"放送直前特番 “神様”を待つあなたへ\" (2020-09-27, 24 min) = AniDB S2 \"Housou Chokuzen Tokuban: Kamisama o Matsu Anata e\" (2020-09-27). Titles and order agree; the S1 date is a week off. Default is right. S3-S5 (making-of and interviews) default to absent S0E3-5, nothing is mismapped.",
+      "evidence": [
+        "https://thetvdb.com/series/the-day-i-became-a-god-2020/seasons/official/0",
+        "https://anidb.net/anime/15559",
+        "https://thetvdb.com/dereferrer/series/384757"
+      ]
+    }
+  }
+}

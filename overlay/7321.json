@@ -1,0 +1,122 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7321",
+    "tvdb": "https://thetvdb.com/series/street-fighter-ii-v/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Super Street Fighter IV",
+  "justification": "\"Super Street Fighter IV\" (2010-04-28) is TVDB season 0 episode 6 \"Super Street Fighter IV\" (2010-04-28). The row sent it to episode 5 \"Street Fighter IV: The Ties That Bind\", AniDB 6283's OVA.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "95aa7dda416ddf57c61bdc5c33dc2501d86e7d413f6e0b2b8faad3e8b734c839",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1994-08-06"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1995-03-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2000-06-24"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2005-10-25"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-02-12"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2010-04-28"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1995-04-10"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1995-09-04"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1995-04-10"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1995-09-04"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2008-01-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2008-02-01"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2008-03-01"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2008-04-01"
+        ]
+      ],
+      "series": 75534
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a1ff4996ef07916f8b68c5cb280421088c1a415026e5699c1b021555b25ccd4b"
+  },
+  "anidb_id": 7321
+}

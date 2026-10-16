@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:150078",
+  "title": "AniList 150078",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "0e64f46cff2b2478f3c6a0c7157a216e822e96f6120af5e9a39a8d00ba83b74f",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 7-9 of AniDB 8132 (TVDB 114801 0x9-0x11); anime-offline-database links AniDB 8132 to AniList 9982 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/150078"
+        ],
+        "anilist_id": 150078
+      }
+    ]
+  }
+}

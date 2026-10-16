@@ -1,0 +1,169 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8294",
+    "tvdb": "https://thetvdb.com/series/squid-girl/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Shinryaku!? Ika Musume",
+  "justification": "AniDB special S1 \"Squidn't That English?! / English ja Naika!?\" is TVDB season 0 episode 6 Englishじゃなイカ!? (\"Squidn't That English?\") and S2 \"Isn't That an SP!? / SP ja Naika!?\" is episode 7 ＳＰじゃなイカ！？. The row sent them to episodes 8 イ・カ・ア・イ・ス食べなイカ？ and 9 これが海への愛じゃなイカ！, the two music video nodes 8510 and 8896.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "52825bea48b9963a71ce29684bac6fa661296e516381f6bfb28bf0de7fa2b66d",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-05-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2011-05-18"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-08-08"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-06-07"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2014-09-08"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2011-07-06"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2012-01-11"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2011-06-07"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2012-11-01"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2011-09-27"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2011-10-03"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2011-10-11"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2011-10-18"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2011-10-31"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2011-11-14"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2011-11-21"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2011-11-28"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2011-12-05"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2011-12-12"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2011-12-19"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2011-12-26"
+        ]
+      ],
+      "series": 195721
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "df63fefcf15da080e74b1bd0adffd42792b0307252decef55c92b0671b6dde4c"
+  },
+  "anidb_id": 8294
+}

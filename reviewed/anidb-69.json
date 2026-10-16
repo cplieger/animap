@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:69",
+  "title": "One Piece",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:103": "8a3441379647f57bb986a980ebab451e69003bea1f89fae115ecb9785624896d",
+        "date-mismatch:490": "c8853cc9482e9364736bd5219ad84cad1c3e1487455c14719063e4f46ceb7209"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 103 \"Spiders Cafe at 8 o`Clock! The Enemy Leaders Gather! / Spiders Cafe ni 8-ji Teki Kanbu Shuugou\" (2002-03-03) = S7E12 \"Spiders Café at 8 o'Clock! The Enemy Leaders Gather!\" (2002-03-13); 490 \"Mighty Leaders Face Each Other Down! Heralding the `New Era`! / Gun`yuu Kakkyo Su! \"Atarashii Jidai\" no Hajimari!\" (2011-03-20) = S14E9 \"Powerful Independent Rivals! The Beginning of the 'New Era'\" (2011-03-13).",
+      "evidence": [
+        "https://thetvdb.com/series/one-piece/seasons/official/16",
+        "https://anidb.net/anime/69",
+        "https://thetvdb.com/dereferrer/series/81797"
+      ]
+    }
+  }
+}

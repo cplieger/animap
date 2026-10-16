@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7633",
+    "tmdb_movie": "https://www.themoviedb.org/movie/786448",
     "tvdb": "https://thetvdb.com/series/293065-show/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "786448",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -22,7 +27,7 @@
     ]
   },
   "title": "Kyojin no Hoshi: Dai League Ball",
-  "justification": "AniDB 2 (1970-03-21) = TVDB 0x03 (1970-03-21), was 0x04. AniDB 3 (1970-03-21) = TVDB 0x03 (1970-03-21), was 0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 293065. The film is TMDB movie 786448 (Star of the Giants - Big League Ball (1970)). TMDB show 118453 does not carry it, so the node leaves that show. AniDB episode 2 \"Part 1 of 2\" is TVDB S0E3 \"Kyojin no Hoshi: Dai League Ball\"; AniDB episode 3 \"Part 2 of 2\" is TVDB S0E3 \"Kyojin no Hoshi: Dai League Ball\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -64,8 +69,8 @@
       ],
       "series": 293065
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "45b4c62454651ea39827ab8f9498015c80bc0ec0de06f57875d731dc18934bc4"
   },
   "anilist_ids": [

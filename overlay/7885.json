@@ -1,0 +1,25 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7885",
+    "tmdb_movie": "https://www.themoviedb.org/movie/275244"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "275244"
+  },
+  "title": "Cheburashka",
+  "justification": "Checked by title. The film is TMDB movie 275244 (Cheburashka (2010)). TMDB show 38513 does not carry it, so the node leaves that show. The node moves from TVDB 139361 to the movie marker. The film (2010, 80 minutes) is not an episode of TVDB 139361 Cheburashka Arere?, a TV series with no season 0, nor of TMDB 38513's missing season 0. TheTVDB lists it as movie 140670 Cheburashka (2010-12-18), whose IMDb id tt1535430 is the node's and whose TMDB id is 275244. AniDB types it a film, so the node takes the movie marker.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "dcca603fa7a4db058d4a11f9e1cc75ec367b1a034ed39cfedb61a3ef46e0358b"
+  },
+  "anilist_ids": [
+    9340
+  ],
+  "anidb_id": 7885
+}

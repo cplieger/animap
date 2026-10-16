@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7300",
-    "tvdb": "https://thetvdb.com/series/a-little-snow-fairy-sugar/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/a-little-snow-fairy-sugar/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/22758/seasons"
   },
   "set": {
     "episodeoffset": "0",
     "mapping_list": []
   },
   "title": "Chicchana Yuki Tsukai Sugar Tokubetsu Hen",
-  "justification": "AniDB 1-2 (2003-08-22 to 2003-08-29) = TVDB 0x01-0x02 (2003-08-21 to 2003-08-28), was 0x11-0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80980 and TMDB show 22758. AniDB episode 1-2 (\"その胸にあるもの 前編\" (What`s in the Heart (Part One)) to \"その胸にあるもの 後編\" (What`s in the Heart (Part Two))) are TVDB S0E1 \"What's in the Heart (Part One)\" to TVDB S0E2 \"What's in the Heart (Part Two)\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

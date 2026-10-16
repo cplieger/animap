@@ -4,6 +4,7 @@
     "tvdb": "https://thetvdb.com/series/yu-yu-hakusho/seasons/official/0"
   },
   "set": {
+    "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -22,7 +23,7 @@
     ]
   },
   "title": "Yuu Yuu Hakusho: Meikai Shitou Hen - Honoo no Kizuna",
-  "justification": "AniDB 1 (1994-04-09) = TVDB 0x02 (1994-04-09), was 0x02+0x03, by title. AniDB 3 (1994-04-09) = TVDB 0x02 (1994-04-09), was 0x03, by film identity. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB 1 (1994-04-09) = TVDB 0x02 (1994-04-09), was 0x02+0x03, by title. AniDB 3 (1994-04-09) = TVDB 0x02 (1994-04-09), was 0x03, by film identity. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The offset is stated as 0 so the season 0 placement is published.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -142,8 +143,8 @@
       ],
       "series": 76665
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4d024b8badceb512f7d3b3bac2136caae0ec35af6c7db879e7fd2cc22896ea20"
   },
   "anilist_ids": [

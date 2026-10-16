@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:8521",
+  "title": "Tales of Symphonia The Animation: Sekai Tougou Hen",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:1": "9bb12517b52d7ff6614278063d6378a2129abcbdae65cacac8da0be5bdfd7747"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-3 'Volume 1/2/3' = TVDB S3E1-3 'The United World Volume 1/2/3'. Ep 1 differs only by date (AniDB 2011-11-23, TVDB 2011-12-31; volumes 2 and 3 match to the day). The datecheck's suggested target S0E7 'The United World Special' is the AniDB special S1 (already row-mapped to S0E7), not the volume. Rows for S1-S3 (`;1-7;2-8;3-9;`) match by title: Special 1 = The United World Special, Tales of Symphonia Theater = Tales of Symphonia Theater, Tales Ring Symphonia! Final Special Episode = same.",
+      "evidence": [
+        "https://anidb.net/anime/8521",
+        "https://thetvdb.com/dereferrer/series/80328"
+      ]
+    }
+  }
+}

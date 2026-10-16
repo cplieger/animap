@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11343",
+    "tmdb": "https://www.themoviedb.org/tv/65932/seasons",
     "tvdb": "https://thetvdb.com/series/concrete-revolutio-a-superhuman-fantasy/seasons/official/0"
   },
   "set": {
@@ -26,13 +27,28 @@
           ],
           [
             6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
           ]
         ]
       }
     ]
   },
   "title": "Concrete Revolutio: Choujin Gensou",
-  "justification": "AniDB special S1-S6 (no AniDB date) have no TVDB episode, was 0x01-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 299491 and TMDB show 65932. AniDB S1-S6 (\"挿入歌『あの素晴しい愛をもう一度』アニメーションミュージッククリップ\" (Insert Song \"That wonderful love once again\" Animation Music Clip) to \"挿入歌「小さいグラス」アニメーションミュージッククリップ\" (Insert Song \"Small Glass\" Animation Music Clip)) have no TVDB episode (their defaults are other items); AniDB S7-S11 (\"挿入歌「Time Slipper」アニメーションミュージッククリップ\" (Insert Song \"Time Slipper\" Animation Music Clip) to \"超人課FILES\" (Superhuman Division FILES)) have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -159,8 +175,8 @@
       ],
       "series": 299491
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "11e9d88697c19ad5d01f0a45473a2a180c02cd716190223138025529ccee38cb"
   },
   "anilist_ids": [

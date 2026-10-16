@@ -1,0 +1,135 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9473",
+    "tvdb": "https://thetvdb.com/series/gdgd-fairies/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gudaguda Fairies 2",
+  "justification": "AniDB special S1 \"Episode 0 / Otayori Shoukai Corner\" (2012-12-28) is TVDB season 0 episode 3 \"Episode 0\" (2012-12-28). Without a row it fell on episode 1, a first-season item.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0b65699b55603ed753de2b76aa95a2cfdb7e1db091aef297fbc99267da6cbe8c",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2012-01-27"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-01-27"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-12-28"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2014-09-27"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2013-01-09"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2013-01-16"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2013-01-23"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2013-01-30"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2013-02-06"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2013-02-13"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2013-02-20"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2013-02-27"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2013-03-06"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2013-03-13"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2013-03-20"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2013-03-27"
+        ]
+      ],
+      "series": 252808
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "7cbbe60dcb6031d6051a2bbf57cbaef8f2a1605f8fe49e2ff0f3416e9b47fa23"
+  },
+  "anidb_id": 9473
+}

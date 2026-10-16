@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/5252",
+    "tmdb": "https://www.themoviedb.org/tv/21732/seasons",
     "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-00/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -29,13 +31,22 @@
           ],
           [
             7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
           ]
         ]
       }
     ]
   },
   "title": "Kidou Senshi Gundam Double O",
-  "justification": "AniDB special S1-S7 (no AniDB date) have no TVDB episode, was 0x01-0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80675 and TMDB show 21732. AniDB S1-S4 (\"TV Special\" to \"Tactical Forecast 1 (ep3-6)\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S5-S7 (\"Tactical Forecast 2 (ep7-10)\" to \"Tactical Forecast 4 (ep15-18)\") have no TVDB episode (their defaults are other items) and no TMDB episode (TMDB has none of them); AniDB S8-S10 (\"Tactical Forecast 5 (ep19-22)\" to \"1st season #01「ソレスタルビーイング」 映像コメンタリー\" (Episode 1 Celestial Being Visual Commentary)) have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -240,8 +251,8 @@
       ],
       "series": 80675
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "92b01ec7ec85c67931ffe50f783894e8b02a06e2abe3618461b277123b34a04a"
   },
   "anilist_ids": [

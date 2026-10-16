@@ -1,14 +1,15 @@
 {
-  "anidb_id": 10683,
-  "title": "Yamada-kun to Nananin no Majo",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/10683",
+    "tmdb": "https://www.themoviedb.org/tv/62568/seasons",
+    "tvdb": "https://thetvdb.com/series/yamada-kun-and-the-seven-witches-2015/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0"
   },
-  "justification": "AniDB 1-2 (2014-12-17 to 2015-05-15) = TVDB 0x01-0x02 (2014-12-17 to 2015-05-15), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/10683",
-    "tvdb": "https://thetvdb.com/series/yamada-kun-and-the-seven-witches-2015/seasons/official/0"
-  },
+  "title": "Yamada-kun to Nananin no Majo",
+  "justification": "Checked by episode title against TVDB series 289744 and TMDB show 62568. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-2 (\"もうひとつの朱雀祭 温泉合宿だよ!? 全員集合ッ!\" (Second Coming of the Suzaku Festival: A Hot Springs Training Camp!? Everybody Gather Up!) to \"もうひとつの朱雀祭 歌え! 踊れ! 超常現象研究部!\" (Second Coming of the Suzaku Festival: Sing! Dance! Supernatural Studies Club!)) are TVDB S0E1 \"Second Coming of the Suzaku Fest: A Hot Springs Resort! Everyone Gather Up!\" to TVDB S0E2 \"Second Coming of the Suzaku Fest: Sing! Dance! Supernatural Studies Club!\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "f36747b7f1334e164c8c7e70a080b3d3e96fe7b2b22c369a7e10fccbc392bc4b",
@@ -44,5 +45,5 @@
   "anilist_ids": [
     20740
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 10683
 }

@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17636",
+    "tmdb_movie": "https://www.themoviedb.org/movie/1145612",
     "tvdb": "https://thetvdb.com/series/fate-strange-fake/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Fate Strange Fake: Whispers of Dawn",
-  "justification": "AniDB 1 (2023-07-02) = TVDB 0x01 (2023-07-01), by title, TVDB's only special. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 436779. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"TV Special\" (the anime \"Fate strange Fake Whispers of Dawn\") is TVDB S0E1 \"Whispers of Dawn\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "39c7c945f795c653b673b2174be8de6326be5b980f8794f0a72f634076bebaae",

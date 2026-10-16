@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11516",
+  "title": "Code:Realize - Sousei no Himegimi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "40d10417648aa1b10dd34f4d4866d571833d0de1f46a7e7917317c69b0fc2442"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 'Set a Thief to Catch a Thief' (2018-05-18) -\u003e TVDB S0E1 'Set a thief to catch a thief' (2018-05-27): same title, it is the only special on both sides. Date difference is a home-video/streaming date. Regular 1-12 match S1 by title.",
+      "evidence": [
+        "https://anidb.net/anime/11516",
+        "https://thetvdb.com/dereferrer/series/330308"
+      ]
+    }
+  }
+}

@@ -1,11 +1,15 @@
 {
-  "anidb_id": 7874,
-  "title": "Hanasaku Iroha",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7874",
+    "tmdb": "https://www.themoviedb.org/tv/42417/seasons",
+    "tvdb": "https://thetvdb.com/series/hanasaku-iroha-blossoms-for-tomorrow/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -14,11 +18,9 @@
       }
     ]
   },
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 8827, the only special TVDB lists. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/7874",
-    "tvdb": "https://thetvdb.com/series/hanasaku-iroha-blossoms-for-tomorrow/seasons/official/0"
-  },
+  "title": "Hanasaku Iroha",
+  "justification": "Checked by episode title against TVDB series 246521 and TMDB show 42417. AniDB S1 \"Kissui Inn Phone Answer Messages Collection\" has no TVDB episode (its default TVDB S0E1 is \"Home Sweet Home\", another item) and no TMDB episode (its default TMDB S0E1 is \"Hanasaku Iroha: Home Sweet Home\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "e9680abe3ea43ca506e08fb61525194ab611c217e9198d9c69c5b01a29fb92fe",
@@ -192,12 +194,12 @@
       ],
       "series": 246521
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a51d84ab7537e5b897e6ebac870e00e9f286e2c77ab9402dc443f43e4002e494"
   },
   "anilist_ids": [
     9289
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 7874
 }

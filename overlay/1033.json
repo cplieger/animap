@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1033",
+    "tmdb": "https://www.themoviedb.org/tv/9155/season/0",
     "tvdb": "https://thetvdb.com/series/tekkaman-blade/seasons/official/0"
   },
   "set": {
@@ -26,11 +27,36 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Uchuu no Kishi Tekkaman Blade",
-  "justification": "AniDB special S1 (1992-02-18) = TVDB 0x04 (1992-02-18), was 0x01, by title. AniDB special S2-S4 (1998-06-05) = TVDB 0x01-0x03 (1998-06-05), was 0x02-0x04, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 (1992-02-18) = TVDB 0x04 (1992-02-18), was 0x01, by title. AniDB special S2-S4 (1998-06-05) = TVDB 0x01-0x03 (1998-06-05), was 0x02-0x04, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 9155 season 0 lists Burning Clock as E1, Twin Blood as E2, Missing Link as E3 and The History Of as E4, and no Virgin Memory; with no TMDB row S1-S5 took E1-E5.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -367,8 +393,8 @@
       ],
       "series": 81723
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "b7bd55da8e426b88b850f3be4ba874c471cecf690e35d2277a0b41bf87426fdd"
   },
   "anilist_ids": [

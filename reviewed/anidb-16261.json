@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:16261",
+  "title": "Saihate no Paladin",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "d22e2566fd8a879041e956adc80532a9cafd60f91f0bfc97f9dd24d0410d58f2"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 Recap Episode: The Path Taken / Soushuuhen \"Michiyuki\" = TVDB S0E1 \"Episode 7.5: The Path Taken\" (same date 2021-11-27); AniDB S2 Pre-Broadcast Special / Housou Chokuzen Tokuban = TVDB S0E2 \"Just before the broadcast\" Special. Titles and order agree; the single flagged item is the S2 date (10-02 vs 10-09).",
+      "evidence": [
+        "https://anidb.net/anime/16261",
+        "https://thetvdb.com/dereferrer/series/401915"
+      ]
+    }
+  }
+}

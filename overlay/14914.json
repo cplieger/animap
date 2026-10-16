@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14914",
+    "tmdb": "https://www.themoviedb.org/tv/66875/seasons",
     "tvdb": "https://thetvdb.com/series/non-non-biyori/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Non Non Biyori Nonstop",
-  "justification": "AniDB special S1 (2021-01-04) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 272316 and TMDB show 66875. AniDB S1 \"スタート直前! みんなで一緒におさらいするのん!!\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"We're Going to Okinawa!\", another item) and no TMDB episode (its default TMDB S0E1 is \"We're Going to Okinawa\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -126,8 +136,8 @@
       ],
       "series": 272316
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1a8c0c9423582cc1062aa61619c331f7d025b8ffece22fc2eb1ea4e24ea1e307"
   },
   "anilist_ids": [

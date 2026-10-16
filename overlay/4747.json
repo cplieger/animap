@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4747",
+    "tmdb": "https://www.themoviedb.org/tv/45857/seasons",
     "tvdb_s2": "https://thetvdb.com/series/katekyo-hitman-reborn/seasons/official/2",
     "tvdb_s3": "https://thetvdb.com/series/katekyo-hitman-reborn/seasons/official/3",
     "tvdb_s4": "https://thetvdb.com/series/katekyo-hitman-reborn/seasons/official/4",
@@ -67,11 +68,100 @@
         "start": 190,
         "end": 203,
         "offset": -189
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 2,
+        "start": 34,
+        "end": 65,
+        "offset": 0
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 3,
+        "start": 66,
+        "end": 73,
+        "offset": 0
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 4,
+        "start": 74,
+        "end": 141,
+        "offset": 0
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 5,
+        "start": 142,
+        "end": 154,
+        "offset": 0
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 6,
+        "start": 155,
+        "end": 177,
+        "offset": 0
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 7,
+        "start": 178,
+        "end": 189,
+        "offset": 0
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 8,
+        "start": 190,
+        "end": 203,
+        "offset": 0
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ]
       }
     ]
   },
   "title": "Katekyou Hitman Reborn!",
-  "justification": "AniDB 34 (2007-06-02) = TVDB 2x01 (2007-06-02), was 1x34 (no such TVDB episode), by title, air date breaking a tie. AniDB 35 (2007-06-09) = TVDB 2x02 (2007-06-09), was 1x35 (no such TVDB episode), by title. AniDB 36-38 (2007-06-16 to 2007-06-30) = TVDB 2x03-2x05 (2007-06-16 to 2007-06-30), was 1x36-1x38, by title, air date breaking a tie. AniDB 39 (2007-07-07) = TVDB 2x06 (2007-07-07), was 1x39 (no such TVDB episode), by title. AniDB 40 (2007-07-14) = TVDB 2x07 (2007-07-14), was 1x40 (no such TVDB episode), by title, air date breaking a tie. AniDB 41 (2007-07-21) = TVDB 2x08 (2007-07-21), was 1x41 (no such TVDB episode), by position inside a run of title matches. AniDB 42 (2007-07-28) = TVDB 2x09 (2007-07-28), was 1x42 (no such TVDB episode), by title. AniDB 43-47 (2007-08-04 to 2007-09-01) = TVDB 2x10-2x14 (2007-08-04 to 2007-09-01), was 1x43-1x47, by title, air date breaking a tie. AniDB 48 (2007-09-08) = TVDB 2x15 (2007-09-08), was 1x48 (no such TVDB episode), by position inside a run of title matches. AniDB 49 (2007-09-15) = TVDB 2x16 (2007-09-15), was 1x49 (no such TVDB episode), by title. AniDB 50 (2007-09-22) = TVDB 2x17 (2007-09-22), was 1x50 (no such TVDB episode), by title, air date breaking a tie. AniDB 51-52 (2007-09-29 to 2007-10-06) = TVDB 2x18-2x19 (2007-09-29 to 2007-10-06), was 1x51-1x52, by title. AniDB 53 (2007-10-13) = TVDB 2x20 (2007-10-13), was 1x53 (no such TVDB episode), by title, air date breaking a tie. AniDB 54-55 (2007-10-20 to 2007-10-27) = TVDB 2x21-2x22 (2007-10-20 to 2007-10-27), was 1x54-1x55, by position inside a run of title matches. AniDB 56-57 (2007-11-03 to 2007-11-10) = TVDB 2x23-2x24 (2007-11-03 to 2007-11-10), was 1x56-1x57, by title. AniDB 58-59 (2007-11-17 to 2007-11-24) = TVDB 2x25-2x26 (2007-11-17 to 2007-11-24), was 1x58-1x59, by title, air date breaking a tie. AniDB 60 (2007-12-01) = TVDB 2x27 (2007-12-01), was 1x60 (no such TVDB episode), by position inside a run of title matches. AniDB 61 (2007-12-08) = TVDB 2x28 (2007-12-08), was 1x61 (no such TVDB episode), by title, order breaking a same-title tie. AniDB 62 (2007-12-15) = TVDB 2x29 (2007-12-15), was 1x62 (no such TVDB episode), by position inside a run of title matches. AniDB 63 (2007-12-22) = TVDB 2x30 (2007-12-22), was 1x63 (no such TVDB episode), by title. AniDB 64 (2008-01-05) = TVDB 2x31 (2008-01-05), was 1x64 (no such TVDB episode), by title, air date breaking a tie. AniDB 65 (2008-01-12) = TVDB 2x32 (2008-01-12), was 1x65 (no such TVDB episode), by position inside a run of title matches. AniDB 66 (2008-01-19) = TVDB 3x01 (2008-01-19), was 1x66 (no such TVDB episode), by title. AniDB 67 (2008-01-26) = TVDB 3x02 (2008-01-26), was 1x67 (no such TVDB episode), by title, air date breaking a tie. AniDB 68-70 (2008-02-02 to 2008-02-16) = TVDB 3x03-3x05 (2008-02-02 to 2008-02-16), was 1x68-1x70, by title. AniDB 71 (2008-02-23) = TVDB 3x06 (2008-02-23), was 1x71 (no such TVDB episode), by title, air date breaking a tie. AniDB 72-73 (2008-03-01 to 2008-03-08) = TVDB 3x07-3x08 (2008-03-01 to 2008-03-08), was 1x72-1x73, by title. AniDB 74 (2008-03-15) = TVDB 4x01 (2008-03-15), was 1x74 (no such TVDB episode), by title. AniDB 75-76 (2008-03-22 to 2008-03-29) = TVDB 4x02-4x03 (2008-03-22 to 2008-03-29), was 1x75-1x76, by position inside a run of title matches. AniDB 77-78 (2008-04-05 to 2008-04-12) = TVDB 4x04-4x05 (2008-04-05 to 2008-04-13), was 1x77-1x78, by title, air date breaking a tie. AniDB 79 (2008-04-19) = TVDB 4x06 (2008-04-19), was 1x79 (no such TVDB episode), by title. AniDB 80 (2008-04-26) = TVDB 4x07 (2008-04-26), was 1x80 (no such TVDB episode), by position inside a run of title matches. AniDB 81-82 (2008-05-03 to 2008-05-10) = TVDB 4x08-4x09 (2008-05-03 to 2008-05-10), was 1x81-1x82, by title. AniDB 83 (2008-05-17) = TVDB 4x10 (2008-05-17), was 1x83 (no such TVDB episode), by title, air date breaking a tie. AniDB 84-86 (2008-05-24 to 2008-06-07) = TVDB 4x11-4x13 (2008-05-24 to 2008-06-07), was 1x84-1x86, by position inside a run of title matches. AniDB 87 (2008-06-14) = TVDB 4x14 (2008-06-14), was 1x87 (no such TVDB episode), by title. AniDB 88 (2008-06-21) = TVDB 4x15 (2008-06-21), was 1x88 (no such TVDB episode), by position inside a run of title matches. AniDB 89 (2008-06-28) = TVDB 4x16 (2008-06-28), was 1x89 (no such TVDB episode), by title, air date breaking a tie. AniDB 90 (2008-07-05) = TVDB 4x17 (2008-07-05), was 1x90 (no such TVDB episode), by position inside a run of title matches. AniDB 91 (2008-07-12) = TVDB 4x18 (2008-07-12), was 1x91 (no such TVDB episode), by title. AniDB 92 (2008-07-19) = TVDB 4x19 (2008-07-19), was 1x92 (no such TVDB episode), by position inside a run of title matches. AniDB 93 (2008-07-26) = TVDB 4x20 (2008-07-26), was 1x93 (no such TVDB episode), by title. AniDB 94 (2008-08-02) = TVDB 4x21 (2008-08-02), was 1x94 (no such TVDB episode), by title, air date breaking a tie. AniDB 95 (2008-08-09) = TVDB 4x22 (2008-08-09), was 1x95 (no such TVDB episode), by position inside a run of title matches. AniDB 96-97 (2008-08-16 to 2008-08-23) = TVDB 4x23-4x24 (2008-08-23 to 2008-08-30), was 1x96-1x97, by title. AniDB 98-101 (2008-08-30 to 2008-09-27) = TVDB 4x25-4x28 (2008-09-06 to 2008-09-27), was 1x98-1x101, by position inside a run of title matches. AniDB 102-104 (2008-10-04 to 2008-10-18) = TVDB 5x01-5x03 (2008-10-04 to 2008-10-18), was 1x102-1x104, by title, air date breaking a tie. AniDB 105 (2008-10-25) = TVDB 5x04 (2008-10-25), was 1x105 (no such TVDB episode), by title. AniDB 106 (2008-11-01) = TVDB 5x05 (2008-11-01), was 1x106 (no such TVDB episode), by title, air date breaking a tie. AniDB 107-108 (2008-11-08 to 2008-11-15) = TVDB 5x06-5x07 (2008-11-08 to 2008-11-15), was 1x107-1x108, by title. AniDB 109 (2008-11-22) = TVDB 5x08 (2008-11-22), was 1x109 (no such TVDB episode), by position inside a run of title matches. AniDB 110 (2008-11-29) = TVDB 5x09 (2008-11-29), was 1x110 (no such TVDB episode), by title, air date breaking a tie. AniDB 111-112 (2008-12-06 to 2008-12-13) = TVDB 5x10-5x11 (2008-12-06 to 2008-12-13), was 1x111-1x112, by title. AniDB 113 (2008-12-20) = TVDB 5x12 (2008-12-20), was 1x113 (no such TVDB episode), by title, air date breaking a tie. AniDB 114-115 (2008-12-27 to 2009-01-03) = TVDB 5x13-5x14 (2008-12-27 to 2009-01-03), was 1x114-1x115, by title. AniDB 116 (2009-01-17) = TVDB 5x15 (2009-01-17), was 1x116 (no such TVDB episode), by position inside a run of title matches. AniDB 117 (2009-01-24) = TVDB 5x16 (2009-01-24), was 1x117 (no such TVDB episode), by title, air date breaking a tie. AniDB 118-121 (2009-01-31 to 2009-02-21) = TVDB 5x17-5x20 (2009-01-31 to 2009-02-21), was 1x118-1x121, by title. AniDB 122 (2009-02-28) = TVDB 5x21 (2009-02-28), was 1x122 (no such TVDB episode), by title, air date breaking a tie. AniDB 123 (2009-03-07) = TVDB 5x22 (2009-03-07), was 1x123 (no such TVDB episode), by title. AniDB 124-125 (2009-03-14 to 2009-03-21) = TVDB 5x23-5x24 (2009-03-14 to 2009-03-21), was 1x124-1x125, by title, air date breaking a tie. AniDB 126-127 (2009-03-28 to 2009-04-04) = TVDB 5x25-5x26 (2009-03-28 to 2009-04-04), was 1x126-1x127, by title. AniDB 128 (2009-04-11) = TVDB 5x27 (2009-04-11), was 1x128 (no such TVDB episode), by position inside a run of title matches. AniDB 129-140 (2009-04-18 to 2009-07-04) = TVDB 5x28-5x39 (2009-04-18 to 2009-07-04), was 1x129-1x140, by title. AniDB 141-146 (2009-07-11 to 2009-08-15) = TVDB 6x01-6x06 (2009-07-11 to 2009-08-16), was 1x141-1x146, by title. AniDB 147 (2009-08-22) = TVDB 6x07 (2009-08-22), was 1x147 (no such TVDB episode), by title, air date breaking a tie. AniDB 148 (2009-08-29) = TVDB 6x08 (2009-08-29), was 1x148 (no such TVDB episode), by position inside a run of title matches. AniDB 149 (2009-09-05) = TVDB 6x09 (2009-09-05), was 1x149 (no such TVDB episode), by title, air date breaking a tie. AniDB 150 (2009-09-12) = TVDB 6x10 (2009-09-12), was 1x150 (no such TVDB episode), by title. AniDB 151-152 (2009-09-19 to 2009-09-26) = TVDB 6x11-6x12 (2009-09-19 to 2009-09-26), was 1x151-1x152, by title, air date breaking a tie. AniDB 153 (2009-10-03) = TVDB 6x13 (2009-10-03), was 1x153 (no such TVDB episode), by position inside a run of title matches. AniDB 154 (2009-10-10) = TVDB 7x01 (2009-10-10), was 1x154 (no such TVDB episode), by title. AniDB 155 (2009-10-17) = TVDB 7x02 (2009-10-17), was 1x155 (no such TVDB episode), by title, order breaking a same-title tie. AniDB 156-177 (2009-10-24 to 2010-03-27) = TVDB 7x03-7x24 (2009-10-24 to 2010-03-27), was 1x156-1x177, by title. AniDB 178-186 (2010-04-03 to 2010-05-29) = TVDB 8x01-8x09 (2010-04-03 to 2010-05-29), was 1x178-1x186, by title. AniDB 187 (2010-06-05) = TVDB 8x10 (2010-06-05), was 1x187 (no such TVDB episode), by position inside a run of title matches. AniDB 188-189 (2010-06-12 to 2010-06-19) = TVDB 8x11-8x12 (2010-06-12 to 2010-06-19), was 1x188-1x189, by title. AniDB 190 (2010-06-26) = TVDB 9x01 (2010-06-26), was 1x190 (no such TVDB episode), by title, order breaking a same-title tie. AniDB 191-203 (2010-07-03 to 2010-09-25) = TVDB 9x02-9x14 (2010-07-03 to 2010-09-18), was 1x191-1x203, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80975 and TMDB show 45857. AniDB episode 34-65 (\"ヴァリアー来る!\" (Varia Comes!) to \"決着!\" (Showdown!)) are TVDB S2E1 \"The Varia Arrive\" to TVDB S2E32 \"Conclusion!\" and TMDB S2E34 \"ヴァリアー来る！\" (The Varia Arrive) to TMDB S2E65 \"決着！\" (Conclusion!); AniDB episode 66-73 (\"ふるえてゴースト\" (Shivering Ghost) to \"母さん感謝の日\" (Mother Appreciation Day)) are TVDB S3E1 \"Shivering Ghost\" to TVDB S3E8 \"Mother's Day\" and TMDB S3E66 \"ふるえてゴースト\" (Shivering Ghost) to TMDB S3E73 \"母さん感謝の日\" (Mother's Day Vongola-style); AniDB episode 74-101 (\"十年後の世界\" (The World Ten Years Later) to \"夜襲\" (Night Raid)) are TVDB S4E1 \"The World Ten Years Later\" to TVDB S4E28 \"Night Attack\" and TMDB S4E74 \"１０年後の世界\" (The World Ten Years Later) to TMDB S4E101 \"夜襲\" (Night Attack); AniDB episode 102-140 (\"作戦開始\" (Operation Start) to \"もう一つの大空\" (Another Sky)) are TVDB S5E1 \"Mission Start\" to TVDB S5E39 \"Another Sky\" and TMDB S4E102 \"作戦開始\" (Mission Start) to TMDB S4E140 \"もう一つの大空\" (Another Sky); AniDB episode 141 \"再会\" (Reunion) is TVDB S6E1 \"Reunion\" and TMDB S4E141 \"再会\" (Reunion); AniDB episode 142-153 (\"最強の7人\" (The Strongest Seven) to \"最後の印\" (The Last Mark)) are TVDB S6E2 \"The Strongest Seven\" to TVDB S6E13 \"The Final Seal\" and TMDB S5E142 \"最強の７人\" (The Strongest Seven) to TMDB S5E153 \"最後の印\" (The Final Seal); AniDB episode 154 \"次なる戦いへ\" (To the Next Battle) is TVDB S7E1 \"To the Next Battle\" and TMDB S5E154 \"次なる戦いへ\" (To the Next Battle); AniDB episode 155-177 (\"真(リアル)6弔花\" (The Real Six Funeral Wreaths) to \"戦いの後\" (After the Battle)) are TVDB S7E2 \"The Real Six Funeral Wreaths\" to TVDB S7E24 \"After the Battle\" and TMDB S6E155 \"真６弔花\" (The Real Six Funeral Wreaths) to TMDB S6E177 \"戦いの後\" (After the Battle); AniDB episode 178-189 (\"I世(プリーモ)ファミリー来る!\" (The Primo Family Arrives!) to \"ファミリーの覚悟\" (The Family`s Resolve)) are TVDB S8E1 \"The Primo Family Arrives!\" to TVDB S8E12 \"The Family's Resolve\" and TMDB S7E178 \"Ⅰ世ファミリー来る！\" (The Primo Family Arrives) to TMDB S7E189 \"ファミリーの覚悟\" (The Family's Resolve); AniDB episode 190-203 (\"真6弔花(リアルろくちょうか)襲来\" (The Real Six Funeral Wreaths Attack!) to \"新しい未来へ\" (To a New Future)) are TVDB S9E1 \"The Real Six Funeral Wreaths Attack!\" to TVDB S9E14 \"To a New Future\" and TMDB S8E190 \"真６弔花襲来\" (The Real Six Funeral Wreaths Attack!) to TMDB S8E203 \"新しい未来へ\" (To a New Future); AniDB S2 \"『家庭教師ヒットマンREBORN!』×『エルドライブ【ēlDLIVE】』SPコラボミニアニメ[24H]\" (Katekyo Hitman Reborn! x elDLIVE Special Collaboration) is TMDB S0E5 \"Katekyo Hitman Reborn! x elDLIVE Special Collaboration\" and has no TVDB episode (TVDB has no S0E2); AniDB S3-S5 (\"ミスターリボックのちゃおちゃおインタビュー vol.1\" (Mr. Rebokku`s Ciao Ciao Interview with Tsuna, Gokudera and Xanxus) to \"ミスターリボックのちゃおちゃおインタビュー vol.3\" (Mr. Rebokku`s Final Ciao Ciao Interview with Yamamoto, Squalo, Byakuran and Mukuro)) are TMDB S0E2 \"Mr. Rebokku no Ciao Ciao 1\" to TMDB S0E4 \"Mr. Rebokku no Ciao Ciao 3\" and have no TVDB episode (TVDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -1316,8 +1406,8 @@
       ],
       "series": 80975
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4c2562adc6c0a3b64a74d2ccf7cfc8760367dd94839930609ac8834f581c81a4"
   },
   "anilist_ids": [

@@ -1,0 +1,200 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13774",
+    "tvdb": "https://thetvdb.com/series/gundam-build-divers/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Gundam Build Divers",
+  "justification": "AniDB special S2, the TV summer special \"Natsu da! Gunpla Battle ni Dive!\" (2018-07-24), had no row and fell on TVDB season 0 episode 2 \"Gundam Build Divers Battlogue\" (2020-11-13), a 2020 ONA. TVDB lists no summer special, so S2 is unmapped. S1 \"Prologue\" stays on episode 1.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "8f60e9695b8d5f1289f42bd33d071edd309bdc7fddca035a5100e409675e6e0f",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2018-02-02"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2020-11-13"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2018-04-03"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2018-04-10"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2018-04-17"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2018-04-24"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2018-05-01"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2018-05-08"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2018-05-15"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2018-05-22"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2018-05-29"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2018-06-05"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2018-06-12"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2018-06-19"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2018-06-26"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2018-07-03"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2018-07-10"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2018-07-17"
+        ],
+        [
+          1,
+          17,
+          17,
+          "2018-07-31"
+        ],
+        [
+          1,
+          18,
+          18,
+          "2018-08-07"
+        ],
+        [
+          1,
+          19,
+          19,
+          "2018-08-14"
+        ],
+        [
+          1,
+          20,
+          20,
+          "2018-08-21"
+        ],
+        [
+          1,
+          21,
+          21,
+          "2018-08-28"
+        ],
+        [
+          1,
+          22,
+          22,
+          "2018-09-04"
+        ],
+        [
+          1,
+          23,
+          23,
+          "2018-09-11"
+        ],
+        [
+          1,
+          24,
+          24,
+          "2018-09-18"
+        ],
+        [
+          1,
+          25,
+          25,
+          "2018-09-25"
+        ]
+      ],
+      "series": 345055
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "31ef9b79209e3fd6fe78248d5eda38d2f112731fd2e365cb0b40b81105ba1b8d"
+  },
+  "anidb_id": 13774
+}

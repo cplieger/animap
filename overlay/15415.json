@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15415",
+    "tmdb": "https://www.themoviedb.org/tv/99995/seasons",
     "tvdb": "https://thetvdb.com/series/im-standing-on-a-million-lives/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -18,7 +20,7 @@
     ]
   },
   "title": "100-man no Inochi no Ue ni Ore wa Tatte Iru",
-  "justification": "AniDB special S1 (2021-07-03) = TVDB 0x02 (2021-07-03), was 0x01, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 383518 and TMDB show 99995. AniDB S1 \"第1シーズン総集編\" (Season 1 Recap) is TVDB S0E2 \"Recap - Season 1\" and TMDB S0E2 \"Recap - Season 1\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -115,8 +117,8 @@
       ],
       "series": 383518
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2fd24fcded14cb6af37ade6b045040f732c09ecad41ce9386fe471b4c2dcb5c5"
   },
   "anilist_ids": [

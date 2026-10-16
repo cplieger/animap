@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4851",
-    "tvdb": "https://thetvdb.com/series/one-piece/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/one-piece/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/25278"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "One Piece: Episode of Arabasta - Sabaku no Oujo to Kaizoku-tachi",
-  "justification": "AniDB special S1 (2011-08-20) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81797. AniDB S1 \"劇場版ワンピース エピソードオブアラバスタ\" (Prologue) has no TVDB episode (its default TVDB S0E1 is \"One Piece: Defeat the Pirate Ganzack! (OVA 1)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

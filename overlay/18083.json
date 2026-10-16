@@ -1,0 +1,116 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18083",
+    "tvdb": "https://thetvdb.com/series/kizuna-no-allele/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kizuna no Allele (2023)",
+  "justification": "AniDB special S1 \"Tokubetsu Hen!\" (2023-12-28) has no TVDB episode. TVDB season 0 episode 1, 絆のアリルSPアフターパーティ (2023-06-27), is the first season's after-party special (AniDB 17713, special dated 2023-06-27), where S1 fell by default. It is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "454ef0b2539c0274c7475a639b156e4e2b4ac43184baaa81c92ebca0fc558031",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2023-06-27"
+        ],
+        [
+          2,
+          1,
+          13,
+          "2023-10-05"
+        ],
+        [
+          2,
+          2,
+          14,
+          "2023-10-12"
+        ],
+        [
+          2,
+          3,
+          15,
+          "2023-10-19"
+        ],
+        [
+          2,
+          4,
+          16,
+          "2023-10-26"
+        ],
+        [
+          2,
+          5,
+          17,
+          "2023-11-02"
+        ],
+        [
+          2,
+          6,
+          18,
+          "2023-11-09"
+        ],
+        [
+          2,
+          7,
+          19,
+          "2023-11-16"
+        ],
+        [
+          2,
+          8,
+          20,
+          "2023-11-23"
+        ],
+        [
+          2,
+          9,
+          21,
+          "2023-11-30"
+        ],
+        [
+          2,
+          10,
+          22,
+          "2023-12-07"
+        ],
+        [
+          2,
+          11,
+          23,
+          "2023-12-14"
+        ],
+        [
+          2,
+          12,
+          24,
+          "2023-12-21"
+        ]
+      ],
+      "series": 427074
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "ddb3edbfe2f88b356abb21fe166b4836e1fa81993a4bbf3457c4b299f364c26a"
+  },
+  "anidb_id": 18083
+}

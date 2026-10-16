@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:151803",
+  "title": "AniList 151803",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "3d3e1154400c3e3aebbbf425e9b5bac8fb49c65ec527d3ee040beb4e45a81b0f",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: regular episodes 14-25 of AniDB 13713 (TVDB 246381 2x14-2x25); anime-offline-database links AniDB 13713 to AniList 117197 only, so this entry has no AniDB id, and a bridge takes only specials",
+        "evidence": [
+          "https://anilist.co/anime/151803"
+        ],
+        "anilist_id": 151803
+      }
+    ]
+  }
+}

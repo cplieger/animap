@@ -1,9 +1,11 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14421",
+    "tmdb": "https://www.themoviedb.org/tv/77701/seasons",
     "tvdb": "https://thetvdb.com/series/344315-show/seasons/official/0"
   },
   "set": {
+    "tmdboffset": "1",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -18,11 +20,25 @@
             6
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Persona 5 the Animation (2018)",
-  "justification": "AniDB special S1-S2 (2019-05-29 to 2019-06-26) = TVDB 0x05-0x06 (2019-05-29 to 2019-06-26), was 0x01-0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 344315 and TMDB show 77701. AniDB episode 1-2 (\"Dark Sun...\" to \"Stars and Ours\") are TMDB S0E2 \"Dark Sun...\" to TMDB S0E3 \"Stars and Ours\"; AniDB S1-S2 (\"Proof of Justice\" to \"A Magical Valentine`s Day\") are TVDB S0E5 \"Proof of Justice\" to TVDB S0E6 \"A Magical Valentine’s Day\" and TMDB S0E4 \"Proof of justice\" (Proof of Justice) to TMDB S0E5 \"A Magical Valentine's Day\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -82,8 +98,8 @@
       ],
       "series": 344315
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a9e23019686300e2b1753175e05fe1e3b715d46e29063e896376689c00873add"
   },
   "anidb_id": 14421

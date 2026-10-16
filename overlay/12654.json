@@ -11,7 +11,7 @@
         "episodes": [
           [
             1,
-            3
+            6
           ],
           [
             2,
@@ -19,11 +19,11 @@
           ],
           [
             3,
-            3
+            4
           ],
           [
             4,
-            3
+            5
           ]
         ]
       },
@@ -32,6 +32,9 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
             2
           ]
         ]
@@ -39,11 +42,11 @@
     ]
   },
   "title": "Koutetsujou no Kabaneri: Unato Kessen",
-  "justification": "AniDB special S2 (2019-05-10) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB lists the film twice, whole and in three parts, all 2019-05-10: 1 Complete Movie (70 minutes) is TVDB 305082 season 0 episode 6 Kabaneri of the Iron Fortress: The Battle of Unato (2019-05-10, 68 minutes), and 2-4 Part 1 of 3 to Part 3 of 3 (30, 30 and 35 minutes) are episodes 3-5 The Battle of Unato Part 1 to Part 3 (26, 26 and 31 minutes); the old row sent all four to episode 3. Special S1 Leica Reel (65 minutes) has no TVDB episode: its default, episode 1, is the first recap film (105 minutes). S2, the movie and part 3 ending, has no TVDB episode either; it was 0x02, the second recap film. Episode 7, the 2026 short Mumei in Full Bloom, is not this anime.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
-      "sha256": "d741ddc194b299bccacb7e18a5b0d78646c5e3add05cf0d80e2f3df9c23a2a74",
+      "sha256": "4e00c5477b4cf8b2ff83c3079b09ae713faaa00b77f7a372475fcf5701788a16",
       "seasons": [
         0
       ],
@@ -83,12 +86,18 @@
           6,
           0,
           "2019-05-10"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2026-06-24"
         ]
       ],
       "series": 305082
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "4e058d388a532804a4dc63c691e187a4cd2af288367270a9e5fa7fbc545f9217"
   },
   "anilist_ids": [

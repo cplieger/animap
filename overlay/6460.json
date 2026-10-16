@@ -16,10 +16,25 @@
             4
           ],
           [
+            5
+          ],
+          [
+            6
+          ],
+          [
             7
           ],
           [
             8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
           ],
           [
             12
@@ -29,7 +44,7 @@
     ]
   },
   "title": "Toaru Kagaku no Railgun",
-  "justification": "AniDB special S3-S4 (2010-01-09 to 2010-01-23) have no TVDB episode, was 0x03-0x04. AniDB special S7-S8 (2010-03-13 to 2010-03-20) have no TVDB episode, was 0x07-0x08. AniDB special S12 (2010-05-28) has no TVDB episode, was 0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S3-S4 (2010-01-09 to 2010-01-23) have no TVDB episode, was 0x03-0x04. AniDB special S7-S8 (2010-03-13 to 2010-03-20) have no TVDB episode, was 0x07-0x08. AniDB special S12 (2010-05-28) has no TVDB episode, was 0x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. The ending videos S5 and S6, the promotional navigation programme S9 and the staff specials S10 and S11 have no TVDB episode either: TVDB 114921 season 0 holds MMR I-VI, the #13' special, the #Ex OVA and the bathhouse OVA (nodes 7975, 9484, 10453, 10579, 14441), and S9's default was the bathhouse OVA, node 10453's episode. S1 and S2 stay on season 0 episodes 1 MMR: Much More Railgun and 2 MMR II.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -240,8 +255,8 @@
       ],
       "series": 114921
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9bc5343295491c3413b8319c6011c4499f5314d8237be3801315a693f01ac35e"
   },
   "anilist_ids": [

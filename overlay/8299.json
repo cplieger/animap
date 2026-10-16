@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8299",
-    "tvdb": "https://thetvdb.com/series/aquarion/seasons/official/0"
+    "tmdb": "https://www.themoviedb.org/tv/8872/season/0"
   },
   "set": {
     "mapping_list": [
@@ -22,11 +22,29 @@
             4
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
       }
     ]
   },
   "title": "Aquarion Evol",
-  "justification": "AniDB special S1-S4 (2012-01-06 to 2012-01-25) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S4 (2012-01-06 to 2012-01-25) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. On TMDB, the web previews S1-S4 (2012-01-06 to 2012-01-25) defaulted onto TMDB 8872 season 0 episodes 1-4, the two 2007 OVAs, the \"Dai 27-wa Parallel-ban\" special and the 2015 EVOL OVA (AniDB 4600, 5390 and 11151). TMDB lists no web preview, so S1-S4 are unmapped there as they already are on TVDB.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -219,8 +237,8 @@
       ],
       "series": 79886
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f25ee1586336789bb9cb6e282e8f729d10f6d8eb14fc956bd443af6f942e300d"
   },
   "anilist_ids": [

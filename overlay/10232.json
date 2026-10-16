@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10232",
+    "tmdb": "https://www.themoviedb.org/tv/66875/seasons",
     "tvdb": "https://thetvdb.com/series/non-non-biyori/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Non Non Biyori: Okinawa e Iku Koto ni Natta",
-  "justification": "AniDB 1 (2014-07-23) = TVDB 0x01 (2014-07-23), by title. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 272316 and TMDB show 66875. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"OAD\" (the anime \"のんのんびより 沖縄へ行くことになった\") is TVDB S0E1 \"We're Going to Okinawa!\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "fc99f5958858003d7a348f46c465e0ff4b792962f6dc827ee5a300e77f4935af",

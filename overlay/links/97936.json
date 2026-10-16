@@ -1,0 +1,29 @@
+{
+  "anilist_id": 97936,
+  "title": "Masou Gakuen HxH Specials",
+  "parts": [
+    {
+      "anidb_id": 11638,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 97936 (SPECIAL, 6 episode(s) from 2016-09-30) is AniDB 11638's special(s) S1-S6, aired 2016-09-30 to 2017-02-24. AniList's PARENT relation names AniList 21378, which anime-offline-database links to AniDB 11638. The parent has no mapping row, so S1-S6 default to TVDB 307112 0x1-0x6, which carry the same titles (Kunoichi Aine, Yurishia, Hayuru's Diary, Reiri \u0026 Bunny, Sylvia Taros, Peeping Incident) on the same dates.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11638",
+    "anilist": "https://anilist.co/anime/97936",
+    "tmdb": "https://www.themoviedb.org/tv/67011/season/0",
+    "tvdb": "https://thetvdb.com/series/hybrid-x-heart-magias-academy-ataraxia/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "fb752bc5bf901ba1633a6ba482e5406efef6b49deb68e7a90dff64256f0775fb"
+  }
+}

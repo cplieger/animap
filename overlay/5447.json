@@ -1,0 +1,47 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/5447",
+    "tmdb": "https://www.themoviedb.org/tv/94936/season/0",
+    "tvdb": "https://thetvdb.com/series/blame/seasons/official/0"
+  },
+  "set": {
+    "episodeoffset": "1",
+    "tmdboffset": "1"
+  },
+  "title": "Blame! (2007)",
+  "justification": "The two shorts are TVDB 80304 season 0 episodes 2 Killy and 3 Sanakan (2007-09-07), AniDB 1 Killy and 2 Sanakan, and TMDB 94936 season 0 episodes 2 Killy and 3 Sanakan; the default sent Killy to the missing episode 1 and Sanakan to Killy.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "49dd739467d7f36c15a4b27699cd7278d10aa0a5411e72bb0a4bcb4635c463bc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          2,
+          0,
+          "2007-09-07"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2007-09-07"
+        ],
+        [
+          0,
+          5,
+          7,
+          "2003-10-24"
+        ]
+      ],
+      "series": 80304
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "fe5479e978cf8b3d7ab0f65d9a4c20744a9a9399d0f2e6544e557004d50daca6"
+  },
+  "anidb_id": 5447
+}

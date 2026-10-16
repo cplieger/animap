@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/9736",
-    "tvdb": "https://thetvdb.com/series/day-break-illusion/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/day-break-illusion/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/76899/seasons"
   },
   "set": {
     "mapping_list": [
@@ -22,7 +23,7 @@
     ]
   },
   "title": "Gen'ei o Kakeru Taiyou",
-  "justification": "AniDB special S1 (2013-11-16) = TVDB 0x02 (2013-11-16), was 0x01. AniDB special S2 (2013-06-28) = TVDB 0x01 (2013-06-28), was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 269681 and TMDB show 76899. AniDB S1 \"踏み込めない心\" (Heart in Doubt) is TVDB S0E2 \"Heart in Doubt\"; AniDB S2 \"放送直前! 『幻影ヲ駆ケル太陽』ノ世界\" (Pre-broadcast Special) is TVDB S0E1 \"Pre-broadcast Special\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

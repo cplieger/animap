@@ -1,6 +1,7 @@
 // Package drift decides whether upstream moved under animap's own data: the
 // Anime-Lists node an overlay entry patches and the TVDB layout it maps
-// onto.
+// onto, and the AniDB episodes and anime-offline-database state an overlay
+// link rests on.
 package drift
 
 import (
@@ -11,80 +12,103 @@ import (
 	"github.com/cplieger/animap/internal/skyhook"
 )
 
-// cause is why an entry or a bridge needs a human.
+// cause is why an entry or a link needs a human.
 type cause string
 
 const (
 	// NodeChanged is a node that moved without taking the entry's values.
 	NodeChanged cause = "node-changed"
-	// Landed is a node that now carries every value the entry sets.
+	// Landed is a node that now carries every value the entry sets, or an
+	// AniList id anime-offline-database now links to AniDB itself.
 	Landed cause = "landed"
 	// TVDBLayout is a changed official order, or a series SkyHook dropped.
 	TVDBLayout cause = "tvdb-layout"
+	// AniDBChanged is a linked AniDB episode renumbered, retitled or gone.
+	AniDBChanged cause = "anidb-changed"
 )
 
-// Finding is one cause on one entry or bridge. Before and After are set
-// for TVDBLayout, where a nil After means the series is gone from SkyHook.
+// Finding is one cause on one entry or link. Before and After are set for
+// TVDBLayout; Gone says SkyHook no longer serves the series. For a link,
+// AniDBIDs are the anime it names, Linked the AniDB id
+// anime-offline-database now gives the AniList id, and Mirror the mirror
+// commit an AniDBChanged was read at.
 type Finding struct {
-	Key     string            `json:"key"`
-	Path    string            `json:"path"`
-	Cause   cause             `json:"cause"`
-	Title   string            `json:"title"`
-	Before  []skyhook.Episode `json:"before,omitempty"`
-	After   []skyhook.Episode `json:"after,omitempty"`
-	AniDB   int               `json:"anidb"`
-	AniList int               `json:"anilist,omitempty"`
-	Linked  int               `json:"linked,omitempty"`
+	Key      string            `json:"key"`
+	Path     string            `json:"path"`
+	Cause    cause             `json:"cause"`
+	Title    string            `json:"title"`
+	Mirror   string            `json:"mirror,omitempty"`
+	Before   []skyhook.Episode `json:"before,omitempty"`
+	After    []skyhook.Episode `json:"after,omitempty"`
+	AniDBIDs []int             `json:"anidb_ids,omitempty"`
+	AniDB    int               `json:"anidb"`
+	AniList  int               `json:"anilist,omitempty"`
+	Linked   int               `json:"linked,omitempty"`
+	Gone     bool              `json:"gone,omitempty"`
 }
 
-// Subject is what one decision is about: an overlay entry or a
-// special-of-parent bridge. The zero Subject decides nothing.
+// Subject is what one decision is about: an overlay entry or an overlay
+// link. The zero Subject decides nothing.
 type Subject struct {
-	entry  *overlay.Entry
-	bridge *overlay.Bridge
+	entry *overlay.Entry
+	link  *overlay.Link
 }
 
 // OfEntry is the subject for an overlay entry.
 func OfEntry(e *overlay.Entry) Subject { return Subject{entry: e} }
 
-// OfBridge is the subject for a special-of-parent bridge.
-func OfBridge(b *overlay.Bridge) Subject { return Subject{bridge: b} }
+// OfLink is the subject for an overlay link.
+func OfLink(l *overlay.Link) Subject { return Subject{link: l} }
 
 // Observation is what one run saw upstream; each subject reads only its own
-// fields. Node nil means the node is absent. Layout nil means SkyHook could
-// not be read, unless LayoutAbsent says it answered 404. Linked is the
-// AniDB id the latest release gives a bridge's AniList entry. Each *Read
-// flag says the source was looked at.
+// fields. Node nil means the node is absent. Layout is the captured seasons
+// of the run's TVDB layout; LayoutRead false means the run did not read it,
+// unless LayoutAbsent says SkyHook answered 404. AOD is the AniDB
+// ids anime-offline-database gives a link's AniList id, and AniDB the
+// link's AniDBDigest at mirror commit Mirror. Each *Read flag says the
+// source was looked at.
 type Observation struct {
 	Node         *animelists.Node
+	AniDB        string
+	Mirror       string
 	Layout       []skyhook.Episode
-	Linked       int
+	AOD          []int
 	LayoutRead   bool
 	LayoutAbsent bool
-	LinkedRead   bool
+	AODRead      bool
+	AniDBRead    bool
 }
 
-// Keys for one entry. They are the issue identities, so they never change.
+// Keys for one entry or link; a link has no Node or TVDB key, an entry no
+// AniDB key. They are the issue identities, so they never change.
 type Keys struct {
-	Node, Landed, TVDB string
+	Node, Landed, TVDB, AniDB string
 }
 
-// All lists the three keys.
-func (k Keys) All() []string { return []string{k.Node, k.Landed, k.TVDB} }
+// All lists the keys that are set.
+func (k Keys) All() []string {
+	var out []string
+	for _, key := range []string{k.Node, k.Landed, k.TVDB, k.AniDB} {
+		if key != "" {
+			out = append(out, key)
+		}
+	}
+	return out
+}
 
-// Prefix starts every drift key, and no other key.
-const Prefix = "drift:"
+// prefix starts every drift key, and no other key.
+const prefix = "drift:"
 
 // KeysOf returns the keys of the entry for AniDB id anidbID.
 func KeysOf(anidbID int) Keys {
 	id := strconv.Itoa(anidbID)
-	return Keys{Node: Prefix + "node:" + id, Landed: Prefix + "landed:" + id, TVDB: Prefix + "tvdb:" + id}
+	return Keys{Node: prefix + "node:" + id, Landed: prefix + "landed:" + id, TVDB: prefix + "tvdb:" + id}
 }
 
-// SpecialKeys are the issue keys of the bridge for AniList id al.
-func SpecialKeys(al int) Keys {
-	id := Prefix + "special:" + strconv.Itoa(al) + ":"
-	return Keys{Node: id + "node", Landed: id + "landed", TVDB: id + "tvdb"}
+// LinkKeys are the issue keys of the link for AniList id al.
+func LinkKeys(al int) Keys {
+	id := prefix + "link:" + strconv.Itoa(al) + ":"
+	return Keys{Landed: id + "landed", AniDB: id + "anidb"}
 }
 
 // Decide returns the findings for one subject and the keys this
@@ -95,8 +119,8 @@ func Decide(s Subject, o *Observation) (findings []Finding, evaluated []string) 
 	switch {
 	case s.entry != nil:
 		return decideEntry(s.entry, o)
-	case s.bridge != nil:
-		return decideBridge(s.bridge, o)
+	case s.link != nil:
+		return decideLink(s.link, o)
 	}
 	return nil, nil
 }
@@ -116,38 +140,35 @@ func decideEntry(e *overlay.Entry, o *Observation) (findings []Finding, evaluate
 	if c := e.Captured.TVDB; c == nil || o.LayoutRead || o.LayoutAbsent {
 		evaluated = append(evaluated, k.TVDB)
 		if c != nil && skyhook.Hash(o.Layout) != c.SHA256 {
-			findings = append(findings, Finding{Key: k.TVDB, Cause: TVDBLayout, AniDB: e.AniDBID, Title: e.Title, Path: e.Path(), Before: c.Episodes, After: o.Layout})
+			findings = append(findings, Finding{Key: k.TVDB, Cause: TVDBLayout, AniDB: e.AniDBID, Title: e.Title, Path: e.Path(), Before: c.Episodes, After: o.Layout, Gone: o.LayoutAbsent})
 		}
 	}
 	return findings, evaluated
 }
 
-// decideBridge: a bridge has landed when anime-offline-database links the
-// AniList entry to an AniDB id of its own, because the join then no longer
+// decideLink: a link has landed when anime-offline-database links the
+// AniList id to an AniDB id of its own, because the join then no longer
 // needs it.
-func decideBridge(b *overlay.Bridge, o *Observation) (findings []Finding, evaluated []string) {
-	k := SpecialKeys(b.AniListID)
+func decideLink(l *overlay.Link, o *Observation) (findings []Finding, evaluated []string) {
+	k := LinkKeys(l.AniListID)
+	ids := l.AniDBIDs()
 	f := func(c cause, key string) Finding {
-		return Finding{Key: key, Cause: c, AniDB: b.ParentAniDBID, AniList: b.AniListID, Title: b.Title, Path: b.Path()}
+		return Finding{Key: key, Cause: c, AniDB: ids[0], AniDBIDs: ids, AniList: l.AniListID, Title: l.Title, Path: l.Path()}
 	}
-	evaluated = append(make([]string, 0, 3), k.Node)
-	if animelists.HashOf(o.Node) != b.Captured.NodeSHA256 {
-		findings = append(findings, f(NodeChanged, k.Node))
-	}
-	if o.LinkedRead {
+	if o.AODRead {
 		evaluated = append(evaluated, k.Landed)
-		if o.Linked > 0 {
-			l := f(Landed, k.Landed)
-			l.Linked = o.Linked
-			findings = append(findings, l)
+		if len(o.AOD) > 0 {
+			x := f(Landed, k.Landed)
+			x.Linked = o.AOD[0]
+			findings = append(findings, x)
 		}
 	}
-	if o.LayoutRead || o.LayoutAbsent {
-		evaluated = append(evaluated, k.TVDB)
-		if skyhook.Hash(o.Layout) != b.Captured.TVDB.SHA256 {
-			l := f(TVDBLayout, k.TVDB)
-			l.Before, l.After = b.Captured.TVDB.Episodes, o.Layout
-			findings = append(findings, l)
+	if o.AniDBRead {
+		evaluated = append(evaluated, k.AniDB)
+		if o.AniDB != l.Captured.AniDBSHA256 {
+			x := f(AniDBChanged, k.AniDB)
+			x.Mirror = o.Mirror
+			findings = append(findings, x)
 		}
 	}
 	return findings, evaluated

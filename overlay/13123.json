@@ -1,12 +1,16 @@
 {
-  "anidb_id": 13123,
-  "title": "Relife (2018)",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/13123",
+    "tmdb": "https://www.themoviedb.org/tv/66941/seasons",
+    "tvdb": "https://thetvdb.com/series/relife/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1,
@@ -20,11 +24,9 @@
       }
     ]
   },
-  "justification": "AniDB 1-4 (2018-03-21) = TVDB 0x01-0x04 (2018-03-21), by title and order. The empty offset placed no episode. AniDB special S1 (2018-03-21) = TVDB 0x05 (2018-03-21), was 0x01, by title. AniDB special S2 (2018-03-21) = TVDB 0x06 (2018-03-21), was 0x02, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/13123",
-    "tvdb": "https://thetvdb.com/series/relife/seasons/official/0"
-  },
+  "title": "Relife (2018)",
+  "justification": "Checked by episode title against TVDB series 299508 and TMDB show 66941. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-4 (\"Seed\" to \"Life\") are TVDB S0E1 \"Seed\" to TVDB S0E4 \"Life\"; AniDB S1-S2 (\"社外秘 リライフ研究所 サポート課「監視カメラ」\" (Confidential Relife Institute Support Department \"Surveillance Camera\") to \"社外秘 リライフ研究所 サポート課「デート」\" (Confidential Relife Institute Support Department \"Date\")) are TVDB S0E5 \"Confidential ReLIFE Research Institute Support Division #01: Surveillance Camera\" to TVDB S0E6 \"Confidential ReLIFE Research Institute Support Division #02: Date\" and TMDB S0E5 \"社外秘 リライフ研究所 サポート課「監視カメラ」\" (Confidential ReLIFE Research Institute Support Division #01: Surveillance Camera) to TMDB S0E6 \"社外秘 リライフ研究所 サポート課「デート」\" (Confidential ReLIFE Research Institute Support Division #02: Date).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "d1de3f498921f570bc894715cf7b8c149c658378ecd839989e8426c8d85b3ae1",
@@ -71,12 +73,12 @@
       ],
       "series": 299508
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d5a4b7eac64a0e0e4782ab2c024cd25c9a5d8f21d29465746edc73fbde51840d"
   },
   "anilist_ids": [
     98635
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 13123
 }

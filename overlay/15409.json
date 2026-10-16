@@ -1,0 +1,128 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15409",
+    "tvdb": "https://thetvdb.com/series/noblesse/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Noblesse",
+  "justification": "AniDB special S1 \"Jizen 1 Jikan Tokuban\" (2020-09-28), the one-hour pre-broadcast special, had no row and fell on TVDB season 0 episode 1 \"Noblesse: The Beginning of Destruction\" (2015 OVA). Season 0 holds only the two OVAs, so S1 is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "331d1b33b5f66fba8b3b1206dec25de3e605dd8c2fd26e5f3cec2d9b42ae6765",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-11-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2016-02-04"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2020-10-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2020-10-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2020-10-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2020-10-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2020-11-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2020-11-12"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2020-11-19"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2020-11-26"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2020-12-03"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2020-12-10"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2020-12-17"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2020-12-24"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2020-12-31"
+        ]
+      ],
+      "series": 386818
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "cb5384aa53bcbf2de5e89e2d4ec57e463c5935095ef15f28d9258abc036094fd"
+  },
+  "anidb_id": 15409
+}

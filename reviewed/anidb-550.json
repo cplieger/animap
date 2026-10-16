@@ -1,0 +1,28 @@
+{
+  "key": "anime:anidb:550",
+  "title": "Project ARMS",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:10": "8a318805491b272b5709e36904f8f65b45b48aeab4f7b970a67647d40faa0b20",
+        "date-mismatch:11": "f3ebb03d8d18d73cdf0e4e933c159386e0b9a6e78f64ff353ef08b16c6a1af4a",
+        "date-mismatch:12": "13d99d63ac4ede47bb3dd940d40cb03df5e8153a65e676801e243132f54b4feb",
+        "date-mismatch:13": "e83323902bc1c32c0a4cbfd255f0a55cdb80c63839921445ac97012ba1b8b41d",
+        "date-mismatch:14": "adde86e04e870fe78825e219c5442b955c1c111d6ae4d5b1e367ceb5f4a1a4f7",
+        "date-mismatch:15": "8a430eb4c74962efb7879739ed2b9fc169938b3b961eb0116d667b38eff67f0c",
+        "date-mismatch:21": "6b8dde2711495f5b67d04cb654877973c374872e3ce0b8d6b26d74597fe8da41",
+        "date-mismatch:22": "06cefef1aad0d5a94e700b6c01843c9177925399008f55b13e085d2ddc6141b1",
+        "date-mismatch:23": "21dc1b9790b1a3ec80337ef3bdcf650304f6c5592ae1862f9e1e5786e63dead7",
+        "date-mismatch:24": "7ef85e2fb09bd061d506804e9769ac72f6c2b72afc6f2ce37ca1d87e91209017",
+        "date-mismatch:9": "838ae07d24e02b0d52ac4da904f23491bc4e0972dce68b93ba7fdbfa3e051a0a"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB 1-26 = S1E1-26 with the same titles in order (1 \"Vibration\", 2 \"Transe\" = \"Trance\", 4 \"Interception\" = \"Intercept\", 16 \"Satan\" = \"Satan (The Devil Cliff)\", 17 \"Heaven\" = \"Heaven (Advent)\", 23 \"White Rabbit\", 26 \"Fly\"). TVDB dates the 26 episodes 2001-04-07 to 2001-07-02 (about 3 days apart) and AniDB 2001-04-10 to 2001-10-09 (weekly), hence the failures on 9-15 and 21-24; the suggested targets do not exist for these rows and nothing else matches the titles.",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/72394",
+        "https://anidb.net/anime/550"
+      ]
+    }
+  }
+}

@@ -1,13 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/7918",
+    "tmdb": "https://www.themoviedb.org/tv/32377/seasons",
     "tvdb": "https://thetvdb.com/series/armored-trooper-votoms/seasons/official/0"
   },
   "set": {
+    "tmdboffset": "31",
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +23,7 @@
     ]
   },
   "title": "Soukou Kihei Votoms: Case;Irvine",
-  "justification": "AniDB special S1-S2 (2011-02-25) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 90521 and TMDB show 32377. AniDB episode 1 \"OVA\" (the anime \"装甲騎兵ボトムズ Case;IRVINE -ケース;アービン-\") is TMDB S0E32 \"装甲騎兵ボトムズ Case;IRVINE-ケース;アービン-\" (Case;IRVINE); AniDB S1-S2 (\"ピクチャードラマ「顛末」\" (Picture Drama) to \"初日舞台挨拶\" (Opening Day Stage Greeting)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -116,8 +119,8 @@
       ],
       "series": 90521
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7a322673ee61e25ac938c8255fc19eb7afdf0e5b21f39ed1c5caa9e446c6972b"
   },
   "anilist_ids": [

@@ -1,0 +1,24 @@
+{
+  "anilist_id": 108549,
+  "title": "Mahou Shoujo Lyrical Nanoha: The MOVIE 2nd A's Mini Picture Drama",
+  "parts": [
+    {
+      "anidb_id": 8821,
+      "specials": [
+        1,
+        2
+      ]
+    }
+  ],
+  "justification": "AniList 108549 has 2 episodes, both 2013-03-22 (synonyms 'Nanoha Picture Drama 02: Nurse Girl Medical Shamal - Prelude' and '03: Magical Family Wolken - Prelude'). AniDB 8821 (PARENT per AniList 10153) S1 'Mini Picture Drama: Magical Family Lyrical Wolken' and S2 'Mini Picture Drama: Nurse Girl Medical Shamal', both 2013-03-22; S3 'Anime Contents Expo 2012' (2012-04-01) is another item. TVDB 81115 0x21 '...Mini Picture Drama ~Magical Family Lyrical Wolken~' and 0x22 '...~Nurse Girl Medical Shamal~', both 2013-03-22; the overlay entry for 8821 places S1/S2 there by title (upstream defaults 0x01/0x02 are Triangle Heart episodes). The pair is proven by titles and date; what no source states is AniList's episode order. MAL lists the Shamal drama first in its synonyms (numbered 02) and Wolken second (03), the reverse of AniDB and TVDB; a bridge pairs AniList episode i with special i and cannot reorder, so episode 1/2 may be swapped. Medium for that reason only.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8821",
+    "anilist": "https://anilist.co/anime/108549",
+    "tvdb": "https://thetvdb.com/series/magical-girl-lyrical-nanoha/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "ebec9986c29532f7bf1d112a5a52143eb0c109ef45a4c8770a07f16c62d51cf4"
+  }
+}

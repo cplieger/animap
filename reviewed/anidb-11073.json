@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11073",
+  "title": "Momokuri",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:2": "c84bd34f70c2235db15a3a6fd9cc674e5800e559a5364153a6f4b17925816e7f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 2 \"New Uniform Season / Koromogae no Kisetsu ni\" (2016-01-07) = S1E1 \"Eps.1 Confession! Momo-kun and Kurihara-san / Eps.2 Changing Clothes for the Season\" (2015-12-24).",
+      "evidence": [
+        "https://anidb.net/anime/11073",
+        "https://thetvdb.com/dereferrer/series/299746"
+      ]
+    }
+  }
+}

@@ -1,14 +1,37 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13843",
+    "tmdb": "https://www.themoviedb.org/tv/68203/seasons",
     "tvdb": "https://thetvdb.com/series/fist-of-the-blue-sky/seasons/official/2"
   },
   "set": {
     "defaulttvdbseason": "2",
-    "episodeoffset": "12"
+    "episodeoffset": "12",
+    "tmdbseason": "2",
+    "tmdboffset": "12",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
   },
   "title": "Souten no Ken: Regenesis (2018)",
-  "justification": "AniDB 1-12 (2018-10-02 to 2018-12-18) = TVDB 2x13-2x24 (2018-10-02 to 2018-12-18), was 3x01-3x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 85192 and TMDB show 68203. AniDB episode 1-12 (\"神に選ばれし民\" (God`s Chosen People) to \"霞拳志郎と云う漢\" (The Man Named Kasumi Kenshiro)) are TVDB S2E13 \"God's Chosen People\" to TVDB S2E24 \"The Man Named Kasumi Kenshiro\" and TMDB S2E13 \"神に選ばれし民\" (God's Chosen People) to TMDB S2E24 \"霞拳志郎と云う漢\" (The Man Named Kasumi Kenshiro); AniDB S1 \"第2期からでも百裂倍楽しめる! アニメ蒼天の拳REGENESIS 放送直前特番! ~上坂すみれ\u0026小林ゆう 女子でもわかる! 副音声付き!~\" (Episode S1) has no TVDB episode (TVDB has no S0E1) and no TMDB episode (its default TMDB S0E1 is \"Seeking Refuge\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -165,8 +188,8 @@
       ],
       "series": 85192
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "424b899323155c21fe9949bfb22d027c6f94c6d12b019d5e5388ea4cbab144fb"
   },
   "anilist_ids": [

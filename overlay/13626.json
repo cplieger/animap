@@ -1,9 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13626",
+    "tmdb_movie": "https://www.themoviedb.org/movie/608826",
     "tvdb": "https://thetvdb.com/series/saekano-how-to-raise-a-boring-girlfriend/seasons/official/0"
   },
   "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "608826",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -23,7 +28,7 @@
     ]
   },
   "title": "Saenai Heroine no Sodatekata Fine",
-  "justification": "AniDB special S1-S3 (2020-09-23) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 281275. The film is TMDB movie 608826 (Saekano the Movie: Finale (2019)). TMDB show 69367 does not carry it, so the node leaves that show. AniDB S1-S3 (\"劇中ゲーム「冴えない彼女の育てかた」PV\" (In-show Game \"Saenai Heroine no Sodatekata\" PV) to \"初日舞台挨拶\" (Opening Day Stage Greeting)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -53,8 +58,8 @@
       ],
       "series": 281275
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a1f76a337b3d9e5bea72b63af64e51699ba34d0bc48f4277e2a432aa15d0d61d"
   },
   "anilist_ids": [

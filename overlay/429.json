@@ -1,14 +1,15 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/429",
+    "tmdb_movie": "https://www.themoviedb.org/movie/44587",
     "tvdb": "https://thetvdb.com/series/x/seasons/official/0"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "X",
-  "justification": "AniDB 1 (1996-08-03) = TVDB 0x01 (1996-08-03), by title and runtime. AniDB 2-3 are its two parts and keep their rows to it. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 70865. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"X\") is TVDB S0E1 \"X: The Movie\".",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "11b70905dc078e55c605d16f027d61174f4822b13e7bf9f5e01cb3b432568b33",

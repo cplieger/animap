@@ -1,28 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/5116",
+    "tmdb": "https://www.themoviedb.org/tv/46314/seasons",
     "tvdb": "https://thetvdb.com/series/zombie-loan/seasons/official/0"
   },
   "set": {
-    "mapping_list": [
-      {
-        "anidb_season": 0,
-        "tvdb_season": 0,
-        "episodes": [
-          [
-            1,
-            1
-          ],
-          [
-            2,
-            2
-          ]
-        ]
-      }
-    ]
+    "mapping_list": []
   },
   "title": "Zombie-Loan",
-  "justification": "AniDB special S1-S2 (2008-04-25) = TVDB 0x01-0x02 (2008-04-25), was 1x12-1x13. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 80330 and TMDB show 46314. AniDB S1-S2 (\"運命の輪\" (Wheel of Destiny) to \"守りたい\" (Wish to Protect)) are TVDB S0E1 \"Wheel of Destiny\" to TVDB S0E2 \"We Want to Protect\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -113,8 +99,8 @@
       ],
       "series": 80330
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "ac501010d638fee320bd757c464812bd39c3736f04cb06ab1c33e71ee23fb150"
   },
   "anilist_ids": [

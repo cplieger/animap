@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:6517",
+  "title": "Kidou Senshi Gundam Unicorn",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:7": "cc142b23b138173cf9836b6f36cc3799da7a58c535bf9f896c363ca3455c8cac"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. 7 \"Over the Rainbow / Niji no Kanata ni\" (2014-05-17) = S1E7 \"Over the Rainbow\" (2014-06-06).",
+      "evidence": [
+        "https://anidb.net/anime/6517",
+        "https://thetvdb.com/dereferrer/series/403849"
+      ]
+    }
+  }
+}

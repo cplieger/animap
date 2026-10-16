@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12240",
+    "tmdb": "https://www.themoviedb.org/tv/38464/season/0",
     "tvdb": "https://thetvdb.com/series/blue-exorcist/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +22,7 @@
     ]
   },
   "title": "Ao no Exorcist: Kyoto Fujouou Hen",
-  "justification": "AniDB special S1-S2 (2017-01-07 to 2017-03-18) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S2 (2017-01-07 to 2017-03-18) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 38464 season 0 lists neither ending S1 or S2 either; with no TMDB row they defaulted to E1 and E2, Ura Ex 1 and 2. The row now names TMDB season 0 too.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -195,8 +197,8 @@
       ],
       "series": 248035
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8c2ab9933ff28c0b92a1f9848ee4810aea816a125b7df70c2d0b4971eb082092"
   },
   "anilist_ids": [

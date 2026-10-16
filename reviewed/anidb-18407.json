@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:18407",
+  "title": "Kamitsubaki-shi Kensetsuchuu.",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "9f47033e721ec916ca00c690fdb71ca1bd7d3873c7cea9db7ccf939956ab9b3d"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 1-12 map to S1E1-12 by title (Witchling Part 2, Song of Purification, Fragment, Malice, Familiar, Memory Egg, Phenomenon, Blackout, Desire, Artificial/Virtual Real, Regenerate, Kamitsubaki City Under Construction). The one failing special, AniDB S1 \"Witchling: Part 1 / Majo no Musume: Zenpen\", goes to TVDB S0E1 \"魔女の娘 -Witchling- 前篇\" (-Witchling- Part 1): same title, part 1 before part 2. The date gap (AniDB 2025-06-13 premiere event vs TVDB 2025-07-03 TV broadcast) is a different broadcast of the same episode.",
+      "evidence": [
+        "https://thetvdb.com/series/kamitsubaki-city-under-construction/seasons/official/0",
+        "https://anidb.net/anime/18407",
+        "https://thetvdb.com/dereferrer/series/444728"
+      ]
+    }
+  }
+}

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11529",
-    "tvdb": "https://thetvdb.com/series/one-piece/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/one-piece/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/374205"
   },
   "set": {
     "mapping_list": [
@@ -37,7 +38,7 @@
     ]
   },
   "title": "One Piece Film: Gold",
-  "justification": "AniDB special S2-S4 (2016-02-29 to no date) have no TVDB episode, was 0x02-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 81797. AniDB S2-S4 (\"ONE PIECE FILM GOLD×TOHOシネマズ 特別映像\" (TOHO Cinemas x One Piece Film: Gold Special Video) to \"SCRATCH × ONE PIECE FILM GOLD\" (Scratch x One Piece Film: Gold)) have no TVDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

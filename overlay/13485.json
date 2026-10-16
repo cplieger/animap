@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/13485",
+    "tmdb": "https://www.themoviedb.org/tv/65930/seasons",
     "tvdb": "https://thetvdb.com/series/my-hero-academia/seasons/official/0"
   },
   "set": {
@@ -22,11 +23,29 @@
             4
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
       }
     ]
   },
   "title": "Boku no Hero Academia (2018)",
-  "justification": "AniDB special S1-S4 (no AniDB date) have no TVDB episode, was 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 305074 and TMDB show 65930. AniDB S1-S4 (\"My Hero Academia at Anime Expo 2018: Interview with Yuki Hayashi\" to \"Conversation with the Cast\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -333,8 +352,8 @@
       ],
       "series": 305074
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9bc45160eb368125416a61163bcb4cafbe8e34e14ad8a8441cf8956877bc7cf3"
   },
   "anilist_ids": [

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6722",
+    "tmdb": "https://www.themoviedb.org/tv/32377/seasons",
     "tvdb": "https://thetvdb.com/series/armored-trooper-votoms/seasons/official/0"
   },
   "set": {
@@ -16,8 +17,19 @@
         ]
       },
       {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            25
+          ]
+        ]
+      },
+      {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -27,7 +39,7 @@
     ]
   },
   "title": "Soukou Kihei Votoms: Pailsen Files - Gekijouban",
-  "justification": "AniDB special S1 (2009-05-26) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 90521 and TMDB show 32377. AniDB episode 1 \"Complete Movie\" (the anime \"装甲騎兵ボトムズ ペールゼン・ファイルズ 劇場版\") is TMDB S0E25 \"装甲騎兵ボトムズ ペールゼン・ファイルズ 劇場版\" (Armored Trooper VOTOMS: Pailsen Files The Movie); AniDB S1 \"イベントレポート\" (Event Report) has no TVDB episode (its default TVDB S0E1 is \"The Last Red Shoulder: The Unknown 'Red Shoulder'.\", another item) and no TMDB episode (its default TMDB S0E1 is \"The Last Red Shoulder\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -123,8 +135,8 @@
       ],
       "series": 90521
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "d4ce1f8f9d080589de992bfd1c10371804464bf47373edd9300632d18d999c0c"
   },
   "anilist_ids": [

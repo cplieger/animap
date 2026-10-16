@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8869",
-    "tvdb": "https://thetvdb.com/series/oda-nobunas-ambition/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/oda-nobunas-ambition/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/45853/seasons"
   },
   "set": {
     "mapping_list": [
@@ -18,7 +19,7 @@
     ]
   },
   "title": "Oda Nobuna no Yabou",
-  "justification": "AniDB special S1 (2012-10-01) = TVDB 0x04 (2012-10-01), was 0x01 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 259643 and TMDB show 45853. AniDB S1 \"総集編\" (Summary) is TVDB S0E4 \"Summary\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

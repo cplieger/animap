@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:17644",
+  "title": "Majutsushi Orphen Hagure Tabi: Urbanrama Hen",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "d9aa77cc419a01e787f46d474bebe3788f41233f325dd2f1c52f3feac9b632cb"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Soushuuhen \u0026 Seiyuujin ga Kataru 3 Ki Midokoro SP: Bakushou Hen\" and S2 \"... Mune Atsu Episode Hen\" are TVDB 372939 S0E2 アーバンラマ編 特番 #01「1・2期総集編＆声優陣が語る3期見どころSP～爆笑編～」 and S0E3 アーバンラマ編 特番 #02「…～胸アツエピソード編～」 on the TheTVDB season page (SkyHook shows them untitled). Same programmes; only the S2 date differs (2023-01-11 against 2023-01-17).",
+      "evidence": [
+        "https://thetvdb.com/series/sorcerous-stabber-orphen/seasons/official/0",
+        "https://anidb.net/anime/17644",
+        "https://thetvdb.com/dereferrer/series/372939"
+      ]
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9155",
+    "tmdb": "https://www.themoviedb.org/tv/36067/seasons",
+    "tvdb": "https://thetvdb.com/series/nogizaka-harukas-secret/seasons/official/0"
+  },
+  "set": {
+    "tmdbseason": "0",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nogizaka Haruka no Himitsu: Finale",
+  "justification": "Checked by episode title against TVDB series 82688 and TMDB show 36067. AniDB episode 1-4 (\"また素敵な思い出ができました\" (I Made Wonderful Memories Once Again) to \"二人だけの秘密, です☆\" (It`s a Secret, Between Us)) are TMDB S0E1 \"また素敵な思い出ができました♪\" (I Made Another Wonderful Memory ♪) to TMDB S0E4 \"二人だけの秘密、です☆\" (The Secret Between the Two of Us ☆); AniDB S1-S4 (\"Presents N`s \u0026 姫宮みらんとチョコレートロッカーズ LIVE in YOKOHAMA~Sweets \u0026 Happy?~\" (Special 1) to \"Episode 4 Ending\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "cd59a33eaaee1dcef045ad11eeb0fcc489e9b76b68406ffcae6ba28ac815f1b3",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2008-07-03"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-08-17"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2012-10-07"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2012-10-28"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2012-11-25"
+        ],
+        [
+          3,
+          1,
+          25,
+          "2012-08-29"
+        ],
+        [
+          3,
+          2,
+          26,
+          "2012-09-26"
+        ],
+        [
+          3,
+          3,
+          27,
+          "2012-10-31"
+        ],
+        [
+          3,
+          4,
+          28,
+          "2012-11-28"
+        ]
+      ],
+      "series": 82688
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "23295d9feb5113533fdb09b8412a9ad64ce10259f8289dd8549a0b442ad7c2e2"
+  },
+  "anilist_ids": [
+    10928
+  ],
+  "anidb_id": 9155
+}

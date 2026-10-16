@@ -1,7 +1,9 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12982",
-    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0",
+    "tmdb_movie_461762": "https://www.themoviedb.org/movie/461762",
+    "tmdb_movie_461763": "https://www.themoviedb.org/movie/461763"
   },
   "set": {
     "mapping_list": [
@@ -31,7 +33,7 @@
     ]
   },
   "title": "Gekijouban Soushuuhen Haikyuu!!",
-  "justification": "AniDB special S1 (2017-04-30) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 278157. AniDB S1 \"ハイキュー!! 烏野高校 VS 白鳥沢学園高校 スペシャルイベント 史上空前! 目指せ! 頂の5番勝負[セットマッチ]! ハイキュー!! 杯\" (Haikyuu!! Karasuno Koukou vs Shiratorizawa Gakuen Koukou Special Event Digest Video) has no TVDB episode (its default TVDB S0E1 is \"The Arrival of Lev\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -14,13 +14,28 @@
           ],
           [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Yahari Ore no Seishun Lovecome wa Machigatte Iru.",
-  "justification": "AniDB special S1-S2 (2013-06-26 to 2013-07-24) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S2 (2013-06-26 to 2013-07-24) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB specials S3-S7, the Chiba sightseeing shorts 1-5, have no TVDB episode either: TVDB 267435 season 0 holds only the three OVAs (nodes 9890, 12077, 15990), and S3 defaulted onto the 2023 OVA.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -129,8 +144,8 @@
       ],
       "series": 267435
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f160508132498d7a253693a2053bb12e168b0ff5f51b805e06868110a4896f66"
   },
   "anilist_ids": [

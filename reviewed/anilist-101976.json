@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:101976",
+  "title": "AniList 101976",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "576ead5cbd4c46fa9f5cc3f5aca926e56a272de677d3fc8ea79eb2557a47b8fd",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: AniDB 9857 S1-S15 are TVDB 270064 0x1-0x15 Miniature Theater 1 to Forever by title and date, but anime-offline-database counts 6 episodes for this entry (MAL 23367), so a special-of-parent bridge of fifteen specials cannot apply; the count is anime-offline-database's to fix",
+        "evidence": [
+          "https://anilist.co/anime/101976"
+        ],
+        "anilist_id": 101976
+      }
+    ]
+  }
+}

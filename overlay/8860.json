@@ -1,11 +1,15 @@
 {
-  "anidb_id": 8860,
-  "title": "Ebiten: Kouritsu Ebisugawa Koukou Tenmonbu",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8860",
+    "tmdb": "https://www.themoviedb.org/tv/54928/seasons",
+    "tvdb": "https://thetvdb.com/series/ebiten/seasons/official/0"
+  },
   "set": {
     "mapping_list": [
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             6
@@ -14,11 +18,9 @@
       }
     ]
   },
-  "justification": "AniDB special S6 (2013-02-22) has no TVDB episode, was 0x06, which is AniDB 9245. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8860",
-    "tvdb": "https://thetvdb.com/series/ebiten/seasons/official/0"
-  },
+  "title": "Ebiten: Kouritsu Ebisugawa Koukou Tenmonbu",
+  "justification": "Checked by episode title against TVDB series 259656 and TMDB show 54928. AniDB S6 \"超先行上映イベント映像ダイジェスト 前編\" (Special 6) has no TVDB episode (its default TVDB S0E6 is \"Megazone 23 Part II: Please Give Me Your Secret\", another item) and no TMDB episode (its default TMDB S0E6 is \"Megazone 23 Part II: Please Give Me Your Secret\", another item).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "95f17cb04969846e37aab1c2e1a1949ad96fae94e58b4913f8288a4f9114c936",
@@ -126,12 +128,12 @@
       ],
       "series": 259656
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1591474c60826466ecc1622ec777c91f0bf27bb57c596a512902933170152d13"
   },
   "anilist_ids": [
     14073
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8860
 }

@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:6082",
+  "title": "Gurren Lagann Parallel Works",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:7": "f43cd023c15ab6da96e8c4a51e6a838b6dd09c56b7e5f61d86c92e7aab8acf4d"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Row ;1-6;...;8-13; is right: AniDB 1 \"Rap Is a Man's Soul! (Dai-Gurren-Dan Theme)\" = S0E6 \"Gurren Lagann Parallel Works 1-1: Rap is a Man's Soul! (Dai-Gurren-Dan Theme)\"; 2 \"BafBaf!\" = 1-2; 3 \"Boing vs Boing\" = 1-3; 4 \"Pierce the Heavens With Your XXX\" = 1-4; 5 \"(Kamina's Theme)\" = 1-5; 6 \"To Hell With Gattai!\" = 1-6; 7 \"Libera Me From Hell\" = S0E12 1-7; 8 \"All You Bastards, Get Fired Up!\" = S0E13 1-8. The only failing episode (7, AniDB 2008-09-07 vs TVDB 2008-08-15) has the same title as its target; the suggested target S0E3 is the movie \"Childhood's End\". Special row ;1-0; stays (the node has no AniDB special 1).",
+      "evidence": [
+        "https://anidb.net/anime/6082",
+        "https://thetvdb.com/dereferrer/series/80096"
+      ]
+    }
+  }
+}

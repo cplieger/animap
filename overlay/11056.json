@@ -1,0 +1,108 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11056",
+    "tmdb": "https://www.themoviedb.org/tv/62428/season/1",
+    "tvdb": "https://thetvdb.com/series/saint-seiya/seasons/official/11"
+  },
+  "set": {
+    "defaulttvdbseason": "11",
+    "tmdbtv": "62428",
+    "tmdbseason": "1"
+  },
+  "title": "Saint Seiya: Soul of Gold",
+  "justification": "On TVDB 72775 season 9 is Saint Seiya Omega (node 8963); Soul of Gold is season 11, 13 episodes from 2015-04-11 in AniDB's order: 1 Gold Legend, Revive!, 2 The Secret of Yggdrasil Revealed!, 7 Chaos! God Cloth VS God Cloth, 13 Let them hear our prayer! Eternal Golden Legend. TMDB 42444 has no season 9; TMDB 62428 Saint Seiya: Soul of Gold season 1 holds the 13 from The Gold Legend Revived! (2015-04-11).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "2300c7cb6a0671f69ac681226ad77c58af4178cc9781baf7982747d0c38e3b9c",
+      "seasons": [
+        11
+      ],
+      "episodes": [
+        [
+          11,
+          1,
+          172,
+          "2015-04-11"
+        ],
+        [
+          11,
+          2,
+          173,
+          "2015-04-25"
+        ],
+        [
+          11,
+          3,
+          174,
+          "2015-05-09"
+        ],
+        [
+          11,
+          4,
+          175,
+          "2015-05-23"
+        ],
+        [
+          11,
+          5,
+          176,
+          "2015-06-06"
+        ],
+        [
+          11,
+          6,
+          177,
+          "2015-06-20"
+        ],
+        [
+          11,
+          7,
+          178,
+          "2015-07-04"
+        ],
+        [
+          11,
+          8,
+          179,
+          "2015-07-18"
+        ],
+        [
+          11,
+          9,
+          180,
+          "2015-08-01"
+        ],
+        [
+          11,
+          10,
+          181,
+          "2015-08-15"
+        ],
+        [
+          11,
+          11,
+          182,
+          "2015-08-29"
+        ],
+        [
+          11,
+          12,
+          183,
+          "2015-09-11"
+        ],
+        [
+          11,
+          13,
+          184,
+          "2015-09-25"
+        ]
+      ],
+      "series": 72775
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8a6940847f9cb525d3ec162c2698550ff7b2fb0b992ca8534ae78cfe5facb9f7"
+  },
+  "anidb_id": 11056
+}

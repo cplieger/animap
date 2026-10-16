@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15092",
+    "tmdb": "https://www.themoviedb.org/tv/93596/seasons",
     "tvdb_s0": "https://thetvdb.com/series/zenonzard-the-animation/seasons/official/0",
     "tvdb_s1": "https://thetvdb.com/series/zenonzard-the-animation/seasons/official/1"
   },
@@ -22,11 +23,28 @@
         "start": 2,
         "end": 10,
         "offset": -1
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 1,
+        "start": 2,
+        "end": 10,
+        "offset": -1
       }
     ]
   },
   "title": "Zenonzard The Animation",
-  "justification": "AniDB 1 (2019-09-10) = TVDB 0x01 (2019-09-10), was 1x01. AniDB 2-10 (2020-01-31 to 2020-10-31) = TVDB 1x01-1x09 (2020-01-31 to 2020-10-31), was 1x02-1x10. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 375295 and TMDB show 93596. AniDB episode 1 \"Episode 0\" is TVDB S0E1 \"Episode 0\" and TMDB S0E1 \"EPISODE:00\"; AniDB episode 2-10 (\"Hinaria -Hidden Relic-\" (Hinaria: Hidden Relic) to \"Eilietta -Love Triangle-\" (Eilietta: Love Triangle)) are TVDB S1E1 \"Code01: Hinaria -Hidden Relic-\" to TVDB S1E9 \"Code09: Eilietta -Love Triangle-\" and TMDB S1E1 \"Hinaria -Hidden Relic\" (Code01: Hinaria -Hidden Relic-) to TMDB S1E9 \"Code09: Eilietta -Love Triangle-\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -99,8 +117,8 @@
       ],
       "series": 375295
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "7398724df03195100204b0bd145542d774df5838323d154cf25612a68c1614bb"
   },
   "anilist_ids": [

@@ -26,11 +26,8 @@ import (
 	"github.com/cplieger/animap/internal/strictjson"
 )
 
-// Bounds on the overlay directory.
-const (
-	maxEntries   = 1000
-	maxFileBytes = 64 << 10
-)
+// maxEntries bounds the overlay directory.
+const maxEntries = 5000
 
 const (
 	attrTVDBID        = "tvdbid"
@@ -140,7 +137,7 @@ var (
 	upstreamRE = regexp.MustCompile(`^https://github\.com/Anime-Lists/anime-lists/(pull|issues)/[0-9]+$`)
 	imdbRE     = regexp.MustCompile(`^tt\d{7,10}$`)
 	tvdbMarker = []string{"movie", "OVA", "hentai", "tv special", "web", "other", "music video", "unknown"}
-	evidenceOK = []string{"anidb.net", "thetvdb.com", "www.themoviedb.org", "anilist.co", "releases.moe"}
+	evidenceOK = []string{"anidb.net", "thetvdb.com", "www.themoviedb.org", "anilist.co", "seadex.moe"}
 )
 
 // Path is the entry's file, relative to the repository root.
@@ -187,13 +184,6 @@ func loadFile(path string) (Entry, error) {
 // its AniDB id. It does not validate, so capture can read an entry whose
 // captured fingerprints it is about to write.
 func ReadEntry(path string) (Entry, error) {
-	st, err := os.Stat(path)
-	if err != nil {
-		return Entry{}, err
-	}
-	if st.Size() > maxFileBytes {
-		return Entry{}, fmt.Errorf("%w: %s is %d bytes", errInvalid, path, st.Size())
-	}
 	body, err := os.ReadFile(path)
 	if err != nil {
 		return Entry{}, err
@@ -429,16 +419,16 @@ func TouchedSeasons(patched *animelists.Node, hasSpecials bool) []int {
 }
 
 // SetHash is the digest of the overlay set as published in sources: the
-// entries, then the bridges.
-func SetHash(entries []Entry, bridges []Bridge) (string, error) {
+// entries, then the links.
+func SetHash(entries []Entry, links []Link) (string, error) {
 	h := sha256.New()
 	for i := range entries {
 		if err := hashLine(h, entries[i]); err != nil {
 			return "", err
 		}
 	}
-	for i := range bridges {
-		if err := hashLine(h, bridges[i]); err != nil {
+	for i := range links {
+		if err := hashLine(h, links[i]); err != nil {
 			return "", err
 		}
 	}

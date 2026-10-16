@@ -1,0 +1,24 @@
+{
+  "anilist_id": 112031,
+  "title": "Toaru Kagaku no Accelerator: Tobidase Ippou-san Hachamecha Kaishingeki",
+  "parts": [
+    {
+      "anidb_id": 14440,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 112031 (SPECIAL, 1 episode(s) from 2019-10-30) is AniDB 14440's special(s) S1, aired 2019-10-30. AniList's PARENT relation names AniList 104463, which anime-offline-database links to AniDB 14440, and the special's title matches an AniList title. TMDB 90546, where the parent's node places the special(s), agrees: S0E1 2019-10-30.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14440",
+    "anilist": "https://anilist.co/anime/112031",
+    "tmdb": "https://www.themoviedb.org/tv/90546/season/0",
+    "tvdb": "https://thetvdb.com/series/a-certain-scientific-accelerator/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "5d9a47fba4ce4286bcbfdbaeb3e32e93362dec9fcfe666430baace858dc94ac5"
+  }
+}

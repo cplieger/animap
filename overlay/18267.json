@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18267",
+    "tmdb": "https://www.themoviedb.org/tv/62745/season/0",
     "tvdb": "https://thetvdb.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon/seasons/official/0"
   },
   "set": {
@@ -25,11 +26,32 @@
             5
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ]
       }
     ]
   },
   "title": "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darouka: Familia Myth V",
-  "justification": "AniDB special S1-S5 (2025-03-05 to 2025-03-06) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1-S5 (2025-03-05 to 2025-03-06) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S1-S5 (2025-03-05 to 2025-03-06) have no TVDB episode, was 0x01-0x05. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB 18267's specials S1 and S2 (Episode 15 opening and ending, 2025-03-05), S3 Cast Year-End Party (2024-12-28), S4 War Game Climax Commemoration Special (2025-02-08) and S5 Completion Commemoration Special (2025-03-06) have no episode on TMDB 62745 season 0, which holds only five episodes (2016-12-07 to 2022-07-09). Anime-Lists names no TMDB row, so they took the defaults S0E1 to S0E5, which belong to other nodes. The row sends them to no TMDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -174,8 +196,8 @@
       ],
       "series": 289882
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "c176315da6f8dc569d1d4d2b0e4a12356f26370385399c655b8ad623703a28b5"
   },
   "anilist_ids": [

@@ -1,0 +1,135 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18066",
+    "tmdb": "https://www.themoviedb.org/tv/207250/seasons",
+    "tvdb": "https://thetvdb.com/series/the-dangers-in-my-heart/seasons/official/0"
+  },
+  "set": {
+    "tmdbseason": "1",
+    "tmdboffset": "12",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Boku no Kokoro no Yabai Yatsu (2024)",
+  "justification": "Checked by episode title against TVDB series 422981 and TMDB show 207250. AniDB episode 1-13 (\"僕らは探している\" (We`re Searching) to \"僕と私の恋心\" (I, We, Fell in Love)) are TMDB S1E13 \"僕らは探している\" (We're Searching) to TMDB S1E25 \"僕と私の恋心\" (I, We, Fell in Love); AniDB S2 \"AnimeJapan 2024 Special Stage Before Last Episode Broadcasting\" has no TVDB episode (its default TVDB S0E2 is \"The Dangers in My Heart: The Movie\", another item) and no TMDB episode (TMDB has no S0E2). TMDB 207250 has one season; S1E13-E25 carry the 13 titles of TVDB season 2.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "17328cb602142eaff7587021c2c47d243b5383e9925c912dbe07fce559bec305",
+      "seasons": [
+        0,
+        2
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          13,
+          "2023-12-10"
+        ],
+        [
+          0,
+          2,
+          27,
+          "2026-02-13"
+        ],
+        [
+          2,
+          1,
+          14,
+          "2024-01-07"
+        ],
+        [
+          2,
+          2,
+          15,
+          "2024-01-14"
+        ],
+        [
+          2,
+          3,
+          16,
+          "2024-01-21"
+        ],
+        [
+          2,
+          4,
+          17,
+          "2024-01-28"
+        ],
+        [
+          2,
+          5,
+          18,
+          "2024-02-04"
+        ],
+        [
+          2,
+          6,
+          19,
+          "2024-02-11"
+        ],
+        [
+          2,
+          7,
+          20,
+          "2024-02-18"
+        ],
+        [
+          2,
+          8,
+          21,
+          "2024-02-25"
+        ],
+        [
+          2,
+          9,
+          22,
+          "2024-03-03"
+        ],
+        [
+          2,
+          10,
+          23,
+          "2024-03-10"
+        ],
+        [
+          2,
+          11,
+          24,
+          "2024-03-17"
+        ],
+        [
+          2,
+          12,
+          25,
+          "2024-03-24"
+        ],
+        [
+          2,
+          13,
+          26,
+          "2024-03-31"
+        ]
+      ],
+      "series": 422981
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "1b5837202ac6a5203b5561ea84a4162156521d63529010a8848630e346db304b"
+  },
+  "anilist_ids": [
+    153152
+  ],
+  "anidb_id": 18066
+}

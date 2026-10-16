@@ -1,0 +1,188 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/17355",
+    "tvdb": "https://thetvdb.com/series/the-seven-deadly-sins-four-knights-of-the-apocalypse/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Nanatsu no Taizai: Mokushiroku no Yonkishi",
+  "justification": "AniDB special S1 \"Housou Start Kinen Special!\" (2023-10-01) has no TVDB episode. TVDB season 0 holds only the 2021 promotion for the earlier franchise's film \"Cursed by the Light\", where S1 fell by default. It is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c44324977fdde68e4fa95d390c057173fbee1d7fb7bd2e6ed72156c186d9a486",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2021-01-01"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2023-10-08"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-10-15"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-10-22"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-10-29"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-11-05"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-11-19"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-11-26"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-12-03"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-12-10"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-12-17"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-12-24"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2024-01-07"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2024-01-14"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2024-01-21"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2024-01-28"
+        ],
+        [
+          1,
+          16,
+          16,
+          "2024-02-04"
+        ],
+        [
+          1,
+          17,
+          17,
+          "2024-02-11"
+        ],
+        [
+          1,
+          18,
+          18,
+          "2024-02-18"
+        ],
+        [
+          1,
+          19,
+          19,
+          "2024-02-25"
+        ],
+        [
+          1,
+          20,
+          20,
+          "2024-03-03"
+        ],
+        [
+          1,
+          21,
+          21,
+          "2024-03-10"
+        ],
+        [
+          1,
+          22,
+          22,
+          "2024-03-17"
+        ],
+        [
+          1,
+          23,
+          23,
+          "2024-03-24"
+        ],
+        [
+          1,
+          24,
+          24,
+          "2024-03-31"
+        ]
+      ],
+      "series": 420018
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "72041de35aab95fe23b8847cb56d4f6241c120e576bec7ab1a4124e01c35b180"
+  },
+  "anidb_id": 17355
+}

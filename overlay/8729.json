@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/8729",
+    "tmdb": "https://www.themoviedb.org/tv/45859/seasons",
     "tvdb": "https://thetvdb.com/series/daily-lives-of-high-school-boys/seasons/official/0"
   },
   "set": {
@@ -22,11 +23,69 @@
             13
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            5
+          ],
+          [
+            13,
+            6
+          ],
+          [
+            14,
+            7
+          ],
+          [
+            15,
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Danshi Koukousei no Nichijou",
-  "justification": "AniDB special S13-S14 (2012-08-02 to 2012-09-04) = TVDB 0x14-0x15 (2012-08-02 to 2012-09-04), was 0x13-0x14. AniDB special S15 (2012-07-03) = TVDB 0x13 (2012-07-03), was 0x15. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 254661 and TMDB show 45859. AniDB S1-S7 (\"男子高校生と文学少女\" (High School Boys and Literary Girl) to \"男子高校生とラジオDJ\" (High School Boys and Radio DJ)) have no TMDB episode (their defaults are other items); AniDB S8 \"男子高校生と通学電車\" (High School Boys and Commuting By Train) has no TMDB episode (TMDB has no S0E8); AniDB S9-S12 (\"男子高校生と理想\" (High School Boys and Ideals) to \"男子高校生とひっかけ\" (High School Boys and Traps)) are TMDB S0E2 \"男子高校生と理想\" (High School Boys and Ideals) to TMDB S0E5 \"男子高校生とひっかけ\" (High School Boys and Tricks); AniDB S13-S14 (\"男子高校生としゃっくり\" (High School Boys and Hiccups) to \"男子高校生と気遣い\" (High School Boys and Consideration)) are TVDB S0E14 \"High School Boys and Hiccups (Special 5)\" to TVDB S0E15 \"High School Boys and Consideration (Special 6)\" and TMDB S0E6 \"男子高校生としゃっくり\" (High School Boys and Hiccups) to TMDB S0E7 \"男子高校生と気遣い\" (High School Boys and Consideration); AniDB S15 \"男子高校生と100\" (High School Boys and Centipedes) is TVDB S0E13 \"High School Boys and Centipedes (Special 4.5)\" and TMDB S0E1 \"男子高校生と100 無修正版\" (High School Boys and 100).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -201,8 +260,8 @@
       ],
       "series": 254661
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "070acc1b4dd9710b5e9a49ab465a90e506e9dc730e14d968e4e271c341e7bba7"
   },
   "anilist_ids": [

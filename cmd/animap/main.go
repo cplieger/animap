@@ -1,6 +1,6 @@
-// Command animap builds the animap.json mapping and runs the checks that
-// keep it honest: overlay drift, the watch set, the date check and the
-// issue plan.
+// Command animap builds the animap.json mapping and runs the daily review
+// that keeps it honest: the date checks on TVDB and TMDB, overlay drift and
+// the watch set, planned as one issue per anime.
 package main
 
 import (
@@ -24,15 +24,14 @@ const usage = `usage: animap <command> [flags]
 
 commands:
   build            join the upstreams and the overlay into animap.json
-  drift            check every overlay entry against upstream
-  watch            check a watch set against a published animap.json
-  datecheck        check every mapped episode's AniDB date against TVDB
-  datecheck accept record a date-check lead as reviewed and fine
-  issues           plan issue changes from drift, watch and date-check results
+  review           run the date checks, overlay drift and the watch into review.json
+  issues           plan one issue per anime, and the summary, from review.json
+  explain          report one anime: its sections, episodes, placements and claims
+  accept           record a ruling on one section of an anime in reviewed/
   overlay capture  record an entry's fingerprints
-  overlay capture-special
-                   record a special-of-parent bridge's fingerprints
-  overlay check    run the collision check and the bridge proofs
+  overlay capture-link
+                   record a link's AniDB fingerprint
+  overlay check    run the collision check and the link proofs
   baseline         write, prune, rebase or check the collision baseline
   mirror extract   keep AniDB's episode lists from the mirror's archive on stdin
 `
@@ -65,12 +64,12 @@ func run(ctx context.Context, args []string, stdout io.Writer) error {
 	switch args[0] {
 	case "build":
 		return runBuild(ctx, args[1:], stdout, log)
-	case "drift":
-		return runDrift(ctx, args[1:], log)
-	case "watch":
-		return runWatch(ctx, args[1:], log)
-	case "datecheck":
-		return runDateCheck(ctx, args[1:], log)
+	case "review":
+		return runReview(ctx, args[1:], log)
+	case "explain":
+		return runExplain(ctx, args[1:], stdout, log)
+	case "accept":
+		return runAccept(ctx, args[1:], log)
 	case "issues":
 		return runIssues(ctx, args[1:], log)
 	case "baseline":
@@ -79,13 +78,13 @@ func run(ctx context.Context, args []string, stdout io.Writer) error {
 		return runMirror(ctx, args[1:], os.Stdin, stdout, log)
 	case "overlay":
 		if len(args) < 2 {
-			return fmt.Errorf("%w: overlay needs capture or check", errUsage)
+			return fmt.Errorf("%w: overlay needs capture, capture-link or check", errUsage)
 		}
 		switch args[1] {
 		case "capture":
 			return runCapture(ctx, args[2:], log)
-		case "capture-special":
-			return runCaptureSpecial(ctx, args[2:], log)
+		case "capture-link":
+			return runCaptureLink(ctx, args[2:], log)
 		case "check":
 			return runCheck(args[2:], stdout)
 		}

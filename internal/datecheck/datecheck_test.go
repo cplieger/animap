@@ -52,17 +52,25 @@ func ep(s, e, abs int, date string) skyhook.Episode {
 
 // weekly is a season 1 airing a week apart from 2005-08-10, with one
 // episode with no date, a fifth episode after a break, and two specials.
-var weekly = &Layout{Episodes: []skyhook.Episode{
+var weekly = laid(
 	ep(0, 1, 0, "2005-11-23"), ep(0, 3, 0, "2005-12-21"),
 	ep(1, 1, 1, "2005-08-10"), ep(1, 2, 2, "2005-08-17"), ep(1, 3, 3, "2005-08-24"), ep(1, 4, 4, ""), ep(1, 5, 5, "2005-10-05"),
-}}
+)
+
+func laid(eps ...skyhook.Episode) *Layout {
+	out := make([]Aired, 0, len(eps))
+	for _, e := range eps {
+		out = append(out, Aired{Episode: e, Title: TitleDigest(e.Line())})
+	}
+	return &Layout{Episodes: out}
+}
 
 // daily is a season 1 a dub aired daily from 1983-08-01, and a season 0,
 // neither on any date the weekly AniDB dates below come near.
-var daily = &Layout{Episodes: []skyhook.Episode{
+var daily = laid(
 	ep(0, 1, 0, "1990-03-03"), ep(0, 2, 0, "1990-03-10"), ep(0, 3, 0, "1990-03-17"), ep(0, 4, 0, "1990-03-24"),
 	ep(1, 1, 1, "1983-08-01"), ep(1, 2, 2, "1983-08-02"), ep(1, 3, 3, "1983-08-03"), ep(1, 4, 4, "1983-08-04"),
-}}
+)
 
 // winter is four weekly AniDB dates in 1984.
 var winter = []string{"1984-01-08", "1984-01-15", "1984-01-22", "1984-01-29"}
@@ -156,11 +164,121 @@ func TestCheckFlags(t *testing.T) {
 		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			l := Check(tc.node, tc.anime, cmp.Or(tc.layout, weekly), now)
+			l := Check(tc.node, animelists.TVDB, &tc.anime, cmp.Or(tc.layout, weekly), now, nil)
 			if got := kinds(l); !slices.Equal(got, tc.want) {
 				t.Errorf("Check(%s) kinds = %v, want %v; lead %+v", tc.name, got, tc.want, l)
 			}
 		})
+	}
+}
+
+// onTMDB is n mapped through TMDB's attributes instead of TVDB's, and
+// tmdbLayout is lay as TMDB serves it, with no absolute numbers.
+func onTMDB(n *animelists.Node) *animelists.Node {
+	rename := map[string]string{"tvdbid": "tmdbtv", "defaulttvdbseason": "tmdbseason", "episodeoffset": "tmdboffset", "tvdbseason": "tmdbseason"}
+	move := func(attrs map[string]string) map[string]string {
+		out := map[string]string{}
+		for k, v := range attrs {
+			if to, ok := rename[k]; ok {
+				k = to
+			}
+			out[k] = v
+		}
+		return out
+	}
+	c := &animelists.Node{AniDBID: n.AniDBID, Attrs: move(n.Attrs)}
+	for _, r := range n.Rows {
+		c.Rows = append(c.Rows, animelists.Row{Attrs: move(r.Attrs), Text: r.Text})
+	}
+	return c
+}
+
+func tmdbLayout(lay *Layout) *Layout {
+	c := &Layout{Absent: lay.Absent}
+	for _, e := range lay.Episodes {
+		e.Absolute = 0
+		c.Episodes = append(c.Episodes, e)
+	}
+	return c
+}
+
+// Every finding class TVDB raises, TMDB raises on the same node shape; an
+// absolute default has no TMDB form.
+func TestCheckFlagsOnTMDB(t *testing.T) {
+	for _, tc := range []struct {
+		node   *animelists.Node
+		layout *Layout
+		anime  anidb.Anime
+		name   string
+		want   []Kind
+	}{
+		{
+			name: "a row one episode off", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;")),
+			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, want: []Kind{DateMismatch},
+		},
+		{
+			name: "a default past the season's end", node: season1(),
+			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-07", "2005-09-14"}, Finished: true},
+			want:  []Kind{MissingTarget},
+		},
+		{
+			name: "a default special filed elsewhere", node: season1(),
+			anime: anidb.Anime{Specials: []anidb.Episode{{Number: 2, AirDate: "2005-11-23"}}, Finished: true}, want: []Kind{MissingTarget},
+		},
+		{
+			name: "a revisit on another calendar", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-3;2-4;")),
+			anime: anidb.Anime{Regular: winter, Finished: true}, want: []Kind{OutOfOrder, OutOfOrder, OutOfOrder},
+		},
+		{name: "a default episode in another season's date", node: season1(), anime: anidb.Anime{Regular: []string{"2005-11-23"}, Finished: true}, want: []Kind{DateMismatch}},
+		{name: "dates a day apart", node: season1(), anime: anidb.Anime{Regular: []string{"2005-08-11", "2005-08-16"}, Finished: true}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			lay := tmdbLayout(cmp.Or(tc.layout, weekly))
+			l := Check(onTMDB(tc.node), animelists.TMDB, &tc.anime, lay, now, nil)
+			if got := kinds(l); !slices.Equal(got, tc.want) {
+				t.Errorf("Check on TMDB kinds = %v, want %v; lead %+v", got, tc.want, l)
+			}
+			if tvdb := Check(tc.node, animelists.TMDB, &tc.anime, lay, now, nil); tvdb != nil {
+				t.Errorf("Check on TMDB of a node with no tmdbtv = %+v, want nil", tvdb)
+			}
+		})
+	}
+	dead := Check(onTMDB(season1()), animelists.TMDB, &anidb.Anime{Regular: []string{"2005-08-10"}}, &Layout{Absent: true}, now, nil)
+	if dead == nil || !dead.Dead || dead.Series != 79881 {
+		t.Errorf("Check on a dead TMDB show = %+v, want a dead lead", dead)
+	}
+}
+
+func TestCheckMovies(t *testing.T) {
+	n := node(map[string]string{"tmdbid": "12,7,12"})
+	movies := Layouts{7: {}, 12: {Absent: true}}
+	fs, ok := CheckMovies(n, movies)
+	if !ok || len(fs) != 1 || fs[0].Kind != DeadMovie || fs[0].Movie != 12 || fs[0].Key() != "dead-movie:12" {
+		t.Errorf("CheckMovies = %+v, %t; want one dead-movie finding for 12", fs, ok)
+	}
+	if _, ok := CheckMovies(n, Layouts{7: {}}); ok {
+		t.Error("CheckMovies judged a node with a movie it has no layout for")
+	}
+}
+
+// An extra is judged only where a row or a link names it.
+func TestCheckExtrasWhenNamed(t *testing.T) {
+	a := &anidb.Anime{Regular: []string{"2005-08-10"}, Extras: []anidb.Episode{{Number: 101}, {Number: 102}}, Finished: true}
+	named := season1(row(map[string]string{"anidbseason": "0", "tvdbseason": "0"}, ";101-9;102-1;"))
+	l := Check(named, animelists.TVDB, a, weekly, now, nil)
+	if l == nil || len(l.Findings) != 1 {
+		t.Fatalf("Check(extras named) = %+v, want one finding", l)
+	}
+	if f := l.Findings[0]; f.Kind != MissingTarget || !f.Episode.Extra || f.Key() != "missing-target:S101" {
+		t.Errorf("finding = %+v, want a missing target for extra 101", f)
+	}
+	dated := &anidb.Anime{Regular: []string{"2005-08-10"}, Extras: []anidb.Episode{{Number: 101, AirDate: "2005-11-23"}}, Finished: true}
+	if l := Check(season1(), animelists.TVDB, dated, weekly, now, nil); l != nil {
+		t.Errorf("Check(an extra defaulted, dated on a TVDB special's day) = %+v, want no lead", l)
+	}
+	linked := Check(season1(), animelists.TVDB, a, weekly, now, map[[2]int]int{{0, 102}: 9})
+	if linked == nil || len(linked.Findings) != 1 || linked.Findings[0].Link != 9 {
+		t.Errorf("Check(extra 102 linked) = %+v, want its default S0E102 missing, naming the link", linked)
 	}
 }
 
@@ -265,7 +383,7 @@ func TestCheckPasses(t *testing.T) {
 		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			if l := Check(tc.node, tc.anime, cmp.Or(tc.layout, weekly), now); l != nil {
+			if l := Check(tc.node, animelists.TVDB, &tc.anime, cmp.Or(tc.layout, weekly), now, nil); l != nil {
 				t.Errorf("Check(%s) = %+v, want no lead", tc.name, l)
 			}
 		})
@@ -274,7 +392,7 @@ func TestCheckPasses(t *testing.T) {
 
 func TestCheckFindingDetail(t *testing.T) {
 	n := season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;"))
-	l := Check(n, anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, weekly, now)
+	l := Check(n, animelists.TVDB, &anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, weekly, now, nil)
 	if l == nil || len(l.Findings) != 1 {
 		t.Fatalf("Check = %+v, want one finding", l)
 	}
@@ -286,20 +404,36 @@ func TestCheckFindingDetail(t *testing.T) {
 	if f.Kind != want.Kind || f.Episode != want.Episode || f.Target != want.Target || f.Default || !slices.Equal(f.Carriers, want.Carriers) {
 		t.Errorf("finding = %+v, want %+v", f, want)
 	}
-	if l.AniDB != 1 || l.Series != 79881 || l.Dead {
-		t.Errorf("lead = %+v, want AniDB 1 on series 79881", l)
+	if l.Side != animelists.TVDB || l.Series != 79881 || l.Dead {
+		t.Errorf("lead = %+v, want TVDB series 79881", l)
 	}
 }
 
 func TestCheckDeadSeries(t *testing.T) {
-	l := Check(season1(), anidb.Anime{Regular: []string{"2005-08-10"}}, &Layout{Absent: true}, now)
+	l := Check(season1(), animelists.TVDB, &anidb.Anime{Regular: []string{"2005-08-10"}}, &Layout{Absent: true}, now, nil)
 	if l == nil || !l.Dead || len(l.Findings) != 0 || l.Series != 79881 {
 		t.Errorf("Check on a dead series = %+v, want a dead lead with no findings", l)
 	}
 }
 
-func TestKey(t *testing.T) {
-	if got := Key(3195); got != "lead:date:3195" {
-		t.Errorf("Key(3195) = %q, want lead:date:3195", got)
+// A default special TVDB does not have passes unlinked, but a link
+// publishes a record pointing at it, so linked it is a missing target that
+// names the link.
+func TestCheckLinkedDefaultSpecial(t *testing.T) {
+	a := &anidb.Anime{Specials: []anidb.Episode{{Number: 5, AirDate: "2006-03-03"}}, Finished: true}
+	if l := Check(season1(), animelists.TVDB, a, weekly, now, map[[2]int]int{{1, 5}: 376}); l != nil {
+		t.Errorf("Check(regular ep5 linked, S5 not) = %+v, want no lead", l)
+	}
+	l := Check(season1(), animelists.TVDB, a, weekly, now, map[[2]int]int{{0, 5}: 376})
+	if l == nil || len(l.Findings) != 1 {
+		t.Fatalf("Check(S5 linked) = %+v, want one finding", l)
+	}
+	if f := l.Findings[0]; f.Kind != MissingTarget || f.Link != 376 || !f.Default || f.Target != (Target{Season: 0, Number: 5}) {
+		t.Errorf("finding = %+v, want a default missing target 0x5 naming AniList 376", f)
+	}
+	mismatch := Check(season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;")),
+		animelists.TVDB, &anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, weekly, now, map[[2]int]int{{1, 2}: 1563})
+	if mismatch == nil || mismatch.Findings[0].Link != 1563 {
+		t.Errorf("Check(a linked regular episode on the wrong date) = %+v, want its finding to name AniList 1563", mismatch)
 	}
 }

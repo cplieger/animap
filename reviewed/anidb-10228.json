@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:10228",
+  "title": "Strange+",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "33d84f704aeaca1e3df5d42050621502150cb08e3a12d446511af295b194cbb4"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Special\" (mirror date 2014-01-03) lands by default on TVDB S0E1 \"Strange+ Special\" (2014-04-18), the only TVDB special. The titles are the same word and there is one special on each side. MAL 23679 \"Strange+ Special\" is the unaired episode (a 3-minute episode 13) shipped on the first season's Blu-ray/DVD, aired 2014-04-18, and ANN reported the Strange+ BD including an unaired episode (2014-03-28). That matches the TVDB entry in name and date. The AniDB mirror date of 2014-01-03 is the odd one out (it falls before the premiere), which is why confidence is medium and not high. The 12 regular episodes match S1E1-12 title for title.",
+      "evidence": [
+        "https://anidb.net/anime/10228",
+        "https://thetvdb.com/dereferrer/series/276345"
+      ]
+    }
+  }
+}

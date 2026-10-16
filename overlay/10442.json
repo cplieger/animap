@@ -1,13 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10442",
+    "tmdb": "https://www.themoviedb.org/tv/69355/seasons",
     "tvdb": "https://thetvdb.com/series/young-kindaichis-casebook/seasons/official/5"
   },
   "set": {
-    "defaulttvdbseason": "5"
+    "defaulttvdbseason": "5",
+    "tmdbtv": "69355",
+    "tmdbseason": "1"
   },
   "title": "Kindaichi Shounen no Jikenbo Returns",
-  "justification": "AniDB 1-25 (2014-04-05 to 2014-09-27) = TVDB 5x01-5x25 (2014-04-05 to 2014-09-27), was 2x01-2x25. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79460 and TMDB show 69355. Its episodes are on TMDB show 69355. AniDB episode 1-25 (\"香港九龍財宝殺人事件 File.1\" (The Hong Kong Kowloon Treasure Murder Case, File 1) to \"ゲームの館殺人事件 File.3\" (The Game Mansion Murder Case, File 3)) are TVDB S5E1 \"The Hong Kong Kowloon Treasure Murder Case - File 1\" to TVDB S5E25 \"The Game Mansion Murder Case, File 3\" and TMDB S1E1 \"香港九龍財宝殺人事件 File.1\" (\"The Hong Kong Kowloon Treasure Murder Case File 1\") to TMDB S1E25 \"ゲームの館殺人事件 File.3\" (“The Game Mansion Murder Case, File 3”).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -169,8 +172,8 @@
       ],
       "series": 79460
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9d6a2505ce8739de4f1f3a3860516ba58a124daacbe89ece7a8369ecdf5e76fc"
   },
   "anilist_ids": [

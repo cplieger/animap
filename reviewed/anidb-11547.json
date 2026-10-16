@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:11547",
+  "title": "Sekkou Boys",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:S13": "a2bbb0d0e741eea782d307f3be474934d823e0c947b2ad63b9db8c5ed8115fd9"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regulars 1-12 = TVDB 304490 S1E1-12 by title (A Visceral Allegory of Seven Years of My Artistic Life ... The Last Judgment) and specials S1-S12 \"Sekkou After Talk 1-12\" = S0E1-12 \"Sekko After Talk 01-12\". The lead is S13 \"Episode 12 Ending\" (2016-03-25), a creditless ending TVDB does not list; the suggested S0E12 \"After Talk 12\" (2016-03-26) is a different item by title.",
+      "evidence": [
+        "https://anidb.net/anime/11547",
+        "https://thetvdb.com/dereferrer/series/304490"
+      ]
+    }
+  }
+}

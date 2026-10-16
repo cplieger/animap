@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15772",
-    "tvdb": "https://thetvdb.com/series/wonder-egg-priority/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/wonder-egg-priority/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/111255/seasons"
   },
   "set": {
     "mapping_list": [
@@ -18,7 +19,7 @@
     ]
   },
   "title": "Wonder Egg Priority",
-  "justification": "AniDB special S1 (2021-06-29) = TVDB 0x01 (2021-06-30), was 1x13 (no such TVDB episode). AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 390028 and TMDB show 111255. AniDB S1 \"私のプライオリティ\" (My Priority) is TVDB S0E1 \"My Priority\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

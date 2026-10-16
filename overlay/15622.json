@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15622",
+    "tmdb": "https://www.themoviedb.org/tv/105556/seasons",
     "tvdb": "https://thetvdb.com/series/please-dont-toy-with-me-miss-nagatoro/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -20,7 +22,7 @@
     ]
   },
   "title": "Ijiranaide, Nagatoro-san",
-  "justification": "AniDB special S1-S2 (2021-04-05 to (none)) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 385278 and TMDB show 105556. AniDB S1-S2 (\"放送直前生放送\" (Pre-Broadcast Special) to \"Voice Drama\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -177,8 +179,8 @@
       ],
       "series": 385278
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "33d661e9750a5ba7d1f07ef4d8da4016ca6f04f6095ab18e535526124ad23e6c"
   },
   "anilist_ids": [

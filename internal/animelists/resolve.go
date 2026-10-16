@@ -142,11 +142,11 @@ func (n *Node) Place(sd Side, anidbSeason, k int) Placement {
 	return Placement{Default: true}
 }
 
-// SpecialTVDB is where AniDB special k of n lands on TVDB, as Place puts
-// it. ok is false when a row maps it to no episode or to more than one.
-func (n *Node) SpecialTVDB(k int) (season, episode int, ok bool) {
-	if t := n.Place(TVDB, 0, k).Targets; len(t) == 1 {
-		return t[0][0], t[0][1], true
+// EpisodeLabel names AniDB episode k of anidbSeason: S<k> for a special,
+// ep<k> for a regular episode.
+func EpisodeLabel(anidbSeason, k int) string {
+	if anidbSeason == 0 {
+		return "S" + strconv.Itoa(k)
 	}
-	return 0, 0, false
+	return "ep" + strconv.Itoa(k)
 }

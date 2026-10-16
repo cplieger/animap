@@ -1,14 +1,16 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/1518",
+    "tmdb": "https://www.themoviedb.org/tv/21738/seasons",
     "tvdb": "https://thetvdb.com/series/patlabor/seasons/official/0"
   },
   "set": {
-    "episodeoffset": "0"
+    "episodeoffset": "0",
+    "tmdbseason": "1"
   },
   "title": "Patlabor: Mobile Police",
-  "justification": "AniDB 1-7 (1988-04-25 to 1989-06-25) = TVDB 0x01-0x07 (1988-04-25 to 1989-06-23), by title and order. The empty offset placed no episode. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "upstream": "TODO-PR",
+  "justification": "Checked by episode title against TVDB series 80789 and TMDB show 21738. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1-7 (\"第2小隊出動せよ!\" (Second Unit, Move Out!) to \"特車隊 北へ\" (SV Units, Go North!)) are TVDB S0E1 \"Second Unit, Move Out!\" to TVDB S0E7 \"SV Units, Go North!\" and TMDB S1E1 \"Second Unit, Move Out!\" to TMDB S1E7 \"特車隊 北へ\" (SV2, to the North!). TMDB 21738 season 1 holds the seven OVA episodes by title; it has no season 0.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "80f69c7f4f490874875aecd9811fd952a2e97dccf800fac20b8018b282e47229",
@@ -115,8 +117,8 @@
       ],
       "series": 80789
     },
-    "at": "2026-10-08",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "602776e5da6029a473b55ebaa13c27723f9a9b9a2ebdf29dcdbf7becd36c768b"
   },
   "anilist_ids": [

@@ -1,0 +1,39 @@
+{
+  "anilist_id": 7902,
+  "title": "Hagane no Renkinjutsushi: FULLMETAL ALCHEMIST - Arakawa Hiromu Kaki Oroshi 4-koma Gekijou",
+  "parts": [
+    {
+      "anidb_id": 6107,
+      "specials": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    }
+  ],
+  "justification": "AniList 7902 (SPECIAL, 16 episode(s) from 2009-08-26) is AniDB 6107's special(s) S6-S21, aired 2009-08-26 to 2010-11-24. AniList's PARENT relation names the parent entry, which anime-offline-database links to AniDB 6107. The parent's row start 2 end 21 offset -1 puts S6-S21 on TVDB 0x5-0x20 'Four Panel Comic Theater' episodes (same dates).",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/6107",
+    "anilist": "https://anilist.co/anime/7902",
+    "tmdb": "https://www.themoviedb.org/tv/31911/season/0",
+    "tvdb": "https://thetvdb.com/series/fullmetal-alchemist-brotherhood/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "04f30b7cac78275d674a782203f34efe74cfad5df15a4f9ce06b5eac2995ae71"
+  }
+}

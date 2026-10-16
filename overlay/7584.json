@@ -1,0 +1,127 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/7584",
+    "tmdb": "https://www.themoviedb.org/tv/9103/season/0",
+    "tvdb": "https://thetvdb.com/series/kimagure-orange-road/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            9
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Kimagure Orange Road: Hurricane! Henshin Shoujo Akane",
+  "justification": "TVDB 78923 renumbered season 0: the film Hurricane! Henshin Shoujo Akane is season 0 episode 9 Kimagure Orange Road: Hurricane! Akane, the Shapechanging Girl (the old row pointed at the gone episode 5), and TMDB 9103 season 0 episode 4 Hurricane! Akane the Shape-changing Girl.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "c1404261e6ed243f8ceb7dac6cd8dfa2d873e9f476bd5926e54e52842afc6f23",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1985-11-23"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1989-03-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1989-04-01"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1989-12-27"
+        ],
+        [
+          0,
+          9,
+          0,
+          "1990-02-01"
+        ],
+        [
+          0,
+          10,
+          0,
+          "1990-05-01"
+        ],
+        [
+          0,
+          11,
+          0,
+          "1990-07-01"
+        ],
+        [
+          0,
+          12,
+          0,
+          "1991-04-01"
+        ],
+        [
+          0,
+          13,
+          0,
+          "1991-04-01"
+        ],
+        [
+          0,
+          14,
+          0,
+          "1988-10-01"
+        ],
+        [
+          0,
+          15,
+          0,
+          "1996-11-02"
+        ],
+        [
+          0,
+          16,
+          0,
+          "1987-11-21"
+        ],
+        [
+          0,
+          17,
+          0,
+          "1998-09-01"
+        ]
+      ],
+      "series": 78923
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8571981815b8fb454a6cf7f9fa77c6dcb70dceb63d0cea961f6623514e00925a"
+  },
+  "anidb_id": 7584
+}

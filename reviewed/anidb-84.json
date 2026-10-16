@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:84",
+  "title": "Hikaru no Go",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "e7536d28a8566d1d33f832bb190669aa58e552b4da68d3d6d6138b8563dd648f"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The 75 regular episodes match by title and order across the three rows (AniDB 1 Eternal Rivals = S1E1 Eternal Rival ... AniDB 75 A Nostalgic Smile = S3E15 That Same Old Smile). Specials: S1 \"Hikaru no Go New Year Special\" = S0E1 \"2002 New Year Special\"; S3 \"Journey to the North Star Cup\" = S0E3 \"Journey to the North Star Cup\" (TheTVDB: 北斗杯への道, 2004-01-03, same date as AniDB). The only flagged one is S2 \"Special Edition - Match of Justice! The Ancient Flower Blooms! / Tokubetsu Hen - Sabaki no Ikkyoku! ...\" -\u003e S0E2 \"Special Edition\" (TheTVDB shows it as untitled \"Unknown\", TV Tokyo, 25 min, 2003-08-08). \"Tokubetsu Hen\" is literally \"Special Edition\", it is the only AniDB special left for the only TVDB slot left, and no other candidate exists; the 2001-12-22 versus 2003-08-08 gap reads as a re-air or a TVDB date, not a different episode. S4-S6 (DVD Special 1, DVD Special 2, Memories) have no TVDB episode at all (TVDB season 0 stops at E3), which is a TVDB gap, not a mapping error.",
+      "evidence": [
+        "https://thetvdb.com/series/hikaru-no-go/seasons/official/0",
+        "https://anidb.net/anime/84",
+        "https://thetvdb.com/dereferrer/series/72905"
+      ]
+    }
+  }
+}

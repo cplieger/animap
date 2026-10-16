@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:6227",
+  "title": "Shikabane Hime: Kuro",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "b2b85a7dd3020c0c0dbe02ceeae545da8bec688035142db600bec83ad71c98cf"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S1 \"Even So, As a Person / Sore demo, Hito toshite\" (2009-08-05) = S0E1 \"Even So, As a Human\" (2010-09-13).",
+      "evidence": [
+        "https://thetvdb.com/series/corpse-princess/seasons/official/0",
+        "https://anidb.net/anime/6227",
+        "https://thetvdb.com/dereferrer/series/83363"
+      ]
+    }
+  }
+}

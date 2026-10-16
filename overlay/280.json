@@ -24,23 +24,20 @@
             2
           ],
           [
-            5,
-            3
-          ],
-          [
-            6,
-            4
-          ],
-          [
-            7,
             5
+          ],
+          [
+            6
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Aika",
-  "justification": "AniDB special S5-S7 (no AniDB date) = TVDB 0x03-0x05 (2009-08-25 to 2009-12-22), was 0x05-0x07, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S2, \"Episode 4 1/2\" (1998-05-25), is TVDB season 0 episode 1 \"Special TRIAL: Moving Out\" (1998-05-25), and S4, the live-action drama, is episode 2 \"Live Action\". S1 (extra material), S3 (the \"Silent City\" clip) and S5-S7, the undated \"Special Mission #1-3\" dramas, have no TVDB episode. TVDB season 0 episodes 3-5 are \"Picture Drama 1-3\" of 2009-08-25, 2009-10-26 and 2009-12-22, the dated \"Picture Drama 1-3\" of Aika Zero (AniDB 6526), so S5-S7 are unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -125,8 +122,8 @@
       ],
       "series": 80900
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "736da8b8ca8ad4df37d11af7da447eab7e04c1150906f0350417ae771ec91e59"
   },
   "anilist_ids": [

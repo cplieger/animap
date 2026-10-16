@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6671",
+    "tmdb": "https://www.themoviedb.org/tv/42410/season/0",
     "tvdb": "https://thetvdb.com/series/durarara/seasons/official/0"
   },
   "set": {
@@ -13,11 +14,28 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "Durarara!!",
-  "justification": "AniDB special S3 (2012-05-23) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S3 (2012-05-23) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB special S3 (2012-05-23) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. TMDB 42410 season 0 E1 Heaven's Vengeance (2010-08-25) and E2 World at Peace (2011-02-23) are AniDB 6671's specials S1 and S2 (same titles and dates), the same episodes as TVDB 0x1 and 0x2. S3 Event in Nakano (2012-05-23) is on neither site (PR 629 sends it to no TVDB episode), but on TMDB it defaulted onto S0E3, My Heart is Like a Hot Pot, which is AniDB 10523's special S3. The row sends S3 to no TMDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -204,8 +222,8 @@
       ],
       "series": 133341
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "1477aeab2ee70da91ee45c46a55f94dbac2edf9404ded57eb79397c53ef9fa3c"
   },
   "anilist_ids": [

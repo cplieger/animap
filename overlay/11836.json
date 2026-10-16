@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11836",
-    "tvdb": "https://thetvdb.com/series/concrete-revolutio-a-superhuman-fantasy/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/concrete-revolutio-superhuman-phantasmagoria/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -9,6 +9,10 @@
         "anidb_season": 0,
         "tvdb_season": 0,
         "episodes": [
+          [
+            1,
+            6
+          ],
           [
             2
           ],
@@ -29,7 +33,7 @@
     ]
   },
   "title": "Concrete Revolutio: Choujin Gensou - The Last Song",
-  "justification": "AniDB special S2-S6 (no AniDB date) have no TVDB episode, was 0x02-0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Special\" (2016-04-03) is TVDB season 0 episode 6 \"Special Program\" (2016-04-03), the only season 0 entry after the first season's making-of videos; without a pair it fell on episode 1 \"The Making of Concrete Revolutio #01\". S2-S6, insert-song music clips, have no TVDB episode.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -144,8 +148,8 @@
       ],
       "series": 299491
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "8a5b4a06be10034990e9b3a358543c6253b166e7c56570d897345bc3fb1d2db6"
   },
   "anilist_ids": [

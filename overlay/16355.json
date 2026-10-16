@@ -1,0 +1,125 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/16355",
+    "anilist": "https://anilist.co/anime/122508",
+    "tmdb": "https://www.themoviedb.org/tv/107463/season/1",
+    "tvdb": "https://thetvdb.com/series/blades-of-the-guardians/seasons/official/1"
+  },
+  "set": {
+    "tvdbid": "419618",
+    "defaulttvdbseason": "1",
+    "tmdbtv": "107463",
+    "tmdbseason": "1"
+  },
+  "title": "Biao Ren",
+  "justification": "AniDB 16355 has 15 regular episodes, 2023-06-01 to 2023-08-17. TVDB 419618 (Blades of the Guardians) season 1 has 15 episodes over the same dates, with titles equal to MAL 44388's (AniDB's MAL id): 1 Escorts Outside the Great Wall to 15 Daughter of the Desert, on 2023-06-01 to 2023-08-17. The series carries AniDB's IMDB id (tt28259824) and TMDB tv 107463. TMDB 107463 season 1 shows the same 15 episodes. AniDB gives its episodes placeholder titles and dates that differ from TVDB's on episodes 4 and 5 only, an AniDB date error (its episode 6 precedes its episode 5).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "29ea9e2d87387aa9bb2a4d8878d46b6515b5c53b39028fc7bc5fb841292716e7",
+      "seasons": [
+        1
+      ],
+      "episodes": [
+        [
+          1,
+          1,
+          1,
+          "2023-06-01"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2023-06-01"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2023-06-08"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2023-06-08"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2023-06-15"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2023-06-15"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2023-06-22"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2023-06-29"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2023-07-06"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2023-07-13"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2023-07-20"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2023-07-27"
+        ],
+        [
+          1,
+          13,
+          13,
+          "2023-08-03"
+        ],
+        [
+          1,
+          14,
+          14,
+          "2023-08-10"
+        ],
+        [
+          1,
+          15,
+          15,
+          "2023-08-17"
+        ]
+      ],
+      "series": 419618
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "3a4d18922481d09803f0f0dea9e0a71f4016df5fe7dce4c0fa7d5cc9d97a0ae8"
+  },
+  "anilist_ids": [
+    122508
+  ],
+  "anidb_id": 16355
+}

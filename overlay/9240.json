@@ -1,0 +1,109 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9240",
+    "tmdb": "https://www.themoviedb.org/movie/402075",
+    "tvdb": "https://thetvdb.com/movies/persona-4-the-animation-the-factor-of-hope"
+  },
+  "set": {
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "402075"
+  },
+  "title": "Persona 4 the Animation: The Factor of Hope",
+  "justification": "The recap film is TMDB movie 402075 Persona4 the ANIMATION -The Factor of Hope- (2012-06-09), which TheTVDB's movie entry links; TMDB 46388 season 0 does not list it, and the offset 1 put it on E2, A Brief Lesson on Izanagi \u0026 Izanami. TVDB 0x2 stays.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "0a9fa3b6ca634fc6bb5d2969c1eab856352198710a84e99d93232c2a8f0623cc",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          26,
+          "2012-08-22"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2012-06-09"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2013-04-01"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2013-04-01"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2013-04-01"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2013-04-01"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2013-04-01"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2013-04-01"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2013-11-23"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2014-06-07"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2015-04-04"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2016-01-23"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2008-01-05"
+        ]
+      ],
+      "series": 252232
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "6bebad0b8eea12ff7c63ffdfbef6b809701942ec41ac51ad46f07bf3e27a0b83"
+  },
+  "anidb_id": 9240
+}

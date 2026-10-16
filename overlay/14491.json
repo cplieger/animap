@@ -10,14 +10,18 @@
         "tvdb_season": 0,
         "episodes": [
           [
-            2
+            1
+          ],
+          [
+            2,
+            1
           ]
         ]
       }
     ]
   },
   "title": "Dr. Stone",
-  "justification": "AniDB special S2 (2020-10-21) has no TVDB episode, was 0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S2 \"Stone Wars: Kaisen Zen'ya Special Eizou\" (2020-10-21) is TVDB season 0 episode 1 \"Dr.STONE STONE WARS 開戦前夜スペシャル映像\" (Eve of the Battle special video, 2020-10-11). S1 \"Behind the Scenes of Dr. Stone\" (2019-09-20) has no TVDB episode. Before, S2 was unmapped and S1 sat on episode 1.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -192,8 +196,8 @@
       ],
       "series": 355774
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "24f180c6088223da3203cbf5bba8470657bce2ee915936e077273471ac929c9d"
   },
   "anilist_ids": [

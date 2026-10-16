@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/18093",
-    "tvdb": "https://thetvdb.com/series/fate-strange-fake/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/fate-strange-fake/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/229858/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Fate Strange Fake",
-  "justification": "AniDB special S1 (2026-02-28) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 436779 and TMDB show 229858. AniDB S1 \"Behind the Scenes of 'Fate/strange Fake'\" (Behind the Scenes of \"Fate/Strange Fake\") has no TVDB episode (its default TVDB S0E1 is \"Whispers of Dawn\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

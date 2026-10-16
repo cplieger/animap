@@ -1,8 +1,15 @@
 {
-  "anidb_id": 8650,
-  "title": "Un-Go: Inga-ron",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8650",
+    "tmdb_movie": "https://www.themoviedb.org/movie/115264",
+    "tvdb": "https://thetvdb.com/series/un-go/seasons/official/0"
+  },
   "set": {
     "episodeoffset": "0",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdboffset": "",
+    "tmdbid": "115264",
     "mapping_list": [
       {
         "anidb_season": 0,
@@ -15,11 +22,9 @@
       }
     ]
   },
-  "justification": "AniDB 1 (2011-11-19) = TVDB 0x01 (2011-11-19), by the anime's title. The empty offset placed no episode. AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01, which is AniDB 1. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
-  "evidence": {
-    "anidb": "https://anidb.net/anime/8650",
-    "tvdb": "https://thetvdb.com/series/un-go/seasons/official/0"
-  },
+  "title": "Un-Go: Inga-ron",
+  "justification": "Checked by episode title against TVDB series 252472. The film is TMDB movie 115264 (UN-GO episode:0 INGA-RON (2011)). TMDB show 42142 does not carry it, so the node leaves that show. Anime-Lists leaves episodeoffset empty on this season 0 node, which places no regular episode; offset 0 places them. AniDB episode 1 \"Complete Movie\" (the anime \"UN-GO 因果論\") is TVDB S0E1 \"Chapter of Inga\"; AniDB S1 \"「少年期」フルコーラスver.\" (Shounenki (Full Chorus Version)) has no TVDB episode (its default TVDB S0E1 is \"Chapter of Inga\", another item). TMDB movie 115264 is the film.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
       "sha256": "54169a06a9df8b6c7c6dddbe6a15bd4148ef3b463f9a5fd03c52094ffda6c184",
@@ -96,12 +101,12 @@
       ],
       "series": 252472
     },
-    "at": "2026-10-07",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "03d9e0dc12a426489d588a02efc1f31e1f0ddd8c7e6b096fdadf0a91094bfff7"
   },
   "anilist_ids": [
     11531
   ],
-  "upstream": "TODO-PR"
+  "anidb_id": 8650
 }

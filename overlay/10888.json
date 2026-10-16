@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10888",
-    "tvdb": "https://thetvdb.com/series/shimoneta-a-boring-world-where-the-concept-of-dirty-jokes-doesnt-exist/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/shimoneta-a-boring-world-where-the-concept-of-dirty-jokes-doesnt-exist/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/63323/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai",
-  "justification": "AniDB special S1 (2015-06-21) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 293774 and TMDB show 63323. AniDB S1 \"下ネタという概念が存在しない退屈な世界 放送直前SP!\" (Episode S1) has no TVDB episode (its default TVDB S0E1 is \"Commercial 1 - Prison School\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

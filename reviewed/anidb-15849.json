@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:15849",
+  "title": "SD Gundam World Heroes",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "ae16ef4c1dfe37b45e01b39c404f419767f3605fd37fa2f3c1300d59cae42bdf"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Episode S1 / Housou Chokuzen Special\" = TVDB S0E1 \"SD Gundam World Heroes Pre-broadcast Special\" (TheTVDB: SDガンダムワールド ヒーローズ 放送直前スペシャル; housou chokuzen = pre-broadcast). The 24 regular episodes match by title and number. AniDB S2 \"Making Of Movie Collection (3:40)\" has no TVDB episode; TVDB has none to give, so the default S0E2 is simply absent (a special TVDB does not list is not an error). Only the S1 date differs (04-02 vs 04-06).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/400705",
+        "https://anidb.net/anime/15849"
+      ]
+    }
+  }
+}

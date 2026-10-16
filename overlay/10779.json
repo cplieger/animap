@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/10779",
-    "tvdb": "https://thetvdb.com/series/shirobako/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/shirobako/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/64492/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Shirobako",
-  "justification": "AniDB special S3 (2015-02-05) has no TVDB episode, was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 284564 and TMDB show 64492. AniDB S3 \"Third Aerial Girls Squad PV\" has no TVDB episode (its default TVDB S0E3 is \"Shirobako Movie\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

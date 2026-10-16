@@ -12,13 +12,16 @@
           [
             1,
             15
+          ],
+          [
+            2
           ]
         ]
       }
     ]
   },
   "title": "Natsume Yuujinchou Shichi",
-  "justification": "AniDB special S1 (2025-04-23) = TVDB 0x15 (2025-04-23), was 0x01, by title. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"The Outstretched Hand / Nobashita Te wa\" (2025-04-23) is TVDB season 0 episode 15 \"The Outstretched Hand\" (伸ばした手は, 2025-04-23). S2 \"Housou Chokuzen SP: Hajimete no Natsume Yuujinchou\" (2024-09-30) had no row and fell on episode 2 \"Once Upon a Winter's Day\", the 2014 OVA (AniDB 10447). TVDB lists no seventh-season pre-broadcast special, so S2 is unmapped.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -193,8 +196,8 @@
       ],
       "series": 82788
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "bfbf82604b9e96e8daadf1a6dbb3f28640e839398df442e53e17f49303cdc4d4"
   },
   "anilist_ids": [

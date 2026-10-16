@@ -1,0 +1,137 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/15741",
+    "tvdb": "https://thetvdb.com/series/yatogame-chan-kansatsu-nikki/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Yatogame-chan Kansatsu Nikki Sansatsume",
+  "justification": "AniDB specials S1 \"3 Ki Shin Cast Talk Eizou\" and S2 \"Shudaika Artist Taiki Interview\" had no row and fell on TVDB season 0 episodes 1 (the Dera Dera song video, AniDB 14103 S2) and 2 (the fourth season's 2022 pre-broadcast programme). TVDB lists neither, so both are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a0c1e82ba32b419bce0a32381587b4cbe48cb83640c9783f9bcaca5631d8d29a",
+      "seasons": [
+        0,
+        3
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2019-06-20"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2022-04-07"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2022-06-23"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2022-06-30"
+        ],
+        [
+          3,
+          1,
+          25,
+          "2021-01-10"
+        ],
+        [
+          3,
+          2,
+          26,
+          "2021-01-17"
+        ],
+        [
+          3,
+          3,
+          27,
+          "2021-01-24"
+        ],
+        [
+          3,
+          4,
+          28,
+          "2021-01-31"
+        ],
+        [
+          3,
+          5,
+          29,
+          "2021-02-07"
+        ],
+        [
+          3,
+          6,
+          30,
+          "2021-02-14"
+        ],
+        [
+          3,
+          7,
+          31,
+          "2021-02-21"
+        ],
+        [
+          3,
+          8,
+          32,
+          "2021-02-28"
+        ],
+        [
+          3,
+          9,
+          33,
+          "2021-03-07"
+        ],
+        [
+          3,
+          10,
+          34,
+          "2021-03-14"
+        ],
+        [
+          3,
+          11,
+          35,
+          "2021-03-21"
+        ],
+        [
+          3,
+          12,
+          36,
+          "2021-03-28"
+        ]
+      ],
+      "series": 360553
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "badfb3369a32e52d8a44c67d6d22c02e92e49551396ab1b2cd7cfec348c9f542"
+  },
+  "anidb_id": 15741
+}

@@ -1,0 +1,190 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/12283",
+    "tmdb": "https://www.themoviedb.org/tv/70716/season/0",
+    "tvdb": "https://thetvdb.com/series/bikini-warriors/seasons/official/0"
+  },
+  "set": {
+    "tmdboffset": "",
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            6,
+            20
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            19
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Bikini Warriors (2016)",
+  "justification": "AniDB 6, An Ordinary High School Girl Becomes a Black Knight in Another World (2021-05-17), is TVDB 295897 season 0 episode 20 of that title; season 0 has no episode 19, where offset 13 sent it. 1-5 stay on episodes 14-18. TMDB 70716 numbers season 0 differently: AniDB 1-5 (Kunoichi Ninpo Journal to Bikini of the Dead) are episodes 2-6 and AniDB 6 is episode 19; offset 13 placed them on the Hyper Sexy versions.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "f8867bfeb97bbe0b80c722f5d74ad57c5a9d7cab291bc6a7bb94d829be87e7ad",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2015-07-07"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2015-07-14"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-07-21"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-07-28"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2015-08-04"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2015-08-11"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2015-08-18"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2015-08-25"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2015-09-01"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2015-09-08"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2015-09-15"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2015-09-08"
+        ],
+        [
+          0,
+          13,
+          13,
+          "2015-12-08"
+        ],
+        [
+          0,
+          14,
+          14,
+          "2016-12-06"
+        ],
+        [
+          0,
+          15,
+          15,
+          "2016-12-06"
+        ],
+        [
+          0,
+          16,
+          16,
+          "2017-12-15"
+        ],
+        [
+          0,
+          17,
+          17,
+          "2018-07-27"
+        ],
+        [
+          0,
+          18,
+          18,
+          "2018-07-27"
+        ],
+        [
+          0,
+          20,
+          19,
+          "2021-05-17"
+        ],
+        [
+          0,
+          21,
+          0,
+          ""
+        ]
+      ],
+      "series": 295897
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "8292ed433cd8969cf6fe996f8fb453669f13d76ed333f1ea498ff0509ba0b190"
+  },
+  "anidb_id": 12283
+}

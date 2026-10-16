@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16188",
-    "tvdb": "https://thetvdb.com/series/a-couple-of-cuckoo/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/a-couple-of-cuckoo/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/122587/seasons"
   },
   "set": {
     "mapping_list": [
@@ -15,7 +16,7 @@
     ]
   },
   "title": "Cuckoo no Iinazuke",
-  "justification": "AniDB special S1-S22 (2022-04-28 to 2022-09-30) = TVDB 0x04-0x25 (2022-04-28 to 2022-09-30), was 0x01-0x22. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 400585 and TMDB show 122587. AniDB S1-S22 (\"カッコウのいいかげん #1「いせかいてんせい!」\" (Cuckoos` Drama #1: Reincarnation in Another World) to \"カッコウのいいかげん #22「さよならいせかい!」\" (Cuckoos` Drama #22: Goodbye Another World!)) are TVDB S0E4 \"Cuckoos' Drama #1: Reincarnation in Another World\" to TVDB S0E25 \"Cuckoos' Drama #22: Goodbye Another World!\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

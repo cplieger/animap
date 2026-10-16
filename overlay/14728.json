@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14728",
+    "tmdb": "https://www.themoviedb.org/tv/71000/seasons",
     "tvdb": "https://thetvdb.com/series/tsugumomo/seasons/official/0"
   },
   "set": {
@@ -8,16 +9,215 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            19
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ],
+          [
+            22
+          ],
+          [
+            23
+          ],
+          [
+            24
+          ],
+          [
+            25
+          ],
+          [
+            26
+          ],
+          [
+            27
+          ],
+          [
+            28
+          ],
+          [
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33
+          ],
+          [
+            34
+          ],
+          [
+            35
+          ],
+          [
+            36
+          ],
+          [
+            37
+          ],
+          [
+            38
+          ],
+          [
+            39
+          ],
+          [
+            40
+          ],
+          [
+            41
+          ],
+          [
+            42
+          ],
+          [
+            43
+          ],
+          [
+            44
+          ],
+          [
+            45
+          ],
+          [
+            46
+          ],
+          [
+            47
+          ],
+          [
+            48
+          ],
+          [
+            49
+          ],
+          [
+            50
+          ],
+          [
+            51
+          ],
+          [
+            52
+          ],
+          [
+            53
+          ],
+          [
+            54
+          ],
+          [
+            55
+          ],
+          [
+            56
+          ],
+          [
+            57
+          ],
+          [
+            58
+          ],
+          [
+            59
+          ],
+          [
+            60
+          ],
+          [
+            61
+          ],
+          [
+            62
+          ],
+          [
+            63
+          ],
+          [
+            64
+          ],
+          [
+            65
+          ],
+          [
+            66
+          ],
+          [
+            67
           ]
         ]
       }
     ]
   },
   "title": "Tsugu Tsugumomo",
-  "justification": "AniDB special S1 (no AniDB date) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 321532 and TMDB show 71000. AniDB S1 \"Tsugu Tsugumomo Mini 01\" has no TVDB episode (its default TVDB S0E1 is \"My Tsukumogami Master / At the Public Bath / My Master / Kokuyou's Repayment / Last Fort / Erotic Deliberative Assembly\", another item) and no TMDB episode (its default TMDB S0E1 is \"OVA: My Tsukumogami Master / At the Public Bath / My Master / Kokuyou's Repayment / Last Fort / Erotic Deliberative Assembly\", another item); AniDB S2-S67 (\"Tsugu Tsugumomo Mini 02\" to \"Tsugu Tsugumomo Mini 67\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +308,8 @@
       ],
       "series": 321532
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "288926e1e70a2cfcd91d7591db377a98579d2b2be55a0bc713235fe8f588a7e1"
   },
   "anilist_ids": [

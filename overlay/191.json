@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/191",
+    "tmdb": "https://www.themoviedb.org/tv/43017/seasons",
     "tvdb": "https://thetvdb.com/series/great-teacher-onizuka/seasons/official/0"
   },
   "set": {
@@ -19,11 +20,26 @@
             3
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
       }
     ]
   },
   "title": "GTO",
-  "justification": "AniDB special S1-S3 (2000-09-03 to (none)) have no TVDB episode, was 0x01-0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79071 and TMDB show 43017. AniDB S1-S3 (\"Summary 1\" to \"English Dub Outtakes\") have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -324,8 +340,8 @@
       ],
       "series": 79071
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "5e9c3b691bd4c448d2762a180698d6e4f53c82538c9feecc69a69b6c1d02e464"
   },
   "anilist_ids": [

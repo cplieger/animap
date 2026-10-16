@@ -25,8 +25,14 @@ const userAgent = "animap (+https://github.com/cplieger/animap)"
 // maxCacheBytes bounds the persisted cache file.
 const maxCacheBytes = 64 << 20
 
+// retryBase is the first retry's delay, a var so tests need not wait it.
+var retryBase = 2 * time.Second
+
 // ErrNotFound reports a 404, which callers treat as an answer, not a failure.
 var ErrNotFound = errors.New("source: not found")
+
+// ErrRefused reports a 401 or 403: the host refused the client's credentials.
+var ErrRefused = errors.New("source: credentials refused")
 
 type cached struct {
 	ETag         string `json:"etag,omitempty"`
@@ -38,18 +44,37 @@ type cached struct {
 // a request to every host: a client started right after another process's
 // last request still keeps the gap. The zero value is not usable; call New.
 type Client struct {
-	started  time.Time
-	http     *http.Client
-	last     map[string]time.Time
-	cache    map[string]cached
-	log      *slog.Logger
-	path     string
-	interval time.Duration
-	mu       sync.Mutex
+	started    time.Time
+	http       *http.Client
+	last       map[string]time.Time
+	cache      map[string]cached
+	log        *slog.Logger
+	path       string
+	bearerHost string
+	bearer     string
+	interval   time.Duration
+	mu         sync.Mutex
+	noCache    bool
+}
+
+// Option configures a Client.
+type Option func(*Client)
+
+// WithBearer sends token as an Authorization bearer on requests to host
+// and to no other host. Redirects stay refused, so the token never follows
+// one.
+func WithBearer(host, token string) Option {
+	return func(c *Client) { c.bearerHost, c.bearer = host, token }
+}
+
+// WithoutCache keeps no body and sends no validators: for a client that
+// reads thousands of large bodies once each.
+func WithoutCache() Option {
+	return func(c *Client) { c.noCache = true }
 }
 
 // NewMemory returns a client whose cache lives in memory only.
-func NewMemory(interval time.Duration, log *slog.Logger) *Client {
+func NewMemory(interval time.Duration, log *slog.Logger, opts ...Option) *Client {
 	c := &Client{
 		started:  time.Now(),
 		http:     httpx.NewClient(60 * time.Second),
@@ -57,6 +82,9 @@ func NewMemory(interval time.Duration, log *slog.Logger) *Client {
 		cache:    map[string]cached{},
 		log:      log,
 		interval: interval,
+	}
+	for _, o := range opts {
+		o(c)
 	}
 	c.http.CheckRedirect = httpx.RefuseAllRedirects
 	return c
@@ -92,7 +120,8 @@ func New(path string, interval time.Duration, log *slog.Logger) (*Client, error)
 }
 
 // Get returns the body at rawURL, revalidating a cached copy. It retries
-// transient failures and maps a 404 to ErrNotFound.
+// every 5xx and a 429, honouring Retry-After, and maps a 404 to
+// ErrNotFound and a 401 or 403 from the bearer's host to ErrRefused.
 func (c *Client) Get(ctx context.Context, rawURL string, maxBytes int64) ([]byte, error) {
 	u, err := url.Parse(rawURL)
 	if err != nil || u.Scheme != "https" || u.Host == "" {
@@ -106,30 +135,59 @@ func (c *Client) Get(ctx context.Context, rawURL string, maxBytes int64) ([]byte
 		v = httpx.Validators{ETag: prev.ETag, LastModified: prev.LastModified}
 	}
 	res, err := httpx.Do(ctx, func(ctx context.Context) (httpx.ConditionalResult, error) {
-		if paceErr := c.pace(ctx, u.Host); paceErr != nil {
-			return httpx.ConditionalResult{}, paceErr
-		}
-		req, reqErr := http.NewRequestWithContext(ctx, http.MethodGet, rawURL, http.NoBody)
-		if reqErr != nil {
-			return httpx.ConditionalResult{}, reqErr
-		}
-		req.Header.Set("User-Agent", userAgent)
-		req.Header.Set("Accept", "application/json")
-		return httpx.DoConditional(c.http, req, v, maxBytes)
-	}, httpx.WithMaxAttempts(3), httpx.WithBaseDelay(2*time.Second), httpx.WithLogger(c.log), httpx.WithLabel(u.Host))
+		return c.attempt(ctx, u.Host, rawURL, v, maxBytes)
+	}, httpx.WithMaxAttempts(3), httpx.WithBaseDelay(retryBase), httpx.WithRateLimitRetry(time.Minute),
+		httpx.WithLogger(c.log), httpx.WithLabel(u.Host))
 	if err != nil {
-		if se, ok := errors.AsType[*httpx.HTTPStatusError](err); ok && se.Code == http.StatusNotFound {
-			return nil, ErrNotFound
-		}
-		return nil, err
+		return nil, c.classify(err, u.Host)
 	}
 	if res.NotModified {
 		return prev.Body, nil
+	}
+	if c.noCache {
+		return res.Body, nil
 	}
 	c.mu.Lock()
 	c.cache[rawURL] = cached{ETag: res.Validators.ETag, LastModified: res.Validators.LastModified, Body: res.Body}
 	c.mu.Unlock()
 	return res.Body, nil
+}
+
+// attempt is one paced request for rawURL on host, the bearer sent only
+// when host is the bearer's.
+func (c *Client) attempt(ctx context.Context, host, rawURL string, v httpx.Validators, maxBytes int64) (httpx.ConditionalResult, error) {
+	if err := c.pace(ctx, host); err != nil {
+		return httpx.ConditionalResult{}, err
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, rawURL, http.NoBody)
+	if err != nil {
+		return httpx.ConditionalResult{}, err
+	}
+	req.Header.Set("User-Agent", userAgent)
+	req.Header.Set("Accept", "application/json")
+	if c.bearer != "" && host == c.bearerHost {
+		req.Header.Set("Authorization", "Bearer "+c.bearer)
+	}
+	res, err := httpx.DoConditional(c.http, req, v, maxBytes)
+	// httpx.HTTPStatusError.IsTransient admits only 502, 503 and 504;
+	// every other 5xx is retried here too.
+	if se, ok := errors.AsType[*httpx.HTTPStatusError](err); ok && se.IsServerError() {
+		return res, httpx.MarkTransient(err)
+	}
+	return res, err
+}
+
+// classify maps a 404 to ErrNotFound, and a 401 or 403 to ErrRefused only
+// from the host the bearer goes to: a host given no credential refuses
+// one request, not the client's token.
+func (c *Client) classify(err error, host string) error {
+	if se, ok := errors.AsType[*httpx.HTTPStatusError](err); ok && se.Code == http.StatusNotFound {
+		return ErrNotFound
+	}
+	if _, ok := errors.AsType[*httpx.AuthError](err); ok && c.bearer != "" && host == c.bearerHost {
+		return fmt.Errorf("%w: %s: %w", ErrRefused, host, err)
+	}
+	return err
 }
 
 func (c *Client) pace(ctx context.Context, host string) error {

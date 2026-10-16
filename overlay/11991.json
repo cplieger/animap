@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11991",
-    "tvdb": "https://thetvdb.com/series/haikyuu/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/haikyu/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -9,6 +9,21 @@
         "anidb_season": 0,
         "tvdb_season": 0,
         "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
           [
             6
           ],
@@ -20,7 +35,7 @@
     ]
   },
   "title": "Haikyuu!! Karasuno Koukou vs Shiratorizawa Gakuen Koukou",
-  "justification": "AniDB special S6-S7 (no AniDB date) have no TVDB episode, was 0x06-0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S6-S7 (no AniDB date) have no TVDB episode, was 0x06-0x07. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order. AniDB specials S1, a stage event, and S2-S5, untitled SP1-SP4, have no TVDB episode; their defaults were TVDB 278157 season 0 episodes 1-5, the OVAs, films and TV special of nodes 10954, 11040 and 13332.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -177,8 +192,8 @@
       ],
       "series": 278157
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f987b2cc7022d49b19e9b8a96f843aa84f83bb06271cb5562f679584e3f539b4"
   },
   "anilist_ids": [

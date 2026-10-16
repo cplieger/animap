@@ -1,0 +1,133 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14971",
+    "tmdb": "https://www.themoviedb.org/tv/52891/seasons",
+    "tvdb": "https://thetvdb.com/dereferrer/series/250022"
+  },
+  "set": {
+    "tmdboffset": "3"
+  },
+  "title": "Mini Yuri",
+  "justification": "Checked by episode title against TVDB series 250022 and TMDB show 52891. AniDB episode 1-4 (\"Episode 1\" (the anime \"みにゆり\") to \"Episode 4\" (the anime \"みにゆり\")) are TMDB S0E4 \"はじめてのゆるゆり入門\" (Mini Yuri #1) to TMDB S0E7 \"ゆるゆり殺人事件\" (Mini Yuri #4).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "4a0ee6966d127c4de807b8895271e1acdb546ab495e57b3793316e417e9cb624",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2011-11-16"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2014-11-29"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2015-08-21"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2015-09-18"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2019-09-25"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2019-10-02"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2019-10-09"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2019-10-16"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2019-11-13"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2012-09-19"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2012-10-17"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2012-11-21"
+        ],
+        [
+          0,
+          13,
+          0,
+          "2012-12-19"
+        ],
+        [
+          0,
+          14,
+          0,
+          "2013-01-16"
+        ],
+        [
+          0,
+          15,
+          0,
+          "2013-02-20"
+        ],
+        [
+          0,
+          16,
+          0,
+          "2024-02-02"
+        ],
+        [
+          0,
+          17,
+          0,
+          "2024-06-21"
+        ]
+      ],
+      "series": 250022
+    },
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a48d0198bbd28b69b4fa53a18152fd8bffda2d5fcc2d9980ae312cef7a4f3657"
+  },
+  "anilist_ids": [
+    110382
+  ],
+  "anidb_id": 14971
+}

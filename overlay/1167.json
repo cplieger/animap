@@ -1,0 +1,85 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/1167",
+    "tmdb": "https://www.themoviedb.org/tv/43780/season/1",
+    "tvdb": "https://thetvdb.com/series/kakyuusei/seasons/official/0"
+  },
+  "set": {
+    "tvdbid": "474904",
+    "tmdbtv": "43780",
+    "tmdbseason": "1",
+    "tmdboffset": ""
+  },
+  "title": "Elf Ban Kakyuusei: Anata dake o Mitsumete...",
+  "justification": "TVDB 199571 is gone; successor 474904 Kakyuusei. Offset 4 sends AniDB 1-4 to TVDB season 0 episodes 5-8: The First Heartbeat... OVA 2-1, I Wish I Could Be Honest... OVA 2-2, A Wavering Heart OVA 2-3, I Want to Feel Your Warmth OVA 2-4, the AniDB titles in order. TMDB 115598 season 0 has only the Tina special; TMDB lists this OVA as its own show 43780 Kakyuusei: Elf Version, season 1 episodes 1-4 with those four titles.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "35e35d0a1df11c54f806536b720d08a49c425a91bb64fde85c8b1b9091ebfd2a",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "1995-06-16"
+        ],
+        [
+          0,
+          2,
+          0,
+          "1995-07-21"
+        ],
+        [
+          0,
+          3,
+          0,
+          "1995-09-22"
+        ],
+        [
+          0,
+          4,
+          0,
+          "1995-11-22"
+        ],
+        [
+          0,
+          5,
+          0,
+          "1997-11-28"
+        ],
+        [
+          0,
+          6,
+          0,
+          "1998-01-23"
+        ],
+        [
+          0,
+          7,
+          0,
+          "1998-03-27"
+        ],
+        [
+          0,
+          8,
+          0,
+          "1998-06-26"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2000-03-24"
+        ]
+      ],
+      "series": 474904
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a405f910e6339057db515690344e385810e130cb9104b75e95e31b6ade2b8ec5"
+  },
+  "anidb_id": 1167
+}

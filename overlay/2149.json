@@ -1,0 +1,104 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/2149",
+    "tvdb": "https://thetvdb.com/series/future-gpx-cyber-formula/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Shin Seiki GPX Cyber Formula Saga",
+  "justification": "AniDB special S1, the episode 8 ending, has no TVDB episode; its default was TVDB 82595 season 0 episode 1, the Graffiti OVA (node 2464).",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "422958311fcfba1d22370aeebcb385997c465ccf09af3837af28e1a7d3791521",
+      "seasons": [
+        0,
+        4
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          65,
+          "1992-08-05"
+        ],
+        [
+          0,
+          2,
+          66,
+          "1996-04-01"
+        ],
+        [
+          0,
+          3,
+          67,
+          "1994-06-01"
+        ],
+        [
+          4,
+          1,
+          52,
+          "1996-08-01"
+        ],
+        [
+          4,
+          2,
+          53,
+          "1996-08-01"
+        ],
+        [
+          4,
+          3,
+          54,
+          "1996-10-02"
+        ],
+        [
+          4,
+          4,
+          55,
+          "1996-11-01"
+        ],
+        [
+          4,
+          5,
+          56,
+          "1997-02-01"
+        ],
+        [
+          4,
+          6,
+          57,
+          "1997-03-20"
+        ],
+        [
+          4,
+          7,
+          58,
+          "1997-06-01"
+        ],
+        [
+          4,
+          8,
+          59,
+          "1997-07-25"
+        ]
+      ],
+      "series": 82595
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "0b43dc2df6ff383715b3da0db18d3e9377b6023c73ddb7838369b6d6f39432e5"
+  },
+  "anidb_id": 2149
+}

@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16373",
+    "tmdb": "https://www.themoviedb.org/tv/194665/seasons",
     "tvdb": "https://thetvdb.com/series/high-card/seasons/official/0"
   },
   "set": {
@@ -8,6 +9,7 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "tmdb_season": 0,
         "episodes": [
           [
             1
@@ -17,7 +19,7 @@
     ]
   },
   "title": "High Card",
-  "justification": "AniDB special S1 (2023-01-06) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 404525 and TMDB show 194665. AniDB S1 \"ピノクル社オールドメイド支店 放送直前SP\" (Pre-Broadcast Special) has no TVDB episode (its default TVDB S0E1 is \"The Flowers Bloom\", another item) and no TMDB episode (its default TMDB S0E1 is \"The Flowers Bloom\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -108,8 +110,8 @@
       ],
       "series": 404525
     },
-    "at": "2026-10-12",
-    "anime_lists_commit": "2259423317fe7e7a9e7b41e9f80d6920ac5afc48",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "005d32059e0c5392e19b9c390bec3a2ea6d4325fa864998b1a9305af39fc8f7f"
   },
   "anilist_ids": [

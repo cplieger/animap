@@ -2,13 +2,14 @@
   "evidence": {
     "anidb": "https://anidb.net/anime/10985",
     "tvdb": "https://thetvdb.com/series/vampire-holmes/seasons/official/1",
-    "tvdb_old": "https://thetvdb.com/dereferrer/series/291723"
+    "tvdb_old": "https://thetvdb.com/dereferrer/series/291723",
+    "tmdb": "https://www.themoviedb.org/tv/62513/seasons"
   },
   "set": {
     "tvdbid": "475280"
   },
   "title": "Vampire Holmes",
-  "justification": "tvdbid 291723 to 475280 (TVDB 291723 is gone from TVDB's official order). AniDB 1-12 (2015-04-04 to 2015-06-20) = TVDB 1x01-1x12 (2015-04-04 to 2015-06-20), was TVDB 291723 1x01-1x12. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 475280 and TMDB show 62513. The node moves from TVDB 291723 to series 475280. AniDB episode 1-12 (\"名探偵!? 彼の名前は...\" (Episode 1) to \"ホームズは名探偵!?\" (Episode 12)) are TVDB S1E1 \"A Great Detective?! His Name Is...\" to TVDB S1E12 \"Holmes is a Great Detective?!\". TVDB series 291723 no longer exists; series 475280 (ヴァンパイアホームズ) is the same show, with the node's TMDB show 62513.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

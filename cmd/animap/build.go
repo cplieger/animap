@@ -20,7 +20,7 @@ import (
 	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
-	"github.com/cplieger/animap/internal/reviewed"
+	"github.com/cplieger/animap/internal/review"
 	"github.com/cplieger/animap/internal/schema"
 )
 
@@ -29,7 +29,7 @@ type buildStats struct {
 	ContentHash         string                `json:"content_hash"`
 	PreviousHash        string                `json:"previous_hash,omitempty"`
 	Collisions          guard.CollisionReport `json:"collisions"`
-	Specials            specialsStats         `json:"specials"`
+	Links               linkStats             `json:"links"`
 	CountsRedundant     []int                 `json:"counts_redundant"`
 	Baseline            baselineStats         `json:"baseline"`
 	Join                join.Stats            `json:"join"`
@@ -46,7 +46,7 @@ type baselineStats struct {
 	BaselinedUncounted int                   `json:"baselined_uncounted"`
 }
 
-type specialsStats struct {
+type linkStats struct {
 	Skipped []join.Skipped `json:"skipped"`
 	Applied int            `json:"applied"`
 }
@@ -73,7 +73,7 @@ func runBuild(ctx context.Context, args []string, stdout io.Writer, log *slog.Lo
 	fs.StringVar(&c.mirrorPath, "mirror", "", "AniDB mirror snapshot written by animap mirror extract")
 	fs.StringVar(&c.mirrorCommit, "mirror-commit", "", "AniDB mirror commit the build is pinned to")
 	fs.StringVar(&c.overlayDir, "overlay", "overlay", "overlay directory")
-	fs.StringVar(&c.reviewedDir, "reviewed", reviewed.Dir, "reviewed date-check records, validated only")
+	fs.StringVar(&c.reviewedDir, "reviewed", review.Dir, "acceptance records, validated only")
 	fs.StringVar(&c.prevPath, "previous", "", "previous release's animap.json (absent file: first release)")
 	fs.StringVar(&c.baselinePath, "baseline", "checks/collision-baseline.json", "tracked collision baseline (absent file: empty)")
 	fs.StringVar(&c.countsPath, "counts", anidb.CountsPath, "tracked episode counts (absent file: none)")
@@ -142,24 +142,27 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if err != nil {
 		return nil, nil, err
 	}
-	bridges, err := overlay.LoadBridges(c.overlayDir)
+	links, err := overlay.LoadLinks(c.overlayDir)
 	if err != nil {
 		return nil, nil, err
 	}
-	if _, recErr := reviewed.LoadDir(c.reviewedDir); recErr != nil {
+	if _, recErr := review.LoadDir(c.reviewedDir); recErr != nil {
 		return nil, nil, recErr
 	}
 	patched := overlay.Apply(list.Nodes, ov)
-	records, jst := join.Build(entries, patched, facts)
-	var sp specialsStats
-	sp.Applied, sp.Skipped = join.ApplySpecials(records, specialsOf(bridges), patched)
-	for _, s := range sp.Skipped {
-		log.Warn("build: special-of-parent bridge not applied", "anilist", s.AniList, "reason", s.Reason)
-	}
-	if proofErr := proveBridges(bridges, patched, facts); proofErr != nil {
+	proven, proofErr := proveLinks(links, patched, ov, facts, entries)
+	if proofErr != nil {
 		return nil, nil, fmt.Errorf("build: %w", proofErr)
 	}
-	rep := guard.Collisions(list.Nodes, ov, bridges, facts)
+	records, jst, idSkipped := join.Build(entries, patched, facts, proven.identities)
+	var ls linkStats
+	records, ls.Applied, ls.Skipped = join.ApplyLinks(records, proven.linked)
+	ls.Applied += len(proven.identities) - len(idSkipped)
+	ls.Skipped = append(idSkipped, ls.Skipped...)
+	for _, s := range ls.Skipped {
+		log.Warn("build: overlay link not applied", "anilist", s.AniList, "reason", s.Reason)
+	}
+	rep := guard.Collisions(list.Nodes, ov, proven.compiled, facts)
 	redundant := facts.RedundantRows()
 	if len(redundant) > 0 {
 		log.Info("build: counts rows that equal what the sources give; delete them", "path", anidb.CountsPath, "anidb", redundant)
@@ -168,7 +171,7 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if err != nil {
 		return nil, nil, err
 	}
-	ovHash, err := overlay.SetHash(ov, bridges)
+	ovHash, err := overlay.SetHash(ov, links)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -185,14 +188,14 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 				Commit:     c.listCommit, File: "anime-list-master.xml",
 			},
 			AniDBMirror: schema.AniDBMirrorSource{Repository: anidb.Repository, Commit: facts.Commit()},
-			Overlay:     schema.OverlaySource{Entries: len(ov), SpecialOfParent: len(bridges), SHA256: ovHash},
+			Overlay:     schema.OverlaySource{Entries: len(ov), SpecialOfParent: len(links), SHA256: ovHash},
 		},
 		Attribution: schema.DefaultAttribution,
 		Records:     records,
 	}
 	st := &buildStats{
 		Populations: schema.Census(records), Join: jst, OverlayEntries: len(ov), Collisions: rep, Baseline: bs,
-		Specials: sp, CountsRedundant: redundant,
+		Links: ls, CountsRedundant: redundant,
 	}
 	return doc, st, nil
 }
@@ -250,15 +253,6 @@ func unresolvedSide(u guard.Unresolved) string {
 		return fmt.Sprintf("TMDB %d", u.TMDB)
 	}
 	return fmt.Sprintf("TVDB %d", u.Series)
-}
-
-func specialsOf(bridges []overlay.Bridge) []join.Special {
-	out := make([]join.Special, 0, len(bridges))
-	for i := range bridges {
-		b := &bridges[i]
-		out = append(out, join.Special{AniList: b.AniListID, Parent: b.ParentAniDBID, Specials: b.Specials})
-	}
-	return out
 }
 
 func compare(c *buildConfig, doc *schema.Document, st *buildStats) error {

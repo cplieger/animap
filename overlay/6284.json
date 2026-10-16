@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/6284",
-    "tvdb": "https://thetvdb.com/series/sengoku-basara-samurai-kings/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/sengoku-basara/seasons/official/0"
   },
   "set": {
     "mapping_list": [
@@ -11,6 +11,26 @@
         "episodes": [
           [
             1,
+            1
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
             8
           ],
           [
@@ -26,7 +46,7 @@
     ]
   },
   "title": "Sengoku Basara",
-  "justification": "AniDB special S7-S8 (no AniDB date) = TVDB 0x09-0x10 (2009-12-03 to 2010-01-06), was 0x07-0x08, by title, runtime breaking a tie. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "AniDB special S1 \"Clash in the Inland Sea of Seto! Fugaku, the Great Fire-Belching Fortress of the Sea!\" (2010-01-06) is TVDB season 0 episode 1 of the same title (2010-01-06); the row sent it to episode 8 \"Mini Sengoku Basara 5\". S2-S8 \"Mini Sengoku Basara: Chosokabe-kun and Mori-kun 1-7\" are the seven DVD shorts, season 0 episodes 4-10 \"Mini Sengoku Basara 1-7\" (2009-07-01 to 2010-01-06); S2-S6 fell by default on episodes 2-6, among them the sequel's special and the film.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -243,8 +263,8 @@
       ],
       "series": 87881
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "442859d465628f62642b7a430fb1f6590aa582c65d6dc984018fd71b354eb01c"
   },
   "anilist_ids": [

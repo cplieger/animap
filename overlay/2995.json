@@ -1,9 +1,11 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/2995",
+    "tmdb": "https://www.themoviedb.org/tv/57706/seasons",
     "tvdb": "https://thetvdb.com/series/ranma-1-2/seasons/official/0"
   },
   "set": {
+    "tmdboffset": "9",
     "mapping_list": [
       {
         "anidb_season": 1,
@@ -27,11 +29,20 @@
             1
           ]
         ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ]
+        ]
       }
     ]
   },
   "title": "Ranma 1/2 Special",
-  "justification": "AniDB special S1 (1994-12-16) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 76932 and TMDB show 57706. AniDB episode 1-2 (\"よみがえる記憶・上巻\" (Reawakening Memories (Part 1)) to \"よみがえる記憶・下巻\" (Reawakening Memories (Part 2))) are TMDB S0E10 \"よみがえる記憶（上巻）\" (Reawakening Memories (1)) to TMDB S0E11 \"よみがえる記憶（下巻）\" (Reawakening Memories (2)); AniDB S1 \"Episode 1 Next Episode Preview\" has no TVDB episode (its default TVDB S0E1 is \"Big Trouble in Nekonron, China (Movie)\", another item) and no TMDB episode (its default TMDB S0E1 is \"Hot Song Contest (1)\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -169,8 +180,8 @@
       ],
       "series": 76932
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "9a65a9d82eefb6138823d5f06c3242b5e508c504de5fc5c79e157196a07638ba"
   },
   "anilist_ids": [

@@ -1,7 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12103",
-    "tmdb": "https://www.themoviedb.org/tv/115785/season/1",
+    "tmdb": "https://www.themoviedb.org/tv/115785/seasons",
     "tvdb": "https://thetvdb.com/series/chis-sweet-adventure/seasons/official/1"
   },
   "set": {
@@ -11,7 +11,7 @@
     "tmdbseason": "1"
   },
   "title": "Koneko no Chii: Ponponraa Daibouken",
-  "justification": "TVDB 81844 is the 2008-09 series (S1 and S2 only); TVDB 332463 is this series. AniDB 1-51 (2016-10-02 to 2017-09-24) = TVDB 1x01-1x51 and TMDB 115785 S1E1-51, same dates and titles. The old TMDB 34186 has no S3. AniDB lists no specials.",
+  "justification": "Checked by episode title against TVDB series 332463 and TMDB show 115785. Its episodes are on TMDB show 115785. The node moves from TVDB 81844 to series 332463. AniDB episode 1-51 (\"チー, 帰ってくる\" (Chi Comes Back) to \"チー, お家を想う\" (Chi Thinks of Home)) are TVDB S1E1 \"Chi Comes Back\" to TVDB S1E51 \"Chi Thinks of Home\" and TMDB S1E1 \"Chi Comes Back\" to TMDB S1E51 \"Chi Thinks Of Home\". TVDB series 81844 (Chi's Sweet Home) has no third season. Series 332463, Chi's Sweet Adventure, carries all 51 episodes by title, as TMDB show 115785 does.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

@@ -1,7 +1,8 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/17237",
-    "tvdb": "https://thetvdb.com/series/classroom-of-the-elite/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/classroom-of-the-elite/seasons/official/0",
+    "tmdb": "https://www.themoviedb.org/tv/72517/seasons"
   },
   "set": {
     "mapping_list": [
@@ -17,7 +18,7 @@
     ]
   },
   "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season",
-  "justification": "AniDB special S1 (2024-01-07) has no TVDB episode, was 0x01. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 329822 and TMDB show 72517. AniDB S1 \"3rd Season 放送開始記念特番\" (Broadcast Commemoration Special) has no TVDB episode (its default TVDB S0E1 is \"Classroom of the Elite 2nd Season Special Preview\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

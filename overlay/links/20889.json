@@ -1,0 +1,24 @@
+{
+  "anilist_id": 20889,
+  "title": "Chuunibyou demo Koi ga Shitai! Ren: Saisei no... Jaou Shingan Mokushiroku",
+  "parts": [
+    {
+      "anidb_id": 9874,
+      "specials": [
+        1
+      ]
+    }
+  ],
+  "justification": "AniList 20889 (OVA, 1 episode from 2014-09-16) is AniDB 9874's special S1, aired 2014-09-17, titled Apocalypse of the Wicked Lord Shingan Reborn / The Rikka Wars. AniList's PREQUEL 18671 is AniDB 9874 in anime-offline-database. The parent's node places S1 on TVDB 0x2 The Rikka Wars (Apocalypse of the Wicked Lord Shingan Reborn), 2014-09-17, and TMDB 45501 S0E29, 2014-09-17.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/9874",
+    "anilist": "https://anilist.co/anime/20889",
+    "tmdb": "https://www.themoviedb.org/tv/45501/season/0",
+    "tvdb": "https://thetvdb.com/series/love-chunibyo-and-other-delusions/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "d3df319c31f08560a2be9968e926fcec909c4adcee7efb937b445d4ca7014c7e"
+  }
+}

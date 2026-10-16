@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/12566",
+    "tmdb_movie": "https://www.themoviedb.org/movie/553837",
     "tvdb": "https://thetvdb.com/series/code-geass-lelouch-of-the-rebellion/seasons/official/0"
   },
   "set": {
@@ -20,7 +21,21 @@
         "tvdb_season": 0,
         "episodes": [
           [
+            1
+          ],
+          [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4,
+            53
+          ],
+          [
+            5,
+            52
           ],
           [
             6
@@ -30,7 +45,7 @@
     ]
   },
   "title": "Code Geass: Fukkatsu no Lelouch",
-  "justification": "AniDB special S2 (2019-02-05) has no TVDB episode, was 0x02. AniDB special S6 (no AniDB date) has no TVDB episode, was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 79525. AniDB S1-S3 (\"1分くらいでだいたいわかる「コードギアス 反逆のルルーシュ」その①興道\" (Learn \"Code Geass: Fukkatsu no Lelouch\" in About 1 Minute Part 1: Initiation) to \"1分くらいでだいたいわかる「コードギアス 反逆のルルーシュ」その③皇道\" (Learn \"Code Geass: Fukkatsu no Lelouch\" in About 1 Minute Part 3: Glorification)) have no TVDB episode (their defaults are other items); AniDB S4 \"Picture Drama [ Ref 1.03 ]\" is TVDB S0E53 \"Picture Drama: Re;f 103.00 - Fragment of the Deep Sea\"; AniDB S5 \"Picture Drama [ Ref 1.05 ]\" is TVDB S0E52 \"Picture Drama Re;f 1.05 - Talking in a Hammam\"; AniDB S6 \"Code Geass: Lelouch of the Re;ssurrections: A casual Conversation with Donald Shults \u0026 Elizabeth Maxwell\" has no TVDB episode (its default TVDB S0E6 is \"Special Edition - Zero Requiem\", another item).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -360,8 +375,8 @@
       ],
       "series": 79525
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "2dc3268017bbee1ab0815f4a95a07b8deb80c0ba4004f3f55e25c2492edb46df"
   },
   "anilist_ids": [

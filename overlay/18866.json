@@ -1,0 +1,23 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18866",
+    "tmdb": "https://www.themoviedb.org/movie/1360829",
+    "tvdb": "https://thetvdb.com/movies/virgin-punk-clockwork-girl"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "1360829"
+  },
+  "title": "Virgin Punk",
+  "justification": "TVDB 454529 and TMDB tv 271604 are gone; the 36-minute 2025 film is TVDB movie 367630 ヴァージン・パンク (Virgin Punk: Clockwork Girl) and TMDB movie 1360829 VIRGIN PUNK Clockwork Girl, released 2025-06-27, the AniDB date.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "d448498b5c6967769bab402a2d8412b6e411a9f0cf1501104ea8adab668b809d"
+  },
+  "anidb_id": 18866
+}

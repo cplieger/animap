@@ -6,16 +6,15 @@
     "tvdb_old": "https://thetvdb.com/dereferrer/series/249857"
   },
   "set": {
-    "tvdbid": "movie",
-    "defaulttvdbseason": "",
+    "tvdbid": "OVA",
     "tmdbid": "62961"
   },
   "title": "Metal Skin Panic Madox-01",
-  "justification": "tvdbid 249857 to movie (TVDB 249857 is gone from TVDB's official order). TVDB lists it as a movie; TMDB movie 62961, IMDb tt0093529. AniDB 1 (1987-12-16) has no TVDB episode, was TVDB 249857 1x01. AniDB special S1-S4 (no AniDB date) have no TVDB episode, was TVDB 249857 0x01-0x04. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by title. The film is TMDB movie 62961 (Metal Skin Panic MADOX-01 (1987)). The node moves from TVDB 249857 to the OVA marker. TVDB series 249857 no longer exists. TheTVDB lists the work only as movie 64351 METAL SKIN PANIC MADOX-01 (1987-12-16), whose IMDb id tt0093529 and TMDB id 62961 are the node's own. AniDB types it an OVA, so the marker is OVA. AniDB S1-S4 are DVD extras with no episode anywhere.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "f0a4b8ff8247e1660946188549d747a02cf06e5b2cd075582e750b3842a774c4"
   },
   "anilist_ids": [

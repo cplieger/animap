@@ -1,0 +1,24 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/11782",
+    "tmdb": "https://www.themoviedb.org/movie/409421",
+    "tvdb": "https://thetvdb.com/movies/blame"
+  },
+  "set": {
+    "tvdbid": "movie",
+    "defaulttvdbseason": "",
+    "tmdbtv": "",
+    "tmdbseason": "",
+    "tmdbid": "409421",
+    "mapping_list": []
+  },
+  "title": "Blame! (2017)",
+  "justification": "The 2017 film is not an episode of TVDB 80304; its row sent it to season 0 episode 3 Sanakan, a 2007 short (node 5447). TVDB lists it as movie 9419 Blame! (2017-05-20) with IMDb tt6574146, the node's own, and TMDB movie 409421.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "a95d1be16f125f7eb2558223c5685cd604caf31abaf2a64486410440ea8d1d36"
+  },
+  "anidb_id": 11782
+}

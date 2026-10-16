@@ -1,0 +1,21 @@
+{
+  "key": "anime:anilist:100780",
+  "title": "AniList 100780",
+  "parts": {
+    "watch": [
+      {
+        "record_sha256": "42a93aca7012f719105ffef95da2f9747b1cbcee5f2e3001e00e467a704cee0f",
+        "gaps": [
+          "no_anidb"
+        ],
+        "verdict": "unmappable",
+        "date": "2026-10-06",
+        "reason": "upstream: anime-offline-database gives AniList 100780 (MAL 36369) no AniDB id: it keeps MAL 36369, 36370 and 36371 apart from the AniDB-only record of AniDB 13473, which files the same 12 episodes as 3 movies (TVDB 343237 season 2)",
+        "evidence": [
+          "https://anilist.co/anime/100780"
+        ],
+        "anilist_id": 100780
+      }
+    ]
+  }
+}

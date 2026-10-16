@@ -1,0 +1,29 @@
+{
+  "anilist_id": 117496,
+  "title": "Yesterday wo Utatte Extras",
+  "parts": [
+    {
+      "anidb_id": 14822,
+      "specials": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "justification": "AniList 117496 has 6 ONA episodes (2020-04-05 to 2020-06-20; 'Haishin-ban Episode'). AniDB 14822 S1-S6 are 'Scene 01ex', '02ex', '03ex', '04ex', '09ex', '12ex' dated 04-05, 04-12, 04-19, 04-26, 05-31, 06-21 (AniList's end date 06-20 is the usual one-day shift). TVDB 372534 0x01-0x06 are 'scene 01ex' to 'scene 12ex' with the same six titles and dates. S7 'Unused Ending' (2020-08-05) is not part of the run.",
+  "evidence": {
+    "anidb": "https://anidb.net/anime/14822",
+    "anilist": "https://anilist.co/anime/117496",
+    "tmdb": "https://www.themoviedb.org/tv/95550/season/0",
+    "tvdb": "https://thetvdb.com/series/sing-yesterday-for-me/seasons/official/0"
+  },
+  "captured": {
+    "at": "2026-10-15",
+    "anidb_mirror_commit": "7dd9b8eafad24eaeaf84fe7a13c988dbb03e9983",
+    "anidb_sha256": "9027fee13228ac6268150d8673770ef8c10a0af1fa4aa13cc2e823f520157269"
+  }
+}

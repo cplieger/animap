@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/16700",
+    "tmdb": "https://www.themoviedb.org/tv/196400/seasons",
     "tvdb": "https://thetvdb.com/series/mobile-suit-gundam-the-witch-from-mercury/seasons/official/0"
   },
   "set": {
@@ -16,18 +17,43 @@
             3
           ],
           [
+            4,
+            2
+          ],
+          [
             5,
             3
           ],
           [
             6
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
           ]
         ]
       }
     ]
   },
   "title": "Kidou Senshi Gundam: Suisei no Majo",
-  "justification": "AniDB special S2-S3 (2022-11-13) have no TVDB episode, was 0x02-0x03. AniDB special S5 (2022-11-27) = TVDB 0x03 (2022-11-27), was 0x05, by title. AniDB special S6 (no AniDB date) has no TVDB episode, was 0x06. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 418364 and TMDB show 196400. AniDB S2-S3 (\"まだ間に合う!『機動戦士ガンダム 水星の魔女』スペシャル特番 第1話~第6話ダイジェスト\" (Episode S2) to \"第1クール前半戦振り返りSP\" (Episode S3)) have no TVDB episode (their defaults are other items); AniDB S4 \"大河内一楼「ゆりかごの星」朗読 (by市ノ瀬加那)\" (Oukouchi Ichirou`s Cadle Planet (Read by Ichinose Kana)) is TVDB S0E2 \"Okochi Ichiro 'CRADLE PLANET' Reading (by Ichinose Kana)\" and has no TMDB episode (its default TMDB S0E4 is \"There's Still Time for Season 2! 'Mobile Suit Gundam: Witch of Mercury' Special Program\", another item); AniDB S5 \"株式会社ガンダム プロモーションビデオ\" (GUND-ARM Inc. Promotion Video) is TVDB S0E3 \"GUND-ARM Inc. Promotion Video\" and has no TMDB episode (TMDB has no S0E5); AniDB S6 \"まだ間に合う!『機動戦士ガンダム 水星の魔女』スペシャル特番 第7話~第12話ダイジェスト\" (Episode S6) has no TVDB episode (its default TVDB S0E6 is \"Festival ~ Asticasia All-School Assembly~ Night Session\", another item) and no TMDB episode (TMDB has no S0E6); AniDB S7 \"”The Witch From Mercury” \u0026 “Asticassia” Music Video from 『機動戦士ガンダム 水星の魔女』 Recordings\" (\"The Witch From Mercury\" \u0026 \"Asticassia\" Music Video Recordings) has no TVDB episode (TVDB has no S0E7) and no TMDB episode (TMDB has no S0E7). TVDB S0E4, the 2022-11-24 AT-X broadcast, is described in its overview as the There's Still Time! special programme, so it may be S2 or S6, the two AniDB specials of that name; neither is placed on it.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -220,8 +246,8 @@
       ],
       "series": 418364
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "472233254c9a5ac17993a0ab28d56bbeba38eebe1bef9feb4296086770695659"
   },
   "anilist_ids": [

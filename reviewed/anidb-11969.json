@@ -1,0 +1,42 @@
+{
+  "key": "anime:anidb:11969",
+  "title": "Nameko: Sekai no Tomodachi",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "missing-target:10": "84918e064acce26d360aa3af19e988f55da2cf9df4291cf9bf688b836dec0e57",
+        "missing-target:11": "78347a0753b4ffe9dad81a6baf98c619c0cb1ddff228e2f7961009e791d3ddfd",
+        "missing-target:12": "84325e80ed3febe7d80005bb894e2251ef4501ae44a70179e25403c5bd0df950",
+        "missing-target:13": "5f6fb475fbb14f657d61d3f8e728718911c7c9e9d6baa67ac6469bbe165de8b5",
+        "missing-target:14": "f999d6d2bb08ccff69935da1bb01b1d6c189c5b69cba080bdff08fd37bbf05bb",
+        "missing-target:15": "fc584eb58239fa726f7fde2a6ee27c658e2f1b3f0eebdd869d4d8d40a0cd7ae1",
+        "missing-target:16": "14d686d64c1bbb969dccef08ce50e94588d344c4d7368570f28c89fb012283fb",
+        "missing-target:17": "2b362a40e33cc75c6f38bf7523df6c5ad6e4cf1b89f41be286ab058f21e9d6c8",
+        "missing-target:18": "0b8555b62979a0266bf744043033d4a107b690016b6ac0a5be5a2143d76bf731",
+        "missing-target:19": "a2afed9323ce8b30fe741824dc6f37cc9dc4709f1cd431cc8ad14a1efb2337eb",
+        "missing-target:2": "f7c3d9c9225af3d4b4ad7e455aa0a6c14dc33766ced68bdcea9aab425f4a6de9",
+        "missing-target:20": "a5a79edd0393d5f01b7d11feb15f541f1a8e0a224595e2d925c2d7271f741a86",
+        "missing-target:21": "c7af8c27c6705fc870517e3534cce533c62bc2235d95e87f0355ffcbd7cd8ec0",
+        "missing-target:22": "e5b0e676554f21752375bfbce4ca3472b18fc694f2aaee578d5e3494b0929330",
+        "missing-target:23": "5c12dd1c784f030ca54d710272539b4f20d4ed8cc309edd3a51f4b2a8be6d5cf",
+        "missing-target:24": "5d7d097fdfdc0d79d18881426653b25ada68c4dcba2e841cfee11522a5e74f7b",
+        "missing-target:25": "5ccf2445839e7b2fab0acd94f429778894baeb9b36dd8843e2b5c49394f4c1a2",
+        "missing-target:26": "57b2ed44a9fdae94396aa9b928b6e70d41dac7038ea8bac580619a4d5daab4c2",
+        "missing-target:3": "6c7ee8694128d6cc68533d17f601355c081ecadad5a36e93b98b447f69fe8a2d",
+        "missing-target:4": "7c69b21254e9ca428430b746a29632fb6b8279b7f7b4aeea9d2f3eeed7fc8d15",
+        "missing-target:5": "9d9c5c2eb1b859760b292ad8c75075abdd49385f1d68bce3a67dcebcd0a0bdd5",
+        "missing-target:6": "7f3b5f84611867b6e3f30e925e9a26951174efc006a39773525a5d59e0d1946e",
+        "missing-target:7": "2837398df0653a33395c2087b954ae238a94320b0429abf452aee782807b1506",
+        "missing-target:8": "08deebca2ee97705e14ed38fc4fe0b79c9c99462b9c906ec51ec454db39199ed",
+        "missing-target:9": "e24d6f961bee00119e46629e2e126755a260627046e031b38716a30fb4184097"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "TVDB 309152 lists AniDB 11969 / AniList 21680 itself but carries only S1E1 \"Episode 1\" (2016-04-10 = AniDB ep 1, same date). Episodes 2-26 (26 shorts to 2017-02-12) are not on TVDB; AniDB's own titles are all \"Episode N\" (ep 13 is mislabeled \"Episode 11\" on AniDB), so titles cannot move them anywhere else. SkyHook searches (Nameko, Nameko Sekai no Tomodachi) find no other series carrying these shorts; \"The Nameko Families\" 334004 is the 2013 OVA franchise (aid 12733, PREQUEL) and has a different episode set. A TVDB gap on a series TVDB links to this AniDB id; mapping is right.",
+      "evidence": [
+        "https://anidb.net/anime/11969",
+        "https://thetvdb.com/dereferrer/series/309152"
+      ]
+    }
+  }
+}

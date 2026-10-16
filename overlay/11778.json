@@ -1,13 +1,14 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/11778",
-    "tvdb": "https://thetvdb.com/series/gantz/seasons/official/0"
+    "tvdb": "https://thetvdb.com/series/gantz/seasons/official/0",
+    "tmdb_movie": "https://www.themoviedb.org/movie/396263"
   },
   "set": {
     "episodeoffset": "0"
   },
   "title": "Gantz O",
-  "justification": "AniDB 1 (2016-10-14) = TVDB 0x01 (2016-10-14), was 0x03. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 78916. AniDB episode 1 \"Complete Movie\" is TVDB S0E1 \"Gantz:O\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {

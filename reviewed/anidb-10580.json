@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:10580",
+  "title": "Choboraunyopomi Gekijou Dai Ni Maku Ai Mai Mii: Mousou Catastrophe",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S1": "99f159262a535c153f28bc219cb234c627ad659a02ee97e3dda290775654c05b"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "AniDB S1 \"Episode S1 / Shojo Kuriya\" (2014-10-10) = TVDB S0E1 \"OVA『処女厨』\" (Shojo Kuriya, \"Mousou Catastrophe Special\", 2014-09-19, unaired BD/DVD episode). MAL 25439 (linked by AniDB) is \"Mousou Catastrophe - Shojo Kuriya\" with synonym \"Mousou Catastrophe Special\", aired 2014-10-10. Same title; the date difference is the BD release. S0E2 (Surgical Friends, 2017) belongs to node 12506.",
+      "evidence": [
+        "https://thetvdb.com/series/i-my-me/seasons/official/0",
+        "https://anidb.net/anime/10580",
+        "https://thetvdb.com/dereferrer/series/264522"
+      ]
+    }
+  }
+}

@@ -1,15 +1,43 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/4778",
+    "tmdb": "https://www.themoviedb.org/tv/53321/seasons",
     "tvdb_old": "https://thetvdb.com/dereferrer/series/199591",
     "tvdb_s0": "https://thetvdb.com/series/ketaishao-nu/seasons/official/0",
     "tvdb_s1": "https://thetvdb.com/series/ketaishao-nu/seasons/official/1"
   },
   "set": {
-    "tvdbid": "479872"
+    "tvdbid": "479872",
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 1,
+        "episodes": [
+          [
+            1,
+            6
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
   },
   "title": "Keitai Shoujo",
-  "justification": "tvdbid 199591 to 479872 (TVDB 199591 is gone from TVDB's official order). AniDB 1-5 (2007-03-20 to 2007-04-17) = TVDB 1x01-1x05 (2007-03-20 to 2007-04-17), was TVDB 199591 1x01-1x05. AniDB special S1-S2 (no AniDB date) have no TVDB episode, as TVDB 479872's official order lists no season 0; was TVDB 199591 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 479872 and TMDB show 53321. The node moves from TVDB 199591 to series 479872. AniDB episode 1-5 (\"着信1 美島いちる\" (Call 1: Mishima Ichiru) to \"着信5 山田綾乃\" (Call 5: Yamada Ayano)) are TVDB S1E1 \"Call 1: Mishima Ichiru\" to TVDB S1E5 \"Call 5: Yamada Ayano\"; AniDB S1 \"Epilogue (includes Call 2)\" is TMDB S1E6 \"Call 6: Epilogue\" and has no TVDB episode (TVDB has no S0E1); AniDB S2 \"DVD summary special\" has no TVDB episode (TVDB has no S0E2) and no TMDB episode (TMDB has no S0E2). TVDB series 199591 no longer exists. Series 479872 carries the five calls by title and links the node's TMDB show 53321.",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -52,8 +80,8 @@
       ],
       "series": 479872
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "544402b73a5bb119aa157b40c2800c0a47de1463eca96bd13b41df913f6e83df"
   },
   "anilist_ids": [

@@ -1,0 +1,142 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/8158",
+    "tmdb": "https://www.themoviedb.org/tv/24392/season/0",
+    "tvdb": "https://thetvdb.com/series/valkyria-chronicles/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 1,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            1,
+            11
+          ],
+          [
+            2,
+            12
+          ]
+        ]
+      },
+      {
+        "anidb_season": 1,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            11
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Senjou no Valkyria 3: Unrecorded Chronicles - Tagatame no Juusou",
+  "justification": "Volumes 1 and 2 of \"Tagatame no Juusou\" (2011-04-13 and 2011-06-29) are TVDB season 0 episodes 11 and 12 \"Unrecorded Chronicles: The Wound Taken for Someone's Sake (1)\" and \"(2)\" (2011-04-13, 2011-06-29), and TMDB 24392 season 0 episodes 10 and 11 \"Senjou no Valkyria 3 - OVA 1\" and \"OVA 2\". The row sent them to TVDB episodes 10 \"Extra\" and 11, and TMDB placed them on the \"Gallian Chronicles\" shorts 1-2. Specials S1-S2 \"Challenge from Sega! Part 1/2\" have no TVDB or TMDB episode; by default they fell on \"Gallian Chronicles 1-2\" of the first series (AniDB 6244). They are unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "a9b3205ba428e45f43ade2f10bc0af8f10715d32afad4c4049e153d0c92cc318",
+      "seasons": [
+        0
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2009-08-05"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2009-09-02"
+        ],
+        [
+          0,
+          3,
+          0,
+          "2009-10-07"
+        ],
+        [
+          0,
+          4,
+          0,
+          "2009-11-04"
+        ],
+        [
+          0,
+          5,
+          0,
+          "2009-12-02"
+        ],
+        [
+          0,
+          6,
+          0,
+          "2010-01-13"
+        ],
+        [
+          0,
+          7,
+          0,
+          "2010-02-03"
+        ],
+        [
+          0,
+          8,
+          0,
+          "2010-03-03"
+        ],
+        [
+          0,
+          9,
+          0,
+          "2010-04-13"
+        ],
+        [
+          0,
+          10,
+          0,
+          "2010-04-07"
+        ],
+        [
+          0,
+          11,
+          0,
+          "2011-04-13"
+        ],
+        [
+          0,
+          12,
+          0,
+          "2011-06-29"
+        ]
+      ],
+      "series": 87851
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "4ca51a1dc148ba32c8096fb3d3ae7c591fcc4e0df05d7b6f2b022d80eebe69dd"
+  },
+  "anidb_id": 8158
+}

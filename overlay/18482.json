@@ -1,0 +1,122 @@
+{
+  "evidence": {
+    "anidb": "https://anidb.net/anime/18482",
+    "tvdb": "https://thetvdb.com/series/wistoria-wand-and-sword/seasons/official/0"
+  },
+  "set": {
+    "mapping_list": [
+      {
+        "anidb_season": 0,
+        "tvdb_season": 0,
+        "episodes": [
+          [
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "title": "Tsue to Tsurugi no Wistoria",
+  "justification": "AniDB special S1 \"Mada Maniau! Tsue to Tsurugi no Saikou No. 1 Tokuban\" (2024-07-28) is TVDB season 0 episode 1 by default. S2, the \"Frozen\" lyric video (2024-07-28), has no TVDB episode; by default it fell on episode 2, the second season's special compilation (2026-04-05, AniDB 18889). It is unmapped.",
+  "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
+  "captured": {
+    "tvdb": {
+      "sha256": "91f0dde48571676f182da4155fb4d5c5ad0441578d7cb8d1874fc826870926ad",
+      "seasons": [
+        0,
+        1
+      ],
+      "episodes": [
+        [
+          0,
+          1,
+          0,
+          "2024-07-28"
+        ],
+        [
+          0,
+          2,
+          0,
+          "2026-04-05"
+        ],
+        [
+          1,
+          1,
+          1,
+          "2024-07-07"
+        ],
+        [
+          1,
+          2,
+          2,
+          "2024-07-14"
+        ],
+        [
+          1,
+          3,
+          3,
+          "2024-07-21"
+        ],
+        [
+          1,
+          4,
+          4,
+          "2024-08-04"
+        ],
+        [
+          1,
+          5,
+          5,
+          "2024-08-11"
+        ],
+        [
+          1,
+          6,
+          6,
+          "2024-08-18"
+        ],
+        [
+          1,
+          7,
+          7,
+          "2024-08-25"
+        ],
+        [
+          1,
+          8,
+          8,
+          "2024-09-01"
+        ],
+        [
+          1,
+          9,
+          9,
+          "2024-09-08"
+        ],
+        [
+          1,
+          10,
+          10,
+          "2024-09-15"
+        ],
+        [
+          1,
+          11,
+          11,
+          "2024-09-22"
+        ],
+        [
+          1,
+          12,
+          12,
+          "2024-09-29"
+        ]
+      ],
+      "series": 445829
+    },
+    "at": "2026-10-13",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
+    "node_sha256": "1f60e0feceb4c62d35a85f40de21c25ef81987939350b1f11b6a8133b920f3ad"
+  },
+  "anidb_id": 18482
+}

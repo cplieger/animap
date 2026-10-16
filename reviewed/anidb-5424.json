@@ -1,0 +1,20 @@
+{
+  "key": "anime:anidb:5424",
+  "title": "Aria the Origination",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S6": "28cc35fcbe0964a8060cc11aa2edde14e8a603faa141b47b0d9eee3fa6ab9daa",
+        "date-mismatch:S8": "95156b596d806cc875c642876a252f396ebdabc8246e340951a2a1277b67a5fa"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "The row start=1 end=8 offset=2 sends AniDB S1 \"In That Secret Little Place...\" -\u003e S0E3 \"In That Little Secret Place...\", S2 \"Picture Drama 1: Pajama Party\" -\u003e S0E4 (ピクチャードラマ 第一話 パジャマパーティー), S3 \"Traghetto Epilogue\" -\u003e S0E5, S4 \"Aiming for that Glorious Victory...\" -\u003e S0E6, S5 \"The Disgrace of Neo-Venezia\" -\u003e S0E7, S6 \"Alice's Ghost Story\" -\u003e S0E8, S7 \"Akatsukin-chan\" -\u003e S0E9, S8 \"Together With Spring...\" -\u003e S0E10. All eight match by title and order. The two flags (S6 2008-08-22 vs 2008-08-27, S8 2008-10-24 vs 2008-10-29) are 5-day date differences. Regular S3E1-E13 match by title.",
+      "evidence": [
+        "https://thetvdb.com/series/aria-the-animation/seasons/official/0",
+        "https://anidb.net/anime/5424",
+        "https://thetvdb.com/dereferrer/series/79839"
+      ]
+    }
+  }
+}

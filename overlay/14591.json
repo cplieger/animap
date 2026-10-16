@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/14591",
+    "tmdb": "https://www.themoviedb.org/tv/75865/seasons",
     "tvdb": "https://thetvdb.com/series/karakai-jouzu-no-takagi-san/seasons/official/0"
   },
   "set": {
@@ -14,13 +15,91 @@
           ],
           [
             2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "episodes": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
           ]
         ]
       }
     ]
   },
   "title": "Karakai Jouzu no Takagi-san 2",
-  "justification": "AniDB special S1-S2 (2019-09-18 to 2019-10-16) have no TVDB episode, was 0x01-0x02. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 337936 and TMDB show 75865. AniDB S1 \"セレクトエピソード: 「外見」\" (Select Episode: Appearance (Binaural Audio Ver.)) has no TVDB episode (its default TVDB S0E1 is \"Water Slide\", another item) and no TMDB episode (its default TMDB S0E1 is \"Water Slide\", another item); AniDB S2 \"セレクトエピソード: 「進級」\" (Select Episode: New School Year (Binaural Audio Ver.)) has no TVDB episode (its default TVDB S0E2 is \"Teasing Master Takagi-san: The Movie\", another item) and no TMDB episode (TMDB has no S0E2); AniDB S3-S13 (\"セレクトエピソード: 「デート」\" (Select Episode: Date (Binaural Audio Ver.)) to \"Episode 10 Ending\") have no TVDB episode (TVDB has none of them) and no TMDB episode (TMDB has none of them).",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -117,8 +196,8 @@
       ],
       "series": 337936
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "00ceb775fb508f539f03cf434d5706a33a732fb6f3b0d2806faed5f292e832dc"
   },
   "anilist_ids": [

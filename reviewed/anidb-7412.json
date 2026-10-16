@@ -1,0 +1,18 @@
+{
+  "key": "anime:anidb:7412",
+  "title": "Heroman",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S3": "b6ccdd5dbf7e8a731bf40234ede7a994c3a6f9618c252199a66b28b96898d547"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Regular 26 episodes match by title and order. Specials S1-S3 \"EX-1 Portent / EX-2 Promise / EX-3 Monologue\" = S0E1-S0E3 \"Portent / Promise / Monologue\" (flagged S3 is 2011-03-16 vs 2011-03-22, same title). S4-S7 are four music videos (\"Joey and Heroman\", \"Calling\", \"Missing\", \"Boku no Te wa Kimi no Tame ni\"); TVDB season 0 has only three episodes, so their default targets S0E4-E7 do not exist (TVDB gap, nothing else claims them; 153331 has only this node).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/series/153331",
+        "https://anidb.net/anime/7412"
+      ]
+    }
+  }
+}

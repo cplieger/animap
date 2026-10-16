@@ -1,6 +1,7 @@
 {
   "evidence": {
     "anidb": "https://anidb.net/anime/15335",
+    "tmdb": "https://www.themoviedb.org/tv/88046/seasons",
     "tvdb": "https://thetvdb.com/series/fire-force/seasons/official/0"
   },
   "set": {
@@ -8,48 +9,37 @@
       {
         "anidb_season": 0,
         "tvdb_season": 0,
+        "start": 3,
+        "end": 32,
+        "offset": -2,
         "episodes": [
           [
             1
           ],
           [
             2
+          ]
+        ]
+      },
+      {
+        "anidb_season": 0,
+        "tmdb_season": 0,
+        "start": 3,
+        "end": 32,
+        "offset": -2,
+        "episodes": [
+          [
+            1
           ],
           [
-            6
-          ],
-          [
-            7
-          ],
-          [
-            8,
-            6
-          ],
-          [
-            9,
-            7
-          ],
-          [
-            10,
-            8
-          ],
-          [
-            11,
-            9
-          ],
-          [
-            12,
-            10
-          ],
-          [
-            28
+            2
           ]
         ]
       }
     ]
   },
   "title": "En'en no Shouboutai Ni no Shou",
-  "justification": "AniDB special S1-S2 (2020-12-19 to 2020-12-26) have no TVDB episode, was 0x01-0x02. AniDB special S6-S7 (2021-01-29 to 2021-02-05) have no TVDB episode, was 0x06-0x07. AniDB special S8 (2021-02-12) = TVDB 0x06 (2021-02-12), was 0x08, by title. AniDB special S9-S10 (2021-02-19 to 2021-02-26) = TVDB 0x07-0x08 (2021-02-19 to 2021-02-26), was 0x09-0x10, by position inside a run of title matches. AniDB special S11-S12 (2021-03-05 to 2021-03-12) = TVDB 0x09-0x10 (2021-03-05 to 2021-03-12), was 0x11-0x12, by title. AniDB special S28 (2021-07-02) has no TVDB episode, was 0x28. AniDB dates from the AniDB mirror at 7dd9b8e; TVDB from its official order.",
+  "justification": "Checked by episode title against TVDB series 355480 and TMDB show 88046. AniDB S1-S2 (\"第8科学調査隊 (前編)\" (Episode S1) to \"第8科学調査隊 (後編)\" (Episode S2)) have no TVDB episode (their defaults are other items) and no TMDB episode (their defaults are other items); AniDB S3-S32 (\"ミニアニメ#1 好きな音楽編\" (Mini Anime #1) to \"Mini Anime #30\") are TVDB S0E1 \"Mini 01 - Favorite Music\" to TVDB S0E30 \"Mini 30 - The Fastest Beast\" and TMDB S0E1 \"Mini Anime #1\" to TMDB S0E30 \"Mini Anime #30\".",
   "upstream": "https://github.com/Anime-Lists/anime-lists/pull/629",
   "captured": {
     "tvdb": {
@@ -386,8 +376,8 @@
       ],
       "series": 355480
     },
-    "at": "2026-10-06",
-    "anime_lists_commit": "e1f49aafd112ad15375dda75559d49acbf53b9a1",
+    "at": "2026-10-14",
+    "anime_lists_commit": "ca604489ff4600205459bbb41b22389d52a469da",
     "node_sha256": "a555771808ae0b9946a38e348bd734cd28cc5649362cf893477f4dcf1a79abdf"
   },
   "anilist_ids": [

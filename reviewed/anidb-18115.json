@@ -1,0 +1,19 @@
+{
+  "key": "anime:anidb:18115",
+  "title": "Koi wa Futago de Warikirenai",
+  "parts": {
+    "date-tvdb": {
+      "findings": {
+        "date-mismatch:S2": "956f65774ac344e33fc2ba1b1d44ed5351a177fa22ba87bd11427545ef0f6aa6"
+      },
+      "verdict": "fine",
+      "date": "2026-10-14",
+      "reason": "Only the air dates differ: each flagged episode is the same episode on both sides by title and episode order. S2 \"Episode S2 / Moeha to Maaya no Futa Kire Sanpo\" (2024-08-05) = S0E1 \"Moe Ye and Makoto's Futakire Walk\" (2024-08-09).",
+      "evidence": [
+        "https://thetvdb.com/dereferrer/episode/10809322",
+        "https://anidb.net/anime/18115",
+        "https://thetvdb.com/dereferrer/series/437209"
+      ]
+    }
+  }
+}
