@@ -304,19 +304,25 @@ func (r *reviewRun) loadSources(c *reviewConfig) error {
 		r.aod = aniDBByAniList(aod)
 	}
 	if c.releasePath != "" {
-		f, err := os.Open(c.releasePath)
+		rel, err := loadRelease(c.releasePath)
 		if err != nil {
 			return err
 		}
-		defer func() { _ = f.Close() }()
-		if r.release, err = schema.Decode(f); err != nil {
-			return err
-		}
+		r.release = rel
 	}
 	if r.token == "" && r.facts != nil {
 		r.health[review.DateTMDB] = &sourceHealth{UnevaluatedReason: "TMDB_TOKEN is not set"}
 	}
 	return nil
+}
+
+func loadRelease(path string) (*schema.Document, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer func() { _ = f.Close() }()
+	return schema.Decode(f)
 }
 
 // loadStore reads a layouts file; one it cannot use starts empty, so its
