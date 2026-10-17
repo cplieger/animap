@@ -11,72 +11,186 @@ import (
 	"testing"
 
 	"github.com/cplieger/animap/internal/review"
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/mapread"
 )
 
-// TestGaps pins each route and scope arm against seadex-scout at 3c723d0:
-// mapping.RoutedIDs and match.FindByID route a MOVIE by TMDB or IMDb id,
-// then TVDB, and any other type by TVDB id, else TMDB movie ids (never
-// IMDb); align.scope lets Radarr decide a movie's scope and scopes a
-// Sonarr match by RecordSeason, falling back to the whole season bucket
-// when the placement lands nowhere.
+func tv(ts ...mapread.Target) *[]mapread.Target {
+	if ts == nil {
+		ts = []mapread.Target{}
+	}
+	return &ts
+}
+
+func at(season, episode int) mapread.Target { return mapread.Target{Season: season, Episode: episode} }
+
+func whole(aid int) []mapread.Part { return []mapread.Part{{AniDBID: aid, Kind: mapread.Regular}} }
+
+func combined(aid int) []mapread.Part {
+	return []mapread.Part{{AniDBID: aid, Kind: mapread.Regular, Combined: true}}
+}
+
+// TestGaps pins each route and scope arm against seadex-scout's reading of
+// an entry: mapping.RoutedIDs and match.FindByID route a MOVIE by TMDB or
+// IMDb id, then TVDB, and any other type by TVDB id, else TMDB movie ids
+// (never IMDb); align.scope lets Radarr decide a movie's scope, compares a
+// Sonarr match on its positive seasons, or on the whole series when an
+// episode has nothing stated, and needs every episode of an entry wholly on
+// season 0 stated there.
 func TestGaps(t *testing.T) {
-	s0, s1 := new(0), new(1)
-	placed := []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(3)}, {Start: 2, End: 2}}
-	onSeason1 := []schema.Segment{{Start: 1, End: 1, Season: new(1), Episode: new(1)}}
-	nowhere := []schema.Segment{{Start: 1, End: 2}}
+	two := mapread.Last{Regular: 2}
 	for _, tc := range []struct {
-		rec  *schema.Record
-		name string
-		want []Gap
+		anime mapread.Anime
+		entry *mapread.Entry
+		name  string
+		want  []Gap
 	}{
-		{nil, "no record", []Gap{noRecord}},
-		{&schema.Record{AniListID: 1, Type: "SPECIAL"}, "no route and no AniDB id", []Gap{noAniDB}},
-		{&schema.Record{AniDBID: 1, Type: "OVA"}, "no route", []Gap{noTVDB}},
-		{&schema.Record{AniDBID: 1, Type: "UNKNOWN"}, "no route and no type", []Gap{unknownType}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE"}, "a movie with no route", []Gap{movieNoRoute}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", TMDBTVID: 9}, "a TMDB show routes nowhere", []Gap{noTVDB}},
-		{&schema.Record{AniDBID: 1, Type: "SPECIAL", IMDbIDs: []string{"tt0000001"}}, "IMDb never routes a non-MOVIE", []Gap{noTVDB}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", TMDBMovieIDs: []int{9}}, "a non-MOVIE with no TVDB id goes to Radarr", nil},
-		{&schema.Record{AniDBID: 1, Type: "UNKNOWN", TMDBMovieIDs: []int{9}}, "an untyped record goes to Radarr", nil},
-		{&schema.Record{AniDBID: 1, Type: "ONA", TVDBID: 5, TMDBMovieIDs: []int{9}}, "a non-MOVIE with a TVDB id goes to Sonarr only", []Gap{noTVDBSeason}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TMDBMovieIDs: []int{9}}, "a movie's TMDB id goes to Radarr", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", IMDbIDs: []string{"tt0000001"}}, "a movie's IMDb id goes to Radarr", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TMDBMovieIDs: []int{9}}, "Radarr decides a movie's scope whatever its season 0", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", TVDBID: 5, TVDBSeason: s1}, "a movie with no Radarr id goes to Sonarr", nil},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0}, "a movie special Sonarr cannot scope", []Gap{movieSpecialUnresolved}},
-		{&schema.Record{AniDBID: 1, Type: "MOVIE", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "a movie special placed", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: s1}, "a season", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBAbsolute: true}, "absolute numbering", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5}, "no season and not absolute", []Gap{noTVDBSeason}},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: s1, TVDBPlacement: placed}, "a season placed partly nowhere", nil},
-		{&schema.Record{AniDBID: 1, Type: "TV", TVDBID: 5, TVDBSeason: new(5), TVDBPlacement: nowhere}, "a season placed wholly nowhere", []Gap{landsNowhere}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: placed}, "season 0 placed on specials", nil},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 2, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: nowhere}, "season 0 placed wholly nowhere", []Gap{landsNowhere}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 1, TVDBID: 5, TVDBSeason: s0, TVDBPlacement: onSeason1}, "season 0 placed on a regular season", []Gap{season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "OVA", Episodes: 3, TVDBID: 5, TVDBSeason: s0}, "season 0 not placed", []Gap{season0Unresolved}},
-		{&schema.Record{AniDBID: 1, Type: "SPECIAL", TVDBID: 5, TVDBSeason: s0}, "season 0 with no count", []Gap{episodeCountUnknown}},
+		{name: "no entry", want: []Gap{noRecord}},
+		{name: "no route and no AniDB id", entry: &mapread.Entry{AniListID: 1, Type: "SPECIAL"}, want: []Gap{noAniDB}},
+		{name: "ambiguous, so no parts", entry: &mapread.Entry{AniListID: 1, Type: "TV", IDs: &mapread.IDs{AniDB: []int{1, 2}}}, want: []Gap{noAniDB}},
+		{name: "no route", anime: mapread.Anime{Type: "OVA", Last: two}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}, want: []Gap{noTVDB}},
+		{name: "no route and no type", entry: &mapread.Entry{Type: "UNKNOWN", Parts: whole(1)}, want: []Gap{unknownType}},
+		{name: "a movie with no route", entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)}, want: []Gap{movieNoRoute}},
+		{name: "a TMDB show routes nowhere", anime: mapread.Anime{TMDBTVID: 9}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}, want: []Gap{noTVDB}},
+		{name: "IMDb never routes a non-MOVIE", anime: mapread.Anime{IMDbIDs: []string{"tt0000001"}}, entry: &mapread.Entry{Type: "SPECIAL", Parts: whole(1)}, want: []Gap{noTVDB}},
+		{name: "a non-MOVIE with no TVDB id goes to Radarr", anime: mapread.Anime{TMDBMovieIDs: []int{9}}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}},
+		{name: "an untyped entry goes to Radarr", anime: mapread.Anime{TMDBMovieIDs: []int{9}}, entry: &mapread.Entry{Type: "UNKNOWN", Parts: whole(1)}},
+		{name: "a non-MOVIE with a TVDB id goes to Sonarr only", anime: mapread.Anime{TVDBID: 5, TMDBMovieIDs: []int{9}}, entry: &mapread.Entry{Type: "ONA", Parts: whole(1)}, want: []Gap{episodeCountUnknown}},
+		{name: "a movie's TMDB id goes to Radarr", anime: mapread.Anime{TMDBMovieIDs: []int{9}}, entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)}},
+		{name: "a movie's IMDb id goes to Radarr", anime: mapread.Anime{IMDbIDs: []string{"tt0000001"}}, entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)}},
+		{
+			name:  "Radarr decides a movie's scope whatever its season 0",
+			anime: mapread.Anime{TVDBID: 5, TMDBMovieIDs: []int{9}, Last: mapread.Last{Regular: 1}, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1}}},
+			entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)},
+		},
+		{
+			name:  "a link to a movie anime's specials does not inherit its films",
+			anime: mapread.Anime{TVDBID: 5, TMDBMovieIDs: []int{9}, Last: mapread.Last{Special: 1}, Episodes: []mapread.Run{{Kind: mapread.Special, Start: 1, End: 1, TVDB: tv(mapread.Target{Episode: 1, Default: true})}}},
+			entry: &mapread.Entry{Type: "MOVIE", Parts: []mapread.Part{{AniDBID: 1, Kind: mapread.Special, Start: 1, End: 1}}}, want: []Gap{movieSpecialUnresolved},
+		},
+		{name: "a movie with no Radarr id on a season goes to Sonarr", anime: mapread.Anime{TVDBID: 5, Last: mapread.Last{Regular: 1}, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(1, 1))}}}, entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)}},
+		{
+			name:  "a movie special Sonarr cannot scope",
+			anime: mapread.Anime{TVDBID: 5, Last: mapread.Last{Regular: 1}, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(mapread.Target{Episode: 1, Default: true})}}},
+			entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)}, want: []Gap{movieSpecialUnresolved},
+		},
+		{name: "a movie special stated", anime: mapread.Anime{TVDBID: 5, Last: mapread.Last{Regular: 1}, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 3))}}}, entry: &mapread.Entry{Type: "MOVIE", Parts: whole(1)}},
+		{name: "a season by default", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 2, TVDB: tv(mapread.Target{Season: 1, Episode: 1, Default: true})}}}, entry: &mapread.Entry{Type: "TV", Parts: whole(1)}},
+		{name: "absolute numbering nothing resolves", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 2}}}, entry: &mapread.Entry{Type: "TV", Parts: whole(1)}},
+		{name: "partly nowhere and partly nothing stated", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1}}}, entry: &mapread.Entry{Type: "TV", Parts: whole(1)}},
+		{name: "a season placed partly nowhere", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(1, 1))}}}, entry: &mapread.Entry{Type: "TV", Parts: whole(1)}},
+		{name: "wholly nowhere", anime: mapread.Anime{TVDBID: 5, Last: two}, entry: &mapread.Entry{Type: "TV", Parts: whole(1)}, want: []Gap{landsNowhere}},
+		{name: "season 0 stated", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 2, TVDB: tv(at(0, 4))}}}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}},
+		{name: "season 0 stated and partly nowhere", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 2, End: 2, TVDB: tv(at(0, 4))}}}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}},
+		{name: "season 0 by default", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 2, TVDB: tv(mapread.Target{Episode: 1, Default: true})}}}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}, want: []Gap{season0Unresolved}},
+		{name: "season 0 with one episode unstated", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 4))}, {Kind: mapread.Regular, Start: 2, End: 2}}}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}, want: []Gap{season0Unresolved}},
+		{name: "season 0 and a regular season", anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 4))}, {Kind: mapread.Regular, Start: 2, End: 2, TVDB: tv(mapread.Target{Season: 2, Episode: 1, Default: true})}}}, entry: &mapread.Entry{Type: "OVA", Parts: whole(1)}},
+		{name: "a link to stated specials", anime: mapread.Anime{TVDBID: 5, Last: mapread.Last{Special: 3}, Episodes: []mapread.Run{{Kind: mapread.Special, Start: 2, End: 3, TVDB: tv(at(0, 6))}}}, entry: &mapread.Entry{Type: "ONA", Parts: []mapread.Part{{AniDBID: 1, Kind: mapread.Special, Start: 2, End: 3}}}},
+		{
+			name:  "a combined episode stated on season 0 by one of its AniDB episodes",
+			anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 4))}, {Kind: mapread.Regular, Start: 2, End: 2}}},
+			entry: &mapread.Entry{Type: "OVA", Parts: combined(1)},
+		},
+		{
+			name:  "a combined episode on season 0 only by default",
+			anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(mapread.Target{Episode: 4, Default: true})}, {Kind: mapread.Regular, Start: 2, End: 2}}},
+			entry: &mapread.Entry{Type: "OVA", Parts: combined(1)}, want: []Gap{season0Unresolved},
+		},
+		{name: "a combined episode nowhere", anime: mapread.Anime{TVDBID: 5, Last: two}, entry: &mapread.Entry{Type: "OVA", Parts: combined(1)}, want: []Gap{landsNowhere}},
+		{
+			name:  "a combined episode partly nowhere and partly nothing stated",
+			anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 2, End: 2}}},
+			entry: &mapread.Entry{Type: "OVA", Parts: combined(1)},
+		},
+		{
+			name:  "a combined episode on season 0, by default then stated",
+			anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(mapread.Target{Episode: 4, Default: true})}, {Kind: mapread.Regular, Start: 2, End: 2, TVDB: tv(at(0, 5))}}},
+			entry: &mapread.Entry{Type: "OVA", Parts: combined(1)}, want: []Gap{season0Unresolved},
+		},
+		{
+			name:  "a combined episode on season 0, stated then by default",
+			anime: mapread.Anime{TVDBID: 5, Last: two, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 4))}, {Kind: mapread.Regular, Start: 2, End: 2, TVDB: tv(mapread.Target{Episode: 5, Default: true})}}},
+			entry: &mapread.Entry{Type: "OVA", Parts: combined(1)}, want: []Gap{season0Unresolved},
+		},
+		{name: "no episodes counted", anime: mapread.Anime{TVDBID: 5}, entry: &mapread.Entry{Type: "SPECIAL", Parts: whole(1)}, want: []Gap{episodeCountUnknown}},
+		{name: "a combined part with no episodes counted", anime: mapread.Anime{TVDBID: 5, Type: "OVA"}, entry: &mapread.Entry{Type: "OVA", Parts: combined(1)}, want: []Gap{episodeCountUnknown}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			if got := gaps(tc.rec); !slices.Equal(got, tc.want) {
-				t.Errorf("gaps(%+v) = %v, want %v", tc.rec, got, tc.want)
+			tc.anime.AniDBID = 1
+			x := mapread.NewIndex(&mapread.Document{Anime: []mapread.Anime{tc.anime}})
+			if got := gaps(x, tc.entry); !slices.Equal(got, tc.want) {
+				t.Errorf("gaps(%+v) = %v, want %v", tc.entry, got, tc.want)
 			}
 		})
 	}
 }
 
-func TestEvaluate(t *testing.T) {
-	doc := &schema.Document{Records: []schema.Record{
-		{AniListID: 1, AniDBID: 10, Type: "TV", TVDBID: 5, TVDBSeason: new(1)},
-		{AniListID: 2, Type: "SPECIAL"},
-		{AniDBID: 3, Type: "TV"},
-	}}
-	got := Evaluate([]int{3, 2, 1}, doc)
-	if len(got) != 2 || got[0].AniListID != 2 || got[1].AniListID != 3 || !slices.Equal(got[1].Gaps, []Gap{noRecord}) {
-		t.Fatalf("Evaluate = %+v, want 2 (no_anidb) then 3 (no_record; AniDB-keyed records are not AniList ids)", got)
+// TestGapsAcrossTVDBSeries pins the route of an entry whose parts name
+// anime on two TVDB series: seadex-scout's record names a TVDB series only
+// when the entry reaches exactly one, so two leave it no Sonarr route.
+func TestGapsAcrossTVDBSeries(t *testing.T) {
+	one := mapread.Last{Regular: 1}
+	onSeason := func(aid, series int, films ...int) mapread.Anime {
+		return mapread.Anime{AniDBID: aid, TVDBID: series, TMDBMovieIDs: films, Last: one, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(1, aid))}}}
 	}
-	if got[0].RecordSHA256 != review.RecordDigest(&doc.Records[1]) || got[1].RecordSHA256 != review.RecordDigest(nil) {
-		t.Errorf("Evaluate digests = %q, %q; want each record's digest, absent for no record", got[0].RecordSHA256, got[1].RecordSHA256)
+	both := []mapread.Part{{AniDBID: 1, Kind: mapread.Regular}, {AniDBID: 2, Kind: mapread.Regular}}
+	for _, tc := range []struct {
+		name  string
+		entry mapread.Entry
+		anime []mapread.Anime
+		want  []Gap
+	}{
+		{name: "two series, each on a season", anime: []mapread.Anime{onSeason(1, 5), onSeason(2, 6)}, entry: mapread.Entry{Type: "TV", Parts: both}, want: []Gap{severalTVDBSeries}},
+		{name: "a movie on two series with no Radarr id", anime: []mapread.Anime{onSeason(1, 5), onSeason(2, 6)}, entry: mapread.Entry{Type: "MOVIE", Parts: both}, want: []Gap{severalTVDBSeries}},
+		{name: "two series and a TMDB movie go to Radarr", anime: []mapread.Anime{onSeason(1, 5, 9), onSeason(2, 6)}, entry: mapread.Entry{Type: "OVA", Parts: both}},
+		{name: "two anime on one series go to Sonarr", anime: []mapread.Anime{onSeason(1, 5), onSeason(2, 5)}, entry: mapread.Entry{Type: "TV", Parts: both}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			x := mapread.NewIndex(&mapread.Document{Anime: tc.anime})
+			if got := gaps(x, &tc.entry); !slices.Equal(got, tc.want) {
+				t.Errorf("gaps(%+v) = %v, want %v", tc.entry, got, tc.want)
+			}
+		})
+	}
+}
+
+// The same AniDB episodes as one combined entry episode and as two read
+// differently, so a ruling on one never covers the other.
+func TestCombinedAndSeparateEpisodesDigestApart(t *testing.T) {
+	anime := mapread.Anime{AniDBID: 1, TVDBID: 5, Last: mapread.Last{Regular: 2}, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 4))}, {Kind: mapread.Regular, Start: 2, End: 2}}}
+	x := mapread.NewIndex(&mapread.Document{Anime: []mapread.Anime{anime}})
+	one := &mapread.Entry{AniListID: 1, Type: "OVA", Parts: combined(1)}
+	two := &mapread.Entry{AniListID: 1, Type: "OVA", Parts: []mapread.Part{{AniDBID: 1, Kind: mapread.Regular, Start: 1, End: 2}}}
+	if g1, g2 := gaps(x, one), gaps(x, two); slices.Equal(g1, g2) {
+		t.Fatalf("gaps = %v and %v, want the two shapes to read differently", g1, g2)
+	}
+	if d := review.RecordDigest(x, one); d == review.RecordDigest(x, two) {
+		t.Errorf("both shapes digest to %s", d)
+	}
+}
+
+func TestEvaluate(t *testing.T) {
+	doc := &mapread.Document{
+		Anime: []mapread.Anime{{AniDBID: 10, TVDBID: 5, Last: mapread.Last{Regular: 1}, Episodes: []mapread.Run{{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(at(0, 1))}}}},
+		Entries: []mapread.Entry{
+			{AniListID: 1, Type: "TV", Parts: whole(10)},
+			{AniListID: 2, Type: "SPECIAL"},
+			{Type: "OVA", IDs: &mapread.IDs{MAL: []int{3}}},
+			{AniListID: 4, Type: "MOVIE", Parts: []mapread.Part{{AniDBID: 10, Kind: mapread.Regular, Start: 1, End: 1}}},
+		},
+	}
+	x := mapread.NewIndex(doc)
+	got := Evaluate([]int{3, 2, 1, 4}, x)
+	if len(got) != 2 || got[0].AniListID != 2 || got[1].AniListID != 3 || !slices.Equal(got[1].Gaps, []Gap{noRecord}) {
+		t.Fatalf("Evaluate = %+v, want 2 (no_anidb) then 3 (no_record; entries with no AniList id are not AniList ids)", got)
+	}
+	if got[0].RecordSHA256 != review.RecordDigest(x, &doc.Entries[1]) || got[1].RecordSHA256 != review.RecordDigest(x, nil) {
+		t.Errorf("Evaluate digests = %q, %q; want each entry's digest, absent for none", got[0].RecordSHA256, got[1].RecordSHA256)
+	}
+	doc.Anime[0].Episodes = nil
+	x = mapread.NewIndex(doc)
+	got = Evaluate([]int{1, 4}, x)
+	if len(got) != 2 || got[0].AniDBID != 10 || got[0].TVDBID != 5 || got[1].AniDBID != 0 || got[1].TVDBID != 5 {
+		t.Errorf("Evaluate = %+v, want AniList 1 the anime it is (AniDB 10) and the series it reaches, AniList 4 a link to it with the series only", got)
 	}
 }
 
@@ -130,43 +244,6 @@ func TestLoadSeadexConfig(t *testing.T) {
 	}
 	if got := EntryLink(c.EntryURL, 154587); got != "https://seadex.moe/154587" {
 		t.Errorf("EntryLink = %s", got)
-	}
-}
-
-func TestGapsLinkedRecord(t *testing.T) {
-	row := func(season int, pairs ...[]int) []schema.Row {
-		return []schema.Row{{AniDBSeason: 1, TVDBSeason: new(season), Episodes: pairs}}
-	}
-	for _, tc := range []struct {
-		rec  *schema.Record
-		name string
-		want []Gap
-	}{
-		{&schema.Record{
-			AniListID: 9, Type: "SPECIAL", Episodes: 1, TVDBID: 5, TVDBSeason: new(0),
-			AniDBParent: &schema.ParentSpecials{AniDBID: 100, Specials: []int{1}}, MappingList: row(0, []int{1, 8}),
-			TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(0), Episode: new(8)}},
-		}, "a linked special", nil},
-		{&schema.Record{
-			AniListID: 1563, Type: "TV", Episodes: 29, TVDBID: 71634, TVDBSeason: new(2), MappingList: row(2, []int{1, 1}),
-			TVDBPlacement: []schema.Segment{{Start: 1, End: 29, Season: new(2), Episode: new(1)}},
-		}, "a linked regular run", nil},
-		{&schema.Record{
-			AniListID: 2593, Type: "MOVIE", Episodes: 1, TVDBID: 82099, TVDBSeason: new(1), MappingList: row(1, []int{1, 1}),
-			TVDBPlacement: []schema.Segment{{Start: 1, End: 1, Season: new(1), Episode: new(1)}},
-		}, "a linked film", nil},
-		{&schema.Record{
-			AniListID: 2269, Type: "SPECIAL", Episodes: 3, TVDBID: 254931, TVDBSeason: new(0), MappingList: row(0, []int{1, 2}, []int{2, 3}, []int{3, 4}),
-			TVDBPlacement: []schema.Segment{{Start: 1, End: 3, Season: new(0), Episode: new(2)}},
-		}, "a linked compilation", nil},
-		{&schema.Record{AniListID: 9, Type: "OVA", Episodes: 1, TMDBMovieIDs: []int{9}}, "no AniDB id and no link, a Radarr route", nil},
-		{&schema.Record{AniListID: 9, Type: "OVA", Episodes: 1}, "no AniDB id and no link", []Gap{noAniDB}},
-	} {
-		t.Run(tc.name, func(t *testing.T) {
-			if g := gaps(tc.rec); !slices.Equal(g, tc.want) {
-				t.Errorf("gaps = %v, want %v", g, tc.want)
-			}
-		})
 	}
 }
 

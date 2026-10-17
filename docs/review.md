@@ -15,8 +15,8 @@ An issue belongs to the file that fixes it:
 
 | Key | Covers |
 | --- | --- |
-| `anime:anidb:<id>` | Both date checks and the overlay entry of AniDB node `<id>`, and the watch gap of every published record with that AniDB id, unless an overlay link names the record's AniList id |
-| `anime:anilist:<id>` | The overlay link `overlay/links/<id>.json`, and the watch gap of an AniList record with no AniDB id or one a link names |
+| `anime:anidb:<id>` | Both date checks and the overlay entry of AniDB node `<id>`, and the watch gap of every published AniList entry that is that whole anime, unless an overlay link the build applies names the entry's AniList id |
+| `anime:anilist:<id>` | The overlay link `overlay/links/<id>.json`, and the watch gap of an AniList entry that is not one whole anime or that an applied link names |
 
 The key sits in a marker at the end of the issue body. The title names the anime and the checks that disagree, for example `anime: AniDB 3195 Kamichu!, TVDB and TMDB dates, overlay drift`. An issue kept open only by a check that could not run names that check instead, for example `anime: AniDB 3195 Kamichu!, TMDB dates not checked`. Every issue carries the labels `animap` and `anime`. Anime that share one TVDB series keep one issue each, and a dead series names in each issue the other anime it raised.
 
@@ -30,10 +30,10 @@ A run opens or reopens at most 50 issues, edits at most 50 and closes at most 50
 
 One pinned issue, "Daily review: summary", shows:
 
-- whether each check ran, and why not when it did not, with a notice at the top while TMDB is not checked;
-- how many anime each check raises;
-- the acceptance parts to delete, because their check is clear without them;
-- the anime waiting for an issue over the run's limit;
+- whether each check ran, and why not when it did not, with a notice at the top while TMDB is not checked
+- how many anime each check raises
+- the acceptance parts to delete, because their check is clear without them
+- the anime waiting for an issue over the run's limit
 - how many date sections an acceptance part covered on this run, by verdict, and every accepted watch gap with its reason, as the old unmappable list did. A date part's reason names episode titles, so it stays in its file.
 
 ## Accepting a finding
@@ -55,7 +55,7 @@ go run ./cmd/animap accept -from review.json -key anime:anidb:3195 -part date-tv
   -evidence https://anidb.net/anime/3195 -evidence https://thetvdb.com/series/kamichu/seasons/official/1
 ```
 
-For a watch gap, add `-anilist <id>` when the anime has more than one watched record. The reason names the episodes and their titles on each side, or the search that found nothing. Each `-evidence` is an https link to an AniDB, TVDB, TMDB, AniList or SeaDex page. The command refuses a key or part the report does not raise, a verdict the part does not take, an empty reason, any other link, and a file over 256 KiB. It never touches an existing file unless you add `-force`, which adds the part or replaces it. Commit the file it writes.
+For a watch gap, add `-anilist <id>` when the anime has more than one watched entry. The reason names the episodes and their titles on each side, or the search that found nothing. Each `-evidence` is an https link to an AniDB, TVDB, TMDB, AniList or SeaDex page. The command refuses a key or part the report does not raise, a verdict the part does not take, an empty reason, any other link, and a file over 256 KiB. It never touches an existing file unless you add `-force`, which adds the part or replaces it. Commit the file it writes.
 
 Pull request CI and `animap build` read every record and refuse one that does not parse or is named for another key.
 
@@ -63,8 +63,8 @@ Pull request CI and `animap build` read every record and refuse one that does no
 
 A part covers only what it was written against:
 
-- A date part keeps, for each finding it accepted, a SHA-256 of what that finding rests on: the TVDB series or TMDB show it was judged on; the AniDB episode with its kind, number, air date and a digest of its titles; every target the node gives it, with that episode's number, absolute number, air date and title digest, or that it is missing; whether the node's default placed it; the link naming it; the episodes that air within a day of the AniDB date; and whether the provider still serves the show. A dead show's finding rests on the show's id alone.
-- A watch part keeps the gaps it accepted and a SHA-256 of the fields of the published record the watch reads: `type`, `anidb_id`, `anidb_parent`, `tvdb_id`, `tvdb_season`, `tvdb_absolute`, `tvdb_placement`, `tmdb_movie_ids`, `imdb_ids` and `episodes`.
+- A date part keeps, for each finding it accepted, a SHA-256 of what that finding rests on. That is the TVDB series or TMDB show it was judged on, the AniDB episode with its kind, number, air date and a digest of its titles, and every target the node gives it, with that episode's number, absolute number, air date and title digest, or that it is missing. It is also whether the node's default placed it, the link naming it, the episodes that air within a day of the AniDB date, and whether the provider still serves the show. A dead show's finding rests on the show's id alone.
+- A watch part keeps the gaps it accepted and a SHA-256 of what the watch reads of the published entry: its `type`, the TVDB series, TMDB movie and IMDb ids its parts reach, and, for each of its episodes in order, the AniDB episodes that episode is, each with its anime, kind and number and where it lands on TVDB. One episode made of several AniDB episodes and the same AniDB episodes as separate episodes digest apart. A change to the entry's other ids, its episode count, a TMDB placement or an episode of the anime the entry is not does not move it.
 
 A part stops covering its section when one of those digests moves, or when a finding or gap it does not list appears. A finding that clears changes nothing. The section then comes back with one sentence saying which part was written and why it no longer covers the finding. Review it again, then fix the mapping or accept it again with `-force`.
 
@@ -72,7 +72,7 @@ A part whose check is clear without it shows in the summary as one to delete.
 
 ## Explaining one anime
 
-`animap explain` prints, for one key, the issue the anime would get and every AniDB episode of every kind with where the node puts it on TVDB and on TMDB, each target's date and title digest, and every other node or link that claims the same target. With `-json` it adds, for each show those nodes map to, every node on it and every episode with its claims; the published records of the anime (`-release`) with anime-offline-database's AniDB ids for them (`-aod`); and the AniDB ids those name that the anime's own nodes are not, with their episodes, so an AniList record no node carries can still be traced:
+`animap explain` prints, for one key, the issue the anime would get and every AniDB episode of every kind with where the node puts it on TVDB and on TMDB, each target's date and title digest, and every other node or link that claims the same target. Each episode carries its AniDB number, and a credit, promotion, parody or other episode its Anime-Lists season 0 number too, or none when no Anime-Lists number addresses it, so it lands nowhere. With `-json` it adds, for each show those nodes map to, every node on it and every episode with its claims, the published entries of the anime (`-release`) with anime-offline-database's AniDB ids for them (`-aod`), and the published anime rows of its nodes and of the AniDB ids those entries name that the anime's own nodes are not, with their episodes, so an AniList entry no node carries can still be traced:
 
 ```sh
 export CACHE_DIR=$PWD/.cache
@@ -81,8 +81,8 @@ go run ./cmd/animap explain -key anime:anidb:3195 -list anime-list-master.xml \
   -layouts-tvdb .cache/layouts-tvdb.json -layouts-tmdb .cache/layouts-tmdb.json -fetch
 ```
 
-`-fetch` reads that anime's TVDB and TMDB shows first and writes no layout file; TMDB needs `TMDB_TOKEN` in the environment. `-review review.json` takes the sections from a daily run's report instead of judging them now. `-json` prints the same report as `review.json`, with the episode detail added, and `animap accept -from` reads it.
+`-fetch` reads that anime's TVDB and TMDB shows first and writes no layout file. TMDB needs `TMDB_TOKEN` in the environment. `-review review.json` takes the sections from a daily run's report instead of judging them now. `-json` prints the same report as `review.json`, with the episode detail added, and `animap accept -from` reads it.
 
 ## Running it yourself
 
-`DRY_RUN=1 bash scripts/daily-review.sh` runs the whole review, reads the live issue list, and writes `review.json` and `actions.json` without changing any issue. `DRY_RUN` unset or empty applies the plan; any value but `0` or `1` is read as a dry run. It needs `gh`, `curl`, `jq` and Go, and reads `TMDB_TOKEN` from the environment.
+`DRY_RUN=1 bash scripts/daily-review.sh` runs the whole review, reads the live issue list, and writes `review.json` and `actions.json` without changing any issue. `DRY_RUN` unset or empty applies the plan, and any value but `0` or `1` is read as a dry run. It needs `gh`, `curl`, `jq` and Go, and reads `TMDB_TOKEN` from the environment.

@@ -19,6 +19,10 @@ var ErrBaselineGrew = errors.New("guard: the collision baseline gained an entry"
 // baselineVersion is the file format version.
 const baselineVersion = 1
 
+// maxBaselineBytes bounds the baseline file, about 50 times the 2026-10
+// one (85 KB).
+const maxBaselineBytes = 4 << 20
+
 // Baseline is the tracked set of collisions the overlay leaves as
 // Anime-Lists has them, and of nodes with no regular episode count on
 // series no overlay entry touches. An item in it is
@@ -63,7 +67,7 @@ var basisRE = regexp.MustCompile(`^[a-z0-9-]+(/[a-z0-9-]+)*$`)
 // LoadBaseline reads a baseline strictly; a missing file is an empty one.
 // An empty basis is a file written before the field existed.
 func LoadBaseline(path string) (*Baseline, error) {
-	body, err := os.ReadFile(path)
+	body, err := strictjson.ReadFile(path, maxBaselineBytes)
 	if errors.Is(err, os.ErrNotExist) {
 		return &Baseline{Version: baselineVersion}, nil
 	}
@@ -71,7 +75,7 @@ func LoadBaseline(path string) (*Baseline, error) {
 		return nil, err
 	}
 	var b Baseline
-	if err := strictjson.Decode(body, &b); err != nil {
+	if err := strictjson.Decode(body, maxBaselineBytes, &b); err != nil {
 		return nil, fmt.Errorf("guard: baseline %s: %w", path, err)
 	}
 	if b.Version != baselineVersion {

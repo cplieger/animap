@@ -1,8 +1,8 @@
 # The date check
 
-The date check looks for Anime-Lists mappings that air dates contradict. For every regular episode and special an Anime-Lists node maps to TVDB or TMDB, it compares two dates. One is the episode's air date in the AniDB mirror. The other is the air date of the episode the node points to, in TVDB's official order or in TMDB's episode order. A credit, promotion, parody or other episode is checked only where a mapping row or an overlay link names it, and since the mirror keeps no date for those kinds, only for whether its target exists. A node that fails is a lead for a person to look at, in the anime's issue of the [daily review](review.md). The check never stops a build or a release, and no pull request waits for it.
+The date check looks for Anime-Lists mappings that air dates contradict. For every regular episode and special an Anime-Lists node maps to TVDB or TMDB, it compares two dates. One is the episode's air date in the AniDB mirror. The other is the air date of the episode the node points to, in TVDB's official order or in TMDB's episode order. A credit, promotion, parody or other episode is checked only where a mapping row or an overlay link the build applies names it, and since the mirror keeps no date for those kinds, only for whether its target exists. A node that fails is a lead for a person to look at, in the anime's issue of the [daily review](review.md). The check never stops a build or a release, and no pull request waits for it.
 
-Both sides follow the same rules below, with TMDB in place of TVDB. A node's TMDB side reads `tmdbtv`, `tmdbseason`, `tmdboffset` and the rows' `tmdbseason`; TMDB numbers no episode absolutely. A TMDB movie the node names in `tmdbid` is checked only for whether TMDB still serves it: Anime-Lists maps no episode onto a movie, so there is nothing to compare.
+Both sides follow the same rules below, with TMDB in place of TVDB. A node's TMDB side reads `tmdbtv`, `tmdbseason`, `tmdboffset` and the rows' `tmdbseason`. TMDB numbers no episode absolutely. A TMDB movie the node names in `tmdbid` is checked only for whether TMDB still serves it: Anime-Lists maps no episode onto a movie, so there is nothing to compare.
 
 ## What raises a lead
 
@@ -14,7 +14,7 @@ A node is a lead when any of these holds:
 - A special it maps to airs more than a day away from the AniDB special, no TVDB special airs on the AniDB date, and the series keeps AniDB's calendar. A series keeps it when at least one regular AniDB date has a TVDB episode within a day. That date must be precise to the day and belong to one episode only.
 - The node fails the order check, which reads the date mismatches the other rules leave undecided. That check looks for two AniDB episodes the node maps to one TVDB episode while an AniDB episode numbered between them lands after it. Episodes that air one after the other cannot go back to a TVDB episode already used. The issue lists the episodes involved as out of order.
 
-The check reads a node the way the published file does. The overlay entries apply first. A mapping row that names the episode decides where it goes. Otherwise a regular episode goes to `defaulttvdbseason` at its number plus `episodeoffset`, and with `defaulttvdbseason="a"` to that absolute number. A special no row names goes to TVDB season 0 with the same number, which is how Anime-Lists reads it.
+The check reads a node the way the published file does. The overlay entries apply first. A mapping row that names the episode decides where it goes. Otherwise a regular episode goes to `defaulttvdbseason` at its number plus `episodeoffset`, and with `defaulttvdbseason="a"` to that absolute number. A special no row names goes to TVDB season 0 with the same number, which is how Anime-Lists reads it. Where no `episodeoffset` is written, or a special has no row, the published file flags the target `default`.
 
 ## What the check skips
 
@@ -29,8 +29,8 @@ Some dates cannot decide anything, so the check leaves them out. Each rule has a
 - The order check leaves out TVDB season 0, because specials have no airing order.
 - For a special, only a TVDB special counts as the other episode. A regular episode that airs on the day of a special is no evidence.
 - Take a regular episode the node's default places in TVDB season 1 or later. It is skipped when its TVDB episode is at most 31 days away and another episode of that season airs on the AniDB date. Two sources that number a season alike and keep different broadcast schedules look exactly like that, for example after a pre-emption.
-- A special no row names counts as missing only when another TVDB special airs on its date. TVDB not listing a special at all is no mapping error. Checked by hand, 18 of 20 such specials were not on TVDB at all. They were music videos, interviews, credit sequences and pre-broadcast specials. A special an overlay link names counts as missing whenever TVDB lacks its target, since a published record points there.
-- A node whose anime has no episode list in the AniDB mirror is not checked against a show; its TMDB movies still are.
+- A special no row names counts as missing only when another TVDB special airs on its date. TVDB not listing a special at all is no mapping error. Checked by hand, 18 of 20 such specials were not on TVDB at all. They were music videos, interviews, credit sequences and pre-broadcast specials. A special an applied overlay link names counts as missing whenever TVDB lacks its target, since a published entry points there.
+- A node whose anime has no episode list in the AniDB mirror is not checked against a show, though its TMDB movies still are.
 
 ## Known limits
 
@@ -51,7 +51,7 @@ The check runs in the daily review and checks every node each time. It reads the
 A show the review cannot read on a run, because its fetch failed or the budget ran out, keeps its older copy for later, and its nodes are not checked on that run, so their sections stay as they are.
 
 - **TVDB**, through SkyHook at one request a second. A series is fetched again once its copy is over 6 days old, so the copies one full read fetched come due together on the daily run a week later. Every series an overlay entry captures is fetched on every run, because overlay drift compares it. A run fetches SkyHook for at most 90 minutes.
-- **TMDB**, through the TMDB API at four requests a second, a tenth of TMDB's limit. One request reads a show with its seasons 0 to 19. Each show and movie is fetched again on its own day of the week, the remainder of its id divided by 7, so no run reads all of them; one a run missed is fetched once its copy is over 8 days old. A run fetches TMDB for at most 60 minutes, at the same time as SkyHook.
+- **TMDB**, through the TMDB API at four requests a second, a tenth of TMDB's limit. One request reads a show with its seasons 0 to 19. Each show and movie is fetched again on its own day of the week, the remainder of its id divided by 7, so no run reads all of them. One a run missed is fetched once its copy is over 8 days old. A run fetches TMDB for at most 60 minutes, at the same time as SkyHook.
 
 The TMDB side needs a read access token in the `TMDB_TOKEN` repository secret. Without one, no TMDB section is checked, never cleared, and the summary issue says so. A token TMDB refuses fails the run after the issue plan applies.
 

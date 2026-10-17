@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"os"
 	"path/filepath"
 	"slices"
 	"strconv"
@@ -14,8 +13,8 @@ import (
 
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/strictjson"
+	"github.com/cplieger/animap/mapread"
 )
 
 // LinkDir is where links live, below the overlay directory.
@@ -148,12 +147,12 @@ func LoadLinks(dir string) ([]Link, error) {
 // its AniList id, which is what keeps one link per AniList id. It does not
 // validate, so capture-link can read a link it is about to capture.
 func ReadLink(path string) (Link, error) {
-	body, err := os.ReadFile(path)
+	body, err := strictjson.ReadFile(path, maxLinkBytes)
 	if err != nil {
 		return Link{}, err
 	}
 	var l Link
-	if err := strictjson.Decode(body, &l); err != nil {
+	if err := strictjson.Decode(body, maxLinkBytes, &l); err != nil {
 		return Link{}, fmt.Errorf("%w: %s: %w", errInvalid, path, err)
 	}
 	if want := strconv.Itoa(l.AniListID) + ".json"; filepath.Base(path) != want {
@@ -252,8 +251,8 @@ func (l *Link) Sources(facts *anidb.Facts) []Source {
 		p := &l.Parts[i]
 		if p.Whole {
 			a, _ := facts.Anime(p.AniDBID)
-			for k := 1; k <= len(a.Regular); k++ {
-				out = append(out, Source{AniDB: p.AniDBID, AniDBSeason: 1, Number: k, AniListEpisode: ep})
+			for _, e := range a.Regular {
+				out = append(out, Source{AniDB: p.AniDBID, AniDBSeason: 1, Number: e.Number, AniListEpisode: ep})
 			}
 			ep++
 			continue
@@ -266,38 +265,83 @@ func (l *Link) Sources(facts *anidb.Facts) []Source {
 	return out
 }
 
-// Identity is the AniDB id the link makes the AniList entry, when it is one
-// part listing every regular episode facts lists for that anime, in order.
+// Identity is the AniDB id the link makes the AniList entry: when Listed
+// accepts it and Published is one regular part from 1 to identityEnd, so
+// the identity names no episode the link does not.
 func (l *Link) Identity(facts *anidb.Facts) (aniDBID int, ok bool) {
-	if len(l.Parts) != 1 || len(l.Parts[0].Episodes) == 0 {
+	ps := l.Published(facts)
+	if len(ps) != 1 || l.Listed(facts) != nil {
 		return 0, false
 	}
-	p := &l.Parts[0]
-	a, listed := facts.Anime(p.AniDBID)
-	if !listed || len(a.Regular) != len(p.Episodes) {
+	p := ps[0]
+	if p.Kind != mapread.Regular || p.Start != 1 || p.End != identityEnd(facts, p.AniDBID) {
 		return 0, false
-	}
-	for i, k := range p.Episodes {
-		if k != i+1 {
-			return 0, false
-		}
 	}
 	return p.AniDBID, true
 }
 
-// Listed refuses a source facts does not list with its kind.
+// identityEnd is the last regular episode an identity to aid names: its
+// Count; while no source counts it, every regular episode the mirror
+// lists, 1 to N under a listed link, whose rangeless part then names none
+// until a count exists and the link is classed again.
+func identityEnd(facts *anidb.Facts, aid int) int {
+	if n := facts.Count(aid); n > 0 {
+		return n
+	}
+	a, _ := facts.Anime(aid)
+	return len(a.Regular)
+}
+
+// Published are the link's parts as the file gives them its entry, in
+// AniDB's numbering: each run of consecutive numbers of one anime and kind
+// one ranged part, and a whole part one combined part.
+func (l *Link) Published(facts *anidb.Facts) []mapread.Part {
+	var out []mapread.Part
+	for i := range l.Parts {
+		p := &l.Parts[i]
+		if p.Whole {
+			out = append(out, mapread.Part{AniDBID: p.AniDBID, Kind: mapread.Regular, Combined: true})
+			continue
+		}
+		a, _ := facts.Anime(p.AniDBID)
+		for _, k := range p.Episodes {
+			out = extendPart(out, p.AniDBID, mapread.Regular, k)
+		}
+		for _, k := range p.Specials {
+			if kind, n, ok := a.SeasonZeroOf(k); ok {
+				out = extendPart(out, p.AniDBID, mapread.Kind(kind), n)
+			}
+		}
+	}
+	return out
+}
+
+func extendPart(parts []mapread.Part, aid int, kind mapread.Kind, n int) []mapread.Part {
+	if m := len(parts); m > 0 {
+		if last := &parts[m-1]; last.AniDBID == aid && last.Kind == kind && !last.Combined && last.End == n-1 {
+			last.End = n
+			return parts
+		}
+	}
+	return append(parts, mapread.Part{AniDBID: aid, Kind: kind, Start: n, End: n})
+}
+
+// Listed refuses a source facts does not list with its kind, and a whole
+// part unless facts lists exactly the anime's regular episodes 1 to its
+// Count: the published combined part names 1 to Count, and Sources the
+// listed ones.
 func (l *Link) Listed(facts *anidb.Facts) error {
 	for i := range l.Parts {
 		p := &l.Parts[i]
-		a, listed := facts.Anime(p.AniDBID)
+		a, _ := facts.Anime(p.AniDBID)
 		if p.Whole {
-			if len(a.Regular) == 0 {
-				return fmt.Errorf("AniList %d: AniDB %d lists no regular episode", l.AniListID, p.AniDBID)
+			if err := wholeListed(a.Regular, facts.Count(p.AniDBID)); err != nil {
+				return fmt.Errorf("AniList %d: AniDB %d %w", l.AniListID, p.AniDBID, err)
 			}
 			continue
 		}
 		for _, k := range p.numbers() {
-			ok := listed && k <= len(a.Regular)
+			_, ok := a.RegularEpisode(k)
 			if p.season() == 0 {
 				_, _, ok = a.SeasonZero(k)
 			}
@@ -305,6 +349,23 @@ func (l *Link) Listed(facts *anidb.Facts) error {
 				return fmt.Errorf("AniList %d: AniDB lists no %s for AniDB %d", l.AniListID, animelists.EpisodeLabel(p.season(), k), p.AniDBID)
 			}
 		}
+	}
+	return nil
+}
+
+// wholeListed is why regular, a sorted list, is not exactly episodes 1 to
+// count, nil when it is.
+func wholeListed(regular []anidb.Episode, count int) error {
+	if len(regular) == 0 {
+		return errors.New("lists no regular episode")
+	}
+	for i := range regular {
+		if k := regular[i].Number; k != i+1 {
+			return fmt.Errorf("lists regular episodes with a gap before ep%d, so a whole part cannot name them", k)
+		}
+	}
+	if n := len(regular); n != count {
+		return fmt.Errorf("lists %d regular episodes and counts %d, so a whole part cannot name them", n, count)
 	}
 	return nil
 }
@@ -322,8 +383,8 @@ func (l *Link) AniDBDigest(facts *anidb.Facts) string {
 			if e, _, ok := a.SeasonZero(s.Number); ok {
 				digest = e.Titles
 			}
-		} else if s.Number <= len(a.RegularTitles) {
-			digest = a.RegularTitles[s.Number-1]
+		} else if e, ok := a.RegularEpisode(s.Number); ok {
+			digest = e.Titles
 		}
 		fmt.Fprintf(h, "AniDB %d %s%d %s\n", s.AniDB, kind, s.Number, digest)
 	}
@@ -332,9 +393,9 @@ func (l *Link) AniDBDigest(facts *anidb.Facts) string {
 
 // Compile places every source through its node in patched with Place, and
 // takes Place's single target, default included: a link is proven by
-// title, which states what an absent episodeoffset leaves open, so it is
-// not join.placement's rule. An absolute number resolves through the
-// parent's overlay entry in entries, whose capture is TVDB's order. It
+// title, which states what an absent episodeoffset leaves open. An
+// absolute number resolves through the parent's overlay entry in entries,
+// whose capture is TVDB's order (Entry.TVDBAt). It
 // fails unless each AniList episode lands on one TVDB episode, all on one
 // series and season, no two on one, and each regular source is within the
 // parent's count, the episodes the collision check places.
@@ -389,10 +450,8 @@ func (l *Link) place(s Source, n *animelists.Node, e *Entry, facts *anidb.Facts)
 	case len(p.Targets) == 1:
 		return p.Targets[0], series, nil
 	case p.Absolute > 0:
-		if e != nil && e.Captured.TVDB != nil && e.Captured.TVDB.Series == series {
-			if abs, ok := skyhook.AtAbsolute(e.Captured.TVDB.Episodes, p.Absolute); ok {
-				return abs, series, nil
-			}
+		if abs, ok := e.TVDBAt(series, p.Absolute); ok {
+			return abs, series, nil
 		}
 		return at, 0, fmt.Errorf("AniList %d: %s lands on TVDB absolute episode %d; no overlay entry for AniDB %d captures one TVDB episode with that number", l.AniListID, label, p.Absolute, s.AniDB)
 	}

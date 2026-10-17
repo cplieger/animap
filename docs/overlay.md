@@ -6,7 +6,7 @@ The overlay is animap's own set of corrections to Anime-Lists. Each file in `ove
 
 An entry is added only when every value it changes is proven:
 
-- A season or episode mapping is proven when TVDB's official order and AniDB's own episode list agree episode by episode. That means the same count and the same air dates, within a day for time zones.
+- A season or episode mapping is proven when TVDB's official order and AniDB's own episode list agree episode by episode. That means the same episodes in the same order, matched by their titles, the Japanese first. Air dates, within a day for time zones, only break a tie.
 - A TMDB value changes only where TMDB's season page shows the same episodes.
 - A specials mapping is proven only from AniDB's list of specials.
 - After the change, no episode the change puts on the patched node is claimed by another node.
@@ -20,7 +20,7 @@ An entry that rests on a guess, a precedent that does not match exactly, or a so
 | `anidb_id` | The Anime-Lists node it patches. It must match the file name. |
 | `anilist_ids` | The AniList ids anime-offline-database links to the node. For reading only. |
 | `title` | The Anime-Lists node's name, or the AniList title of an AniList id the entry names. For reading and for issue titles only. |
-| `set` | The patched attributes, as Anime-Lists strings. `mapping_list` replaces the whole list with rows in the published shape, and `[]` deletes it. A row's `offset` of `0` is kept, for a row Anime-Lists writes with `offset="0"`. Unnamed attributes stay. |
+| `set` | The patched attributes, as Anime-Lists strings. `mapping_list` replaces the whole list with Anime-Lists rows written as JSON (the fields below), and `[]` deletes it. A row's `offset` of `0` is kept, for a row Anime-Lists writes with `offset="0"`. Unnamed attributes stay. |
 | `create`, `name` | Set `create` to `true`, with a `name`, to add an entry Anime-Lists does not have. |
 | `justification` | One paragraph naming the episodes and dates that prove the change. |
 | `evidence` | Links to the AniDB, TVDB, TMDB, AniList or SeaDex pages behind it, https only, with no user name or password. |
@@ -60,11 +60,11 @@ AniDB files some AniList entries as part of another anime. A special can be `S1`
 | `justification`, `evidence` | As for an entry. |
 | `captured` | The day, the AniDB mirror commit and a SHA-256 of each linked episode's number and titles. `animap overlay capture-link` writes it. |
 
-Each number in `specials` or `episodes` is one AniList episode. A number in `specials` is the episode's number in an Anime-Lists node's season 0, as the node's mapping rows write it: a special keeps its own number, and AniDB's other episode kinds are numbered from 101 for credits, 201 for trailers and promotions, 301 for parodies and 401 for other episodes. `[401, 402]` names AniDB's O1 and O2. A `"whole": true` part is one AniList episode made of every regular episode of that anime. No AniDB episode is named twice.
+Each number in `specials` or `episodes` is one AniList episode. A number in `specials` is the episode's number in an Anime-Lists node's season 0, as the node's mapping rows write it: a special keeps its own number, and AniDB's other episode kinds are numbered from 101 for credits, 201 for trailers and promotions, 301 for parodies and 401 for other episodes. `[401, 402]` names AniDB's O1 and O2. A `"whole": true` part is one AniList episode made of every regular episode of that anime. It is accepted only while the AniDB mirror lists exactly that anime's regular episodes, 1 to its [episode count](#episode-counts) with no gap. No AniDB episode is named twice.
 
-A link of one part listing every regular episode of its anime, 1 to N, is an identity. The AniList record then takes that AniDB id, its count and its node's facts, and the AniDB-only record of the anime goes.
+A link naming exactly one anime's regular episodes 1 to its [episode count](#episode-counts), in order, is an identity. The AniList entry's one part is then that whole anime, as when anime-offline-database names it. While no source counts the anime, a link naming every regular episode the AniDB mirror lists, when they run 1 to N with no gap, is one too, and names no episode until a count exists.
 
-Any other link gives the AniList record the TVDB series and season, one `mapping_list` row and the `tvdb_placement` of its episodes, and no TMDB, movie or IMDb id. A link to season 0 episodes of one anime, specials or the other kinds, also sets `anidb_parent`. Where anime-offline-database has no record for the AniList id, the build creates one with the linked episode count.
+Any other link gives the AniList entry its parts, the linked AniDB episodes in AniDB's own kinds and numbers, and the anime's row states each linked episode where the link proves it lands on TVDB. A link to another anime's episodes reaches that anime's TVDB series and TMDB show, and never its TMDB movie or IMDb ids, which name the whole anime. Where anime-offline-database has no entry for the AniList id, the build creates one with no type or episode count.
 
 Each linked episode lands where its anime's patched node places it on TVDB, the default included, since the title proof stands in for an explicit offset. On a node in TVDB's absolute order, the number resolves through the TVDB order that anime's overlay entry captured, and a link with no such entry is refused. Each AniList episode lands on one TVDB episode, and the link on one series and season.
 
@@ -78,16 +78,16 @@ A link is added only when all of these hold:
 
 Titles and order decide. Air dates are evidence for the justification and never a condition, because AniDB, AniList and TVDB can date one episode differently, for example by its disc release and by its broadcast, or leave it undated.
 
-`animap overlay check` and every build stop on a link the AniDB mirror and the patched list refute. AniDB must list each episode with its kind, and a regular one must be within the [episode count](#episode-counts). No AniDB episode may be in two links, and no TVDB episode taken by two linked AniList episodes. An identity's AniDB id must not be one anime-offline-database gives another AniList id. The collision check then covers the linked episodes.
+`animap overlay check` and every build stop on a link the AniDB mirror and the patched list refute. AniDB must list each episode with its kind, and a regular one must be within the [episode count](#episode-counts). No AniDB episode may be in two applied links, and no TVDB episode taken by two AniList episodes that applied links name. An identity's AniDB id must not be one anime-offline-database gives another AniList id. The collision check then covers the linked episodes.
 
-The build skips a link, and lists it in its statistics, when anime-offline-database has since given the AniList id an AniDB id, or when its record counts other than the linked episodes.
+The build skips a link, and lists it in its statistics, when anime-offline-database has since given the AniList id one AniDB id or several, or, for a link that is not an identity, when its entry counts other than the linked episodes. A skipped link claims nothing: it places no episode, reaches no collision check and cannot block another link, and the daily review's date check, watch and `animap explain` read it as absent. A review or `animap explain` run reads episode counts as the build does (`-counts`), so it classes links alike. One without the AniDB mirror applies no link, and one without anime-offline-database applies every link it proves. While links exist, either leaves the watch unevaluated.
 
-The daily review raises an overlay drift section in the AniList id's issue when anime-offline-database links the AniList id itself, so the link can go, and when the AniDB mirror renumbers, retitles or drops a linked episode, so the link is proven again and re-captured. The date check covers a linked regular episode or special as it covers every mapped one, on TVDB and TMDB, and also raises a linked special or other episode whose default target does not exist. A linked credit, promotion, parody or other episode has no air date in the mirror, so the date check only checks that its target exists; the link's own fingerprint covers its number and titles. A date check finding keeps a digest of its targets' titles, so a retitle under an accepted finding raises it again; overlay drift compares no titles, so a TVDB rename that keeps the number and air date raises no drift.
+The daily review raises an overlay drift section in the AniList id's issue when anime-offline-database links the AniList id itself, so the link can go, and when the AniDB mirror renumbers, retitles or drops a linked episode, so the link is proven again and re-captured. The date check covers a linked regular episode or special as it covers every mapped one, on TVDB and TMDB, and also raises a linked special or other episode whose default target does not exist. A linked credit, promotion, parody or other episode has no air date in the mirror, so the date check only checks that its target exists, and the link's own fingerprint covers its number and titles. A date check finding keeps a digest of its targets' titles, so a retitle under an accepted finding raises it again. Overlay drift compares no titles, so a TVDB rename that keeps the number and air date raises no drift.
 
 ## Adding an entry
 
 1. Collect the evidence that meets the bar above, and write `overlay/<anidbid>.json` with everything except `captured`.
-2. Keep AniDB's episode lists from the AniDB mirror, at the commit `.github/workflows/publish.yaml` pins as `MIRROR_COMMIT`. The archive goes straight into the command, and only episode numbers and air dates reach the disk:
+2. Keep AniDB's episode lists from the AniDB mirror, at the commit `.github/workflows/publish.yaml` pins as `MIRROR_COMMIT`. The archive goes straight into the command, and only episode numbers, AniDB episode ids, air dates and title digests reach the disk:
 
    ```sh
    mkdir -p .cache
@@ -101,7 +101,7 @@ The daily review raises an overlay drift section in the AniList id's issue when 
    go run ./cmd/animap overlay capture -entry overlay/544.json -list anime-list-master.xml -commit <sha> -mirror .cache/anidb.json
    ```
 
-   A link's fingerprint comes from `go run ./cmd/animap overlay capture-link -link overlay/links/376.json -mirror .cache/anidb.json`.
+   A link's fingerprint comes from `go run ./cmd/animap overlay capture-link -link overlay/links/376.json -mirror .cache/anidb.json`. It reads `checks/counts.json` as the build does, and anime-offline-database with `-aod`, for the count a `whole` part must match.
 
 4. Check it against every other entry on the same series. It also checks every link against the AniDB mirror and the patched list:
 
@@ -113,7 +113,7 @@ The daily review raises an overlay drift section in the AniList id's issue when 
 
 ## Collisions Anime-Lists already has
 
-A node is changed when an overlay entry patches or creates it, or when a link that is not an identity names its episodes. A series is touched when a changed node sits on it. A changed node's claim on an episode is new when the overlay put it there:
+A node is changed when an overlay entry patches or creates it, or when an applied link that is not an identity names its episodes. A series is touched when a changed node sits on it. A changed node's claim on an episode is new when the overlay put it there:
 
 - every claim of a node an entry creates, or moves to another TVDB series
 - a claim on an episode where Anime-Lists' own node placed a different episode of that anime, or none
@@ -131,13 +131,13 @@ The check also places the AniDB specials of every node on a touched series, and 
 
 ## Episode counts
 
-Every regular episode count animap uses comes from one rule, and the collision check and the published `episodes` field use the same number:
+Every regular episode count animap uses comes from one rule, and the collision check and the published `last.regular` of an anime row use the same number:
 
 1. A row in `checks/counts.json`, when there is one.
-2. Otherwise the AniDB mirror's count, when the mirror records the anime's end date and lists at least one regular episode.
-3. Otherwise anime-offline-database's count. That covers an anime with no end date yet, whose mirror copy can be two weeks old, an anime the mirror lists with no regular episode, and an anime the mirror does not list.
+2. Otherwise the AniDB mirror's count, when the mirror records the anime's end date and lists regular episodes 1 to N with no gap.
+3. Otherwise anime-offline-database's count. That covers an anime with no end date yet, whose mirror copy can be two weeks old, an anime the mirror lists with no regular episode or with a gap in its regular numbers, and an anime the mirror does not list.
 
-The AniDB mirror is [AnimeAggregations](https://github.com/notseteve/AnimeAggregations), which republishes AniDB's data as one file per anime, in a new snapshot on the 1st and 15th of each month. `.github/workflows/publish.yaml` pins it to one commit. Each build reads the whole snapshot once. It keeps, for each anime, the air date of each regular episode, each special's number and air date, the number of each credit, promotion, parody and other episode under its Anime-Lists number without its air date (see [Entries filed under another anime](#entries-filed-under-another-anime)), and whether AniDB records its end date. A credit, promotion or parody past its kind's 100th, and an episode of these kinds on a special's number, numbered twice or below 1, cannot be told apart in that numbering and is not kept; unlike a bad special, it does not refuse the file. AniDB can record an end date before the last episode airs. A file that is not JSON, names another anime, or numbers its regular episodes other than 1 to N is refused, and that anime then counts as one the mirror does not list. A special numbered twice, or a date that is not `YYYY-MM-DD`, is refused the same way.
+The AniDB mirror is [AnimeAggregations](https://github.com/notseteve/AnimeAggregations), which republishes AniDB's data as one file per anime, in a new snapshot on the 1st and 15th of each month. `.github/workflows/publish.yaml` pins it to one commit. Each build reads the whole snapshot once. It keeps, for each anime, the air date of each regular episode, each special's number and air date, the kind and number of each credit, promotion, parody and other episode without its air date, with its Anime-Lists season 0 number (see [Entries filed under another anime](#entries-filed-under-another-anime)), and whether AniDB records its end date. A credit, promotion or parody past its kind's 100th, or an episode of these kinds on a special's number, has no season 0 number Anime-Lists can address: it is kept for its number and placed nowhere. AniDB can record an end date before the last episode airs. A file that is not UTF-8 JSON, repeats a member or names another anime is refused, and that anime then counts as one the mirror does not list. An episode kind other than these six, an episode of any kind numbered twice or below 1, an episode with no AniDB episode id, or a regular episode or special dated other than `YYYY-MM-DD` is refused the same way. A gap in the regular or special numbers is kept as AniDB lists it.
 
 `checks/counts.json` holds the counts no source gets right. It is a JSON list sorted by AniDB id, and it stays empty while the sources count every node correctly. Each row holds:
 

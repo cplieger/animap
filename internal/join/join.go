@@ -1,65 +1,75 @@
-// Package join builds the published records from offline-database entries
-// and (overlay-patched) Anime-Lists nodes. The offline database supplies the
-// identity fields and Anime-Lists fills everything else, the precedence
-// Fribb/anime-lists-generator's merge uses; a record with an AniDB id takes
-// its episode count from anidb.Facts.Count.
+// Package join builds the published tables. The anime rows come from the
+// (overlay-patched) Anime-Lists nodes, anidb.Facts and every placement
+// Node.Place gives; the entries from anime-offline-database's entries and
+// the overlay links, which say which AniDB episodes an entry is.
 package join
 
 import (
+	"bytes"
+	"encoding/json"
 	"maps"
-	"regexp"
 	"slices"
-	"strconv"
-	"strings"
 
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/offlinedb"
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/overlay"
+	"github.com/cplieger/animap/mapread"
 )
 
-// Stats counts what the join dropped or withheld, for the release notes.
+// Inputs are what Build joins. Nodes are patched by the overlay; Overlay
+// is its entries, whose TVDB captures resolve absolute numbers; Links are
+// the overlay links the build applies.
+type Inputs struct {
+	Nodes   map[int]*animelists.Node
+	Facts   *anidb.Facts
+	Entries []offlinedb.Entry
+	Overlay []overlay.Entry
+	Links   Applied
+}
+
+// Stats counts what the join built, withheld or could not read, for the
+// release notes.
 type Stats struct {
-	DroppedRows       int `json:"dropped_rows"`
-	AmbiguousAniDB    int `json:"ambiguous_anidb"`
-	AniListRecords    int `json:"anilist_records"`
-	AniDBOnlyRecords  int `json:"anidb_only_records"`
-	TypeOnlyRecords   int `json:"type_only_records"`
-	NodesWithoutEntry int `json:"nodes_without_entry"`
+	AnimeRows      int `json:"anime_rows"`
+	AniListEntries int `json:"anilist_entries"`
+	OtherEntries   int `json:"other_entries"`
+	AmbiguousAniDB int `json:"ambiguous_anidb"`
+	UnparsedRows   int `json:"unparsed_rows"`
+	UnknownSources int `json:"unknown_sources"`
 }
 
 type identity struct {
 	anidb    map[int]struct{}
-	mal      map[int]struct{}
+	parts    []mapread.Part
 	typ      string
+	ids      mapread.IDs
 	episodes int
 	seen     bool
 }
 
-// Build returns AniList-keyed records by anilist_id, then AniDB-keyed records
-// for every AniDB id no AniList record carries, by anidb_id. An AniList id
-// whose entries name two or more AniDB ids gets no anidb_id: two candidates
-// is not an answer, and each candidate keeps its own AniDB-keyed record.
-// ids are the overlay's identity links, added as addIdentities says.
-func Build(entries []offlinedb.Entry, nodes map[int]*animelists.Node, facts *anidb.Facts, ids []Identity) ([]schema.Record, Stats, []Skipped) {
-	var st Stats
-	byAniList, byAniDB := index(entries)
-	skipped := addIdentities(byAniList, byAniDB, ids)
-	out, carried := aniListRecords(byAniList, facts, &st)
-	st.AniListRecords = len(out)
-	only := aniDBOnly(byAniDB, carried, nodes, &st)
-	for _, ad := range slices.Sorted(maps.Keys(only)) {
-		id := only[ad]
-		out = append(out, schema.Record{AniDBID: ad, Type: id.typ, Episodes: facts.Count(ad), MALID: single(id.mal)})
+// Build returns the anime rows by AniDB id and the entries: one per AniList
+// id, ascending, then one per database entry with no AniList id that names
+// a published id, by its encoded ids. An AniList id whose entries name two
+// or more AniDB ids has no parts: two candidates is not an answer.
+func Build(in *Inputs) (anime []mapread.Anime, entries []mapread.Entry, st Stats) {
+	byAniList, byAniDB := index(in.Entries)
+	addIdentities(byAniList, byAniDB, in.Links.Identities())
+	linked := in.Links.Linked()
+	for i := range linked {
+		addLink(byAniList, &linked[i], in.Facts)
 	}
-	st.AniDBOnlyRecords = len(out) - st.AniListRecords
-	for i := range out {
-		if n := nodes[out[i].AniDBID]; out[i].AniDBID > 0 && n != nil {
-			fill(&out[i], n, &st)
-			out[i].TVDBPlacement = placement(&out[i], n)
-		}
+	entries = aniListEntries(byAniList, &st)
+	st.AniListEntries = len(entries)
+	others := otherEntries(in.Entries)
+	st.OtherEntries = len(others)
+	entries = append(entries, others...)
+	for i := range in.Entries {
+		st.UnknownSources += len(in.Entries[i].Unknown)
 	}
-	return out, st, skipped
+	anime = newPlacer(in).rows(byAniDB, &st)
+	st.AnimeRows = len(anime)
+	return anime, entries, st
 }
 
 func index(entries []offlinedb.Entry) (byAniList, byAniDB map[int]*identity) {
@@ -67,18 +77,18 @@ func index(entries []offlinedb.Entry) (byAniList, byAniDB map[int]*identity) {
 	for i := range entries {
 		e := &entries[i]
 		for _, al := range e.AniList {
-			absorb(byAniList, al, e, e.AniDB)
+			absorb(byAniList, al, e)
 		}
 		for _, ad := range e.AniDB {
-			absorb(byAniDB, ad, e, nil)
+			absorb(byAniDB, ad, e)
 		}
 	}
 	return byAniList, byAniDB
 }
 
-// Carriers maps each AniDB id an AniList record carries to every such
-// AniList id, ascending, as Build decides it: the AniList id's entries name
-// that AniDB id alone.
+// Carriers maps each AniDB id an AniList entry is to every such AniList id,
+// ascending, as Build decides it: the AniList id's entries name that AniDB
+// id alone.
 func Carriers(entries []offlinedb.Entry) map[int][]int {
 	byAniList, _ := index(entries)
 	out := map[int][]int{}
@@ -90,68 +100,119 @@ func Carriers(entries []offlinedb.Entry) map[int][]int {
 	return out
 }
 
-func aniListRecords(byAniList map[int]*identity, facts *anidb.Facts, st *Stats) (out []schema.Record, carried map[int]bool) {
-	out = make([]schema.Record, 0, len(byAniList))
-	carried = map[int]bool{}
-	for _, al := range slices.Sorted(maps.Keys(byAniList)) {
-		id := byAniList[al]
-		r := schema.Record{AniListID: al, Type: id.typ, Episodes: id.episodes, MALID: single(id.mal)}
-		switch len(id.anidb) {
-		case 0:
-			st.TypeOnlyRecords++
-		case 1:
-			r.AniDBID = single(id.anidb)
-			r.Episodes = facts.Count(r.AniDBID)
-			carried[r.AniDBID] = true
-		default:
-			st.AmbiguousAniDB++
-		}
-		out = append(out, r)
-	}
-	return out, carried
-}
-
-// aniDBOnly is every AniDB id no AniList record carries: from the database,
-// plus list nodes with no database entry that publish at least one fact.
-func aniDBOnly(byAniDB map[int]*identity, carried map[int]bool, nodes map[int]*animelists.Node, st *Stats) map[int]*identity {
-	out := map[int]*identity{}
-	for ad, id := range byAniDB {
-		if !carried[ad] {
-			out[ad] = id
-		}
-	}
-	for ad, n := range nodes {
-		if carried[ad] || out[ad] != nil {
-			continue
-		}
-		var probe schema.Record
-		fill(&probe, n, &Stats{})
-		if hasListFacts(&probe) {
-			out[ad] = &identity{}
-			st.NodesWithoutEntry++
-		}
-	}
-	return out
-}
-
 // absorb folds one entry into the identity for key. The first entry seen
-// supplies type and episodes, the count a record without an AniDB id
-// publishes; AniDB and MAL candidates accumulate.
-func absorb(m map[int]*identity, key int, e *offlinedb.Entry, aniDBIDs []int) {
+// supplies type and episodes; AniDB candidates and service ids accumulate.
+func absorb(m map[int]*identity, key int, e *offlinedb.Entry) {
 	id := m[key]
 	if id == nil {
-		id = &identity{anidb: map[int]struct{}{}, mal: map[int]struct{}{}}
+		id = &identity{anidb: map[int]struct{}{}}
 		m[key] = id
 	}
 	if !id.seen {
 		id.typ, id.episodes, id.seen = e.Type, e.Episodes, true
 	}
-	for _, v := range aniDBIDs {
+	for _, v := range e.AniDB {
 		id.anidb[v] = struct{}{}
 	}
-	for _, v := range e.MAL {
-		id.mal[v] = struct{}{}
+	mergeIDs(&id.ids, &e.IDs)
+}
+
+func aniListEntries(byAniList map[int]*identity, st *Stats) []mapread.Entry {
+	out := make([]mapread.Entry, 0, len(byAniList))
+	for _, al := range slices.Sorted(maps.Keys(byAniList)) {
+		id := byAniList[al]
+		e := mapread.Entry{AniListID: al, Type: id.typ, Episodes: id.episodes, IDs: idsOrNil(&id.ids)}
+		switch {
+		case id.parts != nil:
+			e.Parts = id.parts
+		case len(id.anidb) == 1:
+			e.Parts = []mapread.Part{{AniDBID: single(id.anidb), Kind: mapread.Regular}}
+		case len(id.anidb) > 1:
+			st.AmbiguousAniDB++
+		}
+		out = append(out, e)
 	}
+	return out
+}
+
+// otherEntries are the database entries with no AniList id that name an id
+// on a published service, ordered by their encoded ids, ties in file order.
+func otherEntries(entries []offlinedb.Entry) []mapread.Entry {
+	type keyed struct {
+		key []byte
+		e   mapread.Entry
+	}
+	var out []keyed
+	for i := range entries {
+		src := &entries[i]
+		ids := idsOrNil(&src.IDs)
+		if len(src.AniList) > 0 || ids == nil {
+			continue
+		}
+		e := mapread.Entry{Type: src.Type, Episodes: src.Episodes, IDs: ids}
+		if len(src.AniDB) == 1 {
+			e.Parts = []mapread.Part{{AniDBID: src.AniDB[0], Kind: mapread.Regular}}
+		}
+		out = append(out, keyed{key: encodeIDs(ids), e: e})
+	}
+	slices.SortStableFunc(out, func(a, b keyed) int { return bytes.Compare(a.key, b.key) })
+	res := make([]mapread.Entry, 0, len(out))
+	for _, k := range out {
+		res = append(res, k.e)
+	}
+	return res
+}
+
+// encodeIDs is the producer's sort key for entries with no AniList id: ids
+// as mapread.Encode writes them.
+func encodeIDs(ids *mapread.IDs) []byte {
+	var buf bytes.Buffer
+	enc := json.NewEncoder(&buf)
+	enc.SetEscapeHTML(false)
+	if err := enc.Encode(ids); err != nil {
+		panic("join: ids do not encode: " + err.Error())
+	}
+	return bytes.TrimSuffix(buf.Bytes(), []byte("\n"))
+}
+
+func intLists(ids *mapread.IDs) []*[]int {
+	return []*[]int{&ids.AniDB, &ids.AnimeCountdown, &ids.AniSearch, &ids.ANN, &ids.Kitsu, &ids.LiveChart, &ids.MAL, &ids.Simkl}
+}
+
+func keyLists(ids *mapread.IDs) []*[]string {
+	return []*[]string{&ids.AnimePlanet, &ids.NotifyMoe}
+}
+
+// mergeIDs adds src's ids to dst, each list kept sorted and unique.
+func mergeIDs(dst, src *mapread.IDs) {
+	d, s := intLists(dst), intLists(src)
+	for i := range d {
+		*d[i] = slices.Compact(slices.Sorted(slices.Values(append(*d[i], *s[i]...))))
+	}
+	dk, sk := keyLists(dst), keyLists(src)
+	for i := range dk {
+		*dk[i] = slices.Compact(slices.Sorted(slices.Values(append(*dk[i], *sk[i]...))))
+	}
+}
+
+// idsOrNil is a copy of ids, nil when every list is empty.
+func idsOrNil(ids *mapread.IDs) *mapread.IDs {
+	var out mapread.IDs
+	mergeIDs(&out, ids)
+	for _, l := range intLists(&out) {
+		if len(*l) == 0 {
+			*l = nil
+		}
+	}
+	for _, l := range keyLists(&out) {
+		if len(*l) == 0 {
+			*l = nil
+		}
+	}
+	if encoded := encodeIDs(&out); string(encoded) == "{}" {
+		return nil
+	}
+	return &out
 }
 
 func single(set map[int]struct{}) int {
@@ -162,88 +223,4 @@ func single(set map[int]struct{}) int {
 		return k
 	}
 	return 0
-}
-
-func hasListFacts(r *schema.Record) bool {
-	return r.TVDBID > 0 || r.TMDBTVID > 0 || len(r.TMDBMovieIDs) > 0 || len(r.IMDbIDs) > 0
-}
-
-var imdbRE = regexp.MustCompile(`^tt\d{7,10}$`)
-
-// fill copies a node's published facts onto r. Each season and offset is
-// conditional on its side's id, and tvdb_absolute excludes tvdb_season.
-func fill(r *schema.Record, n *animelists.Node, st *Stats) {
-	if v := positive(n.Attr("tvdbid")); v > 0 {
-		r.TVDBID = v
-		switch s := n.Attr("defaulttvdbseason"); {
-		case s == "a":
-			r.TVDBAbsolute = true
-		case nonNegative(s) != nil:
-			r.TVDBSeason = nonNegative(s)
-		}
-		r.TVDBEpisodeOffset = integer(n.Attr("episodeoffset"))
-	}
-	if v := positive(n.Attr("tmdbtv")); v > 0 {
-		r.TMDBTVID = v
-		r.TMDBSeason = nonNegative(n.Attr("tmdbseason"))
-		r.TMDBEpisodeOffset = integer(n.Attr("tmdboffset"))
-	}
-	r.TMDBMovieIDs = positiveList(n.Attr("tmdbid"))
-	r.IMDbIDs = imdbList(n.Attr("imdbid"))
-	r.MappingList = nil
-	if r.TVDBID == 0 && r.TMDBTVID == 0 {
-		return
-	}
-	for _, row := range n.Rows {
-		sr, err := row.Schema()
-		if err != nil {
-			st.DroppedRows++
-			continue
-		}
-		r.MappingList = append(r.MappingList, sr)
-	}
-}
-
-func positive(s string) int {
-	n, err := strconv.Atoi(s)
-	if err != nil || n <= 0 {
-		return 0
-	}
-	return n
-}
-
-func nonNegative(s string) *int {
-	n, err := strconv.Atoi(s)
-	if err != nil || n < 0 {
-		return nil
-	}
-	return &n
-}
-
-func integer(s string) *int {
-	n, err := strconv.Atoi(s)
-	if err != nil {
-		return nil
-	}
-	return &n
-}
-
-func positiveList(s string) []int {
-	var out []int
-	for p := range strings.SplitSeq(s, ",") {
-		if n := positive(strings.TrimSpace(p)); n > 0 && !slices.Contains(out, n) {
-			out = append(out, n)
-		}
-	}
-	return out
-}
-
-func imdbList(s string) []string {
-	var out []string
-	for p := range strings.SplitSeq(s, ",") {
-		if p = strings.TrimSpace(p); imdbRE.MatchString(p) && !slices.Contains(out, p) {
-			out = append(out, p)
-		}
-	}
-	return out
 }

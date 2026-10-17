@@ -41,7 +41,7 @@ func raisedDrift() *driftSection {
 func raisedWatch(al int) *watchSection {
 	return &watchSection{
 		Applicable: true, Evaluated: true, EntryURL: "https://seadex.moe/{id}",
-		Findings: []watchFinding{{AniListID: al, Type: "TV", AniDBID: 10, RecordSHA256: strings.Repeat("c", 64), Gaps: []watch.Gap{"no_tvdb_season"}}},
+		Findings: []watchFinding{{AniListID: al, Type: "TV", AniDBID: 10, RecordSHA256: strings.Repeat("c", 64), Gaps: []watch.Gap{"no_tvdb"}}},
 	}
 }
 
@@ -96,7 +96,7 @@ func TestIssuesOneIssuePerAnime(t *testing.T) {
 	}
 	for _, want := range []string{
 		"TVDB's official order disagrees", "https://thetvdb.com/series/series-5000/seasons/official/1", "https://www.themoviedb.org/tv/9000/season/1",
-		"| 2 | 2020-01-13 | S1E3 | 2020-01-20 | not on TMDB | none |", "`overlay/10.json`: the Anime-Lists node changed", "AniList 5 (TV): `no_tvdb_season`", "https://seadex.moe/5",
+		"| 2 | 2020-01-13 | S1E3 | 2020-01-20 | not on TMDB | none |", "`overlay/10.json`: the Anime-Lists node changed", "AniList 5 (TV): `no_tvdb`", "https://seadex.moe/5",
 		"-key anime:anidb:10 -part date-tvdb", "The node as checked:",
 	} {
 		if !strings.Contains(a.Body, want) {
@@ -323,7 +323,7 @@ func TestIssuesSummary(t *testing.T) {
 	if strings.Contains(body, "Title") {
 		t.Errorf("summary carries a date part's reason: %s", body)
 	}
-	for _, want := range []string{"- date findings accepted as fine: 1 anime sections", "- watch gaps accepted as unmappable (1):", "`reviewed/anidb-2.json` `watch:7` (no_tvdb_season): `no source carries it`"} {
+	for _, want := range []string{"- date findings accepted as fine: 1 anime sections", "- watch gaps accepted as unmappable (1):", "`reviewed/anidb-2.json` `watch:7` (no_tvdb): `no source carries it`"} {
 		if !strings.Contains(body, want) {
 			t.Errorf("summary lacks %q", want)
 		}

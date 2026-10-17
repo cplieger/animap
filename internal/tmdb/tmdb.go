@@ -13,6 +13,8 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // Host is the API's host, the only one a TMDB token is sent to.
@@ -116,7 +118,7 @@ func fetchSeasons(ctx context.Context, g Getter, id int, seasons []int) (listed 
 		return nil, nil, err
 	}
 	var raw map[string]json.RawMessage
-	if err = json.Unmarshal(body, &raw); err != nil {
+	if err = strictjson.Unmarshal(body, maxBodyBytes, &raw); err != nil {
 		return nil, nil, fmt.Errorf("tmdb: decode tv %d: %w", id, err)
 	}
 	var list []struct {

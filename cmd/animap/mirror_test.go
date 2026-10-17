@@ -15,34 +15,51 @@ import (
 	"testing"
 
 	"github.com/cplieger/animap/internal/anidb"
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/mapread"
 )
 
 // fin is a finished anime as the AniDB mirror lists it.
 func fin(regular int, specials ...int) anidb.Anime {
-	a := anidb.Anime{Regular: make([]string, regular), Specials: []anidb.Episode{}, Finished: true, Titles: fixtureOtherTitles}
+	a := anidb.Anime{Regular: make([]anidb.Episode, regular), Specials: []anidb.Episode{}, Finished: true, Titles: fixtureOtherTitles}
 	for _, k := range specials {
 		a.Specials = append(a.Specials, anidb.Episode{Number: k})
 	}
 	return titled(a)
 }
 
-// titled gives every episode of a without one the title digest
-// fixtureOtherTitles, and a its extras list, which a snapshot file needs.
+// titled numbers each regular episode of a without a number by its place,
+// gives every episode without one the title digest fixtureOtherTitles and
+// an AniDB episode id, and a its extras list, which a snapshot file needs.
 func titled(a anidb.Anime) anidb.Anime {
-	for len(a.RegularTitles) < len(a.Regular) {
-		a.RegularTitles = append(a.RegularTitles, fixtureOtherTitles)
+	a.Regular = slices.Clone(a.Regular)
+	for i := range a.Regular {
+		e := &a.Regular[i]
+		if e.Number == 0 {
+			e.Number = i + 1
+		}
+		if e.Titles == "" {
+			e.Titles = fixtureOtherTitles
+		}
+		if e.ID == 0 {
+			e.ID = 1000 + e.Number
+		}
 	}
 	a.Specials = slices.Clone(a.Specials)
 	for i := range a.Specials {
 		if a.Specials[i].Titles == "" {
 			a.Specials[i].Titles = fixtureOtherTitles
 		}
+		if a.Specials[i].ID == 0 {
+			a.Specials[i].ID = 2000 + a.Specials[i].Number
+		}
 	}
-	a.Extras = append([]anidb.Episode{}, a.Extras...)
+	a.Extras = append([]anidb.Extra{}, a.Extras...)
 	for i := range a.Extras {
 		if a.Extras[i].Titles == "" {
 			a.Extras[i].Titles = fixtureOtherTitles
+		}
+		if a.Extras[i].ID == 0 {
+			a.Extras[i].ID = 3000 + a.Extras[i].Number
 		}
 	}
 	return a
@@ -114,22 +131,20 @@ func TestBuildPublishesTheMirrorCount(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	doc, err := schema.Decode(bytes.NewReader(b))
+	doc, err := mapread.Decode(bytes.NewReader(b), mapread.DefaultLimits())
 	if err != nil {
 		t.Fatal(err)
 	}
-	if want := (schema.AniDBMirrorSource{Repository: anidb.Repository, Commit: mirrorCommit}); doc.Sources.AniDBMirror != want {
+	if want := (mapread.AniDBMirrorSource{Repository: anidb.Repository, Commit: mirrorCommit}); doc.Sources.AniDBMirror != want {
 		t.Errorf("sources.anidb_mirror = %+v, want %+v", doc.Sources.AniDBMirror, want)
 	}
 	episodes := map[int]int{}
-	for i := range doc.Records {
-		if r := &doc.Records[i]; r.AniDBID > 0 {
-			episodes[r.AniDBID] = r.Episodes
-		}
+	for i := range doc.Anime {
+		episodes[doc.Anime[i].AniDBID] = doc.Anime[i].Last.Regular
 	}
 	for aid, want := range map[int]int{10: 13, 12: 2, 30: 4} {
 		if episodes[aid] != want {
-			t.Errorf("record for AniDB %d has %d episodes, want %d", aid, episodes[aid], want)
+			t.Errorf("anime row for AniDB %d has last regular %d, want %d", aid, episodes[aid], want)
 		}
 	}
 }
@@ -184,8 +199,8 @@ func extract(t *testing.T, stdin io.Reader, args ...string) (string, error) {
 func TestMirrorExtract(t *testing.T) {
 	dir := t.TempDir()
 	body := mirrorArchive(t, map[string]string{
-		"anime/10.json": `{"anime_id":10,"end_date":"2005","description":"Secret plot.","titles":[{"title":"Hidden Title"}],"episodes":{"REGULAR":[{"number":1,"air_date":"2005-04-01","titles":[{"title":"Episode Name"}]}],"SPECIAL":[{"number":1,"air_date":"2005-05-01"}]}}`,
-		"anime/11.json": `{"anime_id":11,"episodes":{"REGULAR":[{"number":2}]}}`,
+		"anime/10.json": `{"anime_id":10,"end_date":"2005","description":"Secret plot.","titles":[{"title":"Hidden Title"}],"episodes":{"REGULAR":[{"number":1,"episode_id":7001,"air_date":"2005-04-01","titles":[{"title":"Episode Name"}]}],"SPECIAL":[{"number":1,"episode_id":7002,"air_date":"2005-05-01"}]}}`,
+		"anime/11.json": `{"anime_id":11,"episodes":{"REGULAR":[{"number":2,"episode_id":7003},{"number":2,"episode_id":7004}]}}`,
 	})
 	out := filepath.Join(dir, "snapshot.json")
 	stdout, err := extract(t, bytes.NewReader(body), "-commit", mirrorCommit, "-out", out)
@@ -196,17 +211,20 @@ func TestMirrorExtract(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if a := got.Anime[10]; len(a.Titles) != 64 || len(a.RegularTitles) != 1 || len(a.RegularTitles[0]) != 64 || len(a.Specials) != 1 || len(a.Specials[0].Titles) != 64 {
+	if a := got.Anime[10]; len(a.Titles) != 64 || len(a.Regular) != 1 || len(a.Regular[0].Titles) != 64 || len(a.Specials) != 1 || len(a.Specials[0].Titles) != 64 {
 		t.Errorf("AniDB 10 = %+v, want 64-hex digests of its titles and of each episode's", a)
 	}
 	for id, a := range got.Anime {
-		a.Titles, a.RegularTitles = "", nil
+		a.Titles = ""
+		for i := range a.Regular {
+			a.Regular[i].Titles = ""
+		}
 		for i := range a.Specials {
 			a.Specials[i].Titles = ""
 		}
 		got.Anime[id] = a
 	}
-	want := map[int]anidb.Anime{10: {Regular: []string{"2005-04-01"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-05-01"}}, Extras: []anidb.Episode{}, Finished: true}}
+	want := map[int]anidb.Anime{10: {Regular: []anidb.Episode{{Number: 1, ID: 7001, AirDate: "2005-04-01"}}, Specials: []anidb.Episode{{Number: 1, ID: 7002, AirDate: "2005-05-01"}}, Extras: []anidb.Extra{}, Finished: true}}
 	if !reflect.DeepEqual(got.Anime, want) || !slices.Equal(got.Refused, []int{11}) || got.Commit != mirrorCommit {
 		t.Errorf("snapshot = %+v, want %+v with AniDB 11 refused", got, want)
 	}

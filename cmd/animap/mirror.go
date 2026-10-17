@@ -11,9 +11,10 @@ import (
 	"github.com/cplieger/animap/internal/offlinedb"
 )
 
-// runMirror reads the mirror's archive from stdin, so the
-// archive, which holds AniDB's titles and descriptions, is never written to
-// disk; only the snapshot of numbers and dates is.
+// runMirror reads the mirror's archive from stdin, so the archive, which
+// holds AniDB's titles and descriptions, is never written to disk; only the
+// derived snapshot is, which keeps the episode facts and title digests the
+// build reads and no title or description.
 func runMirror(ctx context.Context, args []string, stdin io.Reader, stdout io.Writer, log *slog.Logger) error {
 	if len(args) == 0 || args[0] != "extract" {
 		return fmt.Errorf("%w: mirror needs extract", errUsage)

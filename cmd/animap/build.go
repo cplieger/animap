@@ -20,12 +20,13 @@ import (
 	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
+	"github.com/cplieger/animap/internal/release"
 	"github.com/cplieger/animap/internal/review"
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/mapread"
 )
 
 type buildStats struct {
-	PreviousPopulations *schema.Populations   `json:"previous_populations,omitempty"`
+	PreviousPopulations *release.Populations  `json:"previous_populations,omitempty"`
 	ContentHash         string                `json:"content_hash"`
 	PreviousHash        string                `json:"previous_hash,omitempty"`
 	Collisions          guard.CollisionReport `json:"collisions"`
@@ -33,7 +34,7 @@ type buildStats struct {
 	CountsRedundant     []int                 `json:"counts_redundant"`
 	Baseline            baselineStats         `json:"baseline"`
 	Join                join.Stats            `json:"join"`
-	Populations         schema.Populations    `json:"populations"`
+	Populations         release.Populations   `json:"populations"`
 	Bytes               int                   `json:"bytes"`
 	OverlayEntries      int                   `json:"overlay_entries"`
 	Changed             bool                  `json:"changed"`
@@ -90,15 +91,15 @@ func runBuild(ctx context.Context, args []string, stdout io.Writer, log *slog.Lo
 	if err != nil {
 		return err
 	}
-	body, err := schema.Encode(doc)
+	body, err := release.Encode(doc)
 	if err != nil {
 		return err
 	}
-	if _, decErr := schema.Decode(bytes.NewReader(body)); decErr != nil {
-		return fmt.Errorf("build: output does not decode through the schema: %w", decErr)
+	if rtErr := roundTrip(body); rtErr != nil {
+		return rtErr
 	}
 	st.Bytes = len(body)
-	if cmpErr := compare(&c, doc, st); cmpErr != nil {
+	if cmpErr := compare(&c, doc, st, log); cmpErr != nil {
 		return cmpErr
 	}
 	if writeErr := writeFile(ctx, c.out, body); writeErr != nil {
@@ -109,13 +110,30 @@ func runBuild(ctx context.Context, args []string, stdout io.Writer, log *slog.Lo
 			return statsErr
 		}
 	}
-	log.Info("build: done", "records", st.Populations.Records, "bytes", st.Bytes, "overlay", st.OverlayEntries,
-		"dropped_rows", st.Join.DroppedRows, "changed", st.Changed)
+	log.Info("build: done", "entries", st.Populations.Entries, "anime", st.Join.AnimeRows, "bytes", st.Bytes, "overlay", st.OverlayEntries,
+		"unparsed_rows", st.Join.UnparsedRows, "changed", st.Changed)
 	_, err = fmt.Fprintf(stdout, "content_hash=%s\nprevious_hash=%s\nchanged=%t\n", st.ContentHash, st.PreviousHash, st.Changed)
 	return err
 }
 
-func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, error) {
+// roundTrip refuses a body mapread.Decode refuses, or one it does not
+// re-encode byte for byte.
+func roundTrip(body []byte) error {
+	back, err := mapread.Decode(bytes.NewReader(body), mapread.DefaultLimits())
+	if err != nil {
+		return fmt.Errorf("build: output does not decode: %w", err)
+	}
+	again, err := mapread.Encode(back)
+	if err != nil {
+		return err
+	}
+	if !bytes.Equal(again, body) {
+		return errors.New("build: output does not re-encode as written")
+	}
+	return nil
+}
+
+func assemble(c *buildConfig, log *slog.Logger) (*mapread.Document, *buildStats, error) {
 	digest, err := fileSHA256(c.aodPath)
 	if err != nil {
 		return nil, nil, err
@@ -154,15 +172,10 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if proofErr != nil {
 		return nil, nil, fmt.Errorf("build: %w", proofErr)
 	}
-	records, jst, idSkipped := join.Build(entries, patched, facts, proven.identities)
-	var ls linkStats
-	records, ls.Applied, ls.Skipped = join.ApplyLinks(records, proven.linked)
-	ls.Applied += len(proven.identities) - len(idSkipped)
-	ls.Skipped = append(idSkipped, ls.Skipped...)
-	for _, s := range ls.Skipped {
-		log.Warn("build: overlay link not applied", "anilist", s.AniList, "reason", s.Reason)
-	}
-	rep := guard.Collisions(list.Nodes, ov, proven.compiled, facts)
+	anime, rows, jst, ls := joinTables(&join.Inputs{
+		Entries: entries, Nodes: patched, Facts: facts, Overlay: ov, Links: proven.applied,
+	}, proven.skipped, log)
+	rep := guard.Collisions(list.Nodes, ov, proven.applied, facts)
 	redundant := facts.RedundantRows()
 	if len(redundant) > 0 {
 		log.Info("build: counts rows that equal what the sources give; delete them", "path", anidb.CountsPath, "anidb", redundant)
@@ -175,29 +188,55 @@ func assemble(c *buildConfig, log *slog.Logger) (*schema.Document, *buildStats, 
 	if err != nil {
 		return nil, nil, err
 	}
-	doc := &schema.Document{
-		Version:     schema.Version,
+	doc := &mapread.Document{
+		Version:     mapread.Version,
 		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
-		Sources: schema.Sources{
-			AnimeOfflineDatabase: schema.OfflineDatabaseSource{
+		Sources: mapread.Sources{
+			AnimeOfflineDatabase: mapread.OfflineDatabaseSource{
 				Repository: "https://github.com/cedya77/anime-offline-database",
 				Release:    c.aodRelease, Asset: "anime-offline-database.jsonl", SHA256: digest,
 			},
-			AnimeLists: schema.AnimeListsSource{
+			AnimeLists: mapread.AnimeListsSource{
 				Repository: "https://github.com/Anime-Lists/anime-lists",
 				Commit:     c.listCommit, File: "anime-list-master.xml",
 			},
-			AniDBMirror: schema.AniDBMirrorSource{Repository: anidb.Repository, Commit: facts.Commit()},
-			Overlay:     schema.OverlaySource{Entries: len(ov), SpecialOfParent: len(links), SHA256: ovHash},
+			AniDBMirror: mapread.AniDBMirrorSource{Repository: anidb.Repository, Commit: facts.Commit()},
+			Overlay:     mapread.OverlaySource{Entries: len(ov), Links: ls.Applied, SHA256: ovHash},
 		},
-		Attribution: schema.DefaultAttribution,
-		Records:     records,
+		Attribution: release.DefaultAttribution,
+		Anime:       anime,
+		Entries:     rows,
 	}
 	st := &buildStats{
-		Populations: schema.Census(records), Join: jst, OverlayEntries: len(ov), Collisions: rep, Baseline: bs,
+		Populations: release.Census(doc), Join: jst, OverlayEntries: len(ov), Collisions: rep, Baseline: bs,
 		Links: ls, CountsRedundant: redundant,
 	}
 	return doc, st, nil
+}
+
+// joinTables builds the tables and logs what the join left out, the
+// skipped links included.
+func joinTables(in *join.Inputs, skipped []join.Skipped, log *slog.Logger) ([]mapread.Anime, []mapread.Entry, join.Stats, linkStats) {
+	anime, rows, jst := join.Build(in)
+	ls := linkStats{Applied: in.Links.Len(), Skipped: skipped}
+	for _, s := range ls.Skipped {
+		log.Warn("build: overlay link not applied", "anilist", s.AniList, "reason", s.Reason)
+	}
+	if jst.UnknownSources > 0 {
+		log.Warn("build: anime-offline-database sources on a service animap does not publish", "sources", jst.UnknownSources, "hosts", unknownHosts(in.Entries))
+	}
+	return anime, rows, jst, ls
+}
+
+// unknownHosts are the distinct hosts of the database sources animap does
+// not publish, sorted.
+func unknownHosts(entries []offlinedb.Entry) []string {
+	var out []string
+	for i := range entries {
+		out = append(out, entries[i].Unknown...)
+	}
+	slices.Sort(out)
+	return slices.Compact(out)
 }
 
 // collisions fails the build on a node with no regular episode count
@@ -255,19 +294,23 @@ func unresolvedSide(u guard.Unresolved) string {
 	return fmt.Sprintf("TVDB %d", u.Series)
 }
 
-func compare(c *buildConfig, doc *schema.Document, st *buildStats) error {
+func compare(c *buildConfig, doc *mapread.Document, st *buildStats, log *slog.Logger) error {
 	var err error
-	if st.ContentHash, err = schema.ContentHash(doc); err != nil {
+	if st.ContentHash, err = release.ContentHash(doc); err != nil {
 		return err
 	}
 	prev, err := readPrevious(c.prevPath)
+	if v, ok := errors.AsType[*mapread.VersionError](err); ok {
+		log.Info("build: the previous release is another version, so nothing compares; checking the floors", "previous_version", v.Found, "version", mapread.Version)
+		prev, err = nil, nil
+	}
 	if err != nil {
 		return err
 	}
 	if prev != nil {
-		pp := schema.Census(prev.Records)
+		pp := release.Census(prev)
 		st.PreviousPopulations = &pp
-		if st.PreviousHash, err = schema.ContentHash(prev); err != nil {
+		if st.PreviousHash, err = release.ContentHash(prev); err != nil {
 			return err
 		}
 	}
@@ -306,7 +349,8 @@ func readList(path string) (*animelists.List, error) {
 	return animelists.Parse(body)
 }
 
-func readPrevious(path string) (*schema.Document, error) {
+// readPrevious reads the previous release; a missing path or file is none.
+func readPrevious(path string) (*mapread.Document, error) {
 	if path == "" {
 		return nil, nil
 	}
@@ -318,5 +362,5 @@ func readPrevious(path string) (*schema.Document, error) {
 		return nil, err
 	}
 	defer func() { _ = f.Close() }()
-	return schema.Decode(f)
+	return mapread.Decode(f, mapread.DefaultLimits())
 }

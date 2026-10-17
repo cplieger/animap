@@ -17,8 +17,9 @@ import (
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/issues"
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/release"
 	"github.com/cplieger/animap/internal/skyhook"
+	"github.com/cplieger/animap/mapread"
 )
 
 const (
@@ -42,7 +43,7 @@ func fixtureSHA(t *testing.T) string {
 func noFloors(t *testing.T) {
 	t.Helper()
 	saved := guard.Floors
-	guard.Floors = schema.Populations{}
+	guard.Floors = release.Populations{}
 	t.Cleanup(func() { guard.Floors = saved })
 }
 
@@ -80,25 +81,43 @@ func TestBuildPublishesOnlyOnChange(t *testing.T) {
 	if err != nil || !strings.Contains(out, "changed=false") {
 		t.Errorf("rebuild over its own output = %q, %v; want changed=false", out, err)
 	}
-	doc, err := schema.Decode(bytes.NewReader(first))
+	doc, err := mapread.Decode(bytes.NewReader(first), mapread.DefaultLimits())
 	if err != nil {
 		t.Fatal(err)
 	}
-	if doc.Sources.AnimeOfflineDatabase.SHA256 != fixtureSHA(t) || doc.Attribution.License != "ODbL-1.0" || len(doc.Records) != 15 {
-		t.Errorf("document sources %+v, attribution %+v, %d records", doc.Sources, doc.Attribution, len(doc.Records))
+	if doc.Sources.AnimeOfflineDatabase.SHA256 != fixtureSHA(t) || doc.Attribution.License != "ODbL-1.0" || len(doc.Entries) != 11 || len(doc.Anime) != 11 {
+		t.Errorf("document sources %+v, attribution %+v, %d entries, %d anime", doc.Sources, doc.Attribution, len(doc.Entries), len(doc.Anime))
 	}
+}
+
+// previousDoc is a valid release with n AniList entries.
+func previousDoc(t *testing.T, version, n int) []byte {
+	t.Helper()
+	doc := mapread.Document{
+		Version: version, GeneratedAt: "2026-10-05T00:00:00Z", Attribution: release.DefaultAttribution,
+		Sources: mapread.Sources{
+			AnimeOfflineDatabase: mapread.OfflineDatabaseSource{Repository: "r", Release: "x", Asset: "a", SHA256: strings.Repeat("0", 64)},
+			AnimeLists:           mapread.AnimeListsSource{Repository: "r", Commit: strings.Repeat("a", 40), File: "f"},
+			AniDBMirror:          mapread.AniDBMirrorSource{Repository: "r", Commit: strings.Repeat("a", 40)},
+			Overlay:              mapread.OverlaySource{SHA256: strings.Repeat("0", 64)},
+		},
+		Anime: []mapread.Anime{{AniDBID: 1, TVDBID: 1, TMDBTVID: 1}},
+	}
+	for i := range n {
+		doc.Entries = append(doc.Entries, mapread.Entry{AniListID: i + 1, Type: "TV", Parts: []mapread.Part{{AniDBID: 1, Kind: mapread.Regular}}})
+	}
+	b, err := mapread.Encode(&doc)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return b
 }
 
 func TestBuildRefuses(t *testing.T) {
 	noFloors(t)
 	dir := t.TempDir()
-	bigger := schema.Document{Version: schema.Version, Attribution: schema.DefaultAttribution}
-	for i := range 40 {
-		bigger.Records = append(bigger.Records, schema.Record{AniListID: i + 1, AniDBID: i + 1, TVDBID: 1, TMDBTVID: 1, MappingList: []schema.Row{{}}})
-	}
-	b, _ := schema.Encode(&bigger)
 	prev := filepath.Join(dir, "prev.json")
-	if err := os.WriteFile(prev, b, 0o600); err != nil {
+	if err := os.WriteFile(prev, previousDoc(t, mapread.Version, 40), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := build(t, dir, t.TempDir(), prev); !errors.Is(err, guard.ErrCoverage) {
@@ -118,6 +137,25 @@ func TestBuildRefuses(t *testing.T) {
 	}
 	if err := run(t.Context(), []string{"build", "-aod", aodFixture}, &bytes.Buffer{}); !errors.Is(err, errUsage) {
 		t.Errorf("missing flags = %v, want errUsage", err)
+	}
+}
+
+// A previous release of another version compares nothing: the build is
+// changed, and the floors stand in for the shrink comparison.
+func TestBuildAgainstAnotherVersion(t *testing.T) {
+	dir := t.TempDir()
+	prev := filepath.Join(dir, "prev.json")
+	v1 := bytes.Replace(previousDoc(t, mapread.Version, 40), []byte(`{"version":2,`), []byte(`{"version":1,`), 1)
+	if err := os.WriteFile(prev, v1, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := build(t, dir, t.TempDir(), prev); !errors.Is(err, guard.ErrCoverage) || !strings.Contains(err.Error(), "floor") {
+		t.Errorf("build over a version 1 release, under the floors = %v, want ErrCoverage against a floor", err)
+	}
+	noFloors(t)
+	out, err := build(t, dir, t.TempDir(), prev)
+	if err != nil || !strings.Contains(out, "changed=true") || !strings.Contains(out, "previous_hash=\n") {
+		t.Errorf("build over a version 1 release = %q, %v; want changed with no previous hash", out, err)
 	}
 }
 

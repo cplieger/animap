@@ -2,48 +2,38 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/cplieger/animap/blob/main/docs/animap.schema.json",
   "title": "animap.json",
-  "description": "Anime ID mapping joined from anime-offline-database, Anime-Lists and AniDB episode counts. See docs/schema.md.",
+  "description": "Anime ID mapping between AniDB, AniList, TVDB, TMDB and the services anime-offline-database lists. Version 2. See docs/schema.md.",
   "type": "object",
-  "additionalProperties": false,
-  "required": ["version", "generated_at", "sources", "attribution", "records"],
+  "required": ["version", "generated_at", "sources", "attribution", "anime", "entries"],
   "properties": {
-    "version": { "const": 1 },
+    "version": { "const": 2 },
     "generated_at": { "type": "string", "format": "date-time" },
     "sources": { "$ref": "#/$defs/sources" },
     "attribution": { "$ref": "#/$defs/attribution" },
-    "records": { "type": "array", "items": { "$ref": "#/$defs/record" } }
+    "anime": { "type": "array", "items": { "$ref": "#/$defs/anime" } },
+    "entries": { "type": "array", "items": { "$ref": "#/$defs/entry" } }
   },
   "$defs": {
-    "parent_specials": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["anidb_id", "specials"],
-      "properties": {
-        "anidb_id": { "$ref": "#/$defs/id" },
-        "specials": { "type": "array", "minItems": 1, "items": { "type": "integer", "minimum": 1 } }
-      }
-    },
     "id": { "type": "integer", "minimum": 1 },
-    "season": { "type": "integer", "minimum": 0 },
+    "number": { "type": "integer", "minimum": 1, "maximum": 1048576 },
+    "ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "keys": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 256 } },
+    "type": { "enum": ["TV", "MOVIE", "OVA", "ONA", "SPECIAL", "UNKNOWN"] },
+    "kind": { "enum": ["regular", "special", "credit", "promotion", "parody", "other"] },
     "sources": {
       "type": "object",
-      "additionalProperties": false,
       "required": ["anime_offline_database", "anime_lists", "anidb_mirror", "overlay"],
       "properties": {
         "anime_offline_database": {
           "type": "object",
-          "additionalProperties": false,
           "required": ["repository", "release", "asset", "sha256"],
           "properties": {
-            "repository": { "type": "string" },
-            "release": { "type": "string" },
-            "asset": { "type": "string" },
+            "repository": { "type": "string" }, "release": { "type": "string" }, "asset": { "type": "string" },
             "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
           }
         },
         "anime_lists": {
           "type": "object",
-          "additionalProperties": false,
           "required": ["repository", "commit", "file"],
           "properties": {
             "repository": { "type": "string" },
@@ -53,7 +43,6 @@
         },
         "anidb_mirror": {
           "type": "object",
-          "additionalProperties": false,
           "required": ["repository", "commit"],
           "properties": {
             "repository": { "type": "string" },
@@ -62,86 +51,101 @@
         },
         "overlay": {
           "type": "object",
-          "additionalProperties": false,
-          "required": ["entries", "sha256"],
+          "required": ["sha256", "entries"],
           "properties": {
+            "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
             "entries": { "type": "integer", "minimum": 0 },
-            "special_of_parent": { "type": "integer", "minimum": 1 },
-            "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+            "links": { "type": "integer", "minimum": 1 }
           }
         }
       }
     },
     "attribution": {
       "type": "object",
-      "additionalProperties": false,
       "required": ["license", "license_url", "contents_license", "contents_license_url", "notice"],
       "properties": {
-        "license": { "const": "ODbL-1.0" },
-        "license_url": { "type": "string" },
-        "contents_license": { "const": "DbCL-1.0" },
-        "contents_license_url": { "type": "string" },
+        "license": { "const": "ODbL-1.0" }, "license_url": { "type": "string" },
+        "contents_license": { "const": "DbCL-1.0" }, "contents_license_url": { "type": "string" },
         "notice": { "type": "string" }
       }
     },
-    "record": {
+    "anime": {
       "type": "object",
-      "additionalProperties": false,
-      "anyOf": [{ "required": ["anilist_id"] }, { "required": ["anidb_id"] }],
+      "required": ["anidb_id"],
+      "minProperties": 2,
+      "properties": {
+        "anidb_id": { "$ref": "#/$defs/id" },
+        "type": { "$ref": "#/$defs/type" },
+        "tvdb_id": { "$ref": "#/$defs/id" },
+        "tmdb_tv_id": { "$ref": "#/$defs/id" },
+        "tmdb_movie_ids": { "$ref": "#/$defs/ids" },
+        "imdb_ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^tt[0-9]{7,10}$" } },
+        "last": {
+          "type": "object", "minProperties": 1,
+          "properties": {
+            "regular": { "$ref": "#/$defs/number" }, "special": { "$ref": "#/$defs/number" },
+            "credit": { "$ref": "#/$defs/number" }, "promotion": { "$ref": "#/$defs/number" },
+            "parody": { "$ref": "#/$defs/number" }, "other": { "$ref": "#/$defs/number" }
+          }
+        },
+        "episodes_listed": { "const": true },
+        "episodes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/run" } }
+      },
+      "dependentSchemas": { "episodes": { "anyOf": [{ "required": ["last"] }, { "required": ["episodes_listed"] }] } }
+    },
+    "run": {
+      "type": "object",
+      "required": ["kind", "start", "end"],
+      "properties": {
+        "kind": { "$ref": "#/$defs/kind" },
+        "start": { "$ref": "#/$defs/number" },
+        "end": { "$ref": "#/$defs/number" },
+        "anidb_episode_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" } },
+        "tvdb": { "$ref": "#/$defs/targets" },
+        "tmdb": { "$ref": "#/$defs/targets" }
+      }
+    },
+    "targets": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/target" } },
+    "target": {
+      "type": "object",
+      "required": ["season", "episode"],
+      "properties": {
+        "season": { "type": "integer", "minimum": 0, "maximum": 1048576 },
+        "episode": { "$ref": "#/$defs/number" },
+        "default": { "const": true }
+      }
+    },
+    "entry": {
+      "type": "object",
       "properties": {
         "anilist_id": { "$ref": "#/$defs/id" },
-        "anidb_id": { "$ref": "#/$defs/id" },
-        "anidb_parent": { "$ref": "#/$defs/parent_specials" },
-        "mal_id": { "$ref": "#/$defs/id" },
-        "type": { "enum": ["TV", "MOVIE", "OVA", "ONA", "SPECIAL", "UNKNOWN"] },
-        "episodes": { "type": "integer", "minimum": 1 },
-        "tvdb_id": { "$ref": "#/$defs/id" },
-        "tvdb_season": { "$ref": "#/$defs/season" },
-        "tvdb_absolute": { "const": true },
-        "tvdb_episode_offset": { "type": "integer" },
-        "tmdb_tv_id": { "$ref": "#/$defs/id" },
-        "tmdb_season": { "$ref": "#/$defs/season" },
-        "tmdb_episode_offset": { "type": "integer" },
-        "tmdb_movie_ids": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "$ref": "#/$defs/id" } },
-        "imdb_ids": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "type": "string", "pattern": "^tt[0-9]{7,10}$" } },
-        "mapping_list": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/row" } },
-        "tvdb_placement": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/segment" } }
-      }
-    },
-    "segment": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["start", "end"],
-      "dependentRequired": { "season": ["episode"], "episode": ["season"] },
-      "properties": {
-        "start": { "$ref": "#/$defs/id" },
-        "end": { "$ref": "#/$defs/id" },
-        "season": { "$ref": "#/$defs/season" },
-        "episode": { "$ref": "#/$defs/id" }
-      }
-    },
-    "row": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["anidb_season"],
-      "properties": {
-        "anidb_season": { "$ref": "#/$defs/season" },
-        "tvdb_season": { "$ref": "#/$defs/season" },
-        "tmdb_season": { "$ref": "#/$defs/season" },
-        "start": { "$ref": "#/$defs/id" },
-        "end": { "$ref": "#/$defs/id" },
-        "offset": { "type": "integer" },
-        "episodes": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "array",
-            "minItems": 1,
-            "prefixItems": [{ "type": "integer", "minimum": 0 }],
-            "items": { "$ref": "#/$defs/id" }
+        "type": { "$ref": "#/$defs/type" },
+        "episodes": { "$ref": "#/$defs/number" },
+        "ids": {
+          "type": "object", "minProperties": 1,
+          "properties": {
+            "anidb": { "$ref": "#/$defs/ids" }, "animecountdown": { "$ref": "#/$defs/ids" },
+            "anisearch": { "$ref": "#/$defs/ids" }, "ann": { "$ref": "#/$defs/ids" },
+            "kitsu": { "$ref": "#/$defs/ids" }, "livechart": { "$ref": "#/$defs/ids" },
+            "mal": { "$ref": "#/$defs/ids" }, "simkl": { "$ref": "#/$defs/ids" },
+            "animeplanet": { "$ref": "#/$defs/keys" }, "notifymoe": { "$ref": "#/$defs/keys" }
           }
-        }
-      }
+        },
+        "parts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/part" } }
+      },
+      "anyOf": [{ "required": ["anilist_id"] }, { "required": ["ids"] }]
+    },
+    "part": {
+      "type": "object",
+      "required": ["anidb_id", "kind"],
+      "properties": {
+        "anidb_id": { "$ref": "#/$defs/id" },
+        "kind": { "$ref": "#/$defs/kind" },
+        "start": { "$ref": "#/$defs/number" },
+        "end": { "$ref": "#/$defs/number" },
+        "combined": { "const": true }
+      },
+      "dependentRequired": { "start": ["end"], "end": ["start"] }
     }
   }
 }

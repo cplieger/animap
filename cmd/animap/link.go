@@ -14,46 +14,42 @@ import (
 	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
-	"github.com/cplieger/animap/internal/schema"
 )
 
-// provenLinks are the overlay links as the build applies them: the
-// identity links the join folds in, and every other link compiled.
+// provenLinks are the overlay links as join.Applicable classes them: the
+// applied ones and the skipped ones, with why.
 type provenLinks struct {
-	compiled   []overlay.Compiled
-	linked     []join.Linked
-	identities []join.Identity
+	applied join.Applied
+	skipped []join.Skipped
 }
 
-// proveLinks checks every link against the pinned mirror and the patched
-// list: each source is listed with its kind, every non-identity link
-// compiles, no AniDB episode is in two links, no TVDB episode is taken by
-// two linked AniList episodes, and an identity link's AniDB id is not one
-// anime-offline-database already gives another AniList id. guard.Collisions
-// cannot see the last two: both claims come from one node, or from none.
-func proveLinks(links []overlay.Link, patched map[int]*animelists.Node, entries []overlay.Entry, facts *anidb.Facts, aod []offlinedb.Entry) (provenLinks, error) {
-	var out provenLinks
+// classifyLinks proves each link against the pinned mirror and the patched
+// list and classes the proven ones (join.Applicable), the one place a
+// link's applicability is decided. Each refusal says why a link is not
+// proven: a source the mirror does not list, an identity to an AniDB id
+// anime-offline-database gives another AniList id, or a link that does
+// not compile; an unproven link is in neither class.
+func classifyLinks(links []overlay.Link, patched map[int]*animelists.Node, entries []overlay.Entry, facts *anidb.Facts, aod []offlinedb.Entry) (provenLinks, []error) {
 	var errs []error
 	byAniDB := make(map[int]*overlay.Entry, len(entries))
 	for i := range entries {
 		byAniDB[entries[i].AniDBID] = &entries[i]
 	}
 	carriers := join.Carriers(aod)
-	sources := map[[3]int]int{}
-	targets := map[[3]int]int{}
+	var ids []join.Identity
+	var linked []join.Linked
 	for i := range links {
 		l := &links[i]
 		if err := l.Listed(facts); err != nil {
 			errs = append(errs, err)
 			continue
 		}
-		errs = append(errs, claimSources(l, facts, sources)...)
 		if aid, ok := l.Identity(facts); ok {
 			if other := otherCarrier(carriers[aid], l.AniListID); other > 0 {
 				errs = append(errs, fmt.Errorf("AniList %d: anime-offline-database already gives AniDB %d to AniList %d", l.AniListID, aid, other))
 				continue
 			}
-			out.identities = append(out.identities, join.Identity{AniList: l.AniListID, AniDB: aid})
+			ids = append(ids, join.Identity{Link: l, AniDB: aid})
 			continue
 		}
 		c, err := l.Compile(patched, byAniDB, facts)
@@ -61,15 +57,34 @@ func proveLinks(links []overlay.Link, patched map[int]*animelists.Node, entries 
 			errs = append(errs, err)
 			continue
 		}
-		errs = append(errs, claimTargets(&c, targets)...)
-		out.compiled = append(out.compiled, c)
-		out.linked = append(out.linked, linkedOf(l, &c))
+		linked = append(linked, join.Linked{Link: l, Compiled: c})
+	}
+	var out provenLinks
+	out.applied, out.skipped = join.Applicable(aod, ids, linked)
+	return out, errs
+}
+
+// proveLinks classes links and refuses every unproven one, an AniDB
+// episode two applied links name, and a TVDB episode two applied linked
+// AniList episodes take. guard.Collisions cannot see the last two: both
+// claims come from one node, or from none. A skipped link claims nothing,
+// so it cannot block an applied one.
+func proveLinks(links []overlay.Link, patched map[int]*animelists.Node, entries []overlay.Entry, facts *anidb.Facts, aod []offlinedb.Entry) (provenLinks, error) {
+	out, errs := classifyLinks(links, patched, entries, facts, aod)
+	sources := map[[3]int]int{}
+	for _, l := range out.applied.Links() {
+		errs = append(errs, claimSources(l, facts, sources)...)
+	}
+	targets := map[[3]int]int{}
+	compiled := out.applied.Compiled()
+	for i := range compiled {
+		errs = append(errs, claimTargets(&compiled[i], targets)...)
 	}
 	return out, errors.Join(errs...)
 }
 
 // otherCarrier is the first of carriers that is not al, or 0. al carrying
-// the id itself is the landed case join.Build skips softly.
+// the id itself is the landed case join.Applicable skips softly.
 func otherCarrier(carriers []int, al int) int {
 	for _, c := range carriers {
 		if c != al {
@@ -109,20 +124,12 @@ func claimTargets(c *overlay.Compiled, taken map[[3]int]int) []error {
 	return errs
 }
 
-// linkedOf states anidb_parent only for season-zero episodes of one anime,
-// the shape its published form holds.
-func linkedOf(l *overlay.Link, c *overlay.Compiled) join.Linked {
-	j := join.Linked{AniList: c.AniList, TVDBID: c.Series, Season: c.Season, Targets: c.Targets}
-	if p := l.Parts[0]; len(l.Parts) == 1 && len(p.Specials) > 0 {
-		j.Specials = &schema.ParentSpecials{AniDBID: p.AniDBID, Specials: p.Specials}
-	}
-	return j
-}
-
 func runCaptureLink(ctx context.Context, args []string, _ *slog.Logger) error {
 	fs := flag.NewFlagSet("overlay capture-link", flag.ContinueOnError)
 	path := fs.String("link", "", "overlay/links/<anilistid>.json to update in place")
 	mirrorPath := fs.String("mirror", "", "AniDB mirror snapshot, for the linked episodes")
+	countsPath := fs.String("counts", anidb.CountsPath, "tracked episode counts, for a whole part (absent file: none)")
+	aodPath := fs.String("aod", "", "anime-offline-database .jsonl, for a whole part's count; none counts from the rows and the mirror")
 	if err := parse(fs, args); err != nil {
 		return err
 	}
@@ -133,11 +140,17 @@ func runCaptureLink(ctx context.Context, args []string, _ *slog.Logger) error {
 	if err != nil {
 		return fmt.Errorf("overlay capture-link: %w", err)
 	}
-	snap, err := anidb.LoadSnapshot(*mirrorPath)
+	var aod []offlinedb.Entry
+	if *aodPath != "" {
+		if aod, err = offlinedb.Load(*aodPath, offlinedb.DefaultLimits); err != nil {
+			return err
+		}
+	}
+	facts, err := loadFacts(*mirrorPath, *countsPath, aod)
 	if err != nil {
 		return err
 	}
-	out, err := captureLink(&l, anidb.NewFacts(snap, nil, nil), time.Now().UTC())
+	out, err := captureLink(&l, facts, time.Now().UTC())
 	if err != nil {
 		return err
 	}

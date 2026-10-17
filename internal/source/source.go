@@ -15,6 +15,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/cplieger/animap/internal/strictjson"
 	"github.com/cplieger/atomicfile/v4"
 	"github.com/cplieger/httpx/v5"
 )
@@ -102,17 +103,17 @@ func New(path string, interval time.Duration, log *slog.Logger) (*Client, error)
 		return nil, err
 	}
 	c.path = abs
-	body, err := os.ReadFile(abs)
+	body, err := strictjson.ReadFile(abs, maxCacheBytes)
 	switch {
 	case errors.Is(err, os.ErrNotExist):
 		return c, nil
+	case errors.Is(err, strictjson.ErrTooLarge):
+		log.Warn("source: cache over its bound, starting empty", "path", abs, "error", err)
+		return c, nil
 	case err != nil:
 		return nil, err
-	case len(body) > maxCacheBytes:
-		log.Warn("source: cache over its bound, starting empty", "path", abs, "bytes", len(body))
-		return c, nil
 	}
-	if err := json.Unmarshal(body, &c.cache); err != nil {
+	if err := strictjson.Decode(body, maxCacheBytes, &c.cache); err != nil {
 		log.Warn("source: cache unreadable, starting empty", "path", abs, "error", err)
 		c.cache = map[string]cached{}
 	}

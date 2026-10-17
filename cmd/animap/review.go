@@ -1,9 +1,11 @@
 package main
 
 import (
+	"cmp"
 	"context"
 	"errors"
 	"flag"
+	"fmt"
 	"log/slog"
 	"maps"
 	"os"
@@ -17,14 +19,15 @@ import (
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/drift"
+	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/review"
-	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/source"
 	"github.com/cplieger/animap/internal/tmdb"
 	"github.com/cplieger/animap/internal/watch"
+	"github.com/cplieger/animap/mapread"
 )
 
 // tmdbName names TMDB in logs, reasons and issues.
@@ -150,17 +153,19 @@ type watchFinding struct {
 }
 
 type reviewConfig struct {
-	listPath, listCommit, overlayDir, mirrorPath, aodPath, releasePath string
-	watchConfig, layoutsTVDB, layoutsTMDB, cachePath, reviewedDir, out string
-	maxAge, budgetTVDB, budgetTMDB                                     time.Duration
+	listPath, listCommit, overlayDir, mirrorPath, countsPath, aodPath string
+	releasePath, watchConfig, layoutsTVDB, layoutsTMDB, cachePath     string
+	reviewedDir, out                                                  string
+	maxAge, budgetTVDB, budgetTMDB                                    time.Duration
 }
 
 func reviewFlags(fs *flag.FlagSet, c *reviewConfig) {
 	fs.StringVar(&c.listPath, "list", "", "anime-list-master.xml at Anime-Lists HEAD")
 	fs.StringVar(&c.listCommit, "list-commit", "", "Anime-Lists commit of -list, for the report")
 	fs.StringVar(&c.overlayDir, "overlay", "overlay", "overlay directory")
-	fs.StringVar(&c.mirrorPath, "mirror", "", "AniDB mirror snapshot; none leaves the date checks and links' AniDB check unevaluated")
-	fs.StringVar(&c.aodPath, "aod", "", "anime-offline-database .jsonl; none leaves links' landed check unevaluated")
+	fs.StringVar(&c.mirrorPath, "mirror", "", "AniDB mirror snapshot; none applies no link and leaves the date checks, links' AniDB check and, with links, the watch unevaluated")
+	fs.StringVar(&c.countsPath, "counts", anidb.CountsPath, "tracked episode counts, read as the build reads them (absent file: none)")
+	fs.StringVar(&c.aodPath, "aod", "", "anime-offline-database .jsonl; none applies every proven link and leaves links' landed check and, with links, the watch unevaluated")
 	fs.StringVar(&c.releasePath, "release", "", "published animap.json; none leaves the watch unevaluated")
 	fs.StringVar(&c.watchConfig, "watch-config", "watch/seadex.json", "watch-set config")
 	fs.StringVar(&c.layoutsTVDB, "layouts-tvdb", "", "TVDB layouts kept between runs")
@@ -206,32 +211,39 @@ func runReview(ctx context.Context, args []string, log *slog.Logger) error {
 // reviewRun is one run's inputs and what the refreshes left in the stores.
 // stale maps a due id the run did not refresh to why.
 type reviewRun struct {
-	list        *animelists.List
-	patched     map[int]*animelists.Node
-	facts       *anidb.Facts
-	aod         map[int][]int
-	release     *schema.Document
-	records     map[string]review.Record
-	tvdb, tmdb  *datecheck.Store
-	health      map[string]*sourceHealth
-	linked      map[int]map[[2]int]int
-	tvdbStale   map[int]string
-	tmdbStale   map[int]string
-	movieStale  map[int]string
-	linkedAL    map[int]bool
-	watchCfg    *watch.Config
-	listCommit  string
-	token       string
-	entries     []overlay.Entry
-	links       []overlay.Link
-	watchIDs    []int
-	tvdbClient  getterCount
-	tmdbClient  getterCount
-	captured    map[int]bool
-	tvdbSeries  []int
-	tmdbShows   []int
-	tmdbMovies  []int
-	watchListed bool
+	list          *animelists.List
+	patched       map[int]*animelists.Node
+	facts         *anidb.Facts
+	aod           map[int][]int
+	release       *mapread.Document
+	index         *mapread.Index
+	records       map[string]review.Record
+	tvdb, tmdb    *datecheck.Store
+	health        map[string]*sourceHealth
+	linked        map[int]map[[2]int]int
+	tvdbStale     map[int]string
+	tmdbStale     map[int]string
+	movieStale    map[int]string
+	linkedAL      map[int]bool
+	applied       join.Applied
+	watchCfg      *watch.Config
+	listCommit    string
+	releaseReason string
+	// linksUnknown is why this run cannot class the links as the build
+	// does, "" when it can; while links exist, the watch then routes no gap.
+	linksUnknown string
+	token        string
+	entries      []overlay.Entry
+	links        []overlay.Link
+	aodEntries   []offlinedb.Entry
+	watchIDs     []int
+	tvdbClient   getterCount
+	tmdbClient   getterCount
+	captured     map[int]bool
+	tvdbSeries   []int
+	tmdbShows    []int
+	tmdbMovies   []int
+	watchListed  bool
 }
 
 // getterCount counts the requests a provider's client made.
@@ -267,12 +279,10 @@ func loadReview(c *reviewConfig, token string, log *slog.Logger) (*reviewRun, er
 		},
 		linkedAL: map[int]bool{}, captured: map[int]bool{},
 	}
-	for i := range links {
-		r.linkedAL[links[i].AniListID] = true
-	}
 	if srcErr := r.loadSources(c); srcErr != nil {
 		return nil, srcErr
 	}
+	r.classify()
 	if r.tvdb, err = loadStore(c.layoutsTVDB, log); err != nil {
 		return nil, err
 	}
@@ -283,32 +293,52 @@ func loadReview(c *reviewConfig, token string, log *slog.Logger) (*reviewRun, er
 	return r, nil
 }
 
-func (r *reviewRun) loadSources(c *reviewConfig) error {
-	if c.mirrorPath != "" {
-		snap, err := anidb.LoadSnapshot(c.mirrorPath)
-		if err != nil {
-			return err
-		}
-		r.facts = anidb.NewFacts(snap, nil, nil)
-		r.linked = linkedEpisodes(r.links, r.facts)
-	} else {
-		for _, name := range []string{review.DateTVDB, review.DateTMDB} {
-			r.health[name] = &sourceHealth{UnevaluatedReason: "the AniDB mirror was not read"}
-		}
+// classify classes the links once, as the build does, for every reader of
+// their claims: the date check, the watch and explain. With the mirror
+// unread no link is proven, so none applies; a link the build cannot prove
+// applies to none of them either.
+func (r *reviewRun) classify() {
+	if r.facts == nil {
+		return
 	}
+	p, _ := classifyLinks(r.links, r.patched, r.entries, r.facts, r.aodEntries)
+	r.applied = p.applied
+	r.linked = linkedEpisodes(r.applied, r.facts)
+	for _, l := range r.applied.Links() {
+		r.linkedAL[l.AniListID] = true
+	}
+}
+
+// loadSources reads the mirror with the counts rows and the database's
+// counts, as the build does, so Count, and with it each link's class and
+// the guard's claims, is the build's.
+func (r *reviewRun) loadSources(c *reviewConfig) error {
 	if c.aodPath != "" {
 		aod, err := offlinedb.Load(c.aodPath, offlinedb.DefaultLimits)
 		if err != nil {
 			return err
 		}
-		r.aod = aniDBByAniList(aod)
+		r.aod, r.aodEntries = aniDBByAniList(aod), aod
 	}
-	if c.releasePath != "" {
-		rel, err := loadRelease(c.releasePath)
+	if c.mirrorPath != "" {
+		facts, err := loadFacts(c.mirrorPath, c.countsPath, r.aodEntries)
 		if err != nil {
 			return err
 		}
-		r.release = rel
+		r.facts = facts
+	} else {
+		for _, name := range []string{review.DateTVDB, review.DateTMDB} {
+			r.health[name] = &sourceHealth{UnevaluatedReason: "the AniDB mirror was not read"}
+		}
+		r.linksUnknown = "the AniDB mirror was not read, so no overlay link is applied"
+	}
+	if c.aodPath == "" {
+		r.linksUnknown = cmp.Or(r.linksUnknown, "anime-offline-database was not read, so which overlay links the build applies is unknown")
+	}
+	if c.releasePath != "" {
+		if err := r.readRelease(c.releasePath); err != nil {
+			return err
+		}
 	}
 	if r.token == "" && r.facts != nil {
 		r.health[review.DateTMDB] = &sourceHealth{UnevaluatedReason: "TMDB_TOKEN is not set"}
@@ -316,13 +346,28 @@ func (r *reviewRun) loadSources(c *reviewConfig) error {
 	return nil
 }
 
-func loadRelease(path string) (*schema.Document, error) {
+// readRelease reads the published release the watch evaluates. One of
+// another version leaves the watch unevaluated, saying why.
+func (r *reviewRun) readRelease(path string) error {
+	rel, err := loadRelease(path)
+	if v, ok := errors.AsType[*mapread.VersionError](err); ok {
+		r.releaseReason = fmt.Sprintf("the latest release is version %d; this build reads version %d", v.Found, mapread.Version)
+		return nil
+	}
+	if err != nil {
+		return err
+	}
+	r.release, r.index = rel, mapread.NewIndex(rel)
+	return nil
+}
+
+func loadRelease(path string) (*mapread.Document, error) {
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
 	defer func() { _ = f.Close() }()
-	return schema.Decode(f)
+	return mapread.Decode(f, mapread.DefaultLimits())
 }
 
 // loadStore reads a layouts file; one it cannot use starts empty, so its
@@ -383,7 +428,11 @@ func sideOf(section string) animelists.Side {
 func (r *reviewRun) readWatch(ctx context.Context, c *reviewConfig, log *slog.Logger) {
 	h := r.health[review.Watch]
 	if r.release == nil {
-		h.UnevaluatedReason = "no published release to watch"
+		h.UnevaluatedReason = cmp.Or(r.releaseReason, "no published release to watch")
+		return
+	}
+	if len(r.links) > 0 && r.linksUnknown != "" {
+		h.UnevaluatedReason = r.linksUnknown
 		return
 	}
 	cfg, err := watch.LoadConfig(c.watchConfig)
@@ -828,7 +877,7 @@ func (r *reviewRun) addWatch(subjects map[string]*subject) {
 	if !r.watchListed {
 		return
 	}
-	entries := watch.Evaluate(r.watchIDs, r.release)
+	entries := watch.Evaluate(r.watchIDs, r.index)
 	for i := range entries {
 		s := r.subjectOf(subjects, r.watchKey(&entries[i]))
 		if s.Sections.Watch == nil {
@@ -920,15 +969,15 @@ func dateApplies(n *animelists.Node, section string) bool {
 }
 
 // linkedEpisodes maps each AniDB id to the [season, number] of its episodes
-// an overlay link names, and each to the link's AniList id.
-func linkedEpisodes(links []overlay.Link, facts *anidb.Facts) map[int]map[[2]int]int {
+// an applied link names, and each to the link's AniList id.
+func linkedEpisodes(applied join.Applied, facts *anidb.Facts) map[int]map[[2]int]int {
 	out := map[int]map[[2]int]int{}
-	for i := range links {
-		for _, s := range links[i].Sources(facts) {
+	for _, l := range applied.Links() {
+		for _, s := range l.Sources(facts) {
 			if out[s.AniDB] == nil {
 				out[s.AniDB] = map[[2]int]int{}
 			}
-			out[s.AniDB][[2]int{s.AniDBSeason, s.Number}] = links[i].AniListID
+			out[s.AniDB][[2]int{s.AniDBSeason, s.Number}] = l.AniListID
 		}
 	}
 	return out

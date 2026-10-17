@@ -5,26 +5,37 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-
-	"github.com/cplieger/animap/internal/schema"
 )
 
 // errRow reports a mapping row that does not parse in the list's syntax.
 var errRow = errors.New("animelists: unparseable mapping row")
 
-// Schema converts a row to its published shape. Any unparseable part fails
-// the whole row: a guessed value is worse than a dropped row.
-func (r Row) Schema() (schema.Row, error) {
-	var out schema.Row
+// ParsedRow is one mapping-list row as numbers. Each Episodes element is
+// [anidb, target...]: one element means the AniDB episode has no
+// counterpart, two or more name its target episodes.
+type ParsedRow struct {
+	TVDBSeason  *int
+	TMDBSeason  *int
+	Episodes    [][]int
+	AniDBSeason int
+	Start       int
+	End         int
+	Offset      int
+}
+
+// Parse reads a row in the list's syntax. Any unparseable part fails the
+// whole row: a guessed value is worse than a dropped row.
+func (r Row) Parse() (ParsedRow, error) {
+	var out ParsedRow
 	var err error
 	if out.AniDBSeason, err = atoiMin(r.Attrs["anidbseason"], 0); err != nil {
-		return schema.Row{}, fmt.Errorf("%w: anidbseason: %w", errRow, err)
+		return ParsedRow{}, fmt.Errorf("%w: anidbseason: %w", errRow, err)
 	}
 	if out.TVDBSeason, err = optSeason(r.Attrs["tvdbseason"]); err != nil {
-		return schema.Row{}, fmt.Errorf("%w: tvdbseason: %w", errRow, err)
+		return ParsedRow{}, fmt.Errorf("%w: tvdbseason: %w", errRow, err)
 	}
 	if out.TMDBSeason, err = optSeason(r.Attrs["tmdbseason"]); err != nil {
-		return schema.Row{}, fmt.Errorf("%w: tmdbseason: %w", errRow, err)
+		return ParsedRow{}, fmt.Errorf("%w: tmdbseason: %w", errRow, err)
 	}
 	for _, f := range []struct {
 		dst  *int
@@ -33,17 +44,17 @@ func (r Row) Schema() (schema.Row, error) {
 	}{{&out.Start, "start", 1}, {&out.End, "end", 1}} {
 		if v := strings.TrimSpace(r.Attrs[f.name]); v != "" {
 			if *f.dst, err = atoiMin(v, f.min); err != nil {
-				return schema.Row{}, fmt.Errorf("%w: %s: %w", errRow, f.name, err)
+				return ParsedRow{}, fmt.Errorf("%w: %s: %w", errRow, f.name, err)
 			}
 		}
 	}
 	if v := strings.TrimSpace(r.Attrs["offset"]); v != "" {
 		if out.Offset, err = strconv.Atoi(v); err != nil {
-			return schema.Row{}, fmt.Errorf("%w: offset: %w", errRow, err)
+			return ParsedRow{}, fmt.Errorf("%w: offset: %w", errRow, err)
 		}
 	}
 	if out.Episodes, err = parsePairs(r.Text); err != nil {
-		return schema.Row{}, err
+		return ParsedRow{}, err
 	}
 	return out, nil
 }
@@ -89,8 +100,8 @@ func parsePair(part string) ([]int, error) {
 	return pair, nil
 }
 
-// RowFromSchema renders a published row back into the list's syntax.
-func RowFromSchema(s schema.Row) Row {
+// RowOf renders a parsed row back into the list's syntax.
+func RowOf(s ParsedRow) Row {
 	attrs := map[string]string{"anidbseason": strconv.Itoa(s.AniDBSeason)}
 	if s.TVDBSeason != nil {
 		attrs["tvdbseason"] = strconv.Itoa(*s.TVDBSeason)

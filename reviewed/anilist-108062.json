@@ -4,7 +4,7 @@
   "parts": {
     "watch": [
       {
-        "record_sha256": "db762fe863a17d16aa41c4545185102693c49cb5ebb3e00e60735c7dec18609c",
+        "record_sha256": "f97d6977ccd2196daaea9d7668e1f87bb8ba608508bc0e076c81ab275f0bf302",
         "gaps": [
           "no_anidb"
         ],

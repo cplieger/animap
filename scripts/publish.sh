@@ -4,16 +4,25 @@
 #   AOD_SHA256, LIST_COMMIT, LIST_BLOB (optional) from scripts/resolve.sh
 #   CACHE_DIR (optional) where inputs are kept, default ./.cache
 #   ACCEPT_SHRINK=true (optional) pass -accept-shrink to the build
-#   DRY_RUN=1 (optional) write ./animap.json and create no release
+#   DRY_RUN=1 (optional) write ./animap.json, no release; unset or empty is 0,
+#     and any value but 0 or 1 is read as 1
 set -euo pipefail
 
+# DRY_RUN decides whether a release is created, so a value it cannot read
+# creates none rather than publishing.
+case "${DRY_RUN:-0}" in
+  0 | 1) DRY_RUN="${DRY_RUN:-0}" ;;
+  *)
+    echo "publish: WARNING DRY_RUN is neither 0 nor 1, so this is a dry run" >&2
+    DRY_RUN=1
+    ;;
+esac
 AOD_VERSION="${AOD_VERSION:?set AOD_VERSION (anime-offline-database release tag, e.g. 2026-40)}"
 MIRROR_COMMIT="${MIRROR_COMMIT:?set MIRROR_COMMIT (AnimeAggregations commit, pinned in publish.yaml)}"
 if ! [[ "$MIRROR_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
   echo "publish: ERROR MIRROR_COMMIT='${MIRROR_COMMIT}' is not a commit SHA" >&2
   exit 1
 fi
-DRY_RUN="${DRY_RUN:-0}"
 REPO="${GITHUB_REPOSITORY:-cplieger/animap}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 export CACHE_DIR="${CACHE_DIR:-$ROOT/.cache}"
@@ -74,10 +83,10 @@ shrink=()
   -previous "$WORK/previous.json" -out "$WORK/animap.json" -stats "$WORK/stats.json" "${shrink[@]}")
 
 HASH=$(jq -r .content_hash "$WORK/stats.json")
-RECORDS=$(jq -r .populations.records "$WORK/stats.json")
+ENTRIES=$(jq -r .populations.entries "$WORK/stats.json")
 if [ "$DRY_RUN" = "1" ]; then
   cp "$WORK/animap.json" "$ROOT/animap.json"
-  echo "publish: DRY RUN, ${RECORDS} records, content hash ${HASH}, changed $(jq -r .changed "$WORK/stats.json"); artifact at ./animap.json"
+  echo "publish: DRY RUN, ${ENTRIES} AniList entries, content hash ${HASH}, changed $(jq -r .changed "$WORK/stats.json"); artifact at ./animap.json"
   exit 0
 fi
 if [ "$(jq -r .changed "$WORK/stats.json")" != "true" ]; then
@@ -156,10 +165,10 @@ cosign sign-blob --yes animap.json --bundle animap.json.sigstore.json
 jq -r --arg tag "$TAG" --arg repo "$REPO" '
   "content_hash: \(.content_hash)",
   "",
-  "Records: \(.populations.records). AniList ids with an AniDB id: \(.populations.anilist_with_anidb). AniDB ids with a TVDB id: \(.populations.anidb_with_tvdb). Records with a TMDB id: \(.populations.with_tmdb). Records with a mapping list: \(.populations.with_mapping_list). Records with a TVDB placement: \(.populations.with_tvdb_placement). Overlay entries applied: \(.overlay_entries).",
+  "AniList entries: \(.populations.entries). AniList entries with AniDB parts: \(.populations.entries_with_parts). Anime with a TVDB id: \(.populations.anime_with_tvdb). Anime with a TMDB id: \(.populations.anime_with_tmdb). AniDB episodes on TVDB: \(.populations.episodes_on_tvdb). AniDB episodes on TMDB: \(.populations.episodes_on_tmdb). AniDB episode ids: \(.populations.anidb_episode_ids). Overlay entries applied: \(.overlay_entries). Overlay links applied: \(.links.applied).",
   ""' stats.json >notes.md
 jq -r '
-  "Sources: anime-offline-database \(.sources.anime_offline_database.release) (sha256 \(.sources.anime_offline_database.sha256)), Anime-Lists commit \(.sources.anime_lists.commit), overlay sha256 \(.sources.overlay.sha256). AniDB episode lists and counts: AniDB mirror commit \(.sources.anidb_mirror.commit).",
+  "Sources: anime-offline-database \(.sources.anime_offline_database.release) (sha256 \(.sources.anime_offline_database.sha256)), Anime-Lists commit \(.sources.anime_lists.commit), overlay sha256 \(.sources.overlay.sha256). AniDB episodes and their ids: AniDB mirror commit \(.sources.anidb_mirror.commit).",
   "",
   .attribution.notice,
   ""' animap.json >>notes.md
@@ -200,4 +209,4 @@ gh release create "$TAG" animap.json animap.json.sha256 animap.json.sigstore.jso
   --repo "$REPO" --title "$TAG" --latest --verify-tag --notes-file notes.md
 
 await_latest "$TAG"
-echo "publish: released ${TAG} (${RECORDS} records); latest pointer verified"
+echo "publish: released ${TAG} (${ENTRIES} AniList entries); latest pointer verified"

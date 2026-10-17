@@ -196,7 +196,7 @@ func Read(path string) (Record, error) {
 		return Record{}, err
 	}
 	var r Record
-	if err := strictjson.Decode(body, &r); err != nil {
+	if err := strictjson.Decode(body, MaxFileBytes, &r); err != nil {
 		return Record{}, fmt.Errorf("%w: %s: %w", errInvalid, path, err)
 	}
 	if want := File(r.Key); want == "" || filepath.Base(path) != want {

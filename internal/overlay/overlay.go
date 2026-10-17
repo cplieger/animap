@@ -12,7 +12,6 @@ import (
 	"io"
 	"maps"
 	"net/url"
-	"os"
 	"path/filepath"
 	"reflect"
 	"regexp"
@@ -21,13 +20,20 @@ import (
 	"strings"
 
 	"github.com/cplieger/animap/internal/animelists"
-	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // maxEntries bounds the overlay directory.
 const maxEntries = 5000
+
+// maxEntryBytes bounds one entry file, 20 times the largest (206 KB, AniDB
+// 3626's captured layout); maxLinkBytes one link, over 100 times the
+// largest.
+const (
+	maxEntryBytes = 4 << 20
+	maxLinkBytes  = 256 << 10
+)
 
 const (
 	attrTVDBID        = "tvdbid"
@@ -68,9 +74,9 @@ type Set struct {
 	MappingList       *[]Row  `json:"mapping_list,omitempty"`
 }
 
-// Row is a mapping_list row in the published shape, except that a present
-// Offset, 0 included, is written to the patched node, so Landed can match a
-// row written with offset="0".
+// Row is a mapping_list row: an Anime-Lists row as numbers, except that a
+// present Offset, 0 included, is written to the patched node, so Landed can
+// match a row written with offset="0".
 //
 //nolint:govet // fieldalignment: member order is the file's JSON order
 type Row struct {
@@ -83,8 +89,8 @@ type Row struct {
 	Episodes    [][]int `json:"episodes,omitempty"`
 }
 
-func (r *Row) published() schema.Row {
-	s := schema.Row{AniDBSeason: r.AniDBSeason, TVDBSeason: r.TVDBSeason, TMDBSeason: r.TMDBSeason, Start: r.Start, End: r.End, Episodes: r.Episodes}
+func (r *Row) parsed() animelists.ParsedRow {
+	s := animelists.ParsedRow{AniDBSeason: r.AniDBSeason, TVDBSeason: r.TVDBSeason, TMDBSeason: r.TMDBSeason, Start: r.Start, End: r.End, Episodes: r.Episodes}
 	if r.Offset != nil {
 		s.Offset = *r.Offset
 	}
@@ -92,7 +98,7 @@ func (r *Row) published() schema.Row {
 }
 
 func (r *Row) listRow() animelists.Row {
-	lr := animelists.RowFromSchema(r.published())
+	lr := animelists.RowOf(r.parsed())
 	if r.Offset != nil {
 		lr.Attrs["offset"] = strconv.Itoa(*r.Offset)
 	}
@@ -129,6 +135,16 @@ type CapturedTVDB struct {
 	Seasons  []int             `json:"seasons"`
 	Episodes []skyhook.Episode `json:"episodes"`
 	Series   int               `json:"series"`
+}
+
+// TVDBAt is the episode the entry's captured layout of series numbers
+// absolute in TVDB's order, false when the entry captures no layout of that
+// series or not exactly one episode at that number.
+func (e *Entry) TVDBAt(series, absolute int) ([2]int, bool) {
+	if e == nil || e.Captured.TVDB == nil || e.Captured.TVDB.Series != series {
+		return [2]int{}, false
+	}
+	return skyhook.AtAbsolute(e.Captured.TVDB.Episodes, absolute)
 }
 
 var (
@@ -184,7 +200,7 @@ func loadFile(path string) (Entry, error) {
 // its AniDB id. It does not validate, so capture can read an entry whose
 // captured fingerprints it is about to write.
 func ReadEntry(path string) (Entry, error) {
-	body, err := os.ReadFile(path)
+	body, err := strictjson.ReadFile(path, maxEntryBytes)
 	if err != nil {
 		return Entry{}, err
 	}
@@ -200,7 +216,7 @@ func ReadEntry(path string) (Entry, error) {
 
 func decode(body []byte) (Entry, error) {
 	var e Entry
-	if err := strictjson.Decode(body, &e); err != nil {
+	if err := strictjson.Decode(body, maxEntryBytes, &e); err != nil {
 		return Entry{}, fmt.Errorf("%w: %w", errInvalid, err)
 	}
 	return e, nil
@@ -271,11 +287,11 @@ func (e *Entry) validateSet() error {
 		if r.TVDBSeason == nil && r.TMDBSeason == nil {
 			return fmt.Errorf("mapping_list[%d] names neither a TVDB nor a TMDB season", i)
 		}
-		back, err := r.listRow().Schema()
+		back, err := r.listRow().Parse()
 		if err != nil {
 			return fmt.Errorf("mapping_list[%d]: %w", i, err)
 		}
-		if !reflect.DeepEqual(back, r.published()) {
+		if !reflect.DeepEqual(back, r.parsed()) {
 			return fmt.Errorf("mapping_list[%d] does not survive the list syntax (a 0 target, an empty pair or a negative bound)", i)
 		}
 	}

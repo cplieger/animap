@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"os"
 	"path/filepath"
 	"slices"
 	"strconv"
@@ -64,6 +65,28 @@ func TestGetRevalidatesFromThePersistedCache(t *testing.T) {
 	}
 	if _, err := c2.Get(t.Context(), srv.URL+"/missing", 1<<10); !errors.Is(err, ErrNotFound) {
 		t.Errorf("404 = %v, want ErrNotFound", err)
+	}
+}
+
+func TestNewStartsEmptyOnlyOnAnOversizedCache(t *testing.T) {
+	log := slog.New(slog.DiscardHandler)
+	big := filepath.Join(t.TempDir(), "cache.json")
+	f, err := os.Create(big)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := f.Truncate(maxCacheBytes + 1); err != nil {
+		t.Fatal(err)
+	}
+	if err := f.Close(); err != nil {
+		t.Fatal(err)
+	}
+	c, err := New(big, 0, log)
+	if err != nil || c == nil || len(c.cache) != 0 {
+		t.Errorf("New(oversized) = %v, %v; want an empty cache", c, err)
+	}
+	if _, err := New(t.TempDir(), 0, log); err == nil {
+		t.Error("New(a directory) = nil error, want the read error")
 	}
 }
 

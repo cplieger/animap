@@ -1,28 +1,28 @@
 package join
 
 import (
+	"cmp"
 	"fmt"
 	"slices"
 
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/anidb"
+	"github.com/cplieger/animap/internal/offlinedb"
+	"github.com/cplieger/animap/internal/overlay"
 )
 
-// Identity gives AniList entry AniList the AniDB id AniDB, as an overlay
-// link that names every regular episode of one anime does.
+// Identity gives Link's AniList entry the AniDB id AniDB, as an overlay
+// link overlay.Link.Identity classes as one does.
 type Identity struct {
-	AniList, AniDB int
+	Link  *overlay.Link
+	AniDB int
 }
 
-// Linked is an overlay link placed on TVDB: AniList episode i+1 lands on
-// episode Targets[i] of season Season of series TVDBID. Specials is set
-// for a link to season-zero episodes of one anime, the one shape
-// anidb_parent states.
+// Linked is an overlay link that is not an identity, with its compiled
+// placement: the link's parts become the entry's, and its claims state
+// where its AniDB episodes land.
 type Linked struct {
-	Specials *schema.ParentSpecials
-	Targets  []int
-	AniList  int
-	TVDBID   int
-	Season   int
+	Link     *overlay.Link
+	Compiled overlay.Compiled
 }
 
 // Skipped is a link the join did not apply, with why.
@@ -31,96 +31,116 @@ type Skipped struct {
 	AniList int    `json:"anilist_id"`
 }
 
-// addIdentities folds each identity into byAniList before the records are
-// made, so a linked record takes the ordinary path: its AniDB id, count
-// and node facts, and the AniDB-only record of that id is not published.
-// An AniList id anime-offline-database already links is skipped.
-func addIdentities(byAniList, byAniDB map[int]*identity, ids []Identity) (skipped []Skipped) {
+// Applied are the overlay links a build applies. Applicable is the only
+// constructor, so a reader of link claims that takes an Applied cannot see
+// a skipped link. The zero value applies none.
+type Applied struct {
+	ids    []Identity
+	linked []Linked
+}
+
+// Identities are the applied identity links.
+func (a Applied) Identities() []Identity { return slices.Clone(a.ids) }
+
+// Linked are the applied links that are not identities.
+func (a Applied) Linked() []Linked { return slices.Clone(a.linked) }
+
+// Compiled are Linked's compiled claims, in the same order.
+func (a Applied) Compiled() []overlay.Compiled {
+	out := make([]overlay.Compiled, 0, len(a.linked))
+	for i := range a.linked {
+		out = append(out, a.linked[i].Compiled)
+	}
+	return out
+}
+
+// Links are every applied link, identities included, by AniList id.
+func (a Applied) Links() []*overlay.Link {
+	out := make([]*overlay.Link, 0, a.Len())
+	for _, l := range a.ids {
+		out = append(out, l.Link)
+	}
+	for i := range a.linked {
+		out = append(out, a.linked[i].Link)
+	}
+	slices.SortStableFunc(out, func(x, y *overlay.Link) int { return cmp.Compare(x.AniListID, y.AniListID) })
+	return out
+}
+
+// Len is the number of applied links.
+func (a Applied) Len() int { return len(a.ids) + len(a.linked) }
+
+// Applicable splits ids and links into those the build applies and the
+// rest, with why, against anime-offline-database's entries; nil entries
+// apply every one. A link applies only to an AniList id they give no AniDB
+// id, so an ambiguous one keeps no parts, and a non-identity link only
+// when they count its episodes as the link does, or not at all.
+func Applicable(entries []offlinedb.Entry, ids []Identity, links []Linked) (Applied, []Skipped) {
+	var out Applied
+	var skipped []Skipped
+	byAniList, _ := index(entries)
 	for _, l := range ids {
-		id := byAniList[l.AniList]
-		switch {
-		case id != nil && len(id.anidb) > 0:
-			skipped = append(skipped, Skipped{AniList: l.AniList, Reason: fmt.Sprintf("anime-offline-database now links AniDB %d", firstOf(id.anidb))})
+		if reason := identified(byAniList[l.Link.AniListID]); reason != "" {
+			skipped = append(skipped, Skipped{AniList: l.Link.AniListID, Reason: reason})
 			continue
-		case id == nil:
-			id = &identity{anidb: map[int]struct{}{}, mal: map[int]struct{}{}, seen: true}
+		}
+		out.ids = append(out.ids, l)
+	}
+	for i := range links {
+		l := &links[i]
+		id := byAniList[l.Link.AniListID]
+		reason := identified(id)
+		if n := len(l.Compiled.Targets); reason == "" && id != nil && id.episodes != 0 && id.episodes != n {
+			reason = fmt.Sprintf("the entry has %d episodes, the link %d", id.episodes, n)
+		}
+		if reason != "" {
+			skipped = append(skipped, Skipped{AniList: l.Link.AniListID, Reason: reason})
+			continue
+		}
+		out.linked = append(out.linked, *l)
+	}
+	return out, skipped
+}
+
+// identified is why a link cannot apply to id: the database already gives
+// it one AniDB id or several; "" when it gives none.
+func identified(id *identity) string {
+	if id == nil {
+		return ""
+	}
+	switch n := len(id.anidb); {
+	case n == 1:
+		return fmt.Sprintf("anime-offline-database now links AniDB %d", single(id.anidb))
+	case n > 1:
+		return fmt.Sprintf("anime-offline-database gives it %d AniDB ids", n)
+	}
+	return ""
+}
+
+// addIdentities folds each applied identity into byAniList before the
+// entries are made, so a linked entry takes the ordinary path. An AniList
+// id the database lacks takes the type and count of the anime's own
+// database entry.
+func addIdentities(byAniList, byAniDB map[int]*identity, ids []Identity) {
+	for _, l := range ids {
+		id := byAniList[l.Link.AniListID]
+		if id == nil {
+			id = &identity{anidb: map[int]struct{}{}, seen: true}
 			if src := byAniDB[l.AniDB]; src != nil {
 				id.typ, id.episodes = src.typ, src.episodes
-				for m := range src.mal {
-					id.mal[m] = struct{}{}
-				}
 			}
-			byAniList[l.AniList] = id
+			byAniList[l.Link.AniListID] = id
 		}
 		id.anidb[l.AniDB] = struct{}{}
 	}
-	return skipped
 }
 
-func firstOf(set map[int]struct{}) int {
-	ids := make([]int, 0, len(set))
-	for k := range set {
-		ids = append(ids, k)
+// addLink gives an applied link's AniList entry the link's parts.
+func addLink(byAniList map[int]*identity, l *Linked, facts *anidb.Facts) {
+	id := byAniList[l.Link.AniListID]
+	if id == nil {
+		id = &identity{anidb: map[int]struct{}{}, seen: true}
+		byAniList[l.Link.AniListID] = id
 	}
-	return slices.Min(ids)
-}
-
-// ApplyLinks gives each linked AniList record its TVDB series, season, one
-// mapping row and the placement, inserting a record where the join made
-// none. records must be sorted as Build returns them; the result is too.
-// A link applies only to a record with no AniDB id of its own and, when it
-// has one, the same episode count; anything else is skipped and reported,
-// and the record stays as the join made it.
-func ApplyLinks(records []schema.Record, links []Linked) (out []schema.Record, applied int, skipped []Skipped) {
-	for i := range links {
-		l := &links[i]
-		at, found := slices.BinarySearchFunc(records, l.AniList, func(r schema.Record, al int) int { return cmpAniList(r.AniListID, al) })
-		if !found {
-			records = slices.Insert(records, at, schema.Record{AniListID: l.AniList, Episodes: len(l.Targets)})
-		}
-		if reason := link(&records[at], l); reason != "" {
-			skipped = append(skipped, Skipped{AniList: l.AniList, Reason: reason})
-			continue
-		}
-		applied++
-	}
-	return records, applied, skipped
-}
-
-// cmpAniList orders AniList-keyed records first, then AniDB-only ones
-// (AniListID 0), which never match a search.
-func cmpAniList(have, want int) int {
-	switch {
-	case have == 0:
-		return 1
-	case have < want:
-		return -1
-	case have > want:
-		return 1
-	}
-	return 0
-}
-
-func link(r *schema.Record, l *Linked) string {
-	switch {
-	case r.AniDBID != 0:
-		return fmt.Sprintf("anime-offline-database now links AniDB %d", r.AniDBID)
-	case r.Episodes != 0 && r.Episodes != len(l.Targets):
-		return fmt.Sprintf("the record has %d episodes, the link %d", r.Episodes, len(l.Targets))
-	}
-	season := l.Season
-	pairs := make([][]int, 0, len(l.Targets))
-	for i, t := range l.Targets {
-		pairs = append(pairs, []int{i + 1, t})
-	}
-	if l.Specials != nil {
-		r.AniDBParent = &schema.ParentSpecials{AniDBID: l.Specials.AniDBID, Specials: slices.Clone(l.Specials.Specials)}
-	}
-	r.TVDBID = l.TVDBID
-	r.TVDBSeason = &season
-	r.MappingList = []schema.Row{{AniDBSeason: 1, TVDBSeason: &season, Episodes: pairs}}
-	r.TVDBPlacement = segments(len(pairs), func(k int) ([][2]int, bool) {
-		return [][2]int{{season, pairs[k-1][1]}}, true
-	})
-	return ""
+	id.parts = l.Link.Published(facts)
 }

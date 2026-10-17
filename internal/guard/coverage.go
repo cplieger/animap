@@ -9,47 +9,36 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/release"
 )
 
 // minRatio is the share of each previous population a build must keep.
 // Weekly upstream churn is a few dozen ids, so 10% is far outside it.
 const minRatio = 0.9
 
-// Floors apply when there is no previous release: half of the 2026-10
-// measurement.
-var Floors = schema.Populations{Records: 10000, AniListWithAniDB: 6500, AniDBWithTVDB: 3500}
+// Floors apply when there is no comparable previous release: about half of
+// the 2026-10 measurement.
+var Floors = release.Populations{
+	Entries: 10000, EntriesWithParts: 6500, AnimeWithTVDB: 3500, AnimeWithTMDB: 4200,
+	EpisodesOnTVDB: 71000, EpisodesOnTMDB: 65000, AniDBEpisodeIDs: 145000,
+}
 
 // ErrCoverage reports a population that shrank past the guard.
 var ErrCoverage = errors.New("guard: coverage collapsed")
 
-// Coverage compares cur against prev (nil for a first release). With
-// acceptShrink a deliberate shrink passes; extinction never does.
-func Coverage(prev *schema.Populations, cur schema.Populations, acceptShrink bool) error {
-	type pop struct {
-		name      string
-		prev, cur int
-	}
+// Coverage compares cur against prev (nil for no comparable release, which
+// checks every population against Floors). With acceptShrink a deliberate
+// shrink passes; extinction never does.
+func Coverage(prev *release.Populations, cur release.Populations, acceptShrink bool) error {
 	if prev == nil {
-		for _, p := range []pop{
-			{"records", Floors.Records, cur.Records},
-			{"anilist_with_anidb", Floors.AniListWithAniDB, cur.AniListWithAniDB},
-			{"anidb_with_tvdb", Floors.AniDBWithTVDB, cur.AniDBWithTVDB},
-		} {
+		for _, p := range pops(&Floors, &cur) {
 			if p.cur < p.prev {
-				return fmt.Errorf("%w: %s is %d, below the first-release floor %d", ErrCoverage, p.name, p.cur, p.prev)
+				return fmt.Errorf("%w: %s is %d, below the floor %d", ErrCoverage, p.name, p.cur, p.prev)
 			}
 		}
 		return nil
 	}
-	for _, p := range []pop{
-		{"records", prev.Records, cur.Records},
-		{"anilist_with_anidb", prev.AniListWithAniDB, cur.AniListWithAniDB},
-		{"anidb_with_tvdb", prev.AniDBWithTVDB, cur.AniDBWithTVDB},
-		{"with_tmdb", prev.WithTMDB, cur.WithTMDB},
-		{"with_mapping_list", prev.WithMappingList, cur.WithMappingList},
-		{"with_tvdb_placement", prev.WithPlacement, cur.WithPlacement},
-	} {
+	for _, p := range pops(prev, &cur) {
 		if p.prev > 0 && p.cur == 0 {
 			return fmt.Errorf("%w: %s went from %d to 0", ErrCoverage, p.name, p.prev)
 		}
@@ -58,4 +47,21 @@ func Coverage(prev *schema.Populations, cur schema.Populations, acceptShrink boo
 		}
 	}
 	return nil
+}
+
+type pop struct {
+	name      string
+	prev, cur int
+}
+
+func pops(prev, cur *release.Populations) []pop {
+	return []pop{
+		{"entries", prev.Entries, cur.Entries},
+		{"entries_with_parts", prev.EntriesWithParts, cur.EntriesWithParts},
+		{"anime_with_tvdb", prev.AnimeWithTVDB, cur.AnimeWithTVDB},
+		{"anime_with_tmdb", prev.AnimeWithTMDB, cur.AnimeWithTMDB},
+		{"episodes_on_tvdb", prev.EpisodesOnTVDB, cur.EpisodesOnTVDB},
+		{"episodes_on_tmdb", prev.EpisodesOnTMDB, cur.EpisodesOnTMDB},
+		{"anidb_episode_ids", prev.AniDBEpisodeIDs, cur.AniDBEpisodeIDs},
+	}
 }

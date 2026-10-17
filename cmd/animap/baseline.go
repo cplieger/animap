@@ -100,7 +100,7 @@ func upstreamReport(overlayDir, listPath, aodPath, countsPath, mirrorPath string
 	if err != nil {
 		return guard.CollisionReport{}, err
 	}
-	return guard.Collisions(list.Nodes, entries, proven.compiled, facts), nil
+	return guard.Collisions(list.Nodes, entries, proven.applied, facts), nil
 }
 
 func writeBaseline(ctx context.Context, mode, path, commit string, rep *guard.CollisionReport, stdout io.Writer) error {

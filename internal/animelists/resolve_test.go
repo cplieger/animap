@@ -18,6 +18,7 @@ func TestPlace(t *testing.T) {
 	season1 := node(map[string]string{"tvdbid": "10", "defaulttvdbseason": "1", "episodeoffset": "-2"})
 	absolute := node(map[string]string{"tvdbid": "10", "defaulttvdbseason": "a", "episodeoffset": "5"})
 	noOffset := node(map[string]string{"tvdbid": "10", "defaulttvdbseason": "1"})
+	zeroOffset := node(map[string]string{"tvdbid": "10", "defaulttvdbseason": "1", "episodeoffset": "0"})
 	unset := node(map[string]string{"tvdbid": "10"})
 	tmdb := node(map[string]string{"tmdbtv": "20", "tmdbseason": "2", "tmdboffset": "3"})
 	tmdbAbsolute := node(map[string]string{"tmdbtv": "20", "tmdbseason": "a"})
@@ -32,22 +33,24 @@ func TestPlace(t *testing.T) {
 		{name: "a row to no episode", n: season1, s: 1, k: 4, want: Placement{}},
 		{name: "a range row", n: season1, s: 1, k: 11, want: Placement{Targets: [][2]int{{3, 7}}}},
 		{name: "the default season and offset", n: season1, s: 1, k: 6, want: Placement{Targets: [][2]int{{1, 4}}, Default: true}},
-		{name: "an absent offset reads as zero", n: noOffset, s: 1, k: 6, want: Placement{Targets: [][2]int{{1, 6}}, Default: true}},
-		{name: "an offset below episode 1", n: season1, s: 1, k: 2, want: Placement{Default: true}},
+		{name: "an absent offset reads as zero", n: noOffset, s: 1, k: 6, want: Placement{Targets: [][2]int{{1, 6}}, Default: true, Implied: true}},
+		{name: "an offset below episode 1", n: season1, s: 1, k: 2, want: Placement{Default: true, Below: true}},
 		{name: "an absolute default", n: absolute, s: 1, k: 6, want: Placement{Absolute: 11, Default: true}},
 		{name: "no default season", n: unset, s: 1, k: 6, want: Placement{Default: true}},
 		{name: "a special through a row", n: unset, s: 0, k: 2, want: Placement{Targets: [][2]int{{1, 13}}}},
-		{name: "a special by default", n: season1, s: 0, k: 5, want: Placement{Targets: [][2]int{{0, 5}}, Default: true}},
+		{name: "a special by default", n: season1, s: 0, k: 5, want: Placement{Targets: [][2]int{{0, 5}}, Default: true, Implied: true}},
 		{name: "an other episode through a row to a regular season", n: unset, s: 0, k: 413, want: Placement{Targets: [][2]int{{4, 13}}}},
 		{name: "the same row on TMDB", n: tmdb, sd: TMDB, s: 0, k: 413, want: Placement{Targets: [][2]int{{5, 13}}}},
 		{name: "a promotion through a range row", n: unset, s: 0, k: 202, want: Placement{Targets: [][2]int{{6, 2}}}},
 		{name: "the range row on TMDB", n: tmdb, sd: TMDB, s: 0, k: 203, want: Placement{Targets: [][2]int{{6, 3}}}},
 		{name: "TMDB's default season and offset past a TVDB row", n: tmdb, sd: TMDB, s: 1, k: 3, want: Placement{Targets: [][2]int{{2, 6}}, Default: true}},
 		{name: "no absolute numbering on TMDB", n: tmdbAbsolute, sd: TMDB, s: 1, k: 3, want: Placement{Default: true}},
+		{name: "a written offset of 0 is not implied", n: zeroOffset, s: 1, k: 6, want: Placement{Targets: [][2]int{{1, 6}}, Default: true}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			got := tc.n.Place(tc.sd, tc.s, tc.k)
-			if !slices.Equal(got.Targets, tc.want.Targets) || got.Absolute != tc.want.Absolute || got.Default != tc.want.Default {
+			if !slices.Equal(got.Targets, tc.want.Targets) || got.Absolute != tc.want.Absolute || got.Default != tc.want.Default ||
+				got.Implied != tc.want.Implied || got.Below != tc.want.Below {
 				t.Errorf("Place(%d, %d, %d) = %+v, want %+v", tc.sd, tc.s, tc.k, got, tc.want)
 			}
 		})

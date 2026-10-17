@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # scripts/daily-review.sh's DRY_RUN reading and its tail: the issue plan
-# applies only when DRY_RUN is 0 or unset, and a TMDB token the review saw
+# applies only when DRY_RUN is 0, empty or unset, and a TMDB token the review saw
 # refused then turns the run red, after the plan, never before it.
 # DAILY_REVIEW_SH points the suite at another copy for a red-check.
 # SC2015: lib.sh verdict helpers return 0. SC2016: child scripts stay literal.
@@ -70,10 +70,12 @@ tail_of false 1
   && ok "daily-review: a dry run applies nothing" \
   || no "daily-review: a dry run" "rc=$_rc order=$_order err=$_err"
 
-tail_of false unset
-[ "$_rc" -eq 0 ] && [ "$_order" = "planned|applied $WORK/actions.json|" ] && [ -z "$_err" ] \
-  && ok "daily-review: with DRY_RUN unset the plan applies" \
-  || no "daily-review: DRY_RUN unset" "rc=$_rc order=$_order err=$_err"
+for live in unset ''; do
+  tail_of false "$live"
+  [ "$_rc" -eq 0 ] && [ "$_order" = "planned|applied $WORK/actions.json|" ] && [ -z "$_err" ] \
+    && ok "daily-review: with DRY_RUN '$live' the plan applies" \
+    || no "daily-review: DRY_RUN '$live'" "rc=$_rc order=$_order err=$_err"
+done
 
 for bad in true yes 2 01 ' 0' '1 '; do
   tail_of false "$bad"

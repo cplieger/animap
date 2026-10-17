@@ -17,9 +17,9 @@ import (
 	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/issues"
 	"github.com/cplieger/animap/internal/review"
-	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/watch"
+	"github.com/cplieger/animap/mapread"
 	"github.com/cplieger/runesafe/v3"
 )
 
@@ -615,7 +615,7 @@ func typeLabel(s string) string {
 	switch {
 	case s == "":
 		return "no type"
-	case schema.ValidType(s):
+	case mapread.ValidType(s):
 		return s
 	}
 	return "unrecognised type"

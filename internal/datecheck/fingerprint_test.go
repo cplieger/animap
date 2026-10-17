@@ -14,7 +14,7 @@ var hexRE = regexp.MustCompile(`^[0-9a-f]{64}$`)
 // so its one finding is date-mismatch:2.
 func digestInputs() (*animelists.Node, anidb.Anime, *Layout) {
 	n := season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;"))
-	a := anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, RegularTitles: []string{"t1", "t2"}, Finished: true}
+	a := anidb.Anime{Regular: []anidb.Episode{{Number: 1, AirDate: "2005-08-10", Titles: "t1"}, {Number: 2, AirDate: "2005-08-17", Titles: "t2"}}, Finished: true}
 	return n, a, laid(ep(1, 1, 1, "2005-08-10"), ep(1, 2, 2, "2005-08-17"), ep(1, 3, 3, "2005-08-24"), ep(2, 1, 4, "2006-01-04"))
 }
 
@@ -38,12 +38,12 @@ func TestFindingInputsFollowWhatTheProofReads(t *testing.T) {
 		name   string
 		moves  bool
 	}{
-		{name: "the AniDB episode's titles", moves: true, mutate: func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.RegularTitles[1] = "other" }},
+		{name: "the AniDB episode's titles", moves: true, mutate: func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Regular[1].Titles = "other" }},
 		{name: "the target's title", moves: true, mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[2].Title = "other" }},
 		{name: "the carrier's title", moves: true, mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[1].Title = "other" }},
 		{name: "the target's absolute number", moves: true, mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[2].Absolute = 9 }},
 		{name: "an episode the proof does not read", mutate: func(_ *animelists.Node, _ *anidb.Anime, l *Layout) { l.Episodes[3].Title = "other" }},
-		{name: "another AniDB episode's titles", mutate: func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.RegularTitles[0] = "other" }},
+		{name: "another AniDB episode's titles", mutate: func(_ *animelists.Node, a *anidb.Anime, _ *Layout) { a.Regular[0].Titles = "other" }},
 		{name: "the node's name", mutate: func(n *animelists.Node, _ *anidb.Anime, _ *Layout) { n.Name = "renamed" }},
 	} {
 		t.Run(tc.name, func(t *testing.T) {

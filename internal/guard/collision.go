@@ -10,6 +10,7 @@ import (
 
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
+	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/skyhook"
 )
@@ -76,9 +77,9 @@ type CollisionReport struct {
 
 // Collisions applies entries to upstream, the list as Anime-Lists has it,
 // and runs the series-wide check over every series two or more nodes share
-// and every series an entry or a compiled link lands on. Every regular
+// and every series an entry or an applied link lands on. Every regular
 // count and special comes from facts.
-func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, links []overlay.Compiled, facts *anidb.Facts) CollisionReport {
+func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, applied join.Applied, facts *anidb.Facts) CollisionReport {
 	var rep CollisionReport
 	nodes := overlay.Apply(upstream, entries)
 	onSeries, byTMDB := indexNodes(nodes)
@@ -87,6 +88,7 @@ func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, link
 	for i := range entries {
 		base.changed[entries[i].AniDBID] = true
 	}
+	links := applied.Compiled()
 	for i := range links {
 		byLink[links[i].Series] = true
 		for _, c := range links[i].Claims {
@@ -127,13 +129,14 @@ func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, link
 
 // Claims lists every claim on the TVDB series or TMDB show id on side, by
 // [season, episode], as a touched check reads them: every node there with
-// entries applied, AniDB specials included, links' claims on TVDB. Each
+// entries applied, AniDB specials included, applied links' claims on TVDB. Each
 // label is "<aid> ep<k>" or "<aid> S<k>", with " (default)" when no row
 // named the special.
-func Claims(upstream map[int]*animelists.Node, entries []overlay.Entry, links []overlay.Compiled, facts *anidb.Facts, side animelists.Side, id int) map[[2]int][]string {
+func Claims(upstream map[int]*animelists.Node, entries []overlay.Entry, applied join.Applied, facts *anidb.Facts, side animelists.Side, id int) map[[2]int][]string {
 	nodes := overlay.Apply(upstream, entries)
 	onSeries, byTMDB := indexNodes(nodes)
 	base := seriesCheck{nodes: nodes, upstream: upstream, facts: facts, changed: map[int]bool{}, linked: map[int][]overlay.Claim{}}
+	links := applied.Compiled()
 	for i := range links {
 		for _, c := range links[i].Claims {
 			base.linked[c.Parent] = append(base.linked[c.Parent], c)

@@ -2,7 +2,9 @@ package datecheck
 
 import (
 	"cmp"
+	"maps"
 	"slices"
+	"strings"
 	"testing"
 	"time"
 
@@ -75,6 +77,15 @@ var daily = laid(
 // winter is four weekly AniDB dates in 1984.
 var winter = []string{"1984-01-08", "1984-01-15", "1984-01-22", "1984-01-29"}
 
+// dated is regular episodes 1 to len(dates), each aired on its date.
+func dated(dates ...string) []anidb.Episode {
+	out := make([]anidb.Episode, len(dates))
+	for i, d := range dates {
+		out[i] = anidb.Episode{Number: i + 1, AirDate: d}
+	}
+	return out
+}
+
 func season1(rows ...animelists.Row) *animelists.Node {
 	return node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "1"}, rows...)
 }
@@ -100,11 +111,11 @@ func TestCheckFlags(t *testing.T) {
 	}{
 		{
 			name: "a row one episode off on a weekly show", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;")),
-			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-17"), Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "a default past the season's end", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-07", "2005-09-14"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-07", "2005-09-14"), Finished: true},
 			want:  []Kind{MissingTarget},
 		},
 		{
@@ -113,7 +124,7 @@ func TestCheckFlags(t *testing.T) {
 		},
 		{
 			name: "a special's date no TVDB special meets on a series that keeps AniDB's calendar", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-08-10"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-12-07"}}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-08-10"), Specials: []anidb.Episode{{Number: 1, AirDate: "2005-12-07"}}, Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "a default special TVDB files elsewhere", node: season1(),
@@ -121,46 +132,50 @@ func TestCheckFlags(t *testing.T) {
 		},
 		{
 			name: "one of two targets on the wrong date", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-1+2;")),
-			anime: anidb.Anime{Regular: []string{"2005-08-10"}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-08-10"), Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "an absolute number the series lacks", node: node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "a", "episodeoffset": "9"}),
-			anime: anidb.Anime{Regular: []string{"2005-08-31"}, Finished: true}, want: []Kind{MissingTarget},
+			anime: anidb.Anime{Regular: dated("2005-08-31"), Finished: true}, want: []Kind{MissingTarget},
 		},
 		{
 			name: "a missing episode on a date another episode shares", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-14", "2005-09-14"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-14", "2005-09-14"), Finished: true},
 			want:  []Kind{MissingTarget},
 		},
 		{
 			name: "a special on the date of a regular episode", node: season1(row(map[string]string{"anidbseason": "0", "tvdbseason": "0"}, ";1-3;")),
-			anime: anidb.Anime{Regular: []string{"2005-11-23"}, Specials: []anidb.Episode{{Number: 1, AirDate: "2005-11-23"}}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-11-23"), Specials: []anidb.Episode{{Number: 1, AirDate: "2005-11-23"}}, Finished: true},
 			want:  []Kind{DateMismatch, DateMismatch},
 		},
 		{
+			name: "an episode after a gap far off its own number's date", node: season1(),
+			anime: anidb.Anime{Regular: []anidb.Episode{{Number: 5, AirDate: "2005-08-10"}}, Finished: true}, want: []Kind{DateMismatch},
+		},
+		{
 			name: "a default episode far off its TVDB date", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-10-05"}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-10-05"), Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "a default episode in season 0 a few weeks off", node: node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "0"}),
-			anime: anidb.Anime{Regular: []string{"2005-12-21"}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-12-21"), Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "a default episode in another season's date", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-11-23"}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-11-23"), Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "a missing episode with no AniDB date on a finished anime", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-9;")),
-			anime: anidb.Anime{Regular: []string{""}, Finished: true}, want: []Kind{MissingTarget},
+			anime: anidb.Anime{Regular: dated(""), Finished: true}, want: []Kind{MissingTarget},
 		},
 		{
 			name: "a second target off the date the film's parts share", want: []Kind{DateMismatch},
 			node:  node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "0"}, row(map[string]string{"anidbseason": "1", "tvdbseason": "0"}, ";1-1+3;2-1;")),
-			anime: anidb.Anime{Regular: []string{"2005-11-23", "2005-11-23"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-11-23", "2005-11-23"), Finished: true},
 		},
 		{
 			name: "a revisit on another calendar", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-3;2-4;")),
-			anime: anidb.Anime{Regular: winter, Finished: true}, want: []Kind{OutOfOrder, OutOfOrder, OutOfOrder},
+			anime: anidb.Anime{Regular: dated(winter...), Finished: true}, want: []Kind{OutOfOrder, OutOfOrder, OutOfOrder},
 		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
@@ -214,11 +229,11 @@ func TestCheckFlagsOnTMDB(t *testing.T) {
 	}{
 		{
 			name: "a row one episode off", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;")),
-			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, want: []Kind{DateMismatch},
+			anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-17"), Finished: true}, want: []Kind{DateMismatch},
 		},
 		{
 			name: "a default past the season's end", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-07", "2005-09-14"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-17", "2005-08-24", "2005-08-31", "2005-09-07", "2005-09-14"), Finished: true},
 			want:  []Kind{MissingTarget},
 		},
 		{
@@ -227,10 +242,10 @@ func TestCheckFlagsOnTMDB(t *testing.T) {
 		},
 		{
 			name: "a revisit on another calendar", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-3;2-4;")),
-			anime: anidb.Anime{Regular: winter, Finished: true}, want: []Kind{OutOfOrder, OutOfOrder, OutOfOrder},
+			anime: anidb.Anime{Regular: dated(winter...), Finished: true}, want: []Kind{OutOfOrder, OutOfOrder, OutOfOrder},
 		},
-		{name: "a default episode in another season's date", node: season1(), anime: anidb.Anime{Regular: []string{"2005-11-23"}, Finished: true}, want: []Kind{DateMismatch}},
-		{name: "dates a day apart", node: season1(), anime: anidb.Anime{Regular: []string{"2005-08-11", "2005-08-16"}, Finished: true}},
+		{name: "a default episode in another season's date", node: season1(), anime: anidb.Anime{Regular: dated("2005-11-23"), Finished: true}, want: []Kind{DateMismatch}},
+		{name: "dates a day apart", node: season1(), anime: anidb.Anime{Regular: dated("2005-08-11", "2005-08-16"), Finished: true}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			lay := tmdbLayout(cmp.Or(tc.layout, weekly))
@@ -243,7 +258,7 @@ func TestCheckFlagsOnTMDB(t *testing.T) {
 			}
 		})
 	}
-	dead := Check(onTMDB(season1()), animelists.TMDB, &anidb.Anime{Regular: []string{"2005-08-10"}}, &Layout{Absent: true}, now, nil)
+	dead := Check(onTMDB(season1()), animelists.TMDB, &anidb.Anime{Regular: dated("2005-08-10")}, &Layout{Absent: true}, now, nil)
 	if dead == nil || !dead.Dead || dead.Series != 79881 {
 		t.Errorf("Check on a dead TMDB show = %+v, want a dead lead", dead)
 	}
@@ -263,7 +278,7 @@ func TestCheckMovies(t *testing.T) {
 
 // An extra is judged only where a row or a link names it.
 func TestCheckExtrasWhenNamed(t *testing.T) {
-	a := &anidb.Anime{Regular: []string{"2005-08-10"}, Extras: []anidb.Episode{{Number: 101}, {Number: 102}}, Finished: true}
+	a := &anidb.Anime{Regular: dated("2005-08-10"), Extras: []anidb.Extra{{Kind: anidb.Credit, Number: 1, SeasonZero: 101}, {Kind: anidb.Credit, Number: 2, SeasonZero: 102}, {Kind: anidb.Credit, Number: 101}}, Finished: true}
 	named := season1(row(map[string]string{"anidbseason": "0", "tvdbseason": "0"}, ";101-9;102-1;"))
 	l := Check(named, animelists.TVDB, a, weekly, now, nil)
 	if l == nil || len(l.Findings) != 1 {
@@ -272,13 +287,37 @@ func TestCheckExtrasWhenNamed(t *testing.T) {
 	if f := l.Findings[0]; f.Kind != MissingTarget || !f.Episode.Extra || f.Key() != "missing-target:S101" {
 		t.Errorf("finding = %+v, want a missing target for extra 101", f)
 	}
-	dated := &anidb.Anime{Regular: []string{"2005-08-10"}, Extras: []anidb.Episode{{Number: 101, AirDate: "2005-11-23"}}, Finished: true}
-	if l := Check(season1(), animelists.TVDB, dated, weekly, now, nil); l != nil {
-		t.Errorf("Check(an extra defaulted, dated on a TVDB special's day) = %+v, want no lead", l)
+	if l := Check(season1(), animelists.TVDB, a, weekly, now, nil); l != nil {
+		t.Errorf("Check(extras defaulted) = %+v, want no lead", l)
 	}
 	linked := Check(season1(), animelists.TVDB, a, weekly, now, map[[2]int]int{{0, 102}: 9})
 	if linked == nil || len(linked.Findings) != 1 || linked.Findings[0].Link != 9 {
 		t.Errorf("Check(extra 102 linked) = %+v, want its default S0E102 missing, naming the link", linked)
+	}
+}
+
+// An extra's finding is keyed and digested on its Anime-Lists season 0
+// number, so the keys and inputs digests acceptance records hold stay
+// those the extract numbered by season 0 number alone produced.
+func TestExtraFindingsKeepTheirKeysAndDigests(t *testing.T) {
+	d := strings.Repeat("1", 64)
+	a := &anidb.Anime{Regular: dated("2005-08-10"), Finished: true, Extras: []anidb.Extra{
+		{Kind: anidb.Credit, Number: 1, SeasonZero: 101, Titles: d}, {Kind: anidb.Other, Number: 3, SeasonZero: 403, Titles: d},
+	}}
+	n := season1(row(map[string]string{"anidbseason": "0", "tvdbseason": "0"}, ";101-9;403-8;"))
+	l := Check(n, animelists.TVDB, a, weekly, now, nil)
+	want := map[string]string{
+		"missing-target:S101": "92a5e682d67ce39cc43fe4be2935d2c9a27285406a4c70a3147446cc290b61e8",
+		"missing-target:S403": "ac2b981c27e9b819921a3845283b47c30ede7f41b251ee9f7939b4aab31d69df",
+	}
+	got := map[string]string{}
+	if l != nil {
+		for i := range l.Findings {
+			got[l.Findings[i].Key()] = l.Findings[i].Inputs
+		}
+	}
+	if !maps.Equal(got, want) {
+		t.Errorf("findings = %v, want %v", got, want)
 	}
 }
 
@@ -290,27 +329,31 @@ func TestCheckPasses(t *testing.T) {
 		anime  anidb.Anime
 		name   string
 	}{
-		{name: "dates a day apart", node: season1(), anime: anidb.Anime{Regular: []string{"2005-08-11", "2005-08-16"}, Finished: true}},
-		{name: "no TVDB date", node: season1(), anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17", "2005-08-24", "2005-08-23"}, Finished: true}},
-		{name: "no AniDB date", node: season1(), anime: anidb.Anime{Regular: []string{"", ""}, Finished: true}},
+		{name: "dates a day apart", node: season1(), anime: anidb.Anime{Regular: dated("2005-08-11", "2005-08-16"), Finished: true}},
+		{
+			name: "a regular list with a gap, each episode on its own number's date", node: season1(),
+			anime: anidb.Anime{Regular: []anidb.Episode{{Number: 1, AirDate: "2005-08-10"}, {Number: 5, AirDate: "2005-10-05"}}, Finished: true},
+		},
+		{name: "no TVDB date", node: season1(), anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-17", "2005-08-24", "2005-08-23"), Finished: true}},
+		{name: "no AniDB date", node: season1(), anime: anidb.Anime{Regular: dated("", ""), Finished: true}},
 		{
 			name: "no AniDB date on an anime still airing", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-9;")),
-			anime: anidb.Anime{Regular: []string{""}},
+			anime: anidb.Anime{Regular: dated("")},
 		},
 		{
 			name: "an episode not settled yet", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-9;")),
-			anime: anidb.Anime{Regular: []string{soon}, Finished: true},
+			anime: anidb.Anime{Regular: dated(soon), Finished: true},
 		},
-		{name: "a month-precision AniDB date", node: season1(), anime: anidb.Anime{Regular: []string{"2005-08-01"}, Finished: true}},
-		{name: "a series on another calendar", node: season1(), anime: anidb.Anime{Regular: []string{"2003-01-20", "2003-01-27"}, Finished: true}},
+		{name: "a month-precision AniDB date", node: season1(), anime: anidb.Anime{Regular: dated("2005-08-01"), Finished: true}},
+		{name: "a series on another calendar", node: season1(), anime: anidb.Anime{Regular: dated("2003-01-20", "2003-01-27"), Finished: true}},
 		{
 			name: "a mismatch on a date two episodes share", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;")),
-			anime: anidb.Anime{Regular: []string{"2005-08-17", "2005-08-17"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-17", "2005-08-17"), Finished: true},
 		},
-		{name: "a default episode a week off its TVDB date", node: season1(), anime: anidb.Anime{Regular: []string{"2005-08-17", "2005-08-24"}, Finished: true}},
+		{name: "a default episode a week off its TVDB date", node: season1(), anime: anidb.Anime{Regular: dated("2005-08-17", "2005-08-24"), Finished: true}},
 		{
 			name: "a month-precision date names no other episode", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "0"}, ";1-1;")),
-			anime: anidb.Anime{Regular: []string{"2005-08-01"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-01"), Finished: true},
 		},
 		{
 			name: "a default special airing the day of a regular episode", node: season1(),
@@ -322,64 +365,64 @@ func TestCheckPasses(t *testing.T) {
 		},
 		{
 			name: "a regular date no episode meets on a series that keeps AniDB's calendar", node: season1(),
-			anime: anidb.Anime{Regular: []string{"2005-08-10", "2005-08-20"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-10", "2005-08-20"), Finished: true},
 		},
 		{
 			name: "a date on the 1st meeting an episode says nothing of the calendar", layout: daily, node: season1(),
-			anime: anidb.Anime{Regular: []string{"1983-08-01"}, Specials: []anidb.Episode{{Number: 1, AirDate: "1991-05-05"}}, Finished: true},
+			anime: anidb.Anime{Regular: dated("1983-08-01"), Specials: []anidb.Episode{{Number: 1, AirDate: "1991-05-05"}}, Finished: true},
 		},
 		{
 			name: "a date two episodes share meeting an episode says nothing of the calendar", layout: daily, node: season1(),
-			anime: anidb.Anime{Regular: []string{"1983-08-02", "1983-08-02"}, Specials: []anidb.Episode{{Number: 1, AirDate: "1991-05-05"}}, Finished: true},
+			anime: anidb.Anime{Regular: dated("1983-08-02", "1983-08-02"), Specials: []anidb.Episode{{Number: 1, AirDate: "1991-05-05"}}, Finished: true},
 		},
 		{
 			name: "an episode mapped to no episode", node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-0;")),
-			anime: anidb.Anime{Regular: []string{"2005-08-31"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-31"), Finished: true},
 		},
 		{
 			name: "an absolute number on the right date", node: node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "a", "episodeoffset": "1"}),
-			anime: anidb.Anime{Regular: []string{"2005-08-17"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("2005-08-17"), Finished: true},
 		},
-		{name: "no TVDB series", node: node(map[string]string{"tvdbid": "movie"}), anime: anidb.Anime{Regular: []string{"2005-08-31"}, Finished: true}},
+		{name: "no TVDB series", node: node(map[string]string{"tvdbid": "movie"}), anime: anidb.Anime{Regular: dated("2005-08-31"), Finished: true}},
 		{
 			name: "a special's second target in a regular season", node: season1(row(map[string]string{"anidbseason": "0", "tvdbseason": "1"}, ";1-2+3;2-2;")),
 			anime: anidb.Anime{Specials: []anidb.Episode{{Number: 1, AirDate: "2005-08-17"}, {Number: 2, AirDate: "2005-08-17"}}, Finished: true},
 		},
 		{
 			name: "a run TVDB merged into one episode on another calendar", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-1;2-1;3-1;")),
-			anime: anidb.Anime{Regular: winter[:3], Finished: true},
+			anime: anidb.Anime{Regular: dated(winter[:3]...), Finished: true},
 		},
 		{
 			name: "two episodes on one TVDB episode around one that lands before it", layout: daily,
 			node:  season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-2;2-1;3-2;")),
-			anime: anidb.Anime{Regular: winter[:3], Finished: true},
+			anime: anidb.Anime{Regular: dated(winter[:3]...), Finished: true},
 		},
 		{
 			name: "one episode on two targets and the next on the first, on another calendar", layout: daily,
 			node:  season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-1+3;2-1;")),
-			anime: anidb.Anime{Regular: winter[:2], Finished: true},
+			anime: anidb.Anime{Regular: dated(winter[:2]...), Finished: true},
 		},
 		{
 			name: "one episode on the first target and the next on two, on another calendar", layout: daily,
 			node:  season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-1;2-3+1;")),
-			anime: anidb.Anime{Regular: winter[:2], Finished: true},
+			anime: anidb.Anime{Regular: dated(winter[:2]...), Finished: true},
 		},
 		{
 			name: "episodes reordered on another calendar", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-2;2-1;")),
-			anime: anidb.Anime{Regular: winter[:2], Finished: true},
+			anime: anidb.Anime{Regular: dated(winter[:2]...), Finished: true},
 		},
 		{
 			name: "a revisit around a date on the 1st", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-3;2-4;")),
-			anime: anidb.Anime{Regular: []string{"1984-01-08", "1984-02-01", "1984-02-08"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("1984-01-08", "1984-02-01", "1984-02-08"), Finished: true},
 		},
 		{
 			name: "a revisit in season 0", layout: daily,
 			node:  node(map[string]string{"tvdbid": "79881", "defaulttvdbseason": "0"}, row(map[string]string{"anidbseason": "1", "tvdbseason": "0"}, ";1-3;2-4;")),
-			anime: anidb.Anime{Regular: winter[:3], Finished: true},
+			anime: anidb.Anime{Regular: dated(winter[:3]...), Finished: true},
 		},
 		{
 			name: "a revisit from a date two episodes share", layout: daily, node: season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";1-3;2-4;")),
-			anime: anidb.Anime{Regular: []string{"1984-01-08", "1984-01-15", "1984-01-08"}, Finished: true},
+			anime: anidb.Anime{Regular: dated("1984-01-08", "1984-01-15", "1984-01-08"), Finished: true},
 		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
@@ -392,7 +435,7 @@ func TestCheckPasses(t *testing.T) {
 
 func TestCheckFindingDetail(t *testing.T) {
 	n := season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;"))
-	l := Check(n, animelists.TVDB, &anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, weekly, now, nil)
+	l := Check(n, animelists.TVDB, &anidb.Anime{Regular: dated("2005-08-10", "2005-08-17"), Finished: true}, weekly, now, nil)
 	if l == nil || len(l.Findings) != 1 {
 		t.Fatalf("Check = %+v, want one finding", l)
 	}
@@ -410,7 +453,7 @@ func TestCheckFindingDetail(t *testing.T) {
 }
 
 func TestCheckDeadSeries(t *testing.T) {
-	l := Check(season1(), animelists.TVDB, &anidb.Anime{Regular: []string{"2005-08-10"}}, &Layout{Absent: true}, now, nil)
+	l := Check(season1(), animelists.TVDB, &anidb.Anime{Regular: dated("2005-08-10")}, &Layout{Absent: true}, now, nil)
 	if l == nil || !l.Dead || len(l.Findings) != 0 || l.Series != 79881 {
 		t.Errorf("Check on a dead series = %+v, want a dead lead with no findings", l)
 	}
@@ -432,7 +475,7 @@ func TestCheckLinkedDefaultSpecial(t *testing.T) {
 		t.Errorf("finding = %+v, want a default missing target 0x5 naming AniList 376", f)
 	}
 	mismatch := Check(season1(row(map[string]string{"anidbseason": "1", "tvdbseason": "1"}, ";2-3;")),
-		animelists.TVDB, &anidb.Anime{Regular: []string{"2005-08-10", "2005-08-17"}, Finished: true}, weekly, now, map[[2]int]int{{1, 2}: 1563})
+		animelists.TVDB, &anidb.Anime{Regular: dated("2005-08-10", "2005-08-17"), Finished: true}, weekly, now, map[[2]int]int{{1, 2}: 1563})
 	if mismatch == nil || mismatch.Findings[0].Link != 1563 {
 		t.Errorf("Check(a linked regular episode on the wrong date) = %+v, want its finding to name AniList 1563", mismatch)
 	}

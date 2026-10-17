@@ -44,7 +44,7 @@ func (n *Node) SideRows(sd Side) []SideRow {
 		if err != nil || s < 0 {
 			continue
 		}
-		sr, err := r.Schema()
+		sr, err := r.Parse()
 		if err != nil {
 			continue
 		}
@@ -107,11 +107,16 @@ func (r SideRow) inRange(k int) bool {
 // is the TVDB absolute number when the node's default season is "a" and no
 // row names the episode; otherwise Targets holds [season, episode] pairs,
 // none when the node maps the episode nowhere. Default says no row named
-// the episode.
+// the episode. Implied says the default targets rest on no written offset:
+// a special at its own number, or a regular episode whose node has no
+// offset attribute, which Anime-Lists reads as the numbers matching. Below
+// says a written offset put the episode before 1.
 type Placement struct {
 	Targets  [][2]int
 	Absolute int
 	Default  bool
+	Implied  bool
+	Below    bool
 }
 
 // Place is where n puts AniDB episode k of anidbSeason (1 regular, 0
@@ -125,19 +130,19 @@ func (n *Node) Place(sd Side, anidbSeason, k int) Placement {
 		return Placement{Targets: t}
 	}
 	if anidbSeason == 0 {
-		return Placement{Targets: [][2]int{{0, k}}, Default: true}
+		return Placement{Targets: [][2]int{{0, k}}, Default: true, Implied: true}
 	}
-	off, _ := strconv.Atoi(n.Attr(offAttr))
+	off, offErr := strconv.Atoi(n.Attr(offAttr))
 	ep := k + off
 	if ep < 1 {
-		return Placement{Default: true}
+		return Placement{Default: true, Below: true}
 	}
 	s := n.Attr(dfltAttr)
 	if s == "a" && absolute {
 		return Placement{Absolute: ep, Default: true}
 	}
 	if season, err := strconv.Atoi(s); err == nil && season >= 0 {
-		return Placement{Targets: [][2]int{{season, ep}}, Default: true}
+		return Placement{Targets: [][2]int{{season, ep}}, Default: true, Implied: offErr != nil}
 	}
 	return Placement{Default: true}
 }

@@ -165,7 +165,7 @@ func runCheck(args []string, stdout io.Writer) error {
 		return err
 	}
 	proven, proofErr := proveLinks(links, overlay.Apply(list.Nodes, entries), entries, facts, aod)
-	rep := guard.Collisions(list.Nodes, entries, proven.compiled, facts)
+	rep := guard.Collisions(list.Nodes, entries, proven.applied, facts)
 	_, colErr := collisions(*baselinePath, &rep, slog.New(slog.DiscardHandler))
 	b, err := json.MarshalIndent(rep, "", "  ")
 	if err != nil {
