@@ -4,16 +4,18 @@ package offlinedb
 
 import (
 	"bufio"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"net/url"
 	"os"
 	"slices"
 	"strconv"
 	"strings"
+	"unicode/utf8"
 
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/strictjson"
+	"github.com/cplieger/animap/mapread"
 )
 
 // Limits bounds one read. Sized off the 2026-40 asset: 60 MB, 38,288
@@ -40,12 +42,16 @@ var (
 	errFormat   = errors.New("offlinedb: malformed database")
 )
 
-// Entry is one database entry, reduced to its join fields.
+// Entry is one database entry, reduced to its join fields: its type,
+// episode count, AniList and AniDB ids in file order, and every service id
+// its sources name, IDs.AniDB included. Unknown are the hosts of sources on
+// no service animap publishes.
 type Entry struct {
 	Type     string
 	AniList  []int
 	AniDB    []int
-	MAL      []int
+	Unknown  []string
+	IDs      mapread.IDs
 	Episodes int
 }
 
@@ -84,7 +90,7 @@ type entryLine struct {
 func read(r io.Reader, lim Limits) ([]Entry, error) {
 	sc := bufio.NewScanner(r)
 	sc.Buffer(make([]byte, 0, min(64<<10, lim.MaxLineBytes)), lim.MaxLineBytes)
-	if err := readMeta(sc); err != nil {
+	if err := readMeta(sc, lim.MaxLineBytes); err != nil {
 		return nil, err
 	}
 	var out []Entry
@@ -110,7 +116,7 @@ func read(r io.Reader, lim Limits) ([]Entry, error) {
 	return out, nil
 }
 
-func readMeta(sc *bufio.Scanner) error {
+func readMeta(sc *bufio.Scanner, maxBytes int) error {
 	if !sc.Scan() {
 		if err := sc.Err(); err != nil {
 			return scanError(err)
@@ -118,7 +124,7 @@ func readMeta(sc *bufio.Scanner) error {
 		return fmt.Errorf("%w: empty file", errFormat)
 	}
 	var ml metaLine
-	if err := json.Unmarshal(sc.Bytes(), &ml); err != nil {
+	if err := strictjson.Unmarshal(sc.Bytes(), maxBytes, &ml); err != nil {
 		return fmt.Errorf("%w: metadata line: %w", errFormat, err)
 	}
 	if !strings.Contains(ml.License.Name, "ODbL") {
@@ -129,24 +135,76 @@ func readMeta(sc *bufio.Scanner) error {
 
 func parseEntry(b []byte, lim Limits) (Entry, error) {
 	var el entryLine
-	if err := json.Unmarshal(b, &el); err != nil {
+	if err := strictjson.Unmarshal(b, lim.MaxLineBytes, &el); err != nil {
 		return Entry{}, fmt.Errorf("%w: %w", errFormat, err)
 	}
 	if len(el.Sources) > lim.MaxSources {
 		return Entry{}, fmt.Errorf("%w: %d sources", errTooLarge, len(el.Sources))
 	}
-	if !schema.ValidType(el.Type) {
+	if !mapread.ValidType(el.Type) {
 		return Entry{}, fmt.Errorf("%w: type %q is not one animap publishes", errFormat, el.Type)
 	}
 	e := Entry{Type: el.Type, Episodes: max(el.Episodes, 0)}
 	for _, s := range el.Sources {
-		switch {
-		case appendID(&e.AniList, s, "https://anilist.co/anime/"):
-		case appendID(&e.AniDB, s, "https://anidb.net/anime/"):
-		case appendID(&e.MAL, s, "https://myanimelist.net/anime/"):
+		if !e.addSource(s) {
+			e.addUnknown(s)
 		}
 	}
+	for _, ids := range []*[]int{&e.IDs.AnimeCountdown, &e.IDs.AniSearch, &e.IDs.ANN, &e.IDs.Kitsu, &e.IDs.LiveChart, &e.IDs.MAL, &e.IDs.Simkl} {
+		slices.Sort(*ids)
+	}
+	e.IDs.AniDB = slices.Sorted(slices.Values(e.AniDB))
+	slices.Sort(e.IDs.AnimePlanet)
+	slices.Sort(e.IDs.NotifyMoe)
 	return e, nil
+}
+
+// addSource files s under its service, false when no known prefix matches.
+func (e *Entry) addSource(s string) bool {
+	for _, p := range []struct {
+		dst    *[]int
+		prefix string
+	}{
+		{&e.AniList, "https://anilist.co/anime/"},
+		{&e.AniDB, "https://anidb.net/anime/"},
+		{&e.IDs.MAL, "https://myanimelist.net/anime/"},
+		{&e.IDs.Kitsu, "https://kitsu.app/anime/"},
+		{&e.IDs.AniSearch, "https://anisearch.com/anime/"},
+		{&e.IDs.AnimeCountdown, "https://animecountdown.com/"},
+		{&e.IDs.Simkl, "https://simkl.com/anime/"},
+		{&e.IDs.ANN, "https://animenewsnetwork.com/encyclopedia/anime.php?id="},
+		{&e.IDs.LiveChart, "https://livechart.me/anime/"},
+	} {
+		if appendID(p.dst, s, p.prefix) {
+			return true
+		}
+	}
+	return appendKey(&e.IDs.AnimePlanet, s, "https://anime-planet.com/anime/") ||
+		appendKey(&e.IDs.NotifyMoe, s, "https://notify.moe/anime/")
+}
+
+func (e *Entry) addUnknown(s string) {
+	host := s
+	if u, err := url.Parse(s); err == nil && u.Host != "" {
+		host = u.Host
+	}
+	if !slices.Contains(e.Unknown, host) {
+		e.Unknown = append(e.Unknown, host)
+	}
+}
+
+// appendKey is appendID for a service whose item key is a path segment of
+// 1 to 256 characters, as the JSON Schema's maxLength counts them; any
+// other suffix is ignored.
+func appendKey(dst *[]string, s, prefix string) bool {
+	key, ok := strings.CutPrefix(s, prefix)
+	if !ok {
+		return false
+	}
+	if key != "" && utf8.RuneCountInString(key) <= 256 && !strings.ContainsAny(key, "/?#") && !slices.Contains(*dst, key) {
+		*dst = append(*dst, key)
+	}
+	return true
 }
 
 func scanError(err error) error {

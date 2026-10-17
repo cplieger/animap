@@ -16,6 +16,7 @@ import (
 	"path/filepath"
 	"syscall"
 
+	"github.com/cplieger/animap/internal/strictjson"
 	"github.com/cplieger/atomicfile/v4"
 	"github.com/cplieger/slogx"
 )
@@ -131,17 +132,9 @@ func writeFile(ctx context.Context, path string, data []byte) error {
 }
 
 func readJSON(path string, v any) error {
-	f, err := os.Open(path)
+	body, err := strictjson.ReadFile(path, maxInputBytes)
 	if err != nil {
 		return err
 	}
-	defer func() { _ = f.Close() }()
-	body, err := io.ReadAll(io.LimitReader(f, maxInputBytes+1))
-	if err != nil {
-		return err
-	}
-	if len(body) > maxInputBytes {
-		return fmt.Errorf("%s exceeds %d bytes", path, maxInputBytes)
-	}
-	return json.Unmarshal(body, v)
+	return strictjson.Unmarshal(body, maxInputBytes, v)
 }

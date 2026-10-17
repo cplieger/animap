@@ -1,31 +1,76 @@
-// Package strictjson reads a JSON document the way animap holds every file it
-// owns: exactly one value, no member the target type does not declare, and
-// nothing after the value but whitespace.
+// Package strictjson is the one way animap reads a JSON body, whoever wrote
+// it: under a byte cap, valid UTF-8, exactly one value with nothing after
+// it but whitespace, and no member repeated in any object, matched
+// case-insensitively as encoding/json matches fields. encoding/json would
+// replace an invalid byte with U+FFFD and keep the last of a repeated
+// member, so either would change a fact silently; a body breaking any rule
+// is refused whole, never repaired.
 package strictjson
 
 import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
+	"os"
+	"unicode/utf8"
+
+	"github.com/cplieger/jsoncap/v2"
 )
 
-// errTrailing reports input after the document's one value.
-var errTrailing = errors.New("trailing data after the JSON value")
+// Errors the reads return besides encoding/json's and jsoncap's, whose
+// ErrDuplicateKey reports a repeated member.
+var (
+	ErrTooLarge = errors.New("strictjson: body over its byte cap")
+	ErrNotUTF8  = errors.New("strictjson: body is not valid UTF-8")
+)
 
-// Decode decodes body's one JSON value into v. It returns the decoder's error
-// for a malformed value or an unknown member, and errTrailing for anything
-// after the value.
-func Decode(body []byte, v any) error {
-	dec := json.NewDecoder(bytes.NewReader(body))
-	dec.DisallowUnknownFields()
-	if err := dec.Decode(v); err != nil {
+// Decode reads a body animap writes, a committed file or a cache: a member
+// v does not declare is refused too.
+func Decode(body []byte, maxBytes int, v any) error {
+	if err := check(body, maxBytes); err != nil {
 		return err
 	}
-	// Decoder.More looks for another element inside an array or object, so it
-	// reports false for a stray top-level ] or }; only io.EOF proves the end.
-	if _, err := dec.Token(); !errors.Is(err, io.EOF) {
-		return errTrailing
+	dec := json.NewDecoder(bytes.NewReader(body))
+	dec.DisallowUnknownFields()
+	return dec.Decode(v)
+}
+
+// Unmarshal reads a body another service writes, which may add members:
+// one v does not declare is skipped, as json.Unmarshal skips it.
+func Unmarshal(body []byte, maxBytes int, v any) error {
+	if err := check(body, maxBytes); err != nil {
+		return err
 	}
-	return nil
+	return json.Unmarshal(body, v)
+}
+
+// ReadFile reads path, refusing one over maxBytes with ErrTooLarge; it
+// reads at most maxBytes+1 bytes, the one past the cap proving oversize.
+// A missing file is os.ErrNotExist.
+func ReadFile(path string, maxBytes int) ([]byte, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer func() { _ = f.Close() }()
+	body, err := io.ReadAll(io.LimitReader(f, int64(maxBytes)+1))
+	if err != nil {
+		return nil, err
+	}
+	if len(body) > maxBytes {
+		return nil, fmt.Errorf("%w: %s is over %d bytes", ErrTooLarge, path, maxBytes)
+	}
+	return body, nil
+}
+
+func check(body []byte, maxBytes int) error {
+	switch {
+	case len(body) > maxBytes:
+		return fmt.Errorf("%w: %d bytes, over %d", ErrTooLarge, len(body), maxBytes)
+	case !utf8.Valid(body):
+		return ErrNotUTF8
+	}
+	return jsoncap.Preflight(bytes.NewReader(body))
 }

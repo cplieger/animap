@@ -58,13 +58,21 @@ jobs:
           path: .cache/aod
           key: aod-${{ github.run_id }}
           restore-keys: aod-
-      # publish.yaml pins the mirror commit, so its hash keys the snapshot.
+      # publish.yaml pins the mirror commit; fetch-mirror.sh owns the key. An
+      # unkeyed snapshot is the unreadable mirror daily-review.sh warns about.
+      - name: Key the AniDB mirror snapshot
+        id: mirror-key
+        continue-on-error: true
+        run: |
+          commit=$(sed -n 's/^  MIRROR_COMMIT: //p' .github/workflows/publish.yaml)
+          key=$(MIRROR_COMMIT="$commit" bash scripts/fetch-mirror.sh key)
+          printf 'KEY=%s\n' "$key" >>"$GITHUB_OUTPUT"
       - name: Restore the AniDB mirror snapshot
         id: mirror-cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .cache/mirror
-          key: drift-anidb-${{ hashFiles('.github/workflows/publish.yaml', 'internal/anidb/*.go') }}
+          key: drift-anidb-${{ steps.mirror-key.outputs.KEY }}
       - name: Review the date checks, overlay drift and the watch set, then apply the issue plan
         env:
           GH_TOKEN: ${{ github.token }}
@@ -100,4 +108,4 @@ jobs:
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .cache/mirror
-          key: drift-anidb-${{ hashFiles('.github/workflows/publish.yaml', 'internal/anidb/*.go') }}
+          key: drift-anidb-${{ steps.mirror-key.outputs.KEY }}

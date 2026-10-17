@@ -10,6 +10,8 @@ import (
 	"fmt"
 	"slices"
 	"strings"
+
+	"github.com/cplieger/animap/internal/strictjson"
 )
 
 // baseURL is SkyHook's show endpoint; the TVDB series id is appended.
@@ -75,7 +77,7 @@ type showJSON struct {
 
 func parseShow(body []byte) (*Show, error) {
 	var sj showJSON
-	if err := json.Unmarshal(body, &sj); err != nil {
+	if err := strictjson.Unmarshal(body, maxShowBytes, &sj); err != nil {
 		return nil, fmt.Errorf("skyhook: decode show: %w", err)
 	}
 	s := &Show{Slug: sj.Slug, Titles: map[[2]int]string{}}

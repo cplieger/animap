@@ -6,10 +6,10 @@ import (
 	"compress/gzip"
 	"crypto/sha256"
 	"encoding/hex"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"maps"
 	"os"
 	"regexp"
 	"slices"
@@ -144,9 +144,10 @@ type animeFile struct {
 }
 
 type rawEpisode struct {
-	AirDate *string    `json:"air_date"`
-	Titles  []rawTitle `json:"titles"`
-	Number  int        `json:"number"`
+	AirDate   *string    `json:"air_date"`
+	Titles    []rawTitle `json:"titles"`
+	Number    int        `json:"number"`
+	EpisodeID int        `json:"episode_id"`
 }
 
 type rawTitle struct {
@@ -184,82 +185,157 @@ func digestLines(lines []string) string {
 }
 
 // parse returns AniDB id aid's episode list, and listed=false for a file
-// with no episodes object. It refuses a file for another anime, a regular
-// list that is not exactly the episodes 1 to N (the collision check places
-// a count as those episodes), a special numbered twice or below 1, and a
-// date that is not YYYY-MM-DD.
+// with no episodes object. It refuses a file strictjson refuses, one for
+// another anime, one that lists an episode kind outside the six, numbers an
+// episode of any kind twice or below 1, lists an episode with no positive
+// episode_id, or gives a regular episode or special a date that is not
+// YYYY-MM-DD.
 func parse(aid int, body []byte) (a Anime, listed bool, err error) {
-	var f animeFile
-	if err := json.Unmarshal(body, &f); err != nil {
+	a, listed, err = parseFile(aid, body)
+	if err != nil {
 		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
 	}
+	return a, listed, nil
+}
+
+func parseFile(aid int, body []byte) (Anime, bool, error) {
+	var f animeFile
+	if err := strictjson.Unmarshal(body, maxFileBytes, &f); err != nil {
+		return Anime{}, false, err
+	}
 	if f.AnimeID != aid {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: file is for anime_id %d", errInvalid, aid, f.AnimeID)
+		return Anime{}, false, fmt.Errorf("file is for anime_id %d", f.AnimeID)
 	}
 	if f.Episodes == nil {
 		return Anime{}, false, nil
 	}
+	if err := checkKinds(f.Episodes); err != nil {
+		return Anime{}, false, err
+	}
+	if err := checkEpisodeIDs(f.Episodes); err != nil {
+		return Anime{}, false, err
+	}
+	var a Anime
 	a.Finished = f.EndDate != nil && *f.EndDate != ""
 	a.Titles = titleDigest(f.Episodes)
-	regular := sortedEpisodes("REGULAR", f.Episodes["REGULAR"])
+	a.Regular = sortedEpisodes("REGULAR", f.Episodes["REGULAR"])
 	a.Specials = sortedEpisodes("SPECIAL", f.Episodes["SPECIAL"])
-	for i, e := range regular {
-		if e.Number != i+1 {
-			return Anime{}, false, fmt.Errorf("%w: AniDB %d: regular episodes are not 1 to %d", errInvalid, aid, len(regular))
-		}
-		a.Regular = append(a.Regular, e.AirDate)
-		a.RegularTitles = append(a.RegularTitles, e.Titles)
+	if err := checkEpisodes("regular episode", a.Regular); err != nil {
+		return Anime{}, false, err
 	}
-	if err := checkSpecials(a.Specials); err != nil {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
+	if err := checkEpisodes("special", a.Specials); err != nil {
+		return Anime{}, false, err
 	}
-	if err := checkDates(a.Regular); err != nil {
-		return Anime{}, false, fmt.Errorf("%w: AniDB %d: %w", errInvalid, aid, err)
+	x, err := extras(f.Episodes, a.Specials)
+	if err != nil {
+		return Anime{}, false, err
 	}
-	a.Extras = extras(f.Episodes, a.Specials)
+	a.Extras = x
 	return a, true, nil
 }
+
+// checkKinds refuses an episodes key outside the mirror's six kinds: an
+// episode filed under it would be dropped from a list read as whole.
+func checkKinds(episodes map[string][]rawEpisode) error {
+	for _, key := range slices.Sorted(maps.Keys(episodes)) {
+		if key != "REGULAR" && key != "SPECIAL" && !slices.ContainsFunc(extraKinds, func(k extraKind) bool { return k.mirror == key }) {
+			return fmt.Errorf("episode kind %q is not one of the mirror's six", key)
+		}
+	}
+	return nil
+}
+
+// The AniDB episode kinds, as Anime.Episodes names them; Extra.Kind and
+// Anime.Last take those after Regular.
+const (
+	Regular   = "regular"
+	Special   = "special"
+	Credit    = "credit"
+	Promotion = "promotion"
+	Parody    = "parody"
+	Other     = "other"
+)
 
 // extraKinds are the mirror's other episode kinds and the number before
 // each one's first in Anime-Lists' season 0: credit 1 is 101, promotion 1
 // 201, parody 1 301, other 1 401. The README states the promotion (201)
 // and other (401) blocks
 // (https://github.com/Anime-Lists/anime-lists#mapping-list); the list's
-// rows use all four.
-var extraKinds = []struct {
-	kind string
-	base int
-}{{"CREDITS", 100}, {"PROMOTION", 200}, {"PARODY", 300}, {"OTHER", 400}}
+// rows use all four. Other episodes are the last block, so they have no
+// upper bound.
+var extraKinds = []extraKind{{"CREDITS", Credit, 100}, {"PROMOTION", Promotion, 200}, {"PARODY", Parody, 300}, {"OTHER", Other, 400}}
 
-// extras numbers each extra as Anime-Lists does and keeps its title digest
-// but not its air date, which nothing reads. One that number cannot tell
-// apart from another season 0 episode (a credit, promotion or parody past
-// its 100th, on a special's number, numbered twice or below 1) is dropped
-// rather than the file refused: nothing else in the file depends on it.
-// Other episodes are the last block, so they have no upper bound.
-func extras(episodes map[string][]rawEpisode, specials []Episode) []Episode {
-	out := []Episode{}
-	for i, k := range extraKinds {
-		bounded := i < len(extraKinds)-1
-		for _, e := range sortedEpisodes(k.kind, episodes[k.kind]) {
-			n := e.Number + k.base
-			switch {
-			case n <= k.base, bounded && n > extraKinds[i+1].base,
-				len(out) > 0 && out[len(out)-1].Number == n,
-				slices.ContainsFunc(specials, func(s Episode) bool { return s.Number == n }):
-				continue
-			}
-			out = append(out, Episode{Number: n, Titles: e.Titles})
+type extraKind struct {
+	mirror, kind string
+	base         int
+}
+
+// seasonZeroKind decodes Anime-Lists season 0 number k by its blocks, for
+// a number no listed episode answers: 1 to 100 is special k, 101 to 200
+// credit k-100, then promotion, parody, and other from 401 with no upper
+// bound. ok is false below 1.
+func seasonZeroKind(k int) (kind string, number int, ok bool) {
+	if k < 1 {
+		return "", 0, false
+	}
+	for _, x := range slices.Backward(extraKinds) {
+		if k > x.base {
+			return x.kind, k - x.base, true
 		}
 	}
-	return out
+	return Special, k, true
+}
+
+// seasonZeroNumber is the Anime-Lists season 0 number of AniDB episode
+// number of kind, seasonZeroKind's inverse; ok is false for a number below
+// 1, past its block's 100th, or of an unknown kind.
+func seasonZeroNumber(kind string, number int) (k int, ok bool) {
+	if number < 1 {
+		return 0, false
+	}
+	if kind == Special {
+		return number, number <= extraKinds[0].base
+	}
+	for i, x := range extraKinds {
+		if x.kind == kind {
+			return x.base + number, i == len(extraKinds)-1 || number <= extraKinds[i+1].base-x.base
+		}
+	}
+	return 0, false
+}
+
+// extras keeps every extra, numbered in season 0 as numberExtra says, and
+// refuses one numbered twice or below 1 within its kind.
+func extras(episodes map[string][]rawEpisode, specials []Episode) ([]Extra, error) {
+	out := []Extra{}
+	for _, k := range extraKinds {
+		eps := sortedEpisodes(k.mirror, episodes[k.mirror])
+		if err := checkNumbers(k.kind, eps); err != nil {
+			return nil, err
+		}
+		for _, e := range eps {
+			out = append(out, numberExtra(Extra{Kind: k.kind, Number: e.Number, Titles: e.Titles, ID: e.ID}, specials))
+		}
+	}
+	return out, nil
+}
+
+// numberExtra sets x's SeasonZero: seasonZeroNumber's, or 0 when that is
+// none or a listed special's number, which Anime-Lists cannot tell apart.
+func numberExtra(x Extra, specials []Episode) Extra {
+	k, ok := seasonZeroNumber(x.Kind, x.Number)
+	if !ok || slices.ContainsFunc(specials, func(s Episode) bool { return s.Number == k }) {
+		k = 0
+	}
+	x.SeasonZero = k
+	return x
 }
 
 func sortedEpisodes(kind string, in []rawEpisode) []Episode {
 	out := make([]Episode, 0, len(in))
 	for i := range in {
 		e := &in[i]
-		ep := Episode{Number: e.Number, Titles: digestLines([]string{titleLine(kind, e)})}
+		ep := Episode{Number: e.Number, ID: e.EpisodeID, Titles: digestLines([]string{titleLine(kind, e)})}
 		if e.AirDate != nil {
 			ep.AirDate = *e.AirDate
 		}
@@ -269,21 +345,39 @@ func sortedEpisodes(kind string, in []rawEpisode) []Episode {
 	return out
 }
 
-func checkSpecials(sp []Episode) error {
-	dates := make([]string, 0, len(sp))
-	for i, e := range sp {
-		if e.Number < 1 || (i > 0 && e.Number == sp[i-1].Number) {
-			return fmt.Errorf("special numbered %d is below 1 or listed twice", e.Number)
+// checkEpisodeIDs refuses an episode of any kind with no positive
+// episode_id, which every episode of the mirror carries.
+func checkEpisodeIDs(episodes map[string][]rawEpisode) error {
+	for _, kind := range slices.Sorted(maps.Keys(episodes)) {
+		for _, e := range episodes[kind] {
+			if e.EpisodeID <= 0 {
+				return fmt.Errorf("%s episode %d has no positive episode_id", kind, e.Number)
+			}
 		}
-		dates = append(dates, e.AirDate)
 	}
-	return checkDates(dates)
+	return nil
 }
 
-func checkDates(dates []string) error {
-	for _, d := range dates {
-		if _, err := time.Parse(time.DateOnly, d); d != "" && err != nil {
-			return fmt.Errorf("air date %q is not YYYY-MM-DD", d)
+// checkEpisodes is checkNumbers, and refuses a date that is not
+// YYYY-MM-DD.
+func checkEpisodes(what string, eps []Episode) error {
+	if err := checkNumbers(what, eps); err != nil {
+		return err
+	}
+	for _, e := range eps {
+		if _, err := time.Parse(time.DateOnly, e.AirDate); e.AirDate != "" && err != nil {
+			return fmt.Errorf("air date %q is not YYYY-MM-DD", e.AirDate)
+		}
+	}
+	return nil
+}
+
+// checkNumbers refuses an episode of eps numbered below 1 or not after the
+// one before it, so a sorted list numbered twice.
+func checkNumbers(what string, eps []Episode) error {
+	for i, e := range eps {
+		if e.Number < 1 || (i > 0 && e.Number <= eps[i-1].Number) {
+			return fmt.Errorf("%s numbered %d is below 1, listed twice or out of order", what, e.Number)
 		}
 	}
 	return nil
@@ -293,38 +387,61 @@ func checkListed(id int, a *Anime) error {
 	if id <= 0 {
 		return errors.New("not a positive id")
 	}
-	if !digestRE.MatchString(a.Titles) || len(a.RegularTitles) != len(a.Regular) ||
-		slices.ContainsFunc(a.RegularTitles, notDigest) || slices.ContainsFunc(a.Specials, func(e Episode) bool { return notDigest(e.Titles) }) {
+	if !digestRE.MatchString(a.Titles) || slices.ContainsFunc(a.Regular, func(e Episode) bool { return notDigest(e.Titles) }) ||
+		slices.ContainsFunc(a.Specials, func(e Episode) bool { return notDigest(e.Titles) }) {
 		return errors.New("titles is not a 64-hex digest for the anime and each episode; re-extract the snapshot with this animap")
 	}
-	if a.Extras == nil || slices.ContainsFunc(a.Extras, func(e Episode) bool { return notDigest(e.Titles) }) {
+	if a.Extras == nil || slices.ContainsFunc(a.Extras, func(x Extra) bool { return notDigest(x.Titles) }) {
 		return errors.New("extras are missing or lack a 64-hex title digest; re-extract the snapshot with this animap")
 	}
-	for i := 1; i < len(a.Specials); i++ {
-		if a.Specials[i].Number <= a.Specials[i-1].Number {
-			return errors.New("specials are not sorted by number, each once")
-		}
+	if !identified(a) {
+		return errors.New("an episode has no positive AniDB episode id; re-extract the snapshot with this animap")
 	}
 	if err := checkExtras(a); err != nil {
 		return err
 	}
-	if err := checkSpecials(a.Specials); err != nil {
+	if err := checkEpisodes("regular episode", a.Regular); err != nil {
 		return err
 	}
-	return checkDates(a.Regular)
+	return checkEpisodes("special", a.Specials)
 }
 
-// checkExtras holds a snapshot's extras to the numbering extras gives them.
+// identified reports whether every episode of a has a positive AniDB
+// episode id.
+func identified(a *Anime) bool {
+	none := func(e Episode) bool { return e.ID <= 0 }
+	return !slices.ContainsFunc(a.Regular, none) && !slices.ContainsFunc(a.Specials, none) &&
+		!slices.ContainsFunc(a.Extras, func(x Extra) bool { return x.ID <= 0 })
+}
+
+// checkExtras holds a snapshot's extras to the order and numbering extras
+// gives them.
 func checkExtras(a *Anime) error {
-	for i, e := range a.Extras {
-		if e.Number <= extraKinds[0].base || (i > 0 && e.Number <= a.Extras[i-1].Number) {
-			return errors.New("extras are not sorted by number, each once and from 101")
+	for i, x := range a.Extras {
+		o := extraOrder(x.Kind)
+		if o < 0 || x.Number < 1 {
+			return fmt.Errorf("extra %s %d is not a known kind numbered from 1", x.Kind, x.Number)
 		}
-		if _, extra, _ := a.SeasonZero(e.Number); !extra {
-			return fmt.Errorf("extra %d has a special's number", e.Number)
+		if i > 0 {
+			p := a.Extras[i-1]
+			if po := extraOrder(p.Kind); po > o || po == o && p.Number >= x.Number {
+				return errors.New("extras are not sorted by kind, then number, each once")
+			}
+		}
+		if numberExtra(x, a.Specials).SeasonZero != x.SeasonZero {
+			return fmt.Errorf("extra %s %d has season 0 number %d, not the one its numbering gives", x.Kind, x.Number, x.SeasonZero)
 		}
 	}
 	return nil
+}
+
+func extraOrder(kind string) int {
+	for i, k := range extraKinds {
+		if k.kind == kind {
+			return i
+		}
+	}
+	return -1
 }
 
 func notDigest(s string) bool { return !digestRE.MatchString(s) }
@@ -354,13 +471,14 @@ func LoadSnapshot(path string) (*Snapshot, error) {
 // applies to each anime file.
 func decodeSnapshot(body []byte) (*Snapshot, error) {
 	var s Snapshot
-	if err := strictjson.Decode(body, &s); err != nil {
+	if err := strictjson.Decode(body, maxSnapshotBytes, &s); err != nil {
 		return nil, fmt.Errorf("%w: %w", errInvalid, err)
 	}
 	if !commitRE.MatchString(s.Commit) {
 		return nil, fmt.Errorf("%w: commit %q is not a 40-hex commit", errInvalid, s.Commit)
 	}
-	for id, a := range s.Anime {
+	for id := range s.Anime {
+		a := s.Anime[id]
 		if err := checkListed(id, &a); err != nil {
 			return nil, fmt.Errorf("%w: AniDB %d: %w", errInvalid, id, err)
 		}

@@ -62,7 +62,7 @@ func TestAcceptWritesTheFindingsDigests(t *testing.T) {
 	got, _ = review.LoadDir(recs)
 	r20 := got[review.AniDBKey(20)]
 	w := r20.WatchFor(6)
-	if w == nil || w.RecordSHA256 != strings.Repeat("c", 64) || !slices.Equal(w.Gaps, []string{"no_tvdb_season"}) {
+	if w == nil || w.RecordSHA256 != strings.Repeat("c", 64) || !slices.Equal(w.Gaps, []string{"no_tvdb"}) {
 		t.Errorf("watch part = %+v, want AniList 6's gaps and record digest", w)
 	}
 }

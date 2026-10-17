@@ -11,6 +11,7 @@ on:
       - checks/counts.json
       - cmd/**
       - internal/**
+      - mapread/**
       - go.mod
       - go.sum
       - scripts/publish.sh
@@ -86,14 +87,19 @@ jobs:
         with:
           path: .cache/list
           key: list-${{ steps.resolve.outputs.LIST_COMMIT }}
-      # The extractor's output format is part of the key, so a change to it
-      # never restores a snapshot the new code cannot read.
+      # fetch-mirror.sh owns the key, so a change to anything that can change
+      # the snapshot never restores one the new code would not write.
+      - name: Key the AniDB mirror snapshot
+        id: mirror-key
+        run: |
+          key=$(bash scripts/fetch-mirror.sh key)
+          printf 'KEY=%s\n' "$key" >>"$GITHUB_OUTPUT"
       - name: Restore the AniDB mirror snapshot
         id: mirror-cache
         uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .cache/mirror
-          key: anidb-${{ env.MIRROR_COMMIT }}-${{ hashFiles('internal/anidb/*.go') }}
+          key: anidb-${{ steps.mirror-key.outputs.KEY }}
       - name: Build and publish
         env:
           GH_TOKEN: ${{ github.token }}
@@ -113,7 +119,7 @@ jobs:
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .cache/mirror
-          key: anidb-${{ env.MIRROR_COMMIT }}-${{ hashFiles('internal/anidb/*.go') }}
+          key: anidb-${{ steps.mirror-key.outputs.KEY }}
       - name: Save the Anime-Lists file
         if: ${{ !cancelled() && steps.list-cache.outputs.cache-hit != 'true' && hashFiles('.cache/list/*.xml') != '' }}
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0

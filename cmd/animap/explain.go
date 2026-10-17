@@ -10,6 +10,7 @@ import (
 	"log/slog"
 	"maps"
 	"slices"
+	"strconv"
 	"strings"
 	"sync/atomic"
 	"time"
@@ -19,21 +20,20 @@ import (
 	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/review"
-	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/source"
 	"github.com/cplieger/animap/internal/tmdb"
+	"github.com/cplieger/animap/mapread"
 )
 
 // explainDetail is what a reviewer needs beyond the sections: every AniDB
-// episode of every kind, of the subject's nodes and of its candidates,
-// with where the node puts it on both sides; every show those nodes map
-// to, with each node on it and each episode's claims; the published
-// records the subject watches and anime-offline-database's AniDB ids for
-// them; and the overlay data and acceptance record that bear on the
-// subject. Candidates are the AniDB ids those records and the database
-// name that the subject's own nodes are not. Fetched says when each
-// show's layout was read.
+// episode of the subject's nodes and candidates with where its node puts
+// it; every show they map to with its nodes and claims; the published
+// entries the subject watches with anime-offline-database's AniDB ids for
+// them, and the anime rows of its nodes and candidates; and the overlay
+// data and acceptance record bearing on it. Candidates are the AniDB ids
+// those entries and the database name that the subject's nodes are not.
+// Fetched says when each show's layout was read.
 type explainDetail struct {
 	Entry      *overlay.Entry    `json:"entry,omitempty"`
 	Acceptance *review.Record    `json:"acceptance,omitempty"`
@@ -41,7 +41,8 @@ type explainDetail struct {
 	AOD        map[int][]int     `json:"aod,omitempty"`
 	Episodes   []explainEpisode  `json:"episodes"`
 	Links      []overlay.Link    `json:"links,omitempty"`
-	Records    []schema.Record   `json:"records,omitempty"`
+	Entries    []mapread.Entry   `json:"entries,omitempty"`
+	Anime      []mapread.Anime   `json:"anime,omitempty"`
 	Candidates []int             `json:"candidates,omitempty"`
 	Shows      []explainShow     `json:"shows,omitempty"`
 }
@@ -64,22 +65,29 @@ type explainNode struct {
 }
 
 // explainEpisode is one AniDB episode. Kind is regular, special, credit,
-// promotion, parody or other; Titles the digest of its AniDB titles.
+// promotion, parody or other, Number AniDB's within that kind, and
+// SeasonZero the Anime-Lists season 0 number of a special or extra, 0 for
+// an extra none addresses; Titles the digest of its AniDB titles.
 type explainEpisode struct {
-	TVDB    *explainPlacement `json:"tvdb,omitempty"`
-	TMDB    *explainPlacement `json:"tmdb,omitempty"`
-	Kind    string            `json:"kind"`
-	AirDate string            `json:"air_date,omitempty"`
-	Titles  string            `json:"titles,omitempty"`
-	AniDB   int               `json:"anidb"`
-	Number  int               `json:"number"`
+	TVDB       *explainPlacement `json:"tvdb,omitempty"`
+	TMDB       *explainPlacement `json:"tmdb,omitempty"`
+	Kind       string            `json:"kind"`
+	AirDate    string            `json:"air_date,omitempty"`
+	Titles     string            `json:"titles,omitempty"`
+	AniDB      int               `json:"anidb"`
+	Number     int               `json:"number"`
+	SeasonZero int               `json:"season_zero,omitempty"`
 }
 
+// explainPlacement is where the node puts one episode on Show.
+// Unaddressable is an extra no Anime-Lists number addresses: no row can
+// place it, so it lands nowhere, as the published anime row says.
 type explainPlacement struct {
-	Targets  []explainTarget `json:"targets"`
-	Show     int             `json:"show"`
-	Absolute int             `json:"absolute,omitempty"`
-	Default  bool            `json:"default,omitempty"`
+	Targets       []explainTarget `json:"targets"`
+	Show          int             `json:"show"`
+	Absolute      int             `json:"absolute,omitempty"`
+	Default       bool            `json:"default,omitempty"`
+	Unaddressable bool            `json:"unaddressable,omitempty"`
 }
 
 // explainTarget is one target with the provider's date and title digest,
@@ -159,9 +167,9 @@ func (r *reviewRun) subjectIDs(sub review.Subject) []int {
 		return []int{sub.ID}
 	}
 	var out []int
-	for i := range r.links {
-		if r.links[i].AniListID == sub.ID {
-			out = append(out, r.links[i].AniDBIDs()...)
+	for _, l := range r.applied.Links() {
+		if l.AniListID == sub.ID {
+			out = append(out, l.AniDBIDs()...)
 		}
 	}
 	slices.Sort(out)
@@ -230,16 +238,16 @@ func (r *reviewRun) detail(sub review.Subject) *explainDetail {
 		d.Acceptance = &rec
 	}
 	own := r.subjectIDs(sub)
-	d.Records, d.AOD = r.watchedRecords(sub)
-	d.Candidates = candidates(d.Records, d.AOD, own)
+	d.Entries, d.AOD = r.watchedEntries(sub)
+	d.Candidates = candidates(d.Entries, d.AOD, own)
 	ids := slices.Concat(own, d.Candidates)
+	d.Anime = r.animeRows(ids)
 	for i := range r.entries {
 		if sub.AniDB() && r.entries[i].AniDBID == sub.ID {
 			d.Entry = &r.entries[i]
 		}
 	}
-	for i := range r.links {
-		l := &r.links[i]
+	for _, l := range r.applied.Links() {
 		if l.AniListID == sub.ID && !sub.AniDB() || sub.AniDB() && slices.Contains(l.AniDBIDs(), sub.ID) {
 			d.Links = append(d.Links, *l)
 		}
@@ -252,16 +260,30 @@ func (r *reviewRun) detail(sub review.Subject) *explainDetail {
 	return d
 }
 
-// watchedRecords are the published records of the subject: the AniList
-// record of an AniList subject, every record carrying an AniDB subject's
-// node; and, by AniList id, the AniDB ids anime-offline-database gives
-// each of them, an AniList subject with no record included.
-func (r *reviewRun) watchedRecords(sub review.Subject) (recs []schema.Record, aod map[int][]int) {
+// animeRows are the published rows of ids, by AniDB id.
+func (r *reviewRun) animeRows(ids []int) []mapread.Anime {
+	if r.index == nil {
+		return nil
+	}
+	var out []mapread.Anime
+	for _, aid := range slices.Sorted(slices.Values(ids)) {
+		if a, ok := r.index.Anime(aid); ok {
+			out = append(out, a)
+		}
+	}
+	return out
+}
+
+// watchedEntries are the published entries of the subject: the entry of
+// an AniList subject, every AniList entry an AniDB subject's node is; and,
+// by AniList id, the AniDB ids anime-offline-database gives each of them,
+// an AniList subject with no entry included.
+func (r *reviewRun) watchedEntries(sub review.Subject) (entries []mapread.Entry, aod map[int][]int) {
 	if r.release != nil {
-		for i := range r.release.Records {
-			rec := &r.release.Records[i]
-			if sub.AniDB() && rec.AniDBID == sub.ID && rec.AniListID > 0 || !sub.AniDB() && rec.AniListID == sub.ID {
-				recs = append(recs, *rec)
+		for i := range r.release.Entries {
+			e := &r.release.Entries[i]
+			if sub.AniDB() && e.AniListID > 0 && identityOf(e) == sub.ID || !sub.AniDB() && e.AniListID == sub.ID {
+				entries = append(entries, *e)
 			}
 		}
 	}
@@ -269,8 +291,8 @@ func (r *reviewRun) watchedRecords(sub review.Subject) (recs []schema.Record, ao
 	if !sub.AniDB() {
 		als = append(als, sub.ID)
 	}
-	for i := range recs {
-		als = append(als, recs[i].AniListID)
+	for i := range entries {
+		als = append(als, entries[i].AniListID)
 	}
 	aod = map[int][]int{}
 	for _, al := range als {
@@ -278,17 +300,28 @@ func (r *reviewRun) watchedRecords(sub review.Subject) (recs []schema.Record, ao
 			aod[al] = ids
 		}
 	}
-	return recs, aod
+	return entries, aod
 }
 
-// candidates are the AniDB ids recs and aod name, the parent of a record
-// filed as another anime's specials included, that own does not hold.
-func candidates(recs []schema.Record, aod map[int][]int, own []int) []int {
+// identityOf is the AniDB anime entry e is, 0 when its parts are not one
+// whole anime.
+func identityOf(e *mapread.Entry) int {
+	if p := e.Parts; len(p) == 1 && p[0].Identity() {
+		return p[0].AniDBID
+	}
+	return 0
+}
+
+// candidates are the AniDB ids entries' parts and AniDB ids and aod name
+// that own does not hold.
+func candidates(entries []mapread.Entry, aod map[int][]int, own []int) []int {
 	var out []int
-	for i := range recs {
-		out = append(out, recs[i].AniDBID)
-		if p := recs[i].AniDBParent; p != nil {
+	for i := range entries {
+		for _, p := range entries[i].Parts {
 			out = append(out, p.AniDBID)
+		}
+		if ids := entries[i].IDs; ids != nil {
+			out = append(out, ids.AniDB...)
 		}
 	}
 	for _, ids := range aod {
@@ -346,13 +379,12 @@ type claimKey struct {
 }
 
 // claimIndex is the collision guard's claims on every show the nodes map
-// to, with the overlay links compiled as the build compiles them.
+// to, with the links the build applies.
 func (r *reviewRun) claimIndex(ids []int) map[claimKey]map[[2]int][]string {
 	out := map[claimKey]map[[2]int][]string{}
 	if r.facts == nil {
 		return out
 	}
-	compiled := r.compiledLinks()
 	for _, aid := range ids {
 		n := r.patched[aid]
 		if n == nil {
@@ -362,28 +394,9 @@ func (r *reviewRun) claimIndex(ids []int) map[claimKey]map[[2]int][]string {
 			if s, ok := datecheck.Series(n, side); ok {
 				k := claimKey{side: side, show: s}
 				if out[k] == nil {
-					out[k] = guard.Claims(r.list.Nodes, r.entries, compiled, r.facts, side, s)
+					out[k] = guard.Claims(r.list.Nodes, r.entries, r.applied, r.facts, side, s)
 				}
 			}
-		}
-	}
-	return out
-}
-
-// compiledLinks are the links that compile against this run's inputs, as
-// the build compiles them; a link that does not compile claims nothing.
-func (r *reviewRun) compiledLinks() []overlay.Compiled {
-	byAniDB := make(map[int]*overlay.Entry, len(r.entries))
-	for i := range r.entries {
-		byAniDB[r.entries[i].AniDBID] = &r.entries[i]
-	}
-	var out []overlay.Compiled
-	for i := range r.links {
-		if _, identity := r.links[i].Identity(r.facts); identity {
-			continue
-		}
-		if c, err := r.links[i].Compile(r.patched, byAniDB, r.facts); err == nil {
-			out = append(out, c)
 		}
 	}
 	return out
@@ -397,41 +410,24 @@ func (r *reviewRun) episodes(aid int, claims map[claimKey]map[[2]int][]string, f
 	}
 	a, _ := r.facts.Anime(aid)
 	var out []explainEpisode
-	for i, date := range a.Regular {
-		e := explainEpisode{AniDB: aid, Kind: "regular", Number: i + 1, AirDate: date}
-		if i < len(a.RegularTitles) {
-			e.Titles = a.RegularTitles[i]
-		}
-		out = append(out, e)
+	for _, e := range a.Regular {
+		out = append(out, explainEpisode{AniDB: aid, Kind: string(mapread.Regular), Number: e.Number, AirDate: e.AirDate, Titles: e.Titles})
 	}
 	for _, sp := range a.Specials {
-		out = append(out, explainEpisode{AniDB: aid, Kind: "special", Number: sp.Number, AirDate: sp.AirDate, Titles: sp.Titles})
+		out = append(out, explainEpisode{AniDB: aid, Kind: string(mapread.Special), Number: sp.Number, SeasonZero: sp.Number, AirDate: sp.AirDate, Titles: sp.Titles})
 	}
 	for _, x := range a.Extras {
-		out = append(out, explainEpisode{AniDB: aid, Kind: extraKind(x.Number), Number: x.Number, Titles: x.Titles})
+		out = append(out, explainEpisode{AniDB: aid, Kind: x.Kind, Number: x.Number, SeasonZero: x.SeasonZero, Titles: x.Titles})
 	}
 	for i := range out {
-		season := 1
-		if out[i].Kind != "regular" {
-			season = 0
+		season, k := 1, out[i].Number
+		if out[i].Kind != string(mapread.Regular) {
+			season, k = 0, out[i].SeasonZero
 		}
-		out[i].TVDB = r.placement(n, animelists.TVDB, season, out[i].Number, claims, fetched)
-		out[i].TMDB = r.placement(n, animelists.TMDB, season, out[i].Number, claims, fetched)
+		out[i].TVDB = r.placement(n, animelists.TVDB, season, k, claims, fetched)
+		out[i].TMDB = r.placement(n, animelists.TMDB, season, k, claims, fetched)
 	}
 	return out
-}
-
-// extraKind names an extra by its Anime-Lists season 0 block.
-func extraKind(n int) string {
-	switch {
-	case n < 201:
-		return "credit"
-	case n < 301:
-		return "promotion"
-	case n < 401:
-		return "parody"
-	}
-	return "other"
 }
 
 func (r *reviewRun) placement(n *animelists.Node, side animelists.Side, season, k int, claims map[claimKey]map[[2]int][]string, fetched map[string]string) *explainPlacement {
@@ -446,6 +442,9 @@ func (r *reviewRun) placement(n *animelists.Node, side animelists.Side, season, 
 	lay, laid := store.Series[show]
 	if laid {
 		fetched[fmt.Sprintf("%s:%d", label, show)] = lay.Fetched.UTC().Format(time.RFC3339)
+	}
+	if k < 1 {
+		return &explainPlacement{Show: show, Targets: []explainTarget{}, Unaddressable: true}
 	}
 	byEp, byAbs := map[[2]int]datecheck.Aired{}, map[int]datecheck.Aired{}
 	for _, e := range lay.Episodes {
@@ -491,7 +490,11 @@ func explainText(doc *reviewDoc, s *subject) string {
 	}
 	b.WriteString("Episodes (AniDB, kind, number, date: TVDB targets | TMDB targets):\n\n")
 	for _, e := range s.Detail.Episodes {
-		fmt.Fprintf(&b, "- %d %s %d %s: %s | %s\n", e.AniDB, e.Kind, e.Number, dash(e.AirDate), placementText(e.TVDB), placementText(e.TMDB))
+		number := strconv.Itoa(e.Number)
+		if e.Kind != string(mapread.Regular) && e.Kind != string(mapread.Special) && e.SeasonZero > 0 {
+			number += fmt.Sprintf(" (S0 %d)", e.SeasonZero)
+		}
+		fmt.Fprintf(&b, "- %d %s %s %s: %s | %s\n", e.AniDB, e.Kind, number, dash(e.AirDate), placementText(e.TVDB), placementText(e.TMDB))
 	}
 	return b.String()
 }
@@ -499,6 +502,9 @@ func explainText(doc *reviewDoc, s *subject) string {
 func placementText(p *explainPlacement) string {
 	if p == nil {
 		return "no show"
+	}
+	if p.Unaddressable {
+		return "nowhere, no Anime-Lists number"
 	}
 	if len(p.Targets) == 0 {
 		return "nowhere"

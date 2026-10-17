@@ -116,17 +116,65 @@ func TestReadLink(t *testing.T) {
 // facts lists AniDB 10 with three regular episodes, specials 1 and 2,
 // promotion 1 (201) and other episode 1 (401), AniDB 20 with two regular
 // episodes, and AniDB 30 with one.
+// titledRegular is regular episodes 1 to len(digests), each with its title
+// digest.
+func titledRegular(digests ...string) []anidb.Episode {
+	out := make([]anidb.Episode, len(digests))
+	for i, d := range digests {
+		out[i] = anidb.Episode{Number: i + 1, Titles: d}
+	}
+	return out
+}
+
 func linkFacts() *anidb.Facts {
 	d := func(c string) string { return strings.Repeat(c, 64) }
 	return anidb.NewFacts(&anidb.Snapshot{Anime: map[int]anidb.Anime{
 		10: {
-			Regular: make([]string, 3), RegularTitles: []string{d("1"), d("2"), d("3")}, Finished: true,
+			Regular: titledRegular(d("1"), d("2"), d("3")), Finished: true,
 			Specials: []anidb.Episode{{Number: 1, Titles: d("a")}, {Number: 2, Titles: d("b")}},
-			Extras:   []anidb.Episode{{Number: 201, Titles: d("p")}, {Number: 401, Titles: d("o")}},
+			Extras:   []anidb.Extra{{Kind: anidb.Promotion, Number: 1, SeasonZero: 201, Titles: d("p")}, {Kind: anidb.Other, Number: 1, SeasonZero: 401, Titles: d("o")}},
 		},
-		20: {Regular: make([]string, 2), RegularTitles: []string{d("4"), d("5")}, Finished: true},
-		30: {Regular: make([]string, 1), RegularTitles: []string{d("6")}, Finished: true},
+		20: {Regular: titledRegular(d("4"), d("5")), Finished: true},
+		30: {Regular: titledRegular(d("6")), Finished: true},
+		40: {Regular: []anidb.Episode{{Number: 1, Titles: d("7")}, {Number: 2, Titles: d("8")}, {Number: 5, Titles: d("9")}}, Finished: true},
 	}}, nil, nil)
+}
+
+// A regular list with a gap is read by its numbers, never its positions.
+func TestLinkReadsAGappedListByNumber(t *testing.T) {
+	facts := linkFacts()
+	whole := Link{AniListID: 1, Parts: []Part{{AniDBID: 40, Whole: true}}}
+	want := []Source{
+		{AniDB: 40, AniDBSeason: 1, Number: 1, AniListEpisode: 1},
+		{AniDB: 40, AniDBSeason: 1, Number: 2, AniListEpisode: 1},
+		{AniDB: 40, AniDBSeason: 1, Number: 5, AniListEpisode: 1},
+	}
+	if got := whole.Sources(facts); !slices.Equal(got, want) {
+		t.Errorf("Sources(whole AniDB 40) = %+v, want %+v", got, want)
+	}
+	for _, tc := range []struct {
+		episodes []int
+		want     int
+	}{{[]int{1, 2, 5}, 0}, {[]int{1, 2, 3}, 0}, {[]int{1, 2}, 0}} {
+		l := Link{AniListID: 1, Parts: []Part{{AniDBID: 40, Episodes: tc.episodes}}}
+		if got, ok := l.Identity(facts); got != tc.want || ok != (tc.want > 0) {
+			t.Errorf("Identity(AniDB 40 %v) = %d, %t; want %d", tc.episodes, got, ok, tc.want)
+		}
+	}
+	if err := (&Link{AniListID: 1, Parts: []Part{{AniDBID: 40, Episodes: []int{5}}}}).Listed(facts); err != nil {
+		t.Errorf("Listed(AniDB 40 ep5) = %v, want listed", err)
+	}
+	if err := (&Link{AniListID: 1, Parts: []Part{{AniDBID: 40, Episodes: []int{3}}}}).Listed(facts); err == nil || !strings.Contains(err.Error(), "no ep3 for AniDB 40") {
+		t.Errorf("Listed(AniDB 40 ep3) = %v, want the gap refused", err)
+	}
+	ep5 := Link{AniListID: 1, Parts: []Part{{AniDBID: 40, Episodes: []int{5}}}}
+	before := ep5.AniDBDigest(facts)
+	a, _ := facts.Anime(40)
+	a.Regular = slices.Clone(a.Regular)
+	a.Regular[2].Titles = strings.Repeat("c", 64)
+	if ep5.AniDBDigest(anidb.NewFacts(&anidb.Snapshot{Anime: map[int]anidb.Anime{40: a}}, nil, nil)) == before {
+		t.Error("AniDBDigest(AniDB 40 ep5) did not move when episode 5 was retitled")
+	}
 }
 
 func TestLinkSources(t *testing.T) {
@@ -174,6 +222,54 @@ func TestLinkIdentity(t *testing.T) {
 	}
 }
 
+// An identity is published as the rangeless part 1 to Count, so a link is
+// one only when its episodes are exactly those; with no count yet, when
+// they are the mirror's list 1 to N, which that part names none of.
+func TestLinkIdentityNeedsTheCount(t *testing.T) {
+	upTo := func(n int) []anidb.Episode {
+		var out []anidb.Episode
+		for k := 1; k <= n; k++ {
+			out = append(out, anidb.Episode{Number: k})
+		}
+		return out
+	}
+	facts := anidb.NewFacts(&anidb.Snapshot{Anime: map[int]anidb.Anime{
+		50: {Regular: upTo(3)}, 60: {Regular: upTo(14)}, 70: {Regular: upTo(12)}, 75: {Regular: upTo(2), Specials: upTo(2)},
+		80: {Regular: upTo(3)}, 90: {Regular: []anidb.Episode{{Number: 1}, {Number: 2}, {Number: 5}}},
+	}}, nil, map[int]int{50: 12, 60: 12, 70: 12, 75: 2})
+	regular := func(aid int, episodes ...int) []Part { return []Part{{AniDBID: aid, Episodes: episodes}} }
+	for _, tc := range []struct {
+		name  string
+		parts []Part
+		want  int
+	}{
+		{"a list short of its count", regular(50, 1, 2, 3), 0},
+		{"a list past its count", regular(60, upToInts(14)...), 0},
+		{"the counted list", regular(70, upToInts(12)...), 70},
+		{"the counted list less its first episode", regular(70, upToInts(12)[1:]...), 0},
+		{"part of the counted list", regular(70, upToInts(11)...), 0},
+		{"specials 1 to the count", []Part{{AniDBID: 75, Specials: []int{1, 2}}}, 0},
+		{"an uncounted list", regular(80, 1, 2, 3), 80},
+		{"part of an uncounted list", regular(80, 1, 2), 0},
+		{"an uncounted gapped list", regular(90, 1, 2, 5), 0},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			l := Link{AniListID: 1, Parts: tc.parts}
+			if got, ok := l.Identity(facts); got != tc.want || ok != (tc.want > 0) {
+				t.Errorf("Identity(%+v) = %d, %t; want %d", tc.parts, got, ok, tc.want)
+			}
+		})
+	}
+}
+
+func upToInts(n int) []int {
+	out := make([]int, n)
+	for i := range out {
+		out[i] = i + 1
+	}
+	return out
+}
+
 func TestLinkListed(t *testing.T) {
 	for _, tc := range []struct {
 		name  string
@@ -198,6 +294,42 @@ func TestLinkListed(t *testing.T) {
 	}
 }
 
+// A whole part is published as AniDB's regular episodes 1 to Count, so it
+// is listed only when the mirror lists exactly those.
+func TestLinkListedWholePartNeedsTheCountedList(t *testing.T) {
+	upTo := func(n int, finished bool) anidb.Anime {
+		a := anidb.Anime{Finished: finished}
+		for k := 1; k <= n; k++ {
+			a.Regular = append(a.Regular, anidb.Episode{Number: k})
+		}
+		return a
+	}
+	facts := anidb.NewFacts(&anidb.Snapshot{Anime: map[int]anidb.Anime{
+		40: {Regular: []anidb.Episode{{Number: 1}, {Number: 2}, {Number: 5}}, Finished: true},
+		50: upTo(3, false), 60: upTo(14, false), 70: upTo(2, true), 80: upTo(3, true), 90: upTo(12, false),
+	}}, []anidb.Row{{AniDBID: 80, RegularEpisodes: 4}}, map[int]int{40: 5, 50: 12, 60: 12, 90: 12})
+	for _, tc := range []struct {
+		name string
+		aid  int
+		says string
+	}{
+		{"the finished list", 70, ""},
+		{"an airing list at its database count", 90, ""},
+		{"a gapped list", 40, "AniDB 40 lists regular episodes with a gap before ep5"},
+		{"an airing list short of its count", 50, "AniDB 50 lists 3 regular episodes and counts 12"},
+		{"an airing list past its count", 60, "AniDB 60 lists 14 regular episodes and counts 12"},
+		{"a list a counts row overrides", 80, "AniDB 80 lists 3 regular episodes and counts 4"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			l := Link{AniListID: 1, Parts: []Part{{AniDBID: tc.aid, Whole: true}}}
+			err := l.Listed(facts)
+			if (tc.says == "") != (err == nil) || (err != nil && !strings.Contains(err.Error(), tc.says)) {
+				t.Errorf("Listed(whole AniDB %d) = %v, want %q", tc.aid, err, tc.says)
+			}
+		})
+	}
+}
+
 func TestLinkAniDBDigest(t *testing.T) {
 	l := Link{AniListID: 1, Parts: []Part{{AniDBID: 10, Specials: []int{1, 401}}, {AniDBID: 20, Whole: true}}}
 	base := linkFacts()
@@ -209,7 +341,7 @@ func TestLinkAniDBDigest(t *testing.T) {
 		m := map[int]anidb.Anime{}
 		for _, id := range []int{10, 20} {
 			a, _ := base.Anime(id)
-			a.Specials, a.Extras, a.RegularTitles = slices.Clone(a.Specials), slices.Clone(a.Extras), slices.Clone(a.RegularTitles)
+			a.Specials, a.Extras, a.Regular = slices.Clone(a.Specials), slices.Clone(a.Extras), slices.Clone(a.Regular)
 			m[id] = a
 		}
 		f(m)
@@ -226,7 +358,7 @@ func TestLinkAniDBDigest(t *testing.T) {
 		{"another extra retitled", func(m map[int]anidb.Anime) { m[10].Extras[0].Titles = strings.Repeat("c", 64) }, false},
 		{"an unlinked extra added", func(m map[int]anidb.Anime) {
 			a := m[10]
-			a.Extras = append(a.Extras, anidb.Episode{Number: 402, Titles: strings.Repeat("c", 64)})
+			a.Extras = append(a.Extras, anidb.Extra{Kind: anidb.Other, Number: 2, SeasonZero: 402, Titles: strings.Repeat("c", 64)})
 			m[10] = a
 		}, false},
 		{"the linked other episode removed", func(m map[int]anidb.Anime) {
@@ -234,8 +366,8 @@ func TestLinkAniDBDigest(t *testing.T) {
 			a.Extras = a.Extras[:1]
 			m[10] = a
 		}, true},
-		{"another anime's regular episode retitled", func(m map[int]anidb.Anime) { m[10].RegularTitles[0] = strings.Repeat("c", 64) }, false},
-		{"a whole part's episode retitled", func(m map[int]anidb.Anime) { m[20].RegularTitles[1] = strings.Repeat("c", 64) }, true},
+		{"another anime's regular episode retitled", func(m map[int]anidb.Anime) { m[10].Regular[0].Titles = strings.Repeat("c", 64) }, false},
+		{"a whole part's episode retitled", func(m map[int]anidb.Anime) { m[20].Regular[1].Titles = strings.Repeat("c", 64) }, true},
 		{"the linked special removed", func(m map[int]anidb.Anime) {
 			a := m[10]
 			a.Specials = a.Specials[1:]
@@ -243,7 +375,7 @@ func TestLinkAniDBDigest(t *testing.T) {
 		}, true},
 		{"a whole part's episode added", func(m map[int]anidb.Anime) {
 			a := m[20]
-			a.Regular, a.RegularTitles = append(a.Regular, ""), append(a.RegularTitles, strings.Repeat("7", 64))
+			a.Regular = append(a.Regular, anidb.Episode{Number: 3, Titles: strings.Repeat("7", 64)})
 			m[20] = a
 		}, true},
 	} {

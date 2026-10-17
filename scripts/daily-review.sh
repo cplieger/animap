@@ -74,9 +74,8 @@ while IFS='=' read -r key value; do
   esac
 done <<<"$out"
 
-# The date checks and the links' AniDB check read the AniDB mirror at the
-# commit the build is pinned to; a mirror that cannot be read leaves them
-# unevaluated and the rest of the review goes on.
+# An unreadable mirror leaves the date checks, the links' AniDB check and,
+# while links exist, the watch unevaluated; the rest of the review goes on.
 MIRROR_COMMIT=$(sed -n 's/^  MIRROR_COMMIT: //p' .github/workflows/publish.yaml)
 mirror=$(MIRROR_COMMIT="$MIRROR_COMMIT" bash scripts/fetch-mirror.sh) || mirror=""
 
@@ -85,7 +84,7 @@ review_inputs=()
 if [ -n "$mirror" ]; then
   review_inputs+=(-mirror "$mirror")
 else
-  echo "daily-review: WARNING the AniDB mirror could not be read, the date checks are left as they are" >&2
+  echo "daily-review: WARNING the AniDB mirror could not be read, the date checks, and the watch while overlay links exist, are left as they are" >&2
 fi
 review_inputs+=("${release[@]}")
 go run ./cmd/animap review -list "$list" -list-commit "$LIST_COMMIT" -overlay overlay "${review_inputs[@]}" \

@@ -6,12 +6,12 @@ The [shared rules](https://github.com/cplieger/.github/blob/main/CONTRIBUTING.md
 
 A new or changed field in `animap.json` lands in one change in every place that describes it:
 
-- the struct in `internal/schema`
+- the types in `mapread`, with their check in `mapread`'s decoder
 - `docs/animap.schema.json`
 - `docs/schema.md`
-- the README's [API](README.md#api) list, for a top-level or record field
+- the README's [API](README.md#api) list, and `mapread/README.md` when a lookup changes
 
-The tests compare only the JSON Schema's member names with the struct, so nothing catches stale prose in either page.
+The tests compare only the JSON Schema's member names with the types, so nothing catches stale prose in either page.
 
 ## Checks
 
@@ -21,4 +21,4 @@ Without it, a change that fails a build check, such as a count drop or a new col
 
 ## Releases
 
-Commit types cut no release here, although the repository carries the synced `cliff.toml`.
+Commit types cut no release here, although the repository carries the synced `cliff.toml`. The `mapread` Go module is released by a `mapread/vX.Y.Z` tag on `main`, never as a GitHub release, so the latest release stays the data file.

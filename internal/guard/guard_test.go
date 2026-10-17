@@ -9,53 +9,75 @@ import (
 
 	"github.com/cplieger/animap/internal/anidb"
 	"github.com/cplieger/animap/internal/animelists"
+	"github.com/cplieger/animap/internal/join"
 	"github.com/cplieger/animap/internal/overlay"
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/internal/release"
 	"github.com/cplieger/animap/internal/skyhook"
 )
 
 func TestCoverage(t *testing.T) {
-	prev := schema.Populations{Records: 1000, AniListWithAniDB: 600, AniDBWithTVDB: 400, WithTMDB: 300, WithMappingList: 100, WithPlacement: 50}
+	prev := release.Populations{Entries: 1000, EntriesWithParts: 600, AnimeWithTVDB: 400, AnimeWithTMDB: 300, EpisodesOnTVDB: 100, EpisodesOnTMDB: 50, AniDBEpisodeIDs: 200}
 	if err := Coverage(&prev, prev, false); err != nil {
 		t.Errorf("equal populations: %v", err)
 	}
 	ok := prev
-	ok.Records = 900
+	ok.Entries = 900
 	if err := Coverage(&prev, ok, false); err != nil {
 		t.Errorf("exactly 90%%: %v", err)
 	}
-	for _, mut := range []func(*schema.Populations){
-		func(p *schema.Populations) { p.Records = 899 },
-		func(p *schema.Populations) { p.AniListWithAniDB = 539 },
-		func(p *schema.Populations) { p.AniDBWithTVDB = 359 },
-		func(p *schema.Populations) { p.WithTMDB = 269 },
-		func(p *schema.Populations) { p.WithMappingList = 89 },
-		func(p *schema.Populations) { p.WithPlacement = 44 },
+	for name, mut := range map[string]func(*release.Populations){
+		"entries":            func(p *release.Populations) { p.Entries = 899 },
+		"entries_with_parts": func(p *release.Populations) { p.EntriesWithParts = 539 },
+		"anime_with_tvdb":    func(p *release.Populations) { p.AnimeWithTVDB = 359 },
+		"anime_with_tmdb":    func(p *release.Populations) { p.AnimeWithTMDB = 269 },
+		"episodes_on_tvdb":   func(p *release.Populations) { p.EpisodesOnTVDB = 89 },
+		"episodes_on_tmdb":   func(p *release.Populations) { p.EpisodesOnTMDB = 44 },
+		"anidb_episode_ids":  func(p *release.Populations) { p.AniDBEpisodeIDs = 179 },
 	} {
-		cur := prev
+		t.Run(name, func(t *testing.T) {
+			cur := prev
+			mut(&cur)
+			if err := Coverage(&prev, cur, false); !errors.Is(err, ErrCoverage) || !strings.Contains(err.Error(), name) {
+				t.Errorf("Coverage(%+v) = %v, want ErrCoverage naming %s", cur, err, name)
+			}
+			if err := Coverage(&prev, cur, true); err != nil {
+				t.Errorf("accept-shrink still refused %+v: %v", cur, err)
+			}
+		})
+	}
+	for _, field := range []func(*release.Populations) *int{
+		func(p *release.Populations) *int { return &p.EpisodesOnTVDB },
+		func(p *release.Populations) *int { return &p.AnimeWithTMDB },
+	} {
+		extinct := prev
+		*field(&extinct) = 0
+		if err := Coverage(&prev, extinct, true); !errors.Is(err, ErrCoverage) {
+			t.Errorf("extinction with accept-shrink (%+v) = %v, want ErrCoverage", extinct, err)
+		}
+	}
+}
+
+// With no comparable release every population has a floor: a build whose
+// TVDB placements all went missing fails, as does one short of entries.
+func TestCoverageFloors(t *testing.T) {
+	today := release.Populations{Entries: 20890, EntriesWithParts: 13655, AnimeWithTVDB: 7506, AnimeWithTMDB: 8474, EpisodesOnTVDB: 142018, EpisodesOnTMDB: 131218, AniDBEpisodeIDs: 290000}
+	if err := Coverage(nil, today, false); err != nil {
+		t.Errorf("a first release at today's size: %v", err)
+	}
+	for name, mut := range map[string]func(*release.Populations){
+		"entries":            func(p *release.Populations) { p.Entries = 9999 },
+		"entries_with_parts": func(p *release.Populations) { p.EntriesWithParts = 6499 },
+		"anime_with_tvdb":    func(p *release.Populations) { p.AnimeWithTVDB = 3499 },
+		"anime_with_tmdb":    func(p *release.Populations) { p.AnimeWithTMDB = 4199 },
+		"episodes_on_tvdb":   func(p *release.Populations) { p.EpisodesOnTVDB = 0 },
+		"episodes_on_tmdb":   func(p *release.Populations) { p.EpisodesOnTMDB = 64999 },
+		"anidb_episode_ids":  func(p *release.Populations) { p.AniDBEpisodeIDs = 144999 },
+	} {
+		cur := today
 		mut(&cur)
-		if err := Coverage(&prev, cur, false); !errors.Is(err, ErrCoverage) {
-			t.Errorf("Coverage(%+v) = %v, want ErrCoverage", cur, err)
+		if err := Coverage(nil, cur, true); !errors.Is(err, ErrCoverage) || !strings.Contains(err.Error(), name) {
+			t.Errorf("Coverage(nil, %s below its floor) = %v, want ErrCoverage naming it, accept-shrink or not", name, err)
 		}
-		if err := Coverage(&prev, cur, true); err != nil {
-			t.Errorf("accept-shrink still refused %+v: %v", cur, err)
-		}
-	}
-	extinct := prev
-	extinct.WithMappingList = 0
-	if err := Coverage(&prev, extinct, true); !errors.Is(err, ErrCoverage) {
-		t.Errorf("extinction with accept-shrink = %v, want ErrCoverage", err)
-	}
-	noPlacement := prev
-	noPlacement.WithPlacement = 0
-	if err := Coverage(&prev, noPlacement, true); !errors.Is(err, ErrCoverage) {
-		t.Errorf("placement extinction with accept-shrink = %v, want ErrCoverage", err)
-	}
-	if err := Coverage(nil, schema.Populations{Records: 22169, AniListWithAniDB: 13444, AniDBWithTVDB: 7502}, false); err != nil {
-		t.Errorf("first release at today's size: %v", err)
-	}
-	if err := Coverage(nil, schema.Populations{Records: 9999, AniListWithAniDB: 13444, AniDBWithTVDB: 7502}, false); !errors.Is(err, ErrCoverage) {
-		t.Errorf("first release below the floor = %v, want ErrCoverage", err)
 	}
 }
 
@@ -72,9 +94,18 @@ func entry(id int, set overlay.Set) overlay.Entry {
 	return overlay.Entry{AniDBID: id, Set: set}
 }
 
+// numbered is regular episodes 1 to n.
+func numbered(n int) []anidb.Episode {
+	out := make([]anidb.Episode, n)
+	for i := range out {
+		out[i].Number = i + 1
+	}
+	return out
+}
+
 // fin is a finished anime as the AniDB mirror lists it.
 func fin(regular int, specials ...int) anidb.Anime {
-	a := anidb.Anime{Regular: make([]string, regular), Finished: true}
+	a := anidb.Anime{Regular: numbered(regular), Finished: true}
 	for _, k := range specials {
 		a.Specials = append(a.Specials, anidb.Episode{Number: k})
 	}
@@ -92,7 +123,7 @@ func run(nodes []*animelists.Node, entries []overlay.Entry, f *anidb.Facts) Coll
 	for _, n := range nodes {
 		m[n.AniDBID] = n
 	}
-	return Collisions(m, entries, nil, f)
+	return Collisions(m, entries, join.Applied{}, f)
 }
 
 // The guard claims exactly what the published mapping places: nothing for
@@ -642,8 +673,19 @@ func TestCollisionUncountedOnAnUntouchedSeries(t *testing.T) {
 
 // linkOn is a compiled link of AniList 9 whose AniDB claims land on TVDB
 // series 10.
-func linkOn(claims ...overlay.Claim) []overlay.Compiled {
-	return []overlay.Compiled{{AniList: 9, Series: 10, Claims: claims}}
+func linkOn(claims ...overlay.Claim) join.Applied {
+	return applyAll(overlay.Compiled{AniList: 9, Series: 10, Claims: claims})
+}
+
+// applyAll is compiled as a build with no database entries applies it:
+// every link.
+func applyAll(compiled ...overlay.Compiled) join.Applied {
+	linked := make([]join.Linked, 0, len(compiled))
+	for _, c := range compiled {
+		linked = append(linked, join.Linked{Link: &overlay.Link{AniListID: c.AniList}, Compiled: c})
+	}
+	a, _ := join.Applicable(nil, nil, linked)
+	return a
 }
 
 func special(parent, k, season, ep int) overlay.Claim {
@@ -663,7 +705,7 @@ func TestCollisionLinkOntoAnotherNodesTarget(t *testing.T) {
 		2: node(2, "tvdbid=10 defaulttvdbseason=0"),
 	}
 	f := facts(map[int]anidb.Anime{1: fin(3, 1), 2: fin(1)}, nil)
-	without := Collisions(nodes, nil, nil, f)
+	without := Collisions(nodes, nil, join.Applied{}, f)
 	with := Collisions(nodes, nil, linkOn(special(1, 1, 0, 1)), f)
 	if len(without.Blocking)+len(without.Upstream) != 0 || len(with.Blocking) != 1 || with.Blocking[0].Target != "TVDB 0x1" || len(with.Touched) != 1 {
 		t.Errorf("without the link %+v, with it %+v; want TVDB 0x1 blocking only with it", without, with)
@@ -678,7 +720,7 @@ func TestCollisionLinkParentRegularEpisodes(t *testing.T) {
 		2: node(2, "tvdbid=10 defaulttvdbseason=1 episodeoffset=2"),
 	}
 	f := facts(map[int]anidb.Anime{1: fin(3), 2: fin(2)}, nil)
-	without := Collisions(nodes, nil, nil, f)
+	without := Collisions(nodes, nil, join.Applied{}, f)
 	if len(without.Blocking) != 0 || len(without.Upstream) != 1 || without.Upstream[0].Target != "TVDB 1x3" {
 		t.Fatalf("without a link: Blocking %+v, Upstream %+v; want TVDB 1x3 upstream only", without.Blocking, without.Upstream)
 	}
@@ -702,7 +744,7 @@ func TestCollisionLinkOnAnAbsoluteParent(t *testing.T) {
 	tv := []skyhook.Episode{{Season: 2, Number: 1, Absolute: 3}, {Season: 2, Number: 2, Absolute: 4}}
 	e := entry(1, overlay.Set{DefaultTVDBSeason: new("a")})
 	e.Captured.TVDB = &overlay.CapturedTVDB{Series: 10, Episodes: tv}
-	without := Collisions(nodes, []overlay.Entry{e}, nil, f)
+	without := Collisions(nodes, []overlay.Entry{e}, join.Applied{}, f)
 	if len(without.Blocking) != 0 || len(without.Upstream) != 1 || without.Upstream[0].Target != "TVDB 2x1" {
 		t.Fatalf("without the link: Blocking %+v, Upstream %+v; want TVDB 2x1 upstream only", without.Blocking, without.Upstream)
 	}
@@ -737,7 +779,7 @@ func TestCollisionLinkClaimsTheTargetCompilePublished(t *testing.T) {
 	if err != nil || len(compiled.Claims) != 1 || compiled.Claims[0].Target != [2]int{2, 1} {
 		t.Fatalf("Compile = %+v, %v; want AniDB 1 ep3 on TVDB 2x1", compiled, err)
 	}
-	rep := Collisions(nodes, entries, []overlay.Compiled{compiled}, f)
+	rep := Collisions(nodes, entries, applyAll(compiled), f)
 	if len(rep.Blocking) != 1 || rep.Blocking[0].Target != "TVDB 2x1" || !slices.Equal(rep.Blocking[0].Nodes, []int{1, 2}) {
 		t.Errorf("Blocking = %+v, want linked parent 1 and node 2 colliding on TVDB 2x1", rep.Blocking)
 	}
@@ -749,10 +791,10 @@ func TestCollisionLinkClaimsTheTargetCompilePublished(t *testing.T) {
 func TestCollisionTwoLinksOfOneParentOnOneEpisode(t *testing.T) {
 	nodes := map[int]*animelists.Node{1: node(1, "tvdbid=10 defaulttvdbseason=1")}
 	nodes[1].Rows = []animelists.Row{{Attrs: map[string]string{"anidbseason": "0", "tvdbseason": "0"}, Text: ";1-4;2-4;"}}
-	links := []overlay.Compiled{
-		{AniList: 8, Series: 10, Claims: []overlay.Claim{special(1, 1, 0, 4)}},
-		{AniList: 9, Series: 10, Claims: []overlay.Claim{special(1, 2, 0, 4)}},
-	}
+	links := applyAll(
+		overlay.Compiled{AniList: 8, Series: 10, Claims: []overlay.Claim{special(1, 1, 0, 4)}},
+		overlay.Compiled{AniList: 9, Series: 10, Claims: []overlay.Claim{special(1, 2, 0, 4)}},
+	)
 	rep := Collisions(nodes, nil, links, facts(map[int]anidb.Anime{1: fin(3, 1, 2)}, nil))
 	if len(rep.Blocking)+len(rep.Upstream) != 0 {
 		t.Errorf("Blocking %+v, Upstream %+v; want none: one node's claims never collide", rep.Blocking, rep.Upstream)

@@ -58,7 +58,7 @@ func LoadRows(path string) ([]Row, error) {
 // by AniDB id with no id twice.
 func decodeRows(body []byte) ([]Row, error) {
 	var rows []Row
-	if err := strictjson.Decode(body, &rows); err != nil {
+	if err := strictjson.Decode(body, maxCountsFileSize, &rows); err != nil {
 		return nil, fmt.Errorf("%w: %w", errInvalid, err)
 	}
 	if rows == nil {

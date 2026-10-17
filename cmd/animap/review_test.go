@@ -20,6 +20,7 @@ import (
 	"github.com/cplieger/animap/internal/review"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/source"
+	"github.com/cplieger/animap/mapread"
 	"github.com/cplieger/httpx/v5"
 )
 
@@ -46,9 +47,9 @@ func aired(eps ...skyhook.Episode) []datecheck.Aired {
 func reviewFixtures(t *testing.T, dir string) (mirror, tvdbStore, tmdbStore string) {
 	t.Helper()
 	snap := anidb.Snapshot{Commit: mirrorCommit, Refused: []int{}, Anime: map[int]anidb.Anime{
-		10: titled(anidb.Anime{Regular: []string{"2020-01-06", "2020-01-13"}, Finished: true, Titles: fixtureOtherTitles}),
-		12: titled(anidb.Anime{Regular: []string{"2020-03-02"}, Finished: true, Titles: fixtureOtherTitles}),
-		19: titled(anidb.Anime{Regular: []string{"2020-02-03"}, Finished: true, Titles: fixtureOtherTitles}),
+		10: titled(anidb.Anime{Regular: []anidb.Episode{{Number: 1, AirDate: "2020-01-06"}, {Number: 2, AirDate: "2020-01-13"}}, Finished: true, Titles: fixtureOtherTitles}),
+		12: titled(anidb.Anime{Regular: []anidb.Episode{{Number: 1, AirDate: "2020-03-02"}}, Finished: true, Titles: fixtureOtherTitles}),
+		19: titled(anidb.Anime{Regular: []anidb.Episode{{Number: 1, AirDate: "2020-02-03"}}, Finished: true, Titles: fixtureOtherTitles}),
 	}}
 	fresh := time.Now().UTC()
 	tv := datecheck.NewStore()
@@ -440,5 +441,20 @@ func TestRefreshTMDBCountsTheMoviesARefusalLeaves(t *testing.T) {
 	}
 	if len(r.movieStale) != 3 || len(r.tmdbStale) != 2 {
 		t.Errorf("stale shows %v, movies %v; want every one", r.tmdbStale, r.movieStale)
+	}
+}
+
+// A release of another version leaves the watch unevaluated and says why,
+// so the daily run keeps going until a version 2 release is published.
+func TestReviewWatchesNoReleaseOfAnotherVersion(t *testing.T) {
+	t.Setenv("TMDB_TOKEN", "")
+	c := newReviewCase(t)
+	v1 := bytes.Replace(previousDoc(t, mapread.Version, 1), []byte(`{"version":2,`), []byte(`{"version":1,`), 1)
+	doc := c.run(t, "-release", writeFixtureBytes(t, "release.json", v1))
+	if h := doc.Sources[review.Watch]; h == nil || h.Evaluated || h.UnevaluatedReason != "the latest release is version 1; this build reads version 2" {
+		t.Errorf("watch source = %+v, want unevaluated naming both versions", h)
+	}
+	if doc.Inputs.Release != "" {
+		t.Errorf("inputs.release = %q, want none from a release this build does not read", doc.Inputs.Release)
 	}
 }

@@ -7,7 +7,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/cplieger/animap/internal/schema"
 	"github.com/cplieger/xmlx"
 )
 
@@ -51,6 +50,16 @@ func TestParseRefuses(t *testing.T) {
 		{"wrong root", `<other><anime anidbid="1"/></other>`, errRoot},
 		{"no nodes", `<anime-list></anime-list>`, errNoNodes},
 		{"too deep", deep, xmlx.ErrLimit},
+		{"repeated tvdbid on anime", `<anime-list><anime anidbid="1" tvdbid="5" defaulttvdbseason="1" tvdbid="7"/></anime-list>`, errRepeat},
+		{"tvdbid repeated under a prefix", `<anime-list><anime anidbid="1" tvdbid="5" x:tvdbid="7"/></anime-list>`, errRepeat},
+		{"repeated tvdboffset on mapping", `<anime-list><anime anidbid="1" tvdbid="5"><mapping-list>` +
+			`<mapping anidbseason="1" tvdbseason="1" tvdboffset="0" tvdboffset="12"/></mapping-list></anime></anime-list>`, errRepeat},
+		{"two mapping-lists", `<anime-list><anime anidbid="1" tvdbid="5"><mapping-list>` +
+			`<mapping anidbseason="0" tvdbseason="0">;1-5;</mapping></mapping-list><mapping-list>` +
+			`<mapping anidbseason="1" tvdbseason="1" start="2" end="3" offset="1"/></mapping-list></anime></anime-list>`, errRepeat},
+		{"two names", `<anime-list><anime anidbid="1"><name>A</name><name>B</name></anime></anime-list>`, errRepeat},
+		{"two befores", `<anime-list><anime anidbid="1"><before>;1-1;</before><before>;1-2;</before></anime></anime-list>`, errRepeat},
+		{"repeated anidbid", `<anime-list><anime anidbid="1" tvdbid="5"/><anime anidbid="1" tvdbid="7"/></anime-list>`, errRepeat},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			if _, err := Parse([]byte(tc.body)); !errors.Is(err, tc.want) {
@@ -60,21 +69,35 @@ func TestParseRefuses(t *testing.T) {
 	}
 }
 
+func TestParseAcceptsRepeatsItSkips(t *testing.T) {
+	body := `<anime-list><anime anidbid="1" tvdbid="5"><supplemental-info><studio>A</studio></supplemental-info>` +
+		`<supplemental-info><studio>B</studio></supplemental-info><mapping-list>` +
+		`<mapping anidbseason="1" tvdbseason="1" start="1" end="2" offset="0"/>` +
+		`<mapping anidbseason="1" tvdbseason="1" start="3" end="4" offset="0"/></mapping-list></anime></anime-list>`
+	l, err := Parse([]byte(body))
+	if err != nil {
+		t.Fatalf("Parse = %v", err)
+	}
+	if got := len(l.Nodes[1].Rows); got != 2 {
+		t.Errorf("rows = %d, want 2", got)
+	}
+}
+
 func TestRowSchema(t *testing.T) {
 	l := mini(t)
-	got, err := l.Nodes[10].Rows[1].Schema()
+	got, err := l.Nodes[10].Rows[1].Parse()
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := schema.Row{AniDBSeason: 1, TVDBSeason: new(1), Start: 13, End: 24, Offset: -12}
+	want := ParsedRow{AniDBSeason: 1, TVDBSeason: new(1), Start: 13, End: 24, Offset: -12}
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("ranged row = %+v, want %+v", got, want)
 	}
-	tmdb, err := l.Nodes[10].Rows[2].Schema()
+	tmdb, err := l.Nodes[10].Rows[2].Parse()
 	if err != nil || tmdb.TVDBSeason != nil || tmdb.TMDBSeason == nil || *tmdb.TMDBSeason != 2 {
 		t.Errorf("TMDB-only row = %+v, %v", tmdb, err)
 	}
-	if _, err := l.Nodes[12].Rows[0].Schema(); !errors.Is(err, errRow) {
+	if _, err := l.Nodes[12].Rows[0].Parse(); !errors.Is(err, errRow) {
 		t.Errorf("row with an unparseable pair = %v, want errRow", err)
 	}
 }
@@ -102,14 +125,14 @@ func TestParsePairs(t *testing.T) {
 }
 
 func TestRowRoundTrip(t *testing.T) {
-	for _, r := range []schema.Row{
+	for _, r := range []ParsedRow{
 		{AniDBSeason: 0, TVDBSeason: new(0), Episodes: [][]int{{1, 2}, {3}, {4, 5, 6}}},
 		{AniDBSeason: 1, TVDBSeason: new(2), Start: 14, End: 26, Offset: -13},
 		{AniDBSeason: 1, TMDBSeason: new(0), Start: 1},
 	} {
-		got, err := RowFromSchema(r).Schema()
+		got, err := RowOf(r).Parse()
 		if err != nil || !reflect.DeepEqual(got, r) {
-			t.Errorf("RowFromSchema(%+v).Schema() = %+v, %v", r, got, err)
+			t.Errorf("RowOf(%+v).Parse() = %+v, %v", r, got, err)
 		}
 	}
 }

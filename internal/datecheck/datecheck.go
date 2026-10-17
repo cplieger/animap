@@ -135,8 +135,8 @@ func Check(n *animelists.Node, side animelists.Side, a *anidb.Anime, lay *Layout
 	s.side, s.series, s.linked = side, series, linked
 	s.oneCalendar = s.keepsAniDBCalendar(a.Regular)
 	var out, calendar []Finding
-	for i, d := range a.Regular {
-		bad, cal := s.check(n, Episode{Number: i + 1, AirDate: d}, regularTitles(a, i), a.Finished, now)
+	for _, e := range a.Regular {
+		bad, cal := s.check(n, Episode{Number: e.Number, AirDate: e.AirDate}, e.Titles, a.Finished, now)
 		out = append(out, bad...)
 		calendar = append(calendar, cal...)
 	}
@@ -146,23 +146,16 @@ func Check(n *animelists.Node, side animelists.Side, a *anidb.Anime, lay *Layout
 		out = append(out, bad...)
 	}
 	for _, x := range a.Extras {
-		if n.Place(side, 0, x.Number).Default && linked[[2]int{0, x.Number}] == 0 {
+		if x.SeasonZero == 0 || n.Place(side, 0, x.SeasonZero).Default && linked[[2]int{0, x.SeasonZero}] == 0 {
 			continue
 		}
-		bad, _ := s.check(n, Episode{Number: x.Number, AirDate: x.AirDate, Special: true, Extra: true}, x.Titles, a.Finished, now)
+		bad, _ := s.check(n, Episode{Number: x.SeasonZero, Special: true, Extra: true}, x.Titles, a.Finished, now)
 		out = append(out, bad...)
 	}
 	if len(out) == 0 {
 		return nil
 	}
 	return &Lead{Series: series, Side: side, Findings: out}
-}
-
-func regularTitles(a *anidb.Anime, i int) string {
-	if i < len(a.RegularTitles) {
-		return a.RegularTitles[i]
-	}
-	return ""
 }
 
 // CheckMovies returns a DeadMovie finding for each of n's TMDB movies that
@@ -216,9 +209,9 @@ const (
 // keepsAniDBCalendar: some regular AniDB date, precise to the day and
 // shared by no other episode, has a provider episode within a day, so the
 // show keeps AniDB's calendar.
-func (s *show) keepsAniDBCalendar(regular []string) bool {
-	return slices.ContainsFunc(regular, func(d string) bool {
-		return dayPrecise(d) && len(s.carriers(Episode{AirDate: d})) > 0
+func (s *show) keepsAniDBCalendar(regular []anidb.Episode) bool {
+	return slices.ContainsFunc(regular, func(e anidb.Episode) bool {
+		return dayPrecise(e.AirDate) && len(s.carriers(Episode{AirDate: e.AirDate})) > 0
 	})
 }
 
@@ -425,8 +418,8 @@ func (s *show) carriers(ep Episode) []skyhook.Episode {
 // specials, of the anime carry, keyed by kind and date.
 func sharedDates(a *anidb.Anime) map[sharedKey]bool {
 	seen := map[sharedKey]int{}
-	for _, d := range a.Regular {
-		seen[sharedKey{date: d}]++
+	for _, e := range a.Regular {
+		seen[sharedKey{date: e.AirDate}]++
 	}
 	for _, sp := range a.Specials {
 		seen[sharedKey{date: sp.AirDate, special: true}]++

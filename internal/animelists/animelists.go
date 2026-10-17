@@ -39,6 +39,7 @@ const (
 var (
 	errRoot    = errors.New("animelists: root element is not anime-list")
 	errNoNodes = errors.New("animelists: list carries no anime nodes")
+	errRepeat  = errors.New("animelists: an attribute or child element is repeated")
 	ErrTooBig  = errors.New("animelists: body exceeds the size bound")
 )
 
@@ -58,7 +59,7 @@ type Row struct {
 }
 
 // List is the decoded file: nodes keyed by AniDB id, plus the ids in
-// document order. A repeated AniDB id keeps its first node.
+// document order. Parse refuses a repeated AniDB id.
 type List struct {
 	Nodes map[int]*Node
 	Order []int
@@ -114,7 +115,7 @@ func (l *listXML) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 			return nil
 		}
 		if _, dup := l.list.Nodes[n.AniDBID]; dup {
-			return nil
+			return fmt.Errorf("%w: <anime anidbid=\"%d\">", errRepeat, n.AniDBID)
 		}
 		l.list.Nodes[n.AniDBID] = n
 		l.list.Order = append(l.list.Order, n.AniDBID)
@@ -141,11 +142,16 @@ func walk(d *xml.Decoder, onStart func(xml.StartElement) error) error {
 	}
 }
 
+// attrs refuses a repeated local name, prefixed or not: encoding/xml does
+// not enforce XML 1.0 §3.1 "Unique Att Spec", and the map keeps one value.
 func (l *listXML) attrs(t xml.StartElement) (map[string]string, error) {
 	out := make(map[string]string, len(t.Attr))
 	for _, a := range t.Attr {
 		if err := l.budget.Charge(a.Value); err != nil {
 			return nil, err
+		}
+		if _, dup := out[a.Name.Local]; dup {
+			return nil, fmt.Errorf("%w: attribute %q on <%s>", errRepeat, a.Name.Local, t.Name.Local)
 		}
 		out[a.Name.Local] = a.Value
 	}
@@ -159,8 +165,16 @@ func (l *listXML) decodeNode(d *xml.Decoder, t xml.StartElement) (*Node, error) 
 		return nil, err
 	}
 	n := &Node{Attrs: attrs}
+	seen := map[string]bool{}
 	err = walk(d, func(c xml.StartElement) error {
 		var textErr error
+		switch c.Name.Local {
+		case "name", "before", "mapping-list":
+			if seen[c.Name.Local] {
+				return fmt.Errorf("%w: <%s> in <anime anidbid=%q>", errRepeat, c.Name.Local, attrs["anidbid"])
+			}
+			seen[c.Name.Local] = true
+		}
 		switch c.Name.Local {
 		case "name":
 			n.Name, textErr = l.budget.DecodeText(d)

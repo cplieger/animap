@@ -1,6 +1,8 @@
 package review
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"os"
 	"path/filepath"
@@ -8,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/mapread"
 )
 
 var (
@@ -208,30 +210,88 @@ func TestWatchPartChanges(t *testing.T) {
 	}
 }
 
+// digestDoc is one anime with a run per statement form, and an entry that
+// is all of it.
+func digestDoc() *mapread.Document {
+	tv := func(ts ...mapread.Target) *[]mapread.Target {
+		if ts == nil {
+			ts = []mapread.Target{}
+		}
+		return &ts
+	}
+	return &mapread.Document{
+		Anime: []mapread.Anime{{
+			AniDBID: 2, TVDBID: 3, TMDBTVID: 4, TMDBMovieIDs: []int{7}, IMDbIDs: []string{"tt0000001"},
+			Last: mapread.Last{Regular: 4, Special: 1},
+			Episodes: []mapread.Run{
+				{Kind: mapread.Regular, Start: 1, End: 1, TVDB: tv(mapread.Target{Season: 1, Episode: 1}), TMDB: tv(mapread.Target{Season: 1, Episode: 1})},
+				{Kind: mapread.Regular, Start: 2, End: 2, TVDB: tv(mapread.Target{Season: 1, Episode: 2, Default: true}, mapread.Target{Season: 1, Episode: 3, Default: true})},
+				{Kind: mapread.Regular, Start: 3, End: 3, TMDB: tv(mapread.Target{Season: 1, Episode: 3})},
+				{Kind: mapread.Special, Start: 1, End: 1, TVDB: tv(mapread.Target{Season: 0, Episode: 1})},
+			},
+		}},
+		Entries: []mapread.Entry{{AniListID: 1, Type: "TV", Episodes: 12, IDs: &mapread.IDs{MAL: []int{5}}, Parts: []mapread.Part{{AniDBID: 2, Kind: mapread.Regular}}}},
+	}
+}
+
+func digestOf(doc *mapread.Document) string {
+	x := mapread.NewIndex(doc)
+	e, _ := x.Entry(1)
+	return RecordDigest(x, &e)
+}
+
+// One combined entry episode and the same AniDB episodes as separate entry
+// episodes are different things to the watch, so they digest apart.
+func TestRecordDigestKeepsEntryEpisodeBoundaries(t *testing.T) {
+	ranged, combined := digestDoc(), digestDoc()
+	ranged.Entries[0].Parts = []mapread.Part{{AniDBID: 2, Kind: mapread.Regular, Start: 1, End: 4}}
+	combined.Entries[0].Parts = []mapread.Part{{AniDBID: 2, Kind: mapread.Regular, Combined: true}}
+	if a, b := digestOf(ranged), digestOf(combined); a == b {
+		t.Errorf("four entry episodes and one combined entry episode share digest %s", a)
+	}
+}
+
+// The vector pins the encoding of the digest input; the watch conversion
+// script reproduces it, so a change here is a change to every watch
+// ruling's fingerprint.
+func TestRecordDigestVector(t *testing.T) {
+	const want = "a4407100d9dbd4790860b273989c8883f83ed92c861d16fb51ff33370420b7b7"
+	if got := digestOf(digestDoc()); got != want {
+		t.Errorf("RecordDigest = %s, want %s", got, want)
+	}
+	if got, absent := RecordDigest(mapread.NewIndex(&mapread.Document{}), nil), sha256.Sum256([]byte("absent")); got != hex.EncodeToString(absent[:]) {
+		t.Errorf("RecordDigest(no entry) = %s, want the SHA-256 of \"absent\"", got)
+	}
+}
+
 func TestRecordDigestFollowsTheWatchedFields(t *testing.T) {
-	season := 1
-	base := schema.Record{AniListID: 1, AniDBID: 2, Type: "TV", TVDBID: 3, TVDBSeason: &season, Episodes: 12}
-	sum := RecordDigest(&base)
-	if !hexRE.MatchString(sum) || RecordDigest(nil) == sum || !hexRE.MatchString(RecordDigest(nil)) {
-		t.Fatalf("digests %q, %q", sum, RecordDigest(nil))
+	sum := digestOf(digestDoc())
+	if !hexRE.MatchString(sum) {
+		t.Fatalf("digest %q", sum)
 	}
 	for name, tc := range map[string]struct {
-		mutate func(*schema.Record)
+		mutate func(*mapread.Document)
 		moves  bool
 	}{
-		"the type":          {moves: true, mutate: func(r *schema.Record) { r.Type = "MOVIE" }},
-		"the season":        {moves: true, mutate: func(r *schema.Record) { zero := 0; r.TVDBSeason = &zero }},
-		"the placement":     {moves: true, mutate: func(r *schema.Record) { r.TVDBPlacement = []schema.Segment{{Start: 1, End: 1}} }},
-		"the episode count": {moves: true, mutate: func(r *schema.Record) { r.Episodes = 13 }},
-		"a TMDB movie":      {moves: true, mutate: func(r *schema.Record) { r.TMDBMovieIDs = []int{5} }},
-		"the MAL id":        {mutate: func(r *schema.Record) { r.MALID = 9 }},
-		"the TMDB show":     {mutate: func(r *schema.Record) { r.TMDBTVID = 9 }},
-		"the AniList id":    {mutate: func(r *schema.Record) { r.AniListID = 9 }},
+		"the type":             {moves: true, mutate: func(d *mapread.Document) { d.Entries[0].Type = "MOVIE" }},
+		"a TVDB target":        {moves: true, mutate: func(d *mapread.Document) { (*d.Anime[0].Episodes[0].TVDB)[0].Episode = 9 }},
+		"a default flag":       {moves: true, mutate: func(d *mapread.Document) { (*d.Anime[0].Episodes[1].TVDB)[0].Default = false }},
+		"an unstated episode":  {moves: true, mutate: func(d *mapread.Document) { d.Anime[0].Episodes[2].TVDB = &[]mapread.Target{} }},
+		"the TVDB series":      {moves: true, mutate: func(d *mapread.Document) { d.Anime[0].TVDBID = 8 }},
+		"a TMDB movie":         {moves: true, mutate: func(d *mapread.Document) { d.Anime[0].TMDBMovieIDs = []int{8} }},
+		"an IMDb id":           {moves: true, mutate: func(d *mapread.Document) { d.Anime[0].IMDbIDs = nil }},
+		"the regular count":    {moves: true, mutate: func(d *mapread.Document) { d.Anime[0].Last.Regular = 5 }},
+		"the parts":            {moves: true, mutate: func(d *mapread.Document) { d.Entries[0].Parts[0].Kind = mapread.Special }},
+		"a TMDB target":        {mutate: func(d *mapread.Document) { (*d.Anime[0].Episodes[0].TMDB)[0].Episode = 9 }},
+		"the TMDB show":        {mutate: func(d *mapread.Document) { d.Anime[0].TMDBTVID = 9 }},
+		"a special":            {mutate: func(d *mapread.Document) { (*d.Anime[0].Episodes[3].TVDB)[0].Episode = 9 }},
+		"the entry's episodes": {mutate: func(d *mapread.Document) { d.Entries[0].Episodes = 13 }},
+		"the entry's ids":      {mutate: func(d *mapread.Document) { d.Entries[0].IDs = nil }},
 	} {
 		t.Run(name, func(t *testing.T) {
-			r := base
-			tc.mutate(&r)
-			if got := RecordDigest(&r); (got != sum) != tc.moves {
+			d := digestDoc()
+			tc.mutate(d)
+			if got := digestOf(d); (got != sum) != tc.moves {
 				t.Errorf("digest moved = %t, want %t", got != sum, tc.moves)
 			}
 		})

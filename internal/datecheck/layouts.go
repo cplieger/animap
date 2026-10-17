@@ -126,7 +126,7 @@ func LoadStore(path string) (*Store, error) {
 		return nil, err
 	}
 	s := NewStore()
-	if err := strictjson.Decode(body, s); err != nil {
+	if err := strictjson.Decode(body, maxStoreBytes, s); err != nil {
 		return NewStore(), fmt.Errorf("datecheck: %s: %w; starting empty", path, err)
 	}
 	if s.Series == nil {

@@ -73,7 +73,7 @@ func TestProveLinksRefusesTwoLinksOnOneTVDBEpisode(t *testing.T) {
 		}}
 	}
 	links := []overlay.Link{linkFile(376, overlay.Part{AniDBID: 1983, Specials: []int{1}}), linkFile(377, overlay.Part{AniDBID: 1983, Specials: []int{2}})}
-	if p, err := proveLinks(links, parent(";1-4;2-5;"), nil, facts, nil); err != nil || len(p.compiled) != 2 {
+	if p, err := proveLinks(links, parent(";1-4;2-5;"), nil, facts, nil); err != nil || len(p.applied.Compiled()) != 2 {
 		t.Errorf("proveLinks(S1 on 0x4, S2 on 0x5) = %+v, %v; want both compiled", p, err)
 	}
 	const want = "AniList 377 episode 1 lands on TVDB 75941 0x4, which AniList 376 already takes"

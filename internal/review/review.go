@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cplieger/animap/internal/schema"
+	"github.com/cplieger/animap/mapread"
 )
 
 // The sections of a subject, one per source of trouble.
@@ -106,32 +106,56 @@ type Match struct {
 	Matches bool     `json:"matches"`
 }
 
-// RecordDigest is the hex SHA-256 of the fields of a published record the
-// watch reads, "absent" hashed for no record, so a watch ruling lapses
-// when any of them moves.
-func RecordDigest(rec *schema.Record) string {
-	if rec == nil {
+// RecordDigest is the hex SHA-256 of what the watch reads of entry e:
+// its type, its routes and, per entry episode in order, the list of its
+// AniDB episodes with their TVDB statements, "absent" hashed for no
+// entry. A watch ruling lapses when any of them moves, and only then.
+func RecordDigest(x *mapread.Index, e *mapread.Entry) string {
+	if e == nil {
 		sum := sha256.Sum256([]byte("absent"))
 		return hex.EncodeToString(sum[:])
 	}
-	b, err := json.Marshal(struct {
-		AniDBParent   *schema.ParentSpecials `json:"anidb_parent"`
-		TVDBSeason    *int                   `json:"tvdb_season"`
-		Type          string                 `json:"type"`
-		TMDBMovieIDs  []int                  `json:"tmdb_movie_ids"`
-		IMDbIDs       []string               `json:"imdb_ids"`
-		TVDBPlacement []schema.Segment       `json:"tvdb_placement"`
-		AniDBID       int                    `json:"anidb_id"`
-		TVDBID        int                    `json:"tvdb_id"`
-		Episodes      int                    `json:"episodes"`
-		TVDBAbsolute  bool                   `json:"tvdb_absolute"`
-	}{
-		rec.AniDBParent, rec.TVDBSeason, rec.Type, rec.TMDBMovieIDs, rec.IMDbIDs, rec.TVDBPlacement,
-		rec.AniDBID, rec.TVDBID, rec.Episodes, rec.TVDBAbsolute,
+	r := x.Routes(*e)
+	episodes := [][][]any{}
+	for _, ep := range x.Episodes(*e) {
+		refs := [][]any{}
+		for _, ref := range ep.Refs {
+			refs = append(refs, []any{ref.AniDB, ref.Kind, ref.Number, digestStatement(x, ref.Ref)})
+		}
+		episodes = append(episodes, refs)
+	}
+	b, err := json.Marshal(map[string]any{
+		"type": e.Type,
+		"routes": map[string]any{
+			"tvdb": orEmpty(r.TVDB), "tmdb_movie_ids": orEmpty(r.TMDBMovies), "imdb_ids": orEmpty(r.IMDb),
+		},
+		"episodes": episodes,
 	})
 	if err != nil {
-		panic(fmt.Sprintf("review: a record does not marshal: %v", err))
+		panic(fmt.Sprintf("review: an entry does not marshal: %v", err))
 	}
 	sum := sha256.Sum256(b)
 	return hex.EncodeToString(sum[:])
+}
+
+// digestStatement is ref's TVDB statement: null with no TVDB series,
+// {"stated":false} for nothing stated, else {"stated":true} with its
+// targets, if any.
+func digestStatement(x *mapread.Index, ref mapread.Ref) any {
+	ep, _ := x.Episode(ref)
+	if ep.TVDB == nil {
+		return nil
+	}
+	out := map[string]any{"stated": ep.TVDB.State != mapread.Unstated}
+	if len(ep.TVDB.Targets) > 0 {
+		out["targets"] = ep.TVDB.Targets
+	}
+	return out
+}
+
+func orEmpty[T any](s []T) []T {
+	if s == nil {
+		return []T{}
+	}
+	return s
 }
