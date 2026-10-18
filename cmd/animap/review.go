@@ -19,7 +19,9 @@ import (
 	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/drift"
+	"github.com/cplieger/animap/internal/guard"
 	"github.com/cplieger/animap/internal/join"
+	"github.com/cplieger/animap/internal/leftovers"
 	"github.com/cplieger/animap/internal/offlinedb"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/review"
@@ -75,10 +77,11 @@ type subject struct {
 }
 
 type sections struct {
-	DateTVDB *dateSection  `json:"date-tvdb,omitempty"`
-	DateTMDB *dateSection  `json:"date-tmdb,omitempty"`
-	Drift    *driftSection `json:"drift,omitempty"`
-	Watch    *watchSection `json:"watch,omitempty"`
+	DateTVDB  *dateSection      `json:"date-tvdb,omitempty"`
+	DateTMDB  *dateSection      `json:"date-tmdb,omitempty"`
+	Leftovers *leftoversSection `json:"leftovers,omitempty"`
+	Drift     *driftSection     `json:"drift,omitempty"`
+	Watch     *watchSection     `json:"watch,omitempty"`
 }
 
 func (s *sections) date(name string) *dateSection {
@@ -102,6 +105,10 @@ func (s *sections) head(name string) *review.Section {
 	case review.DateTVDB, review.DateTMDB:
 		if d := s.date(name); d != nil {
 			return &d.Section
+		}
+	case review.Leftovers:
+		if s.Leftovers != nil {
+			return &s.Leftovers.Section
 		}
 	case review.Drift:
 		if s.Drift != nil {
@@ -132,6 +139,24 @@ type dateSection struct {
 }
 
 func (d *dateSection) raised() bool { return d.Dead || len(d.Findings) > 0 }
+
+// leftoversSection is a node's season 0 leftovers on each show it maps to.
+// Findings holds the shows that raise, Digests each one's inputs by key;
+// Unchecked says why each show the run could not judge was not. A section
+// that raises is evaluated even beside an unchecked show, since what it
+// raises is this run's, and carries the unchecked shows in Reason:
+// matchLeftovers marks it not evaluated when an acceptance covers every
+// show it raises, so the issue keeps the unchecked show's earlier text.
+type leftoversSection struct {
+	Digests   map[string]string   `json:"digests,omitempty"`
+	Unchecked map[string]string   `json:"unchecked,omitempty"`
+	Node      string              `json:"node,omitempty"`
+	Overlay   string              `json:"overlay,omitempty"`
+	Findings  []leftovers.Finding `json:"findings,omitempty"`
+	review.Section
+}
+
+func (l *leftoversSection) raised() bool { return len(l.Findings) > 0 }
 
 type driftSection struct {
 	Findings []drift.Finding `json:"findings,omitempty"`
@@ -240,6 +265,8 @@ type reviewRun struct {
 	tvdbClient   getterCount
 	tmdbClient   getterCount
 	captured     map[int]bool
+	claimIndex   *guard.ClaimIndex
+	claimCache   map[claimKey]map[[2]int][]string
 	tvdbSeries   []int
 	tmdbShows    []int
 	tmdbMovies   []int
@@ -274,7 +301,7 @@ func loadReview(c *reviewConfig, token string, log *slog.Logger) (*reviewRun, er
 		list: list, entries: entries, links: links, records: records, token: token, listCommit: c.listCommit,
 		patched: overlay.Apply(list.Nodes, entries), tvdbStale: map[int]string{}, tmdbStale: map[int]string{}, movieStale: map[int]string{},
 		health: map[string]*sourceHealth{
-			review.DateTVDB: {Evaluated: true}, review.DateTMDB: {Evaluated: true},
+			review.DateTVDB: {Evaluated: true}, review.DateTMDB: {Evaluated: true}, review.Leftovers: {Evaluated: true},
 			review.Drift: {Evaluated: true}, review.Watch: {},
 		},
 		linkedAL: map[int]bool{}, captured: map[int]bool{},
@@ -327,7 +354,7 @@ func (r *reviewRun) loadSources(c *reviewConfig) error {
 		}
 		r.facts = facts
 	} else {
-		for _, name := range []string{review.DateTVDB, review.DateTMDB} {
+		for _, name := range []string{review.DateTVDB, review.DateTMDB, review.Leftovers} {
 			r.health[name] = &sourceHealth{UnevaluatedReason: "the AniDB mirror was not read"}
 		}
 		r.linksUnknown = "the AniDB mirror was not read, so no overlay link is applied"
@@ -640,6 +667,7 @@ func (r *reviewRun) evaluate(now time.Time) *reviewDoc {
 	}
 	subjects := map[string]*subject{}
 	r.addDates(subjects, now)
+	r.addLeftovers(subjects)
 	r.addDrift(subjects)
 	r.addWatch(subjects)
 	r.addAcceptance(subjects)
@@ -894,6 +922,7 @@ func (r *reviewRun) addAcceptance(subjects map[string]*subject) {
 	for _, key := range slices.Sorted(maps.Keys(r.records)) {
 		rec := r.records[key]
 		s := r.subjectOf(subjects, key)
+		sub, _ := review.ParseKey(key)
 		file := review.File(key)
 		for _, name := range []string{review.DateTVDB, review.DateTMDB} {
 			part := rec.Date(name)
@@ -903,7 +932,8 @@ func (r *reviewRun) addAcceptance(subjects map[string]*subject) {
 			d := s.Sections.date(name)
 			if d == nil {
 				h := r.health[name]
-				d = &dateSection{Evaluated: h.Evaluated, Reason: h.UnevaluatedReason}
+				n := r.patched[sub.ID]
+				d = &dateSection{Evaluated: h.Evaluated, Reason: h.UnevaluatedReason, Applicable: !h.Evaluated && n != nil && dateApplies(n, name)}
 				s.Sections.setDate(name, d)
 			}
 			m := &review.Match{File: file, Part: name, Verdict: part.Verdict, Reason: part.Reason}
@@ -913,7 +943,33 @@ func (r *reviewRun) addAcceptance(subjects map[string]*subject) {
 			}
 			d.Acceptance = m
 		}
+		r.matchLeftovers(s, &rec, file)
 		r.matchWatch(s, &rec, file)
+	}
+}
+
+func (r *reviewRun) matchLeftovers(s *subject, rec *review.Record, file string) {
+	part := rec.Parts.Leftovers
+	if part == nil {
+		return
+	}
+	l := s.Sections.Leftovers
+	if l == nil {
+		h := r.health[review.Leftovers]
+		sub, _ := review.ParseKey(s.Key)
+		l = &leftoversSection{Evaluated: h.Evaluated, Reason: h.UnevaluatedReason, Applicable: !h.Evaluated && mapsToShow(r.patched[sub.ID])}
+		s.Sections.Leftovers = l
+	}
+	m := &review.Match{File: file, Part: review.Leftovers, Verdict: part.Verdict, Reason: part.Reason}
+	if l.Evaluated {
+		m.Causes = part.Changes(l.Digests)
+		m.Matches = len(m.Causes) == 0
+	}
+	l.Acceptance = m
+	// A part covering every show this run read says nothing of a show it
+	// did not, so the section stays open as not checked until that show is.
+	if m.Matches && len(l.Unchecked) > 0 {
+		l.Evaluated = false
 	}
 }
 
@@ -945,8 +1001,9 @@ func (r *reviewRun) matchWatch(s *subject, rec *review.Record, file string) {
 	}
 }
 
-// fillUnevaluated adds, to every listed AniDB subject, the date sections
-// whose source could not judge any node this run, so its issue says so.
+// fillUnevaluated adds, to every listed AniDB subject, the date and
+// leftovers sections whose source could not judge any node this run, so
+// its issue says so.
 func (r *reviewRun) fillUnevaluated(subjects map[string]*subject) {
 	for key, s := range subjects {
 		sub, _ := review.ParseKey(key)
@@ -958,6 +1015,9 @@ func (r *reviewRun) fillUnevaluated(subjects map[string]*subject) {
 			if h := r.health[name]; !h.Evaluated && s.Sections.date(name) == nil && dateApplies(n, name) {
 				s.Sections.setDate(name, &dateSection{Applicable: true, Reason: h.UnevaluatedReason})
 			}
+		}
+		if h := r.health[review.Leftovers]; !h.Evaluated && s.Sections.Leftovers == nil {
+			s.Sections.Leftovers = r.fillLeftovers(sub.ID, h)
 		}
 	}
 }

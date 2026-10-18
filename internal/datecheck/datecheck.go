@@ -297,7 +297,7 @@ func (s *show) judge(ep Episode, t Target, byDefault bool, sib []skyhook.Episode
 		return Finding{}, passes
 	case !exists:
 		return f, fails
-	case ep.AirDate == "" || t.AirDate == "" || sameAiring(ep.AirDate, t.AirDate):
+	case ep.AirDate == "" || t.AirDate == "" || SameAiring(ep.AirDate, t.AirDate):
 		return Finding{}, passes
 	}
 	f.Kind = DateMismatch
@@ -448,12 +448,12 @@ func settled(date string, finished bool, now time.Time) bool {
 	return err == nil && !d.After(now.Add(-settle))
 }
 
-// sameAiring reports whether AniDB date a and provider date b can be one
+// SameAiring reports whether AniDB date a and provider date b can be one
 // airing: at most a day apart, for the time-zone shift; in the same month
 // when either is the 1st, a month-precision date; in the same year when
 // either is 1 January, a year-precision date. A date that does not parse
 // matches nothing.
-func sameAiring(a, b string) bool {
+func SameAiring(a, b string) bool {
 	gap, ok := daysApart(a, b)
 	switch {
 	case !ok:

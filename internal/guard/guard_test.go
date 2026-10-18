@@ -801,6 +801,31 @@ func TestCollisionTwoLinksOfOneParentOnOneEpisode(t *testing.T) {
 	}
 }
 
+// The guard claims the specials the mirror lists, so a promotion or other
+// episode the node's default would put on its Anime-Lists number gets no
+// claim; a link's claim on one carries the bare "<aid> S<z>" label.
+func TestClaimsOfADefaultExtraComeOnlyFromALink(t *testing.T) {
+	nodes := map[int]*animelists.Node{1: node(1, "tvdbid=10 defaulttvdbseason=1")}
+	a := fin(2, 1)
+	a.Extras = []anidb.Extra{{Kind: anidb.Promotion, Number: 1, SeasonZero: 201}, {Kind: anidb.Other, Number: 1, SeasonZero: 401}}
+	f := facts(map[int]anidb.Anime{1: a}, nil)
+	t.Run("no link", func(t *testing.T) {
+		got := NewClaimIndex(nodes, nil, join.Applied{}, f).Claims(animelists.TVDB, 10)
+		if !slices.Equal(got[[2]int{0, 1}], []string{"1 S1 (default)"}) {
+			t.Errorf("S0E1 claims = %q, want the default special 1", got[[2]int{0, 1}])
+		}
+		if got[[2]int{0, 201}] != nil || got[[2]int{0, 401}] != nil {
+			t.Errorf("claims = %v, want none on S0E201 or S0E401", got)
+		}
+	})
+	t.Run("a link on the promotion", func(t *testing.T) {
+		got := NewClaimIndex(nodes, nil, linkOn(special(1, 201, 0, 201)), f).Claims(animelists.TVDB, 10)
+		if !slices.Equal(got[[2]int{0, 201}], []string{"1 S201"}) || got[[2]int{0, 401}] != nil {
+			t.Errorf("claims = %v, want the bare 1 S201 on S0E201 and none on S0E401", got)
+		}
+	})
+}
+
 func TestCollisionSiblingSpecialsComeFromTheMirror(t *testing.T) {
 	nodes := map[int]*animelists.Node{
 		1: node(1, "tvdbid=10 defaulttvdbseason=1"),

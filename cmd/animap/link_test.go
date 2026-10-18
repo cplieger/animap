@@ -437,7 +437,7 @@ func TestReviewClassesLinksWithTheBuildsCounts(t *testing.T) {
 	if ids, linked := r.applied.Identities(), r.applied.Linked(); len(ids) != 0 || len(linked) != 1 || linked[0].Link.AniListID != 999 {
 		t.Errorf("applied identities %+v, linked %+v; want AniList 999 linked, as the build classes it", ids, linked)
 	}
-	claims := r.claimIndex([]int{30})[claimKey{side: animelists.TVDB, show: 5006}]
+	claims := r.claimsOf([]int{30})[claimKey{side: animelists.TVDB, show: 5006}]
 	for k := 1; k <= 12; k++ {
 		if want := fmt.Sprintf("30 ep%d", k); !slices.Contains(claims[[2]int{1, k}], want) {
 			t.Errorf("claims on TVDB 5006 1x%d = %v, want %q: Count is the counts row's 12", k, claims[[2]int{1, k}], want)
@@ -578,7 +578,7 @@ func reviewReaders(t *testing.T, ov, mirror string, al int) linkReaders {
 	}
 	sub, _ := review.ParseKey(review.AniListKey(al))
 	return linkReaders{
-		Linked: r.linked, Claims: r.claimIndex([]int{10}), WatchKey: r.watchKey(&watch.Entry{AniListID: al, AniDBID: 10}),
+		Linked: r.linked, Claims: r.claimsOf([]int{10}), WatchKey: r.watchKey(&watch.Entry{AniListID: al, AniDBID: 10}),
 		Nodes: r.subjectIDs(sub), Links: r.detail(sub).Links,
 	}
 }

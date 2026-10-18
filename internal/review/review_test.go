@@ -155,6 +155,29 @@ func TestValidateVerdictsAndParts(t *testing.T) {
 		"a date part on an AniList key":  {mutate: func(r *Record) { r.Key = AniListKey(1563) }},
 		"another id on an AniList key":   {mutate: func(r *Record) { r.Key, r.Parts.DateTVDB = AniListKey(9), nil }},
 		"a key that does not parse":      {mutate: func(r *Record) { r.Key = "lead:date:3195" }},
+		"a leftovers part alone": {ok: true, mutate: func(r *Record) {
+			r.Parts = Parts{Leftovers: &LeftoversPart{Ruling: ruling(Fine), Findings: map[string]string{"tvdb:5000": digestA, "tmdb:9000": digestB}}}
+		}},
+		"a leftovers part inexpressible": {ok: true, mutate: func(r *Record) {
+			r.Parts.Leftovers = &LeftoversPart{Ruling: ruling(Inexpressible), Findings: map[string]string{"tvdb:5000": digestA}}
+			r.Parts.Leftovers.Requires = "x"
+		}},
+		"a leftovers part unmappable": {mutate: func(r *Record) {
+			r.Parts.Leftovers = &LeftoversPart{Ruling: ruling(Unmappable), Findings: map[string]string{"tvdb:5000": digestA}}
+		}},
+		"a leftovers part with no findings": {mutate: func(r *Record) { r.Parts.Leftovers = &LeftoversPart{Ruling: ruling(Fine)} }},
+		"a leftovers part with a date key": {mutate: func(r *Record) {
+			r.Parts.Leftovers = &LeftoversPart{Ruling: ruling(Fine), Findings: map[string]string{"date-mismatch:8": digestA}}
+		}},
+		"a leftovers part with a bad digest": {mutate: func(r *Record) {
+			r.Parts.Leftovers = &LeftoversPart{Ruling: ruling(Fine), Findings: map[string]string{"tvdb:5000": "x"}}
+		}},
+		"a leftovers part without evidence": {mutate: func(r *Record) {
+			r.Parts.Leftovers = &LeftoversPart{Verdict: Fine, Date: "2026-10-15", Reason: "x", Findings: map[string]string{"tvdb:5000": digestA}}
+		}},
+		"a leftovers part on an AniList key": {mutate: func(r *Record) {
+			r.Key, r.Parts = AniListKey(1563), Parts{Leftovers: &LeftoversPart{Ruling: ruling(Fine), Findings: map[string]string{"tvdb:5000": digestA}}}
+		}},
 	} {
 		t.Run(name, func(t *testing.T) {
 			r := valid()
@@ -181,6 +204,25 @@ func TestDatePartChanges(t *testing.T) {
 		"a listed finding's inputs moved": {now: map[string]string{"date-mismatch:8": digestB}, want: []string{"finding-inputs:date-mismatch:8"}},
 		"a new finding":                   {now: map[string]string{"date-mismatch:8": digestA, "out-of-order:2": digestA}, want: []string{"finding:out-of-order:2"}},
 		"both":                            {now: map[string]string{"missing-target:S1": digestA, "date-mismatch:9": digestA}, want: []string{"finding:date-mismatch:9", "finding-inputs:missing-target:S1"}},
+	} {
+		t.Run(name, func(t *testing.T) {
+			if got := p.Changes(tc.now); !slices.Equal(got, tc.want) {
+				t.Errorf("Changes = %v, want %v", got, tc.want)
+			}
+		})
+	}
+}
+
+func TestLeftoversPartChanges(t *testing.T) {
+	p := LeftoversPart{Findings: map[string]string{"tvdb:5000": digestA}}
+	for name, tc := range map[string]struct {
+		now  map[string]string
+		want []string
+	}{
+		"the pair as accepted":   {now: map[string]string{"tvdb:5000": digestA}},
+		"the pair cleared":       {now: map[string]string{}},
+		"either set moved":       {now: map[string]string{"tvdb:5000": digestB}, want: []string{"finding-inputs:tvdb:5000"}},
+		"a pair on another show": {now: map[string]string{"tvdb:5000": digestA, "tmdb:9000": digestA}, want: []string{"finding:tmdb:9000"}},
 	} {
 		t.Run(name, func(t *testing.T) {
 			if got := p.Changes(tc.now); !slices.Equal(got, tc.want) {

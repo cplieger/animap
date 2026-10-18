@@ -252,7 +252,7 @@ func (r *reviewRun) detail(sub review.Subject) *explainDetail {
 			d.Links = append(d.Links, *l)
 		}
 	}
-	claims := r.claimIndex(ids)
+	claims := r.claimsOf(ids)
 	for _, aid := range ids {
 		d.Episodes = append(d.Episodes, r.episodes(aid, claims, d.Fetched)...)
 	}
@@ -378,9 +378,9 @@ type claimKey struct {
 	show int
 }
 
-// claimIndex is the collision guard's claims on every show the nodes map
+// claimsOf is the collision guard's claims on every show the nodes map
 // to, with the links the build applies.
-func (r *reviewRun) claimIndex(ids []int) map[claimKey]map[[2]int][]string {
+func (r *reviewRun) claimsOf(ids []int) map[claimKey]map[[2]int][]string {
 	out := map[claimKey]map[[2]int][]string{}
 	if r.facts == nil {
 		return out
@@ -393,13 +393,26 @@ func (r *reviewRun) claimIndex(ids []int) map[claimKey]map[[2]int][]string {
 		for _, side := range []animelists.Side{animelists.TVDB, animelists.TMDB} {
 			if s, ok := datecheck.Series(n, side); ok {
 				k := claimKey{side: side, show: s}
-				if out[k] == nil {
-					out[k] = guard.Claims(r.list.Nodes, r.entries, r.applied, r.facts, side, s)
-				}
+				out[k] = r.claimsOn(side, s)
 			}
 		}
 	}
 	return out
+}
+
+// claimsOn is the collision guard's claims on show on side, with the
+// links the build applies; the mirror must have been read.
+func (r *reviewRun) claimsOn(side animelists.Side, show int) map[[2]int][]string {
+	k := claimKey{side: side, show: show}
+	if c, ok := r.claimCache[k]; ok {
+		return c
+	}
+	if r.claimIndex == nil {
+		r.claimIndex = guard.NewClaimIndex(r.list.Nodes, r.entries, r.applied, r.facts)
+		r.claimCache = map[claimKey]map[[2]int][]string{}
+	}
+	r.claimCache[k] = r.claimIndex.Claims(side, show)
+	return r.claimCache[k]
 }
 
 // episodes lists every AniDB episode of node aid with its placements.
