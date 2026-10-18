@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/review"
 	"github.com/cplieger/animap/internal/skyhook"
@@ -110,7 +111,7 @@ func providerLinks(name string, d *dateSection) []string {
 			out = append(out, fmt.Sprintf("https://www.themoviedb.org/tv/%d", d.Series))
 		}
 		for _, s := range seasons {
-			out = append(out, fmt.Sprintf("https://www.themoviedb.org/tv/%d/season/%d", d.Series, s))
+			out = append(out, seasonPage(animelists.TMDB, d.Series, "", s))
 		}
 		for _, m := range deadMovies(d) {
 			out = append(out, fmt.Sprintf("https://www.themoviedb.org/movie/%d", m))
@@ -118,12 +119,28 @@ func providerLinks(name string, d *dateSection) []string {
 		return out
 	}
 	if !slugRE.MatchString(d.Slug) || len(seasons) == 0 {
-		return []string{fmt.Sprintf("https://thetvdb.com/dereferrer/series/%d", d.Series)}
+		return []string{tvdbSeriesPage(d.Series)}
 	}
 	for _, s := range seasons {
-		out = append(out, fmt.Sprintf("https://thetvdb.com/series/%s/seasons/official/%d", d.Slug, s))
+		out = append(out, seasonPage(animelists.TVDB, d.Series, d.Slug, s))
 	}
 	return out
+}
+
+// seasonPage is season of show series on side: TMDB's season page, TVDB's
+// official-order page, or the TVDB series page when slug is unusable.
+func seasonPage(side animelists.Side, series int, slug string, season int) string {
+	switch {
+	case side == animelists.TMDB:
+		return fmt.Sprintf("https://www.themoviedb.org/tv/%d/season/%d", series, season)
+	case !slugRE.MatchString(slug):
+		return tvdbSeriesPage(series)
+	}
+	return fmt.Sprintf("https://thetvdb.com/series/%s/seasons/official/%d", slug, season)
+}
+
+func tvdbSeriesPage(series int) string {
+	return fmt.Sprintf("https://thetvdb.com/dereferrer/series/%d", series)
 }
 
 // findingSeasons are the seasons a live show's findings target or carry.
@@ -155,13 +172,13 @@ func writeAccept(b *strings.Builder, key, part string, aid int, links []string) 
 	b.WriteString("```\n\n")
 }
 
-func writeNode(b *strings.Builder, d *dateSection) {
+func writeNode(b *strings.Builder, node, overlay string) {
 	b.WriteString("The node as checked")
-	if d.Overlay != "" {
-		fmt.Fprintf(b, ", with `%s` applied", d.Overlay)
+	if overlay != "" {
+		fmt.Fprintf(b, ", with `%s` applied", overlay)
 	}
 	b.WriteString(":\n\n```text\n")
-	for i, line := range strings.Split(d.Node, "\n") {
+	for i, line := range strings.Split(node, "\n") {
 		if i == maxNodeLines {
 			b.WriteString("...\n")
 			break

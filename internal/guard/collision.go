@@ -127,30 +127,48 @@ func Collisions(upstream map[int]*animelists.Node, entries []overlay.Entry, appl
 	return rep
 }
 
-// Claims lists every claim on the TVDB series or TMDB show id on side, by
-// [season, episode], as a touched check reads them: every node there with
-// entries applied, AniDB specials included, applied links' claims on TVDB. Each
-// label is "<aid> ep<k>" or "<aid> S<k>", with " (default)" when no row
-// named the special.
-func Claims(upstream map[int]*animelists.Node, entries []overlay.Entry, applied join.Applied, facts *anidb.Facts, side animelists.Side, id int) map[[2]int][]string {
+// ClaimIndex answers the claims on any show of one list with entries
+// applied, indexed once for every show it is asked about.
+type ClaimIndex struct {
+	onSeries, byTMDB map[int][]int
+	touched          map[int][]*overlay.Entry
+	base             seriesCheck
+}
+
+// NewClaimIndex indexes upstream, the list as Anime-Lists has it, with
+// entries and the applied links; every regular count and special comes
+// from facts.
+func NewClaimIndex(upstream map[int]*animelists.Node, entries []overlay.Entry, applied join.Applied, facts *anidb.Facts) *ClaimIndex {
 	nodes := overlay.Apply(upstream, entries)
-	onSeries, byTMDB := indexNodes(nodes)
-	base := seriesCheck{nodes: nodes, upstream: upstream, facts: facts, changed: map[int]bool{}, linked: map[int][]overlay.Claim{}}
+	x := &ClaimIndex{
+		touched: touched(nodes, entries),
+		base:    seriesCheck{nodes: nodes, upstream: upstream, facts: facts, changed: map[int]bool{}, linked: map[int][]overlay.Claim{}},
+	}
+	x.onSeries, x.byTMDB = indexNodes(nodes)
 	links := applied.Compiled()
 	for i := range links {
 		for _, c := range links[i].Claims {
-			base.linked[c.Parent] = append(base.linked[c.Parent], c)
+			x.base.linked[c.Parent] = append(x.base.linked[c.Parent], c)
 		}
 	}
-	ids := byTMDB[id]
+	return x
+}
+
+// Claims lists every claim on the TVDB series or TMDB show id on side, by
+// [season, episode], as a touched check reads them: every node there with
+// entries applied, AniDB specials included, applied links' claims on TVDB. Each
+// label is "<aid> ep<k>" or "<aid> S<k>", with " (default)" when the
+// node's default placed the special rather than a row or a link.
+func (x *ClaimIndex) Claims(side animelists.Side, id int) map[[2]int][]string {
+	ids := x.byTMDB[id]
 	series := 0
 	if side == animelists.TVDB {
-		ids, series = onSeries[id], id
+		ids, series = x.onSeries[id], id
 	}
-	c := base.on(series, true, touched(nodes, entries)[series])
+	c := x.base.on(series, true, x.touched[series])
 	out := map[[2]int][]string{}
 	for _, id := range ids {
-		for t, labels := range c.claims(id, nodes[id], side) {
+		for t, labels := range c.claims(id, c.nodes[id], side) {
 			out[[2]int{t.Season, t.Episode}] = append(out[[2]int{t.Season, t.Episode}], labels...)
 		}
 		if side == animelists.TVDB {

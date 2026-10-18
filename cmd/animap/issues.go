@@ -128,7 +128,8 @@ const clearedNow = "cleared on this run"
 
 // The order creates are spent in: facts about publishing and animap's own
 // data first, then facts about TVDB, then readings of two calendars, the
-// watch, and last what only TMDB disagrees with.
+// watch, season 0 leftovers on TVDB, and last what only TMDB disagrees
+// with.
 const (
 	rankPublish = iota
 	rankDrift
@@ -136,6 +137,7 @@ const (
 	rankMissing
 	rankDates
 	rankWatch
+	rankLeftovers
 	rankTMDBOnly
 )
 
@@ -314,12 +316,29 @@ func renderEvaluated(s *subject, name string) (text string, rank int, why string
 			return "", 0, "is covered by " + partRef(m)
 		}
 		return dateText(s, name, d), dateRank(name, d), ""
+	case review.Leftovers:
+		return renderLeftovers(s)
 	case review.Drift:
 		if len(s.Sections.Drift.Findings) == 0 {
 			return "", 0, clearedNow
 		}
 		return driftText(s.Sections.Drift.Findings), rankDrift, ""
 	}
+	return renderWatch(s)
+}
+
+func renderLeftovers(s *subject) (text string, rank int, why string) {
+	l := s.Sections.Leftovers
+	if !l.raised() {
+		return "", 0, clearedNow
+	}
+	if m := l.Acceptance; m != nil && m.Matches {
+		return "", 0, "is covered by " + partRef(m)
+	}
+	return leftoversText(s, l), leftoversRank(l), ""
+}
+
+func renderWatch(s *subject) (text string, rank int, why string) {
 	w := s.Sections.Watch
 	var open []watchFinding
 	var covered []string
@@ -357,6 +376,8 @@ func carriedRank(name string) int {
 		return rankDrift
 	case review.Watch:
 		return rankWatch
+	case review.Leftovers:
+		return rankLeftovers
 	case review.DateTMDB:
 		return rankTMDBOnly
 	}
@@ -370,6 +391,9 @@ func (p *planner) noteStale(s *subject) {
 		if d := s.Sections.date(name); d != nil && d.Acceptance != nil && d.Evaluated && !d.raised() {
 			p.stale = append(p.stale, partRef(d.Acceptance))
 		}
+	}
+	if l := s.Sections.Leftovers; l != nil && l.Acceptance != nil && l.Evaluated && !l.raised() {
+		p.stale = append(p.stale, partRef(l.Acceptance))
 	}
 	if w := s.Sections.Watch; w != nil && w.Evaluated {
 		for i := range w.Unclaimed {
@@ -387,6 +411,8 @@ func sourceName(section string) string {
 		return "TVDB dates"
 	case review.DateTMDB:
 		return "TMDB dates"
+	case review.Leftovers:
+		return "Season 0 leftovers"
 	case review.Drift:
 		return "Overlay drift"
 	}
@@ -433,7 +459,7 @@ func subjectWant(s *subject, parts map[string]rendered, raises, unchecked []stri
 	} else {
 		fmt.Fprintf(&b, "- AniList: https://anilist.co/anime/%d\n\n", sub.ID)
 	}
-	var node *dateSection
+	var node, overlay string
 	for _, name := range review.Sections {
 		r, ok := parts[name]
 		if !ok || r.text == "" {
@@ -441,12 +467,16 @@ func subjectWant(s *subject, parts map[string]rendered, raises, unchecked []stri
 		}
 		b.WriteString(r.text)
 		b.WriteByte('\n')
-		if r.raises && node == nil && (name == review.DateTVDB || name == review.DateTMDB) {
-			node = s.Sections.date(name)
+		switch {
+		case !r.raises || node != "":
+		case name == review.DateTVDB || name == review.DateTMDB:
+			node, overlay = s.Sections.date(name).Node, s.Sections.date(name).Overlay
+		case name == review.Leftovers:
+			node, overlay = s.Sections.Leftovers.Node, s.Sections.Leftovers.Overlay
 		}
 	}
-	if node != nil {
-		writeNode(&b, node)
+	if node != "" {
+		writeNode(&b, node, overlay)
 	}
 	b.WriteString("docs/review.md explains each section, how to accept a finding that is right, and why closing this by hand does not stick.\n")
 	title := subjectTitle(sub, s.Title, raises, "")
@@ -467,6 +497,8 @@ func subjectTitle(sub review.Subject, name string, sections []string, suffix str
 			dates = append(dates, "TVDB")
 		case review.DateTMDB:
 			dates = append(dates, tmdbName)
+		case review.Leftovers:
+			rest = append(rest, "season 0 leftovers")
 		case review.Drift:
 			rest = append(rest, "overlay drift")
 		case review.Watch:
@@ -571,7 +603,7 @@ func watchText(key string, fs []watchFinding, entryURL string) string {
 		fmt.Fprintf(&b, "- AniList %d (%s): `%s`. https://anilist.co/anime/%d, SeaDex %s", e.AniListID, typeLabel(e.Type),
 			strings.Join(e.GapNames(), "`, `"), e.AniListID, watch.EntryLink(entryURL, e.AniListID))
 		if e.TVDBID > 0 {
-			fmt.Fprintf(&b, ", TVDB https://thetvdb.com/dereferrer/series/%d", e.TVDBID)
+			b.WriteString(", TVDB " + tvdbSeriesPage(e.TVDBID))
 		}
 		b.WriteString("\n")
 		if m := e.Acceptance; m != nil {
@@ -626,7 +658,7 @@ func typeLabel(s string) string {
 // parts to delete, and the accepted parts.
 func summaryWant(doc *reviewDoc, p *planner, deferred []issues.Want) issues.Want {
 	var b strings.Builder
-	b.WriteString("The daily review checks every anime against TVDB and TMDB dates, overlay drift and the SeaDex watch, and keeps one issue per anime. docs/review.md explains each part.\n\n")
+	b.WriteString("The daily review checks every anime against TVDB and TMDB dates, season 0 leftovers, overlay drift and the SeaDex watch, and keeps one issue per anime. docs/review.md explains each part.\n\n")
 	if t := doc.Sources[review.DateTMDB]; t != nil && !t.Evaluated {
 		fmt.Fprintf(&b, "> TMDB dates are not checked: %s.\n\n", t.UnevaluatedReason)
 	}
@@ -671,12 +703,12 @@ func summaryWant(doc *reviewDoc, p *planner, deferred []issues.Want) issues.Want
 	return issues.Want{Key: summaryKey, Title: "Daily review: summary", Body: b.String(), Labels: []string{labelAnimap}, Pin: true}
 }
 
-// acceptedItems counts the date parts that covered a finding this run by
-// verdict, and lists the watch parts, the old unmappable list, each with
-// its reason. A date part's reason names episode titles, which issues
-// never carry, so it stays in its file.
+// acceptedItems counts the date and leftovers parts that covered a
+// finding this run by verdict, and lists the watch parts, the old
+// unmappable list, each with its reason. A date or leftovers part's reason
+// names episode titles, which issues never carry, so it stays in its file.
 func acceptedItems(doc *reviewDoc) []string {
-	dates := map[string]int{}
+	dates, pairs := map[string]int{}, map[string]int{}
 	byVerdict := map[string][]string{}
 	for _, s := range doc.Subjects {
 		for _, name := range []string{review.DateTVDB, review.DateTMDB} {
@@ -684,11 +716,17 @@ func acceptedItems(doc *reviewDoc) []string {
 				dates[d.Acceptance.Verdict]++
 			}
 		}
+		if l := s.Sections.Leftovers; l != nil && l.raised() && l.Acceptance != nil && l.Acceptance.Matches {
+			pairs[l.Acceptance.Verdict]++
+		}
 		watchAccepted(s.Sections.Watch, byVerdict)
 	}
 	var out []string
 	for _, v := range slices.Sorted(maps.Keys(dates)) {
 		out = append(out, fmt.Sprintf("- date findings accepted as %s: %d anime sections", v, dates[v]))
+	}
+	for _, v := range slices.Sorted(maps.Keys(pairs)) {
+		out = append(out, fmt.Sprintf("- season 0 leftovers accepted as %s: %d anime", v, pairs[v]))
 	}
 	for _, v := range slices.Sorted(maps.Keys(byVerdict)) {
 		out = append(out, fmt.Sprintf("- watch gaps accepted as %s (%d):", v, len(byVerdict[v])))

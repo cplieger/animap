@@ -30,9 +30,9 @@ func runAccept(ctx context.Context, args []string, log *slog.Logger) error {
 	fs := flag.NewFlagSet("accept", flag.ContinueOnError)
 	fs.StringVar(&a.from, "from", "", "review.json from animap review, or explain.json from animap explain -json")
 	fs.StringVar(&a.key, "key", "", "subject key: anime:anidb:<id> or anime:anilist:<id>")
-	fs.StringVar(&a.part, "part", "", "date-tvdb, date-tmdb or watch")
+	fs.StringVar(&a.part, "part", "", "date-tvdb, date-tmdb, leftovers or watch")
 	fs.IntVar(&a.anilist, "anilist", 0, "AniList id of the watched record, for -part watch on a subject with several")
-	fs.StringVar(&a.verdict, "verdict", "", "fine (date parts), unmappable (watch) or inexpressible (either)")
+	fs.StringVar(&a.verdict, "verdict", "", "fine (date and leftovers parts), unmappable (watch) or inexpressible (any)")
 	fs.StringVar(&a.reason, "reason", "", "the episodes and their titles, or the search, that prove the ruling")
 	fs.StringVar(&a.requires, "requires", "", "for inexpressible: the published-format change the truth needs")
 	fs.Func("evidence", "https link to an AniDB, TVDB, TMDB, AniList or SeaDex page, once per link", func(v string) error {
@@ -105,6 +105,12 @@ func (a *acceptArgs) apply(rec *review.Record, s *subject) error {
 			return fmt.Errorf("accept: %s has no %s finding in %s", a.key, a.part, a.from)
 		}
 		rec.SetDate(a.part, &review.DatePart{Findings: d.Digests, Ruling: ruling})
+	case review.Leftovers:
+		l := s.Sections.Leftovers
+		if l == nil || !l.Evaluated || !l.raised() {
+			return fmt.Errorf("accept: %s has no leftovers finding in %s", a.key, a.from)
+		}
+		rec.Parts.Leftovers = &review.LeftoversPart{Findings: l.Digests, Ruling: ruling}
 	case review.Watch:
 		f, err := a.watchFinding(s)
 		if err != nil {
@@ -112,7 +118,7 @@ func (a *acceptArgs) apply(rec *review.Record, s *subject) error {
 		}
 		rec.SetWatch(&review.WatchPart{AniListID: f.AniListID, Gaps: f.GapNames(), RecordSHA256: f.RecordSHA256, Ruling: ruling})
 	default:
-		return fmt.Errorf("%w: accept: -part %q is not date-tvdb, date-tmdb or watch", errUsage, a.part)
+		return fmt.Errorf("%w: accept: -part %q is not date-tvdb, date-tmdb, leftovers or watch", errUsage, a.part)
 	}
 	if err := rec.Validate(); err != nil {
 		return fmt.Errorf("accept: %w", err)

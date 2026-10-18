@@ -34,8 +34,8 @@ func TestSameAiring(t *testing.T) {
 		{"2001-04-18", "", false},
 		{"18/04/2001", "2001-04-18", false},
 	} {
-		if got := sameAiring(tc.a, tc.b); got != tc.want {
-			t.Errorf("sameAiring(%q, %q) = %t, want %t", tc.a, tc.b, got, tc.want)
+		if got := SameAiring(tc.a, tc.b); got != tc.want {
+			t.Errorf("SameAiring(%q, %q) = %t, want %t", tc.a, tc.b, got, tc.want)
 		}
 	}
 }

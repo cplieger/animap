@@ -10,9 +10,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/cplieger/animap/internal/anidb"
+	"github.com/cplieger/animap/internal/animelists"
 	"github.com/cplieger/animap/internal/datecheck"
 	"github.com/cplieger/animap/internal/drift"
 	"github.com/cplieger/animap/internal/issues"
+	"github.com/cplieger/animap/internal/leftovers"
 	"github.com/cplieger/animap/internal/review"
 	"github.com/cplieger/animap/internal/skyhook"
 	"github.com/cplieger/animap/internal/watch"
@@ -34,6 +37,19 @@ func raisedDate(series int, kind datecheck.Kind) *dateSection {
 	}
 }
 
+func raisedLeftovers(series int) *leftoversSection {
+	f := leftovers.Finding{
+		Side: animelists.TVDB, Series: series, Slug: "series-5000", Inputs: strings.Repeat("b", 64),
+		Unplaced:   []leftovers.Episode{{Kind: anidb.Special, Number: 3, SeasonZero: 3}, {Kind: anidb.Other, Number: 1, SeasonZero: 401}},
+		Promotions: []leftovers.Episode{{Kind: anidb.Promotion, Number: 1, SeasonZero: 201}},
+		Unclaimed:  []int{5, 6},
+	}
+	return &leftoversSection{
+		Applicable: true, Evaluated: true, Node: "anime tvdbid=5000",
+		Findings: []leftovers.Finding{f}, Digests: map[string]string{f.Key(): f.Inputs},
+	}
+}
+
 func raisedDrift() *driftSection {
 	return &driftSection{Applicable: true, Evaluated: true, Findings: []drift.Finding{{Cause: drift.NodeChanged, AniDB: 10, Path: "overlay/10.json"}}}
 }
@@ -47,7 +63,8 @@ func raisedWatch(al int) *watchSection {
 
 func fullSubject() *subject {
 	return &subject{Key: review.AniDBKey(10), Title: "Series with season 1", Sections: sections{
-		DateTVDB: raisedDate(5000, datecheck.DateMismatch), DateTMDB: raisedDate(9000, datecheck.MissingTarget), Drift: raisedDrift(), Watch: raisedWatch(5),
+		DateTVDB: raisedDate(5000, datecheck.DateMismatch), DateTMDB: raisedDate(9000, datecheck.MissingTarget), Leftovers: raisedLeftovers(5000),
+		Drift: raisedDrift(), Watch: raisedWatch(5),
 	}}
 }
 
@@ -83,7 +100,7 @@ func TestIssuesOneIssuePerAnime(t *testing.T) {
 		t.Fatalf("actions = %+v, want one create for the anime", actions)
 	}
 	a := subjects[0]
-	if want := "anime: AniDB 10 Series with season 1, TVDB and TMDB dates, overlay drift, SeaDex watch gap"; a.Title != want {
+	if want := "anime: AniDB 10 Series with season 1, TVDB and TMDB dates, season 0 leftovers, overlay drift, SeaDex watch gap"; a.Title != want {
 		t.Errorf("title = %q, want %q", a.Title, want)
 	}
 	for _, name := range review.Sections {
@@ -120,8 +137,8 @@ func openIssue(t *testing.T) issues.Issue {
 func TestIssuesKeepAnUnevaluatedSectionVerbatim(t *testing.T) {
 	is := openIssue(t)
 	carried := sectionsOf(is.Body)
-	if len(carried) != 4 {
-		t.Fatalf("the open issue has sections %v, want all four", carried)
+	if len(carried) != len(review.Sections) {
+		t.Fatalf("the open issue has sections %v, want all of them", carried)
 	}
 	for _, name := range review.Sections {
 		for _, globally := range []bool{false, true} {
@@ -135,6 +152,8 @@ func TestIssuesKeepAnUnevaluatedSectionVerbatim(t *testing.T) {
 					switch name {
 					case review.DateTVDB, review.DateTMDB:
 						s.Sections.setDate(name, &dateSection{Section: h})
+					case review.Leftovers:
+						s.Sections.Leftovers = &leftoversSection{Section: h}
 					case review.Drift:
 						s.Sections.Drift = &driftSection{Section: h}
 					case review.Watch:
@@ -191,7 +210,7 @@ func TestIssuesCloseOnlyWhenEverySectionIsClear(t *testing.T) {
 
 func TestIssuesAnAcceptanceSilencesOnlyItsPart(t *testing.T) {
 	s := fullSubject()
-	s.Sections.Drift, s.Sections.Watch = nil, nil
+	s.Sections.Leftovers, s.Sections.Drift, s.Sections.Watch = nil, nil, nil
 	s.Sections.DateTVDB.Acceptance = &review.Match{File: "anidb-10.json", Part: review.DateTVDB, Matches: true}
 	a := actionFor(planDoc(t, &reviewDoc{Sources: evaluatedSources(), Subjects: []*subject{s}}, nil), review.AniDBKey(10))
 	if a == nil || strings.Contains(a.Body, sectionStart(review.DateTVDB)) || !strings.Contains(a.Body, sectionStart(review.DateTMDB)) || !strings.HasSuffix(a.Title, ", TMDB dates") {
@@ -254,6 +273,7 @@ func TestIssuesSpendCreatesInOrder(t *testing.T) {
 		sub(4, sections{DateTVDB: raisedDate(5000, datecheck.MissingTarget)}),
 		sub(5, sections{DateTVDB: dead}),
 		sub(6, sections{Drift: raisedDrift()}),
+		sub(7, sections{Leftovers: raisedLeftovers(5000)}),
 	}}
 	runs := []workflowRun{{Status: "completed", Conclusion: "failure", CreatedAt: time.Now().Add(-30 * time.Hour), URL: "u"}}
 	dir := t.TempDir()
@@ -268,10 +288,14 @@ func TestIssuesSpendCreatesInOrder(t *testing.T) {
 		t.Errorf("created %v, want %v", created, want)
 	}
 	summary := actionFor(actions, summaryKey)
-	for _, waiting := range []string{"anime: AniDB 3, TVDB dates", "anime: AniDB 2, SeaDex watch gap", "anime: AniDB 1, TMDB dates"} {
-		if !strings.Contains(summary.Body, "waiting for an issue (over this run's limit): "+waiting) {
-			t.Errorf("summary lacks %q:\n%s", waiting, summary.Body)
+	var waiting []string
+	for line := range strings.SplitSeq(summary.Body, "\n") {
+		if w, ok := strings.CutPrefix(line, "- waiting for an issue (over this run's limit): "); ok {
+			waiting = append(waiting, w)
 		}
+	}
+	if want := []string{"anime: AniDB 3, TVDB dates", "anime: AniDB 2, SeaDex watch gap", "anime: AniDB 7, season 0 leftovers", "anime: AniDB 1, TMDB dates"}; !slices.Equal(waiting, want) {
+		t.Errorf("waiting %v, want %v", waiting, want)
 	}
 }
 

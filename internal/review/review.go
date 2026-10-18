@@ -18,14 +18,15 @@ import (
 
 // The sections of a subject, one per source of trouble.
 const (
-	DateTVDB = "date-tvdb"
-	DateTMDB = "date-tmdb"
-	Drift    = "drift"
-	Watch    = "watch"
+	DateTVDB  = "date-tvdb"
+	DateTMDB  = "date-tmdb"
+	Leftovers = "leftovers"
+	Drift     = "drift"
+	Watch     = "watch"
 )
 
 // Sections lists every section in the order an issue renders them.
-var Sections = []string{DateTVDB, DateTMDB, Drift, Watch}
+var Sections = []string{DateTVDB, DateTMDB, Leftovers, Drift, Watch}
 
 // Prefix starts every subject key, and no other issue key.
 const Prefix = "anime:"

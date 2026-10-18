@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/cplieger/animap/internal/datecheck"
+	"github.com/cplieger/animap/internal/leftovers"
 	"github.com/cplieger/animap/internal/overlay"
 	"github.com/cplieger/animap/internal/strictjson"
 )
@@ -54,9 +55,10 @@ type Record struct {
 // Parts are a record's rulings. There is no drift part: overlay capture
 // acknowledges drift.
 type Parts struct {
-	DateTVDB *DatePart   `json:"date-tvdb,omitempty"`
-	DateTMDB *DatePart   `json:"date-tmdb,omitempty"`
-	Watch    []WatchPart `json:"watch,omitempty"`
+	DateTVDB  *DatePart      `json:"date-tvdb,omitempty"`
+	DateTMDB  *DatePart      `json:"date-tmdb,omitempty"`
+	Leftovers *LeftoversPart `json:"leftovers,omitempty"`
+	Watch     []WatchPart    `json:"watch,omitempty"`
 }
 
 // Ruling is what every part says: the verdict, the day it was made, why,
@@ -72,6 +74,14 @@ type Ruling struct {
 // DatePart accepts a date check's findings on one side. Findings maps
 // each accepted finding key to the digest of its inputs then.
 type DatePart struct {
+	Findings map[string]string `json:"findings"`
+	Ruling
+}
+
+// LeftoversPart accepts that no unplaced AniDB episode of the subject is
+// one of the unclaimed season 0 episodes beside it. Findings maps each
+// accepted show's finding key to its finding's Inputs then.
+type LeftoversPart struct {
 	Findings map[string]string `json:"findings"`
 	Ruling
 }
@@ -130,10 +140,16 @@ func (r *Record) SetWatch(w *WatchPart) {
 // does: "finding-inputs:<key>" for a listed finding whose digest moved,
 // "finding:<key>" for one p does not list. A finding that cleared changes
 // nothing.
-func (p *DatePart) Changes(now map[string]string) []string {
+func (p *DatePart) Changes(now map[string]string) []string { return changes(p.Findings, now) }
+
+// Changes lists why p no longer covers a run's findings, as
+// DatePart.Changes does.
+func (p *LeftoversPart) Changes(now map[string]string) []string { return changes(p.Findings, now) }
+
+func changes(accepted, now map[string]string) []string {
 	var out []string
 	for _, k := range slices.Sorted(maps.Keys(now)) {
-		was, ok := p.Findings[k]
+		was, ok := accepted[k]
 		switch {
 		case !ok:
 			out = append(out, "finding:"+k)
@@ -242,7 +258,7 @@ func (r *Record) validate(s Subject) error {
 	switch {
 	case strings.TrimSpace(r.Title) == "":
 		return errors.New("title is required")
-	case p.DateTVDB == nil && p.DateTMDB == nil && len(p.Watch) == 0:
+	case p.DateTVDB == nil && p.DateTMDB == nil && p.Leftovers == nil && len(p.Watch) == 0:
 		return errors.New("parts is empty")
 	case !s.AniDB() && (p.DateTVDB != nil || p.DateTMDB != nil):
 		return errors.New("an AniList subject has no date checks")
@@ -254,7 +270,23 @@ func (r *Record) validate(s Subject) error {
 			}
 		}
 	}
+	if err := validateLeftovers(p.Leftovers, s); err != nil {
+		return err
+	}
 	return validateWatch(p.Watch, s)
+}
+
+func validateLeftovers(p *LeftoversPart, s Subject) error {
+	switch {
+	case p == nil:
+		return nil
+	case !s.AniDB():
+		return errors.New("an AniList subject has no season 0 leftovers")
+	}
+	if err := p.validate(); err != nil {
+		return fmt.Errorf("%s: %w", Leftovers, err)
+	}
+	return nil
 }
 
 func validateWatch(parts []WatchPart, s Subject) error {
@@ -290,6 +322,27 @@ func (p *DatePart) validate() error {
 			return fmt.Errorf("%s cannot be accepted: the provider no longer serves the series, so the node moves", k)
 		case p.Verdict == Fine && strings.HasPrefix(k, string(datecheck.DeadMovie)+":"):
 			return fmt.Errorf("%s cannot be fine: the provider no longer serves it", k)
+		}
+	}
+	return nil
+}
+
+func (p *LeftoversPart) validate() error {
+	if p.Verdict != Fine && p.Verdict != Inexpressible {
+		return fmt.Errorf("verdict %q is neither %q nor %q", p.Verdict, Fine, Inexpressible)
+	}
+	if err := p.Ruling.validate(); err != nil {
+		return err
+	}
+	if len(p.Findings) == 0 {
+		return errors.New("findings is empty")
+	}
+	for k, h := range p.Findings {
+		switch {
+		case !leftovers.ValidFindingKey(k):
+			return fmt.Errorf("finding %q is not a leftovers finding key", k)
+		case !hexRE.MatchString(h):
+			return fmt.Errorf("finding %q has digest %q, not 64 lower-case hex", k, h)
 		}
 	}
 	return nil

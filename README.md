@@ -14,7 +14,7 @@ animap is built for tools beside Sonarr and Radarr that need the id, season and 
 - It answers both ways: an AniList entry to its TVDB episodes, a TVDB episode to every AniDB episode on it, and a TMDB movie to its AniDB anime.
 - Each entry carries every id anime-offline-database lists, from MyAnimeList and Kitsu to Anime-Planet and LiveChart.
 - The file is rebuilt every 3 hours, and a build is not released when a count drops by over 10% or two entries newly claim the same episode.
-- Each correction to Anime-Lists is proven against AniDB, TVDB and TMDB, and a daily review checks every mapping's air dates and every [SeaDex](https://seadex.moe) title.
+- Each correction to Anime-Lists is proven against AniDB, TVDB and TMDB, and a daily review checks every mapping's air dates, the season 0 episodes no mapping claims and every [SeaDex](https://seadex.moe) title.
 
 Consider [arm-server](https://github.com/BeeeQueue/arm-server) if you want lookups through an HTTP API.
 

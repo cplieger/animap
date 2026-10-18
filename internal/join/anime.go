@@ -248,9 +248,9 @@ func (p *placer) statement(n *animelists.Node, sd animelists.Side, a *mapread.An
 		return &[]mapread.Target{{Season: t[0], Episode: t[1]}}
 	}
 	switch {
-	case k != mapread.Regular && k != mapread.Special:
-		// Anime-Lists has no default for these kinds, and neither the
-		// collision guard nor the date check claims one.
+	case !TakesDefault(k):
+		// Neither the collision guard nor the date check claims a default
+		// of these kinds.
 		return &[]mapread.Target{}
 	case pl.Absolute > 0:
 		if t, ok := p.captures[a.AniDBID].TVDBAt(a.TVDBID, pl.Absolute); ok {
@@ -265,6 +265,12 @@ func (p *placer) statement(n *animelists.Node, sd animelists.Side, a *mapread.An
 	}
 	return nil
 }
+
+// TakesDefault reports whether episodes of kind k may use a node's default
+// placement when no row names them: regular episodes and specials may;
+// Anime-Lists has no default for the other kinds. On TVDB an applied
+// link's claim comes first.
+func TakesDefault(k mapread.Kind) bool { return k == mapread.Regular || k == mapread.Special }
 
 func positive(s string) int {
 	n, err := strconv.Atoi(s)
