@@ -1,5 +1,5 @@
-github.com/cplieger/httpx/v5 v5.0.5 h1:A2h/B2WJfjdGsY+r/jTID3Y86vY7Dfyg1DV+p77ili8=
-github.com/cplieger/httpx/v5 v5.0.5/go.mod h1:+oL1fPTCSNuzy7HZEC2eCSirL+D3fh/AblvN/nQPSt0=
+github.com/cplieger/httpx/v5 v5.1.0 h1:0niQwaY2Ref1Sc4SVGv3Nc0lo7N1bnHOXefxyTDSGzM=
+github.com/cplieger/httpx/v5 v5.1.0/go.mod h1:+oL1fPTCSNuzy7HZEC2eCSirL+D3fh/AblvN/nQPSt0=
 github.com/cplieger/jsoncap/v2 v2.0.3 h1:KrXnATaR6XE/cRmNqOwawm7jnCCCVQBhveqV39d2Ajc=
 github.com/cplieger/jsoncap/v2 v2.0.3/go.mod h1:HKuj6+CrcJf5oHAJ8Sfnxv7Ip790NBWwCFtwVC9GR8Q=
 pgregory.net/rapid v1.3.0 h1:vBvO0VSqti75J1jjYqpgPNBLKMd1+gxa9fYo7vk/Exc=
