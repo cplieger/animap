@@ -4,7 +4,8 @@ import "slices"
 
 // Version is the major version of the format this package reads and writes.
 // It is raised only for a breaking change; a member added within a version
-// is additive and Decode ignores members it does not know.
+// is additive and Decode ignores members it does not know. A document in
+// the earlier shape also says version 2; Decode refuses it by its sources.
 const Version = 2
 
 // Document is a whole animap.json.
@@ -19,41 +20,22 @@ type Document struct {
 	Entries     []Entry     `json:"entries"`
 }
 
-// Sources names the inputs the document was built from.
+// Sources names what the document was built from.
 type Sources struct {
-	AnimeOfflineDatabase OfflineDatabaseSource `json:"anime_offline_database"`
-	AnimeLists           AnimeListsSource      `json:"anime_lists"`
-	AniDBMirror          AniDBMirrorSource     `json:"anidb_mirror"`
-	Overlay              OverlaySource         `json:"overlay"`
+	Mapping MappingSource `json:"mapping"`
+	AniDB   AniDBSource   `json:"anidb"`
 }
 
-// OfflineDatabaseSource is the anime-offline-database release asset read.
-type OfflineDatabaseSource struct {
-	Repository string `json:"repository"`
-	Release    string `json:"release"`
-	Asset      string `json:"asset"`
-	SHA256     string `json:"sha256"`
+// MappingSource is the mapping state read: Revision is an opaque,
+// non-empty identifier of at most 100 bytes.
+type MappingSource struct {
+	Revision string `json:"revision"`
 }
 
-// AnimeListsSource is the Anime-Lists commit read.
-type AnimeListsSource struct {
-	Repository string `json:"repository"`
-	Commit     string `json:"commit"`
-	File       string `json:"file"`
-}
-
-// AniDBMirrorSource is the AniDB mirror commit read.
-type AniDBMirrorSource struct {
-	Repository string `json:"repository"`
-	Commit     string `json:"commit"`
-}
-
-// OverlaySource is the overlay applied on top of Anime-Lists: Entries
-// patched nodes and Links overlay links applied.
-type OverlaySource struct {
-	SHA256  string `json:"sha256"`
-	Entries int    `json:"entries"`
-	Links   int    `json:"links,omitempty"`
+// AniDBSource is the AniDB title dump the anime list reflects: TitlesDump
+// is its source date, yyyy-mm-dd.
+type AniDBSource struct {
+	TitlesDump string `json:"titles_dump"`
 }
 
 // Attribution is the licence notice the document carries.
@@ -77,17 +59,31 @@ type Anime struct {
 	AniDBID        int      `json:"anidb_id"`
 	Type           string   `json:"type,omitempty"`
 	TVDBID         int      `json:"tvdb_id,omitempty"`
-	TMDBTVID       int      `json:"tmdb_tv_id,omitempty"`
-	TMDBMovieIDs   []int    `json:"tmdb_movie_ids,omitempty"`
+	MALIDs         []int    `json:"mal_ids,omitempty"`
 	IMDbIDs        []string `json:"imdb_ids,omitempty"`
 	Last           Last     `json:"last,omitzero"`
 	EpisodesListed bool     `json:"episodes_listed,omitempty"`
 	Episodes       []Run    `json:"episodes,omitempty"`
 }
 
+// TVDBSeries is every TVDB series a's episodes may land on: TVDBID first
+// when a has one, then each other series a target names, in run order,
+// each once. It is empty for an anime on no TVDB series.
+func (a *Anime) TVDBSeries() []int {
+	out := appendNew(nil, a.TVDBID)
+	for i := range a.Episodes {
+		if ts := a.Episodes[i].TVDB; ts != nil {
+			for _, t := range *ts {
+				out = appendNew(out, t.Series)
+			}
+		}
+	}
+	return out
+}
+
 // Last is the highest episode number of each kind the document places; 0
 // means none. AniDB can list regular episodes past Regular, which runs
-// name with their ids and state no site for.
+// name with their ids and state no landing for.
 type Last struct {
 	Regular   int `json:"regular,omitempty"`
 	Special   int `json:"special,omitempty"`
@@ -132,10 +128,11 @@ func (l *Last) field(k Kind) *int {
 }
 
 // Run is consecutive AniDB episodes Start to End of one kind: episode
-// Start+i lands on (Season, Episode+i) of every target. A nil site means
-// nothing stated there; an empty list lands nowhere. AniDBEpisodeIDs[i] is
-// episode Start+i's AniDB episode id when AniDB lists the run's episodes,
-// and nil when it lists none of them.
+// Start+i lands on (Series, Season, Episode+i) of every TVDB target. A nil
+// TVDB states nothing there; an empty list lands nowhere. TMDBMovies are
+// the TMDB movies each episode of the run is, aliases of one work, nil for
+// none stated. AniDBEpisodeIDs[i] is episode Start+i's AniDB episode id
+// when AniDB lists the run's episodes, and nil when it lists none of them.
 //
 //nolint:govet // fieldalignment: member order is the published JSON order
 type Run struct {
@@ -144,28 +141,44 @@ type Run struct {
 	End             int       `json:"end"`
 	AniDBEpisodeIDs []int     `json:"anidb_episode_ids,omitempty"`
 	TVDB            *[]Target `json:"tvdb,omitempty"`
-	TMDB            *[]Target `json:"tmdb,omitempty"`
+	TMDBMovies      []int     `json:"tmdb_movies,omitempty"`
 }
 
-// Target is a site episode in official order. Default marks a target that
-// rests only on a node default, not on a written mapping.
+// Target is a TVDB episode in official order as a row writes it; an Index
+// answers with a Placement instead. Series is the TVDB series it is on
+// when that is not the row's TVDBID, 0 for the row's. EpisodeIDs[i] is the
+// TVDB episode id of Episode+i, where the run's episode Start+i lands, nil
+// when the document holds none. Default marks a target that rests only on
+// a default, not on a stated placement.
+//
+//nolint:govet // fieldalignment: member order is the published JSON order
 type Target struct {
-	Season  int  `json:"season"`
-	Episode int  `json:"episode"`
-	Default bool `json:"default,omitempty"`
+	Series     int   `json:"series,omitempty"`
+	Season     int   `json:"season"`
+	Episode    int   `json:"episode"`
+	EpisodeIDs []int `json:"episode_ids,omitempty"`
+	Default    bool  `json:"default,omitempty"`
+}
+
+// on is the series t is on, for a target of a row on series row.
+func (t Target) on(row int) int {
+	if t.Series > 0 {
+		return t.Series
+	}
+	return row
 }
 
 // ExtendedBy reports whether next continues r, so the two must be written
 // as one run: the next number of r's kind, both listed by AniDB or
-// neither, and on each site a statement of the same form whose targets
-// keep their season and Default flag and are each one episode on. Decode
-// refuses a document holding such a pair; a producer merges it.
+// neither, TVDB statements of the same form whose targets keep their
+// series, season and Default flag, are each one episode on and hold TVDB
+// episode ids in both or neither, and equal TMDBMovies. Decode refuses a
+// document holding such a pair; a producer merges it.
 func (r *Run) ExtendedBy(next *Run) bool {
 	if r.Kind != next.Kind || r.End != next.Start-1 || (r.AniDBEpisodeIDs == nil) != (next.AniDBEpisodeIDs == nil) {
 		return false
 	}
-	step := next.Start - r.Start
-	return advances(r.TVDB, next.TVDB, step) && advances(r.TMDB, next.TMDB, step)
+	return advances(r.TVDB, next.TVDB, next.Start-r.Start) && slices.Equal(r.TMDBMovies, next.TMDBMovies)
 }
 
 func advances(run, next *[]Target, step int) bool {
@@ -177,42 +190,31 @@ func advances(run, next *[]Target, step int) bool {
 		return false
 	}
 	for i := range a {
-		if a[i].Season != b[i].Season || a[i].Default != b[i].Default || a[i].Episode+step != b[i].Episode {
+		if a[i].Series != b[i].Series || a[i].Season != b[i].Season || a[i].Default != b[i].Default || a[i].Episode+step != b[i].Episode ||
+			(a[i].EpisodeIDs == nil) != (b[i].EpisodeIDs == nil) {
 			return false
 		}
 	}
 	return true
 }
 
-// Entry is one published identity row: keyed by its AniList id when it has
-// one, merging every anime-offline-database entry that names that id, and
-// otherwise one database entry. It holds its ids on every service the
-// database lists, its episode count, and the AniDB episodes it is (Parts),
-// in entry episode order.
+// Entry is one AniList entry: its type, its ids and the AniDB episodes it
+// is (Parts), in entry episode order.
 //
 //nolint:govet // fieldalignment: member order is the published JSON order
 type Entry struct {
-	AniListID int    `json:"anilist_id,omitempty"`
+	AniListID int    `json:"anilist_id"`
 	Type      string `json:"type,omitempty"`
-	Episodes  int    `json:"episodes,omitempty"`
 	IDs       *IDs   `json:"ids,omitempty"`
 	Parts     []Part `json:"parts,omitempty"`
 }
 
-// IDs are an entry's ids per service, each list ascending and unique. The
-// members are declared alphabetically, so the encoded member is the sort
-// key of entries with no AniList id.
+// IDs are an entry's ids, each list ascending and unique: AniDB the AniDB
+// anime it may be, two or more being ambiguous, and MAL its MyAnimeList
+// ids.
 type IDs struct {
-	AniDB          []int    `json:"anidb,omitempty"`
-	AnimeCountdown []int    `json:"animecountdown,omitempty"`
-	AnimePlanet    []string `json:"animeplanet,omitempty"`
-	AniSearch      []int    `json:"anisearch,omitempty"`
-	ANN            []int    `json:"ann,omitempty"`
-	Kitsu          []int    `json:"kitsu,omitempty"`
-	LiveChart      []int    `json:"livechart,omitempty"`
-	MAL            []int    `json:"mal,omitempty"`
-	NotifyMoe      []string `json:"notifymoe,omitempty"`
-	Simkl          []int    `json:"simkl,omitempty"`
+	AniDB []int `json:"anidb,omitempty"`
+	MAL   []int `json:"mal,omitempty"`
 }
 
 // Part is AniDB episodes of one anime and kind. With no range it names

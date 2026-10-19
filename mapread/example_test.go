@@ -46,6 +46,23 @@ func ExampleIndex_AtTVDB() {
 	// AniDB 1 regular 7 (AniDB episode id 1007), default false
 }
 
+func ExampleIndex_AtTVDBEpisodeID() {
+	f, err := os.Open("testdata/place.json")
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+	doc, err := mapread.Decode(f, mapread.DefaultLimits())
+	if err != nil {
+		panic(err)
+	}
+	x := mapread.NewIndex(doc)
+	for _, l := range x.AtTVDBEpisodeID(5012) {
+		fmt.Printf("AniDB %d %s %d (AniDB episode id %d)\n", l.AniDB, l.Kind, l.Number, l.ID)
+	}
+	// Output: AniDB 1 regular 4 (AniDB episode id 1004)
+}
+
 func ExampleIndex_Episode() {
 	f, err := os.Open("testdata/place.json")
 	if err != nil {
@@ -62,8 +79,12 @@ func ExampleIndex_Episode() {
 	for _, n := range []int{5, 50} {
 		ep, _ := x.Episode(mapread.Ref{AniDB: 1, Kind: mapread.Special, Number: n})
 		fmt.Printf("special %d: %s, AniDB episode id %d, TVDB %s\n", n, listing[ep.Listing], ep.ID, state[ep.TVDB.State])
+		for _, p := range ep.TVDB.Placements {
+			fmt.Printf("  on TVDB %d S%dE%d, TVDB episode id %d, default %t\n", p.Series, p.Season, p.Episode, p.ID, p.Default)
+		}
 	}
 	// Output:
 	// special 5: listed, AniDB episode id 2005, TVDB lands
+	//   on TVDB 500 S0E5, TVDB episode id 5005, default true
 	// special 50: not listed, AniDB episode id 0, TVDB nowhere
 }
