@@ -97,10 +97,10 @@ func TestStale(t *testing.T) {
 		"built over 8 days ago": {built: "2026-10-13T23:58:59Z", dump: "2026-10-20", want: []string{"generated_at 2026-10-13T23:58:59Z is 8.0 days old, over 8.0 days"}},
 		"a leap second":         {built: "2026-10-13T23:59:60Z", dump: "2026-10-20"},
 		"an offset":             {built: "2026-10-20T08:30:00+00:00", dump: "2026-10-20"},
-		"a dump 14 days old":    {built: "2026-10-20T08:30:00Z", dump: "2026-10-07"},
-		"a dump 15 days old":    {built: "2026-10-20T08:30:00Z", dump: "2026-10-06", want: []string{"sources.anidb.titles_dump 2026-10-06 is 15.0 days old, over 14.0 days"}},
+		"a dump 22 days old":    {built: "2026-10-20T08:30:00Z", dump: "2026-09-29"},
+		"a dump 23 days old":    {built: "2026-10-20T08:30:00Z", dump: "2026-09-28", want: []string{"sources.anidb.titles_dump 2026-09-28 is 23.0 days old, over 22.0 days"}},
 		"a dump from tomorrow":  {built: "2026-10-20T08:30:00Z", dump: "2026-10-22"},
-		"both":                  {built: "2026-09-01T00:00:00Z", dump: "2026-09-01", want: []string{"generated_at 2026-09-01T00:00:00Z is 51.0 days old, over 8.0 days", "sources.anidb.titles_dump 2026-09-01 is 50.0 days old, over 14.0 days"}},
+		"both":                  {built: "2026-09-01T00:00:00Z", dump: "2026-09-01", want: []string{"generated_at 2026-09-01T00:00:00Z is 51.0 days old, over 8.0 days", "sources.anidb.titles_dump 2026-09-01 is 50.0 days old, over 22.0 days"}},
 		"built in another case": {built: "2026-10-20t08:30:00z", dump: "2026-10-20"},
 	} {
 		t.Run(name, func(t *testing.T) {

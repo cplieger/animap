@@ -110,10 +110,11 @@ const (
 	// maxExportAge bounds generated_at: the export is built once a week,
 	// so a week plus a day for a late build.
 	maxExportAge = 8 * 24 * time.Hour
-	// maxDumpAge bounds sources.anidb.titles_dump: every weekly build
-	// reads AniDB's title dump, so a dump older than two builds means the
-	// anime list has stopped following AniDB.
-	maxDumpAge = 14 * 24 * time.Hour
+	// maxDumpAge bounds sources.anidb.titles_dump: the private build
+	// refuses a dump over 14 days old, and its export stands for up to
+	// maxExportAge until the next weekly build, so only a build that let
+	// a stale dump through goes past this.
+	maxDumpAge = 22 * 24 * time.Hour
 )
 
 // Stale lists why doc is too old to publish at now, nil when it is fresh:
