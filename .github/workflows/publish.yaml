@@ -7,39 +7,43 @@ on:
   push:
     branches: [main]
     paths:
-      - overlay/**
-      - checks/counts.json
+      - mapread/**
       - cmd/**
       - internal/**
-      - mapread/**
-      - go.mod
-      - go.sum
       - scripts/publish.sh
-      - scripts/resolve.sh
-      - scripts/fetch-inputs.sh
-      - scripts/fetch-mirror.sh
       - .github/workflows/publish.yaml
   schedule:
-    - cron: "23 */3 * * *"
+    - cron: "0 12 * * *"
   workflow_dispatch:
     inputs:
       accept_shrink:
         description: Publish even when a population fell below 90% of the latest release
         type: boolean
         default: false
+      accept_stale:
+        description: Publish an export older than the freshness bounds (needs a reason)
+        type: boolean
+        default: false
+      reason:
+        description: Why the freshness bounds are overridden, written to the release notes
+        type: string
+        default: ""
+      export_tag:
+        description: The export release to read instead of the latest (an export- tag)
+        type: string
+        default: ""
+      dry_run:
+        description: Verify and write the notes, but sign and release nothing
+        type: boolean
+        default: false
 
-permissions:
-  contents: read
+permissions: {}
 
 concurrency:
   group: publish
   cancel-in-progress: false
 
 env:
-  # renovate: datasource=github-releases depName=cedya77/anime-offline-database versioning=loose
-  AOD_VERSION: 2026-43
-  # renovate: datasource=git-refs depName=AnimeAggregations packageName=https://github.com/notseteve/AnimeAggregations branch=main
-  MIRROR_COMMIT: c598c5d379bbbb8ccb77130407afd0090eb76250
   # renovate: datasource=github-releases depName=sigstore/cosign
   COSIGN_VERSION: v3.1.4
 
@@ -52,15 +56,25 @@ jobs:
       id-token: write # keyless cosign signature
       actions: write # keepalive below
     steps:
-      # GitHub disables a scheduled workflow after 60 days without repository
-      # activity, and cron runs do not count. The weekly database pin bump is
-      # the routine activity; this re-enable is the backstop.
+      - name: Check the dispatch inputs
+        env:
+          ACCEPT_STALE: ${{ inputs.accept_stale == true }}
+          STALE_REASON: ${{ inputs.reason }}
+        run: |
+          printf 'accept_stale: %s\nreason: %s\n' "$ACCEPT_STALE" "$STALE_REASON"
+          if [ "$ACCEPT_STALE" = true ] && [ -z "$(printf '%s' "$STALE_REASON" | tr -d '[:space:]')" ]; then
+            echo "::error::accept_stale needs a reason"
+            exit 1
+          fi
+      # GitHub disables a public repository's scheduled workflows after 60 days
+      # without repository activity
+      # (https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+      # This repository can go that long without a commit, so each run
+      # re-enables the workflow.
       - name: Keepalive (reset the 60-day scheduled-workflow timer)
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yaml/enable"
-          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/daily-review.yaml/enable"
+        run: gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yaml/enable"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -70,59 +84,16 @@ jobs:
       - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
         with:
           cosign-release: ${{ env.COSIGN_VERSION }}
-      - name: Resolve upstreams
-        id: resolve
+      - name: Download the export
+        env:
+          ANIMAP_EXPORT_TOKEN: ${{ secrets.ANIMAP_EXPORT_TOKEN }}
+          EXPORT_TAG: ${{ inputs.export_tag }}
+        run: bash scripts/publish.sh download "$RUNNER_TEMP/export"
+      - name: Verify and publish
         env:
           GH_TOKEN: ${{ github.token }}
-        run: bash scripts/resolve.sh | tee -a "$GITHUB_OUTPUT"
-      - name: Restore the offline database
-        id: aod-cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/aod
-          key: aod-${{ steps.resolve.outputs.AOD_SHA256 }}
-      - name: Restore the Anime-Lists file
-        id: list-cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/list
-          key: list-${{ steps.resolve.outputs.LIST_COMMIT }}
-      # fetch-mirror.sh owns the key, so a change to anything that can change
-      # the snapshot never restores one the new code would not write.
-      - name: Key the AniDB mirror snapshot
-        id: mirror-key
-        run: |
-          key=$(bash scripts/fetch-mirror.sh key)
-          printf 'KEY=%s\n' "$key" >>"$GITHUB_OUTPUT"
-      - name: Restore the AniDB mirror snapshot
-        id: mirror-cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/mirror
-          key: anidb-${{ steps.mirror-key.outputs.KEY }}
-      - name: Build and publish
-        env:
-          GH_TOKEN: ${{ github.token }}
-          AOD_SHA256: ${{ steps.resolve.outputs.AOD_SHA256 }}
-          LIST_COMMIT: ${{ steps.resolve.outputs.LIST_COMMIT }}
-          LIST_BLOB: ${{ steps.resolve.outputs.LIST_BLOB }}
           ACCEPT_SHRINK: ${{ inputs.accept_shrink == true }}
-        run: bash scripts/publish.sh
-      - name: Save the offline database
-        if: ${{ !cancelled() && steps.aod-cache.outputs.cache-hit != 'true' && hashFiles('.cache/aod/*.jsonl') != '' }}
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/aod
-          key: aod-${{ steps.resolve.outputs.AOD_SHA256 }}
-      - name: Save the AniDB mirror snapshot
-        if: ${{ !cancelled() && steps.mirror-cache.outputs.cache-hit != 'true' && hashFiles('.cache/mirror/*.json') != '' }}
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/mirror
-          key: anidb-${{ steps.mirror-key.outputs.KEY }}
-      - name: Save the Anime-Lists file
-        if: ${{ !cancelled() && steps.list-cache.outputs.cache-hit != 'true' && hashFiles('.cache/list/*.xml') != '' }}
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .cache/list
-          key: list-${{ steps.resolve.outputs.LIST_COMMIT }}
+          ACCEPT_STALE: ${{ inputs.accept_stale == true }}
+          STALE_REASON: ${{ inputs.reason }}
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
+        run: bash scripts/publish.sh release "$RUNNER_TEMP/export"

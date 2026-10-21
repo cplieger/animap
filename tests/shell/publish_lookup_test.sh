@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# scripts/publish.sh's GitHub lookups: a 404 is "absent", any other failure
-# stops the run. gh prints an error response's body on stdout, so the stub
-# does too. PUBLISH_SH points the suite at another copy for a red-check.
+# scripts/publish.sh's GitHub lookups and the tag it picks: a 404 is
+# "absent", any other failure stops the run, and only a tag mapread's
+# release reader accepts is ever released. gh prints an error response's
+# body on stdout, so the stub does too. PUBLISH_SH points the suite at
+# another copy for a red-check.
 # SC2015: lib.sh verdict helpers return 0. SC2016: child scripts stay literal.
 # shellcheck disable=SC2015,SC2016
 set -u
@@ -13,7 +15,8 @@ new_workdir >/dev/null
 ENTRYPOINT="${PUBLISH_SH:-$REPO_ROOT/scripts/publish.sh}"
 GH_GET=$(extract_function gh_get "$WORK/gh_get.sh") || exit 1
 TAG_AT=$(extract_function tag_at "$WORK/tag_at.sh") || exit 1
-PICK=$(extract_range '^TAG="v' '^fi$' "$WORK/pick.sh") || exit 1
+PICK=$(extract_function pick_tag "$WORK/pick.sh") || exit 1
+CHECK=$(extract_function check_tag "$WORK/check.sh") || exit 1
 
 REPO=cplieger/animap
 SHA=1111111111111111111111111111111111111111
@@ -96,7 +99,7 @@ lookup() {
 # TAG and at it settled on.
 pick() {
   _rc=0
-  _out=$(bash -c 'set -euo pipefail; . "$1"; . "$2"; . "$3"; printf "TAG=%s at=%s\n" "$TAG" "$at"' _ \
+  _out=$(bash -c 'set -euo pipefail; . "$1"; . "$2"; . "$3"; pick_tag; printf "TAG=%s at=%s\n" "$TAG" "$at"' _ \
     "$GH_GET" "$TAG_AT" "$PICK" 2>"$WORK/err") || _rc=$?
   _err=$(cat "$WORK/err")
 }
@@ -186,5 +189,38 @@ pick
 [ "$_rc" -ne 0 ] && [ -z "$_out" ] && [[ "$_err" == *"publish: ERROR reading repos/$REPO/releases/tags/v2026.10.05"* ]] \
   && ok "a failed release lookup stops the run" \
   || no "failed release lookup" "rc=$_rc out=$_out err=$_err"
+
+# --- 5. only a tag mapread's release reader accepts is released ---------------
+# mapread refuses a latest release whose tag tagRE does not match, so read
+# the pattern from mapread/fetch.go as the reader compiles it.
+TAG_RE=$(sed -n 's/^[[:space:]]*tagRE[[:space:]]*= regexp.MustCompile(`\(.*\)`)$/\1/p' "$REPO_ROOT/mapread/fetch.go" | sed 's/\\d/[0-9]/g')
+if [ "$TAG_RE" != '^v[0-9]{4}\.[0-9]{2}\.[0-9]{2}(\.[0-9]{4})?$' ]; then
+  no "precondition: mapread's tagRE reads as an ERE" "got '$TAG_RE'"
+  report
+  exit 1
+fi
+ok "precondition: mapread's tagRE reads as an ERE"
+
+# check <tag>: run the shipped check_tag on <tag> in a child.
+check() {
+  _rc=0
+  bash -c 'set -euo pipefail; . "$1"; check_tag "$2"' _ "$CHECK" "$1" 2>"$WORK/err" || _rc=$?
+  _err=$(cat "$WORK/err")
+}
+
+for tag in v2026.10.21 v2026.10.21.1205 v2026.10.05.0959 v0000.00.00 v2026.10.21.12 v2026.10.5 v2026.1.21 \
+  export-2026-10-20 2026.10.21 v2026.10.21. v2026.10.21.12050 vv2026.10.21 '' "$(printf 'v2026.10.21\nv2026.10.21')" 'v2026.10.21 '; do
+  if printf '%s' "$tag" | grep -Eq "$TAG_RE" && [ "$(printf '%s' "$tag" | wc -l)" -eq 0 ]; then want=0; else want=1; fi
+  check "$tag"
+  if [ "$want" -eq 0 ]; then
+    [ "$_rc" -eq 0 ] && [ -z "$_err" ] \
+      && ok "check_tag accepts '$tag', as mapread's reader does" \
+      || no "check_tag '$tag'" "rc=$_rc err=$_err"
+  else
+    [ "$_rc" -eq 1 ] && [[ "$_err" == *"is not a vYYYY.MM.DD or vYYYY.MM.DD.HHMM tag, which readers of the latest release refuse" ]] \
+      && ok "check_tag refuses '$tag', as mapread's reader does" \
+      || no "check_tag '$tag'" "rc=$_rc err=$_err"
+  fi
+done
 
 report

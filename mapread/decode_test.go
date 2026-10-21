@@ -23,7 +23,7 @@ func TestDecodeRoundTrip(t *testing.T) {
 	if !reflect.DeepEqual(doc, sample()) {
 		t.Errorf("Decode(Encode(sample)) = %+v, want %+v", doc, sample())
 	}
-	for _, path := range []string{"testdata/mini.json", "testdata/place.json"} {
+	for _, path := range goldens {
 		b, err := os.ReadFile(path)
 		if err != nil {
 			t.Fatal(err)
@@ -48,15 +48,22 @@ func TestEncodeIsCanonical(t *testing.T) {
 		t.Errorf("encoding = %.40s…, want version first and no trailing newline", b)
 	}
 	doc := sample()
-	doc.Sources.AnimeLists.File = "a<b>&c"
+	doc.Sources.Mapping.Revision = "a<b>&c"
 	if b, _ := Encode(doc); !bytes.Contains(b, []byte(`"a<b>&c"`)) {
 		t.Errorf("Encode escaped HTML characters: %s", b)
 	}
 }
 
+// special4 is the sample's run of AniDB 1 special 4, on another series.
+const special4 = `{"kind":"special","start":4,"end":4,"anidb_episode_ids":[204],"tvdb":[{"series":11,"season":0,"episode":1,"episode_ids":[7101]}]}`
+
 // Each refusal is one rule of the format; the sentinel says which class.
 func TestDecodeRefuses(t *testing.T) {
 	good := encodeSample(t)
+	const (
+		tail = `"end":4}]}]}`
+		film = `"anidb_episode_ids":[900],"tmdb_movies":[30,31]}`
+	)
 	for _, tc := range []struct {
 		name, old, new string
 		want           error
@@ -64,17 +71,17 @@ func TestDecodeRefuses(t *testing.T) {
 		{"version 1", `"version":2`, `"version":1`, ErrVersion},
 		{"version 3", `"version":2`, `"version":3`, ErrVersion},
 		{"version not first", `{"version":2,"generated_at":"2026-10-05T00:00:00Z",`, `{"generated_at":"2026-10-05T00:00:00Z","version":2,`, ErrNotDocument},
-		{"a member before version", `{"version":2,`, `{"x":2,"version":2,`, ErrNotDocument},
-		{"an integer member in version's place", `{"version":2,`, `{"x":2,`, ErrNotDocument},
+		{"a member before version", `{"version":2,`, `{"x":3,"version":2,`, ErrNotDocument},
+		{"an integer member in version's place", `{"version":2,`, `{"x":3,`, ErrNotDocument},
 		{"version a string", `"version":2`, `"version":"2"`, ErrNotDocument},
 		{"version null", `"version":2`, `"version":null`, ErrNotDocument},
 		{"version the smallest int", `"version":2`, `"version":` + strconv.Itoa(math.MinInt), ErrVersion},
 		{"version past the int range", `"version":2`, `"version":99999999999999999999`, ErrNotDocument},
 		{"version written with a fraction", `"version":2`, `"version":2.0`, ErrNotDocument},
-		{"a repeated version", `"kind":"regular"}]}]}`, `"kind":"regular"}]}],"version":3}`, ErrNotDocument},
-		{"a case-folded repeated version", `"kind":"regular"}]}]}`, `"kind":"regular"}]}],"Version":3}`, ErrNotDocument},
-		{"a case-folded repeated table", `"kind":"regular"}]}]}`, `"kind":"regular"}]}],"ANIME":[]}`, ErrNotDocument},
-		{"a case-folded repeated generated_at", `"kind":"regular"}]}]}`, `"kind":"regular"}]}],"Generated_At":"x"}`, ErrNotDocument},
+		{"a repeated version", tail, tail[:len(tail)-1] + `,"version":2}`, ErrNotDocument},
+		{"a case-folded repeated version", tail, tail[:len(tail)-1] + `,"Version":3}`, ErrNotDocument},
+		{"a case-folded repeated table", tail, tail[:len(tail)-1] + `,"ANIME":[]}`, ErrNotDocument},
+		{"a case-folded repeated generated_at", tail, tail[:len(tail)-1] + `,"Generated_At":"x"}`, ErrNotDocument},
 		{"an unknown member repeated case-folded", `{"version":2,`, `{"version":2,"future":1,"FUTURE":2,`, ErrNotDocument},
 		{"generated_at not a time", `"generated_at":"2026-10-05T00:00:00Z"`, `"generated_at":"not-a-time"`, ErrInvalid},
 		{"generated_at not in UTC", `"generated_at":"2026-10-05T00:00:00Z"`, `"generated_at":"2026-10-05T02:00:00+02:00"`, ErrInvalid},
@@ -88,7 +95,15 @@ func TestDecodeRefuses(t *testing.T) {
 		{"tables out of order", `"anime":[`, `"animex":[`, ErrNotDocument},
 		{"a repeated member", `"attribution":{`, `"anime":[],"attribution":{`, ErrNotDocument},
 		{"a table null", `"entries":[{"anilist_id":1`, `"entries":null,"x":[{"anilist_id":1`, ErrNotDocument},
-		{"trailing data", `"kind":"regular"}]}]}`, `"kind":"regular"}]}]} {}`, ErrNotDocument},
+		{"trailing data", tail, tail + ` {}`, ErrNotDocument},
+		{"sources.mapping.revision empty", `"revision":"r"`, `"revision":""`, ErrInvalid},
+		{"sources.mapping.revision of 101 bytes", `"revision":"r"`, `"revision":"` + strings.Repeat("r", 101) + `"`, ErrInvalid},
+		{"sources.mapping.revision null", `"revision":"r"`, `"revision":null`, ErrInvalid},
+		{"sources.mapping without revision", `"mapping":{"revision":"r"}`, `"mapping":{}`, ErrInvalid},
+		{"sources.anidb.titles_dump malformed", `"titles_dump":"2026-10-04"`, `"titles_dump":"2026-10-4"`, ErrInvalid},
+		{"sources.anidb.titles_dump a time", `"titles_dump":"2026-10-04"`, `"titles_dump":"2026-10-04T00:00:00Z"`, ErrInvalid},
+		{"sources.anidb.titles_dump impossible", `"titles_dump":"2026-10-04"`, `"titles_dump":"2026-02-30"`, ErrInvalid},
+		{"a missing source", `"mapping":{"revision":"r"},`, ``, ErrInvalid},
 		{"anime out of order", `{"anidb_id":2,`, `{"anidb_id":1,`, ErrInvalid},
 		{"a run past last", `"last":{"regular":2}`, `"last":{"regular":1}`, ErrInvalid},
 		{"a run with no last", `"last":{"regular":2},`, ``, ErrInvalid},
@@ -97,10 +112,8 @@ func TestDecodeRefuses(t *testing.T) {
 		{"overlapping runs", `{"kind":"regular","start":3,"end":3`, `{"kind":"regular","start":2,"end":3`, ErrInvalid},
 		{"start after end", `"start":3,"end":3`, `"start":3,"end":2`, ErrInvalid},
 		{"an unknown kind", `"kind":"other"`, `"kind":"trailer"`, ErrInvalid},
-		{"an unlisted run nowhere on every site", `{"kind":"other","start":1,"end":1,"tvdb":[{"season":0,"episode":5}]}`, `{"kind":"other","start":1,"end":1,"tvdb":[],"tmdb":[]}`, ErrInvalid},
-		{"a run nowhere on its only site", `"tvdb":[{"season":2,"episode":1,"default":true}]`, `"tvdb":[]`, ErrInvalid},
-		{"tmdb with no tmdb_tv_id", `"tvdb":[{"season":2,"episode":1,"default":true}]`, `"tvdb":[{"season":2,"episode":1}],"tmdb":[]`, ErrInvalid},
-		{"an unlisted run on a row with no site id", `{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[900]}`, `{"kind":"regular","start":1,"end":1}`, ErrInvalid},
+		{"an unlisted run landing nowhere", `{"kind":"other","start":1,"end":1,"tvdb":[{"season":0,"episode":5}]}`, `{"kind":"other","start":1,"end":1,"tvdb":[]}`, ErrInvalid},
+		{"an unlisted run with no landing on a row with no tvdb_id", `{"kind":"regular","start":1,"end":1,` + film, `{"kind":"regular","start":1,"end":1}`, ErrInvalid},
 		{"fewer ids than episodes", `"anidb_episode_ids":[101,102]`, `"anidb_episode_ids":[101]`, ErrInvalid},
 		{"more ids than episodes", `"anidb_episode_ids":[101,102]`, `"anidb_episode_ids":[101,102,103]`, ErrInvalid},
 		{"an id of 0", `"anidb_episode_ids":[101,102]`, `"anidb_episode_ids":[101,0]`, ErrInvalid},
@@ -108,32 +121,62 @@ func TestDecodeRefuses(t *testing.T) {
 		{"ids as strings", `"anidb_episode_ids":[105]`, `"anidb_episode_ids":["105"]`, ErrInvalid},
 		{"ids on a row without AniDB's list", `,"episodes_listed":true`, ``, ErrInvalid},
 		{"episodes_listed false", `"episodes_listed":true`, `"episodes_listed":false`, ErrInvalid},
-		{"a run past last that states a site", `"anidb_episode_ids":[105]}`, `"anidb_episode_ids":[105],"tvdb":[]}`, ErrInvalid},
-		{"a listed special past last", `{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[900]}`, `{"kind":"special","start":1,"end":1,"anidb_episode_ids":[900]}`, ErrInvalid},
+		{"a run past last that states tvdb", `"anidb_episode_ids":[105]}`, `"anidb_episode_ids":[105],"tvdb":[]}`, ErrInvalid},
+		{"a run past last that states tmdb_movies", `"anidb_episode_ids":[105]}`, `"anidb_episode_ids":[105],"tmdb_movies":[1]}`, ErrInvalid},
+		{"a listed special past last", `{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[900]`, `{"kind":"special","start":1,"end":1,"anidb_episode_ids":[900]`, ErrInvalid},
 		{"targets out of order", `{"season":1,"episode":3},{"season":1,"episode":4}`, `{"season":1,"episode":4},{"season":1,"episode":3}`, ErrInvalid},
 		{"a repeated target", `{"season":1,"episode":3},{"season":1,"episode":4}`, `{"season":1,"episode":3},{"season":1,"episode":3,"default":true}`, ErrInvalid},
+		{"targets out of order across series", `"episode_ids":[7101]}]}`, `"episode_ids":[7101]},{"season":0,"episode":2}]}`, ErrInvalid},
+		{"the same series, season and episode twice", `"tvdb":[{"series":11,"season":0,"episode":1,`, `"tvdb":[{"series":11,"season":0,"episode":1,"default":true},{"series":11,"season":0,"episode":1,`, ErrInvalid},
+		{"a target's series 0", `{"series":11,`, `{"series":0,`, ErrInvalid},
+		{"a target's series the row's tvdb_id", `{"series":11,`, `{"series":10,`, ErrInvalid},
+		{"a target's series a string", `{"series":11,`, `{"series":"11",`, ErrInvalid},
+		{"tvdb [] on a row with no tvdb_id", film, `"anidb_episode_ids":[900],"tvdb":[],"tmdb_movies":[30,31]}`, ErrInvalid},
+		{"a target without series on a row with no tvdb_id", film, `"anidb_episode_ids":[900],"tvdb":[{"season":1,"episode":1},{"series":12,"season":1,"episode":2}],"tmdb_movies":[30,31]}`, ErrInvalid},
 		{"episode 0", `{"season":1,"episode":3}`, `{"season":1,"episode":0}`, ErrInvalid},
-		{"default false", `{"season":1,"episode":1,"default":true}`, `{"season":1,"episode":1,"default":false}`, ErrInvalid},
+		{"a target without season", `{"season":1,"episode":3}`, `{"episode":3}`, ErrInvalid},
+		{"a target without episode", `{"season":1,"episode":3}`, `{"season":1}`, ErrInvalid},
+		{"season -1", `{"season":1,"episode":3}`, `{"season":-1,"episode":3}`, ErrInvalid},
+		{"default false", `{"season":2,"episode":1,"default":true}`, `{"season":2,"episode":1,"default":false}`, ErrInvalid},
+		{"fewer TVDB episode ids than episodes", `"episode_ids":[7001,7002]`, `"episode_ids":[7001]`, ErrInvalid},
+		{"more TVDB episode ids than episodes", `"episode_ids":[7001,7002]`, `"episode_ids":[7001,7002,7003]`, ErrInvalid},
+		{"no TVDB episode id", `"episode_ids":[7005]`, `"episode_ids":[]`, ErrInvalid},
+		{"a TVDB episode id of 0", `"episode_ids":[7001,7002]`, `"episode_ids":[7001,0]`, ErrInvalid},
+		{"a negative TVDB episode id", `"episode_ids":[7001,7002]`, `"episode_ids":[-7001,7002]`, ErrInvalid},
+		{"TVDB episode ids as strings", `"episode_ids":[7005]`, `"episode_ids":["7005"]`, ErrInvalid},
+		{"TVDB episode ids null", `"episode_ids":[7005]`, `"episode_ids":null`, ErrInvalid},
+		{"one TVDB episode with two ids", `"tvdb":[{"season":0,"episode":5}]`, `"tvdb":[{"season":0,"episode":5,"episode_ids":[7006]}]`, ErrInvalid},
+		{"one TVDB episode id on two TVDB episodes", `{"season":1,"episode":3}`, `{"season":1,"episode":3,"episode_ids":[7002]}`, ErrInvalid},
+		{"one TVDB episode id on two rows' episodes", `"tvdb":[{"season":2,"episode":1,"default":true}]`, `"tvdb":[{"season":2,"episode":1,"episode_ids":[7001,7010],"default":true}]`, ErrInvalid},
 		{"a row with only its id", `{"anidb_id":4,"type":"OVA"}`, `{"anidb_id":4}`, ErrInvalid},
-		{"tvdb_id 0", `"tvdb_id":10,"tmdb_tv_id"`, `"tvdb_id":0,"tmdb_tv_id"`, ErrInvalid},
-		{"an empty movie list", `"tmdb_movie_ids":[30,31]`, `"tmdb_movie_ids":[]`, ErrInvalid},
+		{"a row with no anidb_id", `"anime":[{"anidb_id":1,`, `"anime":[{"type":"OVA","mal_ids":[9]},{"anidb_id":1,`, ErrInvalid},
+		{"tvdb_id 0", `"tvdb_id":10,"mal_ids"`, `"tvdb_id":0,"mal_ids"`, ErrInvalid},
+		{"tmdb_movies empty", `"tmdb_movies":[30,31]`, `"tmdb_movies":[]`, ErrInvalid},
+		{"tmdb_movies unsorted", `"tmdb_movies":[30,31]`, `"tmdb_movies":[31,30]`, ErrInvalid},
+		{"tmdb_movies repeated", `"tmdb_movies":[30,31]`, `"tmdb_movies":[30,30]`, ErrInvalid},
+		{"tmdb_movies with 0", `"tmdb_movies":[30,31]`, `"tmdb_movies":[0,31]`, ErrInvalid},
+		{"mal_ids empty", `"mal_ids":[3]`, `"mal_ids":[]`, ErrInvalid},
+		{"mal_ids unsorted", `"mal_ids":[3]`, `"mal_ids":[3,2]`, ErrInvalid},
+		{"mal_ids repeated", `"mal_ids":[3]`, `"mal_ids":[3,3]`, ErrInvalid},
+		{"mal_ids with 0", `"mal_ids":[3]`, `"mal_ids":[0]`, ErrInvalid},
 		{"a malformed IMDb id", `"tt0000003"`, `"nm0000003"`, ErrInvalid},
 		{"an unknown type", `"type":"OVA"}`, `"type":"TV\n@x"}`, ErrInvalid},
 		{"an empty type", `"type":"OVA"}`, `"type":""}`, ErrInvalid},
-		{"entries out of order", `{"anilist_id":2,`, `{"anilist_id":1,`, ErrInvalid},
-		{"an AniList entry after the others", `{"type":"TV","ids":{"kitsu":[3]}`, `{"anilist_id":9,"type":"TV","ids":{"kitsu":[3]}`, ErrInvalid},
-		{"an entry with neither key", `{"type":"OVA","ids":{"animeplanet":["a"],"kitsu":[9]}}`, `{"type":"OVA"}`, ErrInvalid},
+		{"entries out of AniList order", `{"anilist_id":2,`, `{"anilist_id":1,`, ErrInvalid},
+		{"an entry with no anilist_id", `{"anilist_id":1,"type":"TV",`, `{"type":"TV",`, ErrInvalid},
+		{"anilist_id 0", `{"anilist_id":3,`, `{"anilist_id":0,`, ErrInvalid},
 		{"ids not ascending", `"anidb":[1,2]`, `"anidb":[2,1]`, ErrInvalid},
-		{"empty ids", `"ids":{"kitsu":[3]}`, `"ids":{}`, ErrInvalid},
-		{"an empty service key", `"animeplanet":["a"]`, `"animeplanet":[""]`, ErrInvalid},
-		{"a service key of 257 characters", `"animeplanet":["a"]`, `"animeplanet":["` + strings.Repeat("翼", 257) + `"]`, ErrInvalid},
+		{"empty ids", `"ids":{"anidb":[1,2]}`, `"ids":{}`, ErrInvalid},
+		{"empty ids.mal", `"ids":{"mal":[3]}`, `"ids":{"mal":[]}`, ErrInvalid},
+		{"ids.mal with 0", `"ids":{"mal":[3]}`, `"ids":{"mal":[0]}`, ErrInvalid},
+		{"ids.anidb with 0", `"anidb":[1,2]`, `"anidb":[0,2]`, ErrInvalid},
 		{"a part naming no row", `{"anidb_id":3,"kind":"regular"}`, `{"anidb_id":7,"kind":"regular"}`, ErrInvalid},
-		{"a part past last", `"kind":"special","start":1,"end":2}`, `"kind":"special","start":1,"end":4}`, ErrInvalid},
+		{"a part past last", `"kind":"special","start":1,"end":2}`, `"kind":"special","start":1,"end":5}`, ErrInvalid},
 		{"a part with only a start", `"kind":"special","start":1,"end":2}`, `"kind":"special","start":1}`, ErrInvalid},
 		{"a combined special", `"kind":"regular","combined":true`, `"kind":"special","combined":true`, ErrInvalid},
 		{"a combined range", `"kind":"regular","combined":true`, `"kind":"regular","start":1,"end":1,"combined":true`, ErrInvalid},
 		{"empty parts", `,"parts":[{"anidb_id":3,"kind":"regular"}]`, `,"parts":[]`, ErrInvalid},
-		{"a null member", `"episodes":4,`, `"episodes":null,`, ErrInvalid},
+		{"a null member", `"type":"MOVIE",`, `"type":null,`, ErrInvalid},
 		{"a wrong JSON type", `"anidb_id":3,`, `"anidb_id":"3",`, ErrInvalid},
 		{"a fractional number", `"anidb_id":3,`, `"anidb_id":3.5,`, ErrInvalid},
 		{"an integer written with a fraction", `"anidb_id":3,`, `"anidb_id":3.0,`, ErrInvalid},
@@ -143,24 +186,27 @@ func TestDecodeRefuses(t *testing.T) {
 		{"a repeated key", `{"anidb_id":4,"type":"OVA"}`, `{"anidb_id":4,"type":"OVA","type":"TV"}`, ErrInvalid},
 		{"a case-folded repeated key", `{"anidb_id":4,"type":"OVA"}`, `{"anidb_id":4,"type":"OVA","TYPE":"TV"}`, ErrInvalid},
 		{"a key matching only case-insensitively", `{"anidb_id":4,"type":"OVA"}`, `{"ANIDB_ID":4,"type":"OVA"}`, ErrInvalid},
-		{"a malformed source digest", `"sha256":"0000`, `"sha256":"zzzz`, ErrInvalid},
-		{"a missing source", `"anidb_mirror":{"repository":"r","commit":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"},`, ``, ErrInvalid},
 		{"another licence", `"license":"ODbL-1.0"`, `"license":"MIT"`, ErrInvalid},
-		{"overlay links 0", `"links":1`, `"links":0`, ErrInvalid},
 		{"a number past the format's bound", `"last":{"regular":2}`, `"last":{"regular":1048577}`, ErrInvalid},
 		{"a TVDB run landing past the format's bound", `"tvdb":[{"season":2,"episode":1,"default":true}]`, `"tvdb":[{"season":2,"episode":1048576,"default":true}]`, ErrInvalid},
-		{"a TMDB run landing past the format's bound", `"tmdb":[{"season":1,"episode":1,"default":true}]`, `"tmdb":[{"season":1,"episode":1048576,"default":true}]`, ErrInvalid},
 		{
 			"a listed run split in two",
-			`{"kind":"regular","start":1,"end":2,"anidb_episode_ids":[101,102],"tvdb":[{"season":1,"episode":1}],"tmdb":[{"season":1,"episode":1,"default":true}]}`,
-			`{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[101],"tvdb":[{"season":1,"episode":1}],"tmdb":[{"season":1,"episode":1,"default":true}]},` +
-				`{"kind":"regular","start":2,"end":2,"anidb_episode_ids":[102],"tvdb":[{"season":1,"episode":2}],"tmdb":[{"season":1,"episode":2,"default":true}]}`,
+			`{"kind":"regular","start":1,"end":2,"anidb_episode_ids":[101,102],"tvdb":[{"season":1,"episode":1,"episode_ids":[7001,7002]}]}`,
+			`{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[101],"tvdb":[{"season":1,"episode":1,"episode_ids":[7001]}]},` +
+				`{"kind":"regular","start":2,"end":2,"anidb_episode_ids":[102],"tvdb":[{"season":1,"episode":2,"episode_ids":[7002]}]}`,
 			ErrInvalid,
 		},
 		{
 			"an unlisted run split in two",
 			`{"kind":"regular","start":1,"end":2,"tvdb":[{"season":2,"episode":1,"default":true}]}`,
 			`{"kind":"regular","start":1,"end":1,"tvdb":[{"season":2,"episode":1,"default":true}]},{"kind":"regular","start":2,"end":2,"tvdb":[{"season":2,"episode":2,"default":true}]}`,
+			ErrInvalid,
+		},
+		{
+			"a run on another series with its movies split in two",
+			special4,
+			`{"kind":"special","start":3,"end":3,"anidb_episode_ids":[203],"tvdb":[{"series":11,"season":0,"episode":1,"episode_ids":[7100]}],"tmdb_movies":[9]},` +
+				`{"kind":"special","start":4,"end":4,"anidb_episode_ids":[204],"tvdb":[{"series":11,"season":0,"episode":2,"episode_ids":[7101]}],"tmdb_movies":[9]}`,
 			ErrInvalid,
 		},
 	} {
@@ -178,11 +224,45 @@ func TestDecodeRefuses(t *testing.T) {
 }
 
 func TestDecodeReportsTheVersion(t *testing.T) {
-	for _, v := range []int{1, 3, -1, math.MinInt, math.MaxInt} {
+	for _, v := range []int{1, 3, 4, -1, math.MinInt, math.MaxInt} {
 		_, err := Decode(strings.NewReader(`{"version":`+strconv.Itoa(v)+`,"records":[]}`), DefaultLimits())
 		if got, ok := errors.AsType[*VersionError](err); !ok || got.Found != v || !errors.Is(err, ErrVersion) {
 			t.Errorf("Decode(version %d) = %v, want a *VersionError for version %d matching ErrVersion", v, err, v)
 		}
+	}
+}
+
+// A document of the earlier version 2 shape, testdata/earlier-shape.json
+// being rows of a release in it, is refused as another version once its
+// sources are read, by any one of that shape's sources members, before
+// the tables and wherever the member stands.
+func TestDecodeRefusesTheEarlierShape(t *testing.T) {
+	earlier, err := os.ReadFile("testdata/earlier-shape.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	head, _, ok := bytes.Cut(earlier, []byte(`,"attribution":`))
+	if !ok {
+		t.Fatal("Setup: the earlier-shape fixture lacks attribution")
+	}
+	good := encodeSample(t)
+	bodies := map[string]string{
+		"the release's rows":       string(earlier),
+		"cut after its sources":    string(head),
+		"its sources and no table": string(head) + `}`,
+	}
+	for _, key := range []string{"anime_offline_database", "anime_lists", "anidb_mirror", "overlay"} {
+		bodies[key+" first"] = strings.Replace(good, `"sources":{`, `"sources":{"`+key+`":{},`, 1)
+		bodies[key+" last"] = strings.Replace(good, `"titles_dump":"2026-10-04"}`, `"titles_dump":"2026-10-04"},"`+key+`":1`, 1)
+	}
+	for name, body := range bodies {
+		t.Run(name, func(t *testing.T) {
+			doc, err := Decode(strings.NewReader(body), DefaultLimits())
+			_, isVersion := errors.AsType[*VersionError](err)
+			if !errors.Is(err, ErrVersion) || errors.Is(err, ErrInvalid) || isVersion || doc != nil || !strings.Contains(fmt.Sprint(err), "earlier version 2 shape") {
+				t.Errorf("Decode = %v, %v; want ErrVersion alone, naming the earlier version 2 shape", doc, err)
+			}
+		})
 	}
 }
 
@@ -347,12 +427,12 @@ func TestDecodeLimits(t *testing.T) {
 	}{
 		{"the document at its cap", Limits{MaxDocumentBytes: int64(len(good))}, true},
 		{"the document over its cap", Limits{MaxDocumentBytes: int64(len(good)) - 1}, false},
-		{"four anime rows at their cap", Limits{MaxRows: 7}, true},
-		{"rows over their cap", Limits{MaxRows: 3}, false},
-		{"the largest row at its cap", Limits{MaxRowBytes: 943}, true},
-		{"the entries' episodes at their cap", Limits{MaxEpisodes: 12}, true},
-		{"the entries' episodes over their cap", Limits{MaxEpisodes: 11}, false},
-		{"the largest row over its cap", Limits{MaxRowBytes: 942}, false},
+		{"six entries at their cap", Limits{MaxRows: 6}, true},
+		{"rows over their cap", Limits{MaxRows: 5}, false},
+		{"the largest row at its cap", Limits{MaxRowBytes: 1018}, true},
+		{"the entries' episodes at their cap", Limits{MaxEpisodes: 11}, true},
+		{"the entries' episodes over their cap", Limits{MaxEpisodes: 10}, false},
+		{"the largest row over its cap", Limits{MaxRowBytes: 1017}, false},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			_, err := Decode(strings.NewReader(good), tc.lim)
@@ -362,8 +442,17 @@ func TestDecodeLimits(t *testing.T) {
 		})
 	}
 	big := strings.Replace(good, `"generated_at":"`, `"generated_at":"`+strings.Repeat("x", 1000), 1)
-	if _, err := Decode(strings.NewReader(big), Limits{MaxRowBytes: 943}); !errors.Is(err, ErrTooLarge) {
+	if _, err := Decode(strings.NewReader(big), Limits{MaxRowBytes: 1018}); !errors.Is(err, ErrTooLarge) {
 		t.Errorf("Decode(a member over the row cap) = %v, want ErrTooLarge", err)
+	}
+	// The sample's runs name 4 movie episodes, so 10 movies on the film's
+	// one episode name 12 and 9 name 11, against the entries' 11.
+	for movies, ok := range map[string]bool{"[30,31,32,33,34,35,36,37,38,39]": false, "[30,31,32,33,34,35,36,37,38]": true} {
+		body := strings.Replace(good, `"tmdb_movies":[30,31]`, `"tmdb_movies":`+movies, 1)
+		_, err := Decode(strings.NewReader(body), Limits{MaxEpisodes: 11})
+		if ok != (err == nil) || !ok && !errors.Is(err, ErrTooLarge) {
+			t.Errorf("Decode(the film on %s) under MaxEpisodes 11 = %v, want ok=%t or ErrTooLarge", movies, err, ok)
+		}
 	}
 }
 
@@ -392,23 +481,26 @@ func TestAddEpisodesCannotWrap(t *testing.T) {
 }
 
 // A member Decode does not know is ignored at every level, so one added
-// within version 2 reads with this reader.
+// within version 2 reads with this reader, and so is each member of an
+// anime row, run or entry that the earlier version 2 shape had.
 func TestDecodeIgnoresUnknownMembers(t *testing.T) {
 	good := encodeSample(t)
 	body := good
 	for _, r := range [][2]string{
 		{`{"version":2,`, `{"version":2,"future":{"a":[1]},`},
 		{`"sources":{`, `"sources":{"future":1,`},
-		{`"overlay":{`, `"overlay":{"future":1,`},
+		{`"mapping":{`, `"mapping":{"future":1,`},
+		{`"anidb":{"titles_dump"`, `"anidb":{"future":1,"titles_dump"`},
 		{`"attribution":{`, `"attribution":{"future":1,`},
 		{`{"anidb_id":1,`, `{"anidb_id":1,"future":[],`},
+		{`"tvdb_id":10,"mal_ids"`, `"tvdb_id":10,"tmdb_tv_id":20,"tmdb_movie_ids":[5],"mal_ids"`},
 		{`"last":{"regular":4,`, `"last":{"future":1,"regular":4,`},
 		{`{"kind":"regular","start":1,`, `{"future":true,"kind":"regular","start":1,`},
-		{`{"season":1,"episode":1}`, `{"season":1,"episode":1,"future":"x"}`},
-		{`{"anilist_id":1,`, `{"anilist_id":1,"future":null,`},
-		{`"ids":{"anidb":[1],`, `"ids":{"crunchyroll":["x"],"anidb":[1],`},
+		{`"tvdb":[{"season":1,"episode":1,"episode_ids":[7001,7002]}]}`, `"tvdb":[{"season":1,"episode":1,"episode_ids":[7001,7002],"future":"x"}],"tmdb":[{"season":1,"episode":1}]}`},
+		{`{"anilist_id":1,"type":"TV",`, `{"anilist_id":1,"future":null,"type":"TV","episodes":12,`},
+		{`"ids":{"anidb":[1],`, `"ids":{"kitsu":[3],"crunchyroll":["x"],"anidb":[1],`},
 		{`{"anidb_id":3,"kind":"regular"}`, `{"anidb_id":3,"kind":"regular","future":1}`},
-		{`"kind":"regular"}]}]}`, `"kind":"regular"}]}],"later":[]}`},
+		{`"end":4}]}]}`, `"end":4}]}],"later":[]}`},
 	} {
 		if !strings.Contains(body, r[0]) {
 			t.Fatalf("Setup: the sample lacks %q", r[0])
@@ -442,30 +534,85 @@ func TestDecodeAccepts(t *testing.T) {
 			},
 		},
 		{
-			name: "entries with no AniList id ordered by a service this reader does not know",
-			old:  `{"type":"OVA","ids":{"animeplanet":["a"],"kitsu":[9]}},{"type":"TV","ids":{"kitsu":[3]},"parts":[{"anidb_id":2,"kind":"regular"}]}`,
-			new:  `{"type":"TV","ids":{"aaa":[1],"kitsu":[3]},"parts":[{"anidb_id":2,"kind":"regular"}]},{"type":"OVA","ids":{"animeplanet":["a"],"kitsu":[9]}}`,
-			check: func(t *testing.T, doc *Document) {
-				if got := doc.Entries[5].IDs.Kitsu; !reflect.DeepEqual(got, []int{3}) {
-					t.Errorf("entries[5].ids.kitsu = %v, want [3]", got)
-				}
-			},
-		},
-		{
-			name: "a service key of 256 characters, 768 bytes",
-			old:  `"animeplanet":["a"]`, new: `"animeplanet":["` + strings.Repeat("翼", 256) + `"]`,
-			check: func(t *testing.T, doc *Document) {
-				if got := doc.Entries[5].IDs.AnimePlanet; len(got) != 1 || got[0] != strings.Repeat("翼", 256) {
-					t.Errorf("entries[5].ids.animeplanet = %q, want the 256-character key", got)
-				}
-			},
-		},
-		{
 			name: "ids holding only a service this reader does not know",
-			old:  `{"type":"OVA","ids":{"animeplanet":["a"],"kitsu":[9]}}`, new: `{"type":"OVA","ids":{"anpdb":[18]}}`,
+			old:  `"ids":{"mal":[3]}`, new: `"ids":{"kitsu":[3]}`,
 			check: func(t *testing.T, doc *Document) {
-				if got := doc.Entries[5].IDs; got == nil || !reflect.DeepEqual(*got, IDs{}) {
-					t.Errorf("entries[5].ids = %+v, want present with no service this reader knows", got)
+				if got := doc.Entries[3].IDs; got == nil || !reflect.DeepEqual(*got, IDs{}) {
+					t.Errorf("entries[3].ids = %+v, want present with no service this reader knows", got)
+				}
+			},
+		},
+		{
+			name: "a row with no tvdb_id whose targets all name their series",
+			old:  `"anidb_episode_ids":[900],"tmdb_movies"`, new: `"anidb_episode_ids":[900],"tvdb":[{"series":12,"season":1,"episode":1}],"tmdb_movies"`,
+			check: func(t *testing.T, doc *Document) {
+				ep, ok := NewIndex(doc).Episode(Ref{AniDB: 3, Kind: Regular, Number: 1})
+				if !ok || !reflect.DeepEqual(ep.TVDB, landsOn(placed(12, 1, 1))) {
+					t.Errorf("Episode(AniDB 3 regular 1) = %+v, %t; want TVDB 12 S1E1", ep, ok)
+				}
+			},
+		},
+		{
+			name: "an unlisted run with only targets on another series",
+			old:  `{"anidb_id":4,"type":"OVA"}`,
+			new:  `{"anidb_id":4,"type":"OVA","last":{"special":1},"episodes":[{"kind":"special","start":1,"end":1,"tvdb":[{"series":12,"season":0,"episode":1}]}]}`,
+			check: func(t *testing.T, doc *Document) {
+				if got, want := NewIndex(doc).AtTVDB(TVDBEpisode{12, 0, 1}), []Landing{landing(4, Special, 1, 0, false)}; !reflect.DeepEqual(got, want) {
+					t.Errorf("AtTVDB(12 S0E1) = %+v, want %+v", got, want)
+				}
+			},
+		},
+		{
+			name: "one episode on the same season and episode of two series",
+			old:  `"tvdb":[{"series":11,"season":0,"episode":1,"episode_ids":[7101]}]`, new: `"tvdb":[{"season":0,"episode":1},{"series":11,"season":0,"episode":1}]`,
+			check: func(t *testing.T, doc *Document) {
+				ep, _ := NewIndex(doc).Episode(Ref{AniDB: 1, Kind: Special, Number: 4})
+				if want := landsOn(placed(10, 0, 1), placed(11, 0, 1)); !reflect.DeepEqual(ep.TVDB, want) {
+					t.Errorf("Episode(AniDB 1 special 4).TVDB = %+v, want %+v", ep.TVDB, want)
+				}
+			},
+		},
+		{
+			name: "two consecutive runs differing only by a target's series",
+			old:  special4,
+			new: `{"kind":"special","start":3,"end":3,"anidb_episode_ids":[203],"tvdb":[{"series":12,"season":0,"episode":1}]},` +
+				`{"kind":"special","start":4,"end":4,"anidb_episode_ids":[204],"tvdb":[{"series":11,"season":0,"episode":2}]}`,
+			check: func(t *testing.T, doc *Document) {
+				if got := len(doc.Anime[0].Episodes); got != 10 {
+					t.Errorf("AniDB 1 has %d runs, want 10", got)
+				}
+			},
+		},
+		{
+			name: "two consecutive runs differing only by tmdb_movies",
+			old:  special4,
+			new: `{"kind":"special","start":3,"end":3,"anidb_episode_ids":[203],"tvdb":[{"series":11,"season":0,"episode":1}],"tmdb_movies":[8]},` +
+				`{"kind":"special","start":4,"end":4,"anidb_episode_ids":[204],"tvdb":[{"series":11,"season":0,"episode":2}],"tmdb_movies":[9]}`,
+			check: func(t *testing.T, doc *Document) {
+				if got := len(doc.Anime[0].Episodes); got != 10 {
+					t.Errorf("AniDB 1 has %d runs, want 10", got)
+				}
+			},
+		},
+		{
+			name: "two consecutive runs differing only by holding TVDB episode ids",
+			old:  `{"kind":"regular","start":1,"end":2,"anidb_episode_ids":[101,102],"tvdb":[{"season":1,"episode":1,"episode_ids":[7001,7002]}]}`,
+			new: `{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[101],"tvdb":[{"season":1,"episode":1,"episode_ids":[7001]}]},` +
+				`{"kind":"regular","start":2,"end":2,"anidb_episode_ids":[102],"tvdb":[{"season":1,"episode":2}]}`,
+			check: func(t *testing.T, doc *Document) {
+				ep, _ := NewIndex(doc).Episode(Ref{AniDB: 1, Kind: Regular, Number: 2})
+				if got := len(doc.Anime[0].Episodes); got != 10 || !reflect.DeepEqual(ep.TVDB, landsOn(placed(10, 1, 2))) {
+					t.Errorf("AniDB 1 has %d runs and regular 2 reads %+v, want 10 runs and S1E2 with no id", got, ep.TVDB)
+				}
+			},
+		},
+		{
+			name: "one TVDB episode given its id by two targets",
+			old:  `"tvdb":[{"season":0,"episode":5}]`, new: `"tvdb":[{"season":0,"episode":5,"episode_ids":[7005]}]`,
+			check: func(t *testing.T, doc *Document) {
+				ep, _ := NewIndex(doc).Episode(Ref{AniDB: 1, Kind: Other, Number: 1})
+				if !reflect.DeepEqual(ep.TVDB, landsOn(placedID(10, 0, 5, 7005))) {
+					t.Errorf("Episode(AniDB 1 other 1).TVDB = %+v, want S0E5 with id 7005", ep.TVDB)
 				}
 			},
 		},
@@ -492,7 +639,7 @@ func TestDecodeAccepts(t *testing.T) {
 			old:  `"tvdb":[{"season":2,"episode":1,"default":true}]`, new: `"tvdb":[{"season":2,"episode":1048575,"default":true}]`,
 			check: func(t *testing.T, doc *Document) {
 				ep, ok := NewIndex(doc).Episode(Ref{AniDB: 2, Kind: Regular, Number: 2})
-				if !ok || ep.TVDB == nil || len(ep.TVDB.Targets) != 1 || ep.TVDB.Targets[0].Episode != 1048576 {
+				if !ok || ep.TVDB == nil || len(ep.TVDB.Placements) != 1 || ep.TVDB.Placements[0].Episode != 1048576 {
 					t.Errorf("Episode(AniDB 2 regular 2) = %+v, %t; want TVDB S2E1048576", ep, ok)
 				}
 			},

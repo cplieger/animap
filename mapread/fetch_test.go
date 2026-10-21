@@ -10,6 +10,7 @@ import (
 	"math"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"slices"
 	"strconv"
 	"strings"
@@ -167,6 +168,11 @@ func TestLatestLeavesATransientAnswerRetryable(t *testing.T) {
 func TestFetchRefuses(t *testing.T) {
 	body := encodeSample(t)
 	other := strings.Replace(body, `"notice":"n"`, `"notice":"m"`, 1)
+	earlierBody, err := os.ReadFile("testdata/earlier-shape.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	earlier := string(earlierBody)
 	for _, tc := range []struct {
 		edit func(f *release)
 		want error
@@ -181,6 +187,9 @@ func TestFetchRefuses(t *testing.T) {
 		{name: "a document of another version", want: ErrVersion, edit: func(f *release) {
 			v1 := strings.Replace(body, `"version":2`, `"version":1`, 1)
 			f.assets[assetPath], f.assets[assetPath+".sha256"] = v1, sidecar(v1)
+		}},
+		{name: "a document of the earlier version 2 shape", want: ErrVersion, edit: func(f *release) {
+			f.assets[assetPath], f.assets[assetPath+".sha256"] = earlier, sidecar(earlier)
 		}},
 	} {
 		t.Run(tc.name, func(t *testing.T) {

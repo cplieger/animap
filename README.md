@@ -2,19 +2,19 @@
 
 [![License](https://img.shields.io/github/license/cplieger/animap)](LICENSE)
 
-animap turns an AniList or AniDB anime id into its TVDB or TMDB series, season and episodes, and its ids on the other anime sites, from one JSON file.
+animap turns an AniList or AniDB anime id into its TheTVDB series, seasons and episodes, its TMDB movies and its MyAnimeList and IMDb ids, from one JSON file.
 
-It replaces joining [anime-offline-database](https://github.com/cedya77/anime-offline-database) and [Anime-Lists](https://github.com/Anime-Lists/anime-lists) yourself. A tool downloads `animap.json`, about 13 MB, and reads it with any JSON parser, or in Go with the [mapread](mapread/README.md) module. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
+The mapping lives in a database the project maintains privately and checks against AniDB's episode lists, TheTVDB's official episode order and TMDB, and a new file is built from it each week. A tool downloads `animap.json`, about 11 MB, and reads it with any JSON parser, or in Go with the [mapread](mapread/README.md) module. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
 
 ## Why use it
 
 animap is built for tools beside Sonarr and Radarr that need the id, season and episodes those apps use, such as a SeaDex watcher, a list sync or a subtitle fetcher.
 
-- Each AniDB episode says where it lands on TVDB and TMDB, specials and films included, and whether a written mapping or only a default puts it there.
-- It answers both ways: an AniList entry to its TVDB episodes, a TVDB episode to every AniDB episode on it, and a TMDB movie to its AniDB anime.
-- Each entry carries every id anime-offline-database lists, from MyAnimeList and Kitsu to Anime-Planet and LiveChart.
-- The file is rebuilt every 3 hours, and a build is not released when a count drops by over 10% or two entries newly claim the same episode.
-- Each correction to Anime-Lists is proven against AniDB, TVDB and TMDB, and a daily review checks every mapping's air dates, the season 0 episodes no mapping claims and every [SeaDex](https://seadex.moe) title.
+- Each AniDB episode says where it lands on TheTVDB and its TheTVDB episode id where known, specials filed under another show included.
+- Each film and special names its TMDB movie, where TMDB holds one.
+- It answers both ways, from an AniList entry to its TheTVDB episodes, and from a TheTVDB episode or a TMDB movie to every AniDB episode on it.
+- A placement that rests only on a default carried over from Anime-Lists is flagged.
+- A release is published only once it passes the checks under [How often it changes](#how-often-it-changes).
 
 Consider [arm-server](https://github.com/BeeeQueue/arm-server) if you want lookups through an HTTP API.
 
@@ -29,32 +29,28 @@ curl -fLO https://github.com/cplieger/animap/releases/latest/download/animap.jso
 The file has two tables. `entries` says which AniDB episodes an AniList entry is, and `anime` says which episodes AniDB lists and where each one lands. This is the entry for AniList id 1:
 
 ```json
-{
-  "anilist_id": 1, "type": "TV", "episodes": 26,
-  "ids": { "anidb": [23], "animecountdown": [37089], "animeplanet": ["cowboy-bebop"], "anisearch": [1572], "ann": [13], "kitsu": [1], "livechart": [3418], "mal": [1], "simkl": [37089] },
-  "parts": [ { "anidb_id": 23, "kind": "regular" } ]
-}
+{ "anilist_id": 1, "type": "TV", "ids": { "anidb": [23], "mal": [1] }, "parts": [ { "anidb_id": 23, "kind": "regular" } ] }
 ```
 
-Its part is every regular episode of AniDB 23, whose row holds 14 runs, among them these:
+Its part is every regular episode of AniDB 23, whose 17 runs include these:
 
 ```json
 {
-  "anidb_id": 23, "type": "TV", "tvdb_id": 76885, "tmdb_tv_id": 30991,
+  "anidb_id": 23, "type": "TV", "tvdb_id": 76885, "mal_ids": [1, 4037, 17205],
   "last": { "regular": 26, "special": 14, "credit": 4, "promotion": 10, "parody": 1 },
   "episodes_listed": true,
   "episodes": [
-    { "kind": "regular", "start": 1, "end": 1, "anidb_episode_ids": [881], "tvdb": [{ "season": 1, "episode": 13 }], "tmdb": [{ "season": 1, "episode": 13 }] },
-    { "kind": "regular", "start": 2, "end": 3, "anidb_episode_ids": [879, 877], "tvdb": [{ "season": 1, "episode": 1 }], "tmdb": [{ "season": 1, "episode": 1 }] },
-    { "kind": "regular", "start": 19, "end": 26, "anidb_episode_ids": [858, 883, 882, 880, 878, 876, 874, 872], "tvdb": [{ "season": 1, "episode": 19, "default": true }], "tmdb": [{ "season": 1, "episode": 19, "default": true }] },
-    { "kind": "special", "start": 1, "end": 2, "anidb_episode_ids": [7274, 127868], "tvdb": [{ "season": 0, "episode": 1 }], "tmdb": [{ "season": 0, "episode": 1, "default": true }] },
-    { "kind": "promotion", "start": 1, "end": 1, "anidb_episode_ids": [22748], "tvdb": [], "tmdb": [] },
-    { "kind": "promotion", "start": 6, "end": 10, "anidb_episode_ids": [36634, 46674, 46675, 36590, 155750], "tvdb": [], "tmdb": [] }
+    { "kind": "regular", "start": 1, "end": 1, "anidb_episode_ids": [881], "tvdb": [{ "season": 1, "episode": 13, "episode_ids": [219120] }] },
+    { "kind": "regular", "start": 2, "end": 3, "anidb_episode_ids": [879, 877], "tvdb": [{ "season": 1, "episode": 1, "episode_ids": [219121, 219122] }] },
+    { "kind": "regular", "start": 19, "end": 19, "anidb_episode_ids": [858], "tvdb": [{ "season": 1, "episode": 19, "episode_ids": [300641], "default": true }] },
+    { "kind": "special", "start": 4, "end": 4, "anidb_episode_ids": [23130], "tvdb": [] },
+    { "kind": "promotion", "start": 1, "end": 1, "anidb_episode_ids": [22748], "tvdb": [] },
+    { "kind": "promotion", "start": 6, "end": 10, "anidb_episode_ids": [36634, 46674, 46675, 36590, 155750], "tvdb": [] }
   ]
 }
 ```
 
-AniDB episode 1, AniDB episode id 881, is TVDB and TMDB season 1, episode 13. Episodes 19 to 26 land on episodes 19 to 26 by Anime-Lists' default, not a written mapping. The promotions land nowhere on either site, and AniDB lists no promotions 2 to 5. Find an entry with `jq`:
+AniDB episode 1, AniDB episode id 881, is TheTVDB season 1, episode 13, TheTVDB episode id 219120. Episode 19 lands on episode 19 by Anime-Lists' default, not a stated placement. Special 4 and the promotions land nowhere on TheTVDB, and AniDB lists no promotions 2 to 5. A film states its TMDB movie on its episodes: AniDB 28, which AniDB lists in six parts, has `{ "kind": "regular", "start": 1, "end": 6, ..., "tmdb_movies": [149] }`. Find an entry with `jq`:
 
 ```sh
 jq '.entries[] | select(.anilist_id == 1)' animap.json
@@ -71,67 +67,56 @@ cosign verify-blob animap.json --bundle animap.json.sigstore.json \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
-To build the file yourself, run this from the repository root with Go, `curl`, `jq` and an authenticated `gh` CLI:
+To run the publish checks on a file yourself, run this with Go from the repository root:
 
 ```sh
-export AOD_VERSION=$(sed -n 's/^  AOD_VERSION: //p' .github/workflows/publish.yaml)
-export MIRROR_COMMIT=$(sed -n 's/^  MIRROR_COMMIT: //p' .github/workflows/publish.yaml)
-DRY_RUN=1 bash scripts/publish.sh
+go run ./cmd/animap verify -in animap.json
 ```
 
-`DRY_RUN=1` builds and checks the file and writes `./animap.json` without creating a release. `DRY_RUN` unset or empty publishes, and any value but `0` or `1` is read as a dry run.
+It prints the content hash and the counts the release notes carry, and exits 1 when a check fails. Add `-previous <file>` to compare the counts and the hash with another release.
 
 ## API
 
 The format is described in [docs/schema.md](docs/schema.md), with a JSON Schema in [docs/animap.schema.json](docs/animap.schema.json). The Go module [mapread](mapread/README.md) reads it and answers the lookups.
 
 - Top level: `version`, `generated_at`, `sources`, `attribution`, `anime` and `entries`.
-- Anime rows: `anidb_id`, `type`, `tvdb_id`, `tmdb_tv_id`, `tmdb_movie_ids`, `imdb_ids`, `last`, `episodes_listed` and `episodes`, the runs.
-- Runs: `kind`, `start`, `end`, `anidb_episode_ids`, and `tvdb` and `tmdb` targets, each a season and an episode, flagged `default` when it rests only on Anime-Lists' default.
-- Entries: `anilist_id`, `type`, `episodes`, `ids` per service, and `parts`, the AniDB episodes the entry is.
+- Anime rows: `anidb_id`, `type`, `tvdb_id`, `mal_ids`, `imdb_ids`, `last`, `episodes_listed` and `episodes`, the runs.
+- Runs: `kind`, `start`, `end`, `anidb_episode_ids`, `tvdb` targets and `tmdb_movies`. A target is a season and an episode, with its own `series` when it is not on the row's `tvdb_id`, its TheTVDB `episode_ids`, and `default` when it rests only on Anime-Lists' default.
+- Entries: `anilist_id`, `type`, `ids`, holding `anidb` and `mal`, and `parts`, the AniDB episodes the entry is.
 
-A run with `[]` for a site lands nowhere there, and a run with no member for a site states nothing for it. An episode no run names lands nowhere, on every site the row has an id for, when its number is from 1 to the kind's `last` or when the row has `episodes_listed` (there it is also one AniDB does not list); past `last` on a row without `episodes_listed`, the file does not place it.
+A run with `"tvdb": []` lands nowhere on TheTVDB, and a run with no `tvdb` states nothing there. An episode no run names lands nowhere on the row's series when its number is from 1 to the kind's `last`. It also lands nowhere when the row has `episodes_listed`, and is then one AniDB does not list. Past `last` on a row without `episodes_listed`, the file does not place it. An episode is a TMDB movie only where its run states `tmdb_movies`.
 
 ## How often it changes
 
-A workflow builds a new file every 3 hours. It publishes the file only when a hash of its version, attribution and tables differs from the latest release. Release tags are dates, such as `v2026.10.05`, with the time added for a second release that day. Each release's notes list the seven counts below.
-
-The anime-offline-database release and the AniDB mirror commit are pinned in `.github/workflows/publish.yaml`, and Renovate proposes each new one. Anime-Lists has no releases, so each run reads its newest commit.
+The mapping database builds a new file once a week. A workflow here runs every day at 12:00 UTC, reads the newest build, and publishes it only when a hash of its version, attribution and tables differs from the latest release. Release tags are dates, such as `v2026.10.05`, with the time added for a second release that day. Each release's notes carry the build's `revision` and AniDB title list date, and the six counts below.
 
 To skip an unchanged download, compare the release tag `https://github.com/cplieger/animap/releases/latest` redirects to with the one you hold, or send your last `ETag` as `If-None-Match`.
 
-A build stops before publishing when one of these checks fails, and the previous release stays the latest:
+A run stops before publishing when one of these checks fails, and the previous release stays the latest:
 
-- Any of seven counts falls below 90% of the latest release, unless the maintainer accepts the drop on a manual run. The seven are AniList entries, AniList entries with parts, anime with a TVDB id, anime with a TMDB id, AniDB episodes with a TVDB target, AniDB episodes with a TMDB target and AniDB episode ids. With no latest release of the same version, each count must reach a fixed floor instead.
-- Two Anime-Lists entries on one TVDB series claim the same TVDB or TMDB episode.
-- An Anime-Lists entry on a shared TVDB series has no episode count in any source, so its episodes cannot be placed.
-- An input is larger than its limit, does not parse, or does not match its published SHA-256.
-
-The collisions and uncounted entries Anime-Lists already had are listed in `checks/collision-baseline.json`, and stop a build only where animap changes them, as [docs/overlay.md](docs/overlay.md#collisions-anime-lists-already-has) explains.
+- The download does not match its SHA-256, or mapread refuses the file.
+- The file was built more than 8 days ago, or its AniDB title list is more than 14 days old. The maintainer can accept an old file on a manual run, and the release notes then say so and why.
+- Any of six counts falls below 90% of the latest release, unless the maintainer accepts the drop on a manual run. The six are AniList entries, AniList entries with parts, anime on TheTVDB, AniDB episodes on TheTVDB, AniDB episodes with a TMDB movie and AniDB episode ids. With no latest release of this shape, each count must reach a fixed floor instead.
 
 ## Data sources and licence
 
 `animap.json` is made available under the [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/), and its contents under the [Database Contents License (DbCL) 1.0](https://opendatacommons.org/licenses/dbcl/1-0/). Both texts are in [LICENSE-DATA](LICENSE-DATA), and the file carries the same notice in its `attribution` member. If you publish a database built from it, the ODbL asks you to keep that notice and to share it under the same licence.
 
-It contains information from [anime-offline-database](https://github.com/cedya77/anime-offline-database), made available under the ODbL 1.0 and the DbCL 1.0, from [Anime-Lists](https://github.com/Anime-Lists/anime-lists), which publishes no licence, and from [AniDB](https://anidb.net) which episodes exist, with their kind, number and AniDB episode id. AniDB's data is licensed under CC BY-NC-SA 4.0. anime-offline-database supplies every entry's ids, type and episode count, and Anime-Lists the TVDB, TMDB and IMDb ids and where each episode lands, joined as [Fribb/anime-lists-generator](https://github.com/Fribb/anime-lists-generator) joins them.
+The mapping database started from earlier releases of this file. Those joined [anime-offline-database](https://github.com/cedya77/anime-offline-database) and [Anime-Lists](https://github.com/Anime-Lists/anime-lists), so the database still contains their information. anime-offline-database is made available under the ODbL 1.0 and the DbCL 1.0 and gave the initial AniList links. Anime-Lists, which publishes no licence, gave the initial TheTVDB, TMDB and IMDb mappings.
 
-AniDB's data is read through [AnimeAggregations](https://github.com/notseteve/AnimeAggregations), a mirror of AniDB's data. `animap.json` carries only which episodes exist, their kind and number, and their AniDB ids. It carries none of the content AniDB holds for an episode: no titles, summaries, air dates, lengths, ratings or any other description.
+From [AniDB](https://anidb.net), it holds which episodes exist, with their kind, number and AniDB episode id, the anime types and the MyAnimeList links. AniDB's data is licensed under CC BY-NC-SA 4.0. `animap.json` carries none of the content AniDB holds for an episode, such as titles, summaries, air dates, lengths or ratings. The AniList ids are from [AniList](https://anilist.co).
 
-Each correction on a TVDB series stores a fingerprint of its episode order, read through the metadata service Sonarr uses, and the daily review keeps only numbers, dates and title digests from TheTVDB and TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB. [docs/sources.md](docs/sources.md) covers each source and its licence.
+TVDB data is provided by [TheTVDB](https://thetvdb.com), which gives the series ids, season and episode numbers and episode ids. This product uses the TMDB API but is not endorsed or certified by TMDB. `animap.json` holds no TheTVDB or TMDB titles or dates. [docs/sources.md](docs/sources.md) covers each source and its licence.
 
 ## Documentation
 
 - [The animap.json schema](docs/schema.md) lists every field and how to read an episode's placement.
 - [mapread](mapread/README.md) is the Go module that reads, verifies and looks up the file.
-- [The overlay](docs/overlay.md) is animap's set of corrections to Anime-Lists, and how to add one.
-- [The daily review](docs/review.md) keeps one issue per anime, and explains how to accept a finding.
-- [The watch set](docs/watch.md) defines what "fully mapped" means for each type.
-- [The date check](docs/date-check.md) flags mappings that AniDB air dates contradict.
 - [Data sources and licences](docs/sources.md) covers each source and its licence.
 
 ## Contributing
 
-Issues and pull requests are welcome. To report a bad mapping, give the AniList or AniDB id, what the file says and should say, and the AniDB, TVDB or TMDB page that shows it. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Pull requests are welcome for the code and docs. A bad mapping is reported in an issue with the AniList or AniDB id, what the file says and should say, and the page that shows it. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Disclaimer
 
