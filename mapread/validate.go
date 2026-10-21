@@ -1,15 +1,19 @@
 package mapread
 
 import (
+	"cmp"
 	"errors"
 	"fmt"
 )
 
 // validate checks what one row cannot: the table orders, the runs against
-// their row, every part against the anime it names, and the episodes the
-// parts name against lim.MaxEpisodes.
+// their row, the TVDB episode ids across rows, every part against the
+// anime it names, and against lim.MaxEpisodes the episodes the parts name
+// and those the runs' movies name.
 func validate(doc *Document, lim Limits) error {
 	byID := make(map[int]*Anime, len(doc.Anime))
+	ids := tvdbIDs{byEpisode: map[TVDBEpisode]int{}, byID: map[int]TVDBEpisode{}}
+	movies := 0
 	for i := range doc.Anime {
 		a := &doc.Anime[i]
 		if i > 0 && a.AniDBID <= doc.Anime[i-1].AniDBID {
@@ -18,9 +22,52 @@ func validate(doc *Document, lim Limits) error {
 		if err := validateRuns(a); err != nil {
 			return invalid("anime", i, "%v", err)
 		}
+		if err := ids.add(a); err != nil {
+			return invalid("anime", i, "%v", err)
+		}
+		var ok bool
+		if movies, ok = addMovieEpisodes(movies, a, lim.MaxEpisodes); !ok {
+			return fmt.Errorf("%w: the runs' tmdb_movies name more than %d AniDB episodes", ErrTooLarge, lim.MaxEpisodes)
+		}
 		byID[a.AniDBID] = a
 	}
 	return validateEntries(doc.Entries, byID, lim)
+}
+
+// tvdbIDs holds a document to one id per TVDB episode and one TVDB episode
+// per id, so a lookup by id finds one episode.
+type tvdbIDs struct {
+	byEpisode map[TVDBEpisode]int
+	byID      map[int]TVDBEpisode
+}
+
+func (m *tvdbIDs) add(a *Anime) error {
+	for ep, id := range tvdbEpisodeIDs(a) {
+		if had, ok := m.byEpisode[ep]; ok && had != id {
+			return fmt.Errorf("TVDB %d S%dE%d has the episode ids %d and %d", ep.Series, ep.Season, ep.Episode, had, id)
+		}
+		if had, ok := m.byID[id]; ok && had != ep {
+			return fmt.Errorf("TVDB episode id %d names %d S%dE%d and %d S%dE%d", id, had.Series, had.Season, had.Episode, ep.Series, ep.Season, ep.Episode)
+		}
+		m.byEpisode[ep], m.byID[id] = id, ep
+	}
+	return nil
+}
+
+// addMovieEpisodes adds to named each episode of a's runs once per movie
+// it states, what Index.AtTMDBMovie expands over every movie, false when
+// that is over limit.
+func addMovieEpisodes(named int, a *Anime, limit int) (int, bool) {
+	for i := range a.Episodes {
+		r := &a.Episodes[i]
+		for range r.TMDBMovies {
+			var ok bool
+			if named, ok = addEpisodes(named, r.End-r.Start+1, limit); !ok {
+				return named, false
+			}
+		}
+	}
+	return named, true
 }
 
 // validateEntries checks the entries' order and parts, and the episodes
@@ -56,39 +103,23 @@ func addEpisodes(named, n, limit int) (int, bool) {
 // partEpisodes is how many AniDB episodes p names, as Index.Episodes
 // expands it.
 func partEpisodes(p Part, a *Anime) int {
-	switch {
-	case p.Combined:
-		return a.Last.Regular
-	case p.Start > 0:
-		return p.End - p.Start + 1
-	}
-	return a.Last.Of(p.Kind)
+	_, from, to := partRange(a, p)
+	return to - from + 1
 }
 
 func invalid(table string, i int, format string, args ...any) error {
 	return fmt.Errorf("%w: %s[%d]: %s", ErrInvalid, table, i, fmt.Sprintf(format, args...))
 }
 
-// entryOrder holds the AniList rows first, ascending. The rows with no
-// AniList id are not checked: their sort key, the encoded ids, takes in
-// services a newer producer may add, which this reader cannot see.
+// entryOrder holds the entries ascending by AniList id.
 func entryOrder(entries []Entry, i int) error {
-	if i == 0 {
-		return nil
-	}
-	e, prev := &entries[i], &entries[i-1]
-	switch {
-	case e.AniListID > 0 && prev.AniListID == 0:
-		return fmt.Errorf("AniList %d follows an entry with no AniList id", e.AniListID)
-	case e.AniListID > 0 && e.AniListID <= prev.AniListID:
-		return fmt.Errorf("AniList %d is not after %d", e.AniListID, prev.AniListID)
+	if i > 0 && entries[i].AniListID <= entries[i-1].AniListID {
+		return fmt.Errorf("AniList %d is not after %d", entries[i].AniListID, entries[i-1].AniListID)
 	}
 	return nil
 }
 
-// validateRuns holds a's runs to their row. A row with neither site id
-// has only runs that list AniDB's episodes: any other would say a site's
-// member without its id, or land nowhere on every site.
+// validateRuns holds a's runs to their row.
 func validateRuns(a *Anime) error {
 	for i := range a.Episodes {
 		r := &a.Episodes[i]
@@ -101,7 +132,6 @@ func validateRuns(a *Anime) error {
 
 func validateRun(a *Anime, i int) error {
 	r := &a.Episodes[i]
-	listed := r.AniDBEpisodeIDs != nil
 	if err := runRange(a, r); err != nil {
 		return err
 	}
@@ -114,36 +144,59 @@ func validateRun(a *Anime, i int) error {
 			return fmt.Errorf("continues %s %d-%d, so the two are one run", p.Kind, p.Start, p.End)
 		}
 	}
-	switch {
-	case r.TVDB != nil && a.TVDBID == 0:
-		return errors.New("states tvdb on a row with no tvdb_id")
-	case r.TMDB != nil && a.TMDBTVID == 0:
-		return errors.New("states tmdb on a row with no tmdb_tv_id")
+	if err := runTargets(a.TVDBID, r.TVDB); err != nil {
+		return err
 	}
-	if !listed && nowhere(r.TVDB, a.TVDBID) && nowhere(r.TMDB, a.TMDBTVID) {
-		return errors.New("lists no AniDB episode and lands nowhere on every site, which no run says")
+	noTVDB := r.TVDB == nil && a.TVDBID == 0 || r.TVDB != nil && len(*r.TVDB) == 0
+	if r.AniDBEpisodeIDs == nil && r.TMDBMovies == nil && noTVDB {
+		return errors.New("lists no AniDB episode and states no landing, which no run says")
 	}
 	return nil
+}
+
+// runTargets holds a run's tvdb to its row on series row: ascending by
+// series, season and episode, each once; a series member names a series
+// other than row's; and a row on no series states only targets that each
+// name theirs, so never [], since nowhere needs a series to be nowhere on.
+func runTargets(row int, tvdb *[]Target) error {
+	if tvdb == nil {
+		return nil
+	}
+	if row == 0 && len(*tvdb) == 0 {
+		return errors.New("states tvdb [] on a row with no tvdb_id")
+	}
+	for j, t := range *tvdb {
+		switch {
+		case t.Series == 0 && row == 0:
+			return fmt.Errorf("tvdb[%d] names no series on a row with no tvdb_id", j)
+		case t.Series > 0 && t.Series == row:
+			return fmt.Errorf("tvdb[%d] names series %d, the row's tvdb_id", j, t.Series)
+		case j > 0 && !targetBefore((*tvdb)[j-1], t, row):
+			return fmt.Errorf("tvdb[%d] is not after the target before it", j)
+		}
+	}
+	return nil
+}
+
+// targetBefore orders targets of a row on series row by series, season,
+// then episode.
+func targetBefore(a, b Target, row int) bool {
+	return cmp.Or(cmp.Compare(a.on(row), b.on(row)), cmp.Compare(a.Season, b.Season), cmp.Compare(a.Episode, b.Episode)) < 0
 }
 
 // runRange holds r's ids and end to its row: ids only with AniDB's list,
 // and an end past last only on regular episodes AniDB lists past the
-// count, which state no site.
+// count, which state no landing.
 func runRange(a *Anime, r *Run) error {
 	listed := r.AniDBEpisodeIDs != nil
-	pastCount := r.Kind == Regular && listed && r.TVDB == nil && r.TMDB == nil
+	pastCount := r.Kind == Regular && listed && r.TVDB == nil && r.TMDBMovies == nil
 	switch last := a.Last.Of(r.Kind); {
 	case listed && !a.EpisodesListed:
 		return errors.New("lists AniDB episode ids on a row without episodes_listed")
 	case r.End > last && !pastCount:
-		return fmt.Errorf("ends past last.%s %d, which only a regular run of listed episodes stating no site may", r.Kind, last)
+		return fmt.Errorf("ends past last.%s %d, which only a regular run of listed episodes stating no landing may", r.Kind, last)
 	}
 	return nil
-}
-
-// nowhere reports whether a site says lands nowhere, or has no id.
-func nowhere(site *[]Target, id int) bool {
-	return id == 0 || site != nil && len(*site) == 0
 }
 
 // validatePart holds p to the anime it names. A part with no range may

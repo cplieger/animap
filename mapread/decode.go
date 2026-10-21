@@ -25,8 +25,10 @@ type Limits struct {
 	// MaxRowBytes caps one encoded row, and the sources and attribution
 	// members.
 	MaxRowBytes int
-	// MaxEpisodes caps the AniDB episodes all entries' parts name, summed:
-	// what Index.Episodes expands over every entry.
+	// MaxEpisodes caps the AniDB episodes all entries' parts name, summed,
+	// what Index.Episodes expands over every entry; and apart from them
+	// the episodes the runs' tmdb_movies name, once per movie, what
+	// Index.AtTMDBMovie expands over every movie.
 	MaxEpisodes int
 }
 
@@ -186,14 +188,14 @@ func (c *capReader) note(err error) error {
 	return err
 }
 
-// Decode reads one document from r, streaming it, under lim. It refuses a
-// document whose first member is not version 2 before reading further, and
-// one not UTF-8 or with an invalid row: it checks the types, the caps and
-// docs/schema.md's "Order and checks" but the order of entries with no
-// AniList id (entryOrder), and not an entry's parts against its ids.anidb.
-// Members it does not know are ignored at every level, a key matching one
-// only case-insensitively among them; a key repeated in one object,
-// case-insensitively, is invalid.
+// Decode reads one document from r, streaming it, under lim. It refuses
+// with ErrVersion a document whose first member is not version 2, before
+// reading further, and one in the earlier version 2 shape, once it reads
+// sources; and one not UTF-8 or breaking a rule the README lists under
+// "Decode rules". It does not check an entry's parts against its
+// ids.anidb. Members it does not know are ignored at every level, a key
+// matching one only case-insensitively among them; a key repeated in one
+// object, case-insensitively, is invalid.
 func Decode(r io.Reader, lim Limits) (*Document, error) {
 	lim = lim.orDefault()
 	cr := &capReader{r: r, left: lim.MaxDocumentBytes}
@@ -431,14 +433,18 @@ func table[T any](d *decoder, name string, row func(*walker, *T) error) ([]T, er
 	return out, nil
 }
 
-// decodeRow walks one complete row; any failure is ErrInvalid at where.
+// decodeRow walks one complete row; any failure is ErrInvalid at where,
+// except that a document of the earlier shape stays ErrVersion alone.
 func decodeRow(where string, raw json.RawMessage, fn func(*walker) error) error {
 	w := &walker{dec: jsoncap.NewDecoder(bytes.NewReader(raw), 0)}
 	err := fn(w)
 	if err == nil {
 		err = w.dec.End()
 	}
-	if err != nil {
+	switch {
+	case errors.Is(err, ErrVersion):
+		return err
+	case err != nil:
 		return fmt.Errorf("%w: %s: %w", ErrInvalid, where, err)
 	}
 	return nil
@@ -621,8 +627,8 @@ func (w *walker) typ(what string, dst *string) error {
 	return nil
 }
 
-// ids reads a non-empty, strictly ascending list of ids.
-func (w *walker) ids(what string, dst *[]int) error {
+// ascendingInts reads a non-empty, strictly ascending list of ids.
+func (w *walker) ascendingInts(what string, dst *[]int) error {
 	var out []int
 	n, err := w.array(what, func(i int) error {
 		var v int
@@ -642,36 +648,7 @@ func (w *walker) ids(what string, dst *[]int) error {
 	return err
 }
 
-// keys reads a non-empty, bytewise ascending and unique list of service
-// keys of 1 to 256 characters, as the JSON Schema's maxLength counts them.
-func (w *walker) keys(what string, dst *[]string) error {
-	var out []string
-	n, err := w.array(what, func(i int) error {
-		var v string
-		if err := w.str(fmt.Sprintf("%s[%d]", what, i), &v); err != nil {
-			return err
-		}
-		switch {
-		case v == "" || utf8.RuneCountInString(v) > 256:
-			return fmt.Errorf("%s[%d] is empty or over 256 characters", what, i)
-		case i > 0 && v <= out[i-1]:
-			return fmt.Errorf("%s is not ascending and unique at %d", what, i)
-		}
-		out = append(out, v)
-		return nil
-	})
-	if err == nil && n == 0 {
-		err = fmt.Errorf("%s is empty", what)
-	}
-	*dst = out
-	return err
-}
-
-var (
-	imdbRE   = regexp.MustCompile(`^tt\d{7,10}$`)
-	sha256RE = regexp.MustCompile(`^[0-9a-f]{64}$`)
-	commitRE = regexp.MustCompile(`^[0-9a-f]{40}$`)
-)
+var imdbRE = regexp.MustCompile(`^tt\d{7,10}$`)
 
 func (w *walker) anime(a *Anime) error {
 	n, err := w.object("anime", func(key string) (bool, error) {
@@ -682,10 +659,8 @@ func (w *walker) anime(a *Anime) error {
 			return true, w.typ(key, &a.Type)
 		case "tvdb_id":
 			return true, w.integer(key, &a.TVDBID, 1)
-		case "tmdb_tv_id":
-			return true, w.integer(key, &a.TMDBTVID, 1)
-		case "tmdb_movie_ids":
-			return true, w.uniqueInts(key, &a.TMDBMovieIDs)
+		case "mal_ids":
+			return true, w.ascendingInts(key, &a.MALIDs)
 		case "imdb_ids":
 			return true, w.imdb(key, &a.IMDbIDs)
 		case "last":
@@ -706,27 +681,6 @@ func (w *walker) anime(a *Anime) error {
 		return errors.New("the row carries nothing besides anidb_id")
 	}
 	return nil
-}
-
-// uniqueInts reads a non-empty list of unique ids in any order.
-func (w *walker) uniqueInts(what string, dst *[]int) error {
-	seen := map[int]bool{}
-	n, err := w.array(what, func(i int) error {
-		var v int
-		if err := w.integer(fmt.Sprintf("%s[%d]", what, i), &v, 1); err != nil {
-			return err
-		}
-		if seen[v] {
-			return fmt.Errorf("%s repeats %d", what, v)
-		}
-		seen[v] = true
-		*dst = append(*dst, v)
-		return nil
-	})
-	if err == nil && n == 0 {
-		err = fmt.Errorf("%s is empty", what)
-	}
-	return err
 }
 
 func (w *walker) imdb(what string, dst *[]string) error {
@@ -792,9 +746,8 @@ func (w *walker) run(what string, r *Run) error {
 		case "tvdb":
 			r.TVDB = &[]Target{}
 			return true, w.targets(what+".tvdb", r.TVDB)
-		case "tmdb":
-			r.TMDB = &[]Target{}
-			return true, w.targets(what+".tmdb", r.TMDB)
+		case "tmdb_movies":
+			return true, w.ascendingInts(what+".tmdb_movies", &r.TMDBMovies)
 		}
 		return false, nil
 	})
@@ -808,30 +761,30 @@ func (w *walker) run(what string, r *Run) error {
 	case r.AniDBEpisodeIDs != nil && len(r.AniDBEpisodeIDs) != r.End-r.Start+1:
 		return fmt.Errorf("%s has %d AniDB episode ids for %d episodes", what, len(r.AniDBEpisodeIDs), r.End-r.Start+1)
 	}
-	return lastTargets(what, r)
+	return targetSpans(what, r)
 }
 
-// lastTargets bounds the target episode r's last episode lands on, which
-// the lookups compute: each target's episode plus the run's span.
-func lastTargets(what string, r *Run) error {
-	for _, s := range []struct {
-		ts   *[]Target
-		site string
-	}{{r.TVDB, "tvdb"}, {r.TMDB, "tmdb"}} {
-		if s.ts == nil {
-			continue
-		}
-		for _, t := range *s.ts {
-			if last := t.Episode + r.End - r.Start; last > maxNumber {
-				return fmt.Errorf("%s.%s lands episode %d on target episode %d, above %d", what, s.site, r.End, last, maxNumber)
-			}
+// targetSpans holds each of r's targets to the run's span: one TVDB
+// episode id per episode when it has them, and its last landing, which
+// the lookups compute as its episode plus the span, at most maxNumber.
+func targetSpans(what string, r *Run) error {
+	if r.TVDB == nil {
+		return nil
+	}
+	span := r.End - r.Start + 1
+	for j, t := range *r.TVDB {
+		switch {
+		case t.EpisodeIDs != nil && len(t.EpisodeIDs) != span:
+			return fmt.Errorf("%s.tvdb[%d] has %d TVDB episode ids for %d episodes", what, j, len(t.EpisodeIDs), span)
+		case t.Episode+span-1 > maxNumber:
+			return fmt.Errorf("%s.tvdb lands episode %d on target episode %d, above %d", what, r.End, t.Episode+span-1, maxNumber)
 		}
 	}
 	return nil
 }
 
-// episodeIDs reads a list of AniDB episode ids, one per episode in number
-// order, so not sorted; run checks its length.
+// episodeIDs reads a list of episode ids, one per episode of a run in
+// number order, so not sorted; its caller checks its length.
 func (w *walker) episodeIDs(what string, dst *[]int) error {
 	out := []int{}
 	_, err := w.array(what, func(i int) error {
@@ -852,10 +805,14 @@ func (w *walker) targets(what string, dst *[]Target) error {
 		t := Target{Season: -1}
 		_, err := w.object(at, func(key string) (bool, error) {
 			switch key {
+			case "series":
+				return true, w.integer(at+".series", &t.Series, 1)
 			case "season":
 				return true, w.number(at+".season", &t.Season, 0)
 			case "episode":
 				return true, w.number(at+".episode", &t.Episode, 1)
+			case "episode_ids":
+				return true, w.episodeIDs(at+".episode_ids", &t.EpisodeIDs)
 			case "default":
 				return true, w.isTrue(at+".default", &t.Default)
 			}
@@ -866,18 +823,11 @@ func (w *walker) targets(what string, dst *[]Target) error {
 			return err
 		case t.Season < 0 || t.Episode == 0:
 			return fmt.Errorf("%s needs season and episode", at)
-		case i > 0 && !targetBefore((*dst)[i-1], t):
-			return fmt.Errorf("%s is not after the target before it", at)
 		}
 		*dst = append(*dst, t)
 		return nil
 	})
 	return err
-}
-
-// targetBefore orders targets by season, then episode, each pair once.
-func targetBefore(a, b Target) bool {
-	return a.Season < b.Season || a.Season == b.Season && a.Episode < b.Episode
 }
 
 func (w *walker) entry(e *Entry) error {
@@ -887,8 +837,6 @@ func (w *walker) entry(e *Entry) error {
 			return true, w.integer(key, &e.AniListID, 1)
 		case "type":
 			return true, w.typ(key, &e.Type)
-		case "episodes":
-			return true, w.number(key, &e.Episodes, 1)
 		case "ids":
 			e.IDs = &IDs{}
 			return true, w.serviceIDs(e.IDs)
@@ -897,24 +845,19 @@ func (w *walker) entry(e *Entry) error {
 		}
 		return false, nil
 	})
-	if err == nil && e.AniListID == 0 && e.IDs == nil {
-		err = errors.New("an entry needs anilist_id or ids")
+	if err == nil && e.AniListID == 0 {
+		err = errors.New("anilist_id is missing")
 	}
 	return err
 }
 
 func (w *walker) serviceIDs(ids *IDs) error {
-	ints := map[string]*[]int{
-		"anidb": &ids.AniDB, "animecountdown": &ids.AnimeCountdown, "anisearch": &ids.AniSearch, "ann": &ids.ANN,
-		"kitsu": &ids.Kitsu, "livechart": &ids.LiveChart, "mal": &ids.MAL, "simkl": &ids.Simkl,
-	}
-	keys := map[string]*[]string{"animeplanet": &ids.AnimePlanet, "notifymoe": &ids.NotifyMoe}
 	n, err := w.object("ids", func(key string) (bool, error) {
-		if p, ok := ints[key]; ok {
-			return true, w.ids("ids."+key, p)
-		}
-		if p, ok := keys[key]; ok {
-			return true, w.keys("ids."+key, p)
+		switch key {
+		case keyAniDB:
+			return true, w.ascendingInts("ids.anidb", &ids.AniDB)
+		case "mal":
+			return true, w.ascendingInts("ids.mal", &ids.MAL)
 		}
 		return false, nil
 	})
@@ -973,76 +916,48 @@ func checkPart(at string, p *Part) error {
 	return nil
 }
 
-// fields reads an object of required string members, each checked by its
-// pattern when it has one, and returns the members it saw.
-func (w *walker) fields(what string, strs map[string]*string, patterns map[string]*regexp.Regexp, extra func(key string) (bool, error)) (map[string]bool, error) {
+// fields reads an object of required string members.
+func (w *walker) fields(what string, strs map[string]*string) error {
 	seen := map[string]bool{}
 	_, err := w.object(what, func(key string) (bool, error) {
 		p, ok := strs[key]
 		if !ok {
-			if extra != nil {
-				known, err := extra(key)
-				seen[key] = known
-				return known, err
-			}
 			return false, nil
 		}
 		seen[key] = true
-		if err := w.str(what+"."+key, p); err != nil {
-			return true, err
-		}
-		if re := patterns[key]; re != nil && !re.MatchString(*p) {
-			return true, fmt.Errorf("%s.%s %q is malformed", what, key, *p)
-		}
-		return true, nil
-	})
-	if err != nil {
-		return nil, err
-	}
-	for k := range strs {
-		if !seen[k] {
-			return nil, fmt.Errorf("%s.%s is missing", what, k)
-		}
-	}
-	return seen, nil
-}
-
-// The members sources repeats.
-const (
-	keyRepository = "repository"
-	keyCommit     = "commit"
-	keySHA256     = "sha256"
-)
-
-func (w *walker) sources(s *Sources) error {
-	seen := map[string]bool{}
-	_, err := w.object("sources", func(key string) (bool, error) {
-		var err error
-		switch key {
-		case "anime_offline_database":
-			o := &s.AnimeOfflineDatabase
-			_, err = w.fields("sources."+key, map[string]*string{keyRepository: &o.Repository, "release": &o.Release, "asset": &o.Asset, keySHA256: &o.SHA256},
-				map[string]*regexp.Regexp{keySHA256: sha256RE}, nil)
-		case "anime_lists":
-			o := &s.AnimeLists
-			_, err = w.fields("sources."+key, map[string]*string{keyRepository: &o.Repository, keyCommit: &o.Commit, "file": &o.File},
-				map[string]*regexp.Regexp{keyCommit: commitRE}, nil)
-		case "anidb_mirror":
-			o := &s.AniDBMirror
-			_, err = w.fields("sources."+key, map[string]*string{keyRepository: &o.Repository, keyCommit: &o.Commit},
-				map[string]*regexp.Regexp{keyCommit: commitRE}, nil)
-		case "overlay":
-			err = w.overlay(&s.Overlay)
-		default:
-			return false, nil
-		}
-		seen[key] = true
-		return true, err
+		return true, w.str(what+"."+key, p)
 	})
 	if err != nil {
 		return err
 	}
-	for _, k := range []string{"anime_offline_database", "anime_lists", "anidb_mirror", "overlay"} {
+	for k := range strs {
+		if !seen[k] {
+			return fmt.Errorf("%s.%s is missing", what, k)
+		}
+	}
+	return nil
+}
+
+// maxRevision bounds sources.mapping.revision, in bytes.
+const maxRevision = 100
+
+const keyAniDB = "anidb"
+
+// earlierSources are the sources members of the earlier version 2 shape;
+// its every document carries all four, so any one names that shape.
+var earlierSources = []string{"anime_offline_database", "anime_lists", "anidb_mirror", "overlay"}
+
+func (w *walker) sources(s *Sources) error {
+	seen := map[string]bool{}
+	_, err := w.object("sources", func(key string) (bool, error) {
+		known, err := w.source(key, s)
+		seen[key] = known
+		return known, err
+	})
+	if err != nil {
+		return err
+	}
+	for _, k := range []string{"mapping", keyAniDB} {
 		if !seen[k] {
 			return fmt.Errorf("sources.%s is missing", k)
 		}
@@ -1050,28 +965,33 @@ func (w *walker) sources(s *Sources) error {
 	return nil
 }
 
-func (w *walker) overlay(o *OverlaySource) error {
-	seen, err := w.fields("sources.overlay", map[string]*string{keySHA256: &o.SHA256}, map[string]*regexp.Regexp{keySHA256: sha256RE},
-		func(key string) (bool, error) {
-			switch key {
-			case "entries":
-				return true, w.integer("sources.overlay.entries", &o.Entries, 0)
-			case "links":
-				return true, w.integer("sources.overlay.links", &o.Links, 1)
-			}
-			return false, nil
-		})
-	if err == nil && !seen["entries"] {
-		err = errors.New("sources.overlay.entries is missing")
+// source reads sources member key into s, reporting whether it knows key.
+func (w *walker) source(key string, s *Sources) (bool, error) {
+	switch key {
+	case "mapping":
+		err := w.fields("sources.mapping", map[string]*string{"revision": &s.Mapping.Revision})
+		if r := s.Mapping.Revision; err == nil && (r == "" || len(r) > maxRevision) {
+			err = fmt.Errorf("sources.mapping.revision is empty or over %d bytes", maxRevision)
+		}
+		return true, err
+	case keyAniDB:
+		err := w.fields("sources.anidb", map[string]*string{"titles_dump": &s.AniDB.TitlesDump})
+		if _, perr := time.Parse(time.DateOnly, s.AniDB.TitlesDump); err == nil && perr != nil {
+			err = fmt.Errorf("sources.anidb.titles_dump %.64q is not a yyyy-mm-dd date", s.AniDB.TitlesDump)
+		}
+		return true, err
 	}
-	return err
+	if indexOf(earlierSources, key) >= 0 {
+		return false, fmt.Errorf("%w: sources.%s is a member of the earlier version 2 shape, which this reader does not read", ErrVersion, key)
+	}
+	return false, nil
 }
 
 func (w *walker) attribution(a *Attribution) error {
-	_, err := w.fields("attribution", map[string]*string{
+	err := w.fields("attribution", map[string]*string{
 		"license": &a.License, "license_url": &a.LicenseURL, "contents_license": &a.ContentsLicense,
 		"contents_license_url": &a.ContentsLicenseURL, "notice": &a.Notice,
-	}, nil, nil)
+	})
 	switch {
 	case err != nil:
 		return err

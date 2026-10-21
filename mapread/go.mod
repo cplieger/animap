@@ -1,6 +1,6 @@
 module github.com/cplieger/animap/mapread
 
-go 1.27.3
+go 1.27.2
 
 require (
 	github.com/cplieger/httpx/v5 v5.1.0
