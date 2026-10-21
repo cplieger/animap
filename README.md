@@ -95,7 +95,7 @@ To skip an unchanged download, compare the release tag `https://github.com/cplie
 A run stops before publishing when one of these checks fails, and the previous release stays the latest:
 
 - The download does not match its SHA-256, or mapread refuses the file.
-- The file was built more than 8 days ago, or its AniDB title list is more than 14 days old. The maintainer can accept an old file on a manual run, and the release notes then say so and why.
+- The file was built more than 8 days ago, or its AniDB title list is more than 22 days old. The maintainer can accept an old file on a manual run, and the release notes then say so and why.
 - Any of six counts falls below 90% of the latest release, unless the maintainer accepts the drop on a manual run. The six are AniList entries, AniList entries with parts, anime on TheTVDB, AniDB episodes on TheTVDB, AniDB episodes with a TMDB movie and AniDB episode ids. With no latest release of this shape, each count must reach a fixed floor instead.
 
 ## Data sources and licence

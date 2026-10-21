@@ -126,8 +126,8 @@ func TestVerifyFreshness(t *testing.T) {
 		"built at the bound":           {built: "2026-10-13T12:00:00Z", dump: "2026-10-19"},
 		"built past the bound":         {built: "2026-10-13T11:59:59Z", dump: "2026-10-19", stale: "generated_at 2026-10-13T11:59:59Z"},
 		"built at the bound lowercase": {built: "2026-10-13t12:00:00z", dump: "2026-10-19"},
-		"dump at the bound":            {built: "2026-10-20T12:00:00Z", dump: "2026-10-07"},
-		"dump past the bound":          {built: "2026-10-20T12:00:00Z", dump: "2026-10-06", stale: "sources.anidb.titles_dump 2026-10-06"},
+		"dump at the bound":            {built: "2026-10-20T12:00:00Z", dump: "2026-09-29"},
+		"dump past the bound":          {built: "2026-10-20T12:00:00Z", dump: "2026-09-28", stale: "sources.anidb.titles_dump 2026-09-28"},
 	} {
 		t.Run(name, func(t *testing.T) {
 			doc := fresh(t)
