@@ -3,14 +3,9 @@
 /.*/
 !/.github/
 
-# DRY_RUN artifacts from scripts/publish.sh and scripts/daily-review.sh
+# DRY_RUN artifacts from scripts/publish.sh
 /animap.json
 /animap.json.*
-/actions.json
-/review.json
-
-# animap explain -json output from a local run
-/explain.json
 
 # Local Go workspace overrides
 go.work

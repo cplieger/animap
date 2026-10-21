@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/cplieger/animap/blob/main/docs/animap.schema.json",
   "title": "animap.json",
-  "description": "Anime ID mapping between AniDB, AniList, TVDB, TMDB and the services anime-offline-database lists. Version 2. See docs/schema.md.",
+  "description": "Anime ID mapping between AniDB, AniList, MyAnimeList, TheTVDB, TMDB movies and IMDb. Version 2. See docs/schema.md.",
   "type": "object",
   "required": ["version", "generated_at", "sources", "attribution", "anime", "entries"],
   "properties": {
@@ -17,46 +17,22 @@
     "id": { "type": "integer", "minimum": 1 },
     "number": { "type": "integer", "minimum": 1, "maximum": 1048576 },
     "ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
-    "keys": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 256 } },
     "type": { "enum": ["TV", "MOVIE", "OVA", "ONA", "SPECIAL", "UNKNOWN"] },
     "kind": { "enum": ["regular", "special", "credit", "promotion", "parody", "other"] },
     "sources": {
       "type": "object",
-      "required": ["anime_offline_database", "anime_lists", "anidb_mirror", "overlay"],
+      "required": ["mapping", "anidb"],
+      "propertyNames": { "not": { "enum": ["anime_offline_database", "anime_lists", "anidb_mirror", "overlay"] } },
       "properties": {
-        "anime_offline_database": {
+        "mapping": {
           "type": "object",
-          "required": ["repository", "release", "asset", "sha256"],
-          "properties": {
-            "repository": { "type": "string" }, "release": { "type": "string" }, "asset": { "type": "string" },
-            "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
-          }
+          "required": ["revision"],
+          "properties": { "revision": { "type": "string", "minLength": 1, "maxLength": 100 } }
         },
-        "anime_lists": {
+        "anidb": {
           "type": "object",
-          "required": ["repository", "commit", "file"],
-          "properties": {
-            "repository": { "type": "string" },
-            "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
-            "file": { "type": "string" }
-          }
-        },
-        "anidb_mirror": {
-          "type": "object",
-          "required": ["repository", "commit"],
-          "properties": {
-            "repository": { "type": "string" },
-            "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" }
-          }
-        },
-        "overlay": {
-          "type": "object",
-          "required": ["sha256", "entries"],
-          "properties": {
-            "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
-            "entries": { "type": "integer", "minimum": 0 },
-            "links": { "type": "integer", "minimum": 1 }
-          }
+          "required": ["titles_dump"],
+          "properties": { "titles_dump": { "type": "string", "format": "date" } }
         }
       }
     },
@@ -77,8 +53,7 @@
         "anidb_id": { "$ref": "#/$defs/id" },
         "type": { "$ref": "#/$defs/type" },
         "tvdb_id": { "$ref": "#/$defs/id" },
-        "tmdb_tv_id": { "$ref": "#/$defs/id" },
-        "tmdb_movie_ids": { "$ref": "#/$defs/ids" },
+        "mal_ids": { "$ref": "#/$defs/ids" },
         "imdb_ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^tt[0-9]{7,10}$" } },
         "last": {
           "type": "object", "minProperties": 1,
@@ -101,39 +76,33 @@
         "start": { "$ref": "#/$defs/number" },
         "end": { "$ref": "#/$defs/number" },
         "anidb_episode_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" } },
-        "tvdb": { "$ref": "#/$defs/targets" },
-        "tmdb": { "$ref": "#/$defs/targets" }
+        "tvdb": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/target" } },
+        "tmdb_movies": { "$ref": "#/$defs/ids" }
       }
     },
-    "targets": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/target" } },
     "target": {
       "type": "object",
       "required": ["season", "episode"],
       "properties": {
+        "series": { "$ref": "#/$defs/id" },
         "season": { "type": "integer", "minimum": 0, "maximum": 1048576 },
         "episode": { "$ref": "#/$defs/number" },
+        "episode_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" } },
         "default": { "const": true }
       }
     },
     "entry": {
       "type": "object",
+      "required": ["anilist_id"],
       "properties": {
         "anilist_id": { "$ref": "#/$defs/id" },
         "type": { "$ref": "#/$defs/type" },
-        "episodes": { "$ref": "#/$defs/number" },
         "ids": {
           "type": "object", "minProperties": 1,
-          "properties": {
-            "anidb": { "$ref": "#/$defs/ids" }, "animecountdown": { "$ref": "#/$defs/ids" },
-            "anisearch": { "$ref": "#/$defs/ids" }, "ann": { "$ref": "#/$defs/ids" },
-            "kitsu": { "$ref": "#/$defs/ids" }, "livechart": { "$ref": "#/$defs/ids" },
-            "mal": { "$ref": "#/$defs/ids" }, "simkl": { "$ref": "#/$defs/ids" },
-            "animeplanet": { "$ref": "#/$defs/keys" }, "notifymoe": { "$ref": "#/$defs/keys" }
-          }
+          "properties": { "anidb": { "$ref": "#/$defs/ids" }, "mal": { "$ref": "#/$defs/ids" } }
         },
         "parts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/part" } }
-      },
-      "anyOf": [{ "required": ["anilist_id"] }, { "required": ["ids"] }]
+      }
     },
     "part": {
       "type": "object",

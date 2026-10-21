@@ -21,13 +21,13 @@ import (
 	"github.com/santhosh-tekuri/jsonschema/v6"
 )
 
-// goldens are the documents the oracle mutates: the root golden builds.
-var goldens = []string{"../../testdata/golden/animap.json", "../../testdata/golden/animap-place.json"}
+// goldens are the documents the oracle mutates: mapread's own fixtures.
+var goldens = []string{"../../mapread/testdata/mini.json", "../../mapread/testdata/place.json", "../../mapread/testdata/series.json"}
 
 // schemaRule is one rule docs/schema.md lists as beyond the JSON Schema:
-// refused names the decoder's refusal of it, and each edit of
-// testdata/golden/animap.json (old to new, once) gives a schema-valid
-// document that keeps the rule or breaks it.
+// refused names the decoder's refusal of it, and each edit of goldens[0]
+// (old to new, once) gives a schema-valid document that keeps the rule or
+// breaks it.
 type schemaRule struct {
 	refused  *regexp.Regexp
 	name     string
@@ -76,6 +76,11 @@ var schemaRules = []schemaRule{
 		},
 	},
 	{
+		name: "`sources.mapping.revision` at most 100 bytes", refused: regexp.MustCompile(`revision is empty or over 100 bytes`),
+		accepted: [][2]string{{`"revision":"mini"`, `"revision":"` + strings.Repeat("翼", 33) + `"`}},
+		broken:   [][2]string{{`"revision":"mini"`, `"revision":"` + strings.Repeat("翼", 34) + `"`}},
+	},
+	{
 		name: "`start` at most `end`, in a run and in a part", refused: regexp.MustCompile(`starts at \d+ after its end`),
 		accepted: [][2]string{{`{"kind":"regular","start":1,"end":2,"tvdb"`, `{"kind":"regular","start":2,"end":2,"tvdb"`}},
 		broken: [][2]string{
@@ -89,18 +94,22 @@ var schemaRules = []schemaRule{
 		broken:   [][2]string{{`{"kind":"regular","start":1,"end":2,"tvdb":[{"season":0,"episode":1}]}`, `{"kind":"regular","start":1,"end":2,"tvdb":[{"season":0,"episode":1048576}]}`}},
 	},
 	{
-		name:     "the order of the anime, of the AniList entries, of the runs, of the targets and of each `ids` list",
-		refused:  regexp.MustCompile(`is not after|follows an entry with no AniList id|is not ascending and unique`),
-		accepted: [][2]string{{`"ids":{"anidb":[16,17]}`, `"ids":{"anidb":[16,17],"kitsu":[1,9]}`}},
+		name:    "the order of the anime, of the entries, of the runs, of the targets and of each id list",
+		refused: regexp.MustCompile(`is not after|is not ascending and unique`),
+		accepted: [][2]string{{
+			`"tvdb":[{"season":0,"episode":4,"episode_ids":[5054]},{"season":0,"episode":5}]`,
+			`"tvdb":[{"series":5000,"season":0,"episode":1},{"season":0,"episode":4,"episode_ids":[5054]},{"season":0,"episode":5}]`,
+		}},
 		broken: [][2]string{
 			{`{"anidb_id":12,`, `{"anidb_id":9,`},
 			{`{"anilist_id":101,`, `{"anilist_id":99,`},
-			{`{"type":"TV","episodes":3,"ids":{"mal":[1007]}}`, `{"anilist_id":200,"type":"TV","episodes":3,"ids":{"mal":[1007]}}`},
-			{`"tvdb":[{"season":0,"episode":4},{"season":0,"episode":5}]`, `"tvdb":[{"season":0,"episode":5},{"season":0,"episode":4}]`},
+			{`"tvdb":[{"season":0,"episode":4,"episode_ids":[5054]},{"season":0,"episode":5}]`, `"tvdb":[{"season":0,"episode":5},{"season":0,"episode":4,"episode_ids":[5054]}]`},
+			{`"tvdb":[{"season":0,"episode":4,"episode_ids":[5054]},{"season":0,"episode":5}]`, `"tvdb":[{"season":0,"episode":4,"episode_ids":[5054]},{"season":0,"episode":5},{"series":5000,"season":0,"episode":1}]`},
 			{`"ids":{"anidb":[16,17]}`, `"ids":{"anidb":[17,16]}`},
+			{`"tmdb_movies":[77,78]`, `"tmdb_movies":[78,77]`},
 			{
-				`{"kind":"special","start":1,"end":1,"tvdb":[{"season":0,"episode":2}],"tmdb":[{"season":0,"episode":1,"default":true}]},{"kind":"special","start":3,"end":3,"tvdb":[],"tmdb":[{"season":0,"episode":3,"default":true}]}`,
-				`{"kind":"special","start":3,"end":3,"tvdb":[],"tmdb":[{"season":0,"episode":3,"default":true}]},{"kind":"special","start":1,"end":1,"tvdb":[{"season":0,"episode":2}],"tmdb":[{"season":0,"episode":1,"default":true}]}`,
+				`{"kind":"regular","start":1,"end":12,"tvdb":[{"season":1,"episode":1,"default":true}]},{"kind":"special","start":1,"end":1,"tvdb":[{"season":0,"episode":2}],"tmdb_movies":[79]}`,
+				`{"kind":"special","start":1,"end":1,"tvdb":[{"season":0,"episode":2}],"tmdb_movies":[79]},{"kind":"regular","start":1,"end":12,"tvdb":[{"season":1,"episode":1,"default":true}]}`,
 			},
 		},
 	},
@@ -116,7 +125,7 @@ var schemaRules = []schemaRule{
 		}},
 	},
 	{
-		name: "`end` within `last`, except on a run of regular episodes AniDB lists that states no site", refused: regexp.MustCompile(`ends past last\.`),
+		name: "`end` within `last`, except on a run of regular episodes AniDB lists that states no landing", refused: regexp.MustCompile(`ends past last\.`),
 		accepted: [][2]string{{`"last":{"regular":24}}`, `"last":{"regular":24},"episodes_listed":true,"episodes":[{"kind":"regular","start":25,"end":25,"anidb_episode_ids":[7]}]}`}},
 		broken: [][2]string{
 			{`"last":{"regular":2},"episodes":[{"kind":"regular","start":1,"end":2,`, `"last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":2,`},
@@ -133,20 +142,43 @@ var schemaRules = []schemaRule{
 		},
 	},
 	{
-		name: "`tvdb` only with `tvdb_id`, and `tmdb` only with `tmdb_tv_id`", refused: regexp.MustCompile(`states (tvdb|tmdb) on a row with no`),
-		accepted: [][2]string{{`{"anidb_id":30,"tvdb_id":5006}`, `{"anidb_id":30,"tvdb_id":5006,"last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tvdb":[{"season":1,"episode":1}]}]}`}},
+		name:     "one TVDB episode id per episode of its run in a target's `episode_ids`",
+		refused:  regexp.MustCompile(`TVDB episode ids for \d+ episodes`),
+		accepted: [][2]string{{`"tvdb":[{"season":0,"episode":1}]}`, `"tvdb":[{"season":0,"episode":1,"episode_ids":[51,52]}]}`}},
+		broken:   [][2]string{{`"tvdb":[{"season":0,"episode":1}]}`, `"tvdb":[{"season":0,"episode":1,"episode_ids":[51]}]}`}},
+	},
+	{
+		name:    "a target's `series` other than its row's `tvdb_id`, and on a row with no `tvdb_id`, a `series` on every target and no empty `tvdb`",
+		refused: regexp.MustCompile(`names series \d+, the row's tvdb_id|names no series on a row with no tvdb_id|states tvdb \[\] on a row with no tvdb_id`),
+		accepted: [][2]string{
+			{`{"anidb_id":30,"tvdb_id":5006}`, `{"anidb_id":30,"tvdb_id":5006,"last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tvdb":[{"series":5007,"season":1,"episode":1}]}]}`},
+			{`{"anidb_id":14,"type":"MOVIE","last":{"regular":1}}`, `{"anidb_id":14,"type":"MOVIE","last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tvdb":[{"series":5008,"season":1,"episode":1}]}]}`},
+		},
 		broken: [][2]string{
-			{`{"kind":"regular","start":1,"end":1,"tvdb":[{"season":0,"episode":3}]}`, `{"kind":"regular","start":1,"end":1,"tvdb":[{"season":0,"episode":3}],"tmdb":[]}`},
-			{`{"anidb_id":12,"type":"OVA","tvdb_id":5001,`, `{"anidb_id":12,"type":"OVA","tmdb_tv_id":5001,`},
+			{`{"anidb_id":30,"tvdb_id":5006}`, `{"anidb_id":30,"tvdb_id":5006,"last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tvdb":[{"series":5006,"season":1,"episode":1}]}]}`},
+			{`{"anidb_id":14,"type":"MOVIE","last":{"regular":1}}`, `{"anidb_id":14,"type":"MOVIE","last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tvdb":[{"season":1,"episode":1}]}]}`},
+			{`{"anidb_id":14,"type":"MOVIE","last":{"regular":1}}`, `{"anidb_id":14,"type":"MOVIE","last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tvdb":[],"tmdb_movies":[9]}]}`},
 		},
 	},
 	{
-		name:     "no run AniDB lists none of on a row with neither, and no such run that lands nowhere on every site",
-		refused:  regexp.MustCompile(`lands nowhere on every site`),
-		accepted: [][2]string{{`"last":{"regular":24}}`, `"last":{"regular":24},"episodes_listed":true,"episodes":[{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[7]}]}`}},
+		name:    "no run that lists no AniDB episode and states no landing",
+		refused: regexp.MustCompile(`states no landing, which no run says`),
+		accepted: [][2]string{
+			{`"last":{"regular":24}}`, `"last":{"regular":24},"episodes_listed":true,"episodes":[{"kind":"regular","start":1,"end":1,"anidb_episode_ids":[7]}]}`},
+			{`{"anidb_id":14,"type":"MOVIE","last":{"regular":1}}`, `{"anidb_id":14,"type":"MOVIE","last":{"regular":1},"episodes":[{"kind":"regular","start":1,"end":1,"tmdb_movies":[9]}]}`},
+		},
 		broken: [][2]string{
 			{`{"anidb_id":19,"type":"TV","tvdb_id":5004,`, `{"anidb_id":19,"type":"TV",`},
 			{`{"kind":"regular","start":1,"end":2,"tvdb":[{"season":0,"episode":1}]}`, `{"kind":"regular","start":1,"end":2,"tvdb":[]}`},
+		},
+	},
+	{
+		name:     "one TVDB episode id per TVDB episode, and one TVDB episode per id, across the rows",
+		refused:  regexp.MustCompile(`has the episode ids|TVDB episode id \d+ names`),
+		accepted: [][2]string{{`{"kind":"regular","start":2,"end":2,"tvdb":[{"season":0,"episode":6}]}`, `{"kind":"regular","start":2,"end":2,"tvdb":[{"season":0,"episode":4,"episode_ids":[5054]}]}`}},
+		broken: [][2]string{
+			{`{"kind":"regular","start":2,"end":2,"tvdb":[{"season":0,"episode":6}]}`, `{"kind":"regular","start":2,"end":2,"tvdb":[{"season":0,"episode":4,"episode_ids":[5099]}]}`},
+			{`"tvdb":[{"season":0,"episode":1}]}`, `"tvdb":[{"season":0,"episode":1,"episode_ids":[5054,52]}]}`},
 		},
 	},
 	{
@@ -492,7 +524,7 @@ var instants = []struct {
 // instants), each object given an unknown member and a repeated or removed
 // one, and each array emptied, shortened, repeated or reordered. keeps
 // marks a mutation no listed rule reads: an unknown member after version,
-// a UTC instant, or valid text in sources or attribution.
+// a UTC instant, or valid text in attribution.
 func mutate(t *tree, key, at string, emit func(where string, keeps bool)) {
 	replace := func(what string, with *tree, keeps bool) {
 		saved := *t
@@ -504,7 +536,7 @@ func mutate(t *tree, key, at string, emit func(where string, keeps bool)) {
 		v, _ := parseTree([]byte(s))
 		replace(s, v, false)
 	}
-	free := strings.HasPrefix(at, ".sources.") || strings.HasPrefix(at, ".attribution.")
+	free := strings.HasPrefix(at, ".attribution.")
 	switch {
 	case key == "generated_at":
 		for _, in := range instants {
