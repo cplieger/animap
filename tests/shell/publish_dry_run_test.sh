@@ -104,14 +104,26 @@ got_log=$(sed -E 's#/tmp/tmp\.[A-Za-z0-9]+#@WORK@#g' "$STUB_LOG")
   && ok "a dry run prints the tag and the notes, keeps ./animap.json, and signs, tags and releases nothing" \
   || no "dry run outcome" "rc=$_rc out=$_out log=$_log"
 
+publish "${dry[@]}" publish_export_token=inherited
+[ "$_rc" -eq 0 ] && [[ "$_out" == *"publish: DRY RUN"* ]] \
+  && ok "a variable of the token copy's name in the environment does not carry the token to any command" \
+  || no "inherited token copy" "rc=$_rc err=$_err"
+
 # --- 4. a dry run with ACCEPT_STALE ---------------------------------------------
-publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=held
+stale_export() { verdict earlier-shape true '["titles_dump is 20.0 days old","generated_at is 9.0 days old"]'; }
+BEFORE_PUBLISH=stale_export publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=held
 [ "$_rc" -eq 0 ] && logged '^go run ./cmd/animap verify -in [^ ]+/export/animap.json -previous [^ ]+/previous.json -accept-stale$' \
   && [[ "$_out" == *"publish: DRY RUN, would release v2026.10.21"* ]] \
-  && [[ "$_out" == *"Published with the freshness checks overridden: held"* ]] \
+  && grep -qx 'Published with the freshness checks overridden: held (titles_dump is 20.0 days old; generated_at is 9.0 days old)' "$WORK/out" \
   && [ ! -e "$STUB_DIR/created" ] && ! logged '^cosign ' \
-  && ok "a dry run with ACCEPT_STALE passes -accept-stale and the notes give the reason" \
+  && ok "a dry run with ACCEPT_STALE passes -accept-stale and the notes give the reason and what was out of bound" \
   || no "dry run with ACCEPT_STALE" "rc=$_rc out=$_out log=$_log err=$_err"
+
+publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=held
+[ "$_rc" -eq 0 ] && logged ' -accept-stale$' && [[ "$_out" == *"publish: DRY RUN"* ]] \
+  && [[ "$_out" != *"overridden"* ]] \
+  && ok "ACCEPT_STALE on a fresh export overrides nothing, and the notes say nothing of it" \
+  || no "ACCEPT_STALE on a fresh export" "rc=$_rc out=$_out err=$_err"
 
 publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=
 [ "$_rc" -eq 1 ] && [ -z "$_log" ] && [[ "$_err" == *"publish: ERROR ACCEPT_STALE needs STALE_REASON"* ]] \
@@ -147,6 +159,12 @@ BEFORE_PUBLISH=latest_is_a_data_release publish "${dry[@]}"
 [ "$_rc" -eq 1 ] && ! logged 'release download' && [[ "$_err" == *"the export release v2026.10.19 is not an export- tag"* ]] \
   && ok "a latest export release that is not an export- tag stops the run" \
   || no "latest not an export" "rc=$_rc log=$_log err=$_err"
+
+latest_lookup_fails() { rm -f "$STUB_DIR/latest-export"; }
+BEFORE_PUBLISH=latest_lookup_fails publish "${dry[@]}"
+[ "$_rc" -eq 1 ] && ! logged 'release download' && [[ "$_err" != *"is not an export- tag"* ]] \
+  && ok "a failed latest export lookup stops the run as that failure" \
+  || no "latest lookup fails" "rc=$_rc log=$_log err=$_err"
 
 publish DRY_RUN=1 GH_TOKEN="$PUBLIC_TOKEN" GITHUB_SHA="$SHA"
 [ "$_rc" -ne 0 ] && [ -z "$_log" ] && [[ "$_err" == *"set ANIMAP_EXPORT_TOKEN"* ]] \
@@ -191,8 +209,8 @@ publish "${dry[@]}"
 
 # --- 7. the shell the local command line uses -----------------------------------
 if command -v dash >/dev/null 2>&1; then
-  PUBLISH_SHELL=dash publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=held
-  [ "$_rc" -eq 0 ] && [[ "$_out" == *"publish: DRY RUN, would release v2026.10.21"*"overridden: held"* ]] \
+  PUBLISH_SHELL=dash BEFORE_PUBLISH=stale_export publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=held
+  [ "$_rc" -eq 0 ] && [[ "$_out" == *"publish: DRY RUN, would release v2026.10.21"*"overridden: held (titles_dump"* ]] \
     && ok "under dash, as sh runs it, the dry run behaves the same" \
     || no "dry run under dash" "rc=$_rc out=$_out err=$_err"
 else

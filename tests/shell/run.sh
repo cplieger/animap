@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Shell unit tests for the publish and drift scripts. The Go suite cannot
-# reach them: they only run in the release workflows, against the live GitHub
-# API, so a lookup that misreads a failure as "absent" surfaces as a failed
-# or wrong release. Each test extracts the shipped function or block and
-# runs it with gh, curl and date stubbed on PATH.
+# Shell unit tests for the publish script. The Go suite cannot reach it: it
+# runs only in the publish workflow, against the live GitHub API, so a lookup
+# that misreads a failure as "absent" surfaces as a failed or wrong release.
+# Each test runs the shipped script or function with the commands that spawn
+# a process or reach the network stubbed on PATH.
 set -u
 
 cd -- "$(dirname -- "$0")" || exit 1

@@ -4,7 +4,7 @@
 
 animap turns an AniList or AniDB anime id into its TheTVDB series, seasons and episodes, its TMDB movies and its MyAnimeList and IMDb ids, from one JSON file.
 
-The mapping lives in a database the project maintains privately and reviews, and a new file is built from it each week. A tool downloads `animap.json`, about 11 MB, and reads it with any JSON parser, or in Go with the [mapread](mapread/README.md) module. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
+The mapping lives in a database the project maintains privately and checks against AniDB's episode lists, TheTVDB's official episode order and TMDB, and a new file is built from it each week. A tool downloads `animap.json`, about 11 MB, and reads it with any JSON parser, or in Go with the [mapread](mapread/README.md) module. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
 
 ## Why use it
 
@@ -14,7 +14,7 @@ animap is built for tools beside Sonarr and Radarr that need the id, season and 
 - Each film and special names its TMDB movie, where TMDB holds one.
 - It answers both ways, from an AniList entry to its TheTVDB episodes, and from a TheTVDB episode or a TMDB movie to every AniDB episode on it.
 - A placement that rests only on a default carried over from Anime-Lists is flagged.
-- A release is published only when it keeps 90% of each count and is at most 8 days old.
+- A release is published only once it passes the checks under [How often it changes](#how-often-it-changes).
 
 Consider [arm-server](https://github.com/BeeeQueue/arm-server) if you want lookups through an HTTP API.
 
@@ -116,7 +116,7 @@ TVDB data is provided by [TheTVDB](https://thetvdb.com), which gives the series 
 
 ## Contributing
 
-Issues and pull requests are welcome. To report a bad mapping, give the AniList or AniDB id, what the file says and should say, and the AniDB, TheTVDB or TMDB page that shows it. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Pull requests are welcome for the code and docs. A bad mapping is reported in an issue with the AniList or AniDB id, what the file says and should say, and the page that shows it. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Disclaimer
 

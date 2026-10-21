@@ -68,7 +68,8 @@ var ErrCoverage = errors.New("release: coverage collapsed")
 
 // Coverage compares cur against prev (nil for no comparable release, which
 // checks every population against Floors). With acceptShrink a deliberate
-// shrink passes; extinction and a population below its floor never do.
+// shrink passes; extinction never does, nor, with no comparable release, a
+// population below its floor.
 func Coverage(prev *Populations, cur Populations, acceptShrink bool) error {
 	if prev == nil {
 		for _, p := range pops(&Floors, &cur) {

@@ -52,18 +52,24 @@ read_options() {
   fi
 }
 
-# export_gh runs gh with the export token, which no other command sees.
-export_gh() {
-  GH_TOKEN="$ANIMAP_EXPORT_TOKEN" gh "$@"
+# take_export_token moves ANIMAP_EXPORT_TOKEN into an unexported variable
+# before main spawns anything, so only export_gh hands it to a command. The
+# unset first drops an export attribute the name may have inherited.
+take_export_token() {
+  unset publish_export_token
+  publish_export_token=${ANIMAP_EXPORT_TOKEN:-}
+  unset ANIMAP_EXPORT_TOKEN
 }
 
-# export_tag prints the export release to read: EXPORT_TAG, or the export
-# repository's latest release, either an export- tag.
+export_gh() {
+  GH_TOKEN="$publish_export_token" gh "$@"
+}
+
 export_tag() {
   if [ -n "${EXPORT_TAG:-}" ]; then
     et_tag=$EXPORT_TAG
   else
-    et_tag=$(export_gh api "repos/${EXPORT_REPO}/releases/latest" --jq .tag_name)
+    et_tag=$(export_gh api "repos/${EXPORT_REPO}/releases/latest" --jq .tag_name) || exit 1
   fi
   if ! printf '%s' "$et_tag" | grep -Eqx 'export-[A-Za-z0-9._-]+' || [ "$(printf '%s' "$et_tag" | wc -l)" -ne 0 ]; then
     echo "publish: ERROR the export release ${et_tag} is not an export- tag" >&2
@@ -72,8 +78,6 @@ export_tag() {
   printf '%s\n' "$et_tag"
 }
 
-# check_sum stops the run unless $1/animap.json.sha256 is exactly the
-# sha256sum line of $1/animap.json.
 check_sum() {
   cs_want="$(sha256sum "$1/animap.json" | cut -d' ' -f1)  animap.json"
   if [ "$(cat "$1/animap.json.sha256")" != "$cs_want" ]; then
@@ -83,12 +87,11 @@ check_sum() {
 }
 
 download() {
-  : "${ANIMAP_EXPORT_TOKEN:?set ANIMAP_EXPORT_TOKEN to a token that reads ${EXPORT_REPO} releases}"
+  : "${publish_export_token:?set ANIMAP_EXPORT_TOKEN to a token that reads ${EXPORT_REPO} releases}"
   dl_tag=$(export_tag)
   mkdir -p "$1"
   export_gh release download "$dl_tag" --repo "$EXPORT_REPO" --pattern animap.json --pattern animap.json.sha256 --dir "$1" --clobber
   check_sum "$1"
-  printf '%s\n' "$dl_tag" >"$1/tag"
   echo "publish: downloaded ${EXPORT_REPO} ${dl_tag}"
 }
 
@@ -163,7 +166,6 @@ check_tag() {
   fi
 }
 
-# write_notes prints the release notes from verify's verdict in $1.
 write_notes() {
   jq -r '
     "content_hash: \(.content_hash)",
@@ -172,8 +174,9 @@ write_notes() {
     "",
     "AniList entries: \(.census.entries). AniList entries with AniDB parts: \(.census.entries_with_parts). Anime on TVDB: \(.census.rows_on_tvdb). AniDB episodes on TVDB: \(.census.episodes_on_tvdb). AniDB episodes with a TMDB movie: \(.census.episodes_with_movies). AniDB episode ids: \(.census.anidb_episode_ids).",
     ""' "$1"
-  if [ "$ACCEPT_STALE" = 1 ]; then
-    printf 'Published with the freshness checks overridden: %s\n\n' "$STALE_REASON"
+  # verify lists what was out of bound only when -accept-stale let it pass.
+  if [ "$(jq '.stale // [] | length' "$1")" -gt 0 ]; then
+    printf 'Published with the freshness checks overridden: %s (%s)\n\n' "$STALE_REASON" "$(jq -r '.stale | join("; ")' "$1")"
   fi
   if [ "$(jq -r .previous "$1")" = earlier-shape ]; then
     printf 'This release changes the file to a new shape of format version 2, described in [docs/schema.md](https://github.com/%s/blob/main/docs/schema.md). Entries without an AniList id were removed by the change.\n\n' "$REPO"
@@ -301,6 +304,7 @@ usage() {
 }
 
 main() {
+  take_export_token
   WORK=$(mktemp -d)
   trap 'rm -rf "$WORK"' EXIT
   case "${1:-}" in
@@ -317,7 +321,6 @@ main() {
       [ "$#" -eq 0 ] || usage
       read_options
       download "$WORK/export"
-      unset ANIMAP_EXPORT_TOKEN
       release "$WORK/export"
       ;;
     *) usage ;;

@@ -1,6 +1,6 @@
 # Data sources and licences
 
-`animap.json` is built from animap's own mapping database, which the project maintains privately and reviews. The database is checked against AniDB's episode lists, TheTVDB's official episode order and TMDB, and a new file is built from it each week. This page names each source the file holds information from, what it holds, and the licence that applies.
+`animap.json` is built from animap's own mapping database, which the project maintains privately and checks against AniDB's episode lists, TheTVDB's official episode order and TMDB. A new file is built from it each week. This page names each source the file holds information from, what it holds, and the licence that applies.
 
 ## The published file
 

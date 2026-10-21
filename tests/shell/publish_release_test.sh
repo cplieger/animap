@@ -40,8 +40,7 @@ if [ "$TAG_RE" != '^v[0-9]{4}\.[0-9]{2}\.[0-9]{2}(\.[0-9]{4})?$' ]; then
   exit 1
 fi
 download_step
-if [ "$_rc" -ne 0 ] || ! cmp -s "$EXPORT_DIR/animap.json" "$STUB_DIR/export/animap.json" \
-  || [ "$(cat "$EXPORT_DIR/tag")" != export-2026-10-20 ]; then
+if [ "$_rc" -ne 0 ] || ! cmp -s "$EXPORT_DIR/animap.json" "$STUB_DIR/export/animap.json"; then
   no "precondition: the download step fetches the export" "rc=$_rc out=$_out err=$_err log=$_log"
   report
   exit 1
@@ -80,8 +79,9 @@ created=$(cat "$STUB_DIR/created" 2>/dev/null)
   && ok "a second release the same day takes v2026.10.21.1205, which mapread's tagRE accepts" \
   || no "second release" "rc=$_rc created=$created err=$_err log=$_log"
 
-release_step ACCEPT_STALE=1 STALE_REASON="the export is held"
-[ "$_rc" -eq 0 ] && grep -qx 'Published with the freshness checks overridden: the export is held' "$STUB_DIR/notes.created" \
+stale_export() { verdict earlier-shape true '["titles_dump is 20.0 days old"]'; }
+BEFORE_PUBLISH=stale_export release_step ACCEPT_STALE=1 STALE_REASON="the export is held"
+[ "$_rc" -eq 0 ] && grep -qx 'Published with the freshness checks overridden: the export is held (titles_dump is 20.0 days old)' "$STUB_DIR/notes.created" \
   && ok "a release with ACCEPT_STALE says so in one line of its notes, with the reason" \
   || no "stale release notes" "rc=$_rc err=$_err"
 

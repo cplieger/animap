@@ -24,8 +24,6 @@ const (
 
 var now = time.Date(2026, 10, 21, 12, 0, 0, 0, time.UTC)
 
-// fresh is the mini fixture built a day before now on a dump two days
-// before it.
 func fresh(t *testing.T) *mapread.Document {
 	t.Helper()
 	f, err := os.Open(miniFixture)
@@ -63,7 +61,6 @@ func noFloors(t *testing.T) {
 	t.Cleanup(func() { release.Floors = saved })
 }
 
-// verify runs the command and decodes the verdict it prints.
 func verify(t *testing.T, args ...string) (verdict, error) {
 	t.Helper()
 	var out bytes.Buffer

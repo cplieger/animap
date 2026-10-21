@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Runs the whole of scripts/publish.sh against stubs of everything that
 # reaches the network or the clock: gh, curl, go, cosign, date and sleep.
-# Each stub logs its argv to $STUB_LOG and refuses an argv the script does
-# not send. Sourced by publish_*_test.sh after lib.sh and new_workdir.
+# Each stub logs its argv to $STUB_LOG, refuses an argv the script does not
+# send, and refuses to run while the export token is in its environment
+# anywhere but gh's GH_TOKEN. Sourced by publish_*_test.sh after lib.sh and
+# new_workdir.
 # SC2016: the stub bodies stay literal.
 # shellcheck disable=SC2016
 
@@ -26,15 +28,20 @@ setup_publish() {
   export PATH="$STUB_DIR/bin:$PATH"
 }
 
-# verdict <previous> <changed>: the verdict the go stub prints.
+# verdict <previous> <changed> [stale]: the verdict the go stub prints;
+# stale, a JSON array, is what -accept-stale let pass, absent as in verify's.
 verdict() {
-  printf '{"content_hash":"%s","previous":"%s","changed":%s,"generated_at":"2026-10-20T08:30:00Z","revision":"rev-1","titles_dump":"2026-10-19","notice":"the notice","census":{"entries":21000,"entries_with_parts":13000,"rows_on_tvdb":7000,"episodes_on_tvdb":140000,"episodes_with_movies":2900,"anidb_episode_ids":290000}}\n' \
-    "$HASH" "$1" "$2" >"$STUB_DIR/verdict.json"
+  printf '{"content_hash":"%s","previous":"%s","changed":%s,%s"generated_at":"2026-10-20T08:30:00Z","revision":"rev-1","titles_dump":"2026-10-19","notice":"the notice","census":{"entries":21000,"entries_with_parts":13000,"rows_on_tvdb":7000,"episodes_on_tvdb":140000,"episodes_with_movies":2900,"anidb_episode_ids":290000}}\n' \
+    "$HASH" "$1" "$2" "${3:+\"stale\":$3,}" >"$STUB_DIR/verdict.json"
 }
 
 write_stubs() {
   cat >"$STUB_DIR/bin/gh" <<'EOF'
 #!/usr/bin/env bash
+if env | grep -v -e '^EXPORT_TOKEN=' -e '^GH_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
+  echo "stub gh: the export token is in the environment" >&2
+  exit 95
+fi
 case "${GH_TOKEN:-}" in
   "$EXPORT_TOKEN") token=export ;;
   "$PUBLIC_TOKEN") token=public ;;
@@ -80,6 +87,10 @@ esac
 EOF
   cat >"$STUB_DIR/bin/curl" <<'EOF'
 #!/usr/bin/env bash
+if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
+  echo "stub curl: the export token is in the environment" >&2
+  exit 95
+fi
 printf 'curl %s\n' "$*" >>"$STUB_LOG"
 latest=https://github.com/cplieger/animap/releases/latest/download/animap.json
 if [ "$#" -eq 15 ] && [ "$*" = "--proto =https --tlsv1.2 --connect-timeout 20 --max-time 120 --retry 3 -sSL -o ${12} -w %{http_code} $latest" ]; then
@@ -98,12 +109,12 @@ fi
 EOF
   cat >"$STUB_DIR/bin/go" <<'EOF'
 #!/usr/bin/env bash
-printf 'go %s\n' "$*" >>"$STUB_LOG"
-[ "$PWD" = "$REPO_COPY" ] || exit 97
-if [ -n "${ANIMAP_EXPORT_TOKEN:-}" ]; then
-  echo "stub go: the export token reached verify" >&2
+if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
+  echo "stub go: the export token is in the environment" >&2
   exit 95
 fi
+printf 'go %s\n' "$*" >>"$STUB_LOG"
+[ "$PWD" = "$REPO_COPY" ] || exit 97
 case "$*" in
   "run ./cmd/animap verify -in "*"/animap.json -previous "*"/previous.json" | \
     "run ./cmd/animap verify -in "*"/animap.json -previous "*"/previous.json -accept-shrink" | \
@@ -123,12 +134,20 @@ cat "$STUB_DIR/verdict.json"
 EOF
   cat >"$STUB_DIR/bin/cosign" <<'EOF'
 #!/usr/bin/env bash
+if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
+  echo "stub cosign: the export token is in the environment" >&2
+  exit 95
+fi
 printf 'cosign %s\n' "$*" >>"$STUB_LOG"
 [ "$*" = "sign-blob --yes animap.json --bundle animap.json.sigstore.json" ] || exit 99
 printf '{"bundle":true}\n' >animap.json.sigstore.json
 EOF
   cat >"$STUB_DIR/bin/date" <<'EOF'
 #!/usr/bin/env bash
+if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
+  echo "stub date: the export token is in the environment" >&2
+  exit 95
+fi
 case "$*" in
   '-u +%Y.%m.%d') cat "$STUB_DIR/day" ;;
   '-u +%H%M') echo 1205 ;;
@@ -141,6 +160,10 @@ esac
 EOF
   cat >"$STUB_DIR/bin/sleep" <<'EOF'
 #!/usr/bin/env bash
+if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
+  echo "stub sleep: the export token is in the environment" >&2
+  exit 95
+fi
 printf 'sleep %s\n' "$*" >>"$STUB_LOG"
 exit 98
 EOF
