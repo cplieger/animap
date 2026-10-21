@@ -37,6 +37,15 @@ if [ "$_rc" -ne 0 ] || ! logged '^gh api repos/cplieger/animap-source/releases/l
   exit 1
 fi
 ok "precondition: a dry run reaches the export, verify and tag stubs"
+rm -f "$STUB_DIR/leaked"
+_rc=0
+env LEAK="x${EXPORT_TOKEN}x" dirname /a/b >/dev/null 2>&1 || _rc=$?
+if [ "$_rc" -ne 95 ] || [ "$(cat "$STUB_DIR/leaked" 2>/dev/null)" != dirname ]; then
+  no "precondition: a wrapped command refuses the export token" "rc=$_rc"
+  report
+  exit 1
+fi
+ok "precondition: a wrapped command refuses to run with the export token in its environment"
 
 # --- 1. DRY_RUN ------------------------------------------------------------------
 for live in unset 0 ''; do
@@ -96,6 +105,9 @@ got_log=$(sed -E 's#/tmp/tmp\.[A-Za-z0-9]+#@WORK@#g' "$STUB_LOG")
 [ "$_rc" -eq 0 ] && [ "$got_log" = "$want_log" ] \
   && ok "a dry run reads the latest export with the export token alone, verifies it without the token and looks up today's tag, in that order" \
   || no "dry run calls" "rc=$_rc log=$got_log err=$_err"
+[ "$_rc" -eq 0 ] && [ ! -e "$STUB_DIR/leaked" ] \
+  && ok "no command the dry run spawns but gh, under GH_TOKEN, sees the export token, dirname included" \
+  || no "export token leaked" "rc=$_rc leaked=$(cat "$STUB_DIR/leaked" 2>/dev/null) err=$_err"
 [[ "$_out" == *"publish: DRY RUN, would release v2026.10.21 at $SHA; artifact at ./animap.json; the notes:"* ]] \
   && [[ "$_out" == *"content_hash: $HASH"*"revision: rev-1"*"titles_dump: 2026-10-19"*"AniList entries: 21000."*"the notice"*"Verify the download:"* ]] \
   && [[ "$_out" != *"freshness checks overridden"* ]] \
@@ -105,7 +117,7 @@ got_log=$(sed -E 's#/tmp/tmp\.[A-Za-z0-9]+#@WORK@#g' "$STUB_LOG")
   || no "dry run outcome" "rc=$_rc out=$_out log=$_log"
 
 publish "${dry[@]}" publish_export_token=inherited
-[ "$_rc" -eq 0 ] && [[ "$_out" == *"publish: DRY RUN"* ]] \
+[ "$_rc" -eq 0 ] && [[ "$_out" == *"publish: DRY RUN"* ]] && [ ! -e "$STUB_DIR/leaked" ] \
   && ok "a variable of the token copy's name in the environment does not carry the token to any command" \
   || no "inherited token copy" "rc=$_rc err=$_err"
 
@@ -211,7 +223,8 @@ publish "${dry[@]}"
 if command -v dash >/dev/null 2>&1; then
   PUBLISH_SHELL=dash BEFORE_PUBLISH=stale_export publish "${dry[@]}" ACCEPT_STALE=1 STALE_REASON=held
   [ "$_rc" -eq 0 ] && [[ "$_out" == *"publish: DRY RUN, would release v2026.10.21"*"overridden: held (titles_dump"* ]] \
-    && ok "under dash, as sh runs it, the dry run behaves the same" \
+    && [ ! -e "$STUB_DIR/leaked" ] \
+    && ok "under dash, as sh runs it, the dry run behaves the same and no command but gh sees the export token" \
     || no "dry run under dash" "rc=$_rc out=$_out err=$_err"
 else
   skip "dry run under dash" "dash is not installed"

@@ -46,8 +46,8 @@ if [ "$_rc" -ne 0 ] || ! cmp -s "$EXPORT_DIR/animap.json" "$STUB_DIR/export/anim
   exit 1
 fi
 ok "precondition: the download step fetches and checks the export"
-[ "$(grep -c '^gh ' "$STUB_LOG")" -eq 2 ] && ! logged '^gh .*\[(public|none)\]$' && ! logged '^(go|curl|cosign) ' \
-  && ok "the download step calls gh twice, both with the export token, and nothing else" \
+[ "$(grep -c '^gh ' "$STUB_LOG")" -eq 2 ] && ! logged '^gh .*\[(public|none)\]$' && ! logged '^(go|curl|cosign) ' && [ ! -e "$STUB_DIR/leaked" ] \
+  && ok "the download step calls gh twice, both with the export token, and no other command sees it" \
   || no "download step calls" "log=$_log"
 
 # --- 1. the release step creates a tag mapread's reader accepts ----------------

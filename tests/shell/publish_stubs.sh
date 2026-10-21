@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Runs the whole of scripts/publish.sh against stubs of everything that
 # reaches the network or the clock: gh, curl, go, cosign, date and sleep.
-# Each stub logs its argv to $STUB_LOG, refuses an argv the script does not
-# send, and refuses to run while the export token is in its environment
-# anywhere but gh's GH_TOKEN. Sourced by publish_*_test.sh after lib.sh and
-# new_workdir.
+# Each stub logs its argv to $STUB_LOG and refuses an argv the script does
+# not send. Every other command the script runs is wrapped, and stubs and
+# wrappers alike refuse to run, recording their name in $STUB_DIR/leaked,
+# while the export token is in their environment anywhere but gh's GH_TOKEN.
+# Sourced by publish_*_test.sh after lib.sh and new_workdir.
+
 # SC2016: the stub bodies stay literal.
 # shellcheck disable=SC2016
 
@@ -25,28 +27,62 @@ setup_publish() {
   printf '{"version":2,"export":"fixture"}\n' >"$STUB_DIR/export/animap.json"
   (cd "$STUB_DIR/export" && sha256sum animap.json >animap.json.sha256)
   write_stubs
+  write_wrappers
   export PATH="$STUB_DIR/bin:$PATH"
 }
 
-# verdict <previous> <changed> [stale]: the verdict the go stub prints;
-# stale, a JSON array, is what -accept-stale let pass, absent as in verify's.
+# The commands publish.sh runs that are neither stubbed nor shell builtins.
+WRAPPED="cat cp cut dirname git grep jq mkdir mktemp rm sed sha256sum tr wc"
+
+# token_check [NAME]: the first lines of a stub or wrapper, which let the
+# token through only in NAME. It reads its own environment with builtins
+# alone, since any command it ran would inherit the token it looks for.
+token_check() {
+  cat <<EOF
+#!/usr/bin/env bash
+while IFS= read -r -d '' kv; do
+  case "\$kv" in
+    EXPORT_TOKEN=* | ${1:-EXPORT_TOKEN}=*) ;;
+    *"\$EXPORT_TOKEN"*)
+      printf '%s\n' "\${0##*/}" >>"\$STUB_DIR/leaked"
+      printf 'stub %s: the export token is in the environment\n' "\${0##*/}" >&2
+      exit 95
+      ;;
+  esac
+done </proc/self/environ
+EOF
+}
+
+# write_wrappers puts a wrapper for each of $WRAPPED on PATH that runs the
+# real command once its token check passes.
+write_wrappers() {
+  local name real
+  for name in $WRAPPED; do
+    real=$(command -v "$name") || {
+      no "precondition: $name is installed" "PATH=$PATH"
+      report
+      exit 1
+    }
+    token_check >"$STUB_DIR/bin/$name"
+    printf 'exec %q "$@"\n' "$real" >>"$STUB_DIR/bin/$name"
+  done
+  chmod +x "$STUB_DIR"/bin/*
+}
+
 verdict() {
   printf '{"content_hash":"%s","previous":"%s","changed":%s,%s"generated_at":"2026-10-20T08:30:00Z","revision":"rev-1","titles_dump":"2026-10-19","notice":"the notice","census":{"entries":21000,"entries_with_parts":13000,"rows_on_tvdb":7000,"episodes_on_tvdb":140000,"episodes_with_movies":2900,"anidb_episode_ids":290000}}\n' \
     "$HASH" "$1" "$2" "${3:+\"stale\":$3,}" >"$STUB_DIR/verdict.json"
 }
 
 write_stubs() {
-  cat >"$STUB_DIR/bin/gh" <<'EOF'
-#!/usr/bin/env bash
-if env | grep -v -e '^EXPORT_TOKEN=' -e '^GH_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
-  echo "stub gh: the export token is in the environment" >&2
-  exit 95
-fi
+  token_check GH_TOKEN >"$STUB_DIR/bin/gh"
+  cat >>"$STUB_DIR/bin/gh" <<'EOF'
 case "${GH_TOKEN:-}" in
   "$EXPORT_TOKEN") token=export ;;
   "$PUBLIC_TOKEN") token=public ;;
   *) token=none ;;
 esac
+unset GH_TOKEN
 printf 'gh %s [%s]\n' "$*" "$token" >>"$STUB_LOG"
 public=repos/cplieger/animap
 case "$*" in
@@ -85,12 +121,8 @@ case "$*" in
     ;;
 esac
 EOF
-  cat >"$STUB_DIR/bin/curl" <<'EOF'
-#!/usr/bin/env bash
-if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
-  echo "stub curl: the export token is in the environment" >&2
-  exit 95
-fi
+  token_check >"$STUB_DIR/bin/curl"
+  cat >>"$STUB_DIR/bin/curl" <<'EOF'
 printf 'curl %s\n' "$*" >>"$STUB_LOG"
 latest=https://github.com/cplieger/animap/releases/latest/download/animap.json
 if [ "$#" -eq 15 ] && [ "$*" = "--proto =https --tlsv1.2 --connect-timeout 20 --max-time 120 --retry 3 -sSL -o ${12} -w %{http_code} $latest" ]; then
@@ -107,12 +139,8 @@ else
   exit 99
 fi
 EOF
-  cat >"$STUB_DIR/bin/go" <<'EOF'
-#!/usr/bin/env bash
-if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
-  echo "stub go: the export token is in the environment" >&2
-  exit 95
-fi
+  token_check >"$STUB_DIR/bin/go"
+  cat >>"$STUB_DIR/bin/go" <<'EOF'
 printf 'go %s\n' "$*" >>"$STUB_LOG"
 [ "$PWD" = "$REPO_COPY" ] || exit 97
 case "$*" in
@@ -132,22 +160,14 @@ if [ -n "${STUB_GO_FAILS:-}" ]; then
 fi
 cat "$STUB_DIR/verdict.json"
 EOF
-  cat >"$STUB_DIR/bin/cosign" <<'EOF'
-#!/usr/bin/env bash
-if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
-  echo "stub cosign: the export token is in the environment" >&2
-  exit 95
-fi
+  token_check >"$STUB_DIR/bin/cosign"
+  cat >>"$STUB_DIR/bin/cosign" <<'EOF'
 printf 'cosign %s\n' "$*" >>"$STUB_LOG"
 [ "$*" = "sign-blob --yes animap.json --bundle animap.json.sigstore.json" ] || exit 99
 printf '{"bundle":true}\n' >animap.json.sigstore.json
 EOF
-  cat >"$STUB_DIR/bin/date" <<'EOF'
-#!/usr/bin/env bash
-if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
-  echo "stub date: the export token is in the environment" >&2
-  exit 95
-fi
+  token_check >"$STUB_DIR/bin/date"
+  cat >>"$STUB_DIR/bin/date" <<'EOF'
 case "$*" in
   '-u +%Y.%m.%d') cat "$STUB_DIR/day" ;;
   '-u +%H%M') echo 1205 ;;
@@ -158,12 +178,8 @@ case "$*" in
     ;;
 esac
 EOF
-  cat >"$STUB_DIR/bin/sleep" <<'EOF'
-#!/usr/bin/env bash
-if env | grep -v -e '^EXPORT_TOKEN=' | grep -qF "$EXPORT_TOKEN"; then
-  echo "stub sleep: the export token is in the environment" >&2
-  exit 95
-fi
+  token_check >"$STUB_DIR/bin/sleep"
+  cat >>"$STUB_DIR/bin/sleep" <<'EOF'
 printf 'sleep %s\n' "$*" >>"$STUB_LOG"
 exit 98
 EOF
@@ -187,7 +203,7 @@ publish() {
   done
   printf 'export-2026-10-20\n' >"$STUB_DIR/latest-export"
   printf '2026.10.21\n' >"$STUB_DIR/day"
-  rm -f "$STUB_DIR/created" "$STUB_DIR/notes.created" "$STUB_DIR/previous.json" "$STUB_DIR"/tags/* "$REPO_COPY/animap.json"
+  rm -f "$STUB_DIR/leaked" "$STUB_DIR/created" "$STUB_DIR/notes.created" "$STUB_DIR/previous.json" "$STUB_DIR"/tags/* "$REPO_COPY/animap.json"
   verdict earlier-shape true
   [ -z "${BEFORE_PUBLISH:-}" ] || "$BEFORE_PUBLISH"
   : >"$STUB_LOG"

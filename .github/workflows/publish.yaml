@@ -66,9 +66,11 @@ jobs:
             echo "::error::accept_stale needs a reason"
             exit 1
           fi
-      # GitHub disables a scheduled workflow after 60 days without repository
-      # activity, and cron runs do not count. This repository can go that long
-      # without a commit, so each run re-enables the workflow.
+      # GitHub disables a public repository's scheduled workflows after 60 days
+      # without repository activity
+      # (https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+      # This repository can go that long without a commit, so each run
+      # re-enables the workflow.
       - name: Keepalive (reset the 60-day scheduled-workflow timer)
         env:
           GH_TOKEN: ${{ github.token }}

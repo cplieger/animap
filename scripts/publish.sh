@@ -1,24 +1,35 @@
 #!/usr/bin/env bash
 # Publishes the latest mapping export as this repository's signed, dated
-# release of animap.json. POSIX sh, so `sh scripts/publish.sh` runs it too.
+# release of animap.json. Written for bash and for dash, Ubuntu's sh (both
+# take set -o pipefail), so `sh scripts/publish.sh` runs it too.
 #
 # Usage: publish.sh [download DIR | release DIR]
 #   download DIR  download the export into DIR and check its checksum
 #   release DIR   verify the export in DIR and release it
 #   (none)        both, through a temporary directory
-#
-# Environment:
-#   ANIMAP_EXPORT_TOKEN (download) a token that reads the export repository's
-#     releases
-#   EXPORT_TAG (download, optional) the export release to read, default the
-#     export repository's latest release
-#   ACCEPT_SHRINK=true (release, optional) pass -accept-shrink to verify
-#   ACCEPT_STALE=1 or true (release, optional) pass -accept-stale to verify;
-#     STALE_REASON must then give the reason, which the release notes carry
-#   DRY_RUN=1 (release, optional) stop before signing and releasing; unset or
-#     empty is 0, and any value but 0 or 1 is read as 1
-#   GITHUB_SHA (release) the commit to tag; a dry run defaults to HEAD
+
+# download reads ANIMAP_EXPORT_TOKEN, a token that reads the export
+# repository's releases, and EXPORT_TAG (optional), the export release to
+# read, by default that repository's latest release.
+
+# release reads, all optional but GITHUB_SHA:
+#   ACCEPT_SHRINK=true  pass -accept-shrink to verify
+#   ACCEPT_STALE=1 or true  pass -accept-stale to verify; STALE_REASON must
+#     then give the reason, which the release notes carry
+#   DRY_RUN=1  stop before signing and releasing; unset or empty is 0, and
+#     any value but 0 or 1 is read as 1
+#   GITHUB_SHA  the commit to tag; a dry run defaults to HEAD
 set -euo pipefail
+
+# take_export_token moves ANIMAP_EXPORT_TOKEN into an unexported variable
+# before the script spawns anything, so only export_gh hands it to a command.
+# The unset first drops an export attribute the name may have inherited.
+take_export_token() {
+  unset publish_export_token
+  publish_export_token=${ANIMAP_EXPORT_TOKEN:-}
+  unset ANIMAP_EXPORT_TOKEN
+}
+take_export_token
 
 EXPORT_REPO=cplieger/animap-source
 REPO="${GITHUB_REPOSITORY:-cplieger/animap}"
@@ -50,15 +61,6 @@ read_options() {
     echo "publish: ERROR ACCEPT_STALE needs STALE_REASON, the reason the release notes give" >&2
     exit 1
   fi
-}
-
-# take_export_token moves ANIMAP_EXPORT_TOKEN into an unexported variable
-# before main spawns anything, so only export_gh hands it to a command. The
-# unset first drops an export attribute the name may have inherited.
-take_export_token() {
-  unset publish_export_token
-  publish_export_token=${ANIMAP_EXPORT_TOKEN:-}
-  unset ANIMAP_EXPORT_TOKEN
 }
 
 export_gh() {
@@ -304,7 +306,6 @@ usage() {
 }
 
 main() {
-  take_export_token
   WORK=$(mktemp -d)
   trap 'rm -rf "$WORK"' EXIT
   case "${1:-}" in
