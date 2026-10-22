@@ -104,12 +104,10 @@ type EntryEpisode struct {
 // order. TVDB is, per part, the series its episodes land on in landing
 // order, or its anime's TVDBID when none of them lands. TMDBMovies is the
 // one list every episode of the entry states, the work the entry wholly
-// is, and empty when an episode states none or another list. IMDb is the
-// IMDb ids of each anime a part names whole (Part.Identity).
+// is, and empty when an episode states none or another list.
 type Routes struct {
 	TVDB       []int
 	TMDBMovies []int
-	IMDb       []string
 }
 
 // SeriesSeasons is where an entry's episodes land on one TVDB series:
@@ -375,13 +373,6 @@ func (x *Index) Routes(e Entry) Routes {
 			continue
 		}
 		r.addPart(a, p, &movies)
-		if p.Identity() {
-			for _, id := range a.IMDbIDs {
-				if !slices.Contains(r.IMDb, id) {
-					r.IMDb = append(r.IMDb, id)
-				}
-			}
-		}
 	}
 	r.TMDBMovies = movies.list()
 	return r
@@ -730,7 +721,7 @@ func copyEntry(e *Entry) Entry {
 
 func copyAnime(a *Anime) Anime {
 	c := *a
-	c.MALIDs, c.IMDbIDs = slices.Clone(a.MALIDs), slices.Clone(a.IMDbIDs)
+	c.MALIDs = slices.Clone(a.MALIDs)
 	c.Episodes = make([]Run, len(a.Episodes))
 	for i, r := range a.Episodes {
 		r.TVDB = copyTargets(r.TVDB)

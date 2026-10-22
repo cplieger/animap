@@ -56,14 +56,13 @@ type Attribution struct {
 //
 //nolint:govet // fieldalignment: member order is the published JSON order
 type Anime struct {
-	AniDBID        int      `json:"anidb_id"`
-	Type           string   `json:"type,omitempty"`
-	TVDBID         int      `json:"tvdb_id,omitempty"`
-	MALIDs         []int    `json:"mal_ids,omitempty"`
-	IMDbIDs        []string `json:"imdb_ids,omitempty"`
-	Last           Last     `json:"last,omitzero"`
-	EpisodesListed bool     `json:"episodes_listed,omitempty"`
-	Episodes       []Run    `json:"episodes,omitempty"`
+	AniDBID        int    `json:"anidb_id"`
+	Type           string `json:"type,omitempty"`
+	TVDBID         int    `json:"tvdb_id,omitempty"`
+	MALIDs         []int  `json:"mal_ids,omitempty"`
+	Last           Last   `json:"last,omitzero"`
+	EpisodesListed bool   `json:"episodes_listed,omitempty"`
+	Episodes       []Run  `json:"episodes,omitempty"`
 }
 
 // TVDBSeries is every TVDB series a's episodes may land on: TVDBID first

@@ -74,7 +74,7 @@ func sample() *Document {
 				Episodes: []Run{{Kind: Regular, Start: 1, End: 2, TVDB: targets(dflt(2, 1))}},
 			},
 			{
-				AniDBID: 3, Type: "MOVIE", MALIDs: []int{3}, IMDbIDs: []string{"tt0000003"}, Last: Last{Regular: 1}, EpisodesListed: true,
+				AniDBID: 3, Type: "MOVIE", MALIDs: []int{3}, Last: Last{Regular: 1}, EpisodesListed: true,
 				Episodes: []Run{{Kind: Regular, Start: 1, End: 1, AniDBEpisodeIDs: []int{900}, TMDBMovies: []int{30, 31}}},
 			},
 			{AniDBID: 4, Type: "OVA"},

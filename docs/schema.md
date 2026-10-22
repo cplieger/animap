@@ -2,7 +2,7 @@
 
 `animap.json` is one minified UTF-8 JSON document. This page describes version 2. A machine-readable copy is [animap.schema.json](animap.schema.json), a JSON Schema (draft 2020-12). The Go module [mapread](../mapread/README.md) reads and checks the file, verifies a download and answers the lookups below.
 
-The file holds two tables. `anime` has one row per AniDB anime: its TheTVDB series, its MyAnimeList and IMDb ids, the episodes AniDB lists with their AniDB episode ids, where each episode lands on TheTVDB and which TMDB movie it is. `entries` has one row per AniList id: its AniDB and MyAnimeList ids, and which AniDB episodes it is.
+The file holds two tables. `anime` has one row per AniDB anime: its TheTVDB series, its MyAnimeList ids, the episodes AniDB lists with their AniDB episode ids, where each episode lands on TheTVDB and which TMDB movie it is. `entries` has one row per AniList id: its AniDB and MyAnimeList ids, and which AniDB episodes it is.
 
 Earlier releases of version 2 have another shape, which this page and mapread no longer describe: their `sources` named their inputs, anime rows carried TMDB TV ids, and entries without an AniList id carried ids on other services. A reader of this shape refuses an earlier file by its `sources`.
 
@@ -38,12 +38,13 @@ Every member except `anidb_id` is left out when it has no value, and a row alway
 | `type` | string | `TV`, `MOVIE`, `OVA`, `ONA`, `SPECIAL` or `UNKNOWN`. |
 | `tvdb_id` | integer | The TheTVDB series the anime is on. Every target without its own `series` is on it. |
 | `mal_ids` | array of integers | The MyAnimeList ids AniDB lists for the anime, ascending. |
-| `imdb_ids` | array of strings | IMDb ids, each `tt` followed by 7 to 10 digits. Each names the whole anime. |
 | `last` | object | The highest episode number the file places, per kind: `regular`, `special`, `credit`, `promotion`, `parody` and `other`. |
 | `episodes_listed` | `true` | AniDB's episode list for the anime was read, so the runs name every episode AniDB lists with its AniDB episode id. |
 | `episodes` | array of runs | The episodes AniDB lists and where episodes land. See [Runs](#runs). |
 
 Episode numbers are AniDB's own, per kind: credit 1 is `{"kind": "credit", "start": 1}`. `last` is a highest number, not a count, because AniDB's numbering can skip. AniDB can list regular episodes past `last.regular`, for example on an airing anime. A row with `episodes` has `last` or `episodes_listed`.
+
+Earlier releases also carry `imdb_ids`, a list of IMDb ids, on some rows. The mapread module skips it like any member it does not know.
 
 ## Runs
 
@@ -118,7 +119,7 @@ One entry per AniList id, sorted by `anilist_id`. Every member except `anilist_i
 | `ids` | object | `anidb`, the AniDB anime the entry may be, and `mal`, its MyAnimeList ids, each an ascending list present only when it has an id. When `anidb` names two or more anime, the entry is ambiguous and has no parts. |
 | `parts` | array of parts | The AniDB episodes the entry is, in the entry's episode order. See [Parts](#parts). |
 
-An entry has no TheTVDB, TMDB or IMDb id of its own: those are reached through `parts` and the anime rows.
+An entry has no TheTVDB or TMDB id of its own: those are reached through `parts` and the anime rows.
 
 ## Parts
 
@@ -133,7 +134,7 @@ Each AniDB episode a part names is one episode of the entry, except that a combi
 ## Order and checks
 
 - `anime` is sorted by `anidb_id` and `entries` by `anilist_id`. Runs are sorted by kind in the order of `last`, then `start`. A run's targets are sorted by series (a target's `series`, else the row's `tvdb_id`), then season, then episode, each once.
-- `mal_ids`, `tmdb_movies` and each list in `ids` are ascending and unique. `imdb_ids` are unique.
+- `mal_ids`, `tmdb_movies` and each list in `ids` are ascending and unique.
 - The JSON Schema cannot state these rules, which the build checks before it publishes and mapread checks when it reads:
   - the bytes UTF-8
   - no key repeated in an object, even in another case

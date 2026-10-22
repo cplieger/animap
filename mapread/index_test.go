@@ -197,7 +197,7 @@ func TestEntryLookups(t *testing.T) {
 		want  Routes
 	}{
 		{"a whole series", entryOf(t, x, 1).Parts, Routes{TVDB: []int{10}}},
-		{"a whole film", entryOf(t, x, 4).Parts, Routes{TMDBMovies: []int{30, 31}, IMDb: []string{"tt0000003"}}},
+		{"a whole film", entryOf(t, x, 4).Parts, Routes{TMDBMovies: []int{30, 31}}},
 		{"an ambiguous entry", entryOf(t, x, 3).Parts, Routes{}},
 		{"specials that are two movies", entryOf(t, x, 2).Parts, Routes{TVDB: []int{10}}},
 		{"a combined part, then an anime with no count", entryOf(t, x, 5).Parts, Routes{TVDB: []int{10}}},
@@ -445,7 +445,7 @@ func moviesDoc() *Document {
 			{Kind: Regular, Start: 3, End: 3, TMDBMovies: []int{7}},
 			{Kind: Regular, Start: 5, End: 6, TMDBMovies: []int{5, 6}},
 		}},
-		{AniDBID: 2, Type: "MOVIE", IMDbIDs: []string{"tt0000002"}, Last: Last{Regular: 1}, EpisodesListed: true, Episodes: []Run{
+		{AniDBID: 2, Type: "MOVIE", Last: Last{Regular: 1}, EpisodesListed: true, Episodes: []Run{
 			{Kind: Regular, Start: 1, End: 1, AniDBEpisodeIDs: []int{21}, TMDBMovies: []int{5, 8}},
 		}},
 	}}
