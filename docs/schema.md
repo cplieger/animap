@@ -44,7 +44,7 @@ Every member except `anidb_id` is left out when it has no value, and a row alway
 
 Episode numbers are AniDB's own, per kind: credit 1 is `{"kind": "credit", "start": 1}`. `last` is a highest number, not a count, because AniDB's numbering can skip. AniDB can list regular episodes past `last.regular`, for example on an airing anime. A row with `episodes` has `last` or `episodes_listed`.
 
-Earlier releases also carry `imdb_ids`, a list of IMDb ids, on some rows. The mapread module skips it like any member it does not know.
+Releases of this shape published before IMDb ids were dropped, v2026.10.21 and earlier, also carry `imdb_ids`, a list of IMDb ids, on some rows. The mapread module skips the member like any member it does not know.
 
 ## Runs
 
