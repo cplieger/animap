@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/github/license/cplieger/animap)](LICENSE)
 
-animap turns an AniList or AniDB anime id into its TheTVDB series, seasons and episodes, its TMDB movies and its MyAnimeList and IMDb ids, from one JSON file.
+animap turns an AniList or AniDB anime id into its TheTVDB series, seasons and episodes, its TMDB movies and its MyAnimeList ids, from one JSON file.
 
 The mapping lives in a database the project maintains privately and checks against AniDB's episode lists, TheTVDB's official episode order and TMDB, and a new file is built from it each week. A tool downloads `animap.json`, about 11 MB, and reads it with any JSON parser, or in Go with the [mapread](mapread/README.md) module. The data is licensed under the ODbL 1.0 and the code under Apache-2.0.
 
@@ -80,7 +80,7 @@ It prints the content hash and the counts the release notes carry, and exits 1 w
 The format is described in [docs/schema.md](docs/schema.md), with a JSON Schema in [docs/animap.schema.json](docs/animap.schema.json). The Go module [mapread](mapread/README.md) reads it and answers the lookups.
 
 - Top level: `version`, `generated_at`, `sources`, `attribution`, `anime` and `entries`.
-- Anime rows: `anidb_id`, `type`, `tvdb_id`, `mal_ids`, `imdb_ids`, `last`, `episodes_listed` and `episodes`, the runs.
+- Anime rows: `anidb_id`, `type`, `tvdb_id`, `mal_ids`, `last`, `episodes_listed` and `episodes`, the runs.
 - Runs: `kind`, `start`, `end`, `anidb_episode_ids`, `tvdb` targets and `tmdb_movies`. A target is a season and an episode, with its own `series` when it is not on the row's `tvdb_id`, its TheTVDB `episode_ids`, and `default` when it rests only on Anime-Lists' default.
 - Entries: `anilist_id`, `type`, `ids`, holding `anidb` and `mal`, and `parts`, the AniDB episodes the entry is.
 

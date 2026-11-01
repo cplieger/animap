@@ -183,7 +183,7 @@ func seasonsOn(x *Index, e Entry) []SeriesSeasons {
 func expressible(doc *Document) bool {
 	for i := range doc.Anime {
 		a := &doc.Anime[i]
-		if a.Type == "" && a.TVDBID == 0 && a.MALIDs == nil && a.IMDbIDs == nil && a.Last == (Last{}) && !a.EpisodesListed && a.Episodes == nil {
+		if a.Type == "" && a.TVDBID == 0 && a.MALIDs == nil && a.Last == (Last{}) && !a.EpisodesListed && a.Episodes == nil {
 			return false
 		}
 	}

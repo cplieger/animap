@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/cplieger/animap/blob/main/docs/animap.schema.json",
   "title": "animap.json",
-  "description": "Anime ID mapping between AniDB, AniList, MyAnimeList, TheTVDB, TMDB movies and IMDb. Version 2. See docs/schema.md.",
+  "description": "Anime ID mapping between AniDB, AniList, MyAnimeList, TheTVDB and TMDB movies. Version 2. See docs/schema.md.",
   "type": "object",
   "required": ["version", "generated_at", "sources", "attribution", "anime", "entries"],
   "properties": {
@@ -54,7 +54,6 @@
         "type": { "$ref": "#/$defs/type" },
         "tvdb_id": { "$ref": "#/$defs/id" },
         "mal_ids": { "$ref": "#/$defs/ids" },
-        "imdb_ids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^tt[0-9]{7,10}$" } },
         "last": {
           "type": "object", "minProperties": 1,
           "properties": {

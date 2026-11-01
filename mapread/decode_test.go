@@ -159,7 +159,6 @@ func TestDecodeRefuses(t *testing.T) {
 		{"mal_ids unsorted", `"mal_ids":[3]`, `"mal_ids":[3,2]`, ErrInvalid},
 		{"mal_ids repeated", `"mal_ids":[3]`, `"mal_ids":[3,3]`, ErrInvalid},
 		{"mal_ids with 0", `"mal_ids":[3]`, `"mal_ids":[0]`, ErrInvalid},
-		{"a malformed IMDb id", `"tt0000003"`, `"nm0000003"`, ErrInvalid},
 		{"an unknown type", `"type":"OVA"}`, `"type":"TV\n@x"}`, ErrInvalid},
 		{"an empty type", `"type":"OVA"}`, `"type":""}`, ErrInvalid},
 		{"entries out of AniList order", `{"anilist_id":2,`, `{"anilist_id":1,`, ErrInvalid},
@@ -229,6 +228,48 @@ func TestDecodeReportsTheVersion(t *testing.T) {
 		if got, ok := errors.AsType[*VersionError](err); !ok || got.Found != v || !errors.Is(err, ErrVersion) {
 			t.Errorf("Decode(version %d) = %v, want a *VersionError for version %d matching ErrVersion", v, err, v)
 		}
+	}
+}
+
+// A release that still carries imdb_ids on its rows decodes to the same
+// document, the member skipped whatever its value.
+func TestDecodeSkipsIMDbIDs(t *testing.T) {
+	good, err := os.ReadFile("testdata/mini.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	film, ova := `{"anidb_id":18,"type":"MOVIE","mal_ids":[1018]`, `{"anidb_id":12,"type":"OVA"`
+	for _, tc := range []struct {
+		name  string
+		edits [][2]string
+	}{
+		{"after mal_ids", [][2]string{{film, film + `,"imdb_ids":["tt0000003"]`}}},
+		{"before type", [][2]string{{film, `{"anidb_id":18,"imdb_ids":["tt0000003","tt0000004"],"type":"MOVIE","mal_ids":[1018]`}}},
+		{"a malformed id", [][2]string{{film, film + `,"imdb_ids":["nm0000003","nm0000003"]`}}},
+		{"an empty list", [][2]string{{film, film + `,"imdb_ids":[]`}}},
+		{"another value", [][2]string{{film, film + `,"imdb_ids":{"tt":1}`}}},
+		{"on two rows", [][2]string{{film, film + `,"imdb_ids":["tt0000003"]`}, {ova, ova + `,"imdb_ids":["tt0000012"]`}}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			body := good
+			for _, e := range tc.edits {
+				if !bytes.Contains(body, []byte(e[0])) {
+					t.Fatalf("Setup: the golden lacks %s", e[0])
+				}
+				body = bytes.Replace(body, []byte(e[0]), []byte(e[1]), 1)
+			}
+			doc, err := Decode(bytes.NewReader(body), DefaultLimits())
+			if err != nil {
+				t.Fatalf("Decode = %v, want the member skipped", err)
+			}
+			got, err := Encode(doc)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if !bytes.Equal(got, good) {
+				t.Errorf("Encode(Decode(golden with imdb_ids)) = %s, want the golden", got)
+			}
+		})
 	}
 }
 

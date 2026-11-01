@@ -1,6 +1,5 @@
 // Package mapread reads and writes animap.json version 2, the anime id
-// mapping between AniDB, AniList, MyAnimeList, TheTVDB, TMDB movies and
-// IMDb.
+// mapping between AniDB, AniList, MyAnimeList, TheTVDB and TMDB movies.
 //
 // Decode reads a document under caps and refuses one that breaks a rule
 // the README lists under "Decode rules", or one in the earlier version 2

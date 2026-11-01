@@ -48,7 +48,7 @@ func TestContentHash(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got, want := hash(t, doc), "798de3d1480a9be324f5f87aba072578a383b4c7866135ba809bcd278e7f2170"; got != want {
+	if got, want := hash(t, doc), "9ec9c9ec06d712a960b3a6f5c3a035e2a5057605bb8250d5471888e8898bf8e3"; got != want {
 		t.Errorf("ContentHash(mini.json) = %s, want %s", got, want)
 	}
 }

@@ -648,8 +648,6 @@ func (w *walker) ascendingInts(what string, dst *[]int) error {
 	return err
 }
 
-var imdbRE = regexp.MustCompile(`^tt\d{7,10}$`)
-
 func (w *walker) anime(a *Anime) error {
 	n, err := w.object("anime", func(key string) (bool, error) {
 		switch key {
@@ -661,8 +659,6 @@ func (w *walker) anime(a *Anime) error {
 			return true, w.integer(key, &a.TVDBID, 1)
 		case "mal_ids":
 			return true, w.ascendingInts(key, &a.MALIDs)
-		case "imdb_ids":
-			return true, w.imdb(key, &a.IMDbIDs)
 		case "last":
 			return true, w.last(&a.Last)
 		case "episodes_listed":
@@ -681,26 +677,6 @@ func (w *walker) anime(a *Anime) error {
 		return errors.New("the row carries nothing besides anidb_id")
 	}
 	return nil
-}
-
-func (w *walker) imdb(what string, dst *[]string) error {
-	seen := map[string]bool{}
-	n, err := w.array(what, func(i int) error {
-		var v string
-		if err := w.str(fmt.Sprintf("%s[%d]", what, i), &v); err != nil {
-			return err
-		}
-		if !imdbRE.MatchString(v) || seen[v] {
-			return fmt.Errorf("%s[%d] %q is not a unique IMDb id", what, i, v)
-		}
-		seen[v] = true
-		*dst = append(*dst, v)
-		return nil
-	})
-	if err == nil && n == 0 {
-		err = fmt.Errorf("%s is empty", what)
-	}
-	return err
 }
 
 func (w *walker) last(l *Last) error {
