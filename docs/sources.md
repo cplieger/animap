@@ -10,7 +10,7 @@
 
 ## AniDB
 
-AniDB states that its data is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). From AniDB, `animap.json` carries which anime and episodes exist, each episode's kind, number and AniDB episode id, the anime types and the MyAnimeList ids AniDB links: the `anidb_id`, `type`, `mal_ids`, `episodes_listed`, `anidb_episode_ids` and `last` members. It carries none of the content AniDB holds for an anime or an episode: no titles, summaries, air dates, lengths, ratings or any other description.
+From AniDB, `animap.json` carries which anime and episodes exist, each episode's kind, number and AniDB episode id, the anime types and the MyAnimeList ids AniDB links: the `anidb_id`, `type`, `mal_ids`, `episodes_listed`, `anidb_episode_ids` and `last` members. These are references that lead back to AniDB. It carries none of the content AniDB holds for an anime or an episode: no titles, summaries, air dates, lengths, ratings or any other description, so a reader still turns to AniDB for those. AniDB licenses its own data under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), and animap credits AniDB for the references it uses.
 
 ## anime-offline-database
 
