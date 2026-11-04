@@ -9,7 +9,7 @@ require (
 )
 
 require (
-	github.com/cplieger/httpx/v5 v5.2.0 // indirect
+	github.com/cplieger/httpx/v5 v5.3.0 // indirect
 	github.com/cplieger/jsoncap/v2 v2.1.0 // indirect
 	golang.org/x/text v0.43.0 // indirect
 )
