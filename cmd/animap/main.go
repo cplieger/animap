@@ -15,7 +15,7 @@ import (
 
 	"github.com/cplieger/animap/internal/release"
 	"github.com/cplieger/animap/mapread"
-	"github.com/cplieger/slogx"
+	"github.com/cplieger/go/slogx"
 )
 
 const usage = `usage: animap verify -in file [-previous file] [-accept-shrink] [-accept-stale]

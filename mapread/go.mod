@@ -3,6 +3,6 @@ module github.com/cplieger/animap/mapread
 go 1.27.3
 
 require (
-	github.com/cplieger/httpx/v5 v5.3.0
-	github.com/cplieger/jsoncap/v2 v2.1.0
+	github.com/cplieger/go/httpclient v1.0.0-dev.3
+	github.com/cplieger/go/jsonx v1.0.0-dev.2
 )
