@@ -2,7 +2,7 @@
 
 mapread gives a Go program the anime id mapping in animap's `animap.json`: which AniDB episodes an AniList entry is, which episodes AniDB lists with their AniDB episode ids, where each lands on TheTVDB, and which TMDB movie it is.
 
-It reads, checks and downloads the version 2 file, and answers lookups over it in memory. It depends on two small libraries by the same author, [jsoncap](https://github.com/cplieger/jsoncap) for capped streaming JSON and [httpx](https://github.com/cplieger/httpx) for the redirect policy, needs Go 1.27.2 or later and is licensed under Apache-2.0.
+It reads, checks and downloads the version 2 file, and answers lookups over it in memory. It depends on two small libraries by the same author, [jsonx](https://github.com/cplieger/go/tree/main/jsonx) for capped streaming JSON and [httpclient](https://github.com/cplieger/go/tree/main/httpclient) for the redirect policy, needs Go 1.27.2 or later and is licensed under Apache-2.0.
 
 ## Why use it
 

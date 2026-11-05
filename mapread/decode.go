@@ -13,7 +13,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/cplieger/jsoncap/v2"
+	"github.com/cplieger/go/jsonx"
 )
 
 // Limits bound one Decode. A zero field takes DefaultLimits' value.
@@ -199,7 +199,7 @@ func (c *capReader) note(err error) error {
 func Decode(r io.Reader, lim Limits) (*Document, error) {
 	lim = lim.orDefault()
 	cr := &capReader{r: r, left: lim.MaxDocumentBytes}
-	d := &decoder{dec: jsoncap.NewDecoder(cr, 0), cr: cr, lim: lim}
+	d := &decoder{dec: jsonx.NewDecoder(cr, 0), cr: cr, lim: lim}
 	doc, err := d.document()
 	if err != nil {
 		return nil, err
@@ -211,7 +211,7 @@ func Decode(r io.Reader, lim Limits) (*Document, error) {
 }
 
 type decoder struct {
-	dec *jsoncap.Decoder
+	dec *jsonx.Decoder
 	cr  *capReader
 	lim Limits
 }
@@ -397,7 +397,7 @@ func (d *decoder) raw(what string) (json.RawMessage, error) {
 	if len(raw) > d.lim.MaxRowBytes {
 		return nil, fmt.Errorf("%w: %s is %d bytes, over %d", ErrTooLarge, what, len(raw), d.lim.MaxRowBytes)
 	}
-	if err := jsoncap.Preflight(bytes.NewReader(raw)); err != nil {
+	if err := jsonx.Preflight(bytes.NewReader(raw)); err != nil {
 		return nil, fmt.Errorf("%w: %s: %w", ErrInvalid, what, err)
 	}
 	return raw, nil
@@ -436,7 +436,7 @@ func table[T any](d *decoder, name string, row func(*walker, *T) error) ([]T, er
 // decodeRow walks one complete row; any failure is ErrInvalid at where,
 // except that a document of the earlier shape stays ErrVersion alone.
 func decodeRow(where string, raw json.RawMessage, fn func(*walker) error) error {
-	w := &walker{dec: jsoncap.NewDecoder(bytes.NewReader(raw), 0)}
+	w := &walker{dec: jsonx.NewDecoder(bytes.NewReader(raw), 0)}
 	err := fn(w)
 	if err == nil {
 		err = w.dec.End()
@@ -452,7 +452,7 @@ func decodeRow(where string, raw json.RawMessage, fn func(*walker) error) error 
 
 // walker reads one row with exact key matching and strict types: a null,
 // or a value of the wrong JSON type, is refused for every known member.
-type walker struct{ dec *jsoncap.Decoder }
+type walker struct{ dec *jsonx.Decoder }
 
 // object walks an object; field reports whether it consumed key's value,
 // and any key it does not is skipped. n is the number of members.

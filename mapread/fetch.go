@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cplieger/httpx/v5"
+	"github.com/cplieger/go/httpclient"
 )
 
 // Source is a repository whose releases carry animap.json.
@@ -202,9 +202,9 @@ func statusError(u string, code int) error {
 }
 
 func redirects(baseHost string) func(*http.Request, []*http.Request) error {
-	policy := httpx.RedirectPolicyFunc(httpx.WithAllowedHosts(append([]string{baseHost}, assetHosts...)...))
+	policy := httpclient.RedirectPolicyFunc(httpclient.WithAllowedHosts(append([]string{baseHost}, assetHosts...)...))
 	return func(req *http.Request, via []*http.Request) error {
-		// httpx refuses only the https-to-http downgrade, and a caller's
+		// httpclient refuses only the https-to-http downgrade, and a caller's
 		// transport may serve another scheme.
 		err := fmt.Errorf("redirect to scheme %q", req.URL.Scheme)
 		if strings.EqualFold(req.URL.Scheme, "https") {
