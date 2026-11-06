@@ -9,7 +9,7 @@ require (
 )
 
 require (
-	github.com/cplieger/go/httpclient v1.0.0-dev.3 // indirect
+	github.com/cplieger/go/httpclient v1.0.0-dev.4 // indirect
 	github.com/cplieger/go/jsonx v1.0.0-dev.2 // indirect
 	golang.org/x/text v0.43.0 // indirect
 )
