@@ -4,7 +4,7 @@ go 1.27.3
 
 require (
 	github.com/cplieger/animap/mapread v0.0.0-00010101000000-000000000000
-	github.com/cplieger/go/slogx v1.0.0-dev.1
+	github.com/cplieger/go/slogx v1.0.0-dev.2
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.3
 )
 
