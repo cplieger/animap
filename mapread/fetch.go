@@ -202,7 +202,7 @@ func statusError(u string, code int) error {
 }
 
 func redirects(baseHost string) func(*http.Request, []*http.Request) error {
-	policy := httpclient.RedirectPolicyFunc(httpclient.WithAllowedHosts(append([]string{baseHost}, assetHosts...)...))
+	policy := httpclient.RedirectPolicy(httpclient.WithAllowedHosts(append([]string{baseHost}, assetHosts...)...))
 	return func(req *http.Request, via []*http.Request) error {
 		// httpclient refuses only the https-to-http downgrade, and a caller's
 		// transport may serve another scheme.
