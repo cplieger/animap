@@ -11,7 +11,7 @@ require (
 require (
 	github.com/cplieger/go/httpclient v1.0.0 // indirect
 	github.com/cplieger/go/jsonx v1.0.0 // indirect
-	golang.org/x/text v0.43.0 // indirect
+	golang.org/x/text v0.44.0 // indirect
 )
 
 replace github.com/cplieger/animap/mapread => ./mapread
