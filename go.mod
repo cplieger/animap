@@ -4,13 +4,13 @@ go 1.27.4
 
 require (
 	github.com/cplieger/animap/mapread v0.0.0-00010101000000-000000000000
-	github.com/cplieger/go/slogx v1.0.0
+	github.com/cplieger/go/slogx v1.1.0
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.3
 )
 
 require (
-	github.com/cplieger/go/httpclient v1.1.0 // indirect
-	github.com/cplieger/go/jsonx v1.0.0 // indirect
+	github.com/cplieger/go/httpclient v1.2.0 // indirect
+	github.com/cplieger/go/jsonx v1.1.0 // indirect
 	golang.org/x/text v0.44.0 // indirect
 )
 

@@ -1,6 +1,6 @@
-github.com/cplieger/go/httpclient v1.1.0 h1:WE9EdV4SgCh6bd7kozeYqVJGdQCZEeQk7hrO88mQ+84=
-github.com/cplieger/go/httpclient v1.1.0/go.mod h1:zXZyXwYWXVujBH7qoNR16WYGHOGCo8hbJb0Gy8gNgBQ=
-github.com/cplieger/go/jsonx v1.0.0 h1:tk8DmKIHoMBVvNbFJ7a0IFNPo8vdLy4g9BOBj3HoE4Y=
-github.com/cplieger/go/jsonx v1.0.0/go.mod h1:ank2TTHUDI/GrTBZ/KAwU72ECOdrCCDDYqlRSuR/+BQ=
+github.com/cplieger/go/httpclient v1.2.0 h1:E+lbIpiNkUkcq3fxdMDYn116cwx6tU1XWmn4mDdBGU0=
+github.com/cplieger/go/httpclient v1.2.0/go.mod h1:couTQSCNdgNwOotbaQREGcM4CjUKZJ4Bdb7FSkNwL8U=
+github.com/cplieger/go/jsonx v1.1.0 h1:/XBHr3vJVqKYVDteO8cZEMAdTgmT3Df/SeyNw1pdak8=
+github.com/cplieger/go/jsonx v1.1.0/go.mod h1:ry6co0JYAadIhjHtkktBSK3to4YdtEak1P7mdmQlr7U=
 pgregory.net/rapid v1.3.0 h1:vBvO0VSqti75J1jjYqpgPNBLKMd1+gxa9fYo7vk/Exc=
 pgregory.net/rapid v1.3.0/go.mod h1:dPlE4OBBxgXPqkP79flB6sJL1dx5azpI7HQ9MY9Z7uk=
