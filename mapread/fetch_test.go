@@ -10,6 +10,7 @@ import (
 	"math"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"os"
 	"slices"
 	"strconv"
@@ -343,6 +344,157 @@ func TestFetchAnswers(t *testing.T) {
 			})
 		}
 	}
+}
+
+const (
+	oldLatest   = "https://github.com/cplieger/animap/releases/latest"
+	movedLatest = "https://github.com/neworg/animap/releases/latest"
+	movedTag    = "https://github.com/neworg/animap/releases/tag/" + tag
+)
+
+// GitHub answers a transferred or renamed repository's old URLs with a 301
+// to the same path under its new owner/name on the same host. Latest follows
+// one to the new releases/latest and returns the release found there.
+func TestLatestFollowsAMovedRepository(t *testing.T) {
+	for _, tc := range []struct {
+		name, location, repo string
+		status               int
+	}{
+		{name: "a 301", status: http.StatusMovedPermanently, location: movedLatest, repo: "neworg/animap"},
+		{name: "a 308", status: http.StatusPermanentRedirect, location: movedLatest, repo: "neworg/animap"},
+		{name: "a relative 301", status: http.StatusMovedPermanently, location: "/neworg/animap/releases/latest", repo: "neworg/animap"},
+		{name: "a rename", status: http.StatusMovedPermanently, location: "https://github.com/cplieger/animap-data/releases/latest", repo: "cplieger/animap-data"},
+	} {
+		for _, withRequest := range []bool{true, false} {
+			t.Run(fmt.Sprintf("%s, Response.Request set %t", tc.name, withRequest), func(t *testing.T) {
+				newLatest := "https://github.com/" + tc.repo + "/releases/latest"
+				n := &network{withRequest: withRequest, replies: map[string]reply{
+					oldLatest: {status: tc.status, location: tc.location},
+					newLatest: {status: http.StatusFound, location: "https://github.com/" + tc.repo + "/releases/tag/" + tag},
+				}}
+				rel, err := (Source{Repo: "cplieger/animap"}).Latest(t.Context(), &http.Client{Transport: n})
+				if err != nil || rel != (Release{Source: Source{Repo: tc.repo}, Tag: tag}) {
+					t.Errorf("Latest = %+v, %v; want %s of %s", rel, err, tag, tc.repo)
+				}
+				if want := []string{oldLatest, newLatest}; !slices.Equal(n.asked, want) {
+					t.Errorf("asked %v, want %v", n.asked, want)
+				}
+			})
+		}
+	}
+}
+
+// Latest follows one move and no other redirect: every other answer is
+// refused as it is without a move, carrying the *StatusError of the answer
+// refused, and a refused target is never asked. net/http itself refuses a
+// redirect whose Location does not parse, so that error is its *url.Error
+// and carries none.
+func TestLatestRefusesAMove(t *testing.T) {
+	moveTo := func(status int, location string) map[string]reply {
+		return map[string]reply{oldLatest: {status: status, location: location}}
+	}
+	thenAnswer := func(status int, location string) map[string]reply {
+		return map[string]reply{
+			oldLatest:   {status: http.StatusMovedPermanently, location: movedLatest},
+			movedLatest: {status: status, location: location},
+		}
+	}
+	const thirdLatest = "https://github.com/third/animap/releases/latest"
+	for _, tc := range []struct {
+		replies map[string]reply
+		want    error
+		name    string
+		// at and code are the *StatusError the error carries, none when code is 0.
+		at       string
+		notAsked string
+		code     int
+		// urlErr is net/http's refusal of a Location it cannot parse.
+		urlErr bool
+	}{
+		{name: "a second 301", replies: thenAnswer(http.StatusMovedPermanently, thirdLatest), want: ErrRelease, at: movedLatest, code: http.StatusMovedPermanently, notAsked: thirdLatest},
+		{name: "a 308 after the move", replies: thenAnswer(http.StatusPermanentRedirect, thirdLatest), want: ErrRelease, at: movedLatest, code: http.StatusPermanentRedirect, notAsked: thirdLatest},
+		{name: "a tag of the old repository after the move", replies: thenAnswer(http.StatusFound, "https://github.com/cplieger/animap/releases/tag/"+tag), want: ErrRelease, at: movedLatest, code: http.StatusFound},
+		{name: "a code tag after the move", replies: thenAnswer(http.StatusFound, "https://github.com/neworg/animap/releases/tag/mapread/v0.1.0"), want: ErrRelease, at: movedLatest, code: http.StatusFound},
+		{name: "a 404 after the move", replies: thenAnswer(http.StatusNotFound, ""), want: ErrRelease, at: movedLatest, code: http.StatusNotFound},
+		{name: "a 503 after the move", replies: thenAnswer(http.StatusServiceUnavailable, ""), at: movedLatest, code: http.StatusServiceUnavailable},
+		{name: "a 301 to another host", replies: moveTo(http.StatusMovedPermanently, "https://example.org/neworg/animap/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://example.org/neworg/animap/releases/latest"},
+		{name: "a 301 to http", replies: moveTo(http.StatusMovedPermanently, "http://github.com/neworg/animap/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "http://github.com/neworg/animap/releases/latest"},
+		{name: "a 301 to userinfo", replies: moveTo(http.StatusMovedPermanently, "https://u@github.com/neworg/animap/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://u@github.com/neworg/animap/releases/latest"},
+		{name: "a 301 to the repository page", replies: moveTo(http.StatusMovedPermanently, "https://github.com/neworg/animap"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://github.com/neworg/animap"},
+		{name: "a 301 straight to a tag", replies: moveTo(http.StatusMovedPermanently, movedTag), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: movedTag},
+		{name: "a 301 with a query", replies: moveTo(http.StatusMovedPermanently, movedLatest+"?x=1"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: movedLatest + "?x=1"},
+		{name: "a 301 to three segments", replies: moveTo(http.StatusMovedPermanently, "https://github.com/a/b/c/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://github.com/a/b/c/releases/latest"},
+		{name: "a 301 to an escaped owner", replies: moveTo(http.StatusMovedPermanently, "https://github.com/new%20org/animap/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://github.com/new%20org/animap/releases/latest"},
+		{name: "a 301 with a malformed Location", replies: moveTo(http.StatusMovedPermanently, "https://github.com/%zz"), urlErr: true},
+		{name: "a malformed Location after the move", replies: thenAnswer(http.StatusFound, "https://github.com/%zz"), urlErr: true},
+		{name: "a 301 with no Location", replies: moveTo(http.StatusMovedPermanently, ""), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently},
+		{name: "a 307", replies: moveTo(http.StatusTemporaryRedirect, movedLatest), want: ErrRelease, at: oldLatest, code: http.StatusTemporaryRedirect, notAsked: movedLatest},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			n := &network{replies: tc.replies, withRequest: true}
+			rel, err := (Source{Repo: "cplieger/animap"}).Latest(t.Context(), &http.Client{Transport: n})
+			switch {
+			case err == nil || rel != (Release{}):
+				t.Errorf("Latest = %+v, %v; want an error", rel, err)
+			case tc.want != nil && !errors.Is(err, tc.want):
+				t.Errorf("Latest = %v, want %v", err, tc.want)
+			case tc.urlErr:
+				if _, ok := errors.AsType[*url.Error](err); !ok || errors.Is(err, ErrRelease) {
+					t.Errorf("Latest = %v, want net/http's *url.Error for the Location", err)
+				}
+			case tc.want == nil && errors.Is(err, ErrRelease):
+				t.Errorf("Latest = %v, want a plain, retryable error", err)
+			}
+			if se, ok := errors.AsType[*StatusError](err); ok != (tc.code != 0) || ok && (se.Code != tc.code || se.URL != tc.at) {
+				t.Errorf("Latest error %v: StatusError %+v, %t; want HTTP %d from %s", err, se, ok, tc.code, tc.at)
+			}
+			if tc.notAsked != "" && slices.Contains(n.asked, tc.notAsked) {
+				t.Errorf("asked %v, want no request to %s", n.asked, tc.notAsked)
+			}
+		})
+	}
+}
+
+// The release Latest returns across a move downloads from the new name,
+// and a release still naming the old one follows GitHub's 301 there.
+func TestFetchFromAMovedRepository(t *testing.T) {
+	const (
+		oldDoc = "https://github.com" + assetPath
+		newDoc = "https://github.com/neworg/animap/releases/download/" + tag + "/animap.json"
+	)
+	body := encodeSample(t)
+	replies := map[string]reply{
+		oldLatest:          {status: http.StatusMovedPermanently, location: movedLatest},
+		movedLatest:        {status: http.StatusFound, location: movedTag},
+		oldDoc + ".sha256": {status: http.StatusMovedPermanently, location: newDoc + ".sha256"},
+		oldDoc:             {status: http.StatusMovedPermanently, location: newDoc},
+		newDoc + ".sha256": {status: http.StatusOK, body: sidecar(body)},
+		newDoc:             {status: http.StatusOK, body: body},
+	}
+	t.Run("the release Latest returns", func(t *testing.T) {
+		n := &network{replies: replies, withRequest: true}
+		c := &http.Client{Transport: n}
+		rel, err := (Source{Repo: "cplieger/animap"}).Latest(t.Context(), c)
+		if err != nil {
+			t.Fatalf("Latest = %v", err)
+		}
+		if got, err := rel.Fetch(t.Context(), c, DefaultLimits()); err != nil || got.Document == nil {
+			t.Errorf("Fetch = %+v, %v; want the document", got, err)
+		}
+		if want := []string{oldLatest, movedLatest, newDoc + ".sha256", newDoc}; !slices.Equal(n.asked, want) {
+			t.Errorf("asked %v, want %v", n.asked, want)
+		}
+	})
+	t.Run("a release naming the old repository", func(t *testing.T) {
+		n := &network{replies: replies, withRequest: true}
+		rel := Release{Source: Source{Repo: "cplieger/animap"}, Tag: tag}
+		if got, err := rel.Fetch(t.Context(), &http.Client{Transport: n}, DefaultLimits()); err != nil || got.Document == nil {
+			t.Errorf("Fetch = %+v, %v; want the document", got, err)
+		}
+		if want := []string{oldDoc + ".sha256", newDoc + ".sha256", oldDoc, newDoc}; !slices.Equal(n.asked, want) {
+			t.Errorf("asked %v, want %v", n.asked, want)
+		}
+	})
 }
 
 func TestFetchNeedsAClientAndAnOrigin(t *testing.T) {
