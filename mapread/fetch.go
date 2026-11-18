@@ -92,10 +92,13 @@ func repoSegment(s string) bool {
 }
 
 // Latest asks which tag the latest release is, reading no body: GitHub
-// answers releases/latest with a 302 to the tag's page. An HTTP 408, 425,
-// 429 or 5xx answer is a plain *StatusError a caller can retry; any other
-// answer, a 302 to anything but a dated data release's tag included, is
-// ErrRelease wrapping one. c must not be nil; its CheckRedirect is not used.
+// answers releases/latest with a 302 to the tag's page. A transferred or
+// renamed repository answers with a 301 or 308 to its new releases/latest
+// on the same host; Latest follows one and returns a Release whose Source
+// names the new repository. An HTTP 408, 425, 429 or 5xx answer is a plain
+// *StatusError a caller can retry; any other, a 302 to anything but a dated
+// data release's tag or a second move included, is ErrRelease wrapping
+// one. c must not be nil; its CheckRedirect is not used.
 func (s Source) Latest(ctx context.Context, c *http.Client) (Release, error) {
 	if c == nil {
 		return Release{}, errors.New("mapread: Latest needs an HTTP client")
@@ -107,29 +110,90 @@ func (s Source) Latest(ctx context.Context, c *http.Client) (Release, error) {
 	nc := *c
 	nc.CheckRedirect = func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }
 	latest := base.String() + "/" + s.Repo + "/releases/latest"
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, latest, http.NoBody)
+	a, err := ask(ctx, &nc, latest)
 	if err != nil {
 		return Release{}, err
 	}
-	resp, err := nc.Do(req)
-	if err != nil {
-		return Release{}, fmt.Errorf("mapread: latest release: %w", err)
+	if a.code == http.StatusMovedPermanently || a.code == http.StatusPermanentRedirect {
+		if s.Repo, err = moved(base, latest, a); err != nil {
+			return Release{}, err
+		}
+		latest = base.String() + "/" + s.Repo + "/releases/latest"
+		if a, err = ask(ctx, &nc, latest); err != nil {
+			return Release{}, err
+		}
 	}
-	_ = resp.Body.Close()
-	if resp.StatusCode != http.StatusFound {
-		return Release{}, statusError(latest, resp.StatusCode)
+	if a.code != http.StatusFound {
+		return Release{}, statusError(latest, a.code)
 	}
-	se := &StatusError{URL: latest, Code: resp.StatusCode}
-	loc, err := resp.Location()
+	loc, se, err := location(latest, a)
 	if err != nil {
-		return Release{}, fmt.Errorf("%w: latest release: %w: %w", ErrRelease, err, se)
+		return Release{}, err
 	}
 	prefix := base.String() + "/" + s.Repo + "/releases/tag/"
-	tag, ok := strings.CutPrefix(loc.String(), prefix)
+	tag, ok := strings.CutPrefix(loc, prefix)
 	if !ok || !tagRE.MatchString(tag) {
-		return Release{}, fmt.Errorf("%w: latest release points at %q, not %s<vYYYY.MM.DD>: %w", ErrRelease, loc.String(), prefix, se)
+		return Release{}, fmt.Errorf("%w: latest release points at %q, not %s<vYYYY.MM.DD>: %w", ErrRelease, loc, prefix, se)
 	}
 	return Release{Source: s, Tag: tag}, nil
+}
+
+// answer is a response with its body closed: its status, and its Location
+// resolved or the reason it has none.
+type answer struct {
+	locErr error
+	loc    string
+	code   int
+}
+
+// ask requests u through c, which follows no redirect.
+func ask(ctx context.Context, c *http.Client, u string) (answer, error) {
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, http.NoBody)
+	if err != nil {
+		return answer{}, err
+	}
+	resp, err := c.Do(req)
+	if err != nil {
+		return answer{}, fmt.Errorf("mapread: latest release: %w", err)
+	}
+	_ = resp.Body.Close()
+	// Location resolves against resp.Request, which a RoundTripper need not set.
+	resp.Request = req
+	a := answer{code: resp.StatusCode}
+	if loc, err := resp.Location(); err != nil {
+		a.locErr = err
+	} else {
+		a.loc = loc.String()
+	}
+	return a, nil
+}
+
+// moved is the owner/name a 301 or 308 from latest moves the repository
+// to, on base's host
+// (https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository).
+func moved(base *url.URL, latest string, a answer) (string, error) {
+	loc, se, err := location(latest, a)
+	if err != nil {
+		return "", err
+	}
+	repo, ok := strings.CutPrefix(loc, base.String()+"/")
+	if ok {
+		repo, ok = strings.CutSuffix(repo, "/releases/latest")
+	}
+	if !ok || !validRepo(repo) {
+		return "", fmt.Errorf("%w: latest release moved to %q, not %s/<owner>/<name>/releases/latest: %w", ErrRelease, loc, base, se)
+	}
+	return repo, nil
+}
+
+// location is the Location of a, latest's answer, and the *StatusError a
+// refusal of it carries.
+func location(latest string, a answer) (string, *StatusError, error) {
+	se := &StatusError{URL: latest, Code: a.code}
+	if a.locErr != nil {
+		return "", nil, fmt.Errorf("%w: latest release: %w: %w", ErrRelease, a.locErr, se)
+	}
+	return a.loc, se, nil
 }
 
 // Fetch downloads r's animap.json and its .sha256 sidecar, both at r.Tag,

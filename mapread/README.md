@@ -52,7 +52,7 @@ if ok {
 }
 ```
 
-`Latest` reads only the redirect GitHub answers for the latest release, so comparing its tag with the one you hold costs one request. The package examples show `TVDBSeasons`, `AtTVDB`, `AtTVDBEpisodeID` and `Episode` over a small file, and `go test` keeps them true.
+`Latest` reads only the redirect GitHub answers for the latest release, so comparing its tag with the one you hold costs one request, or two when the repository was transferred or renamed and its old name redirects to the new one. The package examples show `TVDBSeasons`, `AtTVDB`, `AtTVDBEpisodeID` and `Episode` over a small file, and `go test` keeps them true.
 
 ## How a lookup reads an episode
 
