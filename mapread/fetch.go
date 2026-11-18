@@ -42,7 +42,9 @@ type Fetched struct {
 }
 
 // StatusError is the status of every answer Latest or Fetch refuses for its
-// status or its redirect; a 200 refused for its body carries none.
+// status or its redirect; a 200 refused for its body carries none, and nor
+// does a redirect whose Location net/http cannot parse, which fails inside
+// net/http as its *url.Error.
 type StatusError struct {
 	URL  string
 	Code int

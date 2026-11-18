@@ -10,6 +10,7 @@ import (
 	"math"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"os"
 	"slices"
 	"strconv"
@@ -386,7 +387,8 @@ func TestLatestFollowsAMovedRepository(t *testing.T) {
 // Latest follows one move and no other redirect: every other answer is
 // refused as it is without a move, carrying the *StatusError of the answer
 // refused, and a refused target is never asked. net/http itself refuses a
-// redirect whose Location does not parse, so that error carries none.
+// redirect whose Location does not parse, so that error is its *url.Error
+// and carries none.
 func TestLatestRefusesAMove(t *testing.T) {
 	moveTo := func(status int, location string) map[string]reply {
 		return map[string]reply{oldLatest: {status: status, location: location}}
@@ -406,6 +408,8 @@ func TestLatestRefusesAMove(t *testing.T) {
 		at       string
 		notAsked string
 		code     int
+		// urlErr is net/http's refusal of a Location it cannot parse.
+		urlErr bool
 	}{
 		{name: "a second 301", replies: thenAnswer(http.StatusMovedPermanently, thirdLatest), want: ErrRelease, at: movedLatest, code: http.StatusMovedPermanently, notAsked: thirdLatest},
 		{name: "a 308 after the move", replies: thenAnswer(http.StatusPermanentRedirect, thirdLatest), want: ErrRelease, at: movedLatest, code: http.StatusPermanentRedirect, notAsked: thirdLatest},
@@ -421,8 +425,8 @@ func TestLatestRefusesAMove(t *testing.T) {
 		{name: "a 301 with a query", replies: moveTo(http.StatusMovedPermanently, movedLatest+"?x=1"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: movedLatest + "?x=1"},
 		{name: "a 301 to three segments", replies: moveTo(http.StatusMovedPermanently, "https://github.com/a/b/c/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://github.com/a/b/c/releases/latest"},
 		{name: "a 301 to an escaped owner", replies: moveTo(http.StatusMovedPermanently, "https://github.com/new%20org/animap/releases/latest"), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently, notAsked: "https://github.com/new%20org/animap/releases/latest"},
-		{name: "a 301 with a malformed Location", replies: moveTo(http.StatusMovedPermanently, "https://github.com/%zz")},
-		{name: "a malformed Location after the move", replies: thenAnswer(http.StatusFound, "https://github.com/%zz")},
+		{name: "a 301 with a malformed Location", replies: moveTo(http.StatusMovedPermanently, "https://github.com/%zz"), urlErr: true},
+		{name: "a malformed Location after the move", replies: thenAnswer(http.StatusFound, "https://github.com/%zz"), urlErr: true},
 		{name: "a 301 with no Location", replies: moveTo(http.StatusMovedPermanently, ""), want: ErrRelease, at: oldLatest, code: http.StatusMovedPermanently},
 		{name: "a 307", replies: moveTo(http.StatusTemporaryRedirect, movedLatest), want: ErrRelease, at: oldLatest, code: http.StatusTemporaryRedirect, notAsked: movedLatest},
 	} {
@@ -434,6 +438,10 @@ func TestLatestRefusesAMove(t *testing.T) {
 				t.Errorf("Latest = %+v, %v; want an error", rel, err)
 			case tc.want != nil && !errors.Is(err, tc.want):
 				t.Errorf("Latest = %v, want %v", err, tc.want)
+			case tc.urlErr:
+				if _, ok := errors.AsType[*url.Error](err); !ok || errors.Is(err, ErrRelease) {
+					t.Errorf("Latest = %v, want net/http's *url.Error for the Location", err)
+				}
 			case tc.want == nil && errors.Is(err, ErrRelease):
 				t.Errorf("Latest = %v, want a plain, retryable error", err)
 			}
